@@ -1,0 +1,10 @@
+*.class
+*.log
+target/
+.idea/
+.metals/
+.bloop/
+local.*
+node_modules/
+package-lock.json
+yarn.lock
