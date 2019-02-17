@@ -3,6 +3,7 @@ package io.kinoplan.demo.pages
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.router.AppRouter.Page
 import io.kinoplan.scalajs.react.material.ui.core._
+import io.kinoplan.scalajs.react.material.ui.core.icons.SvgIcons
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.all._
@@ -20,7 +21,11 @@ object TypographyPage extends StyleSheet.Inline {
                 Avatar(src = Some("http://www.luljettas.com/images/avatar/img-6.jpg"))
               )
             ),
-            BottomNavigation()
+            BottomNavigation(showLabels = true)(
+              BottomNavigationAction()(label("Recents"), icon := SvgIcons.RestoreIcon()().rawElement),
+              BottomNavigationAction()(label("Favorites"), icon := SvgIcons.FavoriteIcon()().rawElement),
+              BottomNavigationAction()(label("Nearby"), icon := SvgIcons.LocationOnIcon()().rawElement)
+            )
           )
         ),
         div(
