@@ -19,7 +19,8 @@ object TypographyPage extends StyleSheet.Inline {
               Badge(badgeContent = Some("4"), color = Badge.Color.error)(
                 Avatar(src = Some("http://www.luljettas.com/images/avatar/img-6.jpg"))
               )
-            )
+            ),
+            BottomNavigation()
           )
         ),
         div(
