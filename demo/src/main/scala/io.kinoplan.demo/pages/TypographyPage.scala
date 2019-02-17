@@ -2,7 +2,7 @@ package io.kinoplan.demo.pages
 
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.router.AppRouter.Page
-import io.kinoplan.scalajs.react.material.ui.core.{AppBar, Avatar, Backdrop, Typography}
+import io.kinoplan.scalajs.react.material.ui.core._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.all._
@@ -16,15 +16,14 @@ object TypographyPage extends StyleSheet.Inline {
         div(
           AppBar()(
             div(
-              Avatar(src = Some("http://www.luljettas.com/images/avatar/img-6.jpg"))
+              Badge(badgeContent = Some("4"), color = Badge.Color.error)(
+                Avatar(src = Some("http://www.luljettas.com/images/avatar/img-6.jpg"))
+              )
             )
           )
         ),
         div(
-          Typography(color = Typography.Color.primary)("Header Default")
-        ),
-        div(
-          Backdrop(open = true)
+          Backdrop(open = false)
         )
       )
     }
