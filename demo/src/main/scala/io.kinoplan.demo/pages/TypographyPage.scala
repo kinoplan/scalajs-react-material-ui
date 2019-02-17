@@ -2,7 +2,7 @@ package io.kinoplan.demo.pages
 
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.router.AppRouter.Page
-import io.kinoplan.scalajs.react.material.ui.core.{AppBar, Avatar, Typography}
+import io.kinoplan.scalajs.react.material.ui.core.{AppBar, Avatar, Backdrop, Typography}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.all._
@@ -22,6 +22,9 @@ object TypographyPage extends StyleSheet.Inline {
         ),
         div(
           Typography(color = Typography.Color.primary)("Header Default")
+        ),
+        div(
+          Backdrop(open = true)
         )
       )
     }
