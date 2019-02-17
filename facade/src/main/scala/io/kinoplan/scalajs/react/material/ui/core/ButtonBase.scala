@@ -24,7 +24,6 @@ object ButtonBase extends ReactBridgeComponent {
     focusRipple: Boolean = false,
     focusVisibleClassName: Option[String] = None,
     onFocusVisible: Option[js.Function] = None,
-    TouchRippleProps: Option[js.Object] = None,
-    `type`: String = "button"
+    TouchRippleProps: Option[js.Object] = None
   ): WithProps = auto
 }
