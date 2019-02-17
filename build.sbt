@@ -1,9 +1,7 @@
-addCommandAlias("restartWDS", "; demo/fastOptJS::stopWebpackDevServer; demo/fastOptJS::startWebpackDevServer")
-
-addCommandAlias("start", "; ~fastOptJS")
+addCommandAlias("restartWDS", "; demo/fastOptJS::stopWebpackDevServer; ~demo/fastOptJS::startWebpackDevServer")
 
 val root = project.in(file(".")).settings(commonSettings).aggregate(facade, demo).settings(
-  name                 := "root",
+  name                 := "scalajs-react-material-ui",
   // No, SBT, we don't want any artifacts for root.
   // No, not even an empty jar.
   publish              := {},
@@ -16,18 +14,19 @@ lazy val facade = (project in file("facade")).settings(commonSettings).settings(
   name := "scalajs-react-material-ui",
   scalaJSUseMainModuleInitializer  := false,
   npmDependencies in Compile ++= Seq(
-    "react"              -> "16.7.0",
-    "react-dom"          -> "16.7.0",
+    "react"              -> "16.5.1",
+    "react-dom"          -> "16.5.1",
     "@material-ui/core"  -> "3.9.2",
     "@material-ui/icons" -> "3.0.2"
   ),
   libraryDependencies ++= Seq(
-    "com.github.japgolly.scalajs-react" %%% "core"        % "1.4.0",
-    "com.github.japgolly.scalajs-react" %%% "extra"       % "1.4.0",
-    "com.github.japgolly.scalacss"      %%% "core"        % "0.5.5",
-    "com.github.japgolly.scalacss"      %%% "ext-react"   % "0.5.5",
-    "org.scala-js"                      %%% "scalajs-dom" % "0.9.6",
-    "org.typelevel"                     %%  "cats-core"   % "1.2.0"
+    "com.github.japgolly.scalajs-react" %%% "core"                 % "1.3.1",
+    "com.github.japgolly.scalajs-react" %%% "extra"                % "1.3.1",
+    "com.github.japgolly.scalacss"      %%% "core"                 % "0.5.5",
+    "com.github.japgolly.scalacss"      %%% "ext-react"            % "0.5.5",
+    "org.scala-js"                      %%% "scalajs-dom"          % "0.9.6",
+    "org.typelevel"                     %%  "cats-core"            % "1.2.0",
+    "com.payalabs"                      %%% "scalajs-react-bridge" % "0.7.0"
   )
 ).enablePlugins(ScalaJSBundlerPlugin)
 
