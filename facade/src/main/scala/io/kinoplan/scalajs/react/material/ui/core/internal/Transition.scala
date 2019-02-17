@@ -1,4 +1,4 @@
-package io.kinoplan.scalajs.react.material.ui.internal
+package io.kinoplan.scalajs.react.material.ui.core.internal
 
 import scala.scalajs.js
 import scala.scalajs.js.|

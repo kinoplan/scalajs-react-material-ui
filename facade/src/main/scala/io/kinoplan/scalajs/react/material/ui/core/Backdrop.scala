@@ -1,7 +1,7 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
-import io.kinoplan.scalajs.react.material.ui.internal.Transition
+import io.kinoplan.scalajs.react.material.ui.core.internal.Transition
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
