@@ -4,6 +4,7 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+import scala.scalajs.js.|
 
 object TableSortLabel extends ReactBridgeComponent with TableSortLabelExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -17,7 +18,7 @@ object TableSortLabel extends ReactBridgeComponent with TableSortLabelExtensions
     classes: js.Object = js.Object(),
     direction: Direction.Value = Direction.desc,
     hideSortIcon: Boolean = false,
-    IconComponent: js.UndefOr[js.Function] = js.undefined
+    IconComponent: Option[String | js.Function] = Some("ArrowDownwardIcon")
   ): WithProps = auto
 }
 

@@ -17,7 +17,7 @@ object Avatar extends ReactBridgeComponent {
     alt: Option[String] = None,
     classes: js.Object = js.Object(),
     component: Option[String | js.Function] = Some("div"),
-    imgProps: Option[js.Object] = None,
+    imgProps: js.Object = js.Object(),
     sizes: Option[String] = None,
     src: Option[String] = None,
     srcSet: Option[String] = None

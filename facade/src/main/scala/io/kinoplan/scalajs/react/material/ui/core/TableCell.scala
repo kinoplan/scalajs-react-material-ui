@@ -19,7 +19,7 @@ object TableCell extends ReactBridgeComponent with TableCellExtensions {
     component: Option[String | js.Function] = None,
     padding: Option[Padding.Value] = None,
     scope: Option[String] = None,
-    sortDirection: Option[SortDirection.Value | SortDirectionBoolean.Value] = None,
+    sortDirection: Option[Boolean | SortDirection.Value] = None,
     variant: Option[Variant.Value] = None
   ): WithProps = auto
 }
@@ -43,10 +43,6 @@ trait TableCellExtensions {
   object SortDirection extends Enumeration {
     val asc = Value("asc")
     val desc = Value("desc")
-  }
-
-  object SortDirectionBoolean extends Enumeration {
-    val falseValue = false
   }
 
   object Variant extends Enumeration {

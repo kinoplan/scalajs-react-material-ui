@@ -29,7 +29,6 @@ object TypographyPage extends StyleSheet.Inline {
 //        ),
         div(
           Backdrop(open = false),
-          Button()(),
           Button(color = Button.Color.primary, size = Button.Size.large, variant = Button.Variant.contained)("Success")
         )
       )

@@ -14,16 +14,18 @@ object ButtonBase extends ReactBridgeComponent {
   object RawComponent extends js.Function
 
   def apply(
+    action: Option[js.Function] = None,
     buttonRef: Option[js.Function | js.Object] = None,
     centerRipple: Boolean = false,
     classes: js.Object = js.Object(),
     component: Option[String | js.Function] = Some("button"),
-    disabled: Option[Boolean],
+    disabled: Option[Boolean] = None,
     disableRipple: Boolean = false,
     disableTouchRipple: Boolean = false,
     focusRipple: Boolean = false,
     focusVisibleClassName: Option[String] = None,
     onFocusVisible: Option[js.Function] = None,
-    TouchRippleProps: Option[js.Object] = None
+    TouchRippleProps: Option[js.Object] = None,
+    `type`: String = "button"
   ): WithProps = auto
 }

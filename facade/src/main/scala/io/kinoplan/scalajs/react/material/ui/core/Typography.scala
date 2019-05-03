@@ -4,6 +4,7 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+import scala.scalajs.js.|
 
 object Typography extends ReactBridgeComponent with TypographyExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -16,6 +17,7 @@ object Typography extends ReactBridgeComponent with TypographyExtensions {
     align: Alignment.Value = Alignment.inherit,
     classes: js.Object = js.Object(),
     color: Color.Value = Color.default,
+    component: Option[String | js.Function] = None,
     gutterBottom: Boolean = false,
     headlineMapping: js.Object = js.Object(),
     inline: Boolean = false,

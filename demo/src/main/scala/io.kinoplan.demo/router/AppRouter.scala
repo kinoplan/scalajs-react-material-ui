@@ -3,7 +3,6 @@ package io.kinoplan.demo.router
 import io.kinoplan.demo.components.Layout
 import io.kinoplan.demo.pages.TypographyPage
 import japgolly.scalajs.react.extra.router._
-import japgolly.scalajs.react.vdom.all._
 
 object AppRouter {
   sealed trait Page

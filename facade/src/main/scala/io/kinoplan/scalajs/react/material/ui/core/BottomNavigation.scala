@@ -16,6 +16,8 @@ object BottomNavigation extends ReactBridgeComponent {
   def apply(
     classes: js.Object = js.Object(),
     component: Option[String | js.Function] = Some("div"),
-    showLabels: Boolean = false
+    onChange: Option[js.Function] = None,
+    showLabels: Boolean = false,
+    value: Option[js.Any] = None
   ): WithProps = auto
 }

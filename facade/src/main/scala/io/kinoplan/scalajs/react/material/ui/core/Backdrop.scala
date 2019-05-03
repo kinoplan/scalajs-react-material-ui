@@ -1,10 +1,10 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
-import io.kinoplan.scalajs.react.material.ui.core.internal.Transition
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+import scala.scalajs.js.|
 
 object Backdrop extends ReactBridgeComponent {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -17,7 +17,6 @@ object Backdrop extends ReactBridgeComponent {
     classes: js.Object = js.Object(),
     invisible: Boolean = false,
     open: Boolean,
-    transitionDuration: Option[Transition.Duration] = None
+    transitionDuration: Option[Int | js.Object] = None
   ): WithPropsNoChildren = autoNoChildren
 }
-
