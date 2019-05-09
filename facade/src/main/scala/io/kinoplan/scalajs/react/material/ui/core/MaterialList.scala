@@ -7,7 +7,7 @@ import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
 
-object List extends ReactBridgeComponent with JsWriterImplicits {
+object MaterialList extends ReactBridgeComponent with JsWriterImplicits {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "List")

@@ -22,11 +22,13 @@ lazy val facade = (project in file("facade")).settings(commonSettings).settings(
   libraryDependencies ++= Seq(
     "com.github.japgolly.scalajs-react" %%% "core"                 % "1.4.1",
     "com.github.japgolly.scalajs-react" %%% "extra"                % "1.4.1",
-    "com.github.japgolly.scalacss"      %%% "core"                 % "0.5.5",
-    "com.github.japgolly.scalacss"      %%% "ext-react"            % "0.5.5",
+    "com.github.japgolly.scalacss"      %%% "core"                 % "0.5.6",
+    "com.github.japgolly.scalacss"      %%% "ext-react"            % "0.5.6",
+    "com.github.japgolly.scalacss"      %% "ext-scalatags"         % "0.5.6",
     "org.scala-js"                      %%% "scalajs-dom"          % "0.9.6",
     "org.typelevel"                     %%  "cats-core"            % "1.2.0",
-    "com.payalabs"                      %%% "scalajs-react-bridge" % "0.8.0"
+    "com.payalabs"                      %%% "scalajs-react-bridge" % "0.8.0",
+    "com.beachape"                      %%% "enumeratum"           % "1.5.13"
   )
 ).enablePlugins(ScalaJSBundlerPlugin)
 
