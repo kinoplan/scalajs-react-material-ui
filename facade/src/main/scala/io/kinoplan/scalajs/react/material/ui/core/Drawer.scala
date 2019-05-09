@@ -15,7 +15,7 @@ object Drawer extends ReactBridgeComponent with DrawerExtensions {
 
   def apply(
     anchor: Anchor.Value = Anchor.left,
-    classes: js.Object = js.Object(),
+    classes: Map[String, String] = Map.empty,
     elevation: Int = 16,
     ModalProps: js.Object = js.Object(),
     onClose: Option[js.Function] = None,

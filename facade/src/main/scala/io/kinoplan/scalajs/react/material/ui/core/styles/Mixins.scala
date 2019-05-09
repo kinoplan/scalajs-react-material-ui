@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core.styles
 
-import scalacss.DevDefaults._
+import scalacss.ProdDefaults._
 
 case class Mixins(
   breakpoints: Breakpoints,

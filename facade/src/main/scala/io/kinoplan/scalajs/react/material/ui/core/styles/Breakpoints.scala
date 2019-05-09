@@ -1,7 +1,7 @@
 package io.kinoplan.scalajs.react.material.ui.core.styles
 
 import io.kinoplan.scalajs.react.material.ui.CyclicEnumeration
-import scalacss.DevDefaults._
+import scalacss.ProdDefaults._
 import scalacss.internal.Media
 
 case class Breakpoints(

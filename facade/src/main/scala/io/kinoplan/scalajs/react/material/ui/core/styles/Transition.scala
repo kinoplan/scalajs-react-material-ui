@@ -1,52 +1,42 @@
 package io.kinoplan.scalajs.react.material.ui.core.styles
 
-import java.util.concurrent.TimeUnit
-
-import scalacss.DevDefaults._
-import scalacss.internal.mutable.StyleSheet
-
-import scala.concurrent.duration.FiniteDuration
-
 case class Transition(
   animatedProps: List[String] = List("all"),
-  easing: Transition.easing = Transition.easing.easeInOut,
+  easing: Transition.easing.Value = Transition.easing.easeInOut,
   duration: Transition.duration.Value = Transition.duration.standard,
   delay: Int = 0
-) extends StyleSheet.Inline {
-  import dsl._
+) {
+
+  def formatMs(value: Int): String = s"${value}ms"
 
   def create(
     animatedProps: List[String] = animatedProps,
-    easingValue: Transition.easing = easing,
+    easingValue: Transition.easing.Value = easing,
     durationValue: Transition.duration.Value = duration,
     delayValue: Int = delay
-  ): StyleA = {
-    style(
-      transitionProperty := animatedProps.mkString(""),
-      transitionDuration(FiniteDuration(durationValue.id.toLong, TimeUnit.MILLISECONDS)),
-      transitionTimingFunction.cubicBezier(easingValue.x1, easingValue.y1, easingValue.x2, easingValue.y2),
-      transitionDelay(FiniteDuration(delayValue.toLong, TimeUnit.SECONDS))
-    )
+  ): String = {
+    animatedProps.map(animatedProp =>
+      List(animatedProp, formatMs(durationValue.id), easingValue, formatMs(delayValue)).mkString(" ")
+    ).mkString(",")
   }
 }
 
 object Transition {
-  sealed case class easing(x1: Double, y1: Double, x2: Double, y2: Double)
   // Follow https://material.google.com/motion/duration-easing.html#duration-easing-natural-easing-curves
   // to learn the context in which each easing should be used.
-  object easing {
+  object easing extends Enumeration {
     // This is the most common easing curve.
-    object easeInOut extends easing(0.4, 0, 0.2, 1)
+    val easeInOut = Value("cubic-bezier(0.4, 0, 0.2, 1)")
 
     // Objects enter the screen at full velocity from off-screen and
     // slowly decelerate to a resting point.
-    object easeOut extends easing(0.0, 0, 0.2, 1)
+    val easeOut = Value("cubic-bezier(0.0, 0, 0.2, 1)")
 
     // Objects leave the screen at full velocity. They do not decelerate when off-screen.
-    object easeIn extends easing(0.4, 0, 1, 1)
+    val easeIn = Value("cubic-bezier(0.4, 0, 1, 1)")
 
     // The sharp curve is used by objects that may return to the screen at any time.
-    object sharp extends easing(0.4, 0, 0.6, 1)
+    val sharp = Value("cubic-bezier(0.4, 0, 0.6, 1)")
   }
 
   // Follow https://material.io/guidelines/motion/duration-easing.html#duration-easing-common-durations

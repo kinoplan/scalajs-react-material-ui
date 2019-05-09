@@ -1,20 +1,21 @@
 package io.kinoplan.demo.components
 
+import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.router.AppRouter.Page
+import io.kinoplan.demo.utils.Helpers._
 import io.kinoplan.scalajs.react.material.ui.core.styles.{Breakpoints, Theme, Transition}
 import io.kinoplan.scalajs.react.material.ui.core.{AppBar, Badge, CssBaseline, Divider, Drawer, IconButton, ListItem, ListItemIcon, ListItemText, ListSubheader, MaterialList, Toolbar, Typography}
 import io.kinoplan.scalajs.react.material.ui.icons._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.{Resolution, RouterCtl}
 import japgolly.scalajs.react.vdom.all._
-import scalacss.DevDefaults._
 import scalacss.ScalaCssReact._
 
 object Layout {
   class LayoutStyle(theme: Theme = Theme.defaultTheme) extends StyleSheet.Inline {
     import dsl._
 
-    private val drawerWidth = 240.px
+    private val drawerWidth = 240
 
     private val appBarTransition = theme.transitions.create(
       animatedProps = List("width", "margin"),
@@ -57,14 +58,14 @@ object Layout {
     )
 
     val appBar = style(
-      zIndex :=! (theme.zIndex.drawer + 1).px,
-      appBarTransition
+      zIndex :=! (theme.zIndex.drawer + 1).toString,
+      transition := appBarTransition
     )
 
     val appBarShift = style(
-      marginLeft(drawerWidth),
-      width :=! s"calc(100% - $drawerWidth)",
-      appBarShiftTransition
+      marginLeft(drawerWidth.px),
+      width :=! s"calc(100% - ${drawerWidth}px)",
+      transition := appBarShiftTransition
     )
 
     val menuButton = style(
@@ -77,19 +78,19 @@ object Layout {
     )
 
     val title = style(
-      flexGrow :=! 1.px
+      flexGrow(1)
     )
 
     val drawerPaper = style(
       position.relative,
       whiteSpace.nowrap,
-      width(drawerWidth),
-      drawerPaperTransition
+      width(drawerWidth.px),
+      transition := drawerPaperTransition
     )
 
     val drawerPaperClose = style(
       overflowX.hidden,
-      drawerPaperCloseTransition,
+      transition := drawerPaperCloseTransition,
       width(theme.spacing(7).px),
       theme.breakpoints.up(Breakpoints.sm)(
         width(theme.spacing(9).px)
@@ -99,7 +100,7 @@ object Layout {
     val appBarSpacer = theme.mixins.toolbar
 
     val content = style(
-      flexGrow :=! 1.px,
+      flexGrow(1),
       padding(theme.spacing(3).px),
       height(100.vh),
       overflow.auto
@@ -132,14 +133,18 @@ object Layout {
 
     def handleDrawerClose = t.modState(_.handleDrawerClose)
 
-    def render(props: Props, state: State) = {
-      val classes = props.style
+    def render(props: Props, state: State): VdomElement = {
+      val css = props.style
 
-      div(classes.root,
+      val drawerClasses = Map(
+        "paper" -> stylesToClassName(Seq(css.drawerPaper, if (!state.open) css.drawerPaperClose else css.emptyStyle))
+      )
+
+      div(css.root,
         CssBaseline(),
-        AppBar(position = AppBar.Position.absolute)(classes.appBar,
-          Toolbar(disableGutters = !state.open)(classes.toolbar,
-            IconButton(color = IconButton.Color.inherit)(classes.menuButton + (if (state.open) classes.menuButtonHidden else classes.emptyStyle),
+        AppBar(position = AppBar.Position.absolute, color = AppBar.Color.primary)(css.appBar + (if (state.open) css.appBarShift else css.emptyStyle),
+          Toolbar(disableGutters = !state.open)(css.toolbar,
+            IconButton(color = IconButton.Color.inherit)(css.menuButton + (if (state.open) css.menuButtonHidden else css.emptyStyle),
               aria.label := "Open drawer",
               onClick --> handleDrawerOpen,
               Menu()
@@ -149,7 +154,7 @@ object Layout {
               variant = Typography.Variant.h6,
               color = Typography.Color.inherit,
               noWrap = true
-            )(classes.title,
+            )(css.title,
               "Dashboard"
             ),
             IconButton(color = IconButton.Color.inherit)(
@@ -159,8 +164,8 @@ object Layout {
             )
           )
         ),
-        Drawer(variant = Drawer.Variant.permanent, open = state.open)(classes.drawerPaper + (if(!state.open) classes.drawerPaperClose else classes.emptyStyle),
-          div(classes.toolbarIcon,
+        Drawer(variant = Drawer.Variant.permanent, open = state.open, classes = drawerClasses)(
+          div(css.toolbarIcon + (if (state.open) css.appBarShift else css.emptyStyle),
             IconButton()(onClick --> handleDrawerClose,
               ChevronLeft()
             )
@@ -225,18 +230,18 @@ object Layout {
             )
           )
         ),
-        main(classes.content,
-          div(classes.appBarSpacer,
+        main(css.content,
+          div(css.appBarSpacer,
             Typography(variant = Typography.Variant.h4, gutterBottom = true, component = Some("h2"))(
               "Orders"
             ),
-            Typography(component = Some("div"))(classes.chartContainer,
+            Typography(component = Some("div"))(css.chartContainer,
               "SimpleLineChart"
             ),
             Typography(variant = Typography.Variant.h4, gutterBottom = true, component = Some("h2"))(
               "Products"
             ),
-            div(classes.tableContainer,
+            div(css.tableContainer,
               "SimpleTable"
             ),
             props.r.render()
