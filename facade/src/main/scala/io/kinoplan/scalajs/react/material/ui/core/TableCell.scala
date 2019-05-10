@@ -17,6 +17,7 @@ object TableCell extends ReactBridgeComponent with TableCellExtensions {
     align: Alignment.Value = Alignment.inherit,
     classes: js.Object = js.Object(),
     component: Option[String | js.Function] = None,
+    numeric: Option[Boolean] = None,
     padding: Option[Padding.Value] = None,
     scope: Option[String] = None,
     sortDirection: Option[Boolean | SortDirection.Value] = None,

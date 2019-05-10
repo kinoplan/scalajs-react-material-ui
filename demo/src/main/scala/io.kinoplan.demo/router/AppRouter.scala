@@ -1,7 +1,7 @@
 package io.kinoplan.demo.router
 
 import io.kinoplan.demo.components.Layout
-import io.kinoplan.demo.pages.TypographyPage
+import io.kinoplan.demo.pages.SimpleTablePage
 import japgolly.scalajs.react.extra.router._
 
 object AppRouter {
@@ -12,7 +12,7 @@ object AppRouter {
     import dsl._
 
     (
-      staticRoute("/typography", TypographyRoute) ~> renderR(TypographyPage(_))
+      staticRoute("/", TypographyRoute) ~> renderR(SimpleTablePage(_))
     ).notFound(redirectToPage(TypographyRoute)(Redirect.Replace))
   }.renderWith(layout)
 
@@ -23,4 +23,3 @@ object AppRouter {
 
   val router = Router(baseUrl, routerConfig)
 }
-

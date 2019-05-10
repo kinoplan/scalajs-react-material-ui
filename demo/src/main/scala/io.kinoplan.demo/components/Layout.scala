@@ -11,7 +11,7 @@ import japgolly.scalajs.react.extra.router.{Resolution, RouterCtl}
 import japgolly.scalajs.react.vdom.all._
 import scalacss.ScalaCssReact._
 
-object Layout {
+object Layout extends StyleSheet.Inline {
   class LayoutStyle(theme: Theme = Theme.defaultTheme) extends StyleSheet.Inline {
     import dsl._
 
@@ -41,8 +41,20 @@ object Layout {
       durationValue = Transition.duration.leavingScreen
     )
 
+    val emptyStyle = style()
+
     val root = style(
       display.flex
+    )
+
+    val toolbarCustom = style(
+      minHeight(56.px),
+      media.minWidth(Breakpoints.xs.id.px).landscape(
+        minHeight(48.px)
+      ),
+      media.minWidth(Breakpoints.sm.id.px)(
+        minHeight(64.px)
+      )
     )
 
     val toolbar = style(
@@ -54,7 +66,7 @@ object Layout {
       alignItems.center,
       justifyContent.flexEnd,
       padding(0.px, 8.px),
-      theme.mixins.toolbar
+      toolbarCustom
     )
 
     val appBar = style(
@@ -97,7 +109,7 @@ object Layout {
       )
     )
 
-    val appBarSpacer = theme.mixins.toolbar
+    val appBarSpacer = toolbarCustom
 
     val content = style(
       flexGrow(1),
@@ -105,21 +117,9 @@ object Layout {
       height(100.vh),
       overflow.auto
     )
-
-    val chartContainer = style(
-      marginLeft(-22.px)
-    )
-
-    val tableContainer = style(
-      height(320.px)
-    )
-
-    val h5 = style(
-      marginBottom(theme.spacing(2).px)
-    )
-
-    val emptyStyle = style()
   }
+
+  object DefaultLayoutStyle extends LayoutStyle
 
   case class Props(router: RouterCtl[Page], r: Resolution[Page], style: LayoutStyle)
 
@@ -165,7 +165,7 @@ object Layout {
           )
         ),
         Drawer(variant = Drawer.Variant.permanent, open = state.open, classes = drawerClasses)(
-          div(css.toolbarIcon + (if (state.open) css.appBarShift else css.emptyStyle),
+          div(css.toolbarIcon,
             IconButton()(onClick --> handleDrawerClose,
               ChevronLeft()
             )
@@ -231,32 +231,21 @@ object Layout {
           )
         ),
         main(css.content,
-          div(css.appBarSpacer,
-            Typography(variant = Typography.Variant.h4, gutterBottom = true, component = Some("h2"))(
-              "Orders"
-            ),
-            Typography(component = Some("div"))(css.chartContainer,
-              "SimpleLineChart"
-            ),
-            Typography(variant = Typography.Variant.h4, gutterBottom = true, component = Some("h2"))(
-              "Products"
-            ),
-            div(css.tableContainer,
-              "SimpleTable"
-            ),
-            props.r.render()
-          )
+          div(css.appBarSpacer),
+          props.r.render()
         )
       )
     }
   }
 
-  object DefaultStyle extends LayoutStyle
-
-  private val component = ScalaComponent.builder[Props]("Layout")
+  val component = ScalaComponent.builder[Props]("Layout")
     .initialState(State())
     .renderBackend[Backend]
     .build
 
-  def apply(router: RouterCtl[Page], r: Resolution[Page], style: LayoutStyle = DefaultStyle) = component(Props(router, r, style))
+  def apply(
+    router: RouterCtl[Page],
+    r: Resolution[Page],
+    style: LayoutStyle = DefaultLayoutStyle
+  ) = component(Props(router, r, style))
 }
