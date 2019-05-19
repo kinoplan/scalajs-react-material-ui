@@ -4,8 +4,8 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.router.AppRouter.Page
 import io.kinoplan.demo.utils.Helpers._
 import io.kinoplan.scalajs.react.material.ui.core.styles.{Breakpoints, Theme, Transition}
-import io.kinoplan.scalajs.react.material.ui.core.{AppBar, Badge, CssBaseline, Divider, Drawer, IconButton, ListItem, ListItemIcon, ListItemText, ListSubheader, MaterialList, Toolbar, Typography}
-import io.kinoplan.scalajs.react.material.ui.icons._
+import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiBadge, MuiCssBaseline, MuiDivider, MuiDrawer, MuiIconButton, MuiListItem, MuiListItemIcon, MuiListItemText, MuiListSubheader, MuiList, MuiToolbar, MuiTypography}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiMenu, MuiNotifications, MuiChevronLeft, MuiDashboard, MuiShoppingCart, MuiPeople, MuiBarChart, MuiLayers, MuiAssignment}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.{Resolution, RouterCtl}
 import japgolly.scalajs.react.vdom.all._
@@ -137,95 +137,97 @@ object Layout extends StyleSheet.Inline {
       val css = props.style
 
       val drawerClasses = Map(
-        "paper" -> stylesToClassName(Seq(css.drawerPaper, if (!state.open) css.drawerPaperClose else css.emptyStyle))
+        MuiDrawer.ClassKey.paper -> stylesToClassName(
+          Seq(css.drawerPaper, if (!state.open) css.drawerPaperClose else css.emptyStyle)
+        )
       )
 
       div(css.root,
-        CssBaseline(),
-        AppBar(position = AppBar.Position.absolute, color = AppBar.Color.primary)(css.appBar + (if (state.open) css.appBarShift else css.emptyStyle),
-          Toolbar(disableGutters = !state.open)(css.toolbar,
-            IconButton(color = IconButton.Color.inherit)(css.menuButton + (if (state.open) css.menuButtonHidden else css.emptyStyle),
+        MuiCssBaseline(),
+        MuiAppBar(position = MuiAppBar.Position.absolute, color = MuiAppBar.Color.primary)(css.appBar + (if (state.open) css.appBarShift else css.emptyStyle),
+          MuiToolbar(disableGutters = !state.open)(css.toolbar,
+            MuiIconButton(color = MuiIconButton.Color.inherit)(css.menuButton + (if (state.open) css.menuButtonHidden else css.emptyStyle),
               aria.label := "Open drawer",
               onClick --> handleDrawerOpen,
-              Menu()
+              MuiMenu()
             ),
-            Typography(
+            MuiTypography(
               component = Some("h1"),
-              variant = Typography.Variant.h6,
-              color = Typography.Color.inherit,
+              variant = MuiTypography.Variant.h6,
+              color = MuiTypography.Color.inherit,
               noWrap = true
             )(css.title,
               "Dashboard"
             ),
-            IconButton(color = IconButton.Color.inherit)(
-              Badge(badgeContent = Some(VdomNode(4)), color = Badge.Color.secondary)(
-                Notifications()
+            MuiIconButton(color = MuiIconButton.Color.inherit)(
+              MuiBadge(badgeContent = Some(VdomNode(4)), color = MuiBadge.Color.secondary)(
+                MuiNotifications()
               )
             )
           )
         ),
-        Drawer(variant = Drawer.Variant.permanent, open = state.open, classes = drawerClasses)(
+        MuiDrawer(variant = MuiDrawer.Variant.permanent, open = state.open, classes = drawerClasses)(
           div(css.toolbarIcon,
-            IconButton()(onClick --> handleDrawerClose,
-              ChevronLeft()
+            MuiIconButton()(onClick --> handleDrawerClose,
+              MuiChevronLeft()
             )
           ),
-          Divider(),
-          MaterialList()(
+          MuiDivider(),
+          MuiList()(
             div(
-              ListItem(button = true)(
-                ListItemIcon()(
-                  Dashboard()
+              MuiListItem(button = true)(
+                MuiListItemIcon()(
+                  MuiDashboard()
                 ),
-                ListItemText(primary = Some(VdomNode("Dashboard")))()
+                MuiListItemText(primary = Some(VdomNode("Dashboard")))()
               ),
-              ListItem(button = true)(
-                ListItemIcon()(
-                  ShoppingCart()
+              MuiListItem(button = true)(
+                MuiListItemIcon()(
+                  MuiShoppingCart()
                 ),
-                ListItemText(primary = Some(VdomNode("Orders")))()
+                MuiListItemText(primary = Some(VdomNode("Orders")))()
               ),
-              ListItem(button = true)(
-                ListItemIcon()(
-                  People()
+              MuiListItem(button = true)(
+                MuiListItemIcon()(
+                  MuiPeople()
                 ),
-                ListItemText(primary = Some(VdomNode("Customers")))()
+                MuiListItemText(primary = Some(VdomNode("Customers")))()
               ),
-              ListItem(button = true)(
-                ListItemIcon()(
-                  BarChart()
+              MuiListItem(button = true)(
+                MuiListItemIcon()(
+                  MuiBarChart()
                 ),
-                ListItemText(primary = Some(VdomNode("Reports")))()
+                MuiListItemText(primary = Some(VdomNode("Reports")))()
               ),
-              ListItem(button = true)(
-                ListItemIcon()(
-                  Layers()
+              MuiListItem(button = true)(
+                MuiListItemIcon()(
+                  MuiLayers()
                 ),
-                ListItemText(primary = Some(VdomNode("Integrations")))()
+                MuiListItemText(primary = Some(VdomNode("Integrations")))()
               )
             )
           ),
-          Divider(),
-          MaterialList()(
+          MuiDivider(),
+          MuiList()(
             div(
-              ListSubheader(inset = true)("Saved reports"),
-              ListItem(button = true)(
-                ListItemIcon()(
-                  Assignment()
+              MuiListSubheader(inset = true)("Saved reports"),
+              MuiListItem(button = true)(
+                MuiListItemIcon()(
+                  MuiAssignment(color = MuiAssignment.Color.primary, fontSize = MuiAssignment.FontSize.default)
                 ),
-                ListItemText(primary = Some(VdomNode("Current month")))()
+                MuiListItemText(primary = Some(VdomNode("Current month")))()
               ),
-              ListItem(button = true)(
-                ListItemIcon()(
-                  Assignment()
+              MuiListItem(button = true)(
+                MuiListItemIcon()(
+                  MuiAssignment()
                 ),
-                ListItemText(primary = Some(VdomNode("Last quarter")))()
+                MuiListItemText(primary = Some(VdomNode("Last quarter")))()
               ),
-              ListItem(button = true)(
-                ListItemIcon()(
-                  Assignment()
+              MuiListItem(button = true)(
+                MuiListItemIcon()(
+                  MuiAssignment()
                 ),
-                ListItemText(primary = Some(VdomNode("Year-end sale")))()
+                MuiListItemText(primary = Some(VdomNode("Year-end sale")))()
               )
             )
           )

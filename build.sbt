@@ -7,10 +7,59 @@ val root = project.in(file(".")).settings(commonSettings).aggregate(facade, demo
   publish              := {},
   publishLocal         := {},
   publishArtifact      := false,
-  Keys.`package`       := file("")
+  Keys.`package`       := file(""),
+).settings(
+  aggregate in doc := false
 )
 
-lazy val facade = (project in file("facade")).settings(commonSettings).settings(
+lazy val muiIconsGenerator = taskKey[Seq[File]]("mui-icons-generator")
+
+def generateIcons(src: File, npm: File): Seq[File] = {
+  val iconSources = (npm / "node_modules" / "@material-ui" / "icons" ) * ("*.js" -- "index.js" -- "index.es.js")
+
+  val files: Seq[File] = iconSources.get.map(f => {
+    val name = f.getName.stripSuffix(".js")
+    val file = src / s"Mui$name.scala"
+
+    IO.write(
+      file,
+      s"""package io.kinoplan.scalajs.react.material.ui.icons
+         |
+         |import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+         |
+         |import scala.scalajs.js
+         |import scala.scalajs.js.annotation.JSImport
+         |import scala.scalajs.js.|
+         |
+         |object Mui$name extends ReactBridgeComponent with SvgIconExtensions {
+         |
+         |  override protected lazy val componentValue: js.Object = RawComponent
+         |
+         |  @JSImport("@material-ui/icons/$name", JSImport.Default)
+         |  @js.native
+         |  object RawComponent extends js.Object
+         |
+         |  def apply(
+         |    classes: Map[ClassKey.ClassKey, String] = Map.empty,
+         |    color: Color.Value = Color.inherit,
+         |    component: Option[String | js.Function] = Some("svg"),
+         |    fontSize: FontSize.Value = FontSize.default,
+         |    nativeColor: Option[String] = None,
+         |    shapeRendering: Option[String] = None,
+         |    titleAccess: Option[String] = None,
+         |    viewBox: String = "0 0 24 24"
+         |  ): WithProps = auto
+         |}
+          """.stripMargin.trim
+    )
+
+    file
+  })
+
+  files
+}
+
+lazy val facade = (project in file("facade")).enablePlugins(ScalaJSBundlerPlugin).settings(commonSettings).settings(
   name := "scalajs-react-material-ui",
   scalaJSUseMainModuleInitializer  := false,
   npmDependencies in Compile ++= Seq(
@@ -20,19 +69,26 @@ lazy val facade = (project in file("facade")).settings(commonSettings).settings(
     "@material-ui/icons" -> "3.0.2"
   ),
   libraryDependencies ++= Seq(
-    "com.github.japgolly.scalajs-react" %%% "core"                 % "1.4.1",
-    "com.github.japgolly.scalajs-react" %%% "extra"                % "1.4.1",
+    "com.github.japgolly.scalajs-react" %%% "core"                 % "1.4.2",
+    "com.github.japgolly.scalajs-react" %%% "extra"                % "1.4.2",
     "com.github.japgolly.scalacss"      %%% "core"                 % "0.5.6",
     "com.github.japgolly.scalacss"      %%% "ext-react"            % "0.5.6",
     "com.github.japgolly.scalacss"      %% "ext-scalatags"         % "0.5.6",
-    "org.scala-js"                      %%% "scalajs-dom"          % "0.9.6",
+    "org.scala-js"                      %%% "scalajs-dom"          % "0.9.7",
     "org.typelevel"                     %%  "cats-core"            % "1.2.0",
     "com.payalabs"                      %%% "scalajs-react-bridge" % "0.8.0",
     "com.beachape"                      %%% "enumeratum"           % "1.5.13"
-  )
-).enablePlugins(ScalaJSBundlerPlugin)
+  ),
+  muiIconsGenerator := generateIcons(
+    (sourceManaged in Compile).value / "io" / "kinoplan" / "scalajs" / "react" / "material" / "ui" / "icons",
+    (npmInstallDependencies in Compile).value
+  ),
+  sourceGenerators in Compile += muiIconsGenerator.taskValue
+)
 
-lazy val demo = (project in file("demo")).dependsOn(facade).settings(commonSettings).settings(
+lazy val demo = (project in file("demo")).dependsOn(facade)
+  .enablePlugins(ScalaJSBundlerPlugin)
+  .settings(commonSettings).settings(
   scalaJSUseMainModuleInitializer  := true,
   webpackBundlingMode              := BundlingMode.LibraryOnly(),
   webpackDevServerExtraArgs        := Seq("--inline"),
@@ -43,7 +99,7 @@ lazy val demo = (project in file("demo")).dependsOn(facade).settings(commonSetti
   publishLocal                     := {},
   publishArtifact                  := false,
   Keys.`package`                   := file("")
-).enablePlugins(ScalaJSBundlerPlugin)
+)
 
 lazy val commonSettings = Seq(
   version := "0.0.1",
@@ -56,7 +112,8 @@ lazy val commonSettings = Seq(
   version in startWebpackDevServer := "3.1.14",
   webpackCliVersion := "3.2.3",
   emitSourceMaps := false,
-  scalacOptions           := Seq(
+  scalacOptions := Seq(
+    "-target:jvm-1.8",
     "-deprecation",                      // Emit warning and location for usages of deprecated APIs.
     "-encoding", "utf-8",                // Specify character encoding used by source files.
     "-explaintypes",                     // Explain type errors in more detail.

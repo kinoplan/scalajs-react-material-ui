@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core.styles
 
-import CssSettings._
+import io.kinoplan.scalajs.react.material.ui.core.styles.CssSettings._
 
 case class Mixins(
   breakpoints: Breakpoints,

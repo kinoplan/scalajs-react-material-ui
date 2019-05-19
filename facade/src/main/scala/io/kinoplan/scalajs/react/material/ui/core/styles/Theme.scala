@@ -1,7 +1,7 @@
 package io.kinoplan.scalajs.react.material.ui.core.styles
 
+import io.kinoplan.scalajs.react.material.ui.core.styles.CssSettings._
 import scalacss.internal.mutable.StyleSheet
-import CssSettings._
 
 case class Theme(
   spacingInput: Int = 8,

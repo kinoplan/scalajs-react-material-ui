@@ -38,29 +38,29 @@ object SimpleTablePage {
       val tableItems = TableItem.default
 
       div(
-        Typography(variant = Typography.Variant.h4, gutterBottom = true, component = Some("h2"))(
+        MuiTypography(variant = MuiTypography.Variant.h4, gutterBottom = true, component = Some("h2"))(
           "Products"
         ),
         div(css.tableContainer,
-          Paper()(css.root,
-            Table()(css.table,
-              TableHead()(
-                TableRow()(
-                  TableCell()("Dessert (100g serving)"),
-                  TableCell(align = TableCell.Alignment.right)("Calories"),
-                  TableCell(align = TableCell.Alignment.right)("Fat (g)"),
-                  TableCell(align = TableCell.Alignment.right)("Carbs (g)"),
-                  TableCell(align = TableCell.Alignment.right)("Protein (g)")
+          MuiPaper()(css.root,
+            MuiTable()(css.table,
+              MuiTableHead()(
+                MuiTableRow()(
+                  MuiTableCell()("Dessert (100g serving)"),
+                  MuiTableCell(align = MuiTableCell.Alignment.right)("Calories"),
+                  MuiTableCell(align = MuiTableCell.Alignment.right)("Fat (g)"),
+                  MuiTableCell(align = MuiTableCell.Alignment.right)("Carbs (g)"),
+                  MuiTableCell(align = MuiTableCell.Alignment.right)("Protein (g)")
                 )
               ),
-              TableBody()(
+              MuiTableBody()(
                 tableItems.toVdomArray(tableItem => {
-                  TableRow()(Attr("key") := tableItem.idx.toString,
-                    TableCell(component = Some("th"), scope = Some("row"))(tableItem.name),
-                    TableCell(align = TableCell.Alignment.right)(tableItem.calories),
-                    TableCell(align = TableCell.Alignment.right)(tableItem.fat),
-                    TableCell(align = TableCell.Alignment.right)(tableItem.carbs),
-                    TableCell(align = TableCell.Alignment.right)(tableItem.protein)
+                  MuiTableRow()(Attr("key") := tableItem.idx.toString,
+                    MuiTableCell(component = Some("th"), scope = Some("row"))(tableItem.name),
+                    MuiTableCell(align = MuiTableCell.Alignment.right)(tableItem.calories),
+                    MuiTableCell(align = MuiTableCell.Alignment.right)(tableItem.fat),
+                    MuiTableCell(align = MuiTableCell.Alignment.right)(tableItem.carbs),
+                    MuiTableCell(align = MuiTableCell.Alignment.right)(tableItem.protein)
                   )
                 })
               )

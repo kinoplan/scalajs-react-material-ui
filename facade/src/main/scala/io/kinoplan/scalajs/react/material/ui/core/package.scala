@@ -31,7 +31,7 @@ package object core {
   private[core] def addOtherProps(p: js.Dynamic, otherProps: (String, js.Any)*): Unit =
     otherProps.foreach { case (key, value) => p.updateDynamic(key)(value) }
 
-  implicit private[core] def stringTypeToStr[T <: StringType](t: T): String =
+  implicit private[core] def stringTypeToStr[T <: StringType](t: StringType): String =
     t.get
 
   implicit private[core] def stringTypeShow[T <: StringType]: Show[T] =
@@ -64,4 +64,3 @@ package object core {
   implicit private[core] def undefToAny[A](undefOrA: js.UndefOr[A]): js.Any =
     undefOrA.asInstanceOf[js.Any]
 }
-

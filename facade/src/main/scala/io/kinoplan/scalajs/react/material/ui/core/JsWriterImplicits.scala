@@ -7,5 +7,6 @@ import scala.scalajs.js
 
 trait JsWriterImplicits {
   implicit def vdomNodeWriter: JsWriter[VdomNode] = JsWriter(_.rawNode.asInstanceOf[js.Dynamic])
-}
 
+  implicit def stringTypeToStr[T <: StringType](t: StringType): String = t.get
+}
