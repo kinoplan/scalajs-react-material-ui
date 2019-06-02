@@ -2,18 +2,21 @@ package io.kinoplan.demo.router
 
 import io.kinoplan.demo.components.Layout
 import io.kinoplan.demo.pages.SimpleTablePage
+import io.kinoplan.demo.pages.demos.AppBarPage
 import japgolly.scalajs.react.extra.router._
 
 object AppRouter {
   sealed trait Page
-  case object TypographyRoute extends Page
+  case object DashboardRoute extends Page
+  case object DemoAppBarRoute extends Page
 
   val routerConfig = RouterConfigDsl[Page].buildConfig { dsl =>
     import dsl._
 
     (
-      staticRoute("/", TypographyRoute) ~> renderR(SimpleTablePage(_))
-    ).notFound(redirectToPage(TypographyRoute)(Redirect.Replace))
+      staticRoute("/", DashboardRoute) ~> renderR(SimpleTablePage(_))
+      | staticRoute("/demos/app-bar/", DemoAppBarRoute) ~> renderR(AppBarPage(_))
+    ).notFound(redirectToPage(DashboardRoute)(Redirect.Replace))
   }.renderWith(layout)
 
 

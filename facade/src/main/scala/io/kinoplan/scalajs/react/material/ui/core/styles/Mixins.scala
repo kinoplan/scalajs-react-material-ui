@@ -1,20 +1,23 @@
 package io.kinoplan.scalajs.react.material.ui.core.styles
 
-import io.kinoplan.scalajs.react.material.ui.core.styles.CssSettings._
+import scala.scalajs.js
+import scala.scalajs.js.JSConverters._
 
-case class Mixins(
-  breakpoints: Breakpoints,
-  spacing: Int => Int
-) extends StyleSheet.Inline {
-  import dsl._
+@js.native
+trait Mixins extends js.Object {
+  def gutters: js.Function1[js.UndefOr[CSSProperties], CSSProperties] = js.native
+  def toolbar: CSSProperties = js.native
+}
 
-  val toolbar: StyleA = style(
-    minHeight(56.px),
-    breakpoints.up(Breakpoints.xs).landscape(
-      minHeight(48.px)
-    ),
-    breakpoints.up(Breakpoints.sm)(
-      minHeight(64.px)
+object Mixins {
+  def apply(
+    gutters: Option[CSSProperties] => CSSProperties,
+    toolbar: CSSProperties
+  ) = {
+    val o: Map[String, Any] = Map(
+      "gutters" -> gutters,
+      "toolbar" -> toolbar
     )
-  )
+    o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[Mixins]
+  }
 }

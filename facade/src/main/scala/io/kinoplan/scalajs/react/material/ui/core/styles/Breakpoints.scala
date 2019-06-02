@@ -1,51 +1,39 @@
 package io.kinoplan.scalajs.react.material.ui.core.styles
 
-import io.kinoplan.scalajs.react.material.ui.CyclicEnumeration
-import io.kinoplan.scalajs.react.material.ui.core.styles.CssSettings._
-import scalacss.internal.Media
+import scala.scalajs.js
+import scala.scalajs.js.|
+import scala.scalajs.js.JSConverters._
 
-case class Breakpoints(
-  unit: String = "px",
-  step: Int = 5
-) extends StyleSheet.Inline {
-  import dsl._
-
-  def up(key: Breakpoints.Value): Media.Query = {
-    media.minWidth(key.id.px)
-  }
-
-  def down(key: Breakpoints.Value): Media.Query = {
-    if (key == Breakpoints.xl) {
-      up(Breakpoints.xs)
-    } else {
-      val value = Breakpoints.nextOf(key).get
-
-      media.maxWidth((value.id - step / 100).px)
-    }
-  }
-
-  def between(start: Breakpoints.Value, end: Breakpoints.Value): Media.Query = {
-    if (end == Breakpoints.xl) {
-      up(start)
-    } else {
-      val endValue = Breakpoints.nextOf(end).get
-      media.minWidth(start.id.px).maxWidth((endValue.id - step / 100).px)
-    }
-  }
-
-  def only(key: Breakpoints.Value): Media.Query = {
-    between(key, key)
-  }
-
-  def width(key: Breakpoints.Value): Int = {
-    key.id
-  }
+@js.native
+trait Breakpoints extends js.Object {
+  def keys: Array[String] = js.native
+  def values: BreakpointValues = js.native
+  def up: js.Function1[String | Double, String] = js.native
+  def down: js.Function1[String | Double, String] = js.native
+  def between: js.Function2[String, String, String] = js.native
+  def only: js.Function1[String, String] = js.native
+  def width: js.Function1[String, Double] = js.native
 }
 
-object Breakpoints extends CyclicEnumeration {
-  val xs = Value(0)
-  val sm = Value(600)
-  val md = Value(960)
-  val lg = Value(1280)
-  val xl = Value(1920)
+object Breakpoints {
+  def apply(
+    keys: Array[String],
+    values: BreakpointValues,
+    up: String | Double => String,
+    down: String | Double => String,
+    between: String | Double => String,
+    only: String | Double => String,
+    width: String | Double => String
+  ) = {
+    val o: Map[String, Any] = Map(
+      "keys" -> keys,
+      "values" -> values,
+      "up" -> up,
+      "down" -> down,
+      "between" -> between,
+      "only" -> only,
+      "width" -> width
+    )
+    o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[Breakpoints]
+  }
 }

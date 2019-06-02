@@ -1,6 +1,7 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.material.ui.core.styles.transitions
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -18,7 +19,7 @@ object MuiCollapse extends ReactBridgeComponent with MuiCollapseExtensions {
     collapsedHeight: String = "0px",
     component: Option[String | js.Function] = Some("div"),
     in: Option[Boolean] = None,
-    timeout: Option[Int | js.Object | Timeout.Value] = None
+    timeout: Option[Int | Timeout.Value] = Some(transitions.duration.standard)
   ): WithProps = auto
 }
 
