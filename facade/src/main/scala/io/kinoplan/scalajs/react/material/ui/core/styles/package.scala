@@ -7,6 +7,30 @@ import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
 
 package object styles {
+  @JSImport("@material-ui/core/styles/colorManipulator.js", JSImport.Default)
+  @js.native
+  object colorManipulator extends js.Object {
+    def recomposeColor(color: ColorObject): String = js.native
+
+    def convertHexToRGB(hex: String): String = js.native
+
+    def rgbToHex(color: String): String = js.native
+
+    def decomposeColor(color: String): ColorObject = js.native
+
+    def getContrastRatio(foreground: String, background: String): Double = js.native
+
+    def getLuminance(color: String): Double = js.native
+
+    def emphasize(color: String, coefficient: js.UndefOr[String]): String = js.native
+
+    def fade(color: String, value: Double): String = js.native
+
+    def darken(color: String, coefficient: js.UndefOr[String]): String = js.native
+
+    def lighten(color: String, coefficient: js.UndefOr[String]): String = js.native
+  }
+
   @JSImport("@material-ui/core/styles/createMuiTheme.js", JSImport.Default)
   @js.native
   object createMuiTheme extends js.Function1[js.UndefOr[ThemeOptions], Theme] {

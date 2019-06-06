@@ -1,6 +1,6 @@
 addCommandAlias("restartWDS", "; demo/fastOptJS::stopWebpackDevServer; ~demo/fastOptJS::startWebpackDevServer")
 
-val root = project.in(file(".")).settings(commonSettings).aggregate(facade, demo).settings(
+val root = project.in(file(".")).settings(commonSettings).aggregate(facade, icons, demo).settings(
   name                 := "scalajs-react-material-ui",
   // No, SBT, we don't want any artifacts for root.
   // No, not even an empty jar.
@@ -15,7 +15,14 @@ val root = project.in(file(".")).settings(commonSettings).aggregate(facade, demo
 lazy val muiIconsGenerator = taskKey[Seq[File]]("mui-icons-generator")
 
 lazy val facade = (project in file("facade")).settings(commonSettings).settings(
-  name := "scalajs-react-material-ui",
+  name := "scalajs-react-material-ui-core",
+  scalaJSUseMainModuleInitializer  := false,
+  npmDependencies in Compile ++= Settings.npmDependencies.value,
+  libraryDependencies ++= Settings.scalajsDependencies.value
+).enablePlugins(ScalaJSBundlerPlugin)
+
+lazy val icons = (project in file("icons")).settings(commonSettings).settings(
+  name := "scalajs-react-material-ui-icons",
   scalaJSUseMainModuleInitializer  := false,
   npmDependencies in Compile ++= Settings.npmDependencies.value,
   libraryDependencies ++= Settings.scalajsDependencies.value,
@@ -26,7 +33,7 @@ lazy val facade = (project in file("facade")).settings(commonSettings).settings(
   sourceGenerators in Compile += muiIconsGenerator.taskValue
 ).enablePlugins(ScalaJSBundlerPlugin)
 
-lazy val demo = (project in file("demo"))//.dependsOn(facade)
+lazy val demo = (project in file("demo")).dependsOn(facade)
   .settings(commonSettings).settings(
   scalaJSUseMainModuleInitializer  := true,
   npmDependencies in Compile ++= Settings.npmDependencies.value,

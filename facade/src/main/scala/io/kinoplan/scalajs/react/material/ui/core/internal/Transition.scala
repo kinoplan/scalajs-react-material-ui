@@ -4,16 +4,8 @@ import io.kinoplan.scalajs.react.material.ui.core._
 import org.scalajs.dom.html
 
 import scala.scalajs.js
-import scala.scalajs.js.|
-
-@js.native
-trait Transition extends js.Object {
-  var enter: Int = js.native
-  var exit: Int  = js.native
-}
 
 object Transition {
-  type Duration = Double | Transition
   type Callback = js.Function1[html.Element, Unit]
 
   @js.native

@@ -6,10 +6,11 @@ import io.kinoplan.scalajs.react.material.ui.core.styles.CreateTransitionsOption
 import scala.scalajs.js.JSConverters._
 
 case class LayoutStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
-  import common.theme
   import dsl._
 
   private val drawerWidth = 260
+
+  val theme = common.theme
 
   val propAppBar = Array("width", "margin").toJSArray
 
@@ -102,7 +103,8 @@ case class LayoutStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSh
     overflowX.hidden,
     transition := drawerPaperCloseTransition,
     width((theme.spacing.unit * 7).px),
-    unsafeChild(theme.breakpoints.up("sm"))(
+    //unsafeChild(theme.breakpoints.up("sm"))(
+    media.minWidth(600.px)(
       width((theme.spacing.unit * 9).px)
     )
   )

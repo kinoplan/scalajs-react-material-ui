@@ -1,7 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui
 
 import cats.Show
-import io.kinoplan.scalajs.react.material.ui.core.internal.Transition
 import japgolly.scalajs.react.Callback
 import japgolly.scalajs.react.component.Js.UnmountedWithRawType
 import japgolly.scalajs.react.raw.React.{Element => ReactElement}
@@ -21,12 +20,6 @@ package object core {
   type ReactHandler1[E <: SyntheticEvent[_]]    = Handler1[E]
   type ReactHandler2[E <: SyntheticEvent[_], A] = Handler2[E, A]
   type CssProperties                            = js.Any
-  private[core] val defaultTransitionDuration: Transition = {
-    val d = (new js.Object).asInstanceOf[Transition]
-    d.enter = 0
-    d.exit = 0
-    d
-  }
 
   private[core] def addOtherProps(p: js.Dynamic, otherProps: (String, js.Any)*): Unit =
     otherProps.foreach { case (key, value) => p.updateDynamic(key)(value) }

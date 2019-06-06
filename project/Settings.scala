@@ -39,10 +39,10 @@ object Settings {
   ))
 
   val npmDependencies = Def.setting(Seq(
-    "react"              -> versions.npm.react,
-    "react-dom"          -> versions.npm.react,
-    "@material-ui/core"  -> versions.npm.materialUi,
-    "@material-ui/icons" -> versions.npm.materialUiIcons
+    "react"                 -> versions.npm.react,
+    "react-dom"             -> versions.npm.react,
+    "@material-ui/core"     -> versions.npm.materialUi,
+    "@material-ui/icons"    -> versions.npm.materialUiIcons,
   ))
 
   def generateIcons(src: File, npm: File): Seq[File] = {

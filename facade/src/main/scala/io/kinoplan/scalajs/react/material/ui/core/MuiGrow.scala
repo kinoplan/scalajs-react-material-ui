@@ -15,7 +15,7 @@ object MuiGrow extends ReactBridgeComponent with MuiGrowExtensions {
 
   def apply(
     in: Option[Boolean] = None,
-    timeout: Int |  js.Object | Timeout.Value = Timeout.auto
+    timeout: js.Object | Timeout.Value = Timeout.auto
   ): WithProps = auto
 }
 

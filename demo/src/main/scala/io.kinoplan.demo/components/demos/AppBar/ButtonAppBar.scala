@@ -1,5 +1,6 @@
 package io.kinoplan.demo.components.demos.AppBar
 
+import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiButton, MuiIconButton, MuiToolbar, MuiTypography}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiMenu => MuiMenuIcon}
@@ -15,12 +16,7 @@ object ButtonAppBar {
       val css = props.style
 
       div(
-        div(css.componentTitleFont, css.componentTitlePadding,
-          MuiTypography(variant = MuiTypography.Variant.h4, gutterBottom = true, component = Some("h2"))(
-            "App Bar with buttons"
-          )
-        ),
-        div(css.componentContainer,
+        ComponentContainer("App Bar with buttons")(
           div(css.flexGrowOne,
             MuiAppBar(position = MuiAppBar.Position.static)(
               MuiToolbar()(

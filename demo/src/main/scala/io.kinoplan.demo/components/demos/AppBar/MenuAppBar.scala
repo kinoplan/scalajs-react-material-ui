@@ -1,0 +1,118 @@
+package io.kinoplan.demo.components.demos.AppBar
+
+import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
+import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
+import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiFormControlLabel, MuiFormGroup, MuiIconButton, MuiMenu, MuiMenuItem, MuiSwitch, MuiToolbar, MuiTypography}
+import io.kinoplan.scalajs.react.material.ui.icons
+import io.kinoplan.scalajs.react.material.ui.icons._
+import japgolly.scalajs.react.vdom.Attr
+import japgolly.scalajs.react.vdom.all.{VdomElement, div, _}
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromHtml, ReactEventFromInput, ScalaComponent}
+import org.scalajs.dom.raw.HTMLElement
+import scalacss.ScalaCssReact._
+
+object MenuAppBar {
+  case class Props(style: CommonStyle)
+
+  case class State(
+    auth: Boolean = true,
+    anchorEl: Option[HTMLElement] = None
+  ) {
+    def handleChange(checked: Boolean) = copy(auth = checked)
+
+    def handleProfileMenuOpen(currentTarget: HTMLElement) = copy(anchorEl = Some(currentTarget))
+    def handleProfileMenuClose = copy(anchorEl = None)
+  }
+
+  class Backend(t: BackendScope[Props, State]) {
+    def handleChange(e: ReactEventFromInput): Callback = {
+      val target = e.target.checked
+
+      t.modState(_.handleChange(target))
+    }
+
+    def handleProfileMenuOpen(e: ReactEventFromHtml): Callback = {
+      val target = e.currentTarget
+
+      t.modState(_.handleProfileMenuOpen(target))
+    }
+
+    def handleProfileMenuClose: ReactEvent => Callback = e => {
+      t.modState(_.handleProfileMenuClose)
+    }
+
+    def render(props: Props, state: State): VdomElement = {
+      val css = props.style
+
+      val open = state.anchorEl.nonEmpty
+
+      val authLabel = if (state.auth) "Logout" else "Login"
+
+      val ariaOwns = if (open) "menu-appbar" else ""
+
+      def renderMenu() = {
+        MuiMenu(
+          anchorEl = state.anchorEl,
+          anchorOrigin = Origin(vertical = "top", horizontal = "right"),
+          transformOrigin = Origin(vertical = "top", horizontal = "right"),
+          open = open,
+          onClose = Some(handleProfileMenuClose),
+        )(
+          MuiMenuItem()(onClick ==> handleProfileMenuClose,
+            "Profile"
+          ),
+          MuiMenuItem()(onClick ==> handleProfileMenuClose,
+            "My account"
+          )
+        )
+      }
+
+      div(
+        ComponentContainer("App Bar with menu")(
+          div(css.flexGrowOne,
+            MuiFormGroup()(
+              MuiFormControlLabel(
+                control = Some(
+                  MuiSwitch(checked = Some(state.auth))(
+                    onChange ==> handleChange,
+                    aria.label := "LoginSwitch"
+                  ).rawElement
+                ),
+                label = Some(VdomNode(authLabel))
+              )
+            ),
+            MuiAppBar(position = MuiAppBar.Position.static)(
+              MuiToolbar()(
+                MuiIconButton(color = MuiIconButton.Color.inherit)(css.menuButton,
+                  aria.label := "Menu",
+                  icons.MuiMenu()
+                ),
+                MuiTypography(variant = MuiTypography.Variant.h6, color = MuiTypography.Color.inherit)(css.flexGrowOne,
+                  "Photos"
+                ),
+                div(
+                  MuiIconButton(color = MuiIconButton.Color.inherit)(
+                    aria.owns := ariaOwns,
+                    aria.hasPopup := "true",
+                    Attr("edge") := "end",
+                    onClick ==> handleProfileMenuOpen,
+                    MuiAccountCircle()
+                  ),
+                  renderMenu().when(open)
+                ).when(state.auth)
+              )
+            )
+          )
+        )
+      )
+    }
+  }
+
+  private val component = ScalaComponent.builder[Props]("MenuAppBar")
+    .initialState(State())
+    .renderBackend[Backend]
+    .build
+
+  def apply(style: CommonStyle = DefaultCommonStyle) = component(Props(style))
+}

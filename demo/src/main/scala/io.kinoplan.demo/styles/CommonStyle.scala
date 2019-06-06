@@ -18,12 +18,18 @@ class CommonStyle extends StyleSheet.Inline {
     marginRight((theme.spacing.unit * 2).px)
   )
 
+  val menuButtonDesktop = style(
+    marginLeft(-18.px),
+    marginRight(10.px)
+  )
+
   val title = style(
     flexGrow(1)
   )
 
   val componentContainer = style(
-    unsafeChild(theme.breakpoints.up("sm"))(
+    //unsafeChild(theme.breakpoints.up("sm"))(
+    media.minWidth(600.px)(
       padding(24.px)
     ),
     margin.auto,
