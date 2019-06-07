@@ -1,6 +1,6 @@
 addCommandAlias("restartWDS", "; demo/fastOptJS::stopWebpackDevServer; ~demo/fastOptJS::startWebpackDevServer")
 
-val root = project.in(file(".")).settings(commonSettings).aggregate(facade, icons, demo).settings(
+lazy val root = project.in(file(".")).settings(commonSettings).aggregate(core, icons, demo).settings(
   name                 := "scalajs-react-material-ui",
   // No, SBT, we don't want any artifacts for root.
   // No, not even an empty jar.
@@ -12,14 +12,14 @@ val root = project.in(file(".")).settings(commonSettings).aggregate(facade, icon
   aggregate in doc := false
 )
 
-lazy val muiIconsGenerator = taskKey[Seq[File]]("mui-icons-generator")
-
-lazy val facade = (project in file("facade")).settings(commonSettings).settings(
+lazy val core = (project in file("core")).settings(commonSettings).settings(
   name := "scalajs-react-material-ui-core",
   scalaJSUseMainModuleInitializer  := false,
   npmDependencies in Compile ++= Settings.npmDependencies.value,
   libraryDependencies ++= Settings.scalajsDependencies.value
 ).enablePlugins(ScalaJSBundlerPlugin)
+
+lazy val muiIconsGenerator = taskKey[Seq[File]]("mui-icons-generator")
 
 lazy val icons = (project in file("icons")).settings(commonSettings).settings(
   name := "scalajs-react-material-ui-icons",
@@ -33,7 +33,7 @@ lazy val icons = (project in file("icons")).settings(commonSettings).settings(
   sourceGenerators in Compile += muiIconsGenerator.taskValue
 ).enablePlugins(ScalaJSBundlerPlugin)
 
-lazy val demo = (project in file("demo")).dependsOn(facade)
+lazy val demo = (project in file("demo")).dependsOn(core)
   .settings(commonSettings).settings(
   scalaJSUseMainModuleInitializer  := true,
   npmDependencies in Compile ++= Settings.npmDependencies.value,
@@ -56,9 +56,9 @@ lazy val commonSettings = Seq(
   description := Settings.description,
   webpackBundlingMode := BundlingMode.LibraryOnly(),
   useYarn := true,
-  version in webpack := "4.29.3",
-  version in startWebpackDevServer := "3.1.14",
-  webpackCliVersion := "3.2.3",
+  version in webpack := Settings.versions.bundler.webpack,
+  version in startWebpackDevServer := Settings.versions.bundler.webpackDev,
+  webpackCliVersion := Settings.versions.bundler.webpackCli,
   emitSourceMaps := false,
   javacOptions ++= Settings.javacOptions,
   scalacOptions in ThisBuild ++= Settings.scalacOptions

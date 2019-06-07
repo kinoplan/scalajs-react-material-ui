@@ -5,10 +5,9 @@ import io.kinoplan.demo.styles.demos.{DefaultPrimarySearchAppBarStyle, PrimarySe
 import io.kinoplan.demo.utils.Helpers._
 import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiBadge, MuiIconButton, MuiInputBase, MuiMenu, MuiMenuItem, MuiToolbar, MuiTypography}
-import io.kinoplan.scalajs.react.material.ui.icons
-import io.kinoplan.scalajs.react.material.ui.icons._
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiAccountCircleIcon, MuiMailIcon, MuiMenuIcon, MuiMoreVertIcon, MuiNotificationsIcon, MuiSearchIcon}
 import japgolly.scalajs.react.vdom.Attr
-import japgolly.scalajs.react.vdom.all.{VdomElement, div, _}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromHtml, ScalaComponent}
 import org.scalajs.dom.raw.HTMLElement
 import scalacss.ScalaCssReact._
@@ -89,7 +88,7 @@ object PrimarySearchAppBar {
           MuiMenuItem()(
             MuiIconButton(color = MuiIconButton.Color.inherit)(
               MuiBadge(badgeContent = Some(VdomNode(4)), color = MuiBadge.Color.secondary)(
-                MuiMail()
+                MuiMailIcon()
               )
             ),
             p("Messages")
@@ -97,14 +96,14 @@ object PrimarySearchAppBar {
           MuiMenuItem()(
             MuiIconButton(color = MuiIconButton.Color.inherit)(
               MuiBadge(badgeContent = Some(VdomNode(11)), color = MuiBadge.Color.secondary)(
-                MuiNotifications()
+                MuiNotificationsIcon()
               )
             ),
             p("Notifications")
           ),
           MuiMenuItem()(onClick ==> handleProfileMenuOpen,
             MuiIconButton(color = MuiIconButton.Color.inherit)(
-              MuiAccountCircle()
+              MuiAccountCircleIcon()
             ),
             p("Profile")
           )
@@ -119,25 +118,25 @@ object PrimarySearchAppBar {
                 MuiIconButton(color = MuiIconButton.Color.inherit)(css.common.menuButton,
                   aria.label := "Open drawer",
                   Attr("edge") := "start",
-                  icons.MuiMenu()
+                  MuiMenuIcon()
                 ),
                 MuiTypography(variant = MuiTypography.Variant.h6, color = MuiTypography.Color.inherit, noWrap = true)(css.title,
                   "Material-UI"
                 ),
                 div(css.search,
-                  div(css.searchIcon, MuiSearch()),
+                  div(css.searchIcon, MuiSearchIcon()),
                   MuiInputBase(placeholder = Some("Search…"), classes = inputBaseClasses)
                 ),
                 div(css.common.flexGrowOne),
                 div(css.sectionDesktop,
                   MuiIconButton(color = MuiIconButton.Color.inherit)(
                     MuiBadge(badgeContent = Some(VdomNode(4)), color = MuiBadge.Color.secondary)(
-                      MuiMail()
+                      MuiMailIcon()
                     )
                   ),
                   MuiIconButton(color = MuiIconButton.Color.inherit)(
                     MuiBadge(badgeContent = Some(VdomNode(17)), color = MuiBadge.Color.secondary)(
-                      MuiNotifications()
+                      MuiNotificationsIcon()
                     )
                   ),
                   MuiIconButton(color = MuiIconButton.Color.inherit)(
@@ -145,14 +144,14 @@ object PrimarySearchAppBar {
                     aria.hasPopup := "true",
                     Attr("edge") := "end",
                     onClick ==> handleProfileMenuOpen,
-                    MuiAccountCircle()
+                    MuiAccountCircleIcon()
                   )
                 ),
                 div(css.sectionMobile,
                   MuiIconButton(color = MuiIconButton.Color.inherit)(
                     aria.hasPopup := "true",
                     onClick ==> handleMobileMenuOpen,
-                    MuiMoreVert()
+                    MuiMoreVertIcon()
                   )
                 )
               )

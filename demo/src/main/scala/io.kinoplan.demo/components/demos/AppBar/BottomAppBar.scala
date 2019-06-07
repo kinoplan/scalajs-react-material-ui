@@ -4,8 +4,7 @@ import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.models.Message
 import io.kinoplan.demo.styles.demos.{BottomAppBarStyle, DefaultBottomAppBarStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiAvatar, MuiCssBaseline, MuiFab, MuiIconButton, MuiList, MuiListItem, MuiListItemText, MuiListSubheader, MuiPaper, MuiToolbar, MuiTypography}
-import io.kinoplan.scalajs.react.material.ui.icons
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiAdd, MuiMoreVert, MuiSearch}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiAddIcon, MuiMenuIcon, MuiMoreVertIcon, MuiSearchIcon}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, React, ScalaComponent}
 import scalacss.ScalaCssReact._
@@ -43,18 +42,18 @@ object BottomAppBar {
                 MuiToolbar()(css.toolbar,
                   MuiIconButton(color = MuiIconButton.Color.inherit)(
                     aria.label := "Open drawer",
-                    icons.MuiMenu()
+                    MuiMenuIcon()
                   ),
                   MuiFab(color = MuiFab.Color.secondary)(css.fabButton,
                     aria.label := "Add",
-                    MuiAdd()
+                    MuiAddIcon()
                   ),
                   div(
                     MuiIconButton(color = MuiIconButton.Color.inherit)(
-                      MuiSearch()
+                      MuiSearchIcon()
                     ),
                     MuiIconButton(color = MuiIconButton.Color.inherit)(
-                      MuiMoreVert()
+                      MuiMoreVertIcon()
                     )
                   )
                 )

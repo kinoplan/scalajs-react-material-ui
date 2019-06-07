@@ -3,8 +3,8 @@ package io.kinoplan.demo.components.demos.AppBar
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiButton, MuiIconButton, MuiToolbar, MuiTypography}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiMenu => MuiMenuIcon}
-import japgolly.scalajs.react.vdom.all.{VdomElement, div, _}
+import io.kinoplan.scalajs.react.material.ui.icons.MuiMenuIcon
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
 import scalacss.ScalaCssReact._
 

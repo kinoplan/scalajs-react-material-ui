@@ -3,7 +3,7 @@ package io.kinoplan.demo.modules
 import io.kinoplan.demo.models.MenuItem
 import io.kinoplan.demo.router.AppRouter.Page
 import io.kinoplan.scalajs.react.material.ui.core.{MuiCollapse, MuiDivider, MuiList, MuiListItem, MuiListItemIcon, MuiListItemText, MuiListSubheader}
-import io.kinoplan.scalajs.react.material.ui.icons._
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiExpandLessIcon, MuiExpandMoreIcon, MuiInboxIcon}
 import japgolly.scalajs.react.extra.router.{Resolution, RouterCtl}
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.vdom.{Attr, VdomArray, VdomNode}
@@ -20,7 +20,7 @@ object MainMenu {
     def handleDemoListClick = t.modState(_.handleDemoListClick)
 
     def render(props: Props, state: State): VdomArray = {
-      val demoExpandIcon = if (state.open) MuiExpandLess() else MuiExpandMore()
+      val demoExpandIcon = if (state.open) MuiExpandLessIcon() else MuiExpandMoreIcon()
 
       VdomArray(
         MuiDivider()(Attr("key") := 1),
@@ -40,7 +40,7 @@ object MainMenu {
             },
             MuiListItem(button = true)(onClick --> handleDemoListClick, Attr("key") := 5,
               MuiListItemIcon()(
-                MuiInbox()
+                MuiInboxIcon()
               ),
               MuiListItemText(inset = true, primary = Some(VdomNode("Component Demos")))(),
               demoExpandIcon

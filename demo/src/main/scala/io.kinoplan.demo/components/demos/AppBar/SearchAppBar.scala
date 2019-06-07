@@ -4,8 +4,7 @@ import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.{DefaultSearchAppBarStyle, SearchAppBarStyle}
 import io.kinoplan.demo.utils.Helpers._
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiIconButton, MuiInputBase, MuiToolbar, MuiTypography}
-import io.kinoplan.scalajs.react.material.ui.icons
-import io.kinoplan.scalajs.react.material.ui.icons._
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiMenuIcon, MuiSearchIcon}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
 import scalacss.ScalaCssReact._
@@ -29,14 +28,14 @@ object SearchAppBar {
               MuiToolbar()(
                 MuiIconButton(color = MuiIconButton.Color.inherit)(css.common.menuButton,
                   aria.label := "Open drawer",
-                  icons.MuiMenu()
+                  MuiMenuIcon()
                 ),
                 MuiTypography(variant = MuiTypography.Variant.h6, color = MuiTypography.Color.inherit, noWrap = true)(css.title,
                   "Material-UI"
                 ),
                 div(css.common.flexGrowOne),
                 div(css.search,
-                  div(css.searchIcon, MuiSearch()),
+                  div(css.searchIcon, MuiSearchIcon()),
                   MuiInputBase(placeholder = Some("Search…"), classes = inputBaseClasses)
                 )
               )

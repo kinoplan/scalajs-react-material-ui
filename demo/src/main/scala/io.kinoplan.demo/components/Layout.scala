@@ -6,7 +6,7 @@ import io.kinoplan.demo.router.AppRouter.Page
 import io.kinoplan.demo.styles.{DefaultLayoutStyle, LayoutStyle}
 import io.kinoplan.demo.utils.Helpers._
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiBadge, MuiCssBaseline, MuiDrawer, MuiIconButton, MuiToolbar, MuiTypography}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiChevronLeft, MuiMenu, MuiNotifications}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiChevronLeftIcon, MuiMenuIcon, MuiNotificationsIcon}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.{Resolution, RouterCtl}
 import japgolly.scalajs.react.vdom.all._
@@ -45,7 +45,7 @@ object Layout {
             MuiIconButton(color = MuiIconButton.Color.inherit)(css.menuButton + menuButtonHidden,
               aria.label := "Open drawer",
               onClick --> handleDrawerOpen,
-              MuiMenu()
+              MuiMenuIcon()
             ),
             MuiTypography(
               component = Some("h1"),
@@ -57,7 +57,7 @@ object Layout {
             ),
             MuiIconButton(color = MuiIconButton.Color.inherit)(
               MuiBadge(badgeContent = Some(VdomNode(4)), color = MuiBadge.Color.secondary)(
-                MuiNotifications()
+                MuiNotificationsIcon()
               )
             )
           )
@@ -65,7 +65,7 @@ object Layout {
         MuiDrawer(variant = MuiDrawer.Variant.permanent, open = state.open, classes = drawerClasses)(
           div(css.toolbarIcon,
             MuiIconButton()(onClick --> handleDrawerClose,
-              MuiChevronLeft()
+              MuiChevronLeftIcon()
             )
           ),
           MainMenu(props.router, props.r)

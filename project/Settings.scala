@@ -11,6 +11,12 @@ object Settings {
   object versions {
     val scala = "2.12.8"
 
+    object bundler {
+      val webpack = "4.33.0"
+      val webpackDev = "3.7.0"
+      val webpackCli = "3.3.2"
+    }
+
     object scalajs {
       val scalajsReact = "1.4.2"
       val scalaCss = "0.5.6"
@@ -50,7 +56,7 @@ object Settings {
 
     val files: Seq[File] = iconSources.get.map(f => {
       val name = f.getName.stripSuffix(".js")
-      val file = src / s"Mui$name.scala"
+      val file = src / s"Mui${name}Icon.scala"
 
       IO.write(
         file,
@@ -62,7 +68,7 @@ object Settings {
            |import scala.scalajs.js.annotation.JSImport
            |import scala.scalajs.js.|
            |
-           |object Mui$name extends ReactBridgeComponent with SvgIconExtensions {
+           |object Mui${name}Icon extends ReactBridgeComponent with SvgIconExtensions {
            |
            |  override protected lazy val componentValue: js.Object = RawComponent
            |

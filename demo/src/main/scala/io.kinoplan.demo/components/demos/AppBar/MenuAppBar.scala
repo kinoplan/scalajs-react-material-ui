@@ -4,10 +4,9 @@ import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiFormControlLabel, MuiFormGroup, MuiIconButton, MuiMenu, MuiMenuItem, MuiSwitch, MuiToolbar, MuiTypography}
-import io.kinoplan.scalajs.react.material.ui.icons
-import io.kinoplan.scalajs.react.material.ui.icons._
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiAccountCircleIcon, MuiMenuIcon}
 import japgolly.scalajs.react.vdom.Attr
-import japgolly.scalajs.react.vdom.all.{VdomElement, div, _}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromHtml, ReactEventFromInput, ScalaComponent}
 import org.scalajs.dom.raw.HTMLElement
 import scalacss.ScalaCssReact._
@@ -86,7 +85,7 @@ object MenuAppBar {
               MuiToolbar()(
                 MuiIconButton(color = MuiIconButton.Color.inherit)(css.menuButton,
                   aria.label := "Menu",
-                  icons.MuiMenu()
+                  MuiMenuIcon()
                 ),
                 MuiTypography(variant = MuiTypography.Variant.h6, color = MuiTypography.Color.inherit)(css.flexGrowOne,
                   "Photos"
@@ -97,7 +96,7 @@ object MenuAppBar {
                     aria.hasPopup := "true",
                     Attr("edge") := "end",
                     onClick ==> handleProfileMenuOpen,
-                    MuiAccountCircle()
+                    MuiAccountCircleIcon()
                   ),
                   renderMenu().when(open)
                 ).when(state.auth)
