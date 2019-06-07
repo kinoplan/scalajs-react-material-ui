@@ -12,11 +12,18 @@ lazy val root = project.in(file(".")).settings(commonSettings).aggregate(core, i
   aggregate in doc := false
 )
 
+lazy val muiColorsGenerator = taskKey[Seq[File]]("mui-colors-generator")
+
 lazy val core = (project in file("core")).settings(commonSettings).settings(
   name := "scalajs-react-material-ui-core",
   scalaJSUseMainModuleInitializer  := false,
   npmDependencies in Compile ++= Settings.npmDependencies.value,
-  libraryDependencies ++= Settings.scalajsDependencies.value
+  libraryDependencies ++= Settings.scalajsDependencies.value,
+  muiColorsGenerator := Settings.generateColors(
+    (sourceManaged in Compile).value / "io" / "kinoplan" / "scalajs" / "react" / "material" / "ui" / "core" / "colors",
+    (npmInstallDependencies in Compile).value
+  ),
+  sourceGenerators in Compile += muiColorsGenerator.taskValue
 ).enablePlugins(ScalaJSBundlerPlugin)
 
 lazy val muiIconsGenerator = taskKey[Seq[File]]("mui-icons-generator")

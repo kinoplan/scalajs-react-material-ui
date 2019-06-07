@@ -51,6 +51,46 @@ object Settings {
     "@material-ui/icons"    -> versions.npm.materialUiIcons,
   ))
 
+  def generateColors(src: File, npm: File): Seq[File] = {
+    val path = npm / "node_modules" / "@material-ui" / "core" / "colors"
+    val extensions = "*.js" -- "index.js" -- "index.es.js" -- "common.js"
+
+    val colorSources = path * extensions
+
+    val colorsPackageFile = src / "package.scala"
+
+    val colorsPackage = colorSources.get.sortBy(_.getName).map(file => {
+      val name = file.getName.stripSuffix(".js")
+
+      s"""    @JSImport("@material-ui/core/colors/$name", JSImport.Default)
+         |    @js.native
+         |    object $name extends Color
+         |""".stripMargin
+    }).mkString(
+      start =
+        """package io.kinoplan.scalajs.react.material.ui.core
+          |
+          |import scala.scalajs.js
+          |import scala.scalajs.js.annotation.JSImport
+          |
+          |package object colors {
+          |
+          |""".stripMargin,
+      sep = "\n",
+      end =
+        """
+          |    @JSImport("@material-ui/core/colors/common", JSImport.Default)
+          |    @js.native
+          |    object common extends CommonColors
+          |}
+          |""".stripMargin
+    )
+
+    IO.write(colorsPackageFile, colorsPackage)
+
+    Seq(colorsPackageFile)
+  }
+
   def generateIcons(src: File, npm: File): Seq[File] = {
     val iconSources = (npm / "node_modules" / "@material-ui" / "icons" ) * ("*.js" -- "index.js" -- "index.es.js")
 

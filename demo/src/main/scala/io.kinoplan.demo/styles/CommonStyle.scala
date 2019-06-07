@@ -52,6 +52,10 @@ class CommonStyle extends StyleSheet.Inline {
     marginTop(16.px),
     marginBottom(16.px)
   )
+
+  val avatar = style(
+    margin(10.px)
+  )
 }
 
 object DefaultCommonStyle extends CommonStyle

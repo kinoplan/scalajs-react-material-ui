@@ -20,16 +20,16 @@ object MuiGrid extends ReactBridgeComponent with MuiGridExtensions {
     component: Option[String | js.Function] = Some("div"),
     container: Boolean = false,
     direction: Direction.Value = Direction.row,
-    item: Boolean = false,
+    item: Boolean = true,
     justify: Justify.Value = Justify.flexStart,
-    lg: Boolean | Breakpoint.Value | Int = false,
-    md: Boolean | Breakpoint.Value | Int = false,
-    sm: Boolean | Breakpoint.Value | Int = false,
+    lg: Boolean | Int = false,
+    md: Boolean | Int = false,
+    sm: Boolean | Int = false,
     spacing: Spacing.Value = Spacing.zero,
     wrap: Wrap.Value = Wrap.wrap,
-    xl: Boolean | Breakpoint.Value | Int = false,
-    xs: Boolean | Breakpoint.Value | Int = false,
-    zeroMinWidth: Boolean = false
+    xl: Boolean | Int = false,
+    xs: Boolean | Int = false,
+    zeroMinWidth: Boolean = true
   ): WithProps = auto
 }
 
@@ -67,17 +67,15 @@ trait MuiGridExtensions {
     val spaceEvenly = Value("space-evenly")
   }
 
-  object Breakpoint extends Enumeration {
-    val auto = Value("auto")
-  }
-
   object Spacing extends Enumeration {
-    val zero = Value(0)
-    val eight = Value(8)
-    val sixteen = Value(16)
-    val twentyFour = Value(24)
-    val thirtyTwo = Value(32)
-    val forty = Value(40)
+    type Value = Int
+
+    val zero = 0
+    val eight = 8
+    val sixteen = 16
+    val twentyFour = 24
+    val thirtyTwo = 32
+    val forty = 40
   }
 
   object Wrap extends Enumeration {
