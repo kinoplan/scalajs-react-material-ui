@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core.styles
 
-import io.kinoplan.scalajs.react.material.ui.core.colors.{ColorPartial, CommonColorsPartial}
+import io.kinoplan.scalajs.react.material.ui.core.colors.{Color, ColorPartial, CommonColorsPartial}
 
 import scala.scalajs.js
 import scala.scalajs.js.JSConverters._
@@ -8,7 +8,7 @@ import scala.scalajs.js.|
 
 @js.native
 trait PaletteOptions extends js.Object {
-  def primary: js.UndefOr[PaletteColorOptions | ColorPartial] = js.native
+  def primary: js.UndefOr[PaletteColorOptions | ColorPartial | Color] = js.native
   def secondary: js.UndefOr[PaletteColorOptions | ColorPartial] = js.native
   def error: js.UndefOr[PaletteColorOptions | ColorPartial] = js.native
   def `type`: js.UndefOr[String] = js.native
@@ -25,9 +25,9 @@ trait PaletteOptions extends js.Object {
 
 object PaletteOptions {
   def apply(
-    primary: Option[PaletteColorOptions | ColorPartial] = None,
-    secondary: Option[PaletteColorOptions | ColorPartial] = None,
-    error: Option[PaletteColorOptions | ColorPartial] = None,
+    primary: Option[PaletteColorOptions | ColorPartial | Color] = None,
+    secondary: Option[PaletteColorOptions | ColorPartial | Color] = None,
+    error: Option[PaletteColorOptions | ColorPartial | Color] = None,
     `type`: Option[PaletteType.Value] = None,
     tonalOffset: Option[Double] = None,
     contrastThreshold: Option[Int] = None,

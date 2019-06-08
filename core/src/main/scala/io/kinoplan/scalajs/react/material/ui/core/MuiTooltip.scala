@@ -1,6 +1,7 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import japgolly.scalajs.react.ReactEventFromHtml
 import japgolly.scalajs.react.vdom.html_<^._
 
 import scala.scalajs.js
@@ -25,13 +26,13 @@ object MuiTooltip extends ReactBridgeComponent with MuiTooltipExtensions with Js
     interactive: Boolean = false,
     leaveDelay: Int = 0,
     leaveTouchDelay: Int = 1500,
-    onClose: Option[js.Function] = None,
-    onOpen: Option[js.Function] = None,
+    onClose: Option[OnJSEv1[ReactEventFromHtml]] = None,
+    onOpen: Option[OnJSEv1[ReactEventFromHtml]] = None,
     open: Option[Boolean] = None,
     placement: Placement.Value = Placement.bottom,
     PopperProps: js.Object = js.Object(),
     title: VdomNode,
-    TransitionComponent: Option[String | js.Function] = Some("Grow"),
+    TransitionComponent: Option[String | VdomNode] = None,
     TransitionProps: js.Object = js.Object()
   ): WithProps = auto
 }

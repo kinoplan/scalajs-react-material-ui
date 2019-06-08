@@ -1,7 +1,7 @@
 package io.kinoplan.demo.components.demos.AppBar
 
 import io.kinoplan.demo.components.ComponentContainer
-import io.kinoplan.demo.styles.demos.{DefaultPrimarySearchAppBarStyle, PrimarySearchAppBarStyle}
+import io.kinoplan.demo.styles.demos.AppBar.{DefaultPrimarySearchAppBarStyle, PrimarySearchAppBarStyle}
 import io.kinoplan.demo.utils.Helpers._
 import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiBadge, MuiIconButton, MuiInputBase, MuiMenu, MuiMenuItem, MuiToolbar, MuiTypography}

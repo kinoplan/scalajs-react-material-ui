@@ -28,8 +28,7 @@ class CommonStyle extends StyleSheet.Inline {
   )
 
   val componentContainer = style(
-    //unsafeChild(theme.breakpoints.up("sm"))(
-    media.minWidth(600.px)(
+    media.minWidth(theme.breakpoints.values.sm.px)(
       padding(24.px)
     ),
     margin.auto,

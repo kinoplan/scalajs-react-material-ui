@@ -1,7 +1,9 @@
 package io.kinoplan.demo
 
-import io.kinoplan.demo.styles.demos.{DefaultAvatarsStyle, DefaultBottomAppBarStyle, DefaultPrimarySearchAppBarStyle, DefaultSearchAppBarStyle}
-import io.kinoplan.demo.styles.{DefaultCommonStyle, DefaultDemoMenuStyle, DefaultLayoutStyle, DefaultSimpleTableStyle}
+import io.kinoplan.demo.styles._
+import io.kinoplan.demo.styles.demos.AppBar._
+import io.kinoplan.demo.styles.demos.Avatars.DefaultAvatarsStyle
+import io.kinoplan.demo.styles.demos.Badges._
 import scalacss.internal.mutable.GlobalRegistry
 
 object AppCSS {
@@ -14,7 +16,12 @@ object AppCSS {
       DefaultPrimarySearchAppBarStyle,
       DefaultSearchAppBarStyle,
       DefaultBottomAppBarStyle,
-      DefaultAvatarsStyle
+      DefaultAvatarsStyle,
+      DefaultSimpleBadgeStyle,
+      DefaultBadgeMaxStyle,
+      DefaultDotBadgeStyle,
+      DefaultBadgeVisibilityStyle,
+      DefaultCustomizedBadgeStyle
     )
   }
 }

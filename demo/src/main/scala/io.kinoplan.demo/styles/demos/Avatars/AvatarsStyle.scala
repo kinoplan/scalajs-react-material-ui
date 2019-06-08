@@ -1,4 +1,4 @@
-package io.kinoplan.demo.styles.demos
+package io.kinoplan.demo.styles.demos.Avatars
 
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.scalajs.react.material.ui.core.colors

@@ -1,7 +1,7 @@
 package io.kinoplan.demo.components.demos.Avatar
 
 import io.kinoplan.demo.components.ComponentContainer
-import io.kinoplan.demo.styles.demos.{AvatarsStyle, DefaultAvatarsStyle}
+import io.kinoplan.demo.styles.demos.Avatars.{AvatarsStyle, DefaultAvatarsStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiGrid}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiAssignmentIcon, MuiFolderIcon, MuiPageviewIcon}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}

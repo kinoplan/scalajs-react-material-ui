@@ -16,7 +16,7 @@ object Transitions {
   def apply(
     easing: Easing,
     duration: Duration,
-    create: (String | js.Array[String], Option[CreateTransitionsOptions]) => String,
+    create: js.Function2[String | js.Array[String], Option[CreateTransitionsOptions], String],
     getAutoHeightDuration: Double => Double
   ) = {
     val o: Map[String, Any] = Map(

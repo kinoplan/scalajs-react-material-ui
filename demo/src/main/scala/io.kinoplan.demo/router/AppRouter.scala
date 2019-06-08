@@ -2,7 +2,7 @@ package io.kinoplan.demo.router
 
 import io.kinoplan.demo.components.Layout
 import io.kinoplan.demo.pages.SimpleTablePage
-import io.kinoplan.demo.pages.demos.{AppBarPage, AvatarsPage}
+import io.kinoplan.demo.pages.demos.{AppBarPage, AvatarsPage, BadgesPage}
 import japgolly.scalajs.react.extra.router._
 
 object AppRouter {
@@ -10,6 +10,7 @@ object AppRouter {
   case object DashboardRoute extends Page
   case object DemoAppBarRoute extends Page
   case object DemoAvatarsRoute extends Page
+  case object DemoBadgesRoute extends Page
 
   val routerConfig = RouterConfigDsl[Page].buildConfig { dsl =>
     import dsl._
@@ -18,6 +19,7 @@ object AppRouter {
       staticRoute("/", DashboardRoute) ~> renderR(SimpleTablePage(_))
       | staticRoute("/demos/app-bar/", DemoAppBarRoute) ~> renderR(AppBarPage(_))
       | staticRoute("/demos/avatars/", DemoAvatarsRoute) ~> renderR(AvatarsPage(_))
+      | staticRoute("/demos/badges/", DemoBadgesRoute) ~> renderR(BadgesPage(_))
     ).notFound(redirectToPage(DashboardRoute)(Redirect.Replace))
   }.renderWith(layout)
 

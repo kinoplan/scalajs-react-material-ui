@@ -1,4 +1,4 @@
-package io.kinoplan.demo.styles.demos
+package io.kinoplan.demo.styles.demos.AppBar
 
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
@@ -26,8 +26,7 @@ case class PrimarySearchAppBarStyle(common: CommonStyle = DefaultCommonStyle) ex
 
   val title = style(
     display.none,
-    //unsafeRoot(theme.breakpoints.up("sm"))(
-    media.minWidth(600.px)(
+    media.minWidth(theme.breakpoints.values.sm.px)(
       display.block
     )
   )
@@ -42,8 +41,7 @@ case class PrimarySearchAppBarStyle(common: CommonStyle = DefaultCommonStyle) ex
     marginRight((theme.spacing.unit * 2).px),
     marginLeft(0.px),
     width(100.%%),
-    //unsafeChild(theme.breakpoints.up("sm"))(
-    media.minWidth(600.px)(
+    media.minWidth(theme.breakpoints.values.sm.px)(
       marginLeft((theme.spacing.unit * 3).px),
       width.auto
     )
@@ -71,24 +69,21 @@ case class PrimarySearchAppBarStyle(common: CommonStyle = DefaultCommonStyle) ex
     paddingLeft((theme.spacing.unit * 10).px),
     transition := inputInputTransition,
     width(100.%%),
-    //unsafeChild(theme.breakpoints.up("md"))(
-    media.minWidth(960.px)(
+    media.minWidth(theme.breakpoints.values.md.px)(
       width(200.px)
     )
   )
 
   val sectionDesktop = style(
     display.none,
-    //unsafeChild(theme.breakpoints.up("md"))(
-    media.minWidth(960.px)(
+    media.minWidth(theme.breakpoints.values.md.px)(
       display.flex
     )
   )
 
   val sectionMobile = style(
     display.flex,
-    //unsafeChild(theme.breakpoints.up("md"))(
-    media.minWidth(960.px)(
+    media.minWidth(theme.breakpoints.values.md.px)(
       display.none
     )
   )

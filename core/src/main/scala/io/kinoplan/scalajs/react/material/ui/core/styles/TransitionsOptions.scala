@@ -16,7 +16,7 @@ object TransitionsOptions {
   def apply(
     easing: Option[EasingPartial] = None,
     duration: Option[DurationPartial] = None,
-    create: Option[(String | js.Array[String], Option[CreateTransitionsOptions]) => String] = None,
+    create: Option[js.Function2[String | js.Array[String], Option[CreateTransitionsOptions], String]] = None,
     getAutoHeightDuration: Option[Double => Double] = None
   ) = {
     val o: Map[String, Any] = Seq(

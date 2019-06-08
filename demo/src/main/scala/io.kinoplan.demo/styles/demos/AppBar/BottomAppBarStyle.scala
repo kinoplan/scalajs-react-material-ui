@@ -1,4 +1,4 @@
-package io.kinoplan.demo.styles.demos
+package io.kinoplan.demo.styles.demos.AppBar
 
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}

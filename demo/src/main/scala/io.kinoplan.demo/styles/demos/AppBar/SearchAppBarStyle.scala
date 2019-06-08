@@ -1,4 +1,4 @@
-package io.kinoplan.demo.styles.demos
+package io.kinoplan.demo.styles.demos.AppBar
 
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
@@ -26,8 +26,7 @@ case class SearchAppBarStyle(common: CommonStyle = DefaultCommonStyle) extends S
 
   val title = style(
     display.none,
-    //unsafeRoot(theme.breakpoints.up("sm"))(
-    media.minWidth(600.px)(
+    media.minWidth(theme.breakpoints.values.sm.px)(
       display.block
     )
   )
@@ -41,8 +40,7 @@ case class SearchAppBarStyle(common: CommonStyle = DefaultCommonStyle) extends S
     ),
     marginLeft(0.px),
     width(100.%%),
-    //unsafeChild(theme.breakpoints.up("sm"))(
-    media.minWidth(600.px)(
+    media.minWidth(theme.breakpoints.values.sm.px)(
       marginLeft(theme.spacing.unit.px),
       width.auto
     )
@@ -70,8 +68,7 @@ case class SearchAppBarStyle(common: CommonStyle = DefaultCommonStyle) extends S
     paddingLeft((theme.spacing.unit * 10).px),
     transition := inputInputTransition,
     width(100.%%),
-    //unsafeChild(theme.breakpoints.up("sm"))(
-    media.minWidth(600.px)(
+    media.minWidth(theme.breakpoints.values.sm.px)(
       width(120.px),
       &.focus(
         width(200.px)

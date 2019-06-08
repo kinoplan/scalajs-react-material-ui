@@ -12,7 +12,7 @@ case class LayoutStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSh
 
   val theme = common.theme
 
-  val propAppBar = Array("width", "margin").toJSArray
+  private val propAppBar = Array("width", "margin").toJSArray
 
   private val appBarTransition: String = theme.transitions.create(
     propAppBar,
@@ -52,7 +52,7 @@ case class LayoutStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSh
 
   val toolbarCustom = style(
     minHeight(56.px),
-    media.minWidth(0.px).landscape(
+    media.minWidth(theme.breakpoints.values.xs.px).landscape(
       minHeight(48.px)
     ),
     media.minWidth(600.px)(
@@ -103,8 +103,7 @@ case class LayoutStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSh
     overflowX.hidden,
     transition := drawerPaperCloseTransition,
     width((theme.spacing.unit * 7).px),
-    //unsafeChild(theme.breakpoints.up("sm"))(
-    media.minWidth(600.px)(
+    media.minWidth(theme.breakpoints.values.sm.px)(
       width((theme.spacing.unit * 9).px)
     )
   )
