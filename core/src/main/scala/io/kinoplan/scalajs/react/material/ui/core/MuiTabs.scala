@@ -1,12 +1,12 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import japgolly.scalajs.react.ReactEvent
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
-object MuiTabs extends ReactBridgeComponent with MuiTabsExtensions {
+object MuiTabs extends ReactBridgeComponent with MuiTabsExtensions with JsWriterImplicits {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "Tabs")
@@ -14,13 +14,13 @@ object MuiTabs extends ReactBridgeComponent with MuiTabsExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    action: Option[js.Function] = None,
+    action: OnJSEv1[ReactEvent] = js.undefined,
     centered: Boolean = false,
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: Option[String | js.Function] = Some("div"),
+    component: OptComponentPropType = "div",
     indicatorColor: IndicatorColor.Value = IndicatorColor.secondary,
-    onChange: Option[js.Function] = None,
-    ScrollButtonComponent: Option[String | js.Function] = Some("TabScrollButton"),
+    onChange: ReactHandler2[ReactEvent, js.Any] = js.undefined,
+    ScrollButtonComponent: OptComponentPropType = "TabScrollButton",
     scrollButtons: ScrollButtons.Value = ScrollButtons.auto,
     TabIndicatorProps: js.Object = js.Object(),
     textColor: TextColor.Value = TextColor.inherit,

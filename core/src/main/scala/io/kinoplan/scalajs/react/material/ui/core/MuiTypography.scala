@@ -4,7 +4,6 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 object MuiTypography extends ReactBridgeComponent with MuiTypographyExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -17,7 +16,7 @@ object MuiTypography extends ReactBridgeComponent with MuiTypographyExtensions {
     align: Alignment.Value = Alignment.inherit,
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
     color: Color.Value = Color.default,
-    component: Option[String | js.Function] = None,
+    component: OptComponentPropType = js.undefined,
     gutterBottom: Boolean = false,
     headlineMapping: js.Object = js.Object(),
     inline: Boolean = false,

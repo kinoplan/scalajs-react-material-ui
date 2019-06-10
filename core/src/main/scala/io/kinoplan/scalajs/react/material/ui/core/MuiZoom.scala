@@ -15,6 +15,6 @@ object MuiZoom extends ReactBridgeComponent {
 
   def apply(
     in: Option[Boolean] = None,
-    timeout: Option[Int | js.Object] = None
+    timeout: Option[Int | Map[String, Int]] = None
   ): WithProps = auto
 }

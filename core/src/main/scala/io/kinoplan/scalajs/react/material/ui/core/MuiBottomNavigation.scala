@@ -5,6 +5,7 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
+import japgolly.scalajs.react.ReactEvent
 
 object MuiBottomNavigation extends ReactBridgeComponent with MuiBottomNavigationExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -16,7 +17,7 @@ object MuiBottomNavigation extends ReactBridgeComponent with MuiBottomNavigation
   def apply(
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
     component: Option[String | js.Function] = Some("div"),
-    onChange: Option[js.Function] = None,
+    onChange: ReactHandler2[ReactEvent, js.Any] = js.undefined,
     showLabels: Boolean = false,
     value: Option[js.Any] = None
   ): WithProps = auto

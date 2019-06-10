@@ -28,10 +28,12 @@ object MuiFab extends ReactBridgeComponent with MuiFabExtensions {
 
 trait MuiFabExtensions {
   object Color extends Enumeration {
-    val default = Value("default")
-    val inherit = Value("inherit")
-    val primary = Value("primary")
-    val secondary = Value("secondary")
+    type Value = String
+
+    val default = "default"
+    val inherit = "inherit"
+    val primary = "primary"
+    val secondary = "secondary"
   }
 
   object Size extends Enumeration {

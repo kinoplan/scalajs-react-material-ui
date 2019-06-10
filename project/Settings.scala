@@ -27,6 +27,7 @@ object Settings {
 
     object npm {
       val react = "16.7.0"
+      val reactSwipeableViews = "0.13.3"
 
       val materialUi = "3.9.3"
       val materialUiIcons = "3.0.2"
@@ -47,6 +48,7 @@ object Settings {
   val npmDependencies = Def.setting(Seq(
     "react"                 -> versions.npm.react,
     "react-dom"             -> versions.npm.react,
+    "react-swipeable-views" -> versions.npm.reactSwipeableViews,
     "@material-ui/core"     -> versions.npm.materialUi,
     "@material-ui/icons"    -> versions.npm.materialUiIcons,
   ))

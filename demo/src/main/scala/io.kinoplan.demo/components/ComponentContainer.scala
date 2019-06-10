@@ -15,7 +15,7 @@ object ComponentContainer {
 
       div(
         div(css.componentTitleFont, css.componentTitlePadding,
-          MuiTypography(variant = MuiTypography.Variant.h4, gutterBottom = true, component = Some("h2"))(
+          MuiTypography(variant = MuiTypography.Variant.h4, gutterBottom = true, component = "h2")(
             props.title
           )
         ),
@@ -33,5 +33,5 @@ object ComponentContainer {
   def apply(
     title: String,
     style: CommonStyle = DefaultCommonStyle
-  )(children: VdomElement): VdomElement = component(Props(title, style))(children)
+  )(children: VdomNode*): VdomElement = component(Props(title, style))(children:_*)
 }

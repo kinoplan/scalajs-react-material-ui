@@ -20,7 +20,7 @@ object SimpleTablePage {
 
       div(
         div(
-          MuiTypography(variant = MuiTypography.Variant.h4, gutterBottom = true, component = Some("h2"))(
+          MuiTypography(variant = MuiTypography.Variant.h4, gutterBottom = true, component = "h2")(
             "Products"
           ),
           div(css.tableContainer,

@@ -74,7 +74,7 @@ object Layout {
                 MuiMenuIcon()
               ),
               MuiTypography(
-                component = Some("h1"),
+                component = "h1",
                 variant = MuiTypography.Variant.h6,
                 color = MuiTypography.Color.inherit,
                 noWrap = true

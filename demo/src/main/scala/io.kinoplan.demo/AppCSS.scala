@@ -4,6 +4,8 @@ import io.kinoplan.demo.styles._
 import io.kinoplan.demo.styles.demos.AppBar._
 import io.kinoplan.demo.styles.demos.Avatars.DefaultAvatarsStyle
 import io.kinoplan.demo.styles.demos.Badges._
+import io.kinoplan.demo.styles.demos.BottomNavigation.DefaultBottomNavigationStyle
+import io.kinoplan.demo.styles.demos.Buttons._
 import scalacss.internal.mutable.GlobalRegistry
 
 object AppCSS {
@@ -21,7 +23,14 @@ object AppCSS {
       DefaultBadgeMaxStyle,
       DefaultDotBadgeStyle,
       DefaultBadgeVisibilityStyle,
-      DefaultCustomizedBadgeStyle
+      DefaultCustomizedBadgeStyle,
+      DefaultBottomNavigationStyle,
+      DefaultCommonButtonStyle,
+      DefaultFloatingActionButtonsZoomStyle,
+      DefaultIconLabelButtonsStyle,
+      DefaultCustomizedButtonsStyle,
+      DefaultButtonBasesStyle,
+      DefaultTabContainerStyle
     )
   }
 }

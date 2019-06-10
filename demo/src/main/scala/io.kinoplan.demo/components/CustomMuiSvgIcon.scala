@@ -15,7 +15,7 @@ object CustomMuiSvgIcon {
 
       div(
         div(css.componentTitleFont, css.componentTitlePadding,
-          MuiTypography(variant = MuiTypography.Variant.h4, gutterBottom = true, component = Some("h2"))(
+          MuiTypography(variant = MuiTypography.Variant.h4, gutterBottom = true, component = "h2")(
             props.title
           )
         ),

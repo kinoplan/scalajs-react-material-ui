@@ -3,7 +3,7 @@ package io.kinoplan.scalajs.react.material.ui
 import cats.Show
 import japgolly.scalajs.react.Callback
 import japgolly.scalajs.react.component.Js.UnmountedWithRawType
-import japgolly.scalajs.react.raw.React.{Element => ReactElement}
+import japgolly.scalajs.react.raw._
 import japgolly.scalajs.react.raw.SyntheticEvent
 
 import scala.language.implicitConversions
@@ -11,15 +11,20 @@ import scala.scalajs.js
 import scala.scalajs.js.|
 
 package object core {
+  type a = React.Element
+  type OptJsFun0                                = js.UndefOr[js.Function0[Callback]]
   type OptJsFun1[A]                             = js.UndefOr[js.Function1[A, Unit]]
   type OptJsFun2[A, B]                          = js.UndefOr[js.Function2[A, B, Unit]]
   type OnJSEv1[E <: SyntheticEvent[_]]          = OptJsFun1[E]
   type OnJSEv2[E <: SyntheticEvent[_], A]       = OptJsFun2[E, A]
   type Handler1[A]                              = js.UndefOr[A => Callback]
   type Handler2[A, B]                           = js.UndefOr[(A, B) => Callback]
+  type Handler3[A, B, C]                        = js.UndefOr[(A, B, C) => Callback]
   type ReactHandler1[E <: SyntheticEvent[_]]    = Handler1[E]
   type ReactHandler2[E <: SyntheticEvent[_], A] = Handler2[E, A]
   type CssProperties                            = js.Any
+  type ComponentPropType                        = String | js.Function
+  type OptComponentPropType                     = js.UndefOr[ComponentPropType]
 
   private[core] def addOtherProps(p: js.Dynamic, otherProps: (String, js.Any)*): Unit =
     otherProps.foreach { case (key, value) => p.updateDynamic(key)(value) }
@@ -49,7 +54,7 @@ package object core {
 
   implicit private[core] def unmountedToReactElement(
     unmounted: js.UndefOr[UnmountedWithRawType[_, _, _]]
-  ): js.UndefOr[ReactElement] = unmounted.map(_.vdomElement.rawElement)
+  ): js.UndefOr[React.Element] = unmounted.map(_.vdomElement.rawElement)
 
   implicit private[core] def unionToJsAny[A, B](union: A | B): js.Any =
     union.asInstanceOf[js.Any]
