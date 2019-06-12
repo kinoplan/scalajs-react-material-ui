@@ -1,12 +1,12 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import japgolly.scalajs.react.ReactEvent
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
-object MuiRadioGroup extends ReactBridgeComponent {
+object MuiRadioGroup extends ReactBridgeComponent with MuiRadioGroupExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "RadioGroup")
@@ -14,9 +14,20 @@ object MuiRadioGroup extends ReactBridgeComponent {
   object RawComponent extends js.Function
 
   def apply(
-    defaultValue: Option[String | Int | Boolean] = None,
+    classes: Map[ClassKey.Value, String] = Map.empty,
+    defaultValue: Option[String] = None,
     name: Option[String] = None,
-    onChange: Option[js.Function] = None,
-    value: Option[String | Int | Boolean] = None
+    onChange: ReactHandler2[ReactEvent, String] = js.undefined,
+    value: Option[String] = None,
+    row: Boolean = false
   ): WithProps = auto
+}
+
+trait MuiRadioGroupExtensions {
+  object ClassKey extends Enumeration {
+    type Value = String
+
+    val root = "root"
+    val row = "row"
+  }
 }

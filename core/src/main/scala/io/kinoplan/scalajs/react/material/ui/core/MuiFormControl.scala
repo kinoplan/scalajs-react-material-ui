@@ -4,7 +4,6 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 object MuiFormControl extends ReactBridgeComponent with MuiFormControlExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -15,7 +14,7 @@ object MuiFormControl extends ReactBridgeComponent with MuiFormControlExtensions
 
   def apply(
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: Option[String | js.Function] = Some("div"),
+    component: OptComponentPropType = "div",
     disabled: Boolean = false,
     error: Boolean = false,
     fullWidth: Boolean = false,

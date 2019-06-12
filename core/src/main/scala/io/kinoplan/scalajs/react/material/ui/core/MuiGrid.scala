@@ -14,33 +14,35 @@ object MuiGrid extends ReactBridgeComponent with MuiGridExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    alignContent: AlignContent.Value = AlignContent.stretch,
-    alignItems: AlignItems.Value = AlignItems.stretch,
+    alignContent: js.UndefOr[AlignContent.Value] = js.undefined,
+    alignItems: js.UndefOr[AlignItems.Value] = js.undefined,
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: Option[String | js.Function] = Some("div"),
-    container: Boolean = false,
-    direction: Direction.Value = Direction.row,
-    item: Boolean = true,
-    justify: Justify.Value = Justify.flexStart,
-    lg: Boolean | Int = false,
-    md: Boolean | Int = false,
-    sm: Boolean | Int = false,
-    spacing: Spacing.Value = Spacing.zero,
-    wrap: Wrap.Value = Wrap.wrap,
-    xl: Boolean | Int = false,
-    xs: Boolean | Int = false,
-    zeroMinWidth: Boolean = true
+    component: OptComponentPropType = "div",
+    container: js.UndefOr[Boolean] = js.undefined,
+    direction: js.UndefOr[Direction.Value] = js.undefined,
+    item: js.UndefOr[Boolean] = js.undefined,
+    justify: js.UndefOr[Justify.Value] = js.undefined,
+    lg: js.UndefOr[Boolean | Int] = js.undefined,
+    md: js.UndefOr[Boolean | Int] = js.undefined,
+    sm: js.UndefOr[Boolean | Int] = js.undefined,
+    spacing: js.UndefOr[Spacing.Value] = js.undefined,
+    wrap: js.UndefOr[Wrap.Value] = js.undefined,
+    xl: js.UndefOr[Boolean | Int] = js.undefined,
+    xs: js.UndefOr[Boolean | Int] = js.undefined,
+    zeroMinWidth: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiGridExtensions {
   object AlignContent extends Enumeration {
-    val stretch = Value("stretch")
-    val center = Value("center")
-    val flexStart = Value("flex-start")
-    val flexEnd = Value("flex-end")
-    val spaceBetween = Value("space-between")
-    val spaceAround = Value("space-around")
+    type Value = String
+
+    val stretch = "stretch"
+    val center = "center"
+    val flexStart = "flex-start"
+    val flexEnd = "flex-end"
+    val spaceBetween = "space-between"
+    val spaceAround = "space-around"
   }
 
   object AlignItems extends Enumeration {

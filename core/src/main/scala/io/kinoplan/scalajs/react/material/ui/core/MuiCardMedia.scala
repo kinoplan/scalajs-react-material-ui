@@ -4,7 +4,6 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChild
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 object MuiCardMedia extends ReactBridgeComponent with MuiCardMediaExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -15,7 +14,7 @@ object MuiCardMedia extends ReactBridgeComponent with MuiCardMediaExtensions {
 
   def apply(
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: Option[String | js.Function] = Some("div"),
+    component: OptComponentPropType = "div",
     image: Option[String] = None,
     src: Option[String] = None
   ): WithPropsNoChildren = autoNoChildren

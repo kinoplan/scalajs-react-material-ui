@@ -19,7 +19,10 @@ object MuiCollapse extends ReactBridgeComponent with MuiCollapseExtensions {
     collapsedHeight: String = "0px",
     component: Option[String | js.Function] = Some("div"),
     in: Option[Boolean] = None,
-    timeout: Option[Int | Timeout.Value] = Some(transitions.duration.standard)
+    timeout: Option[Int | Timeout.Value] = Some(transitions.duration.standard),
+    mountOnEnter: Option[Boolean] = None,
+    unmountOnExit: Option[Boolean] = None,
+    addEndListener: Option[Boolean] = None
   ): WithProps = auto
 }
 

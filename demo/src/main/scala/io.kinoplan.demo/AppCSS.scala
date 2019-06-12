@@ -6,6 +6,8 @@ import io.kinoplan.demo.styles.demos.Avatars.DefaultAvatarsStyle
 import io.kinoplan.demo.styles.demos.Badges._
 import io.kinoplan.demo.styles.demos.BottomNavigation.DefaultBottomNavigationStyle
 import io.kinoplan.demo.styles.demos.Buttons._
+import io.kinoplan.demo.styles.demos.Cards._
+import io.kinoplan.demo.styles.demos.Chips._
 import scalacss.internal.mutable.GlobalRegistry
 
 object AppCSS {
@@ -30,7 +32,14 @@ object AppCSS {
       DefaultIconLabelButtonsStyle,
       DefaultCustomizedButtonsStyle,
       DefaultButtonBasesStyle,
-      DefaultTabContainerStyle
+      DefaultTabContainerStyle,
+      DefaultSimpleCardStyle,
+      DefaultRecipeReviewCardStyle,
+      DefaultMediaCardStyle,
+      DefaultMediaControlCardStyle,
+      DefaultChipsStyle,
+      DefaultChipsArrayStyle,
+      DefaultChipsPlaygroundStyle
     )
   }
 }
