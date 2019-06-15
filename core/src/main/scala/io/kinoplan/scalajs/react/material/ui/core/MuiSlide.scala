@@ -22,9 +22,11 @@ object MuiSlide extends ReactBridgeComponent with MuiSlideExtensions {
 
 trait MuiSlideExtensions {
   object Direction extends Enumeration {
-    val left = Value("left")
-    val right = Value("right")
-    val up = Value("up")
-    val down = Value("down")
+    type Value = String
+
+    val left = "left"
+    val right = "right"
+    val up = "up"
+    val down = "down"
   }
 }

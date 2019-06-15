@@ -25,9 +25,7 @@ object MuiSwitch extends ReactBridgeComponent with MuiSwitchExtensions with JsWr
     id: Option[String] = None,
     inputProps: js.Object = js.Object(),
     inputRef: Option[js.Function | js.Object] = None,
-    onChange: Option[js.Function] = None,
-    `type`: Option[String] = None,
-    value: Option[String | Int | Boolean] = None
+    `type`: Option[String] = None
   ): WithPropsNoChildren = autoNoChildren
 }
 

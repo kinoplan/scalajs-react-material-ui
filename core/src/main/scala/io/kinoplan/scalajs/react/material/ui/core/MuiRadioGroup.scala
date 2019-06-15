@@ -1,7 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
-import japgolly.scalajs.react.ReactEvent
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -15,10 +14,9 @@ object MuiRadioGroup extends ReactBridgeComponent with MuiRadioGroupExtensions {
 
   def apply(
     classes: Map[ClassKey.Value, String] = Map.empty,
-    defaultValue: Option[String] = None,
-    name: Option[String] = None,
-    onChange: ReactHandler2[ReactEvent, String] = js.undefined,
-    value: Option[String] = None,
+    //defaultValue: Option[String] = None,
+    //name: Option[String] = None,
+    //onChange: ReactHandler2[ReactEvent, String] = js.undefined,
     row: Boolean = false
   ): WithProps = auto
 }

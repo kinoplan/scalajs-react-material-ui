@@ -2,7 +2,6 @@ package io.kinoplan.demo.components.demos.Avatar
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Avatars.{AvatarsStyle, DefaultAvatarsStyle}
-import io.kinoplan.demo.utils.Constants.HOST
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiGrid}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
@@ -18,8 +17,8 @@ object ImageAvatars {
       div(
         ComponentContainer("Image avatars")(
           MuiGrid(justify = MuiGrid.Justify.center, alignItems = MuiGrid.AlignItems.center, container = true)(
-            MuiAvatar(alt = Some("Remy Sharp"), src = Some(s"$HOST/static/images/avatar/1.jpg"))(css.avatar),
-            MuiAvatar(alt = Some("Remy Sharp"), src = Some(s"$HOST/static/images/avatar/1.jpg"))(css.bigAvatar)
+            MuiAvatar(alt = Some("Remy Sharp"), src = Some("/static/images/avatar/1.jpg"))(css.avatar),
+            MuiAvatar(alt = Some("Remy Sharp"), src = Some("/static/images/avatar/1.jpg"))(css.bigAvatar)
           )
         )
       )

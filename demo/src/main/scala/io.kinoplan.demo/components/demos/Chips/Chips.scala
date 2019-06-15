@@ -2,7 +2,6 @@ package io.kinoplan.demo.components.demos.Chips
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Chips.{ChipsStyle, DefaultChipsStyle}
-import io.kinoplan.demo.utils.Constants.HOST
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiChip}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiDoneIcon, MuiFaceIcon}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
@@ -35,7 +34,7 @@ object Chips {
               label = Some("Deletable Chip"),
               avatar = Some(MuiAvatar(
                 alt = Some("Natacha"),
-                src = Some(s"$HOST/static/images/avatar/1.jpg")
+                src = Some("/static/images/avatar/1.jpg")
               )().rawElement),
               onDelete = handleDelete
             )(css.chip),

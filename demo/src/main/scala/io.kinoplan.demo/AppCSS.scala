@@ -8,6 +8,7 @@ import io.kinoplan.demo.styles.demos.BottomNavigation.DefaultBottomNavigationSty
 import io.kinoplan.demo.styles.demos.Buttons._
 import io.kinoplan.demo.styles.demos.Cards._
 import io.kinoplan.demo.styles.demos.Chips._
+import io.kinoplan.demo.styles.demos.Dialogs.{DefaultConfirmationDialogStyle, DefaultDialogsStyle}
 import scalacss.internal.mutable.GlobalRegistry
 
 object AppCSS {
@@ -39,7 +40,9 @@ object AppCSS {
       DefaultMediaControlCardStyle,
       DefaultChipsStyle,
       DefaultChipsArrayStyle,
-      DefaultChipsPlaygroundStyle
+      DefaultChipsPlaygroundStyle,
+      DefaultDialogsStyle,
+      DefaultConfirmationDialogStyle
     )
   }
 }

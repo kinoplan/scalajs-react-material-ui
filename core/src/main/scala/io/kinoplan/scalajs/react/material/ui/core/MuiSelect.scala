@@ -1,13 +1,13 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import japgolly.scalajs.react.ReactEventFromHtml
 import japgolly.scalajs.react.raw.React
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
-object MuiSelect extends ReactBridgeComponent with MuiSelectExtensions {
+object MuiSelect extends ReactBridgeComponent with MuiSelectExtensions with JsWriterImplicits {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "Select")
@@ -18,19 +18,17 @@ object MuiSelect extends ReactBridgeComponent with MuiSelectExtensions {
     autoWidth: Boolean = false,
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
     displayEmpty: Boolean = false,
-    IconComponent: Option[String | js.Function] = Some("ArrowDropDownIcon"),
-    input: Option[React.Element] = None,
-    inputProps: js.Object = js.Object(),
-    MenuProps: js.Object = js.Object(),
+    IconComponent: OptComponentPropType = js.undefined,
+    input: Option[React.Node] = None,
+    inputProps: Map[String, String] = Map.empty,
+    MenuProps: Map[String, String] = Map.empty,
     multiple: Boolean = false,
     native: Boolean = false,
-    onChange: Option[js.Function] = None,
-    onClose: Option[js.Function] = None,
-    onOpen: Option[js.Function] = None,
+    onClose: ReactHandler1[ReactEventFromHtml] = js.undefined,
+    onOpen: ReactHandler1[ReactEventFromHtml] = js.undefined,
     open: Option[Boolean] = None,
     renderValue: Option[js.Function] = None,
     SelectDisplayProps: js.Object = js.Object(),
-    value: Option[String | Int | Boolean | js.Object] = None,
     variant: Option[Variant.Value] = None
   ): WithProps = auto
 }

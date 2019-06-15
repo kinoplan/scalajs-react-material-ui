@@ -1,12 +1,14 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import japgolly.scalajs.react.ReactEvent
+import japgolly.scalajs.react.raw.React
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
 
-object MuiDialog extends ReactBridgeComponent with MuiDialogExtensions {
+object MuiDialog extends ReactBridgeComponent with MuiDialogExtensions with JsWriterImplicits {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "Dialog")
@@ -21,7 +23,7 @@ object MuiDialog extends ReactBridgeComponent with MuiDialogExtensions {
     fullWidth: Boolean = false,
     maxWidth: Option[Boolean | MaxWidth.Value] = Some(MaxWidth.sm),
     onBackdropClick: Option[js.Function] = None,
-    onClose: Option[js.Function] = None,
+    onClose: ReactHandler1[ReactEvent] = js.undefined,
     onEnter: Option[js.Function] = None,
     onEntered: Option[js.Function] = None,
     onEntering: Option[js.Function] = None,
@@ -30,10 +32,10 @@ object MuiDialog extends ReactBridgeComponent with MuiDialogExtensions {
     onExited: Option[js.Function] = None,
     onExiting: Option[js.Function] = None,
     open: Boolean,
-    PaperComponent: Option[String | js.Function] = Some("Paper"),
+    PaperComponent: OptComponentPropType = js.undefined,
     PaperProps: js.Object = js.Object(),
     scroll: Scroll.Value = Scroll.paper,
-    TransitionComponent: Option[String | js.Function] = Some("Fade"),
+    TransitionComponent: js.UndefOr[() => React.ElementType] = js.undefined,
     transitionDuration: Option[Int | js.Object] = None,
     TransitionProps: js.Object = js.Object()
   ): WithProps = auto
@@ -41,16 +43,20 @@ object MuiDialog extends ReactBridgeComponent with MuiDialogExtensions {
 
 trait MuiDialogExtensions {
   object MaxWidth extends Enumeration {
-    val xs = Value("xs")
-    val sm = Value("sm")
-    val md = Value("md")
-    val lg = Value("lg")
-    val xl = Value("xl")
+    type Value = String
+
+    val xs = "xs"
+    val sm = "sm"
+    val md = "md"
+    val lg = "lg"
+    val xl = "xl"
   }
 
   object Scroll extends Enumeration {
-    val body = Value("body")
-    val paper = Value("paper")
+    type Value = String
+
+    val body = "body"
+    val paper = "paper"
   }
 
   object ClassKey extends Enumeration {

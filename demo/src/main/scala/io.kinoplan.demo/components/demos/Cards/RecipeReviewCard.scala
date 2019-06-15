@@ -2,7 +2,6 @@ package io.kinoplan.demo.components.demos.Cards
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Cards.{DefaultRecipeReviewCardStyle, RecipeReviewCardStyle}
-import io.kinoplan.demo.utils.Constants.HOST
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiCard, MuiCardActions, MuiCardContent, MuiCardHeader, MuiCardMedia, MuiCollapse, MuiIconButton, MuiTypography}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiExpandMoreIcon, MuiFavoriteIcon, MuiMoreVertIcon, MuiShareIcon}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
@@ -43,7 +42,7 @@ object RecipeReviewCard {
               subheader = Some("September 14, 2016")
             ),
             MuiCardMedia(
-              image = Some(s"$HOST/static/images/cards/paella.jpg")
+              image = Some(s"/static/images/cards/paella.jpg")
             )(css.media,
               title := "Paella dish"
             ),

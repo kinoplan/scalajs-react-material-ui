@@ -2,7 +2,6 @@ package io.kinoplan.demo.components.demos.Cards
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Cards.{DefaultMediaControlCardStyle, MediaControlCardStyle}
-import io.kinoplan.demo.utils.Constants.HOST
 import io.kinoplan.scalajs.react.material.ui.core.styles.Direction
 import io.kinoplan.scalajs.react.material.ui.core.{MuiCard, MuiCardContent, MuiCardMedia, MuiIconButton, MuiTypography}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiPlayArrowIcon, MuiSkipNextIcon, MuiSkipPreviousIcon}
@@ -45,7 +44,7 @@ object MediaControlCard {
               )
             ),
             MuiCardMedia(
-              image = Some(s"$HOST/static/images/cards/live-from-space.jpg")
+              image = Some("/static/images/cards/live-from-space.jpg")
             )(css.cover,
               title := "Live from space album cover"
             )

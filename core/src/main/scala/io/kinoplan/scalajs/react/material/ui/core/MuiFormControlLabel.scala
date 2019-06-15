@@ -24,8 +24,7 @@ object MuiFormControlLabel extends ReactBridgeComponent with MuiFormControlLabel
     label: Option[VdomNode] = None,
     labelPlacement: LabelPlacement.Value = LabelPlacement.end,
     name: Option[String] = None,
-    onChange: Option[js.Function] = None,
-    value: Option[String] = None
+    onChange: Option[js.Function] = None
   ): WithProps = auto
 }
 

@@ -2,11 +2,10 @@ package io.kinoplan.demo.components.demos.Chips
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Chips.{ChipsPlaygroundStyle, DefaultChipsPlaygroundStyle}
-import io.kinoplan.demo.utils.Constants.HOST
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiChip, MuiFormControl, MuiFormControlLabel, MuiFormLabel, MuiGrid, MuiPaper, MuiRadio, MuiRadioGroup}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiDoneIcon, MuiFaceIcon}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromInput, ScalaComponent}
 import scalacss.ScalaCssReact._
 
 object ChipsPlayground {
@@ -37,23 +36,33 @@ object ChipsPlayground {
   }
 
   class Backend(t: BackendScope[Props, State]) {
-    def handleChangeColor: (ReactEvent, String) => Callback = (_, value) => {
+    def handleChangeColor: ReactEventFromInput => Callback = e => {
+      val value = e.target.value
+
       t.modState(_.handleChangeColor(value))
     }
 
-    def handleChangeOnDelete: (ReactEvent, String) => Callback = (_, value) => {
+    def handleChangeOnDelete: ReactEventFromInput => Callback = e => {
+      val value = e.target.value
+
       t.modState(_.handleChangeOnDelete(value))
     }
 
-    def handleChangeAvatar: (ReactEvent, String) => Callback = (_, value) => {
+    def handleChangeAvatar: ReactEventFromInput => Callback = e => {
+      val value = e.target.value
+
       t.modState(_.handleChangeAvatar(value))
     }
 
-    def handleChangeIcon: (ReactEvent, String) => Callback = (_, value) => {
+    def handleChangeIcon: ReactEventFromInput => Callback = e => {
+      val value = e.target.value
+
       t.modState(_.handleChangeIcon(value))
     }
 
-    def handleChangeVariant: (ReactEvent, String) => Callback = (_, value) => {
+    def handleChangeVariant: ReactEventFromInput => Callback = e => {
+      val value = e.target.value
+
       t.modState(_.handleChangeVariant(value))
     }
 
@@ -75,7 +84,7 @@ object ChipsPlayground {
 
       val avatarToPlayground = state.avatar match {
         case "none" => None
-        case "img" => Some(MuiAvatar(src = Some(s"$HOST/static/images/avatar/1.jpg"))().rawElement)
+        case "img" => Some(MuiAvatar(src = Some("/static/images/avatar/1.jpg"))().rawElement)
         case "letter" => Some(MuiAvatar()("FH").rawElement)
         case _ => Some(MuiAvatar()(MuiFaceIcon()).rawElement)
       }
@@ -109,135 +118,111 @@ object ChipsPlayground {
                   MuiGrid(item = true, xs = 12)(
                     MuiFormControl(component = "fieldset")(
                       MuiFormLabel()("color"),
-                      MuiRadioGroup(
-                        row = true,
-                        name = Some("color"),
-                        value = Some(state.color),
-                        onChange = handleChangeColor
-                      )(
+                      MuiRadioGroup(row = true)(
+                        name := "color",
+                        value := state.color,
+                        onChange ==> handleChangeColor,
                         aria.label := "color",
                         MuiFormControlLabel(
-                          value = Some("default"),
                           control = Some(MuiRadio()().rawElement),
                           label = Some("default")
-                        ),
+                        )(value := "default"),
                         MuiFormControlLabel(
-                          value = Some("primary"),
                           control = Some(MuiRadio()().rawElement),
                           label = Some("primary")
-                        ),
+                        )(value := "primary"),
                         MuiFormControlLabel(
-                          value = Some("secondary"),
                           control = Some(MuiRadio()().rawElement),
                           label = Some("secondary")
-                        )
+                        )(value := "secondary")
                       )
                     )
                   ),
                   MuiGrid(item = true, xs = 12)(
                     MuiFormControl(component = "fieldset")(
                       MuiFormLabel()("onDelete"),
-                      MuiRadioGroup(
-                        row = true,
-                        name = Some("onDelete"),
-                        value = Some(state.onDelete),
-                        onChange = handleChangeOnDelete
-                      )(
+                      MuiRadioGroup(row = true)(
+                        name := "onDelete",
+                        value := state.onDelete,
+                        onChange ==> handleChangeOnDelete,
                         aria.label := "onDelete",
                         MuiFormControlLabel(
-                          value = Some("none"),
                           control = Some(MuiRadio()().rawElement),
                           label = Some("none")
-                        ),
+                        )(value := "none"),
                         MuiFormControlLabel(
-                          value = Some("default"),
                           control = Some(MuiRadio()().rawElement),
                           label = Some("default")
-                        ),
+                        )(value := "default"),
                         MuiFormControlLabel(
-                          value = Some("custom"),
                           control = Some(MuiRadio()().rawElement),
                           label = Some("custom")
-                        )
+                        )(value := "custom")
                       )
                     )
                   ),
                   MuiGrid(item = true, xs = 12)(
                     MuiFormControl(component = "fieldset")(
                       MuiFormLabel()("icon"),
-                      MuiRadioGroup(
-                        row = true,
-                        name = Some("icon"),
-                        value = Some(state.icon),
-                        onChange = handleChangeIcon
-                      )(
+                      MuiRadioGroup(row = true)(
+                        name := "icon",
+                        value := state.icon,
+                        onChange ==> handleChangeIcon,
                         aria.label := "icon",
                         MuiFormControlLabel(
-                          value = Some("none"),
                           control = Some(MuiRadio()().rawElement),
                           label = Some("none")
-                        ),
+                        )(value := "none"),
                         MuiFormControlLabel(
-                          value = Some("icon"),
                           control = Some(MuiRadio()().rawElement),
                           label = Some("icon")
-                        )
+                        )(value := "icon")
                       )
                     )
                   ),
                   MuiGrid(item = true, xs = 12)(
                     MuiFormControl(component = "fieldset")(
                       MuiFormLabel()("avatar"),
-                      MuiRadioGroup(
-                        row = true,
-                        name = Some("avatar"),
-                        value = Some(state.avatar),
-                        onChange = handleChangeAvatar
-                      )(
+                      MuiRadioGroup(row = true)(
+                        name := "avatar",
+                        value := state.avatar,
+                        onChange ==> handleChangeAvatar,
                         aria.label := "avatar",
                         MuiFormControlLabel(
-                          value = Some("none"),
                           control = Some(MuiRadio()().rawElement),
                           label = Some("none")
-                        ),
+                        )(value := "none"),
                         MuiFormControlLabel(
-                          value = Some("letter"),
                           control = Some(MuiRadio()().rawElement),
                           label = Some("letter")
-                        ),
+                        )(value := "letter"),
                         MuiFormControlLabel(
-                          value = Some("img"),
                           control = Some(MuiRadio()().rawElement),
                           label = Some("img")
-                        ),
+                        )(value := "img"),
                         MuiFormControlLabel(
-                          value = Some("icon"),
                           control = Some(MuiRadio()().rawElement),
                           label = Some("icon")
-                        )
+                        )(value := "icon")
                       )
                     )
                   ),
                   MuiGrid(item = true, xs = 12)(
                     MuiFormControl(component = "fieldset")(
                       MuiFormLabel()("variant"),
-                      MuiRadioGroup(
-                        row = true,
-                        name = Some("variant"),
-                        value = Some(state.variant),
-                        onChange = handleChangeVariant
-                      )(
+                      MuiRadioGroup(row = true)(
+                        name := "variant",
+                        value := state.variant,
+                        onChange ==> handleChangeVariant,
                         aria.label := "variant",
                         MuiFormControlLabel(
-                          value = Some("default"),
                           control = Some(MuiRadio()().rawElement),
                           label = Some("default")
-                        ),
+                        )(value := "default"),
                         MuiFormControlLabel(
-                          value = Some("outlined"),
                           control = Some(MuiRadio()().rawElement),
                           label = Some("outlined")
-                        )
+                        )(value := "outlined")
                       )
                     )
                   )

@@ -69,15 +69,6 @@ case class ButtonBasesStyle(common: CommonButtonStyle = DefaultCommonButtonStyle
     transition := opacityTransition
   )
 
-  //private def pseudoElement(value: String) = Pseudo.Custom(value, PseudoType.Element)
-
-  //private val focusVisiblePseudo = pseudoElement(s" ${focusVisible.htmlClass}")
-  //private val imageBackdropPseudo = pseudoElement(s" ${imageBackdrop.htmlClass}")
-  //private val imageMarkedPseudo = pseudoElement(s" ${imageMarked.htmlClass}")
-  //private val imageTitlePseudo = pseudoElement(s" ${imageTitle.htmlClass}")
-
-  //private val quotePseudo = pseudoElement(" ")
-
   private val imagePreliminary = style(
     position.relative,
     height(200.px),
@@ -121,4 +112,3 @@ case class ButtonBasesStyle(common: CommonButtonStyle = DefaultCommonButtonStyle
 }
 
 object DefaultButtonBasesStyle extends ButtonBasesStyle
-

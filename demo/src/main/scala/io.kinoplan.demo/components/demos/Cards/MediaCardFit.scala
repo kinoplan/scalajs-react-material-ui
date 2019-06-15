@@ -2,7 +2,6 @@ package io.kinoplan.demo.components.demos.Cards
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Cards.{DefaultMediaCardStyle, MediaCardStyle}
-import io.kinoplan.demo.utils.Constants.HOST
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiCard, MuiCardActionArea, MuiCardActions, MuiCardContent, MuiCardMedia, MuiTypography}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
@@ -21,7 +20,7 @@ object MediaCardFit {
             MuiCardActionArea()(
               MuiCardMedia(
                 component = "img",
-                image = Some(s"$HOST/static/images/cards/contemplative-reptile.jpg")
+                image = Some(s"/static/images/cards/contemplative-reptile.jpg")
               )(css.mediaFit,
                 alt := "Contemplative Reptile",
                 height := "140",
