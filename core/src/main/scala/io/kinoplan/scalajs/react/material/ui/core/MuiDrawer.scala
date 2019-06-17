@@ -1,6 +1,7 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import japgolly.scalajs.react.ReactEventFromHtml
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -18,7 +19,7 @@ object MuiDrawer extends ReactBridgeComponent with MuiDrawerExtensions with JsWr
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
     elevation: Int = 16,
     ModalProps: js.Object = js.Object(),
-    onClose: Option[js.Function] = None,
+    onClose: ReactHandler1[ReactEventFromHtml] = js.undefined,
     open: Boolean = false,
     PaperProps: js.Object = js.Object(),
     SlideProps: js.Object = js.Object(),
@@ -27,8 +28,7 @@ object MuiDrawer extends ReactBridgeComponent with MuiDrawerExtensions with JsWr
   ): WithProps = auto
 }
 
-trait MuiDrawerExtensions extends JsWriterImplicits {
-
+trait MuiDrawerExtensions {
   object Anchor extends Enumeration {
     val left = Value("left")
     val top = Value("top")

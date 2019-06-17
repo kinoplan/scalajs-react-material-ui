@@ -69,4 +69,3 @@ object ConfirmationDialog {
 
   def apply(style: ConfirmationDialogStyle = DefaultConfirmationDialogStyle) = component(Props(style))
 }
-

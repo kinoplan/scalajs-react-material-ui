@@ -5,7 +5,6 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 object MuiList extends ReactBridgeComponent with MuiListExtensions with JsWriterImplicits {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -16,7 +15,7 @@ object MuiList extends ReactBridgeComponent with MuiListExtensions with JsWriter
 
   def apply(
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: Option[String | js.Function] = Some("ul"),
+    component: OptComponentPropType = js.undefined,
     dense: Boolean = false,
     disablePadding: Boolean = false,
     subheader: Option[VdomNode] = None

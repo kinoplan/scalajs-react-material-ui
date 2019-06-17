@@ -1,5 +1,8 @@
 package io.kinoplan.scalajs.react.material.ui.core.styles
 
 object Direction extends Enumeration {
-  val ltr, rtl = Value
+  type Value = String
+
+  val ltr = "ltr"
+  val rtl = "rtl"
 }

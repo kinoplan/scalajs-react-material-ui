@@ -4,7 +4,6 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChild
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 object MuiDivider extends ReactBridgeComponent with MuiDividerExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -15,8 +14,8 @@ object MuiDivider extends ReactBridgeComponent with MuiDividerExtensions {
 
   def apply(
     absolute: Boolean = false,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: Option[String | js.Function] = Some("hr"),
+    classes: Map[ClassKey.Value, String] = Map.empty,
+    component: OptComponentPropType = js.undefined,
     inset: Option[Boolean] = None,
     light: Boolean = false,
     variant: Variant.Value = Variant.fullWidth
@@ -25,13 +24,15 @@ object MuiDivider extends ReactBridgeComponent with MuiDividerExtensions {
 
 trait MuiDividerExtensions {
   object Variant extends Enumeration {
-    val fullWidth = Value("fullWidth")
-    val inset = Value("inset")
-    val middle = Value("middle")
+    type Value = String
+
+    val fullWidth = "fullWidth"
+    val inset = "inset"
+    val middle = "middle"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val absolute = "absolute"

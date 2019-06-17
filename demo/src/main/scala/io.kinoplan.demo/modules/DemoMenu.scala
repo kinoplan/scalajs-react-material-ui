@@ -18,7 +18,7 @@ object DemoMenu {
       val css = props.style
 
       VdomArray(
-        MuiList(component = Some("div"), disablePadding = true)(Attr("key") := 2,
+        MuiList(component = "div", disablePadding = true)(Attr("key") := 2,
           DemoMenuItem.demos.toVdomArray { item =>
             MuiListItem(button = true)(css.nested,
               Attr("key") := item.idx,

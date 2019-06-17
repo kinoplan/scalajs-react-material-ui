@@ -15,18 +15,18 @@ object MuiHidden extends ReactBridgeComponent with MuiHiddenExtensions {
 
   def apply(
     implementation: Implementation.Value = Implementation.js,
-    initialWidth: Option[Width.Value] = None,
-    lgDown: Boolean = false,
-    lgUp: Boolean = false,
-    mdDown: Boolean = false,
-    mdUp: Boolean = false,
-    only: Option[Width.Value | js.Array[Width.Value]] = None,
-    smDown: Boolean = false,
-    smUp: Boolean = false,
-    xlDown: Boolean = false,
-    xlUp: Boolean = false,
-    xsDown: Boolean = false,
-    xsUp: Boolean = false
+    initialWidth: js.UndefOr[Width.Value] = js.undefined,
+    lgDown: js.UndefOr[Boolean] = js.undefined,
+    lgUp: js.UndefOr[Boolean] = js.undefined,
+    mdDown: js.UndefOr[Boolean] = js.undefined,
+    mdUp: js.UndefOr[Boolean] = js.undefined,
+    only: js.UndefOr[Width.Value | js.Array[Width.Value]] = js.undefined,
+    smDown: js.UndefOr[Boolean] = js.undefined,
+    smUp: js.UndefOr[Boolean] = js.undefined,
+    xlDown: js.UndefOr[Boolean] = js.undefined,
+    xlUp: js.UndefOr[Boolean] = js.undefined,
+    xsDown: js.UndefOr[Boolean] = js.undefined,
+    xsUp: js.UndefOr[Boolean] = js.undefined,
   ): WithProps = auto
 }
 

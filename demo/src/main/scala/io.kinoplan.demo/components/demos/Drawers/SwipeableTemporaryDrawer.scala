@@ -1,0 +1,164 @@
+package io.kinoplan.demo.components.demos.Drawers
+
+import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.styles.demos.Drawers.{DefaultDrawersStyle, DrawersStyle}
+import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiDivider, MuiList, MuiListItem, MuiListItemIcon, MuiListItemText, MuiSwipeableDrawer}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiInboxIcon, MuiMailIcon}
+import japgolly.scalajs.react.vdom.Attr
+import japgolly.scalajs.react.vdom.all._
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEventFromHtml, ScalaComponent}
+import scalacss.ScalaCssReact._
+
+object SwipeableTemporaryDrawer {
+  case class Props(style: DrawersStyle)
+
+  case class State(
+    top: Boolean = false,
+    left: Boolean = false,
+    bottom: Boolean = false,
+    right: Boolean = false
+  ) {
+    def toggleDrawerTop(value: Boolean) = copy(top = value)
+
+    def toggleDrawerLeft(value: Boolean) = copy(left = value)
+
+    def toggleDrawerBottom(value: Boolean) = copy(bottom = value)
+
+    def toggleDrawerRight(value: Boolean) = copy(right = value)
+  }
+
+  class Backend(t: BackendScope[Props, State]) {
+    def toggleDrawerTop(value: Boolean): ReactEventFromHtml => Callback = _ => {
+      t.modState(_.toggleDrawerTop(value))
+    }
+
+    def toggleDrawerLeft(value: Boolean): ReactEventFromHtml => Callback = _ => {
+      t.modState(_.toggleDrawerLeft(value))
+    }
+
+    def toggleDrawerBottom(value: Boolean): ReactEventFromHtml => Callback = _ => {
+      t.modState(_.toggleDrawerBottom(value))
+    }
+
+    def toggleDrawerRight(value: Boolean): ReactEventFromHtml => Callback = _ => {
+      t.modState(_.toggleDrawerRight(value))
+    }
+
+    def render(props: Props, state: State): VdomElement = {
+      val css = props.style
+
+      val sideList = {
+        div()(css.list,
+          MuiList()(
+            List("Inbox", "Starred", "Send email", "Drafts").zipWithIndex.toVdomArray { case (text, index) =>
+              MuiListItem(button = true)(Attr("key") := text,
+                MuiListItemIcon()(if (index % 2 == 0) MuiInboxIcon() else MuiMailIcon()),
+                MuiListItemText(primary = Some(text))
+              )
+            }
+          ),
+          MuiDivider(),
+          MuiList()(
+            List("All mail", "Trash", "Spam").zipWithIndex.toVdomArray { case (text, index) =>
+              MuiListItem(button = true)(Attr("key") := text,
+                MuiListItemIcon()(if (index % 2 == 0) MuiInboxIcon() else MuiMailIcon()),
+                MuiListItemText(primary = Some(text))
+              )
+            }
+          )
+        )
+      }
+
+      val fullList = {
+        div()(css.fullList,
+          MuiList()(
+            List("Inbox", "Starred", "Send email", "Drafts").zipWithIndex.toVdomArray { case (text, index) =>
+              MuiListItem(button = true)(Attr("key") := text,
+                MuiListItemIcon()(if (index % 2 == 0) MuiInboxIcon() else MuiMailIcon()),
+                MuiListItemText(primary = Some(text))
+              )
+            }
+          ),
+          MuiDivider(),
+          MuiList()(
+            List("All mail", "Trash", "Spam").zipWithIndex.toVdomArray { case (text, index) =>
+              MuiListItem(button = true)(Attr("key") := text,
+                MuiListItemIcon()(if (index % 2 == 0) MuiInboxIcon() else MuiMailIcon()),
+                MuiListItemText(primary = Some(text))
+              )
+            }
+          )
+        )
+      }
+
+      div(
+        ComponentContainer("Temporary drawer")(
+          div(
+            MuiButton()(onClick ==> toggleDrawerLeft(true), "Open Left"),
+            MuiButton()(onClick ==> toggleDrawerRight(true), "Open Right"),
+            MuiButton()(onClick ==> toggleDrawerTop(true), "Open Top"),
+            MuiButton()(onClick ==> toggleDrawerBottom(true), "Open Bottom"),
+            MuiSwipeableDrawer(open = state.left, onClose = toggleDrawerLeft(false), onOpen = toggleDrawerLeft(true))(
+              div(
+                tabIndex := 0,
+                role := "button",
+                onClick ==> toggleDrawerLeft(false),
+                onKeyDown ==> toggleDrawerLeft(false),
+                sideList
+              )
+            ),
+            MuiSwipeableDrawer(
+              anchor = MuiSwipeableDrawer.Anchor.top,
+              open = state.top,
+              onClose = toggleDrawerTop(false),
+              onOpen = toggleDrawerTop(true)
+            )(
+              div(
+                tabIndex := 0,
+                role := "button",
+                onClick ==> toggleDrawerTop(false),
+                onKeyDown ==> toggleDrawerTop(false),
+                fullList
+              )
+            ),
+            MuiSwipeableDrawer(
+              anchor = MuiSwipeableDrawer.Anchor.bottom,
+              open = state.bottom,
+              onClose = toggleDrawerBottom(false),
+              onOpen = toggleDrawerBottom(true)
+            )(
+              div(
+                tabIndex := 0,
+                role := "button",
+                onClick ==> toggleDrawerBottom(false),
+                onKeyDown ==> toggleDrawerBottom(false),
+                fullList
+              )
+            ),
+            MuiSwipeableDrawer(
+              anchor = MuiSwipeableDrawer.Anchor.right,
+              open = state.right,
+              onClose = toggleDrawerRight(false),
+              onOpen = toggleDrawerRight(true)
+            )(
+              div(
+                tabIndex := 0,
+                role := "button",
+                onClick ==> toggleDrawerRight(false),
+                onKeyDown ==> toggleDrawerRight(false),
+                sideList
+              )
+            )
+          )
+        )
+      )
+    }
+  }
+
+  private val component = ScalaComponent.builder[Props]("SwipeableTemporaryDrawer")
+    .initialState(State())
+    .renderBackend[Backend]
+    .build
+
+  def apply(style: DrawersStyle = DefaultDrawersStyle) = component(Props(style))
+}
