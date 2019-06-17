@@ -1,6 +1,5 @@
 package io.kinoplan.demo.components
 
-import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.modules.MainMenu
 import io.kinoplan.demo.router.AppRouter.Page
 import io.kinoplan.demo.styles.{DefaultLayoutStyle, LayoutStyle}
@@ -55,7 +54,10 @@ object Layout {
 
       val drawerClasses = Map(
         MuiDrawer.ClassKey.paper -> stylesToClassName(
-          Seq(css.drawerPaper, if (!state.open) css.drawerPaperClose else css.common.emptyStyle)
+          Seq(
+            if (state.open) css.drawerPaperOpen else css.common.emptyStyle,
+            if (!state.open) css.drawerPaperClose else css.common.emptyStyle
+          )
         )
       )
 
@@ -66,9 +68,9 @@ object Layout {
       div(css.root,
         MuiThemeProvider(theme = theme)(
           MuiCssBaseline(),
-          MuiAppBar(position = MuiAppBar.Position.absolute, color = MuiAppBar.Color.primary)(css.appBar + appBarShift,
-            MuiToolbar(disableGutters = !state.open)(css.toolbar,
-              MuiIconButton(color = MuiIconButton.Color.inherit)(css.menuButton + menuButtonHidden,
+          MuiAppBar(position = MuiAppBar.Position.fixed)(css.appBar, appBarShift,
+            MuiToolbar(disableGutters = !state.open)(
+              MuiIconButton(color = MuiIconButton.Color.inherit)(css.menuButton, menuButtonHidden,
                 aria.label := "Open drawer",
                 onClick --> handleDrawerOpen,
                 MuiMenuIcon()
@@ -97,8 +99,10 @@ object Layout {
               )
             )
           ),
-          MuiDrawer(variant = MuiDrawer.Variant.permanent, open = state.open, classes = drawerClasses)(
-            div(css.toolbarIcon,
+          MuiDrawer(variant = MuiDrawer.Variant.permanent, open = state.open, classes = drawerClasses)(css.drawer,
+            if (state.open) css.drawerPaperOpen else css.common.emptyStyle,
+            if (!state.open) css.drawerPaperClose else css.common.emptyStyle,
+            div(css.toolbar,
               MuiIconButton()(onClick --> handleDrawerClose,
                 MuiChevronLeftIcon()
               )
@@ -106,7 +110,7 @@ object Layout {
             MainMenu(props.router, props.r)
           ),
           main(css.content,
-            div(css.appBarSpacer),
+            div(css.toolbar),
             props.r.render()
           )
         )
