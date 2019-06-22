@@ -11,6 +11,7 @@ import io.kinoplan.demo.styles.demos.Chips._
 import io.kinoplan.demo.styles.demos.Dialogs.{DefaultConfirmationDialogStyle, DefaultDialogsStyle}
 import io.kinoplan.demo.styles.demos.Dividers.DefaultDividersStyle
 import io.kinoplan.demo.styles.demos.Drawers._
+import io.kinoplan.demo.styles.demos.ExpansionPanels._
 import scalacss.internal.mutable.GlobalRegistry
 
 object AppCSS {
@@ -49,7 +50,11 @@ object AppCSS {
       DefaultDrawersStyle,
       DefaultResponsiveDrawerStyle,
       DefaultPersistentDrawerStyle,
-      DefaultMiniDrawerStyle
+      DefaultMiniDrawerStyle,
+      DefaultSimpleExpansionPanelStyle,
+      DefaultControlledExpansionPanelsStyle,
+      DefaultDetailedExpansionPanelStyle,
+      DefaultCustomizedExpansionPanelStyle
     )
   }
 }

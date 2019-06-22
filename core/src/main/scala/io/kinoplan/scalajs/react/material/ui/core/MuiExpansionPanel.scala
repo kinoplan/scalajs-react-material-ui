@@ -18,7 +18,9 @@ object MuiExpansionPanel extends ReactBridgeComponent with MuiExpansionPanelExte
     defaultExpanded: Boolean = false,
     disabled: Boolean = false,
     expanded: Option[Boolean] = None,
-    onChange: Option[js.Function] = None
+    component: OptComponentPropType = "div",
+    elevation: Int = 2,
+    square: Boolean = false
   ): WithProps = auto
 }
 

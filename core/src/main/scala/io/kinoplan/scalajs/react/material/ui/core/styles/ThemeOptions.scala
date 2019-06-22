@@ -16,7 +16,7 @@ trait ThemeOptions extends js.Object {
   def shadows: js.UndefOr[js.Array[String]] = js.native
   def spacing: js.UndefOr[SpacingOptions] = js.native
   def transitions: js.UndefOr[TransitionsOptions] = js.native
-  def typography: js.UndefOr[TypographyOptions | js.Function1[Palette, TypographyOptions]] = js.native
+  def typography: js.UndefOr[TypographyOptions | Palette => TypographyOptions] = js.native
   def zIndex: js.UndefOr[ZIndexOptions] = js.native
 }
 

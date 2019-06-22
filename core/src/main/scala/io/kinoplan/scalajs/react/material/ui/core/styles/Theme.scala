@@ -2,7 +2,6 @@ package io.kinoplan.scalajs.react.material.ui.core.styles
 
 import scala.scalajs.js
 import scala.scalajs.js.JSConverters._
-import scala.scalajs.js.|
 
 @js.native
 trait Theme extends js.Object {
@@ -14,7 +13,7 @@ trait Theme extends js.Object {
   def palette: Palette = js.native
   def props: js.Object = js.native
   def shadows: js.Array[String] = js.native
-  def typography: Typography | js.Function1[Palette, Typography] = js.native
+  def typography: Typography = js.native
   def transitions: Transitions = js.native
   def spacing: Spacing = js.native
   def zIndex: ZIndex = js.native

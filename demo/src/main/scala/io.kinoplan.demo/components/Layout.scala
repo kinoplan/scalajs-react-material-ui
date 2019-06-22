@@ -43,8 +43,7 @@ object Layout {
 
       val theme = createMuiTheme(options = ThemeOptions(
         typography = Some(TypographyOptions(
-          useNextVariants = Some(true),
-          suppressDeprecationWarnings = Some(true)
+          useNextVariants = Some(true)
         )),
         palette = Some(PaletteOptions(
           `type` = Some(state.paletteType),
