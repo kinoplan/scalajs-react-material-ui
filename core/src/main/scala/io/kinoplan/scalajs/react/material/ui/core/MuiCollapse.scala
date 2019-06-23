@@ -17,7 +17,7 @@ object MuiCollapse extends ReactBridgeComponent with MuiCollapseExtensions {
   def apply(
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
     collapsedHeight: String = "0px",
-    component: Option[String | js.Function] = Some("div"),
+    component: OptComponentPropType = "div",
     in: Option[Boolean] = None,
     timeout: Option[Int | Timeout.Value] = Some(transitions.duration.standard),
     mountOnEnter: Option[Boolean] = None,

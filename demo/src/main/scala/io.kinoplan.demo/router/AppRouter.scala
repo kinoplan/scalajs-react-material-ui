@@ -19,6 +19,8 @@ object AppRouter {
   case object DemoDividersRoute extends Page
   case object DemoDrawersRoute extends Page
   case object DemoExpansionPanelsRoute extends Page
+  case object DemoGridListRoute extends Page
+  case object DemoListsRoute extends Page
 
   val routerConfig = RouterConfigDsl[Page].buildConfig { dsl =>
     import dsl._
@@ -36,6 +38,8 @@ object AppRouter {
       | staticRoute("/#demos/dividers/", DemoDividersRoute) ~> renderR(DividersPage(_))
       | staticRoute("/#demos/drawers/", DemoDrawersRoute) ~> renderR(DrawersPage(_))
       | staticRoute("/#demos/expansion-panels/", DemoExpansionPanelsRoute) ~> renderR(ExpansionPanelsPage(_))
+      | staticRoute("/#demos/grid-list/", DemoGridListRoute) ~> renderR(GridListPage(_))
+      | staticRoute("/#demos/lists/", DemoListsRoute) ~> renderR(ListsPage(_))
     ).notFound(redirectToPage(DashboardRoute)(Redirect.Replace))
   }.renderWith(layout)
 

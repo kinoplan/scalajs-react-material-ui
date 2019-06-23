@@ -17,8 +17,8 @@ object ImageAvatars {
       div(
         ComponentContainer("Image avatars")(
           MuiGrid(justify = MuiGrid.Justify.center, alignItems = MuiGrid.AlignItems.center, container = true)(
-            MuiAvatar(alt = Some("Remy Sharp"), src = Some("/static/images/avatar/1.jpg"))(css.avatar),
-            MuiAvatar(alt = Some("Remy Sharp"), src = Some("/static/images/avatar/1.jpg"))(css.bigAvatar)
+            MuiAvatar()(css.avatar, alt := "Remy Sharp", src := "/static/images/avatar/1.jpg"),
+            MuiAvatar()(css.bigAvatar, alt := "Remy Sharp", src := "/static/images/avatar/1.jpg")
           )
         )
       )

@@ -1,0 +1,52 @@
+package io.kinoplan.demo.components.demos.Lists
+
+import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.styles.demos.Lists.{DefaultListStyle, ListStyle}
+import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiList, MuiListItem, MuiListItemText}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiBeachAccessIcon, MuiImageIcon, MuiWorkIcon}
+import japgolly.scalajs.react.vdom.all._
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import scalacss.ScalaCssReactImplicits
+
+object FolderList extends ScalaCssReactImplicits {
+  case class Props(style: ListStyle)
+
+  class Backend(t: BackendScope[Props, Unit]) {
+    def render(props: Props): VdomElement = {
+      val css = props.style
+
+      div(
+        ComponentContainer("Folder List")(
+          div(css.root,
+            MuiList()(
+              MuiListItem()(
+                MuiAvatar()(
+                  MuiImageIcon()
+                ),
+                MuiListItemText(primary = Some("Photos"), secondary = Some("Jan 9, 2014"))
+              ),
+              MuiListItem()(
+                MuiAvatar()(
+                  MuiWorkIcon()
+                ),
+                MuiListItemText(primary = Some("Work"), secondary = Some("Jan 7, 2014"))
+              ),
+              MuiListItem()(
+                MuiAvatar()(
+                  MuiBeachAccessIcon()
+                ),
+                MuiListItemText(primary = Some("Vacation"), secondary = Some("July 20, 2014"))
+              )
+            )
+          )
+        )
+      )
+    }
+  }
+
+  private val component = ScalaComponent.builder[Props]("FolderList")
+    .renderBackend[Backend]
+    .build
+
+  def apply(style: ListStyle = DefaultListStyle) = component(Props(style))
+}

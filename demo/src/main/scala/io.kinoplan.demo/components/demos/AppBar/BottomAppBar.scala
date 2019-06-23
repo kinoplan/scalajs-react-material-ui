@@ -31,7 +31,7 @@ object BottomAppBar {
                       if (message.id == 1) MuiListSubheader()(css.subHeader, "Today") else EmptyVdom,
                       if (message.id == 3) MuiListSubheader()(css.subHeader, "Yesterday") else EmptyVdom,
                       MuiListItem(button = true)(
-                        MuiAvatar(alt = Some("Profile Picture"), src = Some(message.person)),
+                        MuiAvatar()(alt := "Profile Picture", src := message.person),
                         MuiListItemText(primary = Some(VdomNode(message.primary)), secondary = Some(VdomNode(message.secondary)))
                       )
                     )

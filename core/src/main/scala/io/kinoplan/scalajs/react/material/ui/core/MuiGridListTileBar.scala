@@ -6,10 +6,10 @@ import japgolly.scalajs.react.vdom.html_<^._
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-object MuiGridListTitleBar extends ReactBridgeComponent with MuiGridListTitleBarExtensions with JsWriterImplicits {
+object MuiGridListTileBar extends ReactBridgeComponent with MuiGridListTileBarExtensions with JsWriterImplicits {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "GridListTitleBar")
+  @JSImport("@material-ui/core", "GridListTileBar")
   @js.native
   object RawComponent extends js.Function
 
@@ -23,7 +23,7 @@ object MuiGridListTitleBar extends ReactBridgeComponent with MuiGridListTitleBar
   ): WithProps = auto
 }
 
-trait MuiGridListTitleBarExtensions {
+trait MuiGridListTileBarExtensions {
   object ActionPosition extends Enumeration {
     val left = Value("left")
     val right = Value("right")

@@ -4,7 +4,6 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 object MuiListSubheader extends ReactBridgeComponent with MuiListSubheaderExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -16,7 +15,7 @@ object MuiListSubheader extends ReactBridgeComponent with MuiListSubheaderExtens
   def apply(
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
     color: Color.Value = Color.default,
-    component: Option[String | js.Function] = Some("li"),
+    component: OptComponentPropType = "li",
     disableGutters: Boolean = false,
     disableSticky: Boolean = false,
     inset: Boolean = false

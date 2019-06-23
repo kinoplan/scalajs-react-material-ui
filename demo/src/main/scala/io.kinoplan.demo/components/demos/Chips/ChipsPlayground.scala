@@ -84,7 +84,7 @@ object ChipsPlayground {
 
       val avatarToPlayground = state.avatar match {
         case "none" => None
-        case "img" => Some(MuiAvatar(src = Some("/static/images/avatar/1.jpg"))().rawElement)
+        case "img" => Some(MuiAvatar()(src := "/static/images/avatar/1.jpg")().rawElement)
         case "letter" => Some(MuiAvatar()("FH").rawElement)
         case _ => Some(MuiAvatar()(MuiFaceIcon()).rawElement)
       }
@@ -97,7 +97,7 @@ object ChipsPlayground {
                 container = true,
                 justify = MuiGrid.Justify.center,
                 alignItems = MuiGrid.AlignItems.center,
-                spacing = MuiGrid.Spacing.forty
+                spacing = MuiGrid.Spacing.`40`
               )(
                 MuiGrid(item = true)(css.chipWrapper,
                   MuiChip(
@@ -114,7 +114,7 @@ object ChipsPlayground {
             ),
             MuiGrid(item = true, xs = 12)(
               MuiPaper()(css.control,
-                MuiGrid(item = true, container = true, spacing = MuiGrid.Spacing.twentyFour)(
+                MuiGrid(item = true, container = true, spacing = MuiGrid.Spacing.`24`)(
                   MuiGrid(item = true, xs = 12)(
                     MuiFormControl(component = "fieldset")(
                       MuiFormLabel()("color"),

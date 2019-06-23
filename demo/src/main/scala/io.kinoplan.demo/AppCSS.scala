@@ -12,6 +12,8 @@ import io.kinoplan.demo.styles.demos.Dialogs.{DefaultConfirmationDialogStyle, De
 import io.kinoplan.demo.styles.demos.Dividers.DefaultDividersStyle
 import io.kinoplan.demo.styles.demos.Drawers._
 import io.kinoplan.demo.styles.demos.ExpansionPanels._
+import io.kinoplan.demo.styles.demos.GridList._
+import io.kinoplan.demo.styles.demos.Lists.{DefaultInteractiveListStyle, DefaultListStyle, DefaultPinnedSubheaderListStyle}
 import scalacss.internal.mutable.GlobalRegistry
 
 object AppCSS {
@@ -54,7 +56,14 @@ object AppCSS {
       DefaultSimpleExpansionPanelStyle,
       DefaultControlledExpansionPanelsStyle,
       DefaultDetailedExpansionPanelStyle,
-      DefaultCustomizedExpansionPanelStyle
+      DefaultCustomizedExpansionPanelStyle,
+      DefaultImageGridListStyle,
+      DefaultTitlebarGridListStyle,
+      DefaultSingleLineGridListStyle,
+      DefaultAdvancedGridListStyle,
+      DefaultListStyle,
+      DefaultInteractiveListStyle,
+      DefaultPinnedSubheaderListStyle
     )
   }
 }

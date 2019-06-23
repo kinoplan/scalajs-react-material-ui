@@ -16,7 +16,7 @@ object MuiGridList extends ReactBridgeComponent with MuiGridListExtensions {
   def apply(
     cellHeight: Int | CellHeight.Value = 180,
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    cols: Int = 2,
+    cols: Double = 2,
     component: Option[String | js.Function] = Some("ul"),
     spacing: Int = 4
   ): WithProps = auto

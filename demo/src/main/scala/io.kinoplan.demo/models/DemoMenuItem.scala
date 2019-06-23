@@ -20,6 +20,8 @@ object DemoMenuItem {
     DemoMenuItem(8, "Dialogs", DemoDialogsRoute),
     DemoMenuItem(9, "Dividers", DemoDividersRoute),
     DemoMenuItem(10, "Drawers", DemoDrawersRoute),
-    DemoMenuItem(11, "Expansion Panels", DemoExpansionPanelsRoute)
+    DemoMenuItem(11, "Expansion Panels", DemoExpansionPanelsRoute),
+    DemoMenuItem(12, "Grid List", DemoGridListRoute),
+    DemoMenuItem(13, "Lists", DemoListsRoute)
   )
 }

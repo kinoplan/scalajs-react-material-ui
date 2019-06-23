@@ -4,7 +4,6 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 object MuiListItem extends ReactBridgeComponent with MuiListItemExtensions with JsWriterImplicits {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -17,14 +16,13 @@ object MuiListItem extends ReactBridgeComponent with MuiListItemExtensions with 
     alignItems: AlignItems.Value = AlignItems.center,
     button: Boolean = false,
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: Option[String | js.Function] = None,
-    ContainerComponent: Option[String | js.Function] = Some("li"),
+    component: OptComponentPropType = js.undefined,
+    ContainerComponent: OptComponentPropType = "li",
     ContainerProps: js.Object = js.Object(),
     dense: Boolean = false,
     disabled: Boolean = false,
     disableGutters: Boolean = false,
-    divider: Boolean = false,
-    selected: Boolean = false
+    divider: Boolean = false
   ): WithProps = auto
 }
 

@@ -36,9 +36,9 @@ object OutlinedChips {
             ),
             MuiChip(
               label = Some("Deletable Chip"),
-              avatar = Some(MuiAvatar(
-                alt = Some("Natacha"),
-                src = Some("/static/images/avatar/1.jpg")
+              avatar = Some(MuiAvatar()(
+                alt := "Natacha",
+                src := "/static/images/avatar/1.jpg"
               )().rawElement),
               onDelete = handleDelete,
               variant = MuiChip.Variant.outlined

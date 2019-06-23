@@ -1,12 +1,20 @@
 package io.kinoplan.demo.styles
 
 import io.kinoplan.demo.CssSettings._
-import io.kinoplan.scalajs.react.material.ui.core.styles.createMuiTheme
+import io.kinoplan.scalajs.react.material.ui.core.colors
+import io.kinoplan.scalajs.react.material.ui.core.styles.{PaletteOptions, ThemeOptions, TypographyOptions, createMuiTheme}
 
 class CommonStyle extends StyleSheet.Inline {
   import dsl._
 
-  val theme = createMuiTheme()
+  val theme = createMuiTheme(options = ThemeOptions(
+    typography = Some(TypographyOptions(
+      useNextVariants = Some(true)
+    )),
+    palette = Some(PaletteOptions(
+      primary = Some(colors.blue)
+    ))
+  ))
 
   val emptyStyle = style()
 

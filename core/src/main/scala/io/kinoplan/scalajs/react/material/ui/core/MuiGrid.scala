@@ -72,12 +72,12 @@ trait MuiGridExtensions {
   object Spacing extends Enumeration {
     type Value = Int
 
-    val zero = 0
-    val eight = 8
-    val sixteen = 16
-    val twentyFour = 24
-    val thirtyTwo = 32
-    val forty = 40
+    val `0` = 0
+    val `8` = 8
+    val `16` = 16
+    val `24` = 24
+    val `32` = 32
+    val `40` = 40
   }
 
   object Wrap extends Enumeration {
