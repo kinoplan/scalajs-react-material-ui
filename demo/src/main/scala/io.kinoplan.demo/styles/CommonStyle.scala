@@ -16,6 +16,15 @@ class CommonStyle extends StyleSheet.Inline {
     ))
   ))
 
+  val gutters = style(
+    paddingLeft((theme.spacing.unit * 2).px),
+    paddingRight((theme.spacing.unit * 2).px),
+    media.minWidth(theme.breakpoints.values.sm.px)(
+      paddingLeft((theme.spacing.unit * 3).px),
+      paddingRight((theme.spacing.unit * 3).px)
+    )
+  )
+
   val emptyStyle = style()
 
   val flexGrowOne = style(

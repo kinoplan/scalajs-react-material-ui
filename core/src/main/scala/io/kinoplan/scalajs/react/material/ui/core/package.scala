@@ -12,6 +12,7 @@ import scala.scalajs.js.|
 
 package object core {
   type a = React.Element
+  type JsFun0                                   = js.Function0[Callback]
   type OptJsFun0                                = js.UndefOr[js.Function0[Callback]]
   type OptJsFun1[A]                             = js.UndefOr[js.Function1[A, Unit]]
   type OptJsFun2[A, B]                          = js.UndefOr[js.Function2[A, B, Unit]]

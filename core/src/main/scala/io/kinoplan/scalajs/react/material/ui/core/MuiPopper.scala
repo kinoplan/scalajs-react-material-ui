@@ -1,6 +1,7 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import org.scalajs.dom.html
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -14,7 +15,7 @@ object MuiPopper extends ReactBridgeComponent with MuiPopperExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    anchorEl: Option[js.Object | js.Function] = None,
+    anchorEl: Option[html.Element | js.Function1[html.Element, html.Element]] = None,
     container: Option[js.Object | js.Function] = None,
     disablePortal: Boolean = false,
     keepMounted: Option[Boolean] = None,

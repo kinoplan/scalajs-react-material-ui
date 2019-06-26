@@ -1,6 +1,7 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import japgolly.scalajs.react.ReactEventFromHtml
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -14,9 +15,9 @@ object MuiClickAwayListener extends ReactBridgeComponent with MuiClickAwayListen
   object RawComponent extends js.Function
 
   def apply(
-    mouseEvent: Option[Boolean | MouseEvent.Value] = Some(MouseEvent.onMouseUp),
-    onClickAway: js.Function,
-    touchEvent: Option[Boolean | TouchEvent.Value] = Some(TouchEvent.onTouchEnd)
+    mouseEvent: js.UndefOr[Boolean | MouseEvent.Value] = MouseEvent.onMouseUp,
+    onClickAway: ReactHandler1[ReactEventFromHtml],
+    touchEvent: js.UndefOr[Boolean | TouchEvent.Value] = TouchEvent.onTouchEnd
   ): WithProps = auto
 }
 

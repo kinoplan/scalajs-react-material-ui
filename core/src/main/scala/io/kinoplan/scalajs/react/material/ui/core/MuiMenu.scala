@@ -2,14 +2,14 @@ package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
-import org.scalajs.dom.html
 import japgolly.scalajs.react.ReactEvent
+import org.scalajs.dom.html
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
 
-object MuiMenu extends ReactBridgeComponent with MuiMenuExtensions {
+object MuiMenu extends ReactBridgeComponent with MuiMenuExtensions with JsWriterImplicits {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "Menu")
@@ -19,6 +19,7 @@ object MuiMenu extends ReactBridgeComponent with MuiMenuExtensions {
   def apply(
     anchorEl: Option[html.Element | js.Function1[html.Element, html.Element]] = None,
     anchorOrigin: Origin = Origin(vertical = "top", horizontal = "left"),
+    anchorReference: AnchorReference.Value = AnchorReference.anchorEl,
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
     disableAutoFocusItem: Boolean = false,
     MenuListProps: js.Object = js.Object(),
@@ -32,11 +33,19 @@ object MuiMenu extends ReactBridgeComponent with MuiMenuExtensions {
     open: Boolean,
     PopoverClasses: js.Object = js.Object(),
     transitionDuration: js.Object | TransitionDuration.Value = TransitionDuration.auto,
-    transformOrigin: Origin = Origin(vertical = "top", horizontal = "left")
+    transformOrigin: Origin = Origin(vertical = "top", horizontal = "left"),
+    PaperProps: js.Object = js.Object(),
+    TransitionComponent: OptComponentPropType = js.undefined,
   ): WithProps = auto
 }
 
 trait MuiMenuExtensions {
+  object AnchorReference extends Enumeration {
+    val anchorEl = Value("anchorEl")
+    val anchorPosition = Value("anchorPosition")
+    val none = Value("none")
+  }
+
   object TransitionDuration extends Enumeration {
     val auto = Value("auto")
   }

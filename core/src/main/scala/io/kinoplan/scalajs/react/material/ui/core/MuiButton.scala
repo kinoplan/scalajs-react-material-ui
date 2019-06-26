@@ -1,6 +1,7 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import japgolly.scalajs.react.raw.React.Ref
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -24,7 +25,8 @@ object MuiButton extends ReactBridgeComponent with MuiButtonExtensions {
     href: Option[String] = None,
     mini: Boolean = false,
     size: Size.Value = Size.medium,
-    variant: Variant.Value = Variant.text
+    variant: Variant.Value = Variant.text,
+    buttonRef: js.UndefOr[Ref] = js.undefined
   ): WithProps = auto
 }
 

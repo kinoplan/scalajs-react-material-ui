@@ -22,6 +22,8 @@ object DemoMenuItem {
     DemoMenuItem(10, "Drawers", DemoDrawersRoute),
     DemoMenuItem(11, "Expansion Panels", DemoExpansionPanelsRoute),
     DemoMenuItem(12, "Grid List", DemoGridListRoute),
-    DemoMenuItem(13, "Lists", DemoListsRoute)
+    DemoMenuItem(13, "Lists", DemoListsRoute),
+    DemoMenuItem(14, "Menus", DemoMenusRoute),
+    DemoMenuItem(15, "Paper", DemoPaperRoute)
   )
 }

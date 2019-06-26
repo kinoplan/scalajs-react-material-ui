@@ -14,6 +14,8 @@ import io.kinoplan.demo.styles.demos.Drawers._
 import io.kinoplan.demo.styles.demos.ExpansionPanels._
 import io.kinoplan.demo.styles.demos.GridList._
 import io.kinoplan.demo.styles.demos.Lists.{DefaultInteractiveListStyle, DefaultListStyle, DefaultPinnedSubheaderListStyle}
+import io.kinoplan.demo.styles.demos.Menus.{DefaultListItemCompositionStyle, DefaultMenuStyle, DefaultTypographyMenuStyle}
+import io.kinoplan.demo.styles.demos.Paper.DefaultPaperStyle
 import scalacss.internal.mutable.GlobalRegistry
 
 object AppCSS {
@@ -63,7 +65,11 @@ object AppCSS {
       DefaultAdvancedGridListStyle,
       DefaultListStyle,
       DefaultInteractiveListStyle,
-      DefaultPinnedSubheaderListStyle
+      DefaultPinnedSubheaderListStyle,
+      DefaultMenuStyle,
+      DefaultListItemCompositionStyle,
+      DefaultTypographyMenuStyle,
+      DefaultPaperStyle
     )
   }
 }
