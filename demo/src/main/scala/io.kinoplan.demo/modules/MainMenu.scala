@@ -26,9 +26,9 @@ object MainMenu {
         MuiDivider()(Attr("key") := 1),
         MuiList()(Attr("key") := 2,
           div(
-            MenuItem.menuItemsFirst.toVdomArray { item =>
+            MenuItem.menuItemsFirst.zipWithIndex.toVdomArray { case (item, index) =>
               MuiListItem(button = true)(
-                Attr("key") := item.idx,
+                Attr("key") := index,
                 href := props.router.urlFor(item.location).value,
                 props.router.setOnLinkClick(item.location)
               )(
@@ -54,9 +54,9 @@ object MainMenu {
         MuiList()(Attr("key") := 4,
           div(
             MuiListSubheader(inset = true)("Saved reports"),
-            MenuItem.menuItemsSecond.toVdomArray { item =>
+            MenuItem.menuItemsSecond.zipWithIndex.toVdomArray { case (item, index) =>
               MuiListItem(button = true)(
-                Attr("key") := item.idx,
+                Attr("key") := index,
                 href := props.router.urlFor(item.location).value,
                 props.router.setOnLinkClick(item.location)
               )(

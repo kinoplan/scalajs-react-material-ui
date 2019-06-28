@@ -54,7 +54,7 @@ lazy val demo = (project in file("demo")).dependsOn(core)
   publishLocal                     := {},
   publishArtifact                  := false,
   Keys.`package`                   := file("")
-).enablePlugins(ScalaJSBundlerPlugin)
+).enablePlugins(ScalaJSBundlerPlugin, WorkbenchPlugin)
 
 lazy val commonSettings = Seq(
   version := Settings.version,

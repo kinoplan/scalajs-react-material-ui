@@ -5,7 +5,6 @@ import io.kinoplan.demo.router.AppRouter.{DashboardRoute, Page}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiAssignmentIcon, MuiBarChartIcon, MuiDashboardIcon, MuiLayersIcon, MuiPeopleIcon, MuiShoppingCartIcon}
 
 case class MenuItem(
-  idx: Int,
   label: String,
   icon: WithProps,
   location: Page
@@ -13,11 +12,11 @@ case class MenuItem(
 
 object MenuItem {
   val menuItemsFirst = List(
-    MenuItem(1, "Dashboard", MuiDashboardIcon(), DashboardRoute),
-    MenuItem(2, "Orders", MuiShoppingCartIcon(), DashboardRoute),
-    MenuItem(3, "Customers", MuiPeopleIcon(), DashboardRoute),
-    MenuItem(4, "Reports", MuiBarChartIcon(), DashboardRoute),
-    MenuItem(5, "Integrations", MuiLayersIcon(), DashboardRoute)
+    MenuItem("Dashboard", MuiDashboardIcon(), DashboardRoute),
+    MenuItem("Orders", MuiShoppingCartIcon(), DashboardRoute),
+    MenuItem("Customers", MuiPeopleIcon(), DashboardRoute),
+    MenuItem("Reports", MuiBarChartIcon(), DashboardRoute),
+    MenuItem("Integrations", MuiLayersIcon(), DashboardRoute)
   )
 
   private val muiAssignment = MuiAssignmentIcon(
@@ -26,8 +25,8 @@ object MenuItem {
   )
 
   val menuItemsSecond = List(
-    MenuItem(1, "Current month", muiAssignment, DashboardRoute),
-    MenuItem(2, "Last quarter", muiAssignment, DashboardRoute),
-    MenuItem(3, "Year-end sale", muiAssignment, DashboardRoute)
+    MenuItem("Current month", muiAssignment, DashboardRoute),
+    MenuItem("Last quarter", muiAssignment, DashboardRoute),
+    MenuItem("Year-end sale", muiAssignment, DashboardRoute)
   )
 }

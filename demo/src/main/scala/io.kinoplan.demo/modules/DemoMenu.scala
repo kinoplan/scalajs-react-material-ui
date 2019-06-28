@@ -19,9 +19,9 @@ object DemoMenu {
 
       VdomArray(
         MuiList(component = "div", disablePadding = true)(Attr("key") := 2,
-          DemoMenuItem.demos.toVdomArray { item =>
+          DemoMenuItem.demos.zipWithIndex.toVdomArray { case (item, index) =>
             MuiListItem(button = true)(css.nested,
-              Attr("key") := item.idx,
+              Attr("key") := index,
               href := props.router.urlFor(item.location).value,
               props.router.setOnLinkClick(item.location)
             )(

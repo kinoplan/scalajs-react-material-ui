@@ -1,7 +1,7 @@
 package io.kinoplan.demo.components.demos.Menus
 
 import io.kinoplan.demo.components.ComponentContainer
-import io.kinoplan.demo.utils.PaperProps
+import io.kinoplan.demo.utils.props.MuiPaperProps
 import io.kinoplan.scalajs.react.material.ui.core.{MuiIconButton, MuiMenu, MuiMenuItem}
 import io.kinoplan.scalajs.react.material.ui.icons.MuiMoreVertIcon
 import japgolly.scalajs.react.vdom.Attr
@@ -69,7 +69,7 @@ object LongMenu extends ScalaCssReactImplicits {
               anchorEl = state.anchorEl,
               open = state.isOpen,
               onClose = Some(handleClose),
-              PaperProps = PaperProps(style = paperPropsStyle)
+              PaperProps = MuiPaperProps(style = paperPropsStyle)
             )(
               id := "long-menu",
               options.toVdomArray { option =>
