@@ -1,6 +1,6 @@
 addCommandAlias("restartWDS", "; demo/fastOptJS::stopWebpackDevServer; ~demo/fastOptJS::startWebpackDevServer")
 
-lazy val root = project.in(file(".")).settings(commonSettings).aggregate(core, icons, demo).settings(
+lazy val root = project.in(file(".")).settings(commonSettings).aggregate(core, icons, pickers, demo).settings(
   name                 := "scalajs-react-material-ui",
   // No, SBT, we don't want any artifacts for root.
   // No, not even an empty jar.
@@ -40,7 +40,14 @@ lazy val icons = (project in file("icons")).settings(commonSettings).settings(
   sourceGenerators in Compile += muiIconsGenerator.taskValue
 ).enablePlugins(ScalaJSBundlerPlugin)
 
-lazy val demo = (project in file("demo")).dependsOn(core)
+lazy val pickers = (project in file("pickers")).settings(commonSettings).settings(
+  name := "scalajs-react-material-ui-pickers",
+  scalaJSUseMainModuleInitializer  := false,
+  npmDependencies in Compile ++= Settings.npmDependencies.value,
+  libraryDependencies ++= Settings.scalajsDependencies.value
+).enablePlugins(ScalaJSBundlerPlugin)
+
+lazy val demo = (project in file("demo")).dependsOn(core, pickers)
   .settings(commonSettings).settings(
   scalaJSUseMainModuleInitializer  := true,
   npmDependencies in Compile ++= Settings.npmDependencies.value,
@@ -54,7 +61,7 @@ lazy val demo = (project in file("demo")).dependsOn(core)
   publishLocal                     := {},
   publishArtifact                  := false,
   Keys.`package`                   := file("")
-).enablePlugins(ScalaJSBundlerPlugin)
+).enablePlugins(ScalaJSBundlerPlugin, WorkbenchPlugin)
 
 lazy val commonSettings = Seq(
   version := Settings.version,

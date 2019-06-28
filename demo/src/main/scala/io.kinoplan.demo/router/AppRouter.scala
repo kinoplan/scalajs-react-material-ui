@@ -23,6 +23,7 @@ object AppRouter {
   case object DemoListsRoute extends Page
   case object DemoMenusRoute extends Page
   case object DemoPaperRoute extends Page
+  case object DemoPickersRoute extends Page
 
   val routerConfig = RouterConfigDsl[Page].buildConfig { dsl =>
     import dsl._
@@ -44,6 +45,7 @@ object AppRouter {
       | staticRoute("/#demos/lists/", DemoListsRoute) ~> renderR(ListsPage(_))
       | staticRoute("/#demos/menus/", DemoMenusRoute) ~> renderR(MenusPage(_))
       | staticRoute("/#demos/paper/", DemoPaperRoute) ~> renderR(PaperPage(_))
+      | staticRoute("/#demos/pickers/", DemoPickersRoute) ~> renderR(PickersPage(_))
     ).notFound(redirectToPage(DashboardRoute)(Redirect.Replace))
   }.renderWith(layout)
 

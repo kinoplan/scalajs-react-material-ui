@@ -36,13 +36,14 @@ object FormDialog {
                   "updates occasionally."
                 ),
                 MuiTextField(
-                  autoFocus = Some(true),
-                  margin = Some(MuiTextField.Margin.dense),
-                  id = Some("name"),
+                  margin = MuiTextField.Margin.dense,
                   label = Some("Email Address"),
-                  `type` = Some("email"),
-                  fullWidth = Some(true)
-                )()
+                  fullWidth = true
+                )(
+                  id := "name",
+                  `type` := "email",
+                  autoFocus := true
+                )
               ),
               MuiDialogActions()(
                 MuiButton(color = MuiButton.Color.primary)(

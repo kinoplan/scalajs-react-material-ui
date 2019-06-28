@@ -31,6 +31,10 @@ object Settings {
 
       val materialUi = "3.9.3"
       val materialUiIcons = "3.0.2"
+      val materialUiPickers = "2.2.2"
+
+      val dateIoDateFns = "latest"
+      val dateFns = "next"
     }
   }
 
@@ -51,6 +55,9 @@ object Settings {
     "react-swipeable-views" -> versions.npm.reactSwipeableViews,
     "@material-ui/core"     -> versions.npm.materialUi,
     "@material-ui/icons"    -> versions.npm.materialUiIcons,
+    "material-ui-pickers"   -> versions.npm.materialUiPickers,
+    "@date-io/date-fns"     -> versions.npm.dateIoDateFns,
+    "date-fns"              -> versions.npm.dateFns
   ))
 
   def generateColors(src: File, npm: File): Seq[File] = {
