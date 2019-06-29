@@ -4,7 +4,6 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 object MuiFormLabel extends ReactBridgeComponent with MuiFormLabelExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -15,7 +14,7 @@ object MuiFormLabel extends ReactBridgeComponent with MuiFormLabelExtensions {
 
   def apply(
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: Option[String | js.Function] = Some("label"),
+    component: OptComponentPropType = "label",
     disabled: Option[Boolean] = None,
     error: Option[Boolean] = None,
     filled: Option[Boolean] = None,

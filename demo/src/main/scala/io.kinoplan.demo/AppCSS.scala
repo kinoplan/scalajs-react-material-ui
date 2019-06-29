@@ -17,6 +17,8 @@ import io.kinoplan.demo.styles.demos.Lists.{DefaultInteractiveListStyle, Default
 import io.kinoplan.demo.styles.demos.Menus.{DefaultListItemCompositionStyle, DefaultMenuStyle, DefaultTypographyMenuStyle}
 import io.kinoplan.demo.styles.demos.Paper.DefaultPaperStyle
 import io.kinoplan.demo.styles.demos.Pickers.DefaultPickersStyle
+import io.kinoplan.demo.styles.demos.Progress.{DefaultCircularIntegrationStyle, DefaultCircularProgressStyle, DefaultCustomizedProgressStyle, DefaultDelayingAppearanceStyle}
+import io.kinoplan.demo.styles.demos.SelectionControls.{DefaultControlButtonsGroupStyle, DefaultCustomControlStyle, DefaultCustomizedSwitchesStyle}
 import scalacss.internal.mutable.GlobalRegistry
 
 object AppCSS {
@@ -71,7 +73,14 @@ object AppCSS {
       DefaultListItemCompositionStyle,
       DefaultTypographyMenuStyle,
       DefaultPaperStyle,
-      DefaultPickersStyle
+      DefaultPickersStyle,
+      DefaultCircularProgressStyle,
+      DefaultCircularIntegrationStyle,
+      DefaultCustomizedProgressStyle,
+      DefaultDelayingAppearanceStyle,
+      DefaultControlButtonsGroupStyle,
+      DefaultCustomControlStyle,
+      DefaultCustomizedSwitchesStyle
     )
   }
 }

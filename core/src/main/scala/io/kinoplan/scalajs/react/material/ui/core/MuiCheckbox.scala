@@ -23,7 +23,8 @@ object MuiCheckbox extends ReactBridgeComponent with MuiCheckboxExtensions with 
     indeterminate: Boolean = false,
     indeterminateIcon: Option[VdomNode] = None,
     inputProps: Map[String, String] = Map.empty,
-    inputRef: js.UndefOr[RefFn[String]] = js.undefined
+    inputRef: js.UndefOr[RefFn[String]] = js.undefined,
+    defaultChecked: js.UndefOr[Boolean] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
 }
 

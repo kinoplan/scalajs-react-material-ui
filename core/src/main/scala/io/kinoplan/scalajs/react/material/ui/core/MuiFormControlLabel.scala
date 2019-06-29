@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.html_<^._
 
@@ -19,13 +19,12 @@ object MuiFormControlLabel extends ReactBridgeComponent with MuiFormControlLabel
     checked: Option[Boolean | String] = None,
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
     control: Option[React.Element] = None,
-    disabled: Option[Boolean] = None,
     inputRef: Option[js.Function | js.Object] = None,
     label: Option[VdomNode] = None,
     labelPlacement: LabelPlacement.Value = LabelPlacement.end,
     name: Option[String] = None,
     onChange: Option[js.Function] = None
-  ): WithProps = auto
+  ): WithPropsNoChildren = autoNoChildren
 }
 
 trait MuiFormControlLabelExtensions {

@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
 import japgolly.scalajs.react.vdom.html_<^._
 
 import scala.scalajs.js
@@ -17,18 +17,13 @@ object MuiRadio extends ReactBridgeComponent with MuiRadioExtensions with JsWrit
   def apply(
     checked: Option[Boolean | String] = None,
     checkedIcon: Option[VdomNode] = None,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
+    classes: Map[ClassKey.Value, String] = Map.empty,
     color: Color.Value = Color.secondary,
-    disabled: Option[Boolean] = None,
     disableRipple: Option[Boolean] = None,
     icon: Option[VdomNode] = None,
-    id: Option[String] = None,
     inputProps: js.Object = js.Object(),
-    inputRef: Option[js.Function | js.Object] = None,
-    onChange: Option[js.Function] = None,
-    `type`: Option[String] = None,
-    value: Option[String | Int | Boolean] = None
-  ): WithProps = auto
+    inputRef: Option[js.Function | js.Object] = None
+  ): WithPropsNoChildren = autoNoChildren
 }
 
 trait MuiRadioExtensions {
@@ -39,9 +34,9 @@ trait MuiRadioExtensions {
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
-    val paper = "paper"
+    val root = "root"
     val checked = "checked"
     val disabled = "disabled"
     val colorPrimary = "colorPrimary"
