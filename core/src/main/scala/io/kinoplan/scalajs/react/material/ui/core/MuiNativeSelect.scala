@@ -5,7 +5,6 @@ import japgolly.scalajs.react.raw.React
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 object MuiNativeSelect extends ReactBridgeComponent with MuiNativeSelectExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -16,11 +15,9 @@ object MuiNativeSelect extends ReactBridgeComponent with MuiNativeSelectExtensio
 
   def apply(
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    IconComponent: Option[String | js.Function] = Some("ArrowDropDownIcon"),
+    IconComponent: OptComponentPropType = js.undefined,
     input: Option[React.Element] = None,
     inputProps: js.Object = js.Object(),
-    onChange: Option[js.Function] = None,
-    value: Option[String | Int | Boolean] = None,
     variant: Option[Variant.Value] = None
   ): WithProps = auto
 }

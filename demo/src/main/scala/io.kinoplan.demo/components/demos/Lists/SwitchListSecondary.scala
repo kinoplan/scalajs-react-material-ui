@@ -1,6 +1,6 @@
 package io.kinoplan.demo.components.demos.Lists
 
-import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Lists.{DefaultListStyle, ListStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiList, MuiListItem, MuiListItemIcon, MuiListItemSecondaryAction, MuiListItemText, MuiListSubheader, MuiSwitch}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiBluetoothIcon, MuiWifiIcon}
@@ -31,7 +31,7 @@ object SwitchListSecondary extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("List Controls Switch Secondary")(
-          div(css.root,
+          div(css.root, css.rootPaper(Layout.isPaletteLight),
             MuiList(subheader = Some(MuiListSubheader()("Settings")))(
               MuiListItem()(
                 MuiListItemIcon()(

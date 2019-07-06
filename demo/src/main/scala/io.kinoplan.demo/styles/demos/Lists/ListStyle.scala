@@ -9,9 +9,10 @@ case class ListStyle(common: CommonStyle = DefaultCommonStyle) extends StyleShee
 
   val root = style(
     width(100.%%),
-    maxWidth(360.px),
-    backgroundColor :=! theme.palette.background.paper
+    maxWidth(360.px)
   )
+
+  val rootPaper = common.paper
 
   val nested = style(
     paddingLeft((theme.spacing.unit * 4).px)

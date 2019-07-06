@@ -14,7 +14,7 @@ object MuiMobileStepper extends ReactBridgeComponent with MuiMobileStepperExtens
   object RawComponent extends js.Function
 
   def apply(
-    activeStep: Int = 0,
+    activeStep: js.UndefOr[Int] = js.undefined,
     backButton: Option[VdomNode] = None,
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
     LinearProgressProps: js.Object = js.Object(),

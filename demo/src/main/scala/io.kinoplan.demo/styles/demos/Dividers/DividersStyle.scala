@@ -9,9 +9,10 @@ case class DividersStyle(common: CommonStyle = DefaultCommonStyle) extends Style
 
   val root = style(
     width(100.%%),
-    maxWidth(360.px),
-    backgroundColor :=! theme.palette.background.paper
+    maxWidth(360.px)
   )
+
+  val rootPaper = common.paper
 
   val dividerFullWidth = style(
     margin :=! s"5px 0 0 ${theme.spacing.unit * 2}px"

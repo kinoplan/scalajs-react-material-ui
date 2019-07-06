@@ -9,11 +9,12 @@ case class FloatingActionButtonsZoomStyle(common: CommonButtonStyle = DefaultCom
   val theme = common.theme
 
   val root = style(
-    backgroundColor :=! theme.palette.background.paper,
     width(500.px),
     position.relative,
     minHeight(200.px)
   )
+
+  val rootPaper = common.common.paper
 
   val fab = style(
     position.absolute,

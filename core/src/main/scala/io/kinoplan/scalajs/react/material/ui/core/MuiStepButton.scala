@@ -14,7 +14,10 @@ object MuiStepButton extends ReactBridgeComponent with MuiStepButtonExtensions w
   object RawComponent extends js.Function
 
   def apply(
+    active: js.UndefOr[Boolean] = js.undefined,
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
+    completed: js.UndefOr[Boolean] = js.undefined,
+    disabled: js.UndefOr[Boolean] = js.undefined,
     icon: Option[VdomNode] = None,
     optional: Option[VdomNode] = None
   ): WithProps = auto

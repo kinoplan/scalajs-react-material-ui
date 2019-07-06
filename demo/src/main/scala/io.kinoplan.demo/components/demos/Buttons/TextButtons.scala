@@ -20,11 +20,11 @@ object TextButtons {
             MuiButton()(css.marginButton, "Default"),
             MuiButton(color = MuiButton.Color.primary)(css.marginButton, "Primary"),
             MuiButton(color = MuiButton.Color.secondary)(css.marginButton, "Secondary"),
-            MuiButton(disabled = true)(css.marginButton, "Disabled"),
+            MuiButton()(css.marginButton, disabled := true, "Disabled"),
             MuiButton(href = Some("#text-buttons"))(css.marginButton, "Link"),
             input.file(css.inputButton, accept := "image/*", id := "text-button-file", multiple := true),
             label(htmlFor := "text-button-file")(
-              MuiButton(component = Some("span"))(css.marginButton,
+              MuiButton(component = "span")(css.marginButton,
                 "Upload"
               )
             )

@@ -1,6 +1,6 @@
 package io.kinoplan.demo.components.demos.Lists
 
-import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Lists.{DefaultPinnedSubheaderListStyle, PinnedSubheaderListStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiList, MuiListItem, MuiListItemText, MuiListSubheader}
 import japgolly.scalajs.react.vdom.Attr
@@ -15,10 +15,12 @@ object PinnedSubheaderList extends ScalaCssReactImplicits {
     def render(props: Props): VdomElement = {
       val css = props.style
 
+      val rootPaper = css.rootPaper(Layout.isPaletteLight)
+
       div(
         ComponentContainer("Pinned Subheader List")(
-          div(css.root,
-            MuiList(subheader = Some(li()))(css.root,
+          div(css.root, rootPaper,
+            MuiList(subheader = Some(li()))(css.root, rootPaper,
               List(0, 1, 2, 3, 4).toVdomArray { sectionId =>
                 li(css.listSection, key := s"section-$sectionId",
                   ul(css.ul,

@@ -19,7 +19,7 @@ object ComponentContainer {
             props.title
           )
         ),
-        div(css.componentContainer,
+        div(css.demo, css.demoPaper(Layout.isPaletteLight),
           children
         )
       )

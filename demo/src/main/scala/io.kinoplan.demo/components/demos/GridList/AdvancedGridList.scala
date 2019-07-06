@@ -1,6 +1,6 @@
 package io.kinoplan.demo.components.demos.GridList
 
-import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.models.GridList.TileData
 import io.kinoplan.demo.styles.demos.GridList.{AdvancedGridListStyle, DefaultAdvancedGridListStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiGridList, MuiGridListTile, MuiGridListTileBar, MuiIconButton}
@@ -19,7 +19,7 @@ object AdvancedGridList extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Advanced Grid list")(
-          div(css.root,
+          div(css.root, css.rootPaper(Layout.isPaletteLight),
             MuiGridList(cellHeight = 200, spacing = 1)(css.gridList,
               TileData.default.toVdomArray { tile =>
                 MuiGridListTile(cols = tile.featuredValue, rows = tile.featuredValue)(Attr("key") := tile.image,

@@ -1,6 +1,6 @@
 package io.kinoplan.demo.components.demos.Lists
 
-import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Lists.{DefaultListStyle, ListStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiCheckbox, MuiList, MuiListItem, MuiListItemAvatar, MuiListItemSecondaryAction, MuiListItemText}
 import japgolly.scalajs.react.vdom.Attr
@@ -31,7 +31,7 @@ object CheckboxListSecondary extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("List Controls Checkbox Secondary")(
-          div(css.root,
+          div(css.root, css.rootPaper(Layout.isPaletteLight),
             MuiList(dense = true)(
               List(0, 1, 2, 3).toVdomArray { value =>
                 MuiListItem(button = true)(Attr("key") := value,

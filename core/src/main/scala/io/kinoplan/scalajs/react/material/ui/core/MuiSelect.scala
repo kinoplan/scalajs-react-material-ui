@@ -1,7 +1,7 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
-import japgolly.scalajs.react.ReactEventFromHtml
+import japgolly.scalajs.react.ReactEventFromInput
 import japgolly.scalajs.react.raw.React
 
 import scala.scalajs.js
@@ -20,14 +20,14 @@ object MuiSelect extends ReactBridgeComponent with MuiSelectExtensions with JsWr
     displayEmpty: Boolean = false,
     IconComponent: OptComponentPropType = js.undefined,
     input: Option[React.Node] = None,
-    inputProps: Map[String, String] = Map.empty,
-    MenuProps: Map[String, String] = Map.empty,
+    inputProps: js.Object = js.Object(),
+    MenuProps: js.Object = js.Object(),
     multiple: Boolean = false,
     native: Boolean = false,
-    onClose: ReactHandler1[ReactEventFromHtml] = js.undefined,
-    onOpen: ReactHandler1[ReactEventFromHtml] = js.undefined,
-    open: Option[Boolean] = None,
-    renderValue: Option[js.Function] = None,
+    onClose: ReactHandler1[ReactEventFromInput] = js.undefined,
+    onOpen: ReactHandler1[ReactEventFromInput] = js.undefined,
+    open: js.UndefOr[Boolean] = js.undefined,
+    renderValue: OptRenderValueType = js.undefined,
     SelectDisplayProps: js.Object = js.Object(),
     variant: Option[Variant.Value] = None
   ): WithProps = auto

@@ -1,6 +1,6 @@
 package io.kinoplan.demo.components.demos.Dividers
 
-import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Dividers.{DefaultDividersStyle, DividersStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiDivider, MuiList, MuiListItem, MuiListItemText}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiBeachAccessIcon, MuiImageIcon, MuiWorkIcon}
@@ -17,7 +17,7 @@ object InsetDividers {
 
       div(
         ComponentContainer("Inset Dividers")(
-          MuiList()(css.root,
+          MuiList()(css.root, css.rootPaper(Layout.isPaletteLight),
             MuiListItem()(
               MuiAvatar()(MuiImageIcon()),
               MuiListItemText(primary = Some("Photos"), secondary = Some("Jan 9, 2014"))

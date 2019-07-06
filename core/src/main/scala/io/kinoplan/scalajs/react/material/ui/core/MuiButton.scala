@@ -5,7 +5,6 @@ import japgolly.scalajs.react.raw.React.Ref
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 object MuiButton extends ReactBridgeComponent with MuiButtonExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -17,8 +16,7 @@ object MuiButton extends ReactBridgeComponent with MuiButtonExtensions {
   def apply(
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
     color: Color.Value = Color.default,
-    component: Option[String | js.Function] = Some("button"),
-    disabled: Boolean = false,
+    component: OptComponentPropType = js.undefined,
     disableFocusRipple: Boolean = false,
     disableRipple: Option[Boolean] = None,
     fullWidth: Boolean = false,

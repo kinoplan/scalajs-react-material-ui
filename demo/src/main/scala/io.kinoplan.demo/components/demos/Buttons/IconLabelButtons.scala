@@ -30,7 +30,8 @@ object IconLabelButtons {
               "Upload",
               MuiCloudUploadIcon()(css.rightIcon)
             ),
-            MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.secondary, disabled = true)(css.common.marginButton,
+            MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.secondary)(css.common.marginButton,
+              disabled := true,
               MuiKeyboardVoiceIcon()(css.leftIcon),
               "Talk"
             ),

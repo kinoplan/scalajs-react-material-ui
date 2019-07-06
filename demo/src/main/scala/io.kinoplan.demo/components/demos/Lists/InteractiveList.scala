@@ -1,6 +1,6 @@
 package io.kinoplan.demo.components.demos.Lists
 
-import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Lists.{DefaultInteractiveListStyle, InteractiveListStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiCheckbox, MuiFormControlLabel, MuiFormGroup, MuiGrid, MuiIconButton, MuiList, MuiListItem, MuiListItemAvatar, MuiListItemIcon, MuiListItemSecondaryAction, MuiListItemText, MuiTypography}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiDeleteIcon, MuiFolderIcon}
@@ -34,6 +34,8 @@ object InteractiveList extends ScalaCssReactImplicits {
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
 
+      val demoStyle = css.demo(Layout.isPaletteLight)
+
       div(
         ComponentContainer("Interactive List")(
           div(css.root,
@@ -62,7 +64,7 @@ object InteractiveList extends ScalaCssReactImplicits {
             MuiGrid(container = true, spacing = MuiGrid.Spacing.`16`)(
               MuiGrid(item = true, xs = 12, md = 6)(
                 MuiTypography(variant = MuiTypography.Variant.h6)(css.title, "Text only"),
-                div(css.demo,
+                div(demoStyle,
                   MuiList(dense = state.dense)(
                     List(1, 2, 3).toVdomArray { generateKey =>
                       MuiListItem()(Attr("key") := generateKey,
@@ -77,7 +79,7 @@ object InteractiveList extends ScalaCssReactImplicits {
               ),
               MuiGrid(item = true, xs = 12, md = 6)(
                 MuiTypography(variant = MuiTypography.Variant.h6)(css.title, "Icon with text"),
-                div(css.demo,
+                div(demoStyle,
                   MuiList(dense = state.dense)(
                     List(1, 2, 3).toVdomArray { generateKey =>
                       MuiListItem()(Attr("key") := generateKey,
@@ -97,7 +99,7 @@ object InteractiveList extends ScalaCssReactImplicits {
             MuiGrid(container = true, spacing = MuiGrid.Spacing.`16`)(
               MuiGrid(item = true, xs = 12, md = 6)(
                 MuiTypography(variant = MuiTypography.Variant.h6)(css.title, "Avatar with text"),
-                div(css.demo,
+                div(demoStyle,
                   MuiList(dense = state.dense)(
                     List(1, 2, 3).toVdomArray { generateKey =>
                       MuiListItem()(Attr("key") := generateKey,
@@ -117,7 +119,7 @@ object InteractiveList extends ScalaCssReactImplicits {
               ),
               MuiGrid(item = true, xs = 12, md = 6)(
                 MuiTypography(variant = MuiTypography.Variant.h6)(css.title, "Avatar with text and icon"),
-                div(css.demo,
+                div(demoStyle,
                   MuiList(dense = state.dense)(
                     List(1, 2, 3).toVdomArray { generateKey =>
                       MuiListItem()(Attr("key") := generateKey,

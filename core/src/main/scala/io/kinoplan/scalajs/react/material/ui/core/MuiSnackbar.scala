@@ -1,7 +1,9 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import japgolly.scalajs.react.ReactEvent
 import japgolly.scalajs.react.vdom.html_<^._
+import org.scalajs.dom.html
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -16,26 +18,25 @@ object MuiSnackbar extends ReactBridgeComponent with MuiSnackbarExtensions with 
 
   def apply(
     action: Option[VdomNode] = None,
-    anchorOrigin: js.Object = js.Object(),
-    autoHideDuration: Option[Int] = None,
+    anchorOrigin: js.UndefOr[js.Object] = js.undefined,
+    autoHideDuration: js.UndefOr[Int] = js.undefined,
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
     ClickAwayListenerProps: js.Object = js.Object(),
     ContentProps: js.Object = js.Object(),
     disableWindowBlurListener: Boolean = false,
-    key: Option[js.Any] = None,
     message: Option[VdomNode] = None,
-    onClose: Option[js.Function] = None,
-    onEnter: Option[js.Function] = None,
-    onEntered: Option[js.Function] = None,
-    onEntering: Option[js.Function] = None,
-    onExit: Option[js.Function] = None,
-    onExited: Option[js.Function] = None,
-    onExiting: Option[js.Function] = None,
-    open: Option[Boolean] = None,
-    resumeHideDuration: Option[Int] = None,
-    TransitionComponent: Option[String | js.Function] = Some("Slide"),
-    transitionDuration: Option[Int | js.Object] = None,
-    TransitionProps: js.Object = js.Object
+    onClose: ReactHandler2[ReactEvent, String] = js.undefined,
+    onEnter: Handler1[html.Element] = js.undefined,
+    onEntered: Handler1[html.Element] = js.undefined,
+    onEntering: Handler1[html.Element] = js.undefined,
+    onExit: Handler1[html.Element] = js.undefined,
+    onExited: Handler1[html.Element] = js.undefined,
+    onExiting: Handler1[html.Element] = js.undefined,
+    open: js.UndefOr[Boolean] = js.undefined,
+    resumeHideDuration: js.UndefOr[Int] = js.undefined,
+    TransitionComponent: OptComponentPropType = js.undefined,
+    transitionDuration: js.UndefOr[Int | js.Object] = js.undefined,
+    TransitionProps: js.Object = js.Object()
   ): WithProps = auto
 }
 

@@ -1,6 +1,6 @@
 package io.kinoplan.demo.components.demos.Dividers
 
-import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Dividers.{DefaultDividersStyle, DividersStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiChip, MuiDivider, MuiGrid, MuiTypography}
 import japgolly.scalajs.react.vdom.all._
@@ -16,7 +16,7 @@ object MiddleDividers {
 
       div(
         ComponentContainer("Middle Dividers")(
-          div(css.root,
+          div(css.root, css.rootPaper(Layout.isPaletteLight),
             div(css.section1,
               MuiGrid(container = true, alignItems = MuiGrid.AlignItems.center)(
                 MuiGrid(item = true, xs = true)(

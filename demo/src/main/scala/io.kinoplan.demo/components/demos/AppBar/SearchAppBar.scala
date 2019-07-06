@@ -36,7 +36,7 @@ object SearchAppBar {
                 div(css.common.flexGrowOne),
                 div(css.search,
                   div(css.searchIcon, MuiSearchIcon()),
-                  MuiInputBase(placeholder = Some("Search…"), classes = inputBaseClasses)
+                  MuiInputBase(classes = inputBaseClasses)(placeholder := "Search…")
                 )
               )
             )

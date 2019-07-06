@@ -21,7 +21,7 @@ object Settings {
       val scalajsReact = "1.4.2"
       val scalaCss = "0.5.6"
       val scalajsDom = "0.9.7"
-      val catsCore = "1.2.0"
+      val catsCore = "2.0.0-M1"
       val scalajsReactBridge = "0.8.0"
     }
 
@@ -41,16 +41,17 @@ object Settings {
     "com.github.japgolly.scalacss"      %%% "ext-react"            % versions.scalajs.scalaCss,
     "com.github.japgolly.scalacss"      %% "ext-scalatags"         % versions.scalajs.scalaCss,
     "org.scala-js"                      %%% "scalajs-dom"          % versions.scalajs.scalajsDom,
-    "org.typelevel"                     %%  "cats-core"            % versions.scalajs.catsCore,
+    "org.typelevel"                     %%% "cats-core"            % versions.scalajs.catsCore,
     "com.payalabs"                      %%% "scalajs-react-bridge" % versions.scalajs.scalajsReactBridge
   ))
 
   val npmDependencies = Def.setting(Seq(
-    "react"                 -> versions.npm.react,
-    "react-dom"             -> versions.npm.react,
-    "react-swipeable-views" -> versions.npm.reactSwipeableViews,
-    "@material-ui/core"     -> versions.npm.materialUi,
-    "@material-ui/icons"    -> versions.npm.materialUiIcons,
+    "react"                       -> versions.npm.react,
+    "react-dom"                   -> versions.npm.react,
+    "react-swipeable-views"       -> versions.npm.reactSwipeableViews,
+    "react-swipeable-views-utils" -> versions.npm.reactSwipeableViews,
+    "@material-ui/core"           -> versions.npm.materialUi,
+    "@material-ui/icons"          -> versions.npm.materialUiIcons,
   ))
 
   def generateColors(src: File, npm: File): Seq[File] = {

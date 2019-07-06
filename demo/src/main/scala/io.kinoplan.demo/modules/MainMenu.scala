@@ -1,8 +1,9 @@
 package io.kinoplan.demo.modules
 
+import io.kinoplan.demo.components.Layout
 import io.kinoplan.demo.models.MenuItem
 import io.kinoplan.demo.router.AppRouter.Page
-import io.kinoplan.scalajs.react.material.ui.core.{MuiCollapse, MuiDivider, MuiList, MuiListItem, MuiListItemIcon, MuiListItemText, MuiListSubheader}
+import io.kinoplan.scalajs.react.material.ui.core.{MuiCollapse, MuiDivider, MuiList, MuiListItem, MuiListItemIcon, MuiListItemText, MuiListSubheader, colors}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiExpandLessIcon, MuiExpandMoreIcon, MuiInboxIcon}
 import japgolly.scalajs.react.extra.router.{Resolution, RouterCtl}
 import japgolly.scalajs.react.vdom.all._
@@ -20,7 +21,9 @@ object MainMenu {
     def handleDemoListClick = t.modState(_.handleDemoListClick)
 
     def render(props: Props, state: State): VdomArray = {
-      val demoExpandIcon = if (state.open) MuiExpandLessIcon() else MuiExpandMoreIcon()
+      val iconColor = if (Layout.isPaletteLight) "rgba(0, 0, 0, 0.54)" else colors.common.white
+
+      val demoExpandIcon = if (state.open) MuiExpandLessIcon()(color := iconColor) else MuiExpandMoreIcon()(color := iconColor)
 
       VdomArray(
         MuiDivider()(Attr("key") := 1),

@@ -5,7 +5,6 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 object MuiStepLabel extends ReactBridgeComponent with MuiStepLabelExtensions with JsWriterImplicits {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -16,12 +15,12 @@ object MuiStepLabel extends ReactBridgeComponent with MuiStepLabelExtensions wit
 
   def apply(
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    disabled: Boolean = false,
-    error: Boolean = false,
+    disabled: js.UndefOr[Boolean] = js.undefined,
+    error: js.UndefOr[Boolean] = js.undefined,
     icon: Option[VdomNode] = None,
     optional: Option[VdomNode] = None,
-    StepIconComponent: Option[String | js.Function] = None,
-    StepIconProps: js.Object = js.Object()
+    StepIconComponent: OptComponentPropType = js.undefined,
+    StepIconProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
 }
 

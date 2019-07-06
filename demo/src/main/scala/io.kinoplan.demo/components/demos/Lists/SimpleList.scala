@@ -1,6 +1,6 @@
 package io.kinoplan.demo.components.demos.Lists
 
-import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Lists.{DefaultListStyle, ListStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiDivider, MuiList, MuiListItem, MuiListItemIcon, MuiListItemText}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiDraftsIcon, MuiInboxIcon}
@@ -17,7 +17,7 @@ object SimpleList extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Simple List")(
-          div(css.root,
+          div(css.root, css.rootPaper(Layout.isPaletteLight),
             MuiList(component = "nav")(
               MuiListItem(button = true)(
                 MuiListItemIcon()(

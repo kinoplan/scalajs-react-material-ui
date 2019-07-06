@@ -15,6 +15,7 @@ object MuiPaperProps {
     val o: Map[String, Any] = Map(
       "style" -> style
     )
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[MuiPaperProps]
   }
 }

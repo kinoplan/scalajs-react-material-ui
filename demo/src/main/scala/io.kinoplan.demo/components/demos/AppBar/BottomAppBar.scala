@@ -1,6 +1,6 @@
 package io.kinoplan.demo.components.demos.AppBar
 
-import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.models.Message
 import io.kinoplan.demo.styles.demos.AppBar.{BottomAppBarStyle, DefaultBottomAppBarStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiAvatar, MuiCssBaseline, MuiFab, MuiIconButton, MuiList, MuiListItem, MuiListItemText, MuiListSubheader, MuiPaper, MuiToolbar, MuiTypography}
@@ -28,8 +28,8 @@ object BottomAppBar {
                 MuiList()(css.list,
                   Message.default.toVdomArray { message =>
                     React.Fragment.withKey(message.id)(
-                      if (message.id == 1) MuiListSubheader()(css.subHeader, "Today") else EmptyVdom,
-                      if (message.id == 3) MuiListSubheader()(css.subHeader, "Yesterday") else EmptyVdom,
+                      if (message.id == 1) MuiListSubheader()(css.subHeader(Layout.isPaletteLight), "Today") else EmptyVdom,
+                      if (message.id == 3) MuiListSubheader()(css.subHeader(Layout.isPaletteLight), "Yesterday") else EmptyVdom,
                       MuiListItem(button = true)(
                         MuiAvatar()(alt := "Profile Picture", src := message.person),
                         MuiListItemText(primary = Some(VdomNode(message.primary)), secondary = Some(VdomNode(message.secondary)))

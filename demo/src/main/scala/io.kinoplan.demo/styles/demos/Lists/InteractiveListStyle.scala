@@ -12,9 +12,7 @@ case class InteractiveListStyle(common: CommonStyle = DefaultCommonStyle) extend
     maxWidth(752.px)
   )
 
-  val demo = style(
-    backgroundColor :=! theme.palette.background.paper
-  )
+  val demo = common.paper
 
   val title = style(
     margin :=! s"${theme.spacing.unit * 4}px 0 ${theme.spacing.unit * 2}px"

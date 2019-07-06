@@ -26,7 +26,8 @@ object OutlinedButtons {
             MuiButton(variant = MuiButton.Variant.outlined, color = MuiButton.Color.secondary)(css.marginButton,
               "Secondary"
             ),
-            MuiButton(variant = MuiButton.Variant.outlined, disabled = true)(css.marginButton,
+            MuiButton(variant = MuiButton.Variant.outlined)(css.marginButton,
+              disabled := true,
               "Disabled"
             ),
             MuiButton(variant = MuiButton.Variant.outlined, href = Some("#outlined-buttons"))(css.marginButton,
@@ -34,7 +35,7 @@ object OutlinedButtons {
             ),
             input.file(css.inputButton, accept := "image/*", id := "outlined-button-file", multiple := true),
             label(htmlFor := "outlined-button-file")(
-              MuiButton(variant = MuiButton.Variant.contained, component = Some("span"))(css.marginButton,
+              MuiButton(variant = MuiButton.Variant.contained, component = "span")(css.marginButton,
                 "Upload"
               )
             )

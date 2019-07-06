@@ -1,6 +1,6 @@
 package io.kinoplan.demo.components.demos.Lists
 
-import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Lists.{DefaultListStyle, ListStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiCollapse, MuiList, MuiListItem, MuiListItemIcon, MuiListItemText, MuiListSubheader}
 import io.kinoplan.scalajs.react.material.ui.icons._
@@ -23,7 +23,7 @@ object NestedList extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Nested List")(
-          div(css.root,
+          div(css.root, css.rootPaper(Layout.isPaletteLight),
             MuiList(
               component = "nav",
               subheader = Some(

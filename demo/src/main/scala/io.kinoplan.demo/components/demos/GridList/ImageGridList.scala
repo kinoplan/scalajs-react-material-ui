@@ -1,6 +1,6 @@
 package io.kinoplan.demo.components.demos.GridList
 
-import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.models.GridList.TileData
 import io.kinoplan.demo.styles.demos.GridList.{DefaultImageGridListStyle, ImageGridListStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiGridList, MuiGridListTile}
@@ -18,7 +18,7 @@ object ImageGridList extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Image-only Grid list")(
-          div(css.root,
+          div(css.root, css.rootPaper(Layout.isPaletteLight),
             MuiGridList(cellHeight = 160, cols = 3)(css.gridList,
               TileData.default.toVdomArray { tile =>
                 MuiGridListTile(cols = tile.defaultCols)(Attr("key") := tile.image,

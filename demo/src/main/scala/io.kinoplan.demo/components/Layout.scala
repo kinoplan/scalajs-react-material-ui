@@ -15,6 +15,12 @@ import japgolly.scalajs.react.vdom.all._
 import scalacss.ScalaCssReact._
 
 object Layout {
+  var paletteValue: PaletteType.Value = PaletteType.light
+
+  def isPaletteLight = paletteValue == PaletteType.light
+
+  var defaultTheme: Option[Theme] = None
+
   case class Props(router: RouterCtl[Page], r: Resolution[Page], style: LayoutStyle)
 
   case class State(
@@ -50,6 +56,10 @@ object Layout {
           primary = Some(colors.blue)
         ))
       ))
+
+      defaultTheme = Some(theme)
+
+      paletteValue = state.paletteType
 
       val drawerClasses = Map(
         MuiDrawer.ClassKey.paper -> stylesToClassName(

@@ -15,31 +15,18 @@ object MuiInputBase extends ReactBridgeComponent with MuiInputBaseExtensions wit
   object RawComponent extends js.Function
 
   def apply(
-    autoComplete: Option[String] = None,
-    autoFocus: Option[Boolean] = None,
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    className: Option[String] = None,
-    defaultValue: Option[String | Int | Boolean | js.Object] = None,
-    disabled: Option[Boolean] = None,
     endAdornment: Option[VdomNode] = None,
     error: Option[Boolean] = None,
     fullWidth: Boolean = false,
-    id: Option[String] = None,
-    inputComponent: Option[String | js.Function] = Some("input"),
+    inputComponent: OptComponentPropType = "input",
     inputProps: js.Object = js.Object(),
     inputRef: Option[js.Function | js.Object] = None,
     margin: Option[Margin.Value] = None,
     multiline: Boolean = false,
-    name: Option[String] = None,
-    onChange: Option[js.Function] = None,
-    placeholder: Option[String] = None,
-    readOnly: Option[Boolean] = None,
-    required: Option[Boolean] = None,
     rows: Option[String | Int] = None,
     rowsMax: Option[String | Int] = None,
-    startAdornment: Option[VdomNode] = None,
-    `type`: String = "text",
-    value: Option[String | Int | Boolean | js.Object] = None
+    startAdornment: Option[VdomNode] = None
   ): WithPropsNoChildren = autoNoChildren
 }
 

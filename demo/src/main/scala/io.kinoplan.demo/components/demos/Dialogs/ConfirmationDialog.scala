@@ -1,6 +1,6 @@
 package io.kinoplan.demo.components.demos.Dialogs
 
-import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Dialogs.{ConfirmationDialogStyle, DefaultConfirmationDialogStyle}
 import io.kinoplan.demo.utils.Helpers.styleAToClassName
 import io.kinoplan.scalajs.react.material.ui.core.{MuiDialog, MuiList, MuiListItem, MuiListItemText}
@@ -33,7 +33,7 @@ object ConfirmationDialog {
 
       div(
         ComponentContainer("Confirmation dialogs")(
-          div(css.root,
+          div(css.root, css.rootPaper(Layout.isPaletteLight),
             MuiList()(
               MuiListItem(button = true, divider = true, disabled = true)(
                 MuiListItemText(primary = Some("Interruptions"))

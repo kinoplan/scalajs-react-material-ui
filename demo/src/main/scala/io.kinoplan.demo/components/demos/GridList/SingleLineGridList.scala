@@ -1,6 +1,6 @@
 package io.kinoplan.demo.components.demos.GridList
 
-import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.models.GridList.TileData
 import io.kinoplan.demo.styles.demos.GridList.{DefaultSingleLineGridListStyle, SingleLineGridListStyle}
 import io.kinoplan.demo.utils.Helpers.styleAToClassName
@@ -25,7 +25,7 @@ object SingleLineGridList extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Single line Grid list")(
-          div(css.root,
+          div(css.root, css.rootPaper(Layout.isPaletteLight),
             MuiGridList(cols = 2.5)(css.gridList,
               TileData.default.toVdomArray { tile =>
                 MuiGridListTile()(Attr("key") := tile.image,

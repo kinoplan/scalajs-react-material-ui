@@ -1,6 +1,6 @@
 package io.kinoplan.demo.components.demos.Dividers
 
-import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Dividers.{DefaultDividersStyle, DividersStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiDivider, MuiList, MuiListItem, MuiListItemText}
 import japgolly.scalajs.react.vdom.all._
@@ -16,7 +16,7 @@ object ListDividers {
 
       div(
         ComponentContainer("List Dividers")(
-          MuiList(component = "nav")(css.root,
+          MuiList(component = "nav")(css.root, css.rootPaper(Layout.isPaletteLight),
             MuiListItem(button = true)(
               MuiListItemText(primary = Some("Inbox"))
             ),

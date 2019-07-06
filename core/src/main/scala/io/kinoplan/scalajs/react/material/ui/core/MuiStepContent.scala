@@ -15,8 +15,8 @@ object MuiStepContent extends ReactBridgeComponent with MuiStepContentExtensions
 
   def apply(
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    TransitionComponent: Option[String | js.Function] = Some("Collapse"),
-    transitionDuration: Option[Int | js.Object | TransitionDuration.Value] = Some(TransitionDuration.auto),
+    TransitionComponent: OptComponentPropType = js.undefined,
+    transitionDuration: js.UndefOr[Int | TransitionDuration.Value] = js.undefined,
     TransitionProps: js.Object = js.Object()
   ): WithProps = auto
 }

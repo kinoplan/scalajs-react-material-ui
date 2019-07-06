@@ -4,7 +4,6 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 object MuiPaper extends ReactBridgeComponent with MuiPaperExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -15,9 +14,9 @@ object MuiPaper extends ReactBridgeComponent with MuiPaperExtensions {
 
   def apply(
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: Option[String | js.Function] = Some("div"),
-    elevation: Int = 2,
-    square: Boolean = false
+    component: OptComponentPropType = js.undefined,
+    elevation: js.UndefOr[Int] = js.undefined,
+    square: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }
 

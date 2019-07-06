@@ -26,6 +26,9 @@ object DemoMenuItem {
     DemoMenuItem("Paper", DemoPaperRoute),
     DemoMenuItem("Pickers", DemoPickersRoute),
     DemoMenuItem("Progress", DemoProgressRoute),
-    DemoMenuItem("Selection Controls", DemoSelectionControlsRoute)
+    DemoMenuItem("Selection Controls", DemoSelectionControlsRoute),
+    DemoMenuItem("Selects", DemoSelectsRoute),
+    DemoMenuItem("Snackbars", DemoSnackbarsRoute),
+    DemoMenuItem("Steppers", DemoSteppersRoute)
   )
 }

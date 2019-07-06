@@ -26,7 +26,8 @@ object ContainedButtons {
             MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.secondary)(css.marginButton,
               "Secondary"
             ),
-            MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.secondary, disabled = true)(css.marginButton,
+            MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.secondary)(css.marginButton,
+              disabled := true,
               "Disabled"
             ),
             MuiButton(variant = MuiButton.Variant.contained, href = Some("#contained-buttons"))(css.marginButton,
@@ -34,7 +35,7 @@ object ContainedButtons {
             ),
             input.file(css.inputButton, accept := "image/*", id := "contained-button-file", multiple := true),
             label(htmlFor := "contained-button-file")(
-              MuiButton(variant = MuiButton.Variant.contained, component = Some("span"))(css.marginButton,
+              MuiButton(variant = MuiButton.Variant.contained, component = "span")(css.marginButton,
                 "Upload"
               )
             )

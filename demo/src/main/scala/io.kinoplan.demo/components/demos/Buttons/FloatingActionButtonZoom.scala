@@ -1,6 +1,6 @@
 package io.kinoplan.demo.components.demos.Buttons
 
-import io.kinoplan.demo.components.{ComponentContainer, TabContainer}
+import io.kinoplan.demo.components.{ComponentContainer, Layout, TabContainer}
 import io.kinoplan.demo.models.Buttons.Fab
 import io.kinoplan.demo.styles.demos.Buttons.{DefaultFloatingActionButtonsZoomStyle, FloatingActionButtonsZoomStyle}
 import io.kinoplan.scalajs.react.material.ui.core.styles.Direction
@@ -51,7 +51,7 @@ object FloatingActionButtonZoom {
 
       div(
         ComponentContainer("Floating Action Button Zoom")(
-          div(css.root,
+          div(css.root, css.rootPaper(Layout.isPaletteLight),
             MuiAppBar(position = MuiAppBar.Position.static, color = MuiAppBar.Color.default)(
               MuiTabs(
                 value = Some(state.value),

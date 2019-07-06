@@ -1,6 +1,6 @@
 package io.kinoplan.demo.components.demos.Menus
 
-import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Menus.{DefaultMenuStyle, MenuStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiList, MuiListItem, MuiListItemText, MuiMenu, MuiMenuItem}
 import japgolly.scalajs.react.vdom.Attr
@@ -49,7 +49,7 @@ object SimpleListMenu extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Selected menus")(
-          div(css.root,
+          div(css.root,  css.rootPaper(Layout.isPaletteLight),
             MuiList(component = "nav")(
               MuiListItem(button = true)(
                 aria.hasPopup := "true",

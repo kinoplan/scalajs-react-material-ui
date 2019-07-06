@@ -1,6 +1,6 @@
 package io.kinoplan.demo.components.demos.Lists
 
-import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Lists.{DefaultListStyle, ListStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiList, MuiListItem, MuiListItemAvatar, MuiListItemText, MuiTypography}
 import japgolly.scalajs.react.vdom.all._
@@ -16,7 +16,7 @@ object AlignItemsList extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Align list items")(
-          div(css.root,
+          div(css.root, css.rootPaper(Layout.isPaletteLight),
             MuiList()(
               MuiListItem(alignItems = MuiListItem.AlignItems.flexStart)(
                 MuiListItemAvatar()(

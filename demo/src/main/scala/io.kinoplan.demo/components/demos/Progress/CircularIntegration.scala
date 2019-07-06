@@ -53,10 +53,10 @@ object CircularIntegration extends ScalaCssReactImplicits {
             div(css.wrapper,
               MuiButton(
                 variant = MuiButton.Variant.contained,
-                color = MuiButton.Color.primary,
-                disabled = state.loading
+                color = MuiButton.Color.primary
               )(buttonCss,
                 onClick --> handleButtonClick(state.loading),
+                disabled := state.loading,
                 "Accept terms"
               ),
               MuiCircularProgress(size = Some(24))(css.buttonProgress).when(state.loading)

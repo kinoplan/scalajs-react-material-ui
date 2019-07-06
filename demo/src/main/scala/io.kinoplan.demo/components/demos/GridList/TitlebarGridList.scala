@@ -1,6 +1,6 @@
 package io.kinoplan.demo.components.demos.GridList
 
-import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.models.GridList.TileData
 import io.kinoplan.demo.styles.demos.GridList.{DefaultTitlebarGridListStyle, TitlebarGridListStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiGridList, MuiGridListTile, MuiGridListTileBar, MuiIconButton, MuiListSubheader}
@@ -21,7 +21,7 @@ object TitlebarGridList extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Grid list with titlebars")(
-          div(css.root,
+          div(css.root, css.rootPaper(Layout.isPaletteLight),
             MuiGridList()(css.gridList,
               MuiGridListTile(cols = 2)(Attr("key") := "Subheader", style := js.Dictionary("height" -> "auto"),
                 MuiListSubheader(component = "div")("December")

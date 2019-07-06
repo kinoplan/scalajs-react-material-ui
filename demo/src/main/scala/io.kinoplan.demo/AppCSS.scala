@@ -17,8 +17,11 @@ import io.kinoplan.demo.styles.demos.Lists.{DefaultInteractiveListStyle, Default
 import io.kinoplan.demo.styles.demos.Menus.{DefaultListItemCompositionStyle, DefaultMenuStyle, DefaultTypographyMenuStyle}
 import io.kinoplan.demo.styles.demos.Paper.DefaultPaperStyle
 import io.kinoplan.demo.styles.demos.Pickers.DefaultPickersStyle
-import io.kinoplan.demo.styles.demos.Progress.{DefaultCircularIntegrationStyle, DefaultCircularProgressStyle, DefaultCustomizedProgressStyle, DefaultDelayingAppearanceStyle}
-import io.kinoplan.demo.styles.demos.SelectionControls.{DefaultControlButtonsGroupStyle, DefaultCustomControlStyle, DefaultCustomizedSwitchesStyle}
+import io.kinoplan.demo.styles.demos.Progress._
+import io.kinoplan.demo.styles.demos.SelectionControls._
+import io.kinoplan.demo.styles.demos.Selects._
+import io.kinoplan.demo.styles.demos.Snackbars._
+import io.kinoplan.demo.styles.demos.Steppers.{DefaultCustomizedStepperStyle, DefaultMobileStepperStyle, DefaultStepperStyle, DefaultTextMobileStepperStyle, DefaultVerticalLinearStepperStyle}
 import scalacss.internal.mutable.GlobalRegistry
 
 object AppCSS {
@@ -80,7 +83,20 @@ object AppCSS {
       DefaultDelayingAppearanceStyle,
       DefaultControlButtonsGroupStyle,
       DefaultCustomControlStyle,
-      DefaultCustomizedSwitchesStyle
+      DefaultCustomizedSwitchesStyle,
+      DefaultSelectStyle,
+      DefaultCustomizedSelectsStyle,
+      DefaultMultipleSelectStyle,
+      DefaultControlledOpenSelectStyle,
+      DefaultMySnackbarContentWrapperStyle,
+      DefaultCustomizedSnackbarsStyle,
+      DefaultSimpleSnackbarStyle,
+      DefaultFabIntegrationSnackbarStyle,
+      DefaultStepperStyle,
+      DefaultVerticalLinearStepperStyle,
+      DefaultCustomizedStepperStyle,
+      DefaultTextMobileStepperStyle,
+      DefaultMobileStepperStyle
     )
   }
 }

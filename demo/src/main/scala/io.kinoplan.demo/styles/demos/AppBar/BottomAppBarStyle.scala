@@ -29,9 +29,7 @@ case class BottomAppBarStyle(common: CommonStyle = DefaultCommonStyle) extends S
     paddingBottom((theme.spacing.unit * 2).px)
   )
 
-  val subHeader = style(
-    backgroundColor :=! theme.palette.background.paper
-  )
+  val subHeader = common.paper
 
   val appBar = style(
     top.auto,

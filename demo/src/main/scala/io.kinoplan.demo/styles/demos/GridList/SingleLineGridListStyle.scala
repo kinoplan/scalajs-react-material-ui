@@ -11,9 +11,10 @@ case class SingleLineGridListStyle(common: CommonStyle = DefaultCommonStyle) ext
     display.flex,
     flexWrap.wrap,
     justifyContent.spaceAround,
-    overflow.hidden,
-    backgroundColor :=! theme.palette.background.paper
+    overflow.hidden
   )
+
+  val rootPaper = common.paper
 
   val gridList = style(
     flexWrap.nowrap,
