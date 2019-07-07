@@ -21,7 +21,8 @@ import io.kinoplan.demo.styles.demos.Progress._
 import io.kinoplan.demo.styles.demos.SelectionControls._
 import io.kinoplan.demo.styles.demos.Selects._
 import io.kinoplan.demo.styles.demos.Snackbars._
-import io.kinoplan.demo.styles.demos.Steppers.{DefaultCustomizedStepperStyle, DefaultMobileStepperStyle, DefaultStepperStyle, DefaultTextMobileStepperStyle, DefaultVerticalLinearStepperStyle}
+import io.kinoplan.demo.styles.demos.Steppers._
+import io.kinoplan.demo.styles.demos.Tables._
 import scalacss.internal.mutable.GlobalRegistry
 
 object AppCSS {
@@ -96,7 +97,10 @@ object AppCSS {
       DefaultVerticalLinearStepperStyle,
       DefaultCustomizedStepperStyle,
       DefaultTextMobileStepperStyle,
-      DefaultMobileStepperStyle
+      DefaultMobileStepperStyle,
+      DefaultEnhancedTableStyle,
+      DefaultEnhancedTableToolbarStyle,
+      DefaultCustomizedTableStyle
     )
   }
 }

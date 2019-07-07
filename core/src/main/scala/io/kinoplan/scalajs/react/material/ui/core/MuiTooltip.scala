@@ -6,7 +6,7 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
+import scala.scalajs.js.{|, undefined, UndefOr}
 
 object MuiTooltip extends ReactBridgeComponent with MuiTooltipExtensions with JsWriterImplicits {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -16,19 +16,18 @@ object MuiTooltip extends ReactBridgeComponent with MuiTooltipExtensions with Js
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
+    classes: Map[ClassKey.Value, String] = Map.empty,
     disableFocusListener: Boolean = false,
     disableHoverListener: Boolean = false,
     disableTouchListener: Boolean = false,
     enterDelay: Int = 0,
     enterTouchDelay: Int = 1000,
-    id: Option[String] = None,
     interactive: Boolean = false,
     leaveDelay: Int = 0,
     leaveTouchDelay: Int = 1500,
-    onClose: Option[OnJSEv1[ReactEventFromHtml]] = None,
-    onOpen: Option[OnJSEv1[ReactEventFromHtml]] = None,
-    open: Option[Boolean] = None,
+    onClose: OnJSEv1[ReactEventFromHtml] = undefined,
+    onOpen: OnJSEv1[ReactEventFromHtml] = undefined,
+    open: UndefOr[Boolean] = undefined,
     placement: Placement.Value = Placement.bottom,
     PopperProps: js.Object = js.Object(),
     title: VdomNode,
@@ -39,22 +38,24 @@ object MuiTooltip extends ReactBridgeComponent with MuiTooltipExtensions with Js
 
 trait MuiTooltipExtensions {
   object Placement extends Enumeration {
-    val bottomEnd = Value("bottom-end")
-    val bottomStart = Value("bottom-start")
-    val bottom = Value("bottom")
-    val leftEnd = Value("left-end")
-    val leftStart = Value("left-start")
-    val left = Value("left")
-    val rightEnd = Value("right-end")
-    val rightStart = Value("right-start")
-    val right = Value("right")
-    val topEnd = Value("top-end")
-    val topStart = Value("top-start")
-    val top = Value("top")
+    type Value = String
+
+    val bottomEnd = "bottom-end"
+    val bottomStart = "bottom-start"
+    val bottom = "bottom"
+    val leftEnd = "left-end"
+    val leftStart = "left-start"
+    val left = "left"
+    val rightEnd = "right-end"
+    val rightStart = "right-start"
+    val right = "right"
+    val topEnd = "top-end"
+    val topStart = "top-start"
+    val top = "top"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val popper = "popper"
     val popperInteractive = "popperInteractive"

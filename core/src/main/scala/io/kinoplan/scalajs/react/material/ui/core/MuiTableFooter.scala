@@ -4,7 +4,7 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
+import scala.scalajs.js.undefined
 
 object MuiTableFooter extends ReactBridgeComponent with MuiTableFooterExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -14,14 +14,14 @@ object MuiTableFooter extends ReactBridgeComponent with MuiTableFooterExtensions
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: Option[String | js.Function] = Some("tfoot")
+    classes: Map[ClassKey.Value, String] = Map.empty,
+    component: OptComponentPropType = undefined
   ): WithProps = auto
 }
 
 trait MuiTableFooterExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
   }

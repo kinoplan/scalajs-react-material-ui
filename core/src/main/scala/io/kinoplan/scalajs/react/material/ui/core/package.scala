@@ -1,13 +1,14 @@
 package io.kinoplan.scalajs.react.material.ui
 
 import cats.Show
-import japgolly.scalajs.react.Callback
 import japgolly.scalajs.react.component.Js.UnmountedWithRawType
-import japgolly.scalajs.react.raw._
-import japgolly.scalajs.react.raw.SyntheticEvent
+import japgolly.scalajs.react.raw.{SyntheticEvent, _}
+import japgolly.scalajs.react.{Callback, ReactEventTypes}
+import org.scalajs.dom.raw.HTMLElement
 
 import scala.language.implicitConversions
 import scala.scalajs.js
+import scala.scalajs.js.annotation.JSGlobal
 import scala.scalajs.js.|
 
 package object core {
@@ -26,6 +27,8 @@ package object core {
   type CssProperties                            = js.Any
   type ComponentPropType                        = String | js.Function
   type OptComponentPropType                     = js.UndefOr[ComponentPropType]
+  type ComponentRefType                         = js.Function | js.Object
+  type OptComponentRefType                      = js.UndefOr[ComponentRefType]
 
   private[core] def addOtherProps(p: js.Dynamic, otherProps: (String, js.Any)*): Unit =
     otherProps.foreach { case (key, value) => p.updateDynamic(key)(value) }
@@ -62,4 +65,24 @@ package object core {
 
   implicit private[core] def undefToAny[A](undefOrA: js.UndefOr[A]): js.Any =
     undefOrA.asInstanceOf[js.Any]
+}
+
+@js.native
+@JSGlobal
+abstract class HTMLMultipleSelectElement extends HTMLElement {
+  var value: js.Array[String] = js.native
+}
+
+@js.native
+@JSGlobal
+abstract class HTMLNumberInputElement extends HTMLElement {
+  var value: Int = js.native
+}
+
+object html extends ReactEventTypes {
+  type MultipleSelect = HTMLMultipleSelectElement
+  type NumberInput = HTMLNumberInputElement
+
+  final type ReactEventFromMultipleSelect = ReactEventFrom[MultipleSelect]
+  final type ReactEventFromNumberInput = ReactEventFrom[NumberInput]
 }

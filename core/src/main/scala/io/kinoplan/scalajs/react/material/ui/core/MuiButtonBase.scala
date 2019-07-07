@@ -4,7 +4,7 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
+import scala.scalajs.js.{Function, Object, UndefOr, undefined}
 
 object MuiButtonBase extends ReactBridgeComponent with MuiButtonBaseExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -14,25 +14,23 @@ object MuiButtonBase extends ReactBridgeComponent with MuiButtonBaseExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    action: Option[js.Function] = None,
-    buttonRef: Option[js.Function | js.Object] = None,
-    centerRipple: Boolean = false,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: Option[String | js.Function] = Some("button"),
-    disabled: Option[Boolean] = None,
-    disableRipple: Boolean = false,
-    disableTouchRipple: Boolean = false,
-    focusRipple: Boolean = false,
-    focusVisibleClassName: Option[String] = None,
-    onFocusVisible: Option[js.Function] = None,
-    TouchRippleProps: Option[js.Object] = None,
-    `type`: String = "button"
+    action: UndefOr[Function] = undefined,
+    buttonRef: OptComponentRefType = undefined,
+    centerRipple: UndefOr[Boolean] = undefined,
+    classes: Map[ClassKey.Value, String] = Map.empty,
+    component: OptComponentPropType = undefined,
+    disableRipple: UndefOr[Boolean] = undefined,
+    disableTouchRipple: UndefOr[Boolean] = undefined,
+    focusRipple: UndefOr[Boolean] = undefined,
+    focusVisibleClassName: UndefOr[String] = undefined,
+    onFocusVisible: UndefOr[Function] = undefined,
+    TouchRippleProps: UndefOr[Object] = undefined
   ): WithProps = auto
 }
 
 trait MuiButtonBaseExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val disabled = "disabled"

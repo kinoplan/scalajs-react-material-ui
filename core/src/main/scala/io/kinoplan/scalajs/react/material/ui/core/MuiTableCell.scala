@@ -4,7 +4,7 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
+import scala.scalajs.js.{UndefOr, undefined, |}
 
 object MuiTableCell extends ReactBridgeComponent with MuiTableCellExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -14,46 +14,53 @@ object MuiTableCell extends ReactBridgeComponent with MuiTableCellExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    align: Alignment.Value = Alignment.inherit,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: Option[String | js.Function] = None,
-    numeric: Option[Boolean] = None,
-    padding: Option[Padding.Value] = None,
-    scope: Option[String] = None,
-    sortDirection: Option[Boolean | SortDirection.Value] = None,
-    variant: Option[Variant.Value] = None
+    align: UndefOr[Alignment.Value] = undefined,
+    classes: Map[ClassKey.Value, String] = Map.empty,
+    component: OptComponentPropType = undefined,
+    padding: UndefOr[Padding.Value] = undefined,
+    scope: UndefOr[String] = undefined,
+    sortDirection: UndefOr[Boolean | SortDirection.Value] = undefined,
+    variant: UndefOr[Variant.Value] = undefined
   ): WithProps = auto
 }
 
 trait MuiTableCellExtensions {
   object Alignment extends Enumeration {
-    val inherit = Value("inherit")
-    val left = Value("left")
-    val center = Value("center")
-    val right = Value("right")
-    val justify = Value("justify")
+    type Value = String
+
+    val inherit = "inherit"
+    val left = "left"
+    val center = "center"
+    val right = "right"
+    val justify = "justify"
   }
 
   object Padding extends Enumeration {
-    val default = Value("default")
-    val checkbox = Value("checkbox")
-    val dense = Value("dense")
-    val none = Value("none")
+    type Value = String
+
+    val default = "default"
+    val checkbox = "checkbox"
+    val dense = "dense"
+    val none = "none"
   }
 
   object SortDirection extends Enumeration {
-    val asc = Value("asc")
-    val desc = Value("desc")
+    type Value = String
+
+    val asc = "asc"
+    val desc = "desc"
   }
 
   object Variant extends Enumeration {
-    val head = Value("head")
-    val body = Value("body")
-    val footer = Value("footer")
+    type Value = String
+
+    val head = "head"
+    val body = "body"
+    val footer = "footer"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val head = "head"

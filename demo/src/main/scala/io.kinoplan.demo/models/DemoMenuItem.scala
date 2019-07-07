@@ -29,6 +29,7 @@ object DemoMenuItem {
     DemoMenuItem("Selection Controls", DemoSelectionControlsRoute),
     DemoMenuItem("Selects", DemoSelectsRoute),
     DemoMenuItem("Snackbars", DemoSnackbarsRoute),
-    DemoMenuItem("Steppers", DemoSteppersRoute)
+    DemoMenuItem("Steppers", DemoSteppersRoute),
+    DemoMenuItem("Tables", DemoTablesRoute)
   )
 }

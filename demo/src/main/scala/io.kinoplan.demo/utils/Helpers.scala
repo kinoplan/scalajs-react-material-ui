@@ -4,9 +4,14 @@ import scalacss.internal.StyleA
 
 import scala.language.implicitConversions
 import scala.scalajs.js
+import scala.scalajs.js.JSNumberOps._
 
 object Helpers {
-  implicit class ExtendedStyle(val css: StyleA) {
+  implicit class DoubleExtended(value: Double) {
+    val toCcyFormat = value.toFixed(2)
+  }
+
+  implicit class ExtendedStyle(css: StyleA) {
     def toDictionary: js.Dictionary[String] = {
       val result = js.Dictionary.empty[String]
       css.style.data.values.flatMap(_.avIterator).foreach { property =>

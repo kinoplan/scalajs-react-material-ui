@@ -28,7 +28,7 @@ package object styles {
 
     def darken(color: String, coefficient: js.UndefOr[String]): String = js.native
 
-    def lighten(color: String, coefficient: js.UndefOr[String]): String = js.native
+    def lighten(color: String, coefficient: js.UndefOr[Double]): String = js.native
   }
 
   @JSImport("@material-ui/core/styles/createMuiTheme.js", JSImport.Default)

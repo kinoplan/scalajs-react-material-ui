@@ -4,7 +4,7 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
+import scala.scalajs.js.undefined
 
 object MuiTableHead extends ReactBridgeComponent with MuiTableHeadExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -14,14 +14,14 @@ object MuiTableHead extends ReactBridgeComponent with MuiTableHeadExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: Option[String | js.Function] = Some("thead")
+    classes: Map[ClassKey.Value, String] = Map.empty,
+    component: OptComponentPropType = undefined
   ): WithProps = auto
 }
 
 trait MuiTableHeadExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
   }

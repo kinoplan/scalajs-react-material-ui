@@ -24,7 +24,7 @@ object ButtonBases {
             Image.default.zipWithIndex.toVdomArray { case (image, index) =>
               MuiButtonBase(
                 focusRipple = true,
-                focusVisibleClassName = Some(css.focusVisible.htmlClass)
+                focusVisibleClassName = css.focusVisible.htmlClass
               )(css.image, style := js.Dictionary("width" -> image.width),
                 Attr("key") := index,
                 span(css.imageSrc, style := js.Dictionary("backgroundImage" -> s"url(${image.url})")),

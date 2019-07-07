@@ -2,9 +2,9 @@ package io.kinoplan.demo.components.demos.Selects
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Selects.{DefaultMultipleSelectStyle, MultipleSelectStyle}
-import io.kinoplan.demo.utils.element.html.ReactEventFromMultipleSelect
 import io.kinoplan.demo.utils.props.{MuiMenuProps, MuiNativeInputProps, MuiPaperProps}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiCheckbox, MuiChip, MuiFormControl, MuiInput, MuiInputLabel, MuiListItemText, MuiMenuItem, MuiSelect}
+import io.kinoplan.scalajs.react.material.ui.html.ReactEventFromMultipleSelect
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._

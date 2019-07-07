@@ -4,7 +4,7 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
+import scala.scalajs.js.{UndefOr, undefined}
 
 object MuiTableSortLabel extends ReactBridgeComponent with MuiTableSortLabelExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -14,25 +14,39 @@ object MuiTableSortLabel extends ReactBridgeComponent with MuiTableSortLabelExte
   object RawComponent extends js.Function
 
   def apply(
-    active: Boolean = false,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    direction: Direction.Value = Direction.desc,
-    hideSortIcon: Boolean = false,
-    IconComponent: Option[String | js.Function] = Some("ArrowDownwardIcon")
+    active: UndefOr[Boolean] = undefined,
+    classes: Map[ClassKey.Value, String] = Map.empty,
+    direction: UndefOr[Direction.Value] = undefined,
+    hideSortIcon: UndefOr[Boolean] = undefined,
+    IconComponent: OptComponentPropType = undefined,
+    action: UndefOr[js.Function] = undefined,
+    buttonRef: OptComponentRefType = undefined,
+    centerRipple: UndefOr[Boolean] = undefined,
+    component: OptComponentPropType = undefined,
+    disableRipple: UndefOr[Boolean] = undefined,
+    disableTouchRipple: UndefOr[Boolean] = undefined,
+    focusRipple: UndefOr[Boolean] = undefined,
+    focusVisibleClassName: UndefOr[String] = undefined,
+    onFocusVisible: UndefOr[js.Function] = undefined,
+    TouchRippleProps: UndefOr[js.Object] = undefined
   ): WithProps = auto
 }
 
 trait MuiTableSortLabelExtensions {
   object Direction extends Enumeration {
-    val asc = Value("asc")
-    val desc = Value("desc")
+    type Value = String
+
+    val asc = "asc"
+    val desc = "desc"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val active = "active"
+    val disabled = "disabled"
+    val focusVisible = "focusVisible"
     val icon = "icon"
     val iconDirectionDesc = "iconDirectionDesc"
     val iconDirectionAsc = "iconDirectionAsc"

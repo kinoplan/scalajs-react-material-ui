@@ -1,8 +1,8 @@
 package io.kinoplan.demo.pages
 
-import io.kinoplan.demo.models.TableItem
+import io.kinoplan.demo.models.Tables.TableItem
 import io.kinoplan.demo.router.AppRouter.Page
-import io.kinoplan.demo.styles.{DefaultSimpleTableStyle, SimpleTableStyle}
+import io.kinoplan.demo.styles.demos.Tables.{DefaultSimpleTableStyle, SimpleTableStyle}
 import io.kinoplan.scalajs.react.material.ui.core._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.RouterCtl
@@ -16,7 +16,7 @@ object SimpleTablePage {
   class Backend(t: BackendScope[Props, Unit]) {
     def render(props: Props): VdomElement = {
       val css = props.style
-      val tableItems = TableItem.default
+      val tableItems = TableItem.simples
 
       div(
         div(
@@ -36,15 +36,15 @@ object SimpleTablePage {
                   )
                 ),
                 MuiTableBody()(
-                  tableItems.toVdomArray(tableItem => {
-                    MuiTableRow()(Attr("key") := tableItem.idx.toString,
-                      MuiTableCell(component = Some("th"), scope = Some("row"))(tableItem.name),
+                  tableItems.zipWithIndex.toVdomArray { case (tableItem, index) =>
+                    MuiTableRow()(Attr("key") := index,
+                      MuiTableCell(component = "th", scope = "row")(tableItem.name),
                       MuiTableCell(align = MuiTableCell.Alignment.right)(tableItem.calories),
                       MuiTableCell(align = MuiTableCell.Alignment.right)(tableItem.fat),
                       MuiTableCell(align = MuiTableCell.Alignment.right)(tableItem.carbs),
                       MuiTableCell(align = MuiTableCell.Alignment.right)(tableItem.protein)
                     )
-                  })
+                  }
                 )
               )
             )
