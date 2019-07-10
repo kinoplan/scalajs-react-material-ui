@@ -4,7 +4,6 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 object MuiLink extends ReactBridgeComponent with MuiLinkExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -14,34 +13,38 @@ object MuiLink extends ReactBridgeComponent with MuiLinkExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    block: Boolean = false,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    color: Color.Value = Color.primary,
-    component: Option[String | js.Function] = Some("a"),
-    TypographyClasses: js.Object = js.Object(),
-    underline: Underline.Value = Underline.hover,
-    variant: String = "inherit"
+    block: js.UndefOr[Boolean] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    color: js.UndefOr[Color.Value]= js.undefined,
+    component: OptComponentPropType = js.undefined,
+    TypographyClasses: js.UndefOr[js.Object] = js.undefined,
+    underline: js.UndefOr[Underline.Value] = js.undefined,
+    variant: js.UndefOr[String] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiLinkExtensions {
   object Color extends Enumeration {
-    val error = Value("error")
-    val inherit = Value("inherit")
-    val primary = Value("primary")
-    val secondary = Value("secondary")
-    val textPrimary = Value("textPrimary")
-    val textSecondary = Value("textSecondary")
+    type Value = String
+
+    val error = "error"
+    val inherit = "inherit"
+    val primary = "primary"
+    val secondary = "secondary"
+    val textPrimary = "textPrimary"
+    val textSecondary = "textSecondary"
   }
 
   object Underline extends Enumeration {
-    val none = Value("none")
-    val hover = Value("hover")
-    val always = Value("always")
+    type Value = String
+
+    val none = "none"
+    val hover = "hover"
+    val always = "always"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val underlineNone = "underlineNone"

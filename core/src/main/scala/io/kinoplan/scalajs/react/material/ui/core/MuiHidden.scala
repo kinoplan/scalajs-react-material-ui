@@ -14,7 +14,7 @@ object MuiHidden extends ReactBridgeComponent with MuiHiddenExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    implementation: Implementation.Value = Implementation.js,
+    implementation: js.UndefOr[Implementation.Value] = js.undefined,
     initialWidth: js.UndefOr[Width.Value] = js.undefined,
     lgDown: js.UndefOr[Boolean] = js.undefined,
     lgUp: js.UndefOr[Boolean] = js.undefined,
@@ -26,21 +26,25 @@ object MuiHidden extends ReactBridgeComponent with MuiHiddenExtensions {
     xlDown: js.UndefOr[Boolean] = js.undefined,
     xlUp: js.UndefOr[Boolean] = js.undefined,
     xsDown: js.UndefOr[Boolean] = js.undefined,
-    xsUp: js.UndefOr[Boolean] = js.undefined,
+    xsUp: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiHiddenExtensions {
   object Implementation extends Enumeration {
-    val js = Value("js")
-    val css = Value("css")
+    type Value = String
+
+    val js = "js"
+    val css = "css"
   }
 
   object Width extends Enumeration {
-    val xs = Value("xs")
-    val sm = Value("sm")
-    val md = Value("md")
-    val lg = Value("lg")
-    val xl = Value("xl")
+    type Value = String
+
+    val xs = "xs"
+    val sm = "sm"
+    val md = "md"
+    val lg = "lg"
+    val xl = "xl"
   }
 }

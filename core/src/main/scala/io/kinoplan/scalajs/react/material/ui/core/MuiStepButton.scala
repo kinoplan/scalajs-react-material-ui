@@ -15,17 +15,16 @@ object MuiStepButton extends ReactBridgeComponent with MuiStepButtonExtensions w
 
   def apply(
     active: js.UndefOr[Boolean] = js.undefined,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     completed: js.UndefOr[Boolean] = js.undefined,
-    disabled: js.UndefOr[Boolean] = js.undefined,
-    icon: Option[VdomNode] = None,
-    optional: Option[VdomNode] = None
+    icon: js.UndefOr[VdomNode] = js.undefined,
+    optional: js.UndefOr[VdomNode] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiStepButtonExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val horizontal = "horizontal"

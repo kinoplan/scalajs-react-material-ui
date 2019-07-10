@@ -13,7 +13,7 @@ object MuiToolbar extends ReactBridgeComponent with MuiToolbarExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     disableGutters: js.UndefOr[Boolean] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
@@ -21,12 +21,14 @@ object MuiToolbar extends ReactBridgeComponent with MuiToolbarExtensions {
 
 trait MuiToolbarExtensions {
   object Variant extends Enumeration {
-    val regular = Value("regular")
-    val dense = Value("dense")
+    type Value = String
+
+    val regular = "regular"
+    val dense = "dense"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val gutters = "gutters"

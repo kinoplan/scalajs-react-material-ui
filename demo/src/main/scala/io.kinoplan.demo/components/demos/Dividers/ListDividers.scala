@@ -5,9 +5,9 @@ import io.kinoplan.demo.styles.demos.Dividers.{DefaultDividersStyle, DividersSty
 import io.kinoplan.scalajs.react.material.ui.core.{MuiDivider, MuiList, MuiListItem, MuiListItemText}
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object ListDividers {
+object ListDividers extends ScalaCssReactImplicits {
   case class Props(style: DividersStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
@@ -18,18 +18,18 @@ object ListDividers {
         ComponentContainer("List Dividers")(
           MuiList(component = "nav")(css.root, css.rootPaper(Layout.isPaletteLight),
             MuiListItem(button = true)(
-              MuiListItemText(primary = Some("Inbox"))
+              MuiListItemText(primary = VdomNode("Inbox"))
             ),
             MuiDivider(),
             MuiListItem(button = true, divider = true)(
-              MuiListItemText(primary = Some("Drafts"))
+              MuiListItemText(primary = VdomNode("Drafts"))
             ),
             MuiListItem(button = true)(
-              MuiListItemText(primary = Some("Trash"))
+              MuiListItemText(primary = VdomNode("Trash"))
             ),
             MuiDivider(light = true),
             MuiListItem(button = true)(
-              MuiListItemText(primary = Some("Spam"))
+              MuiListItemText(primary = VdomNode("Spam"))
             )
           )
         )

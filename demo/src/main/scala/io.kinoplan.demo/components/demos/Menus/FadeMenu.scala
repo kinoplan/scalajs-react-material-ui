@@ -8,6 +8,7 @@ import org.scalajs.dom.raw.HTMLElement
 import scalacss.ScalaCssReactImplicits
 
 import scala.scalajs.js
+import scala.scalajs.js.JSConverters._
 
 object FadeMenu extends ScalaCssReactImplicits {
   trait JsObject extends js.Object
@@ -42,9 +43,9 @@ object FadeMenu extends ScalaCssReactImplicits {
               "Open with fade transition  "
             ),
             MuiMenu(
-              anchorEl = state.anchorEl,
+              anchorEl = state.anchorEl.orUndefined,
               open = state.isMenuOpen,
-              onClose = Some(handleClose),
+              onClose = handleClose,
               TransitionComponent = MuiFade.RawComponent
             )(
               id := "fade-menu",

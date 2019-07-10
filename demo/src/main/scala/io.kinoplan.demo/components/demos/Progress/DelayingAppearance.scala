@@ -67,7 +67,7 @@ object DelayingAppearance extends ScalaCssReactImplicits {
         ComponentContainer("Delaying appearance")(
           div(css.root,
             div(css.placeholder,
-              MuiFade(in = Some(state.loading), unmountOnExit = true)(
+              MuiFade(in = state.loading, unmountOnExit = true)(
                 style := state.transitionDelayStyle,
                 MuiCircularProgress()
               ),
@@ -80,7 +80,7 @@ object DelayingAppearance extends ScalaCssReactImplicits {
               if (state.isSuccess) {
                 MuiTypography()("Success!")
               } else {
-                MuiFade(in = Some(state.isProgress), unmountOnExit = true)(
+                MuiFade(in = state.isProgress, unmountOnExit = true)(
                   style := state.transitionDelayStyle,
                   MuiCircularProgress()
                 )

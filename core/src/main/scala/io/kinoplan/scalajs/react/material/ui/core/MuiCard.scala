@@ -13,14 +13,14 @@ object MuiCard extends ReactBridgeComponent with MuiCardExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    raised: Boolean = false
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    raised: js.UndefOr[Boolean] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
 }
 
 trait MuiCardExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
   }

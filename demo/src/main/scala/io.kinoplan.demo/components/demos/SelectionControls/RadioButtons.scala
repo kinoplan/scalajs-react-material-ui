@@ -1,7 +1,7 @@
 package io.kinoplan.demo.components.demos.SelectionControls
 
 import io.kinoplan.demo.components.ComponentContainer
-import io.kinoplan.demo.styles.demos.SelectionControls.{DefaultCustomControlStyle, CustomControlStyle}
+import io.kinoplan.demo.styles.demos.SelectionControls.{CustomControlStyle, DefaultCustomControlStyle}
 import io.kinoplan.demo.utils.Helpers.styleAToClassName
 import io.kinoplan.scalajs.react.material.ui.core.MuiRadio
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiRadioButtonCheckedIcon, MuiRadioButtonUncheckedIcon}
@@ -40,35 +40,35 @@ object RadioButtons extends ScalaCssReactImplicits {
       div(
         ComponentContainer("Standalone Radio Buttons")(
           div(
-            MuiRadio(checked = Some(state.isA))(
+            MuiRadio(checked = state.isA)(
               onChange ==> handleChange,
               value := "a",
               name := "radio-button-demo",
               aria.label := "A"
             ),
-            MuiRadio(checked = Some(state.isB))(
+            MuiRadio(checked = state.isB)(
               onChange ==> handleChange,
               value := "b",
               name := "radio-button-demo",
               aria.label := "B"
             ),
-            MuiRadio(checked = Some(state.isC), classes = controlClasses)(
+            MuiRadio(checked = state.isC, classes = controlClasses)(
               onChange ==> handleChange,
               value := "c",
               name := "radio-button-demo",
               aria.label := "C",
             ),
-            MuiRadio(checked = Some(state.isD), color = MuiRadio.Color.default)(
+            MuiRadio(checked = state.isD, color = MuiRadio.Color.default)(
               onChange ==> handleChange,
               value := "d",
               name := "radio-button-demo",
               aria.label := "D",
             ),
             MuiRadio(
-              checked = Some(state.isE),
+              checked = state.isE,
               color = MuiRadio.Color.default,
-              icon = Some(MuiRadioButtonUncheckedIcon(fontSize = MuiRadioButtonUncheckedIcon.FontSize.small).rawNode),
-              checkedIcon = Some(MuiRadioButtonCheckedIcon(fontSize = MuiRadioButtonCheckedIcon.FontSize.small).rawNode)
+              icon = MuiRadioButtonUncheckedIcon(fontSize = MuiRadioButtonUncheckedIcon.FontSize.small)(),
+              checkedIcon = MuiRadioButtonCheckedIcon(fontSize = MuiRadioButtonCheckedIcon.FontSize.small)()
             )(
               onChange ==> handleChange,
               value := "e",

@@ -1,11 +1,10 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import japgolly.scalajs.react.ReactEvent
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
-import japgolly.scalajs.react.ReactEvent
 
 object MuiBottomNavigation extends ReactBridgeComponent with MuiBottomNavigationExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -15,17 +14,16 @@ object MuiBottomNavigation extends ReactBridgeComponent with MuiBottomNavigation
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: Option[String | js.Function] = Some("div"),
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    component: OptComponentPropType = js.undefined,
     onChange: ReactHandler2[ReactEvent, js.Any] = js.undefined,
-    showLabels: Boolean = false,
-    value: Option[js.Any] = None
+    showLabels: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiBottomNavigationExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
   }

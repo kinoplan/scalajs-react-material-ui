@@ -14,14 +14,16 @@ object MuiGrow extends ReactBridgeComponent with MuiGrowExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    in: Option[Boolean] = None,
-    timeout: js.Object | Timeout.Value = Timeout.auto,
-    TransitionProps: js.Object = js.Object()
+    in: js.UndefOr[Boolean] = js.undefined,
+    timeout: js.UndefOr[js.Object | Timeout.Value] = js.undefined,
+    TransitionProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiGrowExtensions {
   object Timeout extends Enumeration {
-    val auto = Value("auto")
+    type Value = String
+
+    val auto = "auto"
   }
 }

@@ -13,14 +13,14 @@ object MuiCardActions extends ReactBridgeComponent with MuiCardActionsExtensions
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    disableActionSpacing: Boolean = false
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    disableActionSpacing: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiCardActionsExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val disableActionSpacing = "disableActionSpacing"

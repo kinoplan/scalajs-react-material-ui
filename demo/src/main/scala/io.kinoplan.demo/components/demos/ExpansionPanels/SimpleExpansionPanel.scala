@@ -6,9 +6,9 @@ import io.kinoplan.scalajs.react.material.ui.core.{MuiExpansionPanel, MuiExpansi
 import io.kinoplan.scalajs.react.material.ui.icons.MuiExpandMoreIcon
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object SimpleExpansionPanel {
+object SimpleExpansionPanel extends ScalaCssReactImplicits {
   case class Props(style: SimpleExpansionPanelStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
@@ -19,7 +19,7 @@ object SimpleExpansionPanel {
         ComponentContainer("Simple Expansion Panel")(
           div(css.root,
             MuiExpansionPanel()(
-              MuiExpansionPanelSummary(expandIcon = Some(MuiExpandMoreIcon()))(
+              MuiExpansionPanelSummary(expandIcon = MuiExpandMoreIcon()())(
                 MuiTypography()(css.heading,
                   "Expansion Panel 1"
                 )
@@ -32,7 +32,7 @@ object SimpleExpansionPanel {
               )
             ),
             MuiExpansionPanel()(
-              MuiExpansionPanelSummary(expandIcon = Some(MuiExpandMoreIcon()))(
+              MuiExpansionPanelSummary(expandIcon = MuiExpandMoreIcon()())(
                 MuiTypography()(css.heading,
                   "Expansion Panel 2"
                 )
@@ -44,8 +44,9 @@ object SimpleExpansionPanel {
                 )
               )
             ),
-            MuiExpansionPanel(disabled = true)(
-              MuiExpansionPanelSummary(expandIcon = Some(MuiExpandMoreIcon()))(
+            MuiExpansionPanel()(
+              disabled := true,
+              MuiExpansionPanelSummary(expandIcon = MuiExpandMoreIcon()())(
                 MuiTypography()(css.heading,
                   "Disabled Expansion Panel"
                 )

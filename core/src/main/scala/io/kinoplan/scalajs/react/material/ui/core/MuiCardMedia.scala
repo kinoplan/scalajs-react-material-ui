@@ -13,16 +13,15 @@ object MuiCardMedia extends ReactBridgeComponent with MuiCardMediaExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: OptComponentPropType = "div",
-    image: Option[String] = None,
-    src: Option[String] = None
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    image: js.UndefOr[String] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
 }
 
 trait MuiCardMediaExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val media = "media"

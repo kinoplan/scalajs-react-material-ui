@@ -4,14 +4,14 @@ import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Drawers.{DefaultResponsiveDrawerStyle, ResponsiveDrawerStyle}
 import io.kinoplan.demo.utils.Helpers.styleAToClassName
 import io.kinoplan.scalajs.react.material.ui.core.styles.Direction
-import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiCssBaseline, MuiDivider, MuiDrawer, MuiHidden, MuiIconButton, MuiList, MuiListItem, MuiListItemIcon, MuiListItemText, MuiToolbar, MuiTypography}
+import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiInboxIcon, MuiMailIcon, MuiMenuIcon}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEventFromHtml, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object ResponsiveDrawer {
+object ResponsiveDrawer extends ScalaCssReactImplicits {
   case class Props(style: ResponsiveDrawerStyle)
 
   case class State(mobileOpen: Boolean = false) {
@@ -38,7 +38,7 @@ object ResponsiveDrawer {
             List("Inbox", "Starred", "Send email", "Drafts").zipWithIndex.toVdomArray { case (text, index) =>
               MuiListItem(button = true)(Attr("key") := text,
                 MuiListItemIcon()(if (index % 2 == 0) MuiInboxIcon() else MuiMailIcon()),
-                MuiListItemText(primary = Some(text))
+                MuiListItemText(primary = VdomNode(text))
               )
             }
           ),
@@ -47,7 +47,7 @@ object ResponsiveDrawer {
             List("All mail", "Trash", "Spam").zipWithIndex.toVdomArray { case (text, index) =>
               MuiListItem(button = true)(Attr("key") := text,
                 MuiListItemIcon()(if (index % 2 == 0) MuiInboxIcon() else MuiMailIcon()),
-                MuiListItemText(primary = Some(text))
+                MuiListItemText(primary = VdomNode(text))
               )
             }
           )

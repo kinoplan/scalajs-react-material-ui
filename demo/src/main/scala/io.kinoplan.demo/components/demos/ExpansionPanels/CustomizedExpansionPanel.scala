@@ -29,7 +29,7 @@ object CustomizedExpansionPanel extends ScalaCssReactImplicits {
       div(
         ComponentContainer("Customized Expansion Panel")(
           div(
-            MuiExpansionPanel(square = true, expanded = Some(state.isPanel1))(css.panelRoot, css.panelExpanded,
+            MuiExpansionPanel(square = true, expanded = state.isPanel1)(css.panelRoot, css.panelExpanded,
               onChange --> handleChange("panel1"),
               MuiExpansionPanelSummary()(css.summaryRoot, css.summaryContent,
                 MuiTypography()("Collapsible Group Item #1")
@@ -42,7 +42,7 @@ object CustomizedExpansionPanel extends ScalaCssReactImplicits {
                 )
               )
             ),
-            MuiExpansionPanel(square = true, expanded = Some(state.isPanel2))(css.panelRoot, css.panelExpanded,
+            MuiExpansionPanel(square = true, expanded = state.isPanel2)(css.panelRoot, css.panelExpanded,
               onChange --> handleChange("panel2"),
               MuiExpansionPanelSummary()(css.summaryRoot, css.summaryContent,
                 MuiTypography()("Collapsible Group Item #2")
@@ -55,7 +55,7 @@ object CustomizedExpansionPanel extends ScalaCssReactImplicits {
                 )
               )
             ),
-            MuiExpansionPanel(square = true, expanded = Some(state.isPanel3))(css.panelRoot, css.panelExpanded,
+            MuiExpansionPanel(square = true, expanded = state.isPanel3)(css.panelRoot, css.panelExpanded,
               onChange --> handleChange("panel3"),
               MuiExpansionPanelSummary()(css.summaryRoot, css.summaryContent,
                 MuiTypography()("Collapsible Group Item #3")

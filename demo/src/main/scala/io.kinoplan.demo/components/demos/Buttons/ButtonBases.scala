@@ -7,11 +7,11 @@ import io.kinoplan.scalajs.react.material.ui.core.{MuiButtonBase, MuiTypography}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
 import scala.scalajs.js
 
-object ButtonBases {
+object ButtonBases extends ScalaCssReactImplicits {
   case class Props(style: ButtonBasesStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {

@@ -14,27 +14,25 @@ object LongTextSnackbar extends ScalaCssReactImplicits {
     def render(props: Props): VdomElement = {
       val css = props.style
 
-      val action = Some(
-        MuiButton(color = MuiButton.Color.secondary, size = MuiButton.Size.small)("lorem ipsum dolorem")
-      )
+      val action = MuiButton(color = MuiButton.Color.secondary, size = MuiButton.Size.small)("lorem ipsum dolorem")
 
       div(
         ComponentContainer("Message Length")(
           div(
             MuiSnackbarContent(
               action = action,
-              message = Some("This is an error message!")
+              message = VdomNode("This is an error message!")
             )(css.snackbar),
             MuiSnackbarContent(
-              message = Some("I love candy. I love cookies. I love cupcakes. I love cheesecake. I love chocolate.")
-            )(css.snackbar),
-            MuiSnackbarContent(
-              action = action,
-              message = Some("I love candy. I love cookies. I love cupcakes.")
+              message = VdomNode("I love candy. I love cookies. I love cupcakes. I love cheesecake. I love chocolate.")
             )(css.snackbar),
             MuiSnackbarContent(
               action = action,
-              message = Some("I love candy. I love cookies. I love cupcakes. I love cheesecake. I love chocolate.")
+              message = VdomNode("I love candy. I love cookies. I love cupcakes.")
+            )(css.snackbar),
+            MuiSnackbarContent(
+              action = action,
+              message = VdomNode("I love candy. I love cookies. I love cupcakes. I love cheesecake. I love chocolate.")
             )(css.snackbar)
           )
         )

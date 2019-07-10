@@ -14,17 +14,17 @@ object MuiList extends ReactBridgeComponent with MuiListExtensions with JsWriter
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     component: OptComponentPropType = js.undefined,
-    dense: Boolean = false,
-    disablePadding: Boolean = false,
-    subheader: Option[VdomNode] = None
+    dense: js.UndefOr[Boolean] = js.undefined,
+    disablePadding: js.UndefOr[Boolean] = js.undefined,
+    subheader: js.UndefOr[VdomNode] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiListExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val padding = "padding"

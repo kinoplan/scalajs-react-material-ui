@@ -23,21 +23,21 @@ object SimpleList extends ScalaCssReactImplicits {
                 MuiListItemIcon()(
                   MuiInboxIcon()
                 ),
-                MuiListItemText(primary = Some("Inbox"))
+                MuiListItemText(primary = VdomNode("Inbox"))
               ),
               MuiListItem(button = true)(
                 MuiListItemIcon()(
                   MuiDraftsIcon()
                 ),
-                MuiListItemText(primary = Some("Drafts"))
+                MuiListItemText(primary = VdomNode("Drafts"))
               ),
               MuiDivider(),
               MuiList(component = "nav")(
                 MuiListItem(button = true)(
-                  MuiListItemText(primary = Some("Trash"))
+                  MuiListItemText(primary = VdomNode("Trash"))
                 ),
                 MuiListItem(component = "a", button = true)(href := "#simple-list",
-                  MuiListItemText(primary = Some("Spam"))
+                  MuiListItemText(primary = VdomNode("Spam"))
                 )
               )
             )

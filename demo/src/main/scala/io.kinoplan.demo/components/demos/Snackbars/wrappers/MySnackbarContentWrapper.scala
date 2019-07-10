@@ -1,6 +1,5 @@
 package io.kinoplan.demo.components.demos.Snackbars.wrappers
 
-import cats.syntax.option._
 import io.kinoplan.demo.styles.demos.Snackbars.{DefaultMySnackbarContentWrapperStyle, MySnackbarContentWrapperStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiIconButton, MuiSnackbarContent}
 import io.kinoplan.scalajs.react.material.ui.icons._
@@ -40,7 +39,7 @@ object MySnackbarContentWrapper extends ScalaCssReactImplicits {
       val message = span(css.message, id := "client-snackbar",
         Icon(css.icon, css.iconVariant),
         props.message
-      ).some
+      )
 
       val action = VdomNode(
         MuiIconButton(color = MuiIconButton.Color.inherit)(
@@ -49,7 +48,7 @@ object MySnackbarContentWrapper extends ScalaCssReactImplicits {
           onClick -->? props.onCloseClick,
           MuiCloseIcon()(css.icon)
         ).rawNode
-      ).some
+      )
 
       val cssClassName = props.className.getOrElse(css.common.emptyStyle)
 

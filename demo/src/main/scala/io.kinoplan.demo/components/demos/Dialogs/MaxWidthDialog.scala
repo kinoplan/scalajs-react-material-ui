@@ -2,12 +2,14 @@ package io.kinoplan.demo.components.demos.Dialogs
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Dialogs.{DefaultDialogsStyle, DialogsStyle}
-import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiDialog, MuiDialogActions, MuiDialogContent, MuiDialogContentText, MuiDialogTitle, MuiFormControl, MuiFormControlLabel, MuiInputLabel, MuiMenuItem, MuiSelect, MuiSwitch}
+import io.kinoplan.scalajs.react.material.ui.core._
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, Callback, React, ReactEvent, ReactEventFromInput, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object MaxWidthDialog {
+import scala.scalajs.js
+
+object MaxWidthDialog extends ScalaCssReactImplicits {
   case class Props(style: DialogsStyle)
 
   case class State(open: Boolean = false, fullWidth: Boolean = true, maxWidth: String = "sm") {
@@ -42,9 +44,9 @@ object MaxWidthDialog {
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
 
-      val selectInputProps = Map(
-        "name" -> "max-width",
-        "id" -> "max-width"
+      val selectInputProps = js.Dynamic.literal(
+        name = "max-width",
+        id = "max-width"
       )
 
       div(
@@ -57,7 +59,7 @@ object MaxWidthDialog {
             div(
               MuiDialog(
                 fullWidth = state.fullWidth,
-                maxWidth = Some(state.maxWidth),
+                maxWidth = state.maxWidth,
                 open = state.open,
                 onClose = handleClickClose
               )(
@@ -88,13 +90,11 @@ object MaxWidthDialog {
                       )
                     ),
                     MuiFormControlLabel(
-                      control = Some(
-                        MuiSwitch(checked = Some(state.fullWidth))(
-                          onChange ==> handleFullWidthChange,
-                          value := "fullWidth"
-                        ).rawElement
-                      ),
-                      label = Some("Full width")
+                      control = MuiSwitch(checked = state.fullWidth)(
+                        onChange ==> handleFullWidthChange,
+                        value := "fullWidth"
+                      ).rawElement,
+                      label = VdomNode("Full width")
                     )(css.formControlLabel)
                   )
                 ),

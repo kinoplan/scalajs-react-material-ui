@@ -3,13 +3,13 @@ package io.kinoplan.demo.components.demos.AppBar
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.AppBar.{DefaultSearchAppBarStyle, SearchAppBarStyle}
 import io.kinoplan.demo.utils.Helpers._
-import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiIconButton, MuiInputBase, MuiToolbar, MuiTypography}
+import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiMenuIcon, MuiSearchIcon}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object SearchAppBar {
+object SearchAppBar extends ScalaCssReactImplicits {
   case class Props(style: SearchAppBarStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {

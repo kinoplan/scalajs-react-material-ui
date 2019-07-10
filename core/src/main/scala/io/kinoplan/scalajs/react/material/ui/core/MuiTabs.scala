@@ -16,7 +16,7 @@ object MuiTabs extends ReactBridgeComponent with MuiTabsExtensions with JsWriter
   def apply(
     action: OnJSEv1[ReactEvent] = js.undefined,
     centered: js.UndefOr[Boolean] = js.undefined,
-    classes: Map[ClassKey.Value, String] = Map.empty,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     component: OptComponentPropType = js.undefined,
     indicatorColor: js.UndefOr[IndicatorColor.Value] = js.undefined,
     onChange: ReactHandler2[ReactEvent, js.Any] = js.undefined,

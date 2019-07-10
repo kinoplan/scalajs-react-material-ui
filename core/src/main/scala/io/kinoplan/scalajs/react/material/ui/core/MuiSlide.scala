@@ -14,9 +14,9 @@ object MuiSlide extends ReactBridgeComponent with MuiSlideExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    direction: Direction.Value = Direction.down,
-    in: Option[Boolean] = None,
-    timeout: Option[Int | js.Object] = None
+    direction: js.UndefOr[Direction.Value] = js.undefined,
+    in: js.UndefOr[Boolean] = js.undefined,
+    timeout: js.UndefOr[Int | js.Object] = js.undefined
   ): WithProps = auto
 }
 

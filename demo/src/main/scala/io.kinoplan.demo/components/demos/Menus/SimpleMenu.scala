@@ -7,6 +7,8 @@ import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFro
 import org.scalajs.dom.raw.HTMLElement
 import scalacss.ScalaCssReactImplicits
 
+import scala.scalajs.js.JSConverters._
+
 object SimpleMenu extends ScalaCssReactImplicits {
   case class State(anchorEl: Option[HTMLElement] = None) {
     val isMenuOpen = anchorEl.nonEmpty
@@ -38,7 +40,7 @@ object SimpleMenu extends ScalaCssReactImplicits {
               onClick ==> handleClick,
               "Open Menu"
             ),
-            MuiMenu(anchorEl = state.anchorEl, open = state.isMenuOpen, onClose = Some(handleClose))(
+            MuiMenu(anchorEl = state.anchorEl.orUndefined, open = state.isMenuOpen, onClose = handleClose)(
               id := "simple-menu",
               MuiMenuItem()(onClick ==> handleClose, "Profile"),
                MuiMenuItem()(onClick ==> handleClose, "My account"),

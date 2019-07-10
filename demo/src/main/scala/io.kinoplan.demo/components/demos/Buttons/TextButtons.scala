@@ -5,9 +5,9 @@ import io.kinoplan.demo.styles.demos.Buttons.{CommonButtonStyle, DefaultCommonBu
 import io.kinoplan.scalajs.react.material.ui.core.MuiButton
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object TextButtons {
+object TextButtons extends ScalaCssReactImplicits {
   case class Props(style: CommonButtonStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
@@ -21,7 +21,7 @@ object TextButtons {
             MuiButton(color = MuiButton.Color.primary)(css.marginButton, "Primary"),
             MuiButton(color = MuiButton.Color.secondary)(css.marginButton, "Secondary"),
             MuiButton()(css.marginButton, disabled := true, "Disabled"),
-            MuiButton(href = Some("#text-buttons"))(css.marginButton, "Link"),
+            MuiButton()(css.marginButton, href := "#text-buttons", "Link"),
             input.file(css.inputButton, accept := "image/*", id := "text-button-file", multiple := true),
             label(htmlFor := "text-button-file")(
               MuiButton(component = "span")(css.marginButton,

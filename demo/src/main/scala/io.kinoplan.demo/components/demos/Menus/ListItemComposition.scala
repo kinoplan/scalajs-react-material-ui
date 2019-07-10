@@ -29,19 +29,19 @@ object ListItemComposition extends ScalaCssReactImplicits {
                   MuiListItemIcon()(css.icon,
                     MuiSendIcon()
                   ),
-                  MuiListItemText(classes = textClasses, inset = true, primary = Some("Sent mail"))
+                  MuiListItemText(classes = textClasses, inset = true, primary = VdomNode("Sent mail"))
                 ),
                 MuiMenuItem()(css.menuItem,
                   MuiListItemIcon()(css.icon,
                     MuiDraftsIcon()
                   ),
-                  MuiListItemText(classes = textClasses, inset = true, primary = Some("Drafts"))
+                  MuiListItemText(classes = textClasses, inset = true, primary = VdomNode("Drafts"))
                 ),
                 MuiMenuItem()(css.menuItem,
                   MuiListItemIcon()(css.icon,
                     MuiInboxIcon()
                   ),
-                  MuiListItemText(classes = textClasses, inset = true, primary = Some("Inbox"))
+                  MuiListItemText(classes = textClasses, inset = true, primary = VdomNode("Inbox"))
                 )
               )
             )

@@ -14,31 +14,35 @@ object MuiCircularProgress extends ReactBridgeComponent with MuiCircularProgress
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    color: Color.Value = Color.primary,
-    disableShrink: Boolean = false,
-    size: Option[Int | String] = Some(40),
-    thickness: Double = 3.6,
-    value: Int = 0,
-    variant: Variant.Value = Variant.indeterminate
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    color: js.UndefOr[Color.Value] = js.undefined,
+    disableShrink: js.UndefOr[Boolean] = js.undefined,
+    size: js.UndefOr[Int | String] = js.undefined,
+    thickness: js.UndefOr[Double] = js.undefined,
+    value: js.UndefOr[Int] = js.undefined,
+    variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiCircularProgressExtensions {
   object Color extends Enumeration {
-    val primary = Value("primary")
-    val secondary = Value("secondary")
-    val inherit = Value("inherit")
+    type Value = String
+
+    val primary = "primary"
+    val secondary = "secondary"
+    val inherit = "inherit"
   }
 
   object Variant extends Enumeration {
-    val determinate = Value("determinate")
-    val indeterminate = Value("indeterminate")
-    val static = Value("static")
+    type Value = String
+
+    val determinate = "determinate"
+    val indeterminate = "indeterminate"
+    val static = "static"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val static = "static"

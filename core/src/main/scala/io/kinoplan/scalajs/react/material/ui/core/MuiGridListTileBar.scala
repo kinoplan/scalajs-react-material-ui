@@ -14,28 +14,32 @@ object MuiGridListTileBar extends ReactBridgeComponent with MuiGridListTileBarEx
   object RawComponent extends js.Function
 
   def apply(
-    actionIcon: Option[VdomNode] = None,
-    actionPosition: ActionPosition.Value = ActionPosition.right,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    subtitle: Option[VdomNode] = None,
-    title: Option[VdomNode] = None,
-    titlePosition: TitlePosition.Value = TitlePosition.bottom
+    actionIcon: js.UndefOr[VdomNode] = js.undefined,
+    actionPosition: js.UndefOr[ActionPosition.Value] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    subtitle: js.UndefOr[VdomNode] = js.undefined,
+    title: js.UndefOr[VdomNode] = js.undefined,
+    titlePosition: js.UndefOr[TitlePosition.Value] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiGridListTileBarExtensions {
   object ActionPosition extends Enumeration {
-    val left = Value("left")
-    val right = Value("right")
+    type Value = String
+
+    val left = "left"
+    val right = "right"
   }
 
   object TitlePosition extends Enumeration {
-    val top = Value("top")
-    val bottom = Value("bottom")
+    type Value = String
+
+    val top = "top"
+    val bottom = "bottom"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val titlePositionBottom = "titlePositionBottom"

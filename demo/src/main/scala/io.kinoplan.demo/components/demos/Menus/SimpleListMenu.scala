@@ -9,6 +9,8 @@ import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFro
 import org.scalajs.dom.raw.HTMLElement
 import scalacss.ScalaCssReactImplicits
 
+import scala.scalajs.js.JSConverters._
+
 object SimpleListMenu extends ScalaCssReactImplicits {
   case class Props(style: MenuStyle)
 
@@ -57,12 +59,12 @@ object SimpleListMenu extends ScalaCssReactImplicits {
                 aria.label := "When device is locked",
                 onClick ==> handleClickListItem,
                 MuiListItemText(
-                  primary = Some("When device is locked"),
-                  secondary = Some(options(state.selectedIndex))
+                  primary = VdomNode("When device is locked"),
+                  secondary = VdomNode(options(state.selectedIndex))
                 )
               )
             ),
-            MuiMenu(anchorEl = state.anchorEl, open = state.isMenuOpen, onClose = Some(handleClose))(
+            MuiMenu(anchorEl = state.anchorEl.orUndefined, open = state.isMenuOpen, onClose = handleClose)(
               id := "lock-menu",
               options.zipWithIndex.toVdomArray { case (option, index) =>
                 MuiMenuItem()(

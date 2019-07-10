@@ -3,13 +3,13 @@ package io.kinoplan.demo.components.demos.AppBar
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.models.Message
 import io.kinoplan.demo.styles.demos.AppBar.{BottomAppBarStyle, DefaultBottomAppBarStyle}
-import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiAvatar, MuiCssBaseline, MuiFab, MuiIconButton, MuiList, MuiListItem, MuiListItemText, MuiListSubheader, MuiPaper, MuiToolbar, MuiTypography}
+import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiAddIcon, MuiMenuIcon, MuiMoreVertIcon, MuiSearchIcon}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, React, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object BottomAppBar {
+object BottomAppBar extends ScalaCssReactImplicits {
   case class Props(style: BottomAppBarStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
@@ -32,7 +32,7 @@ object BottomAppBar {
                       if (message.id == 3) MuiListSubheader()(css.subHeader(Layout.isPaletteLight), "Yesterday") else EmptyVdom,
                       MuiListItem(button = true)(
                         MuiAvatar()(alt := "Profile Picture", src := message.person),
-                        MuiListItemText(primary = Some(VdomNode(message.primary)), secondary = Some(VdomNode(message.secondary)))
+                        MuiListItemText(primary = VdomNode(message.primary), secondary = VdomNode(message.secondary))
                       )
                     )
                   }

@@ -5,9 +5,9 @@ import io.kinoplan.demo.styles.demos.Avatars.{AvatarsStyle, DefaultAvatarsStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiGrid}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object LetterAvatars {
+object LetterAvatars extends ScalaCssReactImplicits {
   case class Props(style: AvatarsStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {

@@ -15,33 +15,35 @@ object MuiSelect extends ReactBridgeComponent with MuiSelectExtensions with JsWr
   object RawComponent extends js.Function
 
   def apply(
-    autoWidth: Boolean = false,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    displayEmpty: Boolean = false,
+    autoWidth: js.UndefOr[Boolean] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    displayEmpty: js.UndefOr[Boolean] = js.undefined,
     IconComponent: OptComponentPropType = js.undefined,
-    input: Option[React.Node] = None,
-    inputProps: js.Object = js.Object(),
-    MenuProps: js.Object = js.Object(),
-    multiple: Boolean = false,
-    native: Boolean = false,
+    input: js.UndefOr[React.Element] = js.undefined,
+    inputProps: js.UndefOr[js.Object] = js.undefined,
+    MenuProps: js.UndefOr[js.Object] = js.undefined,
+    multiple: js.UndefOr[Boolean] = js.undefined,
+    native: js.UndefOr[Boolean] = js.undefined,
     onClose: ReactHandler1[ReactEventFromInput] = js.undefined,
     onOpen: ReactHandler1[ReactEventFromInput] = js.undefined,
     open: js.UndefOr[Boolean] = js.undefined,
     renderValue: OptRenderValueType = js.undefined,
-    SelectDisplayProps: js.Object = js.Object(),
-    variant: Option[Variant.Value] = None
+    SelectDisplayProps: js.UndefOr[js.Object] = js.undefined,
+    variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiSelectExtensions {
   object Variant extends Enumeration {
-    val standard = Value("standard")
-    val outlined = Value("outlined")
-    val filled = Value("filled")
+    type Value = String
+
+    val standard = "standard"
+    val outlined = "outlined"
+    val filled = "filled"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val select = "select"

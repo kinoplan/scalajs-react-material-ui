@@ -23,20 +23,17 @@ object TitlebarGridList extends ScalaCssReactImplicits {
         ComponentContainer("Grid list with titlebars")(
           div(css.root, css.rootPaper(Layout.isPaletteLight),
             MuiGridList()(css.gridList,
-              MuiGridListTile(cols = 2)(Attr("key") := "Subheader", style := js.Dictionary("height" -> "auto"),
+              MuiGridListTile()(Attr("key") := "Subheader", style := js.Dictionary("height" -> "auto"),
+                cols := 2,
                 MuiListSubheader(component = "div")("December")
               ),
               TileData.default.toVdomArray { tile =>
                 MuiGridListTile()(Attr("key") := tile.image,
                   img(src := tile.image, alt := tile.title),
                   MuiGridListTileBar(
-                    title = Some(tile.title),
-                    subtitle = Some(span(s"by: ${tile.author}")),
-                    actionIcon = Some(
-                      MuiIconButton()(css.iconStyle,
-                        MuiInfoIcon()
-                      )
-                    )
+                    title = VdomNode(tile.title),
+                    subtitle = VdomNode(span(s"by: ${tile.author}").rawNode),
+                    actionIcon = VdomNode(MuiIconButton()(css.iconStyle, MuiInfoIcon()).rawNode)
                   )
                 )
               }

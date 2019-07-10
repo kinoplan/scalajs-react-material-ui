@@ -5,9 +5,9 @@ import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiToolbar, MuiTypography}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object SimpleAppBar {
+object SimpleAppBar extends ScalaCssReactImplicits {
   case class Props(style: CommonStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {

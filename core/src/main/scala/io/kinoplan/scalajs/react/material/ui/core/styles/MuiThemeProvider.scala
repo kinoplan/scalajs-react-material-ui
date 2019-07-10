@@ -14,8 +14,8 @@ object MuiThemeProvider extends ReactBridgeComponent {
   object RawComponent extends js.Object
 
   def apply(
-    disableStylesGeneration: Option[Boolean] = None,
-    sheetsManager: Option[JSMap[StylesCreator, JSMap[Theme, SheetManagerTheme]]] = None,
+    disableStylesGeneration: js.UndefOr[Boolean] = js.undefined,
+    sheetsManager: js.UndefOr[JSMap[StylesCreator, JSMap[Theme, SheetManagerTheme]]] = js.undefined,
     theme: js.Object | js.Function
   ): WithProps = auto
 }

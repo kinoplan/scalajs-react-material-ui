@@ -5,9 +5,9 @@ import io.kinoplan.demo.styles.demos.Buttons.{CommonButtonStyle, DefaultCommonBu
 import io.kinoplan.scalajs.react.material.ui.core.MuiButton
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object ContainedButtons {
+object ContainedButtons extends ScalaCssReactImplicits {
   case class Props(style: CommonButtonStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
@@ -30,7 +30,8 @@ object ContainedButtons {
               disabled := true,
               "Disabled"
             ),
-            MuiButton(variant = MuiButton.Variant.contained, href = Some("#contained-buttons"))(css.marginButton,
+            MuiButton(variant = MuiButton.Variant.contained)(css.marginButton,
+              href := "#contained-buttons",
               "Link"
             ),
             input.file(css.inputButton, accept := "image/*", id := "contained-button-file", multiple := true),

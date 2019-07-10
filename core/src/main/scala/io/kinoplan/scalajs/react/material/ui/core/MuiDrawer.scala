@@ -15,35 +15,39 @@ object MuiDrawer extends ReactBridgeComponent with MuiDrawerExtensions with JsWr
   object RawComponent extends js.Function
 
   def apply(
-    anchor: Anchor.Value = Anchor.left,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    elevation: Int = 16,
-    ModalProps: js.Object = js.Object(),
+    anchor: js.UndefOr[Anchor.Value] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    elevation: js.UndefOr[Int] = js.undefined,
+    ModalProps: js.UndefOr[js.Object] = js.undefined,
     onClose: ReactHandler1[ReactEventFromHtml] = js.undefined,
-    open: Boolean = false,
-    PaperProps: js.Object = js.Object(),
-    SlideProps: js.Object = js.Object(),
-    transitionDuration: Option[Int | js.Object] = None,
-    variant: Variant.Value = Variant.temporary
+    open: js.UndefOr[Boolean] = js.undefined,
+    PaperProps: js.UndefOr[js.Object] = js.undefined,
+    SlideProps: js.UndefOr[js.Object] = js.undefined,
+    transitionDuration: js.UndefOr[Int | js.Object] = js.undefined,
+    variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiDrawerExtensions {
   object Anchor extends Enumeration {
-    val left = Value("left")
-    val top = Value("top")
-    val right = Value("right")
-    val bottom = Value("bottom")
+    type Value = String
+
+    val left = "left"
+    val top = "top"
+    val right = "right"
+    val bottom = "bottom"
   }
 
   object Variant extends Enumeration {
-    val permanent = Value("permanent")
-    val persistent = Value("persistent")
-    val temporary = Value("temporary")
+    type Value = String
+
+    val permanent = "permanent"
+    val persistent = "persistent"
+    val temporary = "temporary"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val docked = "docked"

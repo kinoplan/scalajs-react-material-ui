@@ -4,7 +4,6 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.{UndefOr, undefined}
 
 object MuiTable extends ReactBridgeComponent with MuiTableExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -14,9 +13,9 @@ object MuiTable extends ReactBridgeComponent with MuiTableExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.Value, String] = Map.empty,
-    component: OptComponentPropType = undefined,
-    padding: UndefOr[Padding.Value] = undefined
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    padding: js.UndefOr[Padding.Value] = js.undefined
   ): WithProps = auto
 }
 

@@ -1,7 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
-import japgolly.scalajs.react.raw.React.RefFn
 import japgolly.scalajs.react.vdom.all._
 
 import scala.scalajs.js
@@ -15,24 +14,26 @@ object MuiCheckbox extends ReactBridgeComponent with MuiCheckboxExtensions with 
   object RawComponent extends js.Function
 
   def apply(
-    checkedIcon: Option[VdomNode] = None,
-    classes: Map[ClassKey.Value, String] = Map.empty,
-    color: Color.Value = Color.secondary,
-    disableRipple: Option[Boolean] = None,
-    icon: Option[VdomNode] = None,
-    indeterminate: Boolean = false,
-    indeterminateIcon: Option[VdomNode] = None,
-    inputProps: Map[String, String] = Map.empty,
-    inputRef: js.UndefOr[RefFn[String]] = js.undefined,
+    checkedIcon: js.UndefOr[VdomNode] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    color: js.UndefOr[Color.Value] = js.undefined,
+    disableRipple: js.UndefOr[Boolean] = js.undefined,
+    icon: js.UndefOr[VdomNode] = js.undefined,
+    indeterminate: js.UndefOr[Boolean] = js.undefined,
+    indeterminateIcon: js.UndefOr[VdomNode] = js.undefined,
+    inputProps: js.UndefOr[js.Object] = js.undefined,
+    inputRef: OptComponentRefType = js.undefined,
     defaultChecked: js.UndefOr[Boolean] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
 }
 
 trait MuiCheckboxExtensions {
   object Color extends Enumeration {
-    val primary = Value("primary")
-    val secondary = Value("secondary")
-    val default = Value("default")
+    type Value = String
+
+    val primary = "primary"
+    val secondary = "secondary"
+    val default = "default"
   }
 
   object ClassKey extends Enumeration {

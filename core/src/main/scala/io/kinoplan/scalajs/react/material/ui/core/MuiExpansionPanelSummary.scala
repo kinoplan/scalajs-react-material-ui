@@ -14,15 +14,15 @@ object MuiExpansionPanelSummary extends ReactBridgeComponent with MuiExpansionPa
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    expandIcon: Option[VdomNode] = None,
-    IconButtonProps: js.Object = js.Object()
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    expandIcon: js.UndefOr[VdomNode] = js.undefined,
+    IconButtonProps: js.UndefOr[js.Object]= js.undefined
   ): WithProps = auto
 }
 
 trait MuiExpansionPanelSummaryExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val expanded = "expanded"

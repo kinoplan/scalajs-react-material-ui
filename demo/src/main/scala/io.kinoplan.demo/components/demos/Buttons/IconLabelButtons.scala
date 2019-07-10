@@ -6,9 +6,9 @@ import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiIcon}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiCloudUploadIcon, MuiDeleteIcon, MuiKeyboardVoiceIcon, MuiSaveIcon}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object IconLabelButtons {
+object IconLabelButtons extends ScalaCssReactImplicits {
   case class Props(style: IconLabelButtonsStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {

@@ -69,8 +69,8 @@ object ConsecutiveSnackbars extends ScalaCssReactImplicits {
               onExited = handleExited,
               anchorOrigin = Origin(vertical = "bottom", horizontal = "left"),
               ContentProps = MuiContentProps(ariaDescribedby = "message-id"),
-              message = Some(span(id := "message-id", state.message)),
-              action = Some(VdomArray(
+              message = span(id := "message-id", state.message),
+              action = VdomArray(
                 MuiButton(color = MuiButton.Color.secondary, size = MuiButton.Size.small)(
                   Attr("key") := "undo",
                   onClick --> handleCloseClick,
@@ -82,7 +82,7 @@ object ConsecutiveSnackbars extends ScalaCssReactImplicits {
                   onClick --> handleCloseClick,
                   MuiCloseIcon()
                 )
-              ))
+              )
             )(Attr("key") := state.key)
           )
         )

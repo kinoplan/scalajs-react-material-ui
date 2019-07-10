@@ -2,13 +2,14 @@ package io.kinoplan.demo.components.demos.Chips
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Chips.{ChipsStyle, DefaultChipsStyle}
+import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiChip}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiDoneIcon, MuiFaceIcon}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object OutlinedChips {
+object OutlinedChips extends ScalaCssReactImplicits {
   case class Props(style: ChipsStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
@@ -26,91 +27,89 @@ object OutlinedChips {
       div(
         ComponentContainer("Outlined Chips")(
           div(css.root,
-            MuiChip(label = Some("Basic Chip"), variant = MuiChip.Variant.outlined)(css.chip),
+            MuiChip(label = "Basic Chip".toVdom, variant = MuiChip.Variant.outlined)(css.chip),
             MuiChip(
-              label = Some("Clickable Chip"),
-              avatar = Some(MuiAvatar()("MB").rawElement),
+              label = "Clickable Chip".toVdom,
+              avatar = MuiAvatar()("MB").rawElement,
               variant = MuiChip.Variant.outlined
             )(css.chip,
               onClick ==> handleClick
             ),
             MuiChip(
-              label = Some("Deletable Chip"),
-              avatar = Some(MuiAvatar()(
+              label = "Deletable Chip".toVdom,
+              avatar = MuiAvatar()(
                 alt := "Natacha",
                 src := "/static/images/avatar/1.jpg"
-              )().rawElement),
+              )().rawElement,
               onDelete = handleDelete,
               variant = MuiChip.Variant.outlined
             )(css.chip),
             MuiChip(
-              label = Some("Clickable Deletable Chip"),
-              avatar = Some(MuiAvatar()(
-                MuiFaceIcon()
-              ).rawElement),
+              label = "Clickable Deletable Chip".toVdom,
+              avatar = MuiAvatar()(MuiFaceIcon()).rawElement,
               onDelete = handleDelete,
               variant = MuiChip.Variant.outlined
             )(css.chip,
               onClick ==> handleClick
             ),
             MuiChip(
-              label = Some("Clickable Deletable Chip"),
-              icon = Some(MuiFaceIcon()().rawElement),
+              label = "Clickable Deletable Chip".toVdom,
+              icon = MuiFaceIcon()().rawElement,
               onDelete = handleDelete,
               variant = MuiChip.Variant.outlined
             )(css.chip,
               onClick ==> handleClick
             ),
             MuiChip(
-              label = Some("Custom delete icon Chip"),
-              deleteIcon = Some(MuiDoneIcon()().rawElement),
+              label = "Custom delete icon Chip".toVdom,
+              deleteIcon = MuiDoneIcon()().rawElement,
               onDelete = handleDelete,
               variant = MuiChip.Variant.outlined
             )(css.chip,
               onClick ==> handleClick
             ),
             MuiChip(
-              label = Some("Clickable Link Chip"),
+              label = "Clickable Link Chip".toVdom,
               component = "a",
-              clickable = Some(true),
+              clickable = true,
               variant = MuiChip.Variant.outlined
             )(css.chip,
               href := "/#demos/chips/",
             ),
             MuiChip(
-              label = Some("Primary Clickable Chip"),
-              avatar = Some(MuiAvatar()("MB").rawElement),
-              deleteIcon = Some(MuiDoneIcon()().rawElement),
+              label = "Primary Clickable Chip".toVdom,
+              avatar = MuiAvatar()("MB").rawElement,
+              deleteIcon = MuiDoneIcon()().rawElement,
               onDelete = handleDelete,
               color = MuiChip.Color.primary,
-              clickable = Some(true),
+              clickable = true,
               variant = MuiChip.Variant.outlined
             )(css.chip),
             MuiChip(
-              label = Some("Primary Clickable Chip"),
-              icon = Some(MuiFaceIcon()().rawElement),
-              deleteIcon = Some(MuiDoneIcon()().rawElement),
+              label = "Primary Clickable Chip".toVdom,
+              icon = MuiFaceIcon()().rawElement,
+              deleteIcon = MuiDoneIcon()().rawElement,
               onDelete = handleDelete,
               color = MuiChip.Color.primary,
-              clickable = Some(true),
+              clickable = true,
               variant = MuiChip.Variant.outlined
             )(css.chip),
             MuiChip(
-              label = Some("Deletable Primary Chip"),
+              label = "Deletable Primary Chip".toVdom,
               onDelete = handleDelete,
               color = MuiChip.Color.primary,
               variant = MuiChip.Variant.outlined
             )(css.chip),
             MuiChip(
-              label = Some("Deletable Secondary Chip"),
-              avatar = Some(MuiAvatar()(MuiFaceIcon()).rawElement),
+              label = "Deletable Secondary Chip".toVdom,
+              avatar = MuiAvatar()(MuiFaceIcon()).rawElement,
               onDelete = handleDelete,
               color = MuiChip.Color.secondary,
               variant = MuiChip.Variant.outlined
             )(css.chip),
             MuiChip(
-              label = Some("Deletable Secondary Chip"),
-              icon = Some(MuiFaceIcon()().rawElement),
+              label = "Deletable Secondary Chip".toVdom,
+              icon = MuiFaceIcon()().rawElement,
               onDelete = handleDelete,
               color = MuiChip.Color.secondary,
               variant = MuiChip.Variant.outlined

@@ -13,15 +13,15 @@ object MuiAvatar extends ReactBridgeComponent with MuiAvatarExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: OptComponentPropType = "div",
-    imgProps: Map[String, String] = Map.empty
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    imgProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiAvatarExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val colorDefault = "colorDefault"

@@ -1,8 +1,8 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
-import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.ReactEvent
+import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.html_<^._
 
 import scala.scalajs.js
@@ -16,16 +16,16 @@ object MuiChip extends ReactBridgeComponent with MuiChipExtensions with JsWriter
   object RawComponent extends js.Function
 
   def apply(
-    avatar: Option[React.Element] = None,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    clickable: Option[Boolean] = None,
-    color: Color.Value = Color.default,
-    component: OptComponentPropType = "div",
-    deleteIcon: Option[React.Element] = None,
-    icon: Option[React.Element] = None,
-    label: Option[VdomNode] = None,
+    avatar: js.UndefOr[React.Element] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    clickable: js.UndefOr[Boolean] = js.undefined,
+    color: js.UndefOr[Color.Value] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    deleteIcon: js.UndefOr[React.Element] = js.undefined,
+    icon: js.UndefOr[React.Element] = js.undefined,
+    label: js.UndefOr[VdomNode] = js.undefined,
     onDelete: ReactHandler1[ReactEvent] = js.undefined,
-    variant: Variant.Value = Variant.default
+    variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
 }
 
@@ -46,7 +46,7 @@ trait MuiChipExtensions {
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val colorPrimary = "colorPrimary"

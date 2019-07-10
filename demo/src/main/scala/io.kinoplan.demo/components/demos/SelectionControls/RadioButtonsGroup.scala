@@ -1,7 +1,8 @@
 package io.kinoplan.demo.components.demos.SelectionControls
 
 import io.kinoplan.demo.components.ComponentContainer
-import io.kinoplan.demo.styles.demos.SelectionControls.{DefaultControlButtonsGroupStyle, ControlButtonsGroupStyle}
+import io.kinoplan.demo.styles.demos.SelectionControls.{ControlButtonsGroupStyle, DefaultControlButtonsGroupStyle}
+import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.scalajs.react.material.ui.core.{MuiFormControl, MuiFormControlLabel, MuiFormHelperText, MuiFormLabel, MuiRadio, MuiRadioGroup}
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
@@ -34,10 +35,10 @@ object RadioButtonsGroup extends ScalaCssReactImplicits {
                 name := "gender1",
                 value := state.value,
                 onChange ==> handleChange,
-                MuiFormControlLabel(control = Some(MuiRadio()().rawElement), label = Some("Female"))(value := "female"),
-                MuiFormControlLabel(control = Some(MuiRadio()().rawElement), label = Some("Male"))(value := "male"),
-                MuiFormControlLabel(control = Some(MuiRadio()().rawElement), label = Some("Other"))(value := "other"),
-                MuiFormControlLabel(control = Some(MuiRadio()().rawElement), label = Some("(Disabled option)"))(
+                MuiFormControlLabel(control = MuiRadio()().rawElement, label = "Female".toVdom)(value := "female"),
+                MuiFormControlLabel(control = MuiRadio()().rawElement, label = "Male".toVdom)(value := "male"),
+                MuiFormControlLabel(control = MuiRadio()().rawElement, label = "Other".toVdom)(value := "other"),
+                MuiFormControlLabel(control = MuiRadio()().rawElement, label = "(Disabled option)".toVdom)(
                   disabled := true,
                   value := "disabled"
                 )
@@ -51,23 +52,23 @@ object RadioButtonsGroup extends ScalaCssReactImplicits {
                 value := state.value,
                 onChange ==> handleChange,
                 MuiFormControlLabel(
-                  control = Some(MuiRadio(color = MuiRadio.Color.primary).rawElement),
-                  label = Some("Female"),
+                  control = MuiRadio(color = MuiRadio.Color.primary).rawElement,
+                  label = "Female".toVdom,
                   labelPlacement = MuiFormControlLabel.LabelPlacement.start
                 )(value := "female"),
                 MuiFormControlLabel(
-                  control = Some(MuiRadio(color = MuiRadio.Color.primary).rawElement),
-                  label = Some("Male"),
+                  control = MuiRadio(color = MuiRadio.Color.primary).rawElement,
+                  label = "Male".toVdom,
                   labelPlacement = MuiFormControlLabel.LabelPlacement.start
                 )(value := "male"),
                 MuiFormControlLabel(
-                  control = Some(MuiRadio(color = MuiRadio.Color.primary).rawElement),
-                  label = Some("Other"),
+                  control = MuiRadio(color = MuiRadio.Color.primary).rawElement,
+                  label = "Other".toVdom,
                   labelPlacement = MuiFormControlLabel.LabelPlacement.start
                 )(value := "other"),
                 MuiFormControlLabel(
-                  control = Some(MuiRadio().rawElement),
-                  label = Some("(Disabled option)"),
+                  control = MuiRadio().rawElement,
+                  label = "(Disabled option)".toVdom,
                   labelPlacement = MuiFormControlLabel.LabelPlacement.start
                 )(
                   disabled := true,

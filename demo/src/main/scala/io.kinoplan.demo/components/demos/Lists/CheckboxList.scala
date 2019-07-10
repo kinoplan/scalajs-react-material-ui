@@ -37,11 +37,11 @@ object CheckboxList extends ScalaCssReactImplicits {
               List(0, 1, 2, 3).toVdomArray { value =>
                 MuiListItem(dense = true, button = true)(Attr("key") := value,
                   onClick --> handleToggle(value),
-                  MuiCheckbox(disableRipple = Some(true))(
+                  MuiCheckbox(disableRipple = true)(
                     checked := state.isChecked(value),
                     tabIndex := -1
                   ),
-                  MuiListItemText(primary = Some(s"Line item ${value + 1}")),
+                  MuiListItemText(primary = VdomNode(s"Line item ${value + 1}")),
                   MuiListItemSecondaryAction()(
                     MuiIconButton()(
                       aria.label := "Comments",

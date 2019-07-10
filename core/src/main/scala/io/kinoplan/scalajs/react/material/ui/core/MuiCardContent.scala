@@ -4,7 +4,6 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChild
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 object MuiCardContent extends ReactBridgeComponent with MuiCardContentExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -14,14 +13,14 @@ object MuiCardContent extends ReactBridgeComponent with MuiCardContentExtensions
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: Option[String | js.Function] = Some("div")
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    component: OptComponentPropType = js.undefined
   ): WithPropsNoChildren = autoNoChildren
 }
 
 trait MuiCardContentExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
   }

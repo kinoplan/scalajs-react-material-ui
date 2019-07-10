@@ -29,23 +29,23 @@ object FormControlLabelPosition extends ScalaCssReactImplicits {
               value := state.value,
               onChange ==> handleChange,
               MuiFormControlLabel(
-                control = Some(MuiRadio(color = MuiRadio.Color.primary).rawElement),
-                label = Some("Top"),
+                control = MuiRadio(color = MuiRadio.Color.primary).rawElement,
+                label = VdomNode("Top"),
                 labelPlacement = MuiFormControlLabel.LabelPlacement.top
               )(value := "top"),
               MuiFormControlLabel(
-                control = Some(MuiRadio(color = MuiRadio.Color.primary).rawElement),
-                label = Some("Start"),
+                control = MuiRadio(color = MuiRadio.Color.primary).rawElement,
+                label = VdomNode("Start"),
                 labelPlacement = MuiFormControlLabel.LabelPlacement.start
               )(value := "start"),
               MuiFormControlLabel(
-                control = Some(MuiRadio(color = MuiRadio.Color.primary).rawElement),
-                label = Some("Bottom"),
+                control = MuiRadio(color = MuiRadio.Color.primary).rawElement,
+                label = VdomNode("Bottom"),
                 labelPlacement = MuiFormControlLabel.LabelPlacement.bottom
               )(value := "bottom"),
               MuiFormControlLabel(
-                control = Some(MuiRadio(color = MuiRadio.Color.primary).rawElement),
-                label = Some("End"),
+                control = MuiRadio(color = MuiRadio.Color.primary).rawElement,
+                label = VdomNode("End"),
                 labelPlacement = MuiFormControlLabel.LabelPlacement.end
               )(value := "end")
             )

@@ -13,19 +13,17 @@ object MuiFormLabel extends ReactBridgeComponent with MuiFormLabelExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: OptComponentPropType = "label",
-    disabled: Option[Boolean] = None,
-    error: Option[Boolean] = None,
-    filled: Option[Boolean] = None,
-    focused: Option[Boolean] = None,
-    required: Option[Boolean] = None
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    error: js.UndefOr[Boolean] = js.undefined,
+    filled: js.UndefOr[Boolean] = js.undefined,
+    focused: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiFormLabelExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val focused = "focused"

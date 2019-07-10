@@ -13,33 +13,36 @@ object MuiListItem extends ReactBridgeComponent with MuiListItemExtensions with 
   object RawComponent extends js.Function
 
   def apply(
-    alignItems: AlignItems.Value = AlignItems.center,
-    button: Boolean = false,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
+    alignItems: js.UndefOr[AlignItems.Value] = js.undefined,
+    button: js.UndefOr[Boolean] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     component: OptComponentPropType = js.undefined,
-    ContainerComponent: OptComponentPropType = "li",
-    ContainerProps: js.Object = js.Object(),
-    dense: Boolean = false,
-    disabled: Boolean = false,
-    disableGutters: Boolean = false,
-    divider: Boolean = false
+    ContainerComponent: OptComponentPropType = js.undefined,
+    ContainerProps: js.UndefOr[js.Object] = js.undefined,
+    dense: js.UndefOr[Boolean] = js.undefined,
+    disableGutters: js.UndefOr[Boolean] = js.undefined,
+    divider: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiListItemExtensions {
   object AlignItems extends Enumeration {
-    val flexStart = Value("flex-start")
-    val center = Value("center")
+    type Value = String
+
+    val flexStart = "flex-start"
+    val center = "center"
   }
 
   object Underline extends Enumeration {
-    val none = Value("none")
-    val hover = Value("hover")
-    val always = Value("always")
+    type Value = String
+
+    val none = "none"
+    val hover = "hover"
+    val always = "always"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val container = "container"

@@ -20,14 +20,14 @@ object PinnedSubheaderList extends ScalaCssReactImplicits {
       div(
         ComponentContainer("Pinned Subheader List")(
           div(css.root, rootPaper,
-            MuiList(subheader = Some(li()))(css.root, rootPaper,
+            MuiList(subheader = li())(css.root, rootPaper,
               List(0, 1, 2, 3, 4).toVdomArray { sectionId =>
                 li(css.listSection, key := s"section-$sectionId",
                   ul(css.ul,
                     MuiListSubheader()(s"I'm sticky $sectionId"),
                     List(0, 1, 2).toVdomArray { item =>
                       MuiListItem()(Attr("key") := s"item-$sectionId-$item",
-                        MuiListItemText(primary = Some(s"Item $item"))
+                        MuiListItemText(primary = VdomNode(s"Item $item"))
                       )
                     }
                   )

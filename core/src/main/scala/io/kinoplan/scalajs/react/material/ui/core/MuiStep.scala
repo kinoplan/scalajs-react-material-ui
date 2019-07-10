@@ -14,15 +14,14 @@ object MuiStep extends ReactBridgeComponent with MuiStepExtensions {
 
   def apply(
     active: js.UndefOr[Boolean] = js.undefined,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    completed: js.UndefOr[Boolean] = js.undefined,
-    disabled: js.UndefOr[Boolean] = js.undefined
+    classes: Map[ClassKey.Value, String] = Map.empty,
+    completed: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiStepExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val horizontal = "horizontal"

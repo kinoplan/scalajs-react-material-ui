@@ -6,15 +6,15 @@ import io.kinoplan.demo.styles.{DefaultLayoutStyle, LayoutStyle}
 import io.kinoplan.demo.utils.Helpers._
 import io.kinoplan.demo.utils.icons.{MuiLightBulbFullIcon, MuiLightBulbOutlineIcon}
 import io.kinoplan.scalajs.react.material.ui.core.styles._
-import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiBadge, MuiCssBaseline, MuiDrawer, MuiIconButton, MuiToolbar, MuiTooltip, MuiTypography, colors}
+import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiChevronLeftIcon, MuiMenuIcon, MuiNotificationsIcon}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.{Resolution, RouterCtl}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object Layout {
+object Layout extends ScalaCssReactImplicits {
   var paletteValue: PaletteType.Value = PaletteType.light
 
   def isPaletteLight = paletteValue == PaletteType.light
@@ -102,7 +102,7 @@ object Layout {
                 )
               ),
               MuiIconButton(color = MuiIconButton.Color.inherit)(
-                MuiBadge(badgeContent = Some(VdomNode(4)), color = MuiBadge.Color.secondary)(
+                MuiBadge(badgeContent = VdomNode(4), color = MuiBadge.Color.secondary)(
                   MuiNotificationsIcon()
                 )
               )

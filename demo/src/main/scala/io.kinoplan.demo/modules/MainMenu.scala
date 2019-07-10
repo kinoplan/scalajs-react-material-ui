@@ -38,17 +38,17 @@ object MainMenu {
                 MuiListItemIcon()(
                   item.icon
                 ),
-                MuiListItemText(primary = Some(VdomNode(item.label)))()
+                MuiListItemText(primary = VdomNode(item.label))()
               )
             },
             MuiListItem(button = true)(onClick --> handleDemoListClick, Attr("key") := 5,
               MuiListItemIcon()(
                 MuiInboxIcon()
               ),
-              MuiListItemText(inset = true, primary = Some(VdomNode("Component Demos")))(),
+              MuiListItemText(inset = true, primary = VdomNode("Component Demos"))(),
               demoExpandIcon
             ),
-            MuiCollapse(in = Some(state.open), timeout = Some(MuiCollapse.Timeout.auto))(Attr("key") := 6,
+            MuiCollapse(in = state.open, timeout = MuiCollapse.Timeout.auto)(Attr("key") := 6,
               DemoMenu(props.router, props.r)
             )
           )
@@ -66,7 +66,7 @@ object MainMenu {
                 MuiListItemIcon()(
                   item.icon()
                 ),
-                MuiListItemText(primary = Some(VdomNode(item.label)))()
+                MuiListItemText(primary = VdomNode(item.label))()
               )
             }
           )

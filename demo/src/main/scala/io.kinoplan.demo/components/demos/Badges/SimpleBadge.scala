@@ -17,7 +17,7 @@ object SimpleBadge extends ScalaCssReactImplicits {
       val css = props.style
 
       val tabLabel = VdomNode(
-        MuiBadge(badgeContent = Some(VdomNode(4)), color = MuiBadge.Color.secondary)(css.badgePadding,
+        MuiBadge(badgeContent = VdomNode(4), color = MuiBadge.Color.secondary)(css.badgePadding,
           "Item One"
         ).rawNode
       )
@@ -26,15 +26,15 @@ object SimpleBadge extends ScalaCssReactImplicits {
         ComponentContainer("Simple Badges")(
           div(
             div(
-              MuiBadge(badgeContent = Some(VdomNode(4)), color = MuiBadge.Color.primary)(css.badgeMargin,
+              MuiBadge(badgeContent = VdomNode(4), color = MuiBadge.Color.primary)(css.badgeMargin,
                 MuiMailIcon()
               ),
-              MuiBadge(badgeContent = Some(VdomNode(10)), color = MuiBadge.Color.secondary)(css.badgeMargin,
+              MuiBadge(badgeContent = VdomNode(10), color = MuiBadge.Color.secondary)(css.badgeMargin,
                 MuiMailIcon()
               ),
               MuiIconButton()(css.badgeMargin,
                 aria.label := "4 pending messages",
-                MuiBadge(badgeContent = Some(VdomNode(4)), color = MuiBadge.Color.primary)(
+                MuiBadge(badgeContent = VdomNode(4), color = MuiBadge.Color.primary)(
                   MuiMailIcon()
                 )
               )
@@ -47,12 +47,12 @@ object SimpleBadge extends ScalaCssReactImplicits {
                 MuiTab(label = "Item Three".toVdom)
               )
             ),
-            MuiBadge(badgeContent = Some(VdomNode(4)), color = MuiBadge.Color.primary)(css.badgeMargin,
+            MuiBadge(badgeContent = VdomNode(4), color = MuiBadge.Color.primary)(css.badgeMargin,
               MuiTypography()(css.badgePadding,
                 "Typography"
               )
             ),
-            MuiBadge(badgeContent = Some(VdomNode(4)), color = MuiBadge.Color.primary)(css.badgeMargin,
+            MuiBadge(badgeContent = VdomNode(4), color = MuiBadge.Color.primary)(css.badgeMargin,
               MuiButton(variant = MuiButton.Variant.contained)("Button")
             )
           )

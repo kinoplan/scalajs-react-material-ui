@@ -2,12 +2,12 @@ package io.kinoplan.demo.components.demos.Cards
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Cards.{DefaultMediaCardStyle, MediaCardStyle}
-import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiCard, MuiCardActionArea, MuiCardActions, MuiCardContent, MuiCardMedia, MuiTypography}
+import io.kinoplan.scalajs.react.material.ui.core._
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object MediaCard {
+object MediaCard extends ScalaCssReactImplicits {
   case class Props(style: MediaCardStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
@@ -18,9 +18,7 @@ object MediaCard {
         ComponentContainer("Media")(
           MuiCard()(css.card,
             MuiCardActionArea()(
-              MuiCardMedia(
-                image = Some(s"/static/images/cards/contemplative-reptile.jpg")
-              )(css.media,
+              MuiCardMedia(image = "/static/images/cards/contemplative-reptile.jpg")(css.media,
                 title := "Contemplative Reptile"
               ),
               MuiCardContent()(

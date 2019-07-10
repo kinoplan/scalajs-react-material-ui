@@ -14,19 +14,19 @@ object MuiListItemText extends ReactBridgeComponent with MuiListItemTextExtensio
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    disableTypography: Boolean = false,
-    inset: Boolean = false,
-    primary: Option[VdomNode] = None,
-    primaryTypographyProps: js.Object = js.Object(),
-    secondary: Option[VdomNode] = None,
-    secondaryTypographyProps: js.Object = js.Object()
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    disableTypography: js.UndefOr[Boolean] = js.undefined,
+    inset: js.UndefOr[Boolean] = js.undefined,
+    primary: js.UndefOr[VdomNode] = js.undefined,
+    primaryTypographyProps: js.UndefOr[js.Object] = js.undefined,
+    secondary: js.UndefOr[VdomNode] = js.undefined,
+    secondaryTypographyProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiListItemTextExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val inset = "inset"

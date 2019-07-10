@@ -1,11 +1,10 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
 import japgolly.scalajs.react.vdom.html_<^._
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 object MuiCardHeader extends ReactBridgeComponent with MuiCardHeaderExtensions with JsWriterImplicits {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -15,21 +14,21 @@ object MuiCardHeader extends ReactBridgeComponent with MuiCardHeaderExtensions w
   object RawComponent extends js.Function
 
   def apply(
-    action: Option[VdomNode] = None,
-    avatar: Option[VdomNode] = None,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: Option[String | js.Function] = Some("div"),
-    disableTypography: Boolean = false,
-    subheader: Option[VdomNode] = None,
-    subheaderTypographyProps: js.Object = js.Object(),
-    title: Option[VdomNode] = None,
-    titleTypographyProps: js.Object = js.Object()
-  ): WithProps = auto
+    action: js.UndefOr[VdomNode] = js.undefined,
+    avatar: js.UndefOr[VdomNode] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    disableTypography: js.UndefOr[Boolean] = js.undefined,
+    subheader: js.UndefOr[VdomNode] = js.undefined,
+    subheaderTypographyProps: js.UndefOr[js.Object] = js.undefined,
+    title: js.UndefOr[VdomNode] = js.undefined,
+    titleTypographyProps: js.UndefOr[js.Object] = js.undefined
+  ): WithPropsNoChildren = autoNoChildren
 }
 
 trait MuiCardHeaderExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val avatar = "avatar"

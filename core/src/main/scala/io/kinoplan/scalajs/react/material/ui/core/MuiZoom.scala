@@ -14,7 +14,7 @@ object MuiZoom extends ReactBridgeComponent {
   object RawComponent extends js.Function
 
   def apply(
-    in: Option[Boolean] = None,
-    timeout: Option[Int | Map[String, Int]] = None
+    in: js.UndefOr[Boolean] = js.undefined,
+    timeout: js.UndefOr[Int | js.Object] = js.undefined
   ): WithProps = auto
 }

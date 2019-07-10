@@ -4,7 +4,6 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 object MuiPortal extends ReactBridgeComponent {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -14,8 +13,8 @@ object MuiPortal extends ReactBridgeComponent {
   object RawComponent extends js.Function
 
   def apply(
-    container: Option[js.Object | js.Function] = None,
-    disablePortal: Boolean = false,
-    onRendered: Option[js.Function] = None
+    container: OptComponentContainerType = js.undefined,
+    disablePortal: js.UndefOr[Boolean] = js.undefined,
+    onRendered: OptJsFun0 = js.undefined
   ): WithProps = auto
 }

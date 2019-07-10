@@ -17,41 +17,45 @@ object MuiMenu extends ReactBridgeComponent with MuiMenuExtensions with JsWriter
   object RawComponent extends js.Function
 
   def apply(
-    anchorEl: Option[html.Element | js.Function1[html.Element, html.Element]] = None,
-    anchorOrigin: Origin = Origin(vertical = "top", horizontal = "left"),
-    anchorReference: AnchorReference.Value = AnchorReference.anchorEl,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    disableAutoFocusItem: Boolean = false,
-    MenuListProps: js.Object = js.Object(),
-    onClose: Option[Handler1[ReactEvent]] = None,
-    onEnter: Option[js.Function] = None,
-    onEntered: Option[js.Function] = None,
-    onEntering: Option[js.Function] = None,
-    onExit: Option[js.Function] = None,
-    onExited: Option[js.Function] = None,
-    onExiting: Option[js.Function] = None,
+    anchorEl: js.UndefOr[html.Element | js.Function1[html.Element, html.Element]] = js.undefined,
+    anchorOrigin: js.UndefOr[Origin] = js.undefined,
+    anchorReference: js.UndefOr[AnchorReference.Value] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    disableAutoFocusItem: js.UndefOr[Boolean] = js.undefined,
+    MenuListProps: js.UndefOr[js.Object] = js.Object(),
+    onClose: Handler1[ReactEvent] = js.undefined,
+    onEnter: Handler1[html.Element] = js.undefined,
+    onEntered: Handler1[html.Element] = js.undefined,
+    onEntering: Handler1[html.Element] = js.undefined,
+    onExit: Handler1[html.Element] = js.undefined,
+    onExited: Handler1[html.Element] = js.undefined,
+    onExiting: Handler1[html.Element] = js.undefined,
     open: Boolean,
-    PopoverClasses: js.Object = js.Object(),
-    transitionDuration: js.Object | TransitionDuration.Value = TransitionDuration.auto,
-    transformOrigin: Origin = Origin(vertical = "top", horizontal = "left"),
-    PaperProps: js.Object = js.Object(),
-    TransitionComponent: OptComponentPropType = js.undefined,
+    PopoverClasses: js.UndefOr[js.Object] = js.undefined,
+    transitionDuration: js.UndefOr[js.Object | TransitionDuration.Value] = js.undefined,
+    transformOrigin: js.UndefOr[Origin] = js.undefined,
+    PaperProps: js.UndefOr[js.Object] = js.undefined,
+    TransitionComponent: OptComponentPropType = js.undefined
   ): WithProps = auto
 }
 
 trait MuiMenuExtensions {
   object AnchorReference extends Enumeration {
-    val anchorEl = Value("anchorEl")
-    val anchorPosition = Value("anchorPosition")
-    val none = Value("none")
+    type Value = String
+
+    val anchorEl = "anchorEl"
+    val anchorPosition = "anchorPosition"
+    val none = "none"
   }
 
   object TransitionDuration extends Enumeration {
-    val auto = Value("auto")
+    type Value = String
+
+    val auto = "auto"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val paper = "paper"
   }

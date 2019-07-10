@@ -56,7 +56,7 @@ object CustomizedStepper extends ScalaCssReactImplicits {
         MuiStepConnector.ClassKey.line -> styleAToClassName(css.connectorLine)
       )
 
-      val connector = Some(MuiStepConnector(classes = connectorClasses).rawElement)
+      val connector = MuiStepConnector(classes = connectorClasses).rawElement
 
       div(
         ComponentContainer("Customized Stepper")(

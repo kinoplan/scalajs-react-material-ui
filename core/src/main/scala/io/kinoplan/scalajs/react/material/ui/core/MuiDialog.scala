@@ -2,7 +2,7 @@ package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import japgolly.scalajs.react.ReactEvent
-import japgolly.scalajs.react.raw.React
+import org.scalajs.dom.raw.HTMLElement
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -16,28 +16,28 @@ object MuiDialog extends ReactBridgeComponent with MuiDialogExtensions with JsWr
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    disableBackdropClick: Boolean = false,
-    disableEscapeKeyDown: Boolean = false,
-    fullScreen: Boolean = false,
-    fullWidth: Boolean = false,
-    maxWidth: Option[Boolean | MaxWidth.Value] = Some(MaxWidth.sm),
-    onBackdropClick: Option[js.Function] = None,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    disableBackdropClick: js.UndefOr[Boolean] = js.undefined,
+    disableEscapeKeyDown: js.UndefOr[Boolean] = js.undefined,
+    fullScreen: js.UndefOr[Boolean] = js.undefined,
+    fullWidth: js.UndefOr[Boolean] = js.undefined,
+    maxWidth: js.UndefOr[Boolean | MaxWidth.Value] = js.undefined,
+    onBackdropClick: ReactHandler1[ReactEvent] = js.undefined,
     onClose: ReactHandler1[ReactEvent] = js.undefined,
-    onEnter: Option[js.Function] = None,
-    onEntered: Option[js.Function] = None,
-    onEntering: Option[js.Function] = None,
-    onEscapeKeyDown: Option[js.Function] = None,
-    onExit: Option[js.Function] = None,
-    onExited: Option[js.Function] = None,
-    onExiting: Option[js.Function] = None,
+    onEnter: Handler2[HTMLElement, Boolean] = js.undefined,
+    onEntered: Handler2[HTMLElement, Boolean] = js.undefined,
+    onEntering: Handler2[HTMLElement, Boolean] = js.undefined,
+    onEscapeKeyDown: ReactHandler1[ReactEvent] = js.undefined,
+    onExit: Handler1[HTMLElement] = js.undefined,
+    onExited: Handler1[HTMLElement] = js.undefined,
+    onExiting: Handler1[HTMLElement] = js.undefined,
     open: Boolean,
     PaperComponent: OptComponentPropType = js.undefined,
-    PaperProps: js.Object = js.Object(),
-    scroll: Scroll.Value = Scroll.paper,
-    TransitionComponent: js.UndefOr[() => React.ElementType] = js.undefined,
-    transitionDuration: Option[Int | js.Object] = None,
-    TransitionProps: js.Object = js.Object()
+    PaperProps: js.UndefOr[js.Object] = js.undefined,
+    scroll: js.UndefOr[Scroll.Value] = js.undefined,
+    TransitionComponent: OptComponentPropType = js.undefined,
+    transitionDuration: js.UndefOr[Int | js.Object] = js.undefined,
+    TransitionProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
 }
 
@@ -60,7 +60,7 @@ trait MuiDialogExtensions {
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val scrollPaper = "scrollPaper"

@@ -48,7 +48,7 @@ object CircularIntegration extends ScalaCssReactImplicits {
                 onClick --> handleButtonClick(state.loading),
                 if (state.success) MuiCheckIcon() else MuiSaveIcon()
               ),
-              MuiCircularProgress(size = Some(68))(css.fabProgress).when(state.loading)
+              MuiCircularProgress(size = 68)(css.fabProgress).when(state.loading)
             ),
             div(css.wrapper,
               MuiButton(
@@ -59,7 +59,7 @@ object CircularIntegration extends ScalaCssReactImplicits {
                 disabled := state.loading,
                 "Accept terms"
               ),
-              MuiCircularProgress(size = Some(24))(css.buttonProgress).when(state.loading)
+              MuiCircularProgress(size = 24)(css.buttonProgress).when(state.loading)
             )
           )
         )

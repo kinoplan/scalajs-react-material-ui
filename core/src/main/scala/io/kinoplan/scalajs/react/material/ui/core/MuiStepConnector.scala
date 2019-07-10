@@ -13,13 +13,13 @@ object MuiStepConnector extends ReactBridgeComponent with MuiStepConnectorExtens
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
 }
 
 trait MuiStepConnectorExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val horizontal = "horizontal"

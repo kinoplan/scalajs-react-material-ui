@@ -5,16 +5,16 @@ import io.kinoplan.demo.models.Buttons.Fab
 import io.kinoplan.demo.styles.demos.Buttons.{DefaultFloatingActionButtonsZoomStyle, FloatingActionButtonsZoomStyle}
 import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.scalajs.react.material.ui.core.styles.Direction
-import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiFab, MuiTab, MuiTabs, MuiZoom, SwipeableViews}
+import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiAddIcon, MuiEditIcon, MuiKeyboardArrowUpIcon}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
 import scala.scalajs.js
 
-object FloatingActionButtonZoom {
+object FloatingActionButtonZoom extends ScalaCssReactImplicits {
   case class Props(style: FloatingActionButtonsZoomStyle)
 
   case class State(value: js.Any = 0) {
@@ -42,7 +42,7 @@ object FloatingActionButtonZoom {
       val enter = css.theme.transitions.duration.enteringScreen
       val exit = css.theme.transitions.duration.leavingScreen
 
-      val transitionDuration = Map("enter" -> enter, "exit" -> exit)
+      val transitionDuration = js.Dynamic.literal(enter = enter, exit = exit)
 
       val swipeableViewsAxis = if (css.theme.direction == Direction.rtl.toString) {
         SwipeableViews.Axis.xReverse
@@ -76,7 +76,7 @@ object FloatingActionButtonZoom {
               TabContainer()("Item Three")
             ),
             fabs.zipWithIndex.toVdomArray { case (fab, index) =>
-              MuiZoom(in = Some(state.value == index.asInstanceOf[js.Any]), timeout = Some(transitionDuration))(
+              MuiZoom(in = state.value == index.asInstanceOf[js.Any], timeout = transitionDuration)(
                 style := js.Dictionary(
                   "transitionDelay" -> s"${if (state.value == index.asInstanceOf[js.Any]) exit else 0}ms"
                 ),

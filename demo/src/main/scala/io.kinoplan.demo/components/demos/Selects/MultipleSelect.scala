@@ -67,7 +67,7 @@ object MultipleSelect extends ScalaCssReactImplicits {
 
       div(css.chips,
         values.asInstanceOf[js.Array[String]].toVdomArray { value =>
-          MuiChip(label = Some(value))(css.chip, Attr("key") := value)
+          MuiChip(label = VdomNode(value))(css.chip, Attr("key") := value)
         }
       ).rawNode
     }
@@ -96,7 +96,7 @@ object MultipleSelect extends ScalaCssReactImplicits {
           div(css.root,
             MuiFormControl()(css.formControl,
               MuiInputLabel()(htmlFor := "select-multiple", "Name"),
-              MuiSelect(multiple = true, input = Some(MuiInput()(id := "select-multiple").rawElement), MenuProps = MenuProps)(
+              MuiSelect(multiple = true, input = MuiInput()(id := "select-multiple").rawElement, MenuProps = MenuProps)(
                 value := state.names,
                 onChange ==> handleChange,
                 names.toVdomArray(name =>
@@ -108,7 +108,7 @@ object MultipleSelect extends ScalaCssReactImplicits {
               MuiInputLabel()(htmlFor := "select-multiple-checkbox", "Tag"),
               MuiSelect(
                 multiple = true,
-                input = Some(MuiInput()(id := "select-multiple-checkbox").rawElement),
+                input = MuiInput()(id := "select-multiple-checkbox").rawElement,
                 MenuProps = MenuProps,
                 renderValue = checkboxRenderValue
               )(
@@ -119,7 +119,7 @@ object MultipleSelect extends ScalaCssReactImplicits {
                     Attr("key") := name,
                     value := name,
                     MuiCheckbox()(checked := state.names.contains(name)),
-                    MuiListItemText(primary = Some(name))
+                    MuiListItemText(primary = VdomNode(name))
                   )
                 )
               )
@@ -128,7 +128,7 @@ object MultipleSelect extends ScalaCssReactImplicits {
               MuiInputLabel()(htmlFor := "select-multiple-chip", "Chip"),
               MuiSelect(
                 multiple = true,
-                input = Some(MuiInput()(id := "select-multiple-chip").rawElement),
+                input = MuiInput()(id := "select-multiple-chip").rawElement,
                 MenuProps = MenuProps,
                 renderValue = chipRenderValue
               )(
@@ -143,7 +143,7 @@ object MultipleSelect extends ScalaCssReactImplicits {
               MuiSelect(
                 multiple = true,
                 displayEmpty = true,
-                input = Some(MuiInput()(id := "sselect-multiple-placeholder").rawElement),
+                input = MuiInput()(id := "sselect-multiple-placeholder").rawElement,
                 MenuProps = MenuProps,
                 renderValue = placeholderRenderValue
               )(

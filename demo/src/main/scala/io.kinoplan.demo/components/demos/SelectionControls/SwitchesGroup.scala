@@ -1,6 +1,7 @@
 package io.kinoplan.demo.components.demos.SelectionControls
 
 import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.scalajs.react.material.ui.core.{MuiFormControl, MuiFormControlLabel, MuiFormGroup, MuiFormHelperText, MuiFormLabel, MuiSwitch}
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
@@ -45,28 +46,28 @@ object SwitchesGroup extends ScalaCssReactImplicits {
             MuiFormLabel(component = "legend")("Assign responsibility"),
             MuiFormGroup()(
               MuiFormControlLabel(
-                control = Some(MuiSwitch()(
+                control = MuiSwitch()(
                   checked := state.gilad,
                   onChange ==> handleChangeGilad,
                   value := "gilad"
-                ).rawElement),
-                label = Some("Gilad Gray")
+                ).rawElement,
+                label = "Gilad Gray".toVdom
               ),
               MuiFormControlLabel(
-                control = Some(MuiSwitch()(
+                control = MuiSwitch()(
                   checked := state.jason,
                   onChange ==> handleChangeJason,
                   value := "jason"
-                ).rawElement),
-                label = Some("Jason Killian")
+                ).rawElement,
+                label = "Jason Killian".toVdom
               ),
               MuiFormControlLabel(
-                control = Some(MuiSwitch()(
+                control = MuiSwitch()(
                   checked := state.antoine,
                   onChange ==> handleChangeAntoine,
                   value := "antoine"
-                ).rawElement),
-                label = Some("Antoine Llorca")
+                ).rawElement,
+                label = "Antoine Llorca".toVdom
               )
             ),
             MuiFormHelperText()("Be careful")

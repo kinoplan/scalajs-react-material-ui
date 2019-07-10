@@ -1,7 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
-import japgolly.scalajs.react.raw.React.Ref
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -14,46 +13,51 @@ object MuiButton extends ReactBridgeComponent with MuiButtonExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    color: Color.Value = Color.default,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    color: js.UndefOr[Color.Value] = js.undefined,
     component: OptComponentPropType = js.undefined,
-    disableFocusRipple: Boolean = false,
-    disableRipple: Option[Boolean] = None,
-    fullWidth: Boolean = false,
-    href: Option[String] = None,
-    mini: Boolean = false,
-    size: Size.Value = Size.medium,
-    variant: Variant.Value = Variant.text,
-    buttonRef: js.UndefOr[Ref] = js.undefined
+    disableFocusRipple: js.UndefOr[Boolean] = js.undefined,
+    disableRipple: js.UndefOr[Boolean] = js.undefined,
+    fullWidth: js.UndefOr[Boolean] = js.undefined,
+    mini: js.UndefOr[Boolean] = js.undefined,
+    size: js.UndefOr[Size.Value] = js.undefined,
+    variant: js.UndefOr[Variant.Value] = js.undefined,
+    buttonRef: OptComponentRefType = js.undefined
   ): WithProps = auto
 }
 
 trait MuiButtonExtensions {
   object Color extends Enumeration {
-    val default = Value("default")
-    val inherit = Value("inherit")
-    val primary = Value("primary")
-    val secondary = Value("secondary")
+    type Value = String
+
+    val default = "default"
+    val inherit = "inherit"
+    val primary = "primary"
+    val secondary = "secondary"
   }
 
   object Size extends Enumeration {
-    val small = Value("small")
-    val medium = Value("medium")
-    val large = Value("large")
+    type Value = String
+
+    val small = "small"
+    val medium = "medium"
+    val large = "large"
   }
 
   object Variant extends Enumeration {
-    val text = Value("text")
-    val outlined = Value("outlined")
-    val contained = Value("contained")
-    val fab = Value("fab")
-    val extendedFab = Value("extendedFab")
-    val flat = Value("flat")
-    val raised = Value("raised")
+    type Value = String
+
+    val text = "text"
+    val outlined = "outlined"
+    val contained = "contained"
+    val fab = "fab"
+    val extendedFab = "extendedFab"
+    val flat = "flat"
+    val raised = "raised"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val label = "label"

@@ -6,11 +6,11 @@ import io.kinoplan.scalajs.react.material.ui.core.{MuiBottomNavigation, MuiBotto
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiFavoriteIcon, MuiLocationOnIcon, MuiRestoreIcon}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
 import scala.scalajs.js
 
-object LabelBottomNavigation {
+object LabelBottomNavigation extends ScalaCssReactImplicits {
   case class Props(style: BottomNavigationStyle)
 
   case class State(value: js.Any = "recents") {
@@ -28,14 +28,20 @@ object LabelBottomNavigation {
       div(
         ComponentContainer("Bottom Navigation with no label")(
           div(
-            MuiBottomNavigation(
-              value = Some(state.value),
-              onChange = handleChange
-            )(css.root,
-              MuiBottomNavigationAction(label = Some(VdomNode("Recents")), value = Some("recents"), icon = Some(MuiRestoreIcon())),
-              MuiBottomNavigationAction(label = Some(VdomNode("Favorites")), value = Some("favorites"), icon = Some(MuiFavoriteIcon())),
-              MuiBottomNavigationAction(label = Some(VdomNode("Nearby")), value = Some("nearby"), icon = Some(MuiLocationOnIcon())),
-              MuiBottomNavigationAction(label = Some(VdomNode("Folder")), value = Some("folder"), icon = Some(MuiIcon()("folder")))
+            MuiBottomNavigation(onChange = handleChange)(css.root,
+              value := state.value,
+              MuiBottomNavigationAction(label = VdomNode("Recents"), icon = MuiRestoreIcon()())(
+                value := "recents"
+              ),
+              MuiBottomNavigationAction(label = VdomNode("Favorites"), icon = MuiFavoriteIcon()())(
+                value := "favorites"
+              ),
+              MuiBottomNavigationAction(label = VdomNode("Nearby"), icon = MuiLocationOnIcon()())(
+                value := "nearby"
+              ),
+              MuiBottomNavigationAction(label = VdomNode("Folder"), icon = MuiIcon()("folder"))(
+                value := "folder"
+              )
             )
           )
         )

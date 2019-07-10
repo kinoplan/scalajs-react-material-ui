@@ -6,9 +6,9 @@ import io.kinoplan.scalajs.react.material.ui.core.{MuiBadge, MuiTypography}
 import io.kinoplan.scalajs.react.material.ui.icons.MuiMailIcon
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object DotBadge {
+object DotBadge extends ScalaCssReactImplicits {
   case class Props(style: DotBadgeStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {

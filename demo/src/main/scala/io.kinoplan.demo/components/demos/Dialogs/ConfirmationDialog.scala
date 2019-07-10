@@ -6,9 +6,9 @@ import io.kinoplan.demo.utils.Helpers.styleAToClassName
 import io.kinoplan.scalajs.react.material.ui.core.{MuiDialog, MuiList, MuiListItem, MuiListItemText}
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object ConfirmationDialog {
+object ConfirmationDialog extends ScalaCssReactImplicits {
   case class Props(style: ConfirmationDialogStyle)
 
   case class State(open: Boolean = false, value: String = "Dione") {
@@ -35,8 +35,9 @@ object ConfirmationDialog {
         ComponentContainer("Confirmation dialogs")(
           div(css.root, css.rootPaper(Layout.isPaletteLight),
             MuiList()(
-              MuiListItem(button = true, divider = true, disabled = true)(
-                MuiListItemText(primary = Some("Interruptions"))
+              MuiListItem(button = true, divider = true)(
+                disabled := true,
+                MuiListItemText(primary = VdomNode("Interruptions"))
               ),
               MuiListItem(button = true, divider = true)(
                 aria.hasPopup := "true",
@@ -44,10 +45,11 @@ object ConfirmationDialog {
                 aria.label := "Phone ringtone",
                 onClick --> handleClickListItem
               )(
-                MuiListItemText(primary = Some("Interruptions"), secondary = Some(state.value))
+                MuiListItemText(primary = VdomNode("Interruptions"), secondary = VdomNode(state.value))
               ),
-              MuiListItem(button = true, divider = true, disabled = true)(
-                MuiListItemText(primary = Some("Default notification ringtone"), secondary = Some("Tethys"))
+              MuiListItem(button = true, divider = true)(
+                disabled := true,
+                MuiListItemText(primary = VdomNode("Default notification ringtone"), secondary = VdomNode("Tethys"))
               ),
               ConfirmationDialogRaw(
                 state.open,

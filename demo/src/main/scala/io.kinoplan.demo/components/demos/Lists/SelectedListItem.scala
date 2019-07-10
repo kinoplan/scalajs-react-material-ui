@@ -33,7 +33,7 @@ object SelectedListItem extends ScalaCssReactImplicits {
                 MuiListItemIcon()(
                   MuiInboxIcon()
                 ),
-                MuiListItemText(primary = Some("Inbox"))
+                MuiListItemText(primary = VdomNode("Inbox"))
               ),
               MuiListItem(button = true)(
                 selected := state.isSelectedIndex(1),
@@ -41,19 +41,19 @@ object SelectedListItem extends ScalaCssReactImplicits {
                 MuiListItemIcon()(
                   MuiDraftsIcon()
                 ),
-                MuiListItemText(primary = Some("Drafts"))
+                MuiListItemText(primary = VdomNode("Drafts"))
               ),
               MuiDivider(),
               MuiList(component = "nav")(
                 MuiListItem(button = true)(
                   selected := state.isSelectedIndex(2),
                   onClick --> handleListItemClick(2),
-                  MuiListItemText(primary = Some("Trash"))
+                  MuiListItemText(primary = VdomNode("Trash"))
                 ),
                 MuiListItem(button = true)(
                   selected := state.isSelectedIndex(3),
                   onClick --> handleListItemClick(3),
-                  MuiListItemText(primary = Some("Spam"))
+                  MuiListItemText(primary = VdomNode("Spam"))
                 )
               )
             )

@@ -6,9 +6,9 @@ import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiGrid}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiAssignmentIcon, MuiFolderIcon, MuiPageviewIcon}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object IconAvatars {
+object IconAvatars extends ScalaCssReactImplicits {
   case class Props(style: AvatarsStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {

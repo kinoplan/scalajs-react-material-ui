@@ -2,13 +2,13 @@ package io.kinoplan.demo.components.demos.Buttons
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Buttons.{CustomizedButtonsStyle, DefaultCustomizedButtonsStyle}
+import io.kinoplan.scalajs.react.material.ui.core.styles._
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, colors}
-import io.kinoplan.scalajs.react.material.ui.core.styles.{MuiThemeProvider, PaletteOptions, ThemeOptions, TypographyOptions, createMuiTheme}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object CustomizedButtons {
+object CustomizedButtons extends ScalaCssReactImplicits {
   case class Props(style: CustomizedButtonsStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
@@ -37,7 +37,7 @@ object CustomizedButtons {
                 "MuiThemeProvider"
               )
             ),
-            MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.primary, disableRipple = Some(true))(
+            MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.primary, disableRipple = true)(
               css.common.marginButton, css.bootstrapRoot,
               "Bootstrap"
             )

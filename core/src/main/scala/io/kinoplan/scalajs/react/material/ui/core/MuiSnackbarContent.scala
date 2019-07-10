@@ -14,15 +14,15 @@ object MuiSnackbarContent extends ReactBridgeComponent with MuiSnackbarContentEx
   object RawComponent extends js.Function
 
   def apply(
-    action: Option[VdomNode] = None,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    message: Option[VdomNode] = None
+    action: js.UndefOr[VdomNode] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    message: js.UndefOr[VdomNode] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
 }
 
 trait MuiSnackbarContentExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val message = "message"

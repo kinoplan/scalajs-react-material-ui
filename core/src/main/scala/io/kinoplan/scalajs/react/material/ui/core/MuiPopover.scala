@@ -1,6 +1,9 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
+import japgolly.scalajs.react.ReactEvent
+import org.scalajs.dom.html
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -14,46 +17,50 @@ object MuiPopover extends ReactBridgeComponent with MuiPopoverExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    action: Option[js.Function] = None,
-    anchorEl: Option[js.Object | js.Function] = None,
-    anchorOrigin: js.Object = js.Object(),
-    anchorPosition: js.Object = js.Object(),
-    anchorReference: AnchorReference.Value = AnchorReference.anchorEl,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    container: Option[js.Object | js.Function] = None,
-    elevation: Int = 8,
-    getContentAnchorEl: Option[js.Function] = None,
-    marginThreshold: Int = 16,
-    ModalClasses: js.Object = js.Object(),
-    onClose: Option[js.Function] = None,
-    onEnter: Option[js.Function] = None,
-    onEntered: Option[js.Function] = None,
-    onEntering: Option[js.Function] = None,
-    onExit: Option[js.Function] = None,
-    onExited: Option[js.Function] = None,
-    onExiting: Option[js.Function] = None,
+    action: js.UndefOr[js.Function] = js.undefined,
+    anchorEl: js.UndefOr[html.Element | js.Function1[html.Element, html.Element]] = js.undefined,
+    anchorOrigin: js.UndefOr[Origin] = js.undefined,
+    anchorPosition: js.UndefOr[js.Object] = js.undefined,
+    anchorReference: js.UndefOr[AnchorReference.Value] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    container: OptComponentContainerType = js.undefined,
+    elevation: js.UndefOr[Int] = js.undefined,
+    getContentAnchorEl: js.UndefOr[html.Element | js.Function1[html.Element, html.Element]] = js.undefined,
+    marginThreshold: js.UndefOr[Int] = js.undefined,
+    ModalClasses: js.UndefOr[js.Object] = js.undefined,
+    onClose: ReactHandler2[ReactEvent, String] = js.undefined,
+    onEnter: Handler1[html.Element] = js.undefined,
+    onEntered: Handler1[html.Element] = js.undefined,
+    onEntering: Handler1[html.Element] = js.undefined,
+    onExit: Handler1[html.Element] = js.undefined,
+    onExited: Handler1[html.Element] = js.undefined,
+    onExiting: Handler1[html.Element] = js.undefined,
     open: Boolean,
-    PaperProps: js.Object = js.Object,
-    transformOrigin: js.Object = js.Object(),
-    TransitionComponent: Option[String | js.Function] = Some("Grow"),
-    transitionDuration: Int | js.Object | TransitionDuration.Value = TransitionDuration.auto,
-    TransitionProps: js.Object = js.Object()
+    PaperProps: js.UndefOr[js.Object] = js.undefined,
+    transformOrigin: js.UndefOr[Origin] = js.undefined,
+    TransitionComponent: OptComponentPropType = js.undefined,
+    transitionDuration: js.UndefOr[Int | js.Object | TransitionDuration.Value] = js.undefined,
+    TransitionProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiPopoverExtensions {
   object AnchorReference extends Enumeration {
-    val anchorEl = Value("anchorEl")
-    val anchorPosition = Value("anchorPosition")
-    val none = Value("none")
+    type Value = String
+
+    val anchorEl = "anchorEl"
+    val anchorPosition = "anchorPosition"
+    val none = "none"
   }
 
   object TransitionDuration extends Enumeration {
-    val auto = Value("auto")
+    type Value = String
+
+    val auto = "auto"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val paper = "paper"
   }

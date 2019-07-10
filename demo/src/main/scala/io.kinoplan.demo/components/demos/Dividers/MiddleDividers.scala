@@ -2,12 +2,12 @@ package io.kinoplan.demo.components.demos.Dividers
 
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Dividers.{DefaultDividersStyle, DividersStyle}
-import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiChip, MuiDivider, MuiGrid, MuiTypography}
+import io.kinoplan.scalajs.react.material.ui.core._
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object MiddleDividers {
+object MiddleDividers extends ScalaCssReactImplicits {
   case class Props(style: DividersStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
@@ -41,10 +41,10 @@ object MiddleDividers {
                 "Select type"
               ),
               div(
-                MuiChip(label = Some("Extra Soft"))(css.chip),
-                MuiChip(label = Some("Soft"))(css.chip),
-                MuiChip(label = Some("Medium"))(css.chip),
-                MuiChip(label = Some("Hard"))(css.chip),
+                MuiChip(label = VdomNode("Extra Soft"))(css.chip),
+                MuiChip(label = VdomNode("Soft"))(css.chip),
+                MuiChip(label = VdomNode("Medium"))(css.chip),
+                MuiChip(label = VdomNode("Hard"))(css.chip),
               )
             ),
             div(css.section3,

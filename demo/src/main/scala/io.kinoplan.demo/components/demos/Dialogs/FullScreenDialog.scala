@@ -2,13 +2,13 @@ package io.kinoplan.demo.components.demos.Dialogs
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Dialogs.{DefaultDialogsStyle, DialogsStyle}
-import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiButton, MuiDialog, MuiDivider, MuiIconButton, MuiList, MuiListItem, MuiListItemText, MuiToolbar, MuiTypography}
+import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.icons.MuiCloseIcon
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object FullScreenDialog {
+object FullScreenDialog extends ScalaCssReactImplicits {
   case class Props(style: DialogsStyle)
 
   case class State(open: Boolean = false) {
@@ -53,11 +53,11 @@ object FullScreenDialog {
               ),
               MuiList()(
                 MuiListItem(button = true)(
-                  MuiListItemText(primary = Some("Phone ringtone"), secondary = Some("Titania"))
+                  MuiListItemText(primary = VdomNode("Phone ringtone"), secondary = VdomNode("Titania"))
                 ),
                 MuiDivider(),
                 MuiListItem(button = true)(
-                  MuiListItemText(primary = Some("Default notification ringtone"), secondary = Some("Tethys"))
+                  MuiListItemText(primary = VdomNode("Default notification ringtone"), secondary = VdomNode("Tethys"))
                 )
               )
             ).when(state.open)

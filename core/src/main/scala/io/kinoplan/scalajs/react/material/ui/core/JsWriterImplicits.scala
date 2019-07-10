@@ -12,8 +12,4 @@ trait JsWriterImplicits {
   implicit def reactElementWriter: JsWriter[React.Element] = JsWriter(_.asInstanceOf[js.Dynamic])
 
   implicit def reactNodeWriter: JsWriter[React.Node] = JsWriter(_.asInstanceOf[js.Dynamic])
-
-  implicit def reactElementTypeWriter: JsWriter[React.ElementType] = JsWriter(_.asInstanceOf[js.Dynamic])
-
-  implicit def stringTypeToStr[T <: StringType](t: StringType): String = t.get
 }

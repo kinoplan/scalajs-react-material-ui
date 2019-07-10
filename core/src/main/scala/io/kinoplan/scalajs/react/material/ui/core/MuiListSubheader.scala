@@ -13,24 +13,26 @@ object MuiListSubheader extends ReactBridgeComponent with MuiListSubheaderExtens
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    color: Color.Value = Color.default,
-    component: OptComponentPropType = "li",
-    disableGutters: Boolean = false,
-    disableSticky: Boolean = false,
-    inset: Boolean = false
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    color: js.UndefOr[Color.Value] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    disableGutters: js.UndefOr[Boolean] = js.undefined,
+    disableSticky: js.UndefOr[Boolean] = js.undefined,
+    inset: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiListSubheaderExtensions {
   object Color extends Enumeration {
-    val default = Value("default")
-    val primary = Value("primary")
-    val inherit = Value("inherit")
+    type Value = String
+
+    val default = "default"
+    val primary = "primary"
+    val inherit = "inherit"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val colorPrimary = "colorPrimary"

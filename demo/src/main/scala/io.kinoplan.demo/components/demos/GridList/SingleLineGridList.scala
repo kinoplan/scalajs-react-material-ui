@@ -26,18 +26,15 @@ object SingleLineGridList extends ScalaCssReactImplicits {
       div(
         ComponentContainer("Single line Grid list")(
           div(css.root, css.rootPaper(Layout.isPaletteLight),
-            MuiGridList(cols = 2.5)(css.gridList,
+            MuiGridList()(css.gridList,
+              cols := 2.5,
               TileData.default.toVdomArray { tile =>
                 MuiGridListTile()(Attr("key") := tile.image,
                   img(src := tile.image, alt := tile.title),
                   MuiGridListTileBar(
-                    title = Some(tile.title),
+                    title = VdomNode(tile.title),
                     classes = barClasses,
-                    actionIcon = Some(
-                      MuiIconButton()(
-                        MuiStarBorderIcon()(css.title)
-                      )
-                    )
+                    actionIcon = VdomNode(MuiIconButton()(MuiStarBorderIcon()(css.title)).rawNode)
                   )
                 )
               }

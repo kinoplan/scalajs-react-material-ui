@@ -6,9 +6,9 @@ import io.kinoplan.scalajs.react.material.ui.core.{MuiIcon, MuiIconButton}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiAddShoppingCartIcon, MuiDeleteIcon, MuiPhotoCameraIcon}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object IconButtons {
+object IconButtons extends ScalaCssReactImplicits {
   case class Props(style: CommonButtonStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
@@ -22,7 +22,8 @@ object IconButtons {
               aria.label := "Delete",
               MuiDeleteIcon()
             ),
-            MuiIconButton(color = MuiIconButton.Color.primary, disabled = true)(css.marginButton,
+            MuiIconButton(color = MuiIconButton.Color.primary)(css.marginButton,
+              disabled := true,
               aria.label := "Delete",
               MuiDeleteIcon()
             ),

@@ -22,16 +22,14 @@ object AdvancedGridList extends ScalaCssReactImplicits {
           div(css.root, css.rootPaper(Layout.isPaletteLight),
             MuiGridList(cellHeight = 200, spacing = 1)(css.gridList,
               TileData.default.toVdomArray { tile =>
-                MuiGridListTile(cols = tile.featuredValue, rows = tile.featuredValue)(Attr("key") := tile.image,
+                MuiGridListTile()(Attr("key") := tile.image,
+                  cols := tile.featuredValue,
+                  rows := tile.featuredValue,
                   img(src := tile.image, alt := tile.title),
                   MuiGridListTileBar(
-                    title = Some(tile.title),
+                    title = VdomNode(tile.title),
                     titlePosition = MuiGridListTileBar.TitlePosition.top,
-                    actionIcon = Some(
-                      MuiIconButton()(css.iconStyle,
-                        MuiStarBorderIcon()
-                      )
-                    ),
+                    actionIcon = VdomNode(MuiIconButton()(css.iconStyle, MuiStarBorderIcon()).rawNode),
                     actionPosition = MuiGridListTileBar.ActionPosition.left
                   )(css.titleBar)
                 )

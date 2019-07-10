@@ -13,66 +13,72 @@ object MuiTypography extends ReactBridgeComponent with MuiTypographyExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    align: Alignment.Value = Alignment.inherit,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    color: Color.Value = Color.default,
+    align: js.UndefOr[Alignment.Value] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    color: js.UndefOr[Color.Value] = js.undefined,
     component: OptComponentPropType = js.undefined,
-    gutterBottom: Boolean = false,
-    headlineMapping: js.Object = js.Object(),
-    inline: Boolean = false,
-    internalDeprecatedVariant: Option[Boolean] = None,
-    noWrap: Boolean = false,
-    paragraph: Boolean = false,
-    variant: Variant.Value = Variant.body2
+    gutterBottom: js.UndefOr[Boolean] = js.undefined,
+    headlineMapping: js.UndefOr[js.Object] = js.undefined,
+    inline: js.UndefOr[Boolean] = js.undefined,
+    internalDeprecatedVariant: js.UndefOr[Boolean] = js.undefined,
+    noWrap: js.UndefOr[Boolean] = js.undefined,
+    paragraph: js.UndefOr[Boolean] = js.undefined,
+    variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiTypographyExtensions {
   object Alignment extends Enumeration {
-    val inherit = Value("inherit")
-    val left = Value("left")
-    val center = Value("center")
-    val right = Value("right")
-    val justify = Value("justify")
+    type Value = String
+
+    val inherit = "inherit"
+    val left = "left"
+    val center = "center"
+    val right = "right"
+    val justify = "justify"
   }
 
   object Color extends Enumeration {
-    val default = Value("default")
-    val error = Value("error")
-    val inherit = Value("inherit")
-    val primary = Value("primary")
-    val secondary = Value("secondary")
-    val textPrimary = Value("textPrimary")
-    val textSecondary = Value("textSecondary")
+    type Value = String
+
+    val default = "default"
+    val error = "error"
+    val inherit = "inherit"
+    val primary = "primary"
+    val secondary = "secondary"
+    val textPrimary = "textPrimary"
+    val textSecondary = "textSecondary"
   }
 
   object Variant extends Enumeration {
-    val h1 = Value("h1")
-    val h2 = Value("h2")
-    val h3 = Value("h3")
-    val h4 = Value("h4")
-    val h5 = Value("h5")
-    val h6 = Value("h6")
-    val subtitle1 = Value("subtitle1")
-    val subtitle2 = Value("subtitle2")
-    val body1 = Value("body1")
-    val body2 = Value("body2")
-    val caption = Value("caption")
-    val button = Value("button")
-    val overline = Value("overline")
-    val srOnly = Value("srOnly")
-    val inherit = Value("inherit")
-    val display4 = Value("display4")
-    val display3 = Value("display3")
-    val display2 = Value("display2")
-    val display1 = Value("display1")
-    val headline = Value("headline")
-    val title = Value("title")
-    val subheading = Value("subheading")
+    type Value = String
+
+    val h1 = "h1"
+    val h2 = "h2"
+    val h3 = "h3"
+    val h4 = "h4"
+    val h5 = "h5"
+    val h6 = "h6"
+    val subtitle1 = "subtitle1"
+    val subtitle2 = "subtitle2"
+    val body1 = "body1"
+    val body2 = "body2"
+    val caption = "caption"
+    val button = "button"
+    val overline = "overline"
+    val srOnly = "srOnly"
+    val inherit = "inherit"
+    val display4 = "display4"
+    val display3 = "display3"
+    val display2 = "display2"
+    val display1 = "display1"
+    val headline = "headline"
+    val title = "title"
+    val subheading = "subheading"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val display4 = "display4"

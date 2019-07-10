@@ -6,9 +6,9 @@ import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiIconButton, Mui
 import io.kinoplan.scalajs.react.material.ui.icons.MuiMenuIcon
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object DenseAppBar {
+object DenseAppBar extends ScalaCssReactImplicits {
   case class Props(style: CommonStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {

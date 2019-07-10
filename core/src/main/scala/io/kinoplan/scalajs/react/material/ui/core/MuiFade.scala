@@ -14,8 +14,8 @@ object MuiFade extends ReactBridgeComponent {
   object RawComponent extends js.Function
 
   def apply(
-    in: Option[Boolean] = None,
-    timeout: Option[Int | js.Object] = None,
+    in: js.UndefOr[Boolean] = js.undefined,
+    timeout: js.UndefOr[Int | js.Object] = js.undefined,
     unmountOnExit: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }

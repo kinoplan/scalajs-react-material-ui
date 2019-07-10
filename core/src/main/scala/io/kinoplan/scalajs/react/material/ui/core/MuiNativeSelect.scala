@@ -14,23 +14,25 @@ object MuiNativeSelect extends ReactBridgeComponent with MuiNativeSelectExtensio
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     IconComponent: OptComponentPropType = js.undefined,
-    input: Option[React.Element] = None,
-    inputProps: js.Object = js.Object(),
-    variant: Option[Variant.Value] = None
+    input: js.UndefOr[React.Element] = js.undefined,
+    inputProps: js.UndefOr[js.Object] = js.undefined,
+    variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiNativeSelectExtensions {
   object Variant extends Enumeration {
-    val standard = Value("standard")
-    val outlined = Value("outlined")
-    val filled = Value("filled")
+    type Value = String
+
+    val standard = "standard"
+    val outlined = "outlined"
+    val filled = "filled"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val select = "select"

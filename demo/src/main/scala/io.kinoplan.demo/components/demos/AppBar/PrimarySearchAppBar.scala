@@ -4,15 +4,17 @@ import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.AppBar.{DefaultPrimarySearchAppBarStyle, PrimarySearchAppBarStyle}
 import io.kinoplan.demo.utils.Helpers._
 import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
-import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiBadge, MuiIconButton, MuiInputBase, MuiMenu, MuiMenuItem, MuiToolbar, MuiTypography}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiAccountCircleIcon, MuiMailIcon, MuiMenuIcon, MuiMoreVertIcon, MuiNotificationsIcon, MuiSearchIcon}
+import io.kinoplan.scalajs.react.material.ui.core._
+import io.kinoplan.scalajs.react.material.ui.icons._
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromHtml, ScalaComponent}
 import org.scalajs.dom.raw.HTMLElement
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object PrimarySearchAppBar {
+import scala.scalajs.js.JSConverters._
+
+object PrimarySearchAppBar extends ScalaCssReactImplicits {
   case class Props(style: PrimarySearchAppBarStyle)
 
   case class State(
@@ -62,11 +64,11 @@ object PrimarySearchAppBar {
 
       def renderMenu() = {
         MuiMenu(
-          anchorEl = state.anchorEl,
+          anchorEl = state.anchorEl.orUndefined,
           anchorOrigin = Origin(vertical = "top", horizontal = "right"),
           transformOrigin = Origin(vertical = "top", horizontal = "right"),
           open = isMenuOpen,
-          onClose = Some(handleProfileMenuClose),
+          onClose = handleProfileMenuClose
         )(
           MuiMenuItem()(onClick ==> handleProfileMenuClose,
             "Profile"
@@ -79,15 +81,15 @@ object PrimarySearchAppBar {
 
       def renderMobileMenu() = {
         MuiMenu(
-          anchorEl = state.mobileMoreAnchorEl,
+          anchorEl = state.mobileMoreAnchorEl.orUndefined,
           anchorOrigin = Origin(vertical = "top", horizontal = "right"),
           transformOrigin = Origin(vertical = "top", horizontal = "right"),
           open = isMobileMenuOpen,
-          onClose = Some(handleMobileMenuClose),
+          onClose = handleMobileMenuClose
         )(
           MuiMenuItem()(
             MuiIconButton(color = MuiIconButton.Color.inherit)(
-              MuiBadge(badgeContent = Some(VdomNode(4)), color = MuiBadge.Color.secondary)(
+              MuiBadge(badgeContent = VdomNode(4), color = MuiBadge.Color.secondary)(
                 MuiMailIcon()
               )
             ),
@@ -95,7 +97,7 @@ object PrimarySearchAppBar {
           ),
           MuiMenuItem()(
             MuiIconButton(color = MuiIconButton.Color.inherit)(
-              MuiBadge(badgeContent = Some(VdomNode(11)), color = MuiBadge.Color.secondary)(
+              MuiBadge(badgeContent = VdomNode(11), color = MuiBadge.Color.secondary)(
                 MuiNotificationsIcon()
               )
             ),
@@ -130,12 +132,12 @@ object PrimarySearchAppBar {
                 div(css.common.flexGrowOne),
                 div(css.sectionDesktop,
                   MuiIconButton(color = MuiIconButton.Color.inherit)(
-                    MuiBadge(badgeContent = Some(VdomNode(4)), color = MuiBadge.Color.secondary)(
+                    MuiBadge(badgeContent = VdomNode(4), color = MuiBadge.Color.secondary)(
                       MuiMailIcon()
                     )
                   ),
                   MuiIconButton(color = MuiIconButton.Color.inherit)(
-                    MuiBadge(badgeContent = Some(VdomNode(17)), color = MuiBadge.Color.secondary)(
+                    MuiBadge(badgeContent = VdomNode(17), color = MuiBadge.Color.secondary)(
                       MuiNotificationsIcon()
                     )
                   ),

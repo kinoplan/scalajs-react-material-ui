@@ -14,11 +14,10 @@ object MuiStepLabel extends ReactBridgeComponent with MuiStepLabelExtensions wit
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    disabled: js.UndefOr[Boolean] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     error: js.UndefOr[Boolean] = js.undefined,
-    icon: Option[VdomNode] = None,
-    optional: Option[VdomNode] = None,
+    icon: js.UndefOr[VdomNode] = js.undefined,
+    optional: js.UndefOr[VdomNode] = js.undefined,
     StepIconComponent: OptComponentPropType = js.undefined,
     StepIconProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
@@ -26,7 +25,7 @@ object MuiStepLabel extends ReactBridgeComponent with MuiStepLabelExtensions wit
 
 trait MuiStepLabelExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val horizontal = "horizontal"

@@ -49,7 +49,7 @@ object ConfirmationDialogRaw {
           open = props.open,
           disableBackdropClick = true,
           disableEscapeKeyDown = true,
-          maxWidth = Some(MuiDialog.MaxWidth.xs),
+          maxWidth = MuiDialog.MaxWidth.xs,
           classes = props.dialogClassess
         )(
           aria.labelledBy := "confirmation-dialog-title",
@@ -63,8 +63,8 @@ object ConfirmationDialogRaw {
             )(
               options.toVdomArray(option =>
                 MuiFormControlLabel(
-                  control = Some(MuiRadio()().rawElement),
-                  label = Some(option)
+                  control = MuiRadio()().rawElement,
+                  label = VdomNode(option)
                 )(
                   Attr("key") := option,
                   value := option

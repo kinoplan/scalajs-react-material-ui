@@ -1,6 +1,7 @@
 package io.kinoplan.demo.components.demos.SelectionControls
 
 import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.scalajs.react.material.ui.core.{MuiFormControlLabel, MuiFormGroup, MuiSwitch}
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
@@ -34,36 +35,32 @@ object SwitchLabels extends ScalaCssReactImplicits {
         ComponentContainer("Switches with FormControlLabel")(
           MuiFormGroup(row = true)(
             MuiFormControlLabel(
-              control = Some(
-                MuiSwitch()(
-                  checked := state.checkedA,
-                  value := "checkedA",
-                  onChange ==> handleChangeCheckedA
-                ).rawElement
-              ),
-              label = Some("Secondary")
+              control = MuiSwitch()(
+                checked := state.checkedA,
+                value := "checkedA",
+                onChange ==> handleChangeCheckedA
+              ).rawElement,
+              label = "Secondary".toVdom
             ),
             MuiFormControlLabel(
-              control = Some(
-                MuiSwitch(color = MuiSwitch.Color.primary)(
-                  checked := state.checkedB,
-                  value := "checkedB",
-                  onChange ==> handleChangeCheckedB
-                ).rawElement
-              ),
-              label = Some("Primary")
+              control = MuiSwitch(color = MuiSwitch.Color.primary)(
+                checked := state.checkedB,
+                value := "checkedB",
+                onChange ==> handleChangeCheckedB
+              ).rawElement,
+              label = "Primary".toVdom
             ),
             MuiFormControlLabel(
-              control = Some(MuiSwitch()(value := "checkedC").rawElement),
-              label = Some("Uncontrolled")
+              control = MuiSwitch()(value := "checkedC").rawElement,
+              label = "Uncontrolled".toVdom
             ),
             MuiFormControlLabel(
-              control = Some(MuiSwitch()(value := "checkedD").rawElement),
-              label = Some("Disabled")
+              control = MuiSwitch()(value := "checkedD").rawElement,
+              label = "Disabled".toVdom
             )(disabled := true),
             MuiFormControlLabel(
-              control = Some(MuiSwitch()(checked := true, value := "checkedE").rawElement),
-              label = Some("Disabled")
+              control = MuiSwitch()(checked := true, value := "checkedE").rawElement,
+              label = "Disabled".toVdom
             )(disabled := true)
           )
         )

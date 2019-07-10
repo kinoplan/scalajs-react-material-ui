@@ -6,9 +6,9 @@ import io.kinoplan.scalajs.react.material.ui.core.MuiBadge
 import io.kinoplan.scalajs.react.material.ui.icons.MuiMailIcon
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, React, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object BadgeMax {
+object BadgeMax extends ScalaCssReactImplicits {
   case class Props(style: BadgeMaxStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
@@ -18,13 +18,13 @@ object BadgeMax {
       div(
         ComponentContainer("Maximum Value")(
           React.Fragment(
-            MuiBadge(badgeContent = Some(VdomNode(99)), color = MuiBadge.Color.primary)(css.badgeMargin,
+            MuiBadge(badgeContent = VdomNode(99), color = MuiBadge.Color.primary)(css.badgeMargin,
               MuiMailIcon()
             ),
-            MuiBadge(badgeContent = Some(VdomNode(100)), color = MuiBadge.Color.primary)(css.badgeMargin,
+            MuiBadge(badgeContent = VdomNode(100), color = MuiBadge.Color.primary)(css.badgeMargin,
               MuiMailIcon()
             ),
-            MuiBadge(badgeContent = Some(VdomNode(1000)), max = 999, color = MuiBadge.Color.primary)(css.badgeMargin,
+            MuiBadge(badgeContent = VdomNode(1000), max = 999, color = MuiBadge.Color.primary)(css.badgeMargin,
               MuiMailIcon()
             )
           )

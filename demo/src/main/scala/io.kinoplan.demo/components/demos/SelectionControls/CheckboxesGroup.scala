@@ -2,6 +2,7 @@ package io.kinoplan.demo.components.demos.SelectionControls
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.SelectionControls.{ControlButtonsGroupStyle, DefaultControlButtonsGroupStyle}
+import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.scalajs.react.material.ui.core.{MuiCheckbox, MuiFormControl, MuiFormControlLabel, MuiFormGroup, MuiFormHelperText, MuiFormLabel}
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
@@ -53,28 +54,28 @@ object CheckboxesGroup extends ScalaCssReactImplicits {
               MuiFormLabel(component = "legend")("Assign responsibility"),
               MuiFormGroup()(
                 MuiFormControlLabel(
-                  control = Some(MuiCheckbox()(
+                  control = MuiCheckbox()(
                     checked := state.gilad,
                     onChange ==> handleChangeGilad,
                     value := "gilad"
-                  ).rawElement),
-                  label = Some("Gilad Gray")
+                  ).rawElement,
+                  label = "Gilad Gray".toVdom
                 ),
                 MuiFormControlLabel(
-                  control = Some(MuiCheckbox()(
+                  control = MuiCheckbox()(
                     checked := state.jason,
                     onChange ==> handleChangeJason,
                     value := "jason"
-                  ).rawElement),
-                  label = Some("Jason Killian")
+                  ).rawElement,
+                  label = "Jason Killian".toVdom
                 ),
                 MuiFormControlLabel(
-                  control = Some(MuiCheckbox()(
+                  control = MuiCheckbox()(
                     checked := state.antoine,
                     onChange ==> handleChangeAntoine,
                     value := "antoine"
-                  ).rawElement),
-                  label = Some("Antoine Llorca")
+                  ).rawElement,
+                  label = "Antoine Llorca".toVdom
                 )
               ),
               MuiFormHelperText()("Be careful")
@@ -84,28 +85,28 @@ object CheckboxesGroup extends ScalaCssReactImplicits {
               MuiFormLabel(component = "legend")("Pick two"),
               MuiFormGroup()(
                 MuiFormControlLabel(
-                  control = Some(MuiCheckbox()(
+                  control = MuiCheckbox()(
                     checked := state.gilad,
                     onChange ==> handleChangeGilad,
                     value := "gilad"
-                  ).rawElement),
-                  label = Some("Gilad Gray")
+                  ).rawElement,
+                  label = "Gilad Gray".toVdom
                 ),
                 MuiFormControlLabel(
-                  control = Some(MuiCheckbox()(
+                  control = MuiCheckbox()(
                     checked := state.jason,
                     onChange ==> handleChangeJason,
                     value := "jason"
-                  ).rawElement),
-                  label = Some("Jason Killian")
+                  ).rawElement,
+                  label = "Jason Killian".toVdom
                 ),
                 MuiFormControlLabel(
-                  control = Some(MuiCheckbox()(
+                  control = MuiCheckbox()(
                     checked := state.antoine,
                     onChange ==> handleChangeAntoine,
                     value := "antoine"
-                  ).rawElement),
-                  label = Some("Antoine Llorca")
+                  ).rawElement,
+                  label = "Antoine Llorca".toVdom
                 )
               ),
               MuiFormHelperText()("You can display an error")

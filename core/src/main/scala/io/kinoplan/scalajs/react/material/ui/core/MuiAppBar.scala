@@ -13,30 +13,34 @@ object MuiAppBar extends ReactBridgeComponent with MuiAppBarExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    color: Color.Value = Color.primary,
-    position: Position.Value = Position.fixed
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    color: js.UndefOr[Color.Value] = js.undefined,
+    position: js.UndefOr[Position.Value] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiAppBarExtensions {
   object Color extends Enumeration {
-    val inherit = Value("inherit")
-    val primary = Value("primary")
-    val secondary = Value("secondary")
-    val default = Value("default")
+    type Value = String
+
+    val inherit = "inherit"
+    val primary = "primary"
+    val secondary = "secondary"
+    val default = "default"
   }
 
   object Position extends Enumeration {
-    val fixed = Value("fixed")
-    val absolute = Value("absolute")
-    val sticky = Value("sticky")
-    val static = Value("static")
-    val relative = Value("relative")
+    type Value = String
+
+    val fixed = "fixed"
+    val absolute = "absolute"
+    val sticky = "sticky"
+    val static = "static"
+    val relative = "relative"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val positionFixed = "positionFixed"

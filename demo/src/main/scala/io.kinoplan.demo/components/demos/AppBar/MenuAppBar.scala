@@ -3,15 +3,17 @@ package io.kinoplan.demo.components.demos.AppBar
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
-import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiFormControlLabel, MuiFormGroup, MuiIconButton, MuiMenu, MuiMenuItem, MuiSwitch, MuiToolbar, MuiTypography}
+import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiAccountCircleIcon, MuiMenuIcon}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromHtml, ReactEventFromInput, ScalaComponent}
 import org.scalajs.dom.raw.HTMLElement
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object MenuAppBar {
+import scala.scalajs.js.JSConverters._
+
+object MenuAppBar extends ScalaCssReactImplicits {
   case class Props(style: CommonStyle)
 
   case class State(
@@ -52,11 +54,11 @@ object MenuAppBar {
 
       def renderMenu() = {
         MuiMenu(
-          anchorEl = state.anchorEl,
+          anchorEl = state.anchorEl.orUndefined,
           anchorOrigin = Origin(vertical = "top", horizontal = "right"),
           transformOrigin = Origin(vertical = "top", horizontal = "right"),
           open = open,
-          onClose = Some(handleProfileMenuClose),
+          onClose = handleProfileMenuClose,
         )(
           MuiMenuItem()(onClick ==> handleProfileMenuClose,
             "Profile"
@@ -72,13 +74,11 @@ object MenuAppBar {
           div(css.flexGrowOne,
             MuiFormGroup()(
               MuiFormControlLabel(
-                control = Some(
-                  MuiSwitch(checked = Some(state.auth))(
-                    onChange ==> handleChange,
-                    aria.label := "LoginSwitch"
-                  ).rawElement
-                ),
-                label = Some(VdomNode(authLabel))
+                control = MuiSwitch(checked = state.auth)(
+                  onChange ==> handleChange,
+                  aria.label := "LoginSwitch"
+                ).rawElement,
+                label = VdomNode(authLabel)
               )
             ),
             MuiAppBar(position = MuiAppBar.Position.static)(

@@ -84,11 +84,11 @@ object HorizontalNonLinearStepperWithError extends ScalaCssReactImplicits {
             MuiStepper(activeStep = state.activeStep)(
               steps.zipWithIndex.toVdomArray { case (label, index) =>
                 val optional = if (state.isStepOptional(index)) {
-                  Some(MuiTypography(
+                  MuiTypography(
                     variant = MuiTypography.Variant.caption,
                     color = MuiTypography.Color.error
-                  )("Alert message"))
-                } else None
+                  )("Alert message")
+                } else EmptyVdom
 
                 val error = if (state.isStepFailed(index)) Some(true) else None
 

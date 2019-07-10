@@ -13,7 +13,7 @@ object MuiPaper extends ReactBridgeComponent with MuiPaperExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     component: OptComponentPropType = js.undefined,
     elevation: js.UndefOr[Int] = js.undefined,
     square: js.UndefOr[Boolean] = js.undefined
@@ -22,7 +22,7 @@ object MuiPaper extends ReactBridgeComponent with MuiPaperExtensions {
 
 trait MuiPaperExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val rounded = "rounded"

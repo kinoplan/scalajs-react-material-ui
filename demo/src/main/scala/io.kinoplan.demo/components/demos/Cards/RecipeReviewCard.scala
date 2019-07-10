@@ -2,13 +2,13 @@ package io.kinoplan.demo.components.demos.Cards
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Cards.{DefaultRecipeReviewCardStyle, RecipeReviewCardStyle}
-import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiCard, MuiCardActions, MuiCardContent, MuiCardHeader, MuiCardMedia, MuiCollapse, MuiIconButton, MuiTypography}
+import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiExpandMoreIcon, MuiFavoriteIcon, MuiMoreVertIcon, MuiShareIcon}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object RecipeReviewCard {
+object RecipeReviewCard extends ScalaCssReactImplicits {
   case class Props(style: RecipeReviewCardStyle)
 
   case class State(expanded: Boolean = false) {
@@ -27,23 +27,17 @@ object RecipeReviewCard {
         ComponentContainer("Complex Interaction")(
           MuiCard()(css.card,
             MuiCardHeader(
-              avatar = Some(
-                MuiAvatar()(css.avatar,
-                  aria.label := "Recipe",
-                  "R"
-                )
+              avatar = VdomNode(MuiAvatar()(css.avatar,
+                aria.label := "Recipe",
+                "R"
+              ).rawNode),
+              action = MuiIconButton()(
+                MuiMoreVertIcon()
               ),
-              action = Some(
-                MuiIconButton()(
-                  MuiMoreVertIcon()
-                )
-              ),
-              title = Some("Shrimp and Chorizo Paella"),
-              subheader = Some("September 14, 2016")
+              title = VdomNode("Shrimp and Chorizo Paella"),
+              subheader = VdomNode("September 14, 2016")
             ),
-            MuiCardMedia(
-              image = Some(s"/static/images/cards/paella.jpg")
-            )(css.media,
+            MuiCardMedia(image = "/static/images/cards/paella.jpg")(css.media,
               title := "Paella dish"
             ),
             MuiCardContent()(
@@ -68,7 +62,7 @@ object RecipeReviewCard {
                 MuiExpandMoreIcon()
               )
             ),
-            MuiCollapse(in = Some(state.expanded), timeout = Some(MuiCollapse.Timeout.auto), unmountOnExit = Some(true))(
+            MuiCollapse(in = state.expanded, timeout = MuiCollapse.Timeout.auto, unmountOnExit = true)(
               MuiCardContent()(
                 MuiTypography(paragraph = true)("Method:"),
                 MuiTypography(paragraph = true)(

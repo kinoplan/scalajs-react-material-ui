@@ -115,8 +115,8 @@ object HorizontalNonLinearAlternativeLabelStepper extends ScalaCssReactImplicits
             MuiStepper(activeStep = state.activeStep, alternativeLabel = true, nonLinear = true)(
               steps.zipWithIndex.toVdomArray { case (label, index) =>
                 val optional = if (state.isStepOptional(index)) {
-                  Some(MuiTypography(variant = MuiTypography.Variant.caption)("Optional"))
-                } else None
+                  MuiTypography(variant = MuiTypography.Variant.caption)("Optional")
+                } else EmptyVdom
 
                 val completed = if (state.isStepSkipped(index)) Some(false) else None
 

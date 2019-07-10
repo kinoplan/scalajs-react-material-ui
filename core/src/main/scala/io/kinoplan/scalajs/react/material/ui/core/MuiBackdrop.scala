@@ -14,16 +14,16 @@ object MuiBackdrop extends ReactBridgeComponent with MuiBackdropExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    invisible: Boolean = false,
+    classes:js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    invisible: js.UndefOr[Boolean] = js.undefined,
     open: Boolean,
-    transitionDuration: Option[Int | js.Object] = None
+    transitionDuration: js.UndefOr[Int | js.Object] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
 }
 
 trait MuiBackdropExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val invisible = "invisible"

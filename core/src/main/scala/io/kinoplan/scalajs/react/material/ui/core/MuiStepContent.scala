@@ -14,20 +14,22 @@ object MuiStepContent extends ReactBridgeComponent with MuiStepContentExtensions
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     TransitionComponent: OptComponentPropType = js.undefined,
     transitionDuration: js.UndefOr[Int | TransitionDuration.Value] = js.undefined,
-    TransitionProps: js.Object = js.Object()
+    TransitionProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiStepContentExtensions {
   object TransitionDuration extends Enumeration {
-    val auto = Value("auto")
+    type Value = String
+
+    val auto = "auto"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val last = "last"

@@ -8,9 +8,9 @@ import japgolly.scalajs.react.extra.router.{Resolution, RouterCtl}
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.vdom.{Attr, VdomArray, VdomNode}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object DemoMenu {
+object DemoMenu extends ScalaCssReactImplicits {
   case class Props(router: RouterCtl[Page], r: Resolution[Page], style: DemoMenuStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
@@ -25,7 +25,7 @@ object DemoMenu {
               href := props.router.urlFor(item.location).value,
               props.router.setOnLinkClick(item.location)
             )(
-              MuiListItemText(inset = true, primary = Some(VdomNode(item.label)))()
+              MuiListItemText(inset = true, primary = VdomNode(item.label))()
             )
           }
         )

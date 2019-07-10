@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -13,29 +13,33 @@ object MuiLinearProgress extends ReactBridgeComponent with MuiLinearProgressExte
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    color: Color.Value = Color.primary,
-    value: Option[Int] = None,
-    valueBuffer: Option[Int] = None,
-    variant: Variant.Value = Variant.indeterminate
-  ): WithProps = auto
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    color: js.UndefOr[Color.Value] = js.undefined,
+    value: js.UndefOr[Int] = js.undefined,
+    valueBuffer: js.UndefOr[Int] = js.undefined,
+    variant: js.UndefOr[Variant.Value] = js.undefined
+  ): WithPropsNoChildren = autoNoChildren
 }
 
 trait MuiLinearProgressExtensions {
   object Color extends Enumeration {
-    val primary = Value("primary")
-    val secondary = Value("secondary")
+    type Value = String
+
+    val primary = "primary"
+    val secondary = "secondary"
   }
 
   object Variant extends Enumeration {
-    val determinate = Value("determinate")
-    val indeterminate = Value("indeterminate")
-    val buffer = Value("buffer")
-    val query = Value("query")
+    type Value = String
+
+    val determinate = "determinate"
+    val indeterminate = "indeterminate"
+    val buffer = "buffer"
+    val query = "query"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val colorPrimary = "colorPrimary"

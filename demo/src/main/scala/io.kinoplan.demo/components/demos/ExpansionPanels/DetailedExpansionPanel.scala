@@ -2,13 +2,13 @@ package io.kinoplan.demo.components.demos.ExpansionPanels
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.ExpansionPanels.{DefaultDetailedExpansionPanelStyle, DetailedExpansionPanelStyle}
-import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiChip, MuiDivider, MuiExpansionPanel, MuiExpansionPanelActions, MuiExpansionPanelDetails, MuiExpansionPanelSummary, MuiTypography}
+import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.icons.MuiExpandMoreIcon
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object DetailedExpansionPanel {
+object DetailedExpansionPanel extends ScalaCssReactImplicits {
   case class Props(style: DetailedExpansionPanelStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
@@ -23,7 +23,7 @@ object DetailedExpansionPanel {
         ComponentContainer("Secondary heading and Columns")(
           div(css.root,
             MuiExpansionPanel(defaultExpanded = true)(
-              MuiExpansionPanelSummary(expandIcon = Some(MuiExpandMoreIcon()))(
+              MuiExpansionPanelSummary(expandIcon = MuiExpandMoreIcon()())(
                 div(css.column,
                   MuiTypography()(css.heading, "Location")
                 ),
@@ -34,7 +34,7 @@ object DetailedExpansionPanel {
               MuiExpansionPanelDetails()(css.details,
                 div(css.column),
                 div(css.column,
-                  MuiChip(label = Some("Barbados"), onDelete = handleDelete)
+                  MuiChip(label = VdomNode("Barbados"), onDelete = handleDelete)
                 ),
                 div(css.column, css.helper,
                   MuiTypography(variant = MuiTypography.Variant.caption)(

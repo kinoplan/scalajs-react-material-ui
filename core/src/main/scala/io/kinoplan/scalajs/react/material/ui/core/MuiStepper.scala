@@ -14,23 +14,25 @@ object MuiStepper extends ReactBridgeComponent with MuiStepperExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    activeStep: Int = 0,
-    alternativeLabel: Boolean = false,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    connector: Option[React.Element] = None,
-    nonLinear: Boolean = false,
-    orientation: Orientation.Value = Orientation.horizontal
+    activeStep: js.UndefOr[Int] = js.undefined,
+    alternativeLabel: js.UndefOr[Boolean] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    connector: js.UndefOr[React.Element] = js.undefined,
+    nonLinear: js.UndefOr[Boolean] = js.undefined,
+    orientation: js.UndefOr[Orientation.Value] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiStepperExtensions {
   object Orientation extends Enumeration {
-    val horizontal = Value("horizontal")
-    val vertical = Value("vertical")
+    type Value = String
+
+    val horizontal = "horizontal"
+    val vertical = "vertical"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val horizontal = "horizontal"

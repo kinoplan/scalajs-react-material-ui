@@ -1,7 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
-import io.kinoplan.scalajs.react.material.ui.core.styles.transitions
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -15,24 +14,26 @@ object MuiCollapse extends ReactBridgeComponent with MuiCollapseExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    collapsedHeight: String = "0px",
-    component: OptComponentPropType = "div",
-    in: Option[Boolean] = None,
-    timeout: Option[Int | Timeout.Value] = Some(transitions.duration.standard),
-    mountOnEnter: Option[Boolean] = None,
-    unmountOnExit: Option[Boolean] = None,
-    addEndListener: Option[Boolean] = None
+    classes: js.UndefOr[Map[ClassKey.Value, String]] =js.undefined,
+    collapsedHeight: js.UndefOr[String] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    in: js.UndefOr[Boolean] = js.undefined,
+    timeout: js.UndefOr[Int | Timeout.Value] = js.undefined,
+    mountOnEnter: js.UndefOr[Boolean] = js.undefined,
+    unmountOnExit: js.UndefOr[Boolean] = js.undefined,
+    addEndListener: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiCollapseExtensions {
   object Timeout extends Enumeration {
-    val auto = Value("auto")
+    type Value = String
+
+    val auto = "auto"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val container = "container"
     val entered = "entered"

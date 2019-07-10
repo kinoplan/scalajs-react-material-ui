@@ -48,15 +48,15 @@ object LinearBuffer extends ScalaCssReactImplicits {
           div(css.flexGrowOne,
             MuiLinearProgress(
               variant = MuiLinearProgress.Variant.buffer,
-              value = Some(state.completed),
-              valueBuffer = Some(state.buffer)
+              value = state.completed,
+              valueBuffer = state.buffer
             ),
             br,
             MuiLinearProgress(
               variant = MuiLinearProgress.Variant.buffer,
               color = MuiLinearProgress.Color.secondary,
-              value = Some(state.completed),
-              valueBuffer = Some(state.buffer)
+              value = state.completed,
+              valueBuffer = state.buffer
             )
           )
         )

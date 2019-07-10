@@ -13,20 +13,19 @@ object MuiExpansionPanel extends ReactBridgeComponent with MuiExpansionPanelExte
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    CollapseProps: js.Object = js.Object(),
-    defaultExpanded: Boolean = false,
-    disabled: Boolean = false,
-    expanded: Option[Boolean] = None,
-    component: OptComponentPropType = "div",
-    elevation: Int = 2,
-    square: Boolean = false
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    CollapseProps: js.UndefOr[js.Object] = js.undefined,
+    defaultExpanded: js.UndefOr[Boolean] = js.undefined,
+    expanded: js.UndefOr[Boolean] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    elevation: js.UndefOr[Int] = js.undefined,
+    square: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiExpansionPanelExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val rounded = "rounded"

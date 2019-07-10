@@ -11,6 +11,7 @@ import org.scalajs.dom.raw.HTMLElement
 import scalacss.ScalaCssReactImplicits
 
 import scala.scalajs.js
+import scala.scalajs.js.JSConverters._
 
 object LongMenu extends ScalaCssReactImplicits {
   case class State(anchorEl: Option[HTMLElement] = None) {
@@ -66,9 +67,9 @@ object LongMenu extends ScalaCssReactImplicits {
               MuiMoreVertIcon()
             ),
             MuiMenu(
-              anchorEl = state.anchorEl,
+              anchorEl = state.anchorEl.orUndefined,
               open = state.isOpen,
-              onClose = Some(handleClose),
+              onClose = handleClose,
               PaperProps = MuiPaperProps(style = paperPropsStyle)
             )(
               id := "long-menu",

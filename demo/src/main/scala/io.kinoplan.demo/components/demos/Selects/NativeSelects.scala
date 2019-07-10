@@ -74,7 +74,7 @@ object NativeSelects extends ScalaCssReactImplicits {
             ),
             MuiFormControl()(css.formControl,
               MuiInputLabel()(htmlFor := "age-native-helper", "Age"),
-              MuiNativeSelect(input = Some(MuiInput()(name := "age", id := "age-native-helper").rawElement))(
+              MuiNativeSelect(input = MuiInput()(name := "age", id := "age-native-helper").rawElement)(
                 value := state.age,
                 onChange ==> handleChangeAge,
                 option(value := ""),
@@ -98,10 +98,10 @@ object NativeSelects extends ScalaCssReactImplicits {
             ),
             MuiFormControl()(css.formControl,
               MuiInputLabel(shrink = true)(htmlFor := "age-native-label-placeholder", "Age"),
-              MuiNativeSelect(input = Some(MuiInput()(
+              MuiNativeSelect(input = MuiInput()(
                   name := "age",
                   id := "age-native-label-placeholder"
-                ).rawElement)
+                ).rawElement
               )(css.selectEmpty,
                 value := state.age,
                 onChange ==> handleChangeAge,
@@ -116,7 +116,7 @@ object NativeSelects extends ScalaCssReactImplicits {
             MuiFormControl()(css.formControl,
               disabled := true,
               MuiInputLabel()(htmlFor := "name-disabled", "Name"),
-              MuiNativeSelect(input = Some(MuiInput()(name := "name", id := "name-native-disabled").rawElement))(
+              MuiNativeSelect(input = MuiInput()(name := "name", id := "name-native-disabled").rawElement)(
                 value := state.name,
                 onChange ==> handleChangeName,
                 option(value := ""),
@@ -132,7 +132,7 @@ object NativeSelects extends ScalaCssReactImplicits {
             ),
             MuiFormControl(error = true)(css.formControl,
               MuiInputLabel()(htmlFor := "name-native-error", "Name"),
-              MuiNativeSelect(input = Some(MuiInput()(id := "name-native-error").rawElement))(
+              MuiNativeSelect(input = MuiInput()(id := "name-native-error").rawElement)(
                 value := state.name,
                 onChange ==> handleChangeName,
                 name := "name",
@@ -149,7 +149,7 @@ object NativeSelects extends ScalaCssReactImplicits {
             ),
             MuiFormControl()(css.formControl,
               MuiInputLabel()(htmlFor := "uncontrolled-native", "Name"),
-              MuiNativeSelect(input = Some(MuiInput()(id := "uncontrolled-native", name := "name").rawElement))(
+              MuiNativeSelect(input = MuiInput()(id := "uncontrolled-native", name := "name").rawElement)(
                 defaultValue := "30",
                 option(value := ""),
                 option(value := "10", "Ten"),
@@ -191,10 +191,10 @@ object NativeSelects extends ScalaCssReactImplicits {
               MuiInputLabel()(id := inputRefId, htmlFor := "outlined-age-native-simple", "Age"),
               MuiSelect(
                 native = true,
-                input = Some(MuiOutlinedInput(labelWidth = state.labelWidth)(
+                input = MuiOutlinedInput(labelWidth = state.labelWidth)(
                   name := "age",
                   id := "outlined-age-native-simple"
-                ).rawElement)
+                ).rawElement
               )(
                 value := state.age,
                 onChange ==> handleChangeAge,
@@ -208,7 +208,7 @@ object NativeSelects extends ScalaCssReactImplicits {
               MuiInputLabel()(htmlFor := "filled-age-native-simple", "Age"),
               MuiSelect(
                 native = true,
-                input = Some(MuiFilledInput()(name := "age", id := "filled-age-native-simple").rawElement)
+                input = MuiFilledInput()(name := "age", id := "filled-age-native-simple").rawElement
               )(
                 value := state.age,
                 onChange ==> handleChangeAge,

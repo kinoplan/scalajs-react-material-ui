@@ -57,13 +57,11 @@ object FabIntegrationSnackbar extends ScalaCssReactImplicits {
                   ariaDescribedby = "snackbar-fab-message-id",
                   className = css.snackbarContent.htmlClass
                 ),
-                message = Some(span(id := "snackbar-fab-message-id", "Archived")),
-                action = Some(
-                  MuiButton(color = MuiButton.Color.inherit, size = MuiButton.Size.small)(
-                    onClick --> handleCloseClick,
-                    "Undo"
-                  )
-                )
+                message = span(id := "snackbar-fab-message-id", "Archived"),
+                action = VdomNode(MuiButton(color = MuiButton.Color.inherit, size = MuiButton.Size.small)(
+                  onClick --> handleCloseClick,
+                  "Undo"
+                ).rawNode)
               )(css.snackbar)
             )
           )

@@ -23,20 +23,20 @@ object CustomizedProgress extends ScalaCssReactImplicits {
       div(
         ComponentContainer("Customized Progress")(
           MuiPaper()(css.common.flexGrowOne,
-            MuiCircularProgress(size = Some(30), thickness = 5)(css.progress),
+            MuiCircularProgress(size = 30, thickness = 5.0)(css.progress),
             MuiLinearProgress(classes = linearClasses),
             div(css.facebook,
               MuiCircularProgress(
                 variant = MuiCircularProgress.Variant.determinate,
                 value = 100,
-                size = Some(24),
-                thickness = 4
+                size = 24,
+                thickness = 4.0
               )(css.facebook1),
               MuiCircularProgress(
                 variant = MuiCircularProgress.Variant.indeterminate,
                 disableShrink = true,
-                size = Some(24),
-                thickness = 4
+                size = 24,
+                thickness = 4.0
               )(css.facebook2),
             )
           )

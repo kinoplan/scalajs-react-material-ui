@@ -31,7 +31,7 @@ object FadeSnackbar extends ScalaCssReactImplicits {
               onClose = handleClose,
               TransitionComponent = MuiFade.RawComponent,
               ContentProps = MuiContentProps(ariaDescribedby = "message-id"),
-              message = Some(span(id := "message-id", "I love snacks"))
+              message = span(id := "message-id", "I love snacks")
             )
           )
         )

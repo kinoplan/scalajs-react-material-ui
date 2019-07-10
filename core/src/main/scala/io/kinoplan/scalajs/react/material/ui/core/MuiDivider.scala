@@ -13,12 +13,12 @@ object MuiDivider extends ReactBridgeComponent with MuiDividerExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    absolute: Boolean = false,
-    classes: Map[ClassKey.Value, String] = Map.empty,
+    absolute: js.UndefOr[Boolean] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     component: OptComponentPropType = js.undefined,
-    inset: Option[Boolean] = None,
-    light: Boolean = false,
-    variant: Variant.Value = Variant.fullWidth
+    inset: js.UndefOr[Boolean] = js.undefined,
+    light: js.UndefOr[Boolean] = js.undefined,
+    variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
 }
 

@@ -38,7 +38,7 @@ object CheckboxListSecondary extends ScalaCssReactImplicits {
                   MuiListItemAvatar()(
                     MuiAvatar()(alt := s"Avatar n°${value + 1}", src := s"/static/images/avatar/${value + 1}.jpg")
                   ),
-                  MuiListItemText(primary = Some(s"Line item ${value + 1}")),
+                  MuiListItemText(primary = VdomNode(s"Line item ${value + 1}")),
                   MuiListItemSecondaryAction()(
                     MuiCheckbox()(
                       checked := state.isChecked(value),

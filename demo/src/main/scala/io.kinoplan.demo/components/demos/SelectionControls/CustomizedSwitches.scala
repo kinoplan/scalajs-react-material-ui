@@ -51,24 +51,20 @@ object CustomizedSwitches extends ScalaCssReactImplicits {
         ComponentContainer("Customized Switches")(
           MuiFormGroup(row = true)(
             MuiFormControlLabel(
-              control = Some(
-                MuiSwitch(classes = customClasses)(
-                  checked := state.checkedA,
-                  value := "checkedA",
-                  onChange ==> handleChangeCheckedA
-                ).rawElement
-              ),
-              label = Some("Custom color")
+              control = MuiSwitch(classes = customClasses)(
+                checked := state.checkedA,
+                value := "checkedA",
+                onChange ==> handleChangeCheckedA
+              ).rawElement,
+              label = VdomNode("Custom color")
             ),
             MuiFormControlLabel(
-              control = Some(
-                MuiSwitch(classes = iOSClasses, disableRipple = Some(true))(
-                  checked := state.checkedB,
-                  value := "checkedB",
-                  onChange ==> handleChangeCheckedB
-                ).rawElement
-              ),
-              label = Some("iOS style")
+              control = MuiSwitch(classes = iOSClasses, disableRipple = true)(
+                checked := state.checkedB,
+                value := "checkedB",
+                onChange ==> handleChangeCheckedB
+              ).rawElement,
+              label = VdomNode("iOS style")
             )
           )
         )

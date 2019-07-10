@@ -13,7 +13,7 @@ object MuiDialogContentText extends ReactBridgeComponent with MuiDialogContentTe
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty
+    classes: js.UndefOr[Map[ClassKey.ClassKey, String]] = js.undefined
   ): WithProps = auto
 }
 

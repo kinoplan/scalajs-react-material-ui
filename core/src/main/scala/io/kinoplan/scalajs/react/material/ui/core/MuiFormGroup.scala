@@ -13,8 +13,8 @@ object MuiFormGroup extends ReactBridgeComponent with MuiFormGroupExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    row: Boolean = false
+    classes: js.UndefOr[Map[ClassKey.ClassKey, String]] = js.undefined,
+    row: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }
 

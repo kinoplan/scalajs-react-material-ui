@@ -26,36 +26,34 @@ object NestedList extends ScalaCssReactImplicits {
           div(css.root, css.rootPaper(Layout.isPaletteLight),
             MuiList(
               component = "nav",
-              subheader = Some(
-                MuiListSubheader(component = "div")("Nested List Items")
-              )
+              subheader = MuiListSubheader(component = "div")("Nested List Items")
             )(
               MuiListItem(button = true)(
                 MuiListItemIcon()(
                   MuiSendIcon()
                 ),
-                MuiListItemText(inset = true, primary = Some("Sent mail"))
+                MuiListItemText(inset = true, primary = VdomNode("Sent mail"))
               ),
               MuiListItem(button = true)(
                 MuiListItemIcon()(
                   MuiDraftsIcon()
                 ),
-                MuiListItemText(inset = true, primary = Some("Drafts"))
+                MuiListItemText(inset = true, primary = VdomNode("Drafts"))
               ),
               MuiListItem(button = true)(onClick --> handleClick,
                 MuiListItemIcon()(
                   MuiInboxIcon()
                 ),
-                MuiListItemText(inset = true, primary = Some("Inbox")),
+                MuiListItemText(inset = true, primary = VdomNode("Inbox")),
                 if (state.open) MuiExpandLessIcon() else MuiExpandMoreIcon()
               ),
-              MuiCollapse(in = Some(state.open), timeout = Some(MuiCollapse.Timeout.auto), unmountOnExit = Some(true))(
+              MuiCollapse(in = state.open, timeout = MuiCollapse.Timeout.auto, unmountOnExit = true)(
                 MuiList(component = "div", disablePadding = true)(onClick --> handleClick,
                   MuiListItem(button = true)(css.nested,
                     MuiListItemIcon()(
                       MuiStarBorderIcon()
                     ),
-                    MuiListItemText(inset = true, primary = Some("Starred"))
+                    MuiListItemText(inset = true, primary = VdomNode("Starred"))
                   )
                 )
               )

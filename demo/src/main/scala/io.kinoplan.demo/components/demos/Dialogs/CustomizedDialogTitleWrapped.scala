@@ -5,9 +5,9 @@ import io.kinoplan.scalajs.react.material.ui.core.{MuiDialogTitle, MuiIconButton
 import io.kinoplan.scalajs.react.material.ui.icons.MuiCloseIcon
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object CustomizedDialogTitleWrapped {
+object CustomizedDialogTitleWrapped extends ScalaCssReactImplicits {
   case class Props(onClose: ReactEvent => Callback, style: DialogsStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {

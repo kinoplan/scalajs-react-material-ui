@@ -15,31 +15,33 @@ object MuiPopper extends ReactBridgeComponent with MuiPopperExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    anchorEl: Option[html.Element | js.Function1[html.Element, html.Element]] = None,
-    container: Option[js.Object | js.Function] = None,
-    disablePortal: Boolean = false,
-    keepMounted: Option[Boolean] = None,
-    modifiers: js.Object = js.Object(),
+    anchorEl: js.UndefOr[html.Element | js.Function1[html.Element, html.Element]] = js.undefined,
+    container: OptComponentContainerType = js.undefined,
+    disablePortal: js.UndefOr[Boolean] = js.undefined,
+    keepMounted: js.UndefOr[Boolean] = js.undefined,
+    modifiers: js.UndefOr[js.Object] = js.undefined,
     open: Boolean,
-    placement: Placement.Value = Placement.bottom,
-    popperOptions: js.Object = js.Object(),
-    transition: Boolean = false
+    placement: js.UndefOr[Placement.Value] = js.undefined,
+    popperOptions: js.UndefOr[js.Object] = js.undefined,
+    transition: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiPopperExtensions {
   object Placement extends Enumeration {
-    val bottomEnd = Value("bottom-end")
-    val bottomStart = Value("bottom-start")
-    val bottom = Value("bottom")
-    val leftEnd = Value("left-end")
-    val leftStart = Value("left-start")
-    val left = Value("left")
-    val rightEnd = Value("right-end")
-    val rightStart = Value("right-start")
-    val right = Value("right")
-    val topEnd = Value("top-end")
-    val topStart = Value("top-start")
-    val top = Value("top")
+    type Value = String
+
+    val bottomEnd = "bottom-end"
+    val bottomStart = "bottom-start"
+    val bottom = "bottom"
+    val leftEnd = "left-end"
+    val leftStart = "left-start"
+    val left = "left"
+    val rightEnd = "right-end"
+    val rightStart = "right-start"
+    val right = "right"
+    val topEnd = "top-end"
+    val topStart = "top-start"
+    val top = "top"
   }
 }

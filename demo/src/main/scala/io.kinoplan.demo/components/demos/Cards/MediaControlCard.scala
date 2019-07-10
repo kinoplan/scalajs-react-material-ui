@@ -3,13 +3,13 @@ package io.kinoplan.demo.components.demos.Cards
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Cards.{DefaultMediaControlCardStyle, MediaControlCardStyle}
 import io.kinoplan.scalajs.react.material.ui.core.styles.Direction
-import io.kinoplan.scalajs.react.material.ui.core.{MuiCard, MuiCardContent, MuiCardMedia, MuiIconButton, MuiTypography}
+import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiPlayArrowIcon, MuiSkipNextIcon, MuiSkipPreviousIcon}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object MediaControlCard {
+object MediaControlCard extends ScalaCssReactImplicits {
   case class Props(style: MediaControlCardStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
@@ -43,9 +43,7 @@ object MediaControlCard {
                 )
               )
             ),
-            MuiCardMedia(
-              image = Some("/static/images/cards/live-from-space.jpg")
-            )(css.cover,
+            MuiCardMedia(image = "/static/images/cards/live-from-space.jpg")(css.cover,
               title := "Live from space album cover"
             )
           )

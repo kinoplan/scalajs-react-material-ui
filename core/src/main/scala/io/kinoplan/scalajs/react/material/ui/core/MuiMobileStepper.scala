@@ -15,31 +15,35 @@ object MuiMobileStepper extends ReactBridgeComponent with MuiMobileStepperExtens
 
   def apply(
     activeStep: js.UndefOr[Int] = js.undefined,
-    backButton: Option[VdomNode] = None,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    LinearProgressProps: js.Object = js.Object(),
-    nextButton: Option[VdomNode] = None,
-    position: Position.Value = Position.bottom,
+    backButton: js.UndefOr[VdomNode] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    LinearProgressProps: js.UndefOr[js.Object] = js.undefined,
+    nextButton: js.UndefOr[VdomNode] = js.undefined,
+    position: js.UndefOr[Position.Value] = js.undefined,
     steps: Int,
-    variant: Variant.Value = Variant.dots
+    variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiMobileStepperExtensions {
   object Position extends Enumeration {
-    val bottom = Value("bottom")
-    val top = Value("top")
-    val static = Value("static")
+    type Value = String
+
+    val bottom = "bottom"
+    val top = "top"
+    val static = "static"
   }
 
   object Variant extends Enumeration {
-    val text = Value("text")
-    val dots = Value("dots")
-    val progress = Value("progress")
+    type Value = String
+
+    val text = "text"
+    val dots = "dots"
+    val progress = "progress"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val positionBottom = "positionBottom"

@@ -35,23 +35,23 @@ object TextMobileStepper extends ScalaCssReactImplicits {
 
       val tutorialStep = TutorialStep.default(state.activeStep)
 
-      val nextButton = Some(VdomNode(
+      val nextButton = VdomNode(
         MuiButton(size = MuiButton.Size.small)(
           onClick --> handleNext,
           disabled := state.isNextDisabled,
           "Next",
           if (css.theme.direction == Direction.rtl) MuiKeyboardArrowLeftIcon() else MuiKeyboardArrowRightIcon()
         ).rawNode
-      ))
+      )
 
-      val backButton = Some(VdomNode(
+      val backButton = VdomNode(
         MuiButton(size = MuiButton.Size.small)(
           onClick --> handleBack,
           disabled := state.isBackDisabled,
           if (css.theme.direction == Direction.rtl) MuiKeyboardArrowRightIcon() else MuiKeyboardArrowLeftIcon(),
           "Back"
         ).rawNode
-      ))
+      )
 
       div(
         ComponentContainer("Mobile Stepper - Text")(

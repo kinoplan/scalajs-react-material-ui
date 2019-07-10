@@ -4,7 +4,6 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.{UndefOr, undefined}
 
 object MuiTableSortLabel extends ReactBridgeComponent with MuiTableSortLabelExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -14,21 +13,21 @@ object MuiTableSortLabel extends ReactBridgeComponent with MuiTableSortLabelExte
   object RawComponent extends js.Function
 
   def apply(
-    active: UndefOr[Boolean] = undefined,
-    classes: Map[ClassKey.Value, String] = Map.empty,
-    direction: UndefOr[Direction.Value] = undefined,
-    hideSortIcon: UndefOr[Boolean] = undefined,
-    IconComponent: OptComponentPropType = undefined,
-    action: UndefOr[js.Function] = undefined,
-    buttonRef: OptComponentRefType = undefined,
-    centerRipple: UndefOr[Boolean] = undefined,
-    component: OptComponentPropType = undefined,
-    disableRipple: UndefOr[Boolean] = undefined,
-    disableTouchRipple: UndefOr[Boolean] = undefined,
-    focusRipple: UndefOr[Boolean] = undefined,
-    focusVisibleClassName: UndefOr[String] = undefined,
-    onFocusVisible: UndefOr[js.Function] = undefined,
-    TouchRippleProps: UndefOr[js.Object] = undefined
+    active: js.UndefOr[Boolean] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    direction: js.UndefOr[Direction.Value] = js.undefined,
+    hideSortIcon: js.UndefOr[Boolean] = js.undefined,
+    IconComponent: OptComponentPropType = js.undefined,
+    action: js.UndefOr[js.Function] = js.undefined,
+    buttonRef: OptComponentRefType = js.undefined,
+    centerRipple: js.UndefOr[Boolean] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    disableRipple: js.UndefOr[Boolean] = js.undefined,
+    disableTouchRipple: js.UndefOr[Boolean] = js.undefined,
+    focusRipple: js.UndefOr[Boolean] = js.undefined,
+    focusVisibleClassName: js.UndefOr[String] = js.undefined,
+    onFocusVisible: js.UndefOr[js.Function] = js.undefined,
+    TouchRippleProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
 }
 

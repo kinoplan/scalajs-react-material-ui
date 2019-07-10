@@ -14,21 +14,22 @@ object MuiGridList extends ReactBridgeComponent with MuiGridListExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    cellHeight: Int | CellHeight.Value = 180,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    cols: Double = 2,
-    component: Option[String | js.Function] = Some("ul"),
-    spacing: Int = 4
+    cellHeight: js.UndefOr[Int | CellHeight.Value] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    spacing: js.UndefOr[Int] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiGridListExtensions {
   object CellHeight extends Enumeration {
-    val auto = Value("auto")
+    type Value = String
+
+    val auto = "auto"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
   }

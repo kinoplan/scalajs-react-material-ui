@@ -42,8 +42,8 @@ object SimpleSnackbar extends ScalaCssReactImplicits {
               onClose = handleClose,
               anchorOrigin = Origin(vertical = "bottom", horizontal = "left"),
               ContentProps = MuiContentProps(ariaDescribedby = "message-id"),
-              message = Some(span(id := "message-id", "Note archived")),
-              action = Some(VdomArray(
+              message = span(id := "message-id", "Note archived"),
+              action = VdomArray(
                 MuiButton(color = MuiButton.Color.secondary, size = MuiButton.Size.small)(
                   Attr("key") := "undo",
                   onClick --> handleCloseClick,
@@ -55,7 +55,7 @@ object SimpleSnackbar extends ScalaCssReactImplicits {
                   onClick --> handleCloseClick,
                   MuiCloseIcon()
                 )
-              ))
+              )
             )
           )
         )

@@ -1,6 +1,7 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
 import japgolly.scalajs.react.ReactEvent
 import japgolly.scalajs.react.vdom.html_<^._
 import org.scalajs.dom.html
@@ -17,14 +18,14 @@ object MuiSnackbar extends ReactBridgeComponent with MuiSnackbarExtensions with 
   object RawComponent extends js.Function
 
   def apply(
-    action: Option[VdomNode] = None,
-    anchorOrigin: js.UndefOr[js.Object] = js.undefined,
+    action: js.UndefOr[VdomNode] = js.undefined,
+    anchorOrigin: js.UndefOr[Origin] = js.undefined,
     autoHideDuration: js.UndefOr[Int] = js.undefined,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    ClickAwayListenerProps: js.Object = js.Object(),
-    ContentProps: js.Object = js.Object(),
-    disableWindowBlurListener: Boolean = false,
-    message: Option[VdomNode] = None,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    ClickAwayListenerProps: js.UndefOr[js.Object] = js.undefined,
+    ContentProps: js.UndefOr[js.Object] = js.undefined,
+    disableWindowBlurListener: js.UndefOr[Boolean] = js.undefined,
+    message: js.UndefOr[VdomNode] = js.undefined,
     onClose: ReactHandler2[ReactEvent, String] = js.undefined,
     onEnter: Handler1[html.Element] = js.undefined,
     onEntered: Handler1[html.Element] = js.undefined,
@@ -36,20 +37,22 @@ object MuiSnackbar extends ReactBridgeComponent with MuiSnackbarExtensions with 
     resumeHideDuration: js.UndefOr[Int] = js.undefined,
     TransitionComponent: OptComponentPropType = js.undefined,
     transitionDuration: js.UndefOr[Int | js.Object] = js.undefined,
-    TransitionProps: js.Object = js.Object()
+    TransitionProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiSnackbarExtensions {
   object Direction extends Enumeration {
-    val left = Value("left")
-    val right = Value("right")
-    val up = Value("up")
-    val down = Value("down")
+    type Value = String
+
+    val left = "left"
+    val right = "right"
+    val up = "up"
+    val down = "down"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val anchorOriginTopCenter = "anchorOriginTopCenter"

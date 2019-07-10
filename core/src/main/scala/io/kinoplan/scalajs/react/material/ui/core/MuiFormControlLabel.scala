@@ -2,6 +2,7 @@ package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
 import japgolly.scalajs.react.raw.React
+import japgolly.scalajs.react.ReactEvent
 import japgolly.scalajs.react.vdom.html_<^._
 
 import scala.scalajs.js
@@ -16,27 +17,28 @@ object MuiFormControlLabel extends ReactBridgeComponent with MuiFormControlLabel
   object RawComponent extends js.Function
 
   def apply(
-    checked: Option[Boolean | String] = None,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    control: Option[React.Element] = None,
-    inputRef: Option[js.Function | js.Object] = None,
-    label: Option[VdomNode] = None,
-    labelPlacement: LabelPlacement.Value = LabelPlacement.end,
-    name: Option[String] = None,
-    onChange: Option[js.Function] = None
+    checked: js.UndefOr[Boolean | String] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    control: js.UndefOr[React.Element] = js.undefined,
+    inputRef: OptComponentRefType = js.undefined,
+    label: js.UndefOr[VdomNode] = js.undefined,
+    labelPlacement: js.UndefOr[LabelPlacement.Value] = js.undefined,
+    onChange: ReactHandler2[ReactEvent, Boolean] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
 }
 
 trait MuiFormControlLabelExtensions {
   object LabelPlacement extends Enumeration {
-    val end = Value("end")
-    val start = Value("start")
-    val top = Value("top")
-    val bottom = Value("bottom")
+    type Value = String
+
+    val end = "end"
+    val start = "start"
+    val top = "top"
+    val bottom = "bottom"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val labelPlacementStart = "labelPlacementStart"

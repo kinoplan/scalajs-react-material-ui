@@ -42,10 +42,10 @@ object CustomizedSelects extends ScalaCssReactImplicits {
             MuiFormControl()(css.marginStyle,
               MuiInputLabel()(css.bootstrapFormLabel, htmlFor := "age-customized-select", "Age"),
               MuiSelect(
-                input = Some(MuiInputBase(classes = inputBaseClasses)(
+                input = MuiInputBase(classes = inputBaseClasses)(
                   name := "age",
                   id := "age-customized-select"
-                ).rawElement)
+                ).rawElement
               )(
                 value := state.age,
                 onChange ==> handleChangeAge,
@@ -58,10 +58,10 @@ object CustomizedSelects extends ScalaCssReactImplicits {
             MuiFormControl()(css.marginStyle,
               MuiInputLabel()(css.bootstrapFormLabel, htmlFor := "age-customized-native-simple", "Age"),
               MuiNativeSelect(
-                input = Some(MuiInputBase(classes = inputBaseClasses)(
+                input = MuiInputBase(classes = inputBaseClasses)(
                   name := "age",
                   id := "age-customized-native-simple"
-                ).rawElement)
+                ).rawElement
               )(
                 value := state.age,
                 onChange ==> handleChangeAge,

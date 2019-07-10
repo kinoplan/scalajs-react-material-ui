@@ -16,8 +16,8 @@ object MuiGrid extends ReactBridgeComponent with MuiGridExtensions {
   def apply(
     alignContent: js.UndefOr[AlignContent.Value] = js.undefined,
     alignItems: js.UndefOr[AlignItems.Value] = js.undefined,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: OptComponentPropType = "div",
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    component: OptComponentPropType = js.undefined,
     container: js.UndefOr[Boolean] = js.undefined,
     direction: js.UndefOr[Direction.Value] = js.undefined,
     item: js.UndefOr[Boolean] = js.undefined,
@@ -46,27 +46,33 @@ trait MuiGridExtensions {
   }
 
   object AlignItems extends Enumeration {
-    val flexStart = Value("flex-start")
-    val center = Value("center")
-    val flexEnd = Value("flex-end")
-    val stretch = Value("stretch")
-    val baseline = Value("baseline")
+    type Value = String
+
+    val flexStart = "flex-start"
+    val center = "center"
+    val flexEnd = "flex-end"
+    val stretch = "stretch"
+    val baseline = "baseline"
   }
 
   object Direction extends Enumeration {
-    val row = Value("row")
-    val rowReverse = Value("row-reverse")
-    val column = Value("column")
-    val columnReverse = Value("column-reverse")
+    type Value = String
+
+    val row = "row"
+    val rowReverse = "row-reverse"
+    val column = "column"
+    val columnReverse = "column-reverse"
   }
 
   object Justify extends Enumeration {
-    val flexStart = Value("flex-start")
-    val center = Value("center")
-    val flexEnd = Value("flex-end")
-    val spaceBetween = Value("space-between")
-    val spaceAround = Value("space-around")
-    val spaceEvenly = Value("space-evenly")
+    type Value = String
+
+    val flexStart = "flex-start"
+    val center = "center"
+    val flexEnd = "flex-end"
+    val spaceBetween = "space-between"
+    val spaceAround = "space-around"
+    val spaceEvenly = "space-evenly"
   }
 
   object Spacing extends Enumeration {
@@ -81,13 +87,15 @@ trait MuiGridExtensions {
   }
 
   object Wrap extends Enumeration {
-    val nowrap = Value("nowrap")
-    val wrap = Value("wrap")
-    val wrapReverse = Value("wrap-reverse")
+    type Value = String
+
+    val nowrap = "nowrap"
+    val wrap = "wrap"
+    val wrapReverse = "wrap-reverse"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val container = "container"
     val item = "item"

@@ -15,22 +15,24 @@ object MuiRadio extends ReactBridgeComponent with MuiRadioExtensions with JsWrit
   object RawComponent extends js.Function
 
   def apply(
-    checked: Option[Boolean | String] = None,
-    checkedIcon: Option[VdomNode] = None,
-    classes: Map[ClassKey.Value, String] = Map.empty,
-    color: Color.Value = Color.secondary,
-    disableRipple: Option[Boolean] = None,
-    icon: Option[VdomNode] = None,
-    inputProps: js.Object = js.Object(),
-    inputRef: Option[js.Function | js.Object] = None
+    checked: js.UndefOr[Boolean | String] = js.undefined,
+    checkedIcon: js.UndefOr[VdomNode] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    color: js.UndefOr[Color.Value] = js.undefined,
+    disableRipple: js.UndefOr[Boolean] = js.undefined,
+    icon: js.UndefOr[VdomNode] = js.undefined,
+    inputProps: js.UndefOr[js.Object] = js.undefined,
+    inputRef: OptComponentRefType = js.undefined
   ): WithPropsNoChildren = autoNoChildren
 }
 
 trait MuiRadioExtensions {
   object Color extends Enumeration {
-    val primary = Value("primary")
-    val secondary = Value("secondary")
-    val default = Value("default")
+    type Value = String
+
+    val primary = "primary"
+    val secondary = "secondary"
+    val default = "default"
   }
 
   object ClassKey extends Enumeration {

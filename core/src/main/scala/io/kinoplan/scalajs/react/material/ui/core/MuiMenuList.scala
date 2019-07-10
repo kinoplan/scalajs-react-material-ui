@@ -13,6 +13,6 @@ object MuiMenuList extends ReactBridgeComponent {
   object RawComponent extends js.Function
 
   def apply(
-    disableListWrap: Boolean = false
+    disableListWrap: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }

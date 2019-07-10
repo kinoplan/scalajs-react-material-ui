@@ -8,9 +8,11 @@ import io.kinoplan.scalajs.react.material.ui.icons.MuiTagFacesIcon
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object ChipsArray {
+import scala.scalajs.js.JSConverters._
+
+object ChipsArray extends ScalaCssReactImplicits {
   case class Props(style: ChipsArrayStyle)
 
   case class State(chips: List[Chip] = Chip.default) {
@@ -32,8 +34,8 @@ object ChipsArray {
               val iconO = if (chip.isReact) Some(MuiTagFacesIcon()().rawElement) else None
 
               MuiChip(
-                label = Some(chip.label),
-                icon = iconO,
+                label = VdomNode(chip.label),
+                icon = iconO.orUndefined,
                 onDelete = handleDelete(chip)
               )(css.chip,
                 Attr("key") := chip.key

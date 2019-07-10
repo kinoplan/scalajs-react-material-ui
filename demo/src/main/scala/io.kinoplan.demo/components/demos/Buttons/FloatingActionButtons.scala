@@ -6,9 +6,9 @@ import io.kinoplan.scalajs.react.material.ui.core.{MuiFab, MuiIcon}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiAddIcon, MuiDeleteIcon, MuiNavigationIcon}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object FloatingActionButtons {
+object FloatingActionButtons extends ScalaCssReactImplicits {
   case class Props(style: CommonButtonStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {

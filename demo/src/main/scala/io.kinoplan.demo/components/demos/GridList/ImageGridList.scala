@@ -19,9 +19,11 @@ object ImageGridList extends ScalaCssReactImplicits {
       div(
         ComponentContainer("Image-only Grid list")(
           div(css.root, css.rootPaper(Layout.isPaletteLight),
-            MuiGridList(cellHeight = 160, cols = 3)(css.gridList,
+            MuiGridList(cellHeight = 160)(css.gridList,
+              cols := 3,
               TileData.default.toVdomArray { tile =>
-                MuiGridListTile(cols = tile.defaultCols)(Attr("key") := tile.image,
+                MuiGridListTile()(Attr("key") := tile.image,
+                  cols := tile.defaultCols,
                   img(src := tile.image, alt := tile.title)
                 )
               }

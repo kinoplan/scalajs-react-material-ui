@@ -14,7 +14,7 @@ object MuiNoSsr extends ReactBridgeComponent with JsWriterImplicits {
   object RawComponent extends js.Function
 
   def apply(
-    defer: Boolean = false,
-    fallback: VdomNode = EmptyVdom
+    defer: js.UndefOr[Boolean] = js.undefined,
+    fallback: js.UndefOr[VdomNode] = js.undefined
   ): WithProps = auto
 }

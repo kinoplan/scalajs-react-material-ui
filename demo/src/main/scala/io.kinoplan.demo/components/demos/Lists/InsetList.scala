@@ -23,10 +23,10 @@ object InsetList extends ScalaCssReactImplicits {
                 MuiListItemIcon()(
                   MuiStarIcon()
                 ),
-                MuiListItemText(inset = true, primary = Some("Chelsea Otakan"))
+                MuiListItemText(inset = true, primary = VdomNode("Chelsea Otakan"))
               ),
               MuiListItem(button = true)(
-                MuiListItemText(inset = true, primary = Some("Eric Hoffman"))
+                MuiListItemText(inset = true, primary = VdomNode("Eric Hoffman"))
               )
             )
           )

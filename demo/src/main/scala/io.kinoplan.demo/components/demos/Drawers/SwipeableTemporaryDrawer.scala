@@ -2,14 +2,14 @@ package io.kinoplan.demo.components.demos.Drawers
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Drawers.{DefaultDrawersStyle, DrawersStyle}
-import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiDivider, MuiList, MuiListItem, MuiListItemIcon, MuiListItemText, MuiSwipeableDrawer}
+import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiInboxIcon, MuiMailIcon}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEventFromHtml, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object SwipeableTemporaryDrawer {
+object SwipeableTemporaryDrawer extends ScalaCssReactImplicits {
   case class Props(style: DrawersStyle)
 
   case class State(
@@ -53,7 +53,7 @@ object SwipeableTemporaryDrawer {
             List("Inbox", "Starred", "Send email", "Drafts").zipWithIndex.toVdomArray { case (text, index) =>
               MuiListItem(button = true)(Attr("key") := text,
                 MuiListItemIcon()(if (index % 2 == 0) MuiInboxIcon() else MuiMailIcon()),
-                MuiListItemText(primary = Some(text))
+                MuiListItemText(primary = VdomNode(text))
               )
             }
           ),
@@ -62,7 +62,7 @@ object SwipeableTemporaryDrawer {
             List("All mail", "Trash", "Spam").zipWithIndex.toVdomArray { case (text, index) =>
               MuiListItem(button = true)(Attr("key") := text,
                 MuiListItemIcon()(if (index % 2 == 0) MuiInboxIcon() else MuiMailIcon()),
-                MuiListItemText(primary = Some(text))
+                MuiListItemText(primary = VdomNode(text))
               )
             }
           )
@@ -75,7 +75,7 @@ object SwipeableTemporaryDrawer {
             List("Inbox", "Starred", "Send email", "Drafts").zipWithIndex.toVdomArray { case (text, index) =>
               MuiListItem(button = true)(Attr("key") := text,
                 MuiListItemIcon()(if (index % 2 == 0) MuiInboxIcon() else MuiMailIcon()),
-                MuiListItemText(primary = Some(text))
+                MuiListItemText(primary = VdomNode(text))
               )
             }
           ),
@@ -84,7 +84,7 @@ object SwipeableTemporaryDrawer {
             List("All mail", "Trash", "Spam").zipWithIndex.toVdomArray { case (text, index) =>
               MuiListItem(button = true)(Attr("key") := text,
                 MuiListItemIcon()(if (index % 2 == 0) MuiInboxIcon() else MuiMailIcon()),
-                MuiListItemText(primary = Some(text))
+                MuiListItemText(primary = VdomNode(text))
               )
             }
           )

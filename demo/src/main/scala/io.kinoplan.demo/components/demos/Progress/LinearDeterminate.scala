@@ -47,13 +47,13 @@ object LinearDeterminate extends ScalaCssReactImplicits {
           div(css.flexGrowOne,
             MuiLinearProgress(
               variant = MuiLinearProgress.Variant.determinate,
-              value = Some(state.completed)
+              value = state.completed
             ),
             br,
             MuiLinearProgress(
               variant = MuiLinearProgress.Variant.determinate,
               color = MuiLinearProgress.Color.secondary,
-              value = Some(state.completed)
+              value = state.completed
             )
           )
         )

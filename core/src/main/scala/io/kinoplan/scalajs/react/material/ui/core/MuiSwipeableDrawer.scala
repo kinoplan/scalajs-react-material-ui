@@ -15,27 +15,28 @@ object MuiSwipeableDrawer extends ReactBridgeComponent with MuiSwipeableDrawerEx
   object RawComponent extends js.Function
 
   def apply(
-    anchor: Anchor.Value = Anchor.left,
-    disableBackdropTransition: Boolean = false,
-    disableDiscovery: Boolean = false,
-    disableSwipeToOpen: Option[Boolean] = None,
-    hysteresis: Double = 0.55,
-    minFlingVelocity: Int = 400,
+    disableBackdropTransition: js.UndefOr[Boolean] = js.undefined,
+    disableDiscovery: js.UndefOr[Boolean] = js.undefined,
+    disableSwipeToOpen: js.UndefOr[Boolean] = js.undefined,
+    hysteresis: js.UndefOr[Double] = js.undefined,
+    minFlingVelocity: js.UndefOr[Int] = js.undefined,
     onClose: ReactHandler1[ReactEventFromHtml],
     onOpen: ReactHandler1[ReactEventFromHtml],
     open: Boolean,
-    SwipeAreaProps: js.Object = js.Object(),
-    swipeAreaWidth: Int = 20,
-    transitionDuration: Option[Int | js.Object] = None
+    SwipeAreaProps: js.UndefOr[js.Object] = js.undefined,
+    swipeAreaWidth: js.UndefOr[Int] = js.undefined,
+    transitionDuration: js.UndefOr[Int | js.Object] = js.undefined,
+    anchor: js.UndefOr[Anchor.Value] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
 }
 
 trait MuiSwipeableDrawerExtensions {
   object Anchor extends Enumeration {
-    val left = Value("left")
-    val top = Value("top")
-    val right = Value("right")
-    val bottom = Value("bottom")
+    type Value = String
+
+    val left = "left"
+    val top = "top"
+    val right = "right"
+    val bottom = "bottom"
   }
 }
-

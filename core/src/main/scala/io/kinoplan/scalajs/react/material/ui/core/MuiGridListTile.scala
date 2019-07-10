@@ -13,16 +13,14 @@ object MuiGridListTile extends ReactBridgeComponent with MuiGridListTileExtensio
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    cols: Int = 1,
-    component: OptComponentPropType = "li",
-    rows: Int = 1
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    component: OptComponentPropType = js.undefined
   ): WithProps = auto
 }
 
 trait MuiGridListTileExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val tile = "tile"

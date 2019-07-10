@@ -14,7 +14,7 @@ object MuiTab extends ReactBridgeComponent with MuiTabExtensions with JsWriterIm
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.Value, String] = Map.empty,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     icon: js.UndefOr[VdomNode] = js.undefined,
     label: js.UndefOr[VdomNode] = js.undefined,
     action: js.UndefOr[js.Function] = js.undefined,

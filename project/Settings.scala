@@ -120,14 +120,14 @@ object Settings {
            |  object RawComponent extends js.Object
            |
            |  def apply(
-           |    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-           |    color: Color.Value = Color.inherit,
-           |    component: Option[String | js.Function] = Some("svg"),
-           |    fontSize: FontSize.Value = FontSize.default,
-           |    nativeColor: Option[String] = None,
-           |    shapeRendering: Option[String] = None,
-           |    titleAccess: Option[String] = None,
-           |    viewBox: String = "0 0 24 24"
+           |    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+           |    color: js.UndefOr[Color.Value] = js.undefined,
+           |    component: js.UndefOr[String | js.Function] = js.undefined,
+           |    fontSize: js.UndefOr[FontSize.Value] = js.undefined,
+           |    nativeColor: js.UndefOr[String] = js.undefined,
+           |    shapeRendering: js.UndefOr[String] = js.undefined,
+           |    titleAccess: js.UndefOr[String] = js.undefined,
+           |    viewBox: js.UndefOr[String] = js.undefined
            |  ): WithProps = auto
            |}
           """.stripMargin.trim

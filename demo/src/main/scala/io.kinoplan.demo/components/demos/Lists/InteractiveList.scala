@@ -41,24 +41,20 @@ object InteractiveList extends ScalaCssReactImplicits {
           div(css.root,
             MuiFormGroup(row = true)(
               MuiFormControlLabel(
-                control = Some(
-                  MuiCheckbox()(
-                    onChange ==> handleDense,
-                    value := "dense",
-                    checked := state.dense
-                  ).rawElement
-                ),
-                label = Some("Enable dense")
+                control = MuiCheckbox()(
+                  onChange ==> handleDense,
+                  value := "dense",
+                  checked := state.dense
+                ).rawElement,
+                label = VdomNode("Enable dense")
               ),
               MuiFormControlLabel(
-                control = Some(
-                  MuiCheckbox()(
-                    onChange ==> handleSecondary,
-                    value := "secondary",
-                    checked := state.secondary
-                  ).rawElement
-                ),
-                label = Some("Enable secondary text")
+                control = MuiCheckbox()(
+                  onChange ==> handleSecondary,
+                  value := "secondary",
+                  checked := state.secondary
+                ).rawElement,
+                label = VdomNode("Enable secondary text")
               )
             ),
             MuiGrid(container = true, spacing = MuiGrid.Spacing.`16`)(
@@ -69,8 +65,8 @@ object InteractiveList extends ScalaCssReactImplicits {
                     List(1, 2, 3).toVdomArray { generateKey =>
                       MuiListItem()(Attr("key") := generateKey,
                         MuiListItemText(
-                          primary = Some("Single-line item"),
-                          secondary = if (state.secondary) Some("Secondary text") else None
+                          primary = VdomNode("Single-line item"),
+                          secondary = if (state.secondary) VdomNode("Secondary text") else EmptyVdom
                         )
                       )
                     }
@@ -87,8 +83,8 @@ object InteractiveList extends ScalaCssReactImplicits {
                           MuiFolderIcon()
                         ),
                         MuiListItemText(
-                          primary = Some("Single-line item"),
-                          secondary = if (state.secondary) Some("Secondary text") else None
+                          primary = VdomNode("Single-line item"),
+                          secondary = if (state.secondary) VdomNode("Secondary text") else EmptyVdom
                         )
                       )
                     }
@@ -109,8 +105,8 @@ object InteractiveList extends ScalaCssReactImplicits {
                           )
                         ),
                         MuiListItemText(
-                          primary = Some("Single-line item"),
-                          secondary = if (state.secondary) Some("Secondary text") else None
+                          primary = VdomNode("Single-line item"),
+                          secondary = if (state.secondary) VdomNode("Secondary text") else EmptyVdom
                         )
                       )
                     }
@@ -129,8 +125,8 @@ object InteractiveList extends ScalaCssReactImplicits {
                           )
                         ),
                         MuiListItemText(
-                          primary = Some("Single-line item"),
-                          secondary = if (state.secondary) Some("Secondary text") else None
+                          primary = VdomNode("Single-line item"),
+                          secondary = if (state.secondary) VdomNode("Secondary text") else EmptyVdom
                         ),
                         MuiListItemSecondaryAction()(
                           MuiIconButton()(

@@ -6,9 +6,9 @@ import io.kinoplan.scalajs.react.material.ui.core.{MuiExpansionPanel, MuiExpansi
 import io.kinoplan.scalajs.react.material.ui.icons.MuiExpandMoreIcon
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object ControlledExpansionPanels {
+object ControlledExpansionPanels extends ScalaCssReactImplicits {
   case class Props(style: ControlledExpansionPanelsStyle)
 
   case class State(expanded: Option[String] = None) {
@@ -32,8 +32,8 @@ object ControlledExpansionPanels {
       div(
         ComponentContainer("Controlled Accordion")(
           div(css.root,
-            MuiExpansionPanel(expanded = Some(state.isPanel1))(onChange --> handleChange("panel1"),
-              MuiExpansionPanelSummary(expandIcon = Some(MuiExpandMoreIcon()))(
+            MuiExpansionPanel(expanded = state.isPanel1)(onChange --> handleChange("panel1"),
+              MuiExpansionPanelSummary(expandIcon = MuiExpandMoreIcon()())(
                 MuiTypography()(css.heading, "General settings"),
                 MuiTypography()(css.secondaryHeading, "I am an expansion panel")
               ),
@@ -44,8 +44,8 @@ object ControlledExpansionPanels {
                 )
               )
             ),
-            MuiExpansionPanel(expanded = Some(state.isPanel2))(onChange --> handleChange("panel2"),
-              MuiExpansionPanelSummary(expandIcon = Some(MuiExpandMoreIcon()))(
+            MuiExpansionPanel(expanded = state.isPanel2)(onChange --> handleChange("panel2"),
+              MuiExpansionPanelSummary(expandIcon = MuiExpandMoreIcon()())(
                 MuiTypography()(css.heading, "Users"),
                 MuiTypography()(css.secondaryHeading, "You are currently not an owner")
               ),
@@ -56,8 +56,8 @@ object ControlledExpansionPanels {
                 )
               )
             ),
-            MuiExpansionPanel(expanded = Some(state.isPanel3))(onChange --> handleChange("panel3"),
-              MuiExpansionPanelSummary(expandIcon = Some(MuiExpandMoreIcon()))(
+            MuiExpansionPanel(expanded = state.isPanel3)(onChange --> handleChange("panel3"),
+              MuiExpansionPanelSummary(expandIcon = MuiExpandMoreIcon()())(
                 MuiTypography()(css.heading, "Advanced settings"),
                 MuiTypography()(css.secondaryHeading, "Filtering has been entirely disabled for whole web server")
               ),
@@ -68,8 +68,8 @@ object ControlledExpansionPanels {
                 )
               )
             ),
-            MuiExpansionPanel(expanded = Some(state.isPanel4))(onChange --> handleChange("panel4"),
-              MuiExpansionPanelSummary(expandIcon = Some(MuiExpandMoreIcon()))(
+            MuiExpansionPanel(expanded = state.isPanel4)(onChange --> handleChange("panel4"),
+              MuiExpansionPanelSummary(expandIcon = MuiExpandMoreIcon()())(
                 MuiTypography()(css.heading, "Personal data")
               ),
               MuiExpansionPanelDetails()(

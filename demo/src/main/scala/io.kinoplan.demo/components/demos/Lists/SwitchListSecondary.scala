@@ -32,12 +32,12 @@ object SwitchListSecondary extends ScalaCssReactImplicits {
       div(
         ComponentContainer("List Controls Switch Secondary")(
           div(css.root, css.rootPaper(Layout.isPaletteLight),
-            MuiList(subheader = Some(MuiListSubheader()("Settings")))(
+            MuiList(subheader = MuiListSubheader()("Settings"))(
               MuiListItem()(
                 MuiListItemIcon()(
                   MuiWifiIcon()
                 ),
-                MuiListItemText(primary = Some("Wi-Fi")),
+                MuiListItemText(primary = VdomNode("Wi-Fi")),
                 MuiListItemSecondaryAction()(
                   MuiSwitch()(
                     checked := state.isChecked("wifi"),
@@ -49,7 +49,7 @@ object SwitchListSecondary extends ScalaCssReactImplicits {
                 MuiListItemIcon()(
                   MuiBluetoothIcon()
                 ),
-                MuiListItemText(primary = Some("Bluetooth")),
+                MuiListItemText(primary = VdomNode("Bluetooth")),
                 MuiListItemSecondaryAction()(
                   MuiSwitch()(
                     checked := state.isChecked("bluetooth"),

@@ -30,23 +30,23 @@ object DotsMobileStepper extends ScalaCssReactImplicits {
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
 
-      val nextButton = Some(VdomNode(
+      val nextButton = VdomNode(
         MuiButton(size = MuiButton.Size.small)(
           onClick --> handleNext,
           disabled := state.isNextDisabled,
           "Next",
           if (css.theme.direction == Direction.rtl) MuiKeyboardArrowLeftIcon() else MuiKeyboardArrowRightIcon()
         ).rawNode
-      ))
+      )
 
-      val backButton = Some(VdomNode(
+      val backButton = VdomNode(
         MuiButton(size = MuiButton.Size.small)(
           onClick --> handleBack,
           disabled := state.isBackDisabled,
           if (css.theme.direction == Direction.rtl) MuiKeyboardArrowRightIcon() else MuiKeyboardArrowLeftIcon(),
           "Back"
         ).rawNode
-      ))
+      )
 
       div(
         ComponentContainer("Mobile Stepper - Dots")(

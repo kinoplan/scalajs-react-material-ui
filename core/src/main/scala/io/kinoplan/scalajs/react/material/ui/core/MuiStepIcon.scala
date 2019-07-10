@@ -14,17 +14,17 @@ object MuiStepIcon extends ReactBridgeComponent with MuiStepIconExtensions with 
   object RawComponent extends js.Function
 
   def apply(
-    active: Boolean = false,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    completed: Boolean = false,
-    error: Boolean = false,
+    active: js.UndefOr[Boolean] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    completed: js.UndefOr[Boolean] = js.undefined,
+    error: js.UndefOr[Boolean] = js.undefined,
     icon: VdomNode
   ): WithPropsNoChildren = autoNoChildren
 }
 
 trait MuiStepIconExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val text = "text"

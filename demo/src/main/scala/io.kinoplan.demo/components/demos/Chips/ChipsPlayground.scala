@@ -2,13 +2,16 @@ package io.kinoplan.demo.components.demos.Chips
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Chips.{ChipsPlaygroundStyle, DefaultChipsPlaygroundStyle}
-import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiChip, MuiFormControl, MuiFormControlLabel, MuiFormLabel, MuiGrid, MuiPaper, MuiRadio, MuiRadioGroup}
+import io.kinoplan.demo.utils.Helpers.StringExtended
+import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiDoneIcon, MuiFaceIcon}
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromInput, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object ChipsPlayground {
+import scala.scalajs.js.JSConverters._
+
+object ChipsPlayground extends ScalaCssReactImplicits {
   case class Props(style: ChipsPlaygroundStyle)
 
   case class State(
@@ -101,12 +104,12 @@ object ChipsPlayground {
               )(
                 MuiGrid(item = true)(css.chipWrapper,
                   MuiChip(
-                    label = Some("Awesome Chip Component"),
+                    label = "Awesome Chip Component".toVdom,
                     color = state.color,
-                    deleteIcon = if (state.isOnDeleteCustom) Some(MuiDoneIcon()().rawElement) else None,
+                    deleteIcon = (if (state.isOnDeleteCustom) Some(MuiDoneIcon()().rawElement) else None).orUndefined,
                     onDelete = handleDeleteExample(state),
-                    avatar = avatarToPlayground,
-                    icon = iconToPlayground,
+                    avatar = avatarToPlayground.orUndefined,
+                    icon = iconToPlayground.orUndefined,
                     variant = state.variant
                   )
                 )
@@ -124,16 +127,16 @@ object ChipsPlayground {
                         onChange ==> handleChangeColor,
                         aria.label := "color",
                         MuiFormControlLabel(
-                          control = Some(MuiRadio()().rawElement),
-                          label = Some("default")
+                          control = MuiRadio()().rawElement,
+                          label = "default".toVdom
                         )(value := "default"),
                         MuiFormControlLabel(
-                          control = Some(MuiRadio()().rawElement),
-                          label = Some("primary")
+                          control = MuiRadio()().rawElement,
+                          label = "primary".toVdom
                         )(value := "primary"),
                         MuiFormControlLabel(
-                          control = Some(MuiRadio()().rawElement),
-                          label = Some("secondary")
+                          control = MuiRadio()().rawElement,
+                          label = "secondary".toVdom
                         )(value := "secondary")
                       )
                     )
@@ -147,16 +150,16 @@ object ChipsPlayground {
                         onChange ==> handleChangeOnDelete,
                         aria.label := "onDelete",
                         MuiFormControlLabel(
-                          control = Some(MuiRadio()().rawElement),
-                          label = Some("none")
+                          control = MuiRadio()().rawElement,
+                          label = "none".toVdom
                         )(value := "none"),
                         MuiFormControlLabel(
-                          control = Some(MuiRadio()().rawElement),
-                          label = Some("default")
+                          control = MuiRadio()().rawElement,
+                          label = "default".toVdom
                         )(value := "default"),
                         MuiFormControlLabel(
-                          control = Some(MuiRadio()().rawElement),
-                          label = Some("custom")
+                          control = MuiRadio()().rawElement,
+                          label = "custom".toVdom
                         )(value := "custom")
                       )
                     )
@@ -170,12 +173,12 @@ object ChipsPlayground {
                         onChange ==> handleChangeIcon,
                         aria.label := "icon",
                         MuiFormControlLabel(
-                          control = Some(MuiRadio()().rawElement),
-                          label = Some("none")
+                          control = MuiRadio()().rawElement,
+                          label = "none".toVdom
                         )(value := "none"),
                         MuiFormControlLabel(
-                          control = Some(MuiRadio()().rawElement),
-                          label = Some("icon")
+                          control = MuiRadio()().rawElement,
+                          label = "icon".toVdom
                         )(value := "icon")
                       )
                     )
@@ -189,20 +192,20 @@ object ChipsPlayground {
                         onChange ==> handleChangeAvatar,
                         aria.label := "avatar",
                         MuiFormControlLabel(
-                          control = Some(MuiRadio()().rawElement),
-                          label = Some("none")
+                          control = MuiRadio()().rawElement,
+                          label = "none".toVdom
                         )(value := "none"),
                         MuiFormControlLabel(
-                          control = Some(MuiRadio()().rawElement),
-                          label = Some("letter")
+                          control = MuiRadio()().rawElement,
+                          label = "letter".toVdom
                         )(value := "letter"),
                         MuiFormControlLabel(
-                          control = Some(MuiRadio()().rawElement),
-                          label = Some("img")
+                          control = MuiRadio()().rawElement,
+                          label = "img".toVdom
                         )(value := "img"),
                         MuiFormControlLabel(
-                          control = Some(MuiRadio()().rawElement),
-                          label = Some("icon")
+                          control = MuiRadio()().rawElement,
+                          label = "icon".toVdom
                         )(value := "icon")
                       )
                     )
@@ -216,12 +219,12 @@ object ChipsPlayground {
                         onChange ==> handleChangeVariant,
                         aria.label := "variant",
                         MuiFormControlLabel(
-                          control = Some(MuiRadio()().rawElement),
-                          label = Some("default")
+                          control = MuiRadio()().rawElement,
+                          label = "default".toVdom
                         )(value := "default"),
                         MuiFormControlLabel(
-                          control = Some(MuiRadio()().rawElement),
-                          label = Some("outlined")
+                          control = MuiRadio()().rawElement,
+                          label = "outlined".toVdom
                         )(value := "outlined")
                       )
                     )

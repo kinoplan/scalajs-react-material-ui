@@ -2,7 +2,7 @@ package io.kinoplan.demo.components.demos.SelectionControls
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.SelectionControls.{CustomControlStyle, DefaultCustomControlStyle}
-import io.kinoplan.demo.utils.Helpers.styleAToClassName
+import io.kinoplan.demo.utils.Helpers.{StringExtended, styleAToClassName}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiCheckbox, MuiFormControlLabel, MuiFormGroup}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiCheckBoxOutlineBlankIcon, MuiFavoriteBorderIcon, MuiFavoriteIcon}
 import japgolly.scalajs.react.vdom.all._
@@ -64,74 +64,62 @@ object CheckboxLabels extends ScalaCssReactImplicits {
         ComponentContainer("Checkbox Labels")(
           MuiFormGroup(row = true)(
             MuiFormControlLabel(
-              control = Some(
-                MuiCheckbox()(
-                  checked := state.checkedA,
-                  value := "checkedA",
-                  onChange ==> handleChangeCheckedA
-                ).rawElement
-              ),
-              label = Some("Secondary")
+              control = MuiCheckbox()(
+                checked := state.checkedA,
+                value := "checkedA",
+                onChange ==> handleChangeCheckedA
+              ).rawElement,
+              label = "Secondary".toVdom
             ),
             MuiFormControlLabel(
-              control = Some(
-                MuiCheckbox(color = MuiCheckbox.Color.primary)(
-                  checked := state.checkedB,
-                  value := "checkedB",
-                  onChange ==> handleChangeCheckedB
-                ).rawElement
-              ),
-              label = Some("Primary")
+              control = MuiCheckbox(color = MuiCheckbox.Color.primary)(
+                checked := state.checkedB,
+                value := "checkedB",
+                onChange ==> handleChangeCheckedB
+              ).rawElement,
+              label = "Primary".toVdom
             ),
             MuiFormControlLabel(
-              control = Some(MuiCheckbox()(value := "checkedC").rawElement),
-              label = Some("Uncontrolled")
+              control = MuiCheckbox()(value := "checkedC").rawElement,
+              label = "Uncontrolled".toVdom
             ),
             MuiFormControlLabel(
-              control = Some(MuiCheckbox()(value := "checkedD").rawElement),
-              label = Some("Disabled")
+              control = MuiCheckbox()(value := "checkedD").rawElement,
+              label = "Disabled".toVdom
             )(disabled := true),
             MuiFormControlLabel(
-              control = Some(MuiCheckbox()(checked := true, value := "checkedE").rawElement),
-              label = Some("Disabled")
+              control = MuiCheckbox()(checked := true, value := "checkedE").rawElement,
+              label = "Disabled".toVdom
             )(disabled := true),
             MuiFormControlLabel(
-              control = Some(
-                MuiCheckbox(indeterminate = true)(
-                  checked := state.checkedF,
-                  value := "checkedF",
-                  onChange ==> handleChangeCheckedF
-                ).rawElement
-              ),
-              label = Some("Indeterminate")
+              control = MuiCheckbox(indeterminate = true)(
+                checked := state.checkedF,
+                value := "checkedF",
+                onChange ==> handleChangeCheckedF
+              ).rawElement,
+              label = "Indeterminate".toVdom
             ),
             MuiFormControlLabel(
-              control = Some(
-                MuiCheckbox(classes = controlClasses)(
-                  checked := state.checkedG,
-                  value := "checkedG",
-                  onChange ==> handleChangeCheckedG
-                ).rawElement
-              ),
-              label = Some("Custom color")
+              control = MuiCheckbox(classes = controlClasses)(
+                checked := state.checkedG,
+                value := "checkedG",
+                onChange ==> handleChangeCheckedG
+              ).rawElement,
+              label = "Custom color".toVdom
             ),
             MuiFormControlLabel(
-              control = Some(
-                MuiCheckbox(
-                  icon = Some(MuiFavoriteBorderIcon()),
-                  checkedIcon = Some(MuiFavoriteIcon())
-                )(value := "checkedH").rawElement
-              ),
-              label = Some("Custom icon")
+              control = MuiCheckbox(
+                icon = MuiFavoriteBorderIcon()(),
+                checkedIcon = MuiFavoriteIcon()()
+              )(value := "checkedH").rawElement,
+              label = "Custom icon".toVdom
             ),
             MuiFormControlLabel(
-              control = Some(
-                MuiCheckbox(
-                  icon = Some(MuiCheckBoxOutlineBlankIcon(fontSize = MuiCheckBoxOutlineBlankIcon.FontSize.small)),
-                  checkedIcon = Some(MuiFavoriteIcon(fontSize = MuiFavoriteIcon.FontSize.small))
-                )(value := "checkedI").rawElement
-              ),
-              label = Some("Custom size")
+              control = MuiCheckbox(
+                icon = MuiCheckBoxOutlineBlankIcon(fontSize = MuiCheckBoxOutlineBlankIcon.FontSize.small)(),
+                checkedIcon = MuiFavoriteIcon(fontSize = MuiFavoriteIcon.FontSize.small)()
+              )(value := "checkedI").rawElement,
+              label = "Custom size".toVdom
             )
           )
         )

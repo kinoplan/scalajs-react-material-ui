@@ -8,9 +8,9 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object SimpleTablePage {
+object SimpleTablePage extends ScalaCssReactImplicits {
   case class Props(router: RouterCtl[Page], style: SimpleTableStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {

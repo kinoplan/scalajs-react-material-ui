@@ -13,11 +13,8 @@ object MuiRadioGroup extends ReactBridgeComponent with MuiRadioGroupExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.Value, String] = Map.empty,
-    //defaultValue: Option[String] = None,
-    //name: Option[String] = None,
-    //onChange: ReactHandler2[ReactEvent, String] = js.undefined,
-    row: Boolean = false
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    row: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }
 

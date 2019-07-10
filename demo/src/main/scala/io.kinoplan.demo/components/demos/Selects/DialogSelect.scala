@@ -49,7 +49,7 @@ object DialogSelect extends ScalaCssReactImplicits {
                     MuiInputLabel()(htmlFor := "age-native-simple", "Age"),
                     MuiSelect(
                       native = true,
-                      input = Some(MuiInput()(id := "age-native-simple").rawElement)
+                      input = MuiInput()(id := "age-native-simple").rawElement
                     )(
                       value := state.age,
                       onChange ==> handleChangeAge,
@@ -61,7 +61,7 @@ object DialogSelect extends ScalaCssReactImplicits {
                   ),
                   MuiFormControl()(css.formControl,
                     MuiInputLabel()(htmlFor := "age-simple", "Age"),
-                    MuiSelect(input = Some(MuiInput()(id := "age-simple").rawElement))(
+                    MuiSelect(input = MuiInput()(id := "age-simple").rawElement)(
                       value := state.age,
                       onChange ==> handleChangeAge,
                       MuiMenuItem()(value := "", em("None")),

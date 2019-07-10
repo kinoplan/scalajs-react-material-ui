@@ -4,9 +4,9 @@ import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.MuiTypography
 import japgolly.scalajs.react.vdom.all.{VdomElement, div, _}
 import japgolly.scalajs.react.{BackendScope, PropsChildren, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object ComponentContainer {
+object ComponentContainer extends ScalaCssReactImplicits {
   case class Props(title: String, style: CommonStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {

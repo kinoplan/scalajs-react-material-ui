@@ -2,12 +2,12 @@ package io.kinoplan.demo.components.demos.Dialogs
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Dialogs.{DefaultDialogsStyle, DialogsStyle}
-import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiDialog, MuiDialogActions, MuiDialogContent, MuiTypography}
+import io.kinoplan.scalajs.react.material.ui.core._
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object CustomizedDialog {
+object CustomizedDialog extends ScalaCssReactImplicits {
   case class Props(style: DialogsStyle)
 
   case class State(open: Boolean = false) {

@@ -22,7 +22,7 @@ trait SvgIconExtensions {
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val colorPrimary = "colorPrimary"

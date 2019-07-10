@@ -4,7 +4,6 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 object MuiIcon extends ReactBridgeComponent with MuiIconExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -14,32 +13,36 @@ object MuiIcon extends ReactBridgeComponent with MuiIconExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    color: Color.Value = Color.inherit,
-    component: Option[String | js.Function] = Some("span"),
-    fontSize: FontSize.Value = FontSize.default
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    color: js.UndefOr[Color.Value] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    fontSize: js.UndefOr[FontSize.Value] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiIconExtensions {
   object Color extends Enumeration {
-    val inherit = Value("inherit")
-    val primary = Value("primary")
-    val secondary = Value("secondary")
-    val action = Value("action")
-    val error = Value("error")
-    val disabled = Value("disabled")
+    type Value = String
+
+    val inherit = "inherit"
+    val primary = "primary"
+    val secondary = "secondary"
+    val action = "action"
+    val error = "error"
+    val disabled = "disabled"
   }
 
   object FontSize extends Enumeration {
-    val inherit = Value("inherit")
-    val default = Value("default")
-    val small = Value("small")
-    val large = Value("large")
+    type Value = String
+
+    val inherit = "inherit"
+    val default = "default"
+    val small = "small"
+    val large = "large"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val colorPrimary = "colorPrimary"

@@ -23,19 +23,19 @@ object FolderList extends ScalaCssReactImplicits {
                 MuiAvatar()(
                   MuiImageIcon()
                 ),
-                MuiListItemText(primary = Some("Photos"), secondary = Some("Jan 9, 2014"))
+                MuiListItemText(primary = VdomNode("Photos"), secondary = VdomNode("Jan 9, 2014"))
               ),
               MuiListItem()(
                 MuiAvatar()(
                   MuiWorkIcon()
                 ),
-                MuiListItemText(primary = Some("Work"), secondary = Some("Jan 7, 2014"))
+                MuiListItemText(primary = VdomNode("Work"), secondary = VdomNode("Jan 7, 2014"))
               ),
               MuiListItem()(
                 MuiAvatar()(
                   MuiBeachAccessIcon()
                 ),
-                MuiListItemText(primary = Some("Vacation"), secondary = Some("July 20, 2014"))
+                MuiListItemText(primary = VdomNode("Vacation"), secondary = VdomNode("July 20, 2014"))
               )
             )
           )

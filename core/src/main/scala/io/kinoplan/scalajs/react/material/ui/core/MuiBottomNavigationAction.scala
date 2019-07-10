@@ -14,17 +14,16 @@ object MuiBottomNavigationAction extends ReactBridgeComponent with MuiBottomNavi
   object RawComponent extends js.Object
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    icon: Option[VdomNode] = None,
-    label: Option[VdomNode] = None,
-    showLabel: Option[Boolean] = None,
-    value: Option[js.Any] = None
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    icon: js.UndefOr[VdomNode] = js.undefined,
+    label: js.UndefOr[VdomNode] = js.undefined,
+    showLabel: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiBottomNavigationActionExtensions {
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val selected = "selected"
