@@ -4,7 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.styles.CreateTransitionsOptions
 
-import scala.scalajs.js.JSConverters._
+import scala.scalajs.js
 
 case class MiniDrawerStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
   import dsl._
@@ -13,37 +13,39 @@ case class MiniDrawerStyle(common: CommonStyle = DefaultCommonStyle) extends Sty
 
   private val drawerWidth = 240
 
-  private val propAppBar = Array("width", "margin").toJSArray
+  private val propAppBar = js.Array("width", "margin")
 
   private val appBarTransition: String = theme.transitions.create(
     propAppBar,
     CreateTransitionsOptions(
-      easing = Some(theme.transitions.easing.sharp),
-      duration = Some(theme.transitions.duration.leavingScreen)
+      easing = theme.transitions.easing.sharp,
+      duration = theme.transitions.duration.leavingScreen
     )
   )
 
   val appBarShiftTransition: String = theme.transitions.create(
     propAppBar,
     CreateTransitionsOptions(
-      easing = Some(theme.transitions.easing.sharp),
-      duration = Some(theme.transitions.duration.enteringScreen)
+      easing = theme.transitions.easing.sharp,
+      duration = theme.transitions.duration.enteringScreen
     )
   )
 
+  private val propDrawer = js.Array("width")
+
   private val drawerOpenTransition = theme.transitions.create(
-    "width",
+    propDrawer,
     CreateTransitionsOptions(
-      easing = Some(theme.transitions.easing.sharp),
-      duration = Some(theme.transitions.duration.enteringScreen)
+      easing = theme.transitions.easing.sharp,
+      duration = theme.transitions.duration.enteringScreen
     )
   )
 
   private val drawerCloseTransition = theme.transitions.create(
-    "width",
+    propDrawer,
     CreateTransitionsOptions(
-      easing = Some(theme.transitions.easing.sharp),
-      duration = Some(theme.transitions.duration.leavingScreen)
+      easing = theme.transitions.easing.sharp,
+      duration = theme.transitions.duration.leavingScreen
     )
   )
 

@@ -2,7 +2,8 @@ package io.kinoplan.demo.styles.demos.Steppers
 
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
-import io.kinoplan.scalajs.react.material.ui.core.styles.CreateTransitionsOptions
+
+import scala.scalajs.js
 
 case class CustomizedStepperStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
   import common.theme
@@ -21,13 +22,7 @@ case class CustomizedStepperStyle(common: CommonStyle = DefaultCommonStyle) exte
     marginBottom(theme.spacing.unit.px)
   )
 
-  private val connectorLineTransition = theme.transitions.create(
-    "border-color",
-    CreateTransitionsOptions(
-      duration = Some(theme.transitions.duration.standard),
-      easing = Some(theme.transitions.easing.easeInOut)
-    )
-  )
+  private val connectorLineTransition = theme.transitions.create(js.Array("border-color"), js.undefined)
 
   val connectorLine = style(
     transition := connectorLineTransition

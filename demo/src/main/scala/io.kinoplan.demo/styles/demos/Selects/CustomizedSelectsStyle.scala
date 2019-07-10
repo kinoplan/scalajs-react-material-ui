@@ -2,9 +2,8 @@ package io.kinoplan.demo.styles.demos.Selects
 
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
-import io.kinoplan.scalajs.react.material.ui.core.styles.CreateTransitionsOptions
 
-import scala.scalajs.js.JSConverters._
+import scala.scalajs.js
 
 case class CustomizedSelectsStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
   import common.theme
@@ -35,12 +34,9 @@ case class CustomizedSelectsStyle(common: CommonStyle = DefaultCommonStyle) exte
     bootstrapRootPlus.htmlClass
   ))
 
-  private val propBootstrapInput = Array("border-color", "box-shadow").toJSArray
+  private val propBootstrapInput = js.Array("border-color", "box-shadow")
 
-  private val bootstrapInputTransition: String = theme.transitions.create(propBootstrapInput, CreateTransitionsOptions(
-    duration = Some(theme.transitions.duration.standard),
-    easing = Some(theme.transitions.easing.easeInOut)
-  ))
+  private val bootstrapInputTransition: String = theme.transitions.create(propBootstrapInput, js.undefined)
 
   private val fontFamilyTitle = List(
     "-apple-system",

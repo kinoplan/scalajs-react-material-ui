@@ -1,5 +1,6 @@
 package io.kinoplan.demo.utils
 
+import japgolly.scalajs.react.vdom.VdomNode
 import scalacss.internal.StyleA
 
 import scala.language.implicitConversions
@@ -7,6 +8,10 @@ import scala.scalajs.js
 import scala.scalajs.js.JSNumberOps._
 
 object Helpers {
+  implicit class StringExtended(value: String) {
+    val toVdom = VdomNode(value)
+  }
+
   implicit class DoubleExtended(value: Double) {
     val toCcyFormat = value.toFixed(2)
   }

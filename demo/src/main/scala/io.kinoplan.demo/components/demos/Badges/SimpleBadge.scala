@@ -2,18 +2,25 @@ package io.kinoplan.demo.components.demos.Badges
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Badges.{DefaultSimpleBadgeStyle, SimpleBadgeStyle}
+import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiBadge, MuiButton, MuiIconButton, MuiTab, MuiTabs, MuiTypography}
 import io.kinoplan.scalajs.react.material.ui.icons.MuiMailIcon
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReact._
+import scalacss.ScalaCssReactImplicits
 
-object SimpleBadge {
+object SimpleBadge extends ScalaCssReactImplicits {
   case class Props(style: SimpleBadgeStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
     def render(props: Props): VdomElement = {
       val css = props.style
+
+      val tabLabel = VdomNode(
+        MuiBadge(badgeContent = Some(VdomNode(4)), color = MuiBadge.Color.secondary)(css.badgePadding,
+          "Item One"
+        ).rawNode
+      )
 
       div(
         ComponentContainer("Simple Badges")(
@@ -33,14 +40,11 @@ object SimpleBadge {
               )
             ),
             MuiAppBar(position = MuiAppBar.Position.static)(css.badgeMargin,
-              MuiTabs(value = Some(0))(
-                MuiTab(label = Some(
-                  MuiBadge(badgeContent = Some(VdomNode(4)), color = MuiBadge.Color.secondary)(css.badgePadding,
-                    "Item One"
-                  )
-                )),
-                MuiTab(label = Some("Item Two")),
-                MuiTab(label = Some("Item Three"))
+              MuiTabs()(
+                value := 0,
+                MuiTab(label = tabLabel),
+                MuiTab(label = "Item Two".toVdom),
+                MuiTab(label = "Item Three".toVdom)
               )
             ),
             MuiBadge(badgeContent = Some(VdomNode(4)), color = MuiBadge.Color.primary)(css.badgeMargin,

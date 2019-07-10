@@ -15,46 +15,53 @@ object MuiTabs extends ReactBridgeComponent with MuiTabsExtensions with JsWriter
 
   def apply(
     action: OnJSEv1[ReactEvent] = js.undefined,
-    centered: Boolean = false,
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: OptComponentPropType = "div",
-    indicatorColor: IndicatorColor.Value = IndicatorColor.secondary,
+    centered: js.UndefOr[Boolean] = js.undefined,
+    classes: Map[ClassKey.Value, String] = Map.empty,
+    component: OptComponentPropType = js.undefined,
+    indicatorColor: js.UndefOr[IndicatorColor.Value] = js.undefined,
     onChange: ReactHandler2[ReactEvent, js.Any] = js.undefined,
-    ScrollButtonComponent: OptComponentPropType = "TabScrollButton",
-    scrollButtons: ScrollButtons.Value = ScrollButtons.auto,
-    TabIndicatorProps: js.Object = js.Object(),
-    textColor: TextColor.Value = TextColor.inherit,
-    value: Option[js.Any] = None,
-    variant: Variant.Value = Variant.standard
+    ScrollButtonComponent: OptComponentPropType = js.undefined,
+    scrollButtons: js.UndefOr[ScrollButtons.Value] = js.undefined,
+    TabIndicatorProps: js.UndefOr[js.Object] = js.undefined,
+    textColor: js.UndefOr[TextColor.Value] = js.undefined,
+    variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiTabsExtensions {
   object IndicatorColor extends Enumeration {
-    val secondary = Value("secondary")
-    val primary = Value("primary")
+    type Value = String
+
+    val secondary = "secondary"
+    val primary = "primary"
   }
 
   object ScrollButtons extends Enumeration {
-    val auto = Value("auto")
-    val on = Value("on")
-    val off = Value("off")
+    type Value = String
+
+    val auto = "auto"
+    val on = "on"
+    val off = "off"
   }
 
   object TextColor extends Enumeration {
-    val secondary = Value("secondary")
-    val primary = Value("primary")
-    val inherit = Value("inherit")
+    type Value = String
+
+    val secondary = "secondary"
+    val primary = "primary"
+    val inherit = "inherit"
   }
 
   object Variant extends Enumeration {
-    val standard = Value("standard")
-    val scrollable = Value("scrollable")
-    val fullWidth = Value("fullWidth")
+    type Value = String
+
+    val standard = "standard"
+    val scrollable = "scrollable"
+    val fullWidth = "fullWidth"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val flexContainer = "flexContainer"

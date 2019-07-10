@@ -14,8 +14,8 @@ object MuiToolbar extends ReactBridgeComponent with MuiToolbarExtensions {
 
   def apply(
     classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    disableGutters: Boolean = false,
-    variant: Variant.Value = Variant.regular
+    disableGutters: js.UndefOr[Boolean] = js.undefined,
+    variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
 }
 

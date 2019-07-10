@@ -29,7 +29,7 @@ object Settings {
       val react = "16.7.0"
       val reactSwipeableViews = "0.13.3"
 
-      val materialUi = "3.9.3"
+      val materialUi = "3.9.0"
       val materialUiIcons = "3.0.2"
     }
   }

@@ -5,24 +5,23 @@ import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.colors
 import io.kinoplan.scalajs.react.material.ui.core.styles.CreateTransitionsOptions
 
-import scala.scalajs.js.JSConverters._
+import scala.scalajs.js
 
 case class CustomizedSwitchesStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
   import common.theme
   import dsl._
 
-  private val propIOSBar = Array("background-color", "border").toJSArray
+  private val propIOSBar = js.Array("background-color", "border")
 
-  private val iOSBarTransition: String = theme.transitions.create(propIOSBar, CreateTransitionsOptions(
-    duration = Some(theme.transitions.duration.standard),
-    easing = Some(theme.transitions.easing.easeInOut)
-  ))
+  private val iOSBarTransition: String = theme.transitions.create(propIOSBar, js.undefined)
+
+  private val propIOSSwitch = js.Array("transform")
 
   private val iOSSwitchBaseTransition: String = theme.transitions.create(
-    "transform",
+    propIOSSwitch,
     CreateTransitionsOptions(
-      duration = Some(theme.transitions.duration.shortest),
-      easing = Some(theme.transitions.easing.sharp)
+      duration = theme.transitions.duration.shortest,
+      easing = theme.transitions.easing.sharp
     )
   )
 

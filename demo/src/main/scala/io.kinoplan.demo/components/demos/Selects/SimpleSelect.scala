@@ -25,11 +25,9 @@ object SimpleSelect extends ScalaCssReactImplicits {
     def handleChangeName(value: String) = copy(name = value)
 
     def setLabelWidth(element: Element) = {
-      val offsetWidthO = ReactDOM.findDOMNode(element).map(_.asHtml().offsetWidth.toInt)
+      val offsetWidth = ReactDOM.findDOMNode(element).map(_.asHtml().offsetWidth.toInt).getOrElse(0)
 
-      offsetWidthO.map(offsetWidth =>
-        copy(labelWidth = offsetWidth)
-      ).getOrElse(this)
+      copy(labelWidth = offsetWidth)
     }
   }
 
@@ -38,9 +36,7 @@ object SimpleSelect extends ScalaCssReactImplicits {
 
     def inputRef = document.getElementById(inputRefId)
 
-    def mount = {
-      t.modState(_.setLabelWidth(inputRef))
-    }
+    def mount = t.modState(_.setLabelWidth(inputRef))
 
     def handleChangeAge(e: ReactEventFromInput) = {
       val value = e.target.value
@@ -103,7 +99,7 @@ object SimpleSelect extends ScalaCssReactImplicits {
               MuiFormHelperText()("Without label")
             ),
             MuiFormControl()(css.formControl,
-              MuiInputLabel(shrink = Some(true))(htmlFor := "age-label-placeholder", "Age"),
+              MuiInputLabel(shrink = true)(htmlFor := "age-label-placeholder", "Age"),
               MuiSelect(
                 displayEmpty = true,
                 input = Some(MuiInput()(name := "age", id := "age-label-placeholder").rawElement)
@@ -118,7 +114,8 @@ object SimpleSelect extends ScalaCssReactImplicits {
               ),
               MuiFormHelperText()("Label + placeholder")
             ),
-            MuiFormControl(disabled = true)(css.formControl,
+            MuiFormControl()(css.formControl,
+              disabled := true,
               MuiInputLabel()(htmlFor := "name-disabled", "Name"),
               MuiSelect(input = Some(MuiInput()(name := "name", id := "name-disabled").rawElement))(
                 value := state.name,
@@ -185,7 +182,8 @@ object SimpleSelect extends ScalaCssReactImplicits {
               ),
               MuiFormHelperText()("Placeholder")
             ),
-            MuiFormControl(required = true)(css.formControl,
+            MuiFormControl()(css.formControl,
+              required := true,
               MuiInputLabel()(htmlFor := "age-required", "Age"),
               MuiSelect(inputProps = MuiNativeInputProps(id = Some("age-required")))(css.selectEmpty,
                 value := state.age,

@@ -97,7 +97,7 @@ object NativeSelects extends ScalaCssReactImplicits {
               MuiFormHelperText()("Without label")
             ),
             MuiFormControl()(css.formControl,
-              MuiInputLabel(shrink = Some(true))(htmlFor := "age-native-label-placeholder", "Age"),
+              MuiInputLabel(shrink = true)(htmlFor := "age-native-label-placeholder", "Age"),
               MuiNativeSelect(input = Some(MuiInput()(
                   name := "age",
                   id := "age-native-label-placeholder"
@@ -113,7 +113,8 @@ object NativeSelects extends ScalaCssReactImplicits {
               ),
               MuiFormHelperText()("Label + placeholder")
             ),
-            MuiFormControl(disabled = true)(css.formControl,
+            MuiFormControl()(css.formControl,
+              disabled := true,
               MuiInputLabel()(htmlFor := "name-disabled", "Name"),
               MuiNativeSelect(input = Some(MuiInput()(name := "name", id := "name-native-disabled").rawElement))(
                 value := state.name,
@@ -169,7 +170,8 @@ object NativeSelects extends ScalaCssReactImplicits {
               ),
               MuiFormHelperText()("Placeholder")
             ),
-            MuiFormControl(required = true)(css.formControl,
+            MuiFormControl()(css.formControl,
+              required := true,
               MuiInputLabel()(htmlFor := "age-native-required", "Age"),
               MuiSelect(
                 native = true,

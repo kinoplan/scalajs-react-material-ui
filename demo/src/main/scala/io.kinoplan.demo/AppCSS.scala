@@ -23,6 +23,9 @@ import io.kinoplan.demo.styles.demos.Selects._
 import io.kinoplan.demo.styles.demos.Snackbars._
 import io.kinoplan.demo.styles.demos.Steppers._
 import io.kinoplan.demo.styles.demos.Tables._
+import io.kinoplan.demo.styles.demos.Tabs._
+import io.kinoplan.demo.styles.demos.TextFields._
+import io.kinoplan.demo.styles.demos.Tooltips._
 import scalacss.internal.mutable.GlobalRegistry
 
 object AppCSS {
@@ -100,7 +103,21 @@ object AppCSS {
       DefaultMobileStepperStyle,
       DefaultEnhancedTableStyle,
       DefaultEnhancedTableToolbarStyle,
-      DefaultCustomizedTableStyle
+      DefaultCustomizedTableStyle,
+      DefaultFullWidthTabsStyle,
+      DefaultScrollableTabsStyle,
+      DefaultCustomizedTabsStyle,
+      DefaultIconTabsStyle,
+      DefaultTextFieldsStyle,
+      DefaultVariantTextFieldsStyle,
+      DefaultComponentTextFieldStyle,
+      DefaultCustomizedInputsStyle,
+      DefaultInputAdornmentsStyle,
+      DefaultCustomizedInputBaseStyle,
+      DefaultSimpleTooltipsStyle,
+      DefaultPositionedTooltipsStyle,
+      DefaultVariableWidthStyle,
+      DefaultInteractiveTooltipsStyle
     )
   }
 }

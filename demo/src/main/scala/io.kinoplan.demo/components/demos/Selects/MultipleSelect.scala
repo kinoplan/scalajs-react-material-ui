@@ -156,7 +156,7 @@ object MultipleSelect extends ScalaCssReactImplicits {
               )
             ),
             MuiFormControl()(css.formControl,
-              MuiInputLabel(shrink = Some(true))(htmlFor := "select-multiple-native", "Native"),
+              MuiInputLabel(shrink = true)(htmlFor := "select-multiple-native", "Native"),
               MuiSelect(
                 multiple = true,
                 native = true,

@@ -4,23 +4,27 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.styles.CreateTransitionsOptions
 
+import scala.scalajs.js
+
 case class FabIntegrationSnackbarStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
   import common.theme
   import dsl._
 
+  private val propFabMove = js.Array("transform")
+
   private val fabMoveUpTransition = theme.transitions.create(
-    "transform",
+    propFabMove,
     CreateTransitionsOptions(
-      duration = Some(theme.transitions.duration.enteringScreen),
-      easing = Some(theme.transitions.easing.easeOut)
+      duration = theme.transitions.duration.enteringScreen,
+      easing = theme.transitions.easing.easeOut
     )
   )
 
   private val fabMoveDownTransition = theme.transitions.create(
-    "transform",
+    propFabMove,
     CreateTransitionsOptions(
-      duration = Some(theme.transitions.duration.leavingScreen),
-      easing = Some(theme.transitions.easing.sharp)
+      duration = theme.transitions.duration.leavingScreen,
+      easing = theme.transitions.easing.sharp
     )
   )
 

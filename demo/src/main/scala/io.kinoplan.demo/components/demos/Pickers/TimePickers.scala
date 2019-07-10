@@ -2,6 +2,7 @@ package io.kinoplan.demo.components.demos.Pickers
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Pickers.{DefaultPickersStyle, PickersStyle}
+import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.demo.utils.props.{MuiInputLabelProps, MuiNativeInputProps}
 import io.kinoplan.scalajs.react.material.ui.core.MuiTextField
 import japgolly.scalajs.react.vdom.all._
@@ -19,8 +20,8 @@ object TimePickers extends ScalaCssReactImplicits {
         ComponentContainer("Time pickers")(
           form(css.container, noValidate := true,
             MuiTextField(
-              label = Some("Alarm clock"),
-              InputLabelProps = MuiInputLabelProps(shrink = Some(true)),
+              label = "Alarm clock".toVdom,
+              InputLabelProps = MuiInputLabelProps(shrink = true),
               inputProps = MuiNativeInputProps(step = Some(300))
             )(
               css.textField,

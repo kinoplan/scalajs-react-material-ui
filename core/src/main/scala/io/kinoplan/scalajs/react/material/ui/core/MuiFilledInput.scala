@@ -15,30 +15,32 @@ object MuiFilledInput extends ReactBridgeComponent with MuiFilledInputExtensions
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     disableUnderline: js.UndefOr[Boolean] = js.undefined,
-    endAdornment: Option[VdomNode] = None,
+    endAdornment: js.UndefOr[VdomNode] = js.undefined,
     error: js.UndefOr[Boolean] = js.undefined,
     fullWidth: js.UndefOr[Boolean] = js.undefined,
-    inputComponent: Option[String | js.Function] = None,
-    inputProps: js.Object = js.Object(),
-    inputRef: Option[js.Function | js.Object] = None,
-    margin: Option[Margin.Value] = None,
+    inputComponent: OptComponentPropType = js.undefined,
+    inputProps: js.UndefOr[js.Object] = js.undefined,
+    inputRef: OptComponentRefType = js.undefined,
+    margin: js.UndefOr[Margin.Value] = js.undefined,
     multiline: js.UndefOr[Boolean] = js.undefined,
-    rows: Option[String | Int] = None,
-    rowsMax: Option[String | Int] = None,
-    startAdornment: Option[VdomNode] = None
+    rows: js.UndefOr[String | Int] = js.undefined,
+    rowsMax: js.UndefOr[String | Int] = js.undefined,
+    startAdornment: js.UndefOr[VdomNode] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
 }
 
 trait MuiFilledInputExtensions {
   object Margin extends Enumeration {
-    val dense = Value("dense")
-    val none = Value("none")
+    type Value = String
+
+    val dense = "dense"
+    val none = "none"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val underline = "underline"

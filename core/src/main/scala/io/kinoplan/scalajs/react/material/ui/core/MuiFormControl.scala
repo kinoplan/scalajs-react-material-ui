@@ -13,32 +13,34 @@ object MuiFormControl extends ReactBridgeComponent with MuiFormControlExtensions
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: OptComponentPropType = "div",
-    disabled: Boolean = false,
-    error: Boolean = false,
-    fullWidth: Boolean = false,
-    margin: Margin.Value = Margin.none,
-    required: Boolean = false,
-    variant: Variant.Value = Variant.standard
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    error: js.UndefOr[Boolean] = js.undefined,
+    fullWidth: js.UndefOr[Boolean] = js.undefined,
+    margin: js.UndefOr[Margin.Value] = js.undefined,
+    variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiFormControlExtensions {
   object Margin extends Enumeration {
-    val none = Value("none")
-    val dense = Value("dense")
-    val normal = Value("normal")
+    type Value = String
+
+    val none = "none"
+    val dense = "dense"
+    val normal = "normal"
   }
 
   object Variant extends Enumeration {
-    val standard = Value("standard")
-    val outlined = Value("outlined")
-    val filled = Value("filled")
+    type Value = String
+
+    val standard = "standard"
+    val outlined = "outlined"
+    val filled = "filled"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val marginNormal = "marginNormal"

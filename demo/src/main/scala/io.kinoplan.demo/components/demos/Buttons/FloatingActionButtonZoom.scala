@@ -3,6 +3,7 @@ package io.kinoplan.demo.components.demos.Buttons
 import io.kinoplan.demo.components.{ComponentContainer, Layout, TabContainer}
 import io.kinoplan.demo.models.Buttons.Fab
 import io.kinoplan.demo.styles.demos.Buttons.{DefaultFloatingActionButtonsZoomStyle, FloatingActionButtonsZoomStyle}
+import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.scalajs.react.material.ui.core.styles.Direction
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiFab, MuiTab, MuiTabs, MuiZoom, SwipeableViews}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiAddIcon, MuiEditIcon, MuiKeyboardArrowUpIcon}
@@ -54,15 +55,15 @@ object FloatingActionButtonZoom {
           div(css.root, css.rootPaper(Layout.isPaletteLight),
             MuiAppBar(position = MuiAppBar.Position.static, color = MuiAppBar.Color.default)(
               MuiTabs(
-                value = Some(state.value),
                 onChange = handleChange,
                 indicatorColor = MuiTabs.IndicatorColor.primary,
                 textColor = MuiTabs.TextColor.primary,
                 variant = MuiTabs.Variant.fullWidth
               )(
-                MuiTab(label = Some(VdomNode("Item One"))),
-                MuiTab(label = Some(VdomNode("Item Two"))),
-                MuiTab(label = Some(VdomNode("Item Three")))
+                value := state.value,
+                MuiTab(label = "Item One".toVdom),
+                MuiTab(label = "Item Two".toVdom),
+                MuiTab(label = "Item Three".toVdom)
               )
             ),
             SwipeableViews(
@@ -70,9 +71,9 @@ object FloatingActionButtonZoom {
               index = state.value.asInstanceOf[Int],
               onChangeIndex = handleChangeIndex
             )(
-              TabContainer(dir = css.theme.direction)("Item One"),
-              TabContainer(dir = css.theme.direction)("Item Two"),
-              TabContainer(dir = css.theme.direction)("Item Three")
+              TabContainer()("Item One"),
+              TabContainer()("Item Two"),
+              TabContainer()("Item Three")
             ),
             fabs.zipWithIndex.toVdomArray { case (fab, index) =>
               MuiZoom(in = Some(state.value == index.asInstanceOf[js.Any]), timeout = Some(transitionDuration))(

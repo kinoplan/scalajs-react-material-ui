@@ -31,7 +31,8 @@ object FloatingActionButtons {
               MuiNavigationIcon()(css.extendedIcon),
               "Extended"
             ),
-            MuiFab(disabled = true)(css.marginButton,
+            MuiFab()(css.marginButton,
+              disabled := true,
               aria.label := "Delete",
               MuiDeleteIcon()
             )

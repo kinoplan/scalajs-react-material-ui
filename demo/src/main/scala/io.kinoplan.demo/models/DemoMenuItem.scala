@@ -30,6 +30,9 @@ object DemoMenuItem {
     DemoMenuItem("Selects", DemoSelectsRoute),
     DemoMenuItem("Snackbars", DemoSnackbarsRoute),
     DemoMenuItem("Steppers", DemoSteppersRoute),
-    DemoMenuItem("Tables", DemoTablesRoute)
+    DemoMenuItem("Tables", DemoTablesRoute),
+    DemoMenuItem("Tabs", DemoTabsRoute),
+    DemoMenuItem("Text Fields", DemoTextFieldsRoute),
+    DemoMenuItem("Tooltips", DemoTooltipsRoute)
   )
 }

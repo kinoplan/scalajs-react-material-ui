@@ -3,7 +3,7 @@ package io.kinoplan.demo.styles
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.scalajs.react.material.ui.core.styles.CreateTransitionsOptions
 
-import scala.scalajs.js.JSConverters._
+import scala.scalajs.js
 
 case class LayoutStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
   import dsl._
@@ -12,37 +12,37 @@ case class LayoutStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSh
 
   val theme = common.theme
 
-  private val propAppBar = Array("width", "margin").toJSArray
+  private val propAppBar = js.Array("width", "margin")
 
   private val appBarTransition: String = theme.transitions.create(
     propAppBar,
     CreateTransitionsOptions(
-      easing = Some(theme.transitions.easing.sharp),
-      duration = Some(theme.transitions.duration.leavingScreen)
+      easing = theme.transitions.easing.sharp,
+      duration = theme.transitions.duration.leavingScreen
     )
   )
 
    val appBarShiftTransition: String = theme.transitions.create(
     propAppBar,
     CreateTransitionsOptions(
-      easing = Some(theme.transitions.easing.sharp),
-      duration = Some(theme.transitions.duration.enteringScreen)
+      easing = theme.transitions.easing.sharp,
+      duration = theme.transitions.duration.enteringScreen
     )
   )
 
   private val drawerPaperOpenTransition = theme.transitions.create(
-    "width",
+    js.Array("width"),
     CreateTransitionsOptions(
-      easing = Some(theme.transitions.easing.sharp),
-      duration = Some(theme.transitions.duration.enteringScreen)
+      easing = theme.transitions.easing.sharp,
+      duration = theme.transitions.duration.enteringScreen
     )
   )
 
   private val drawerPaperCloseTransition = theme.transitions.create(
-    "width",
+    js.Array("width"),
     CreateTransitionsOptions(
-      easing = Some(theme.transitions.easing.sharp),
-      duration = Some(theme.transitions.duration.leavingScreen)
+      easing = theme.transitions.easing.sharp,
+      duration = theme.transitions.duration.leavingScreen
     )
   )
 

@@ -1,16 +1,14 @@
 package io.kinoplan.demo.styles.demos.Buttons
 
 import io.kinoplan.demo.CssSettings._
-import io.kinoplan.scalajs.react.material.ui.core.styles.CreateTransitionsOptions
+
+import scala.scalajs.js
 
 case class ButtonBasesStyle(common: CommonButtonStyle = DefaultCommonButtonStyle) extends StyleSheet.Inline {
   import common.theme
   import dsl._
 
-  private val opacityTransition: String = theme.transitions.create(
-    "opacity",
-    CreateTransitionsOptions()
-  )
+  private val opacityTransition: String = theme.transitions.create(js.Array("opacity"), js.undefined)
 
   val root = style(
     display.flex,

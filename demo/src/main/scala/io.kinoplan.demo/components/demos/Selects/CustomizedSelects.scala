@@ -29,7 +29,7 @@ object CustomizedSelects extends ScalaCssReactImplicits {
         MuiInputBase.ClassKey.root -> styleAToClassName(css.bootstrapRoot),
         MuiInputBase.ClassKey.input -> stylesToClassName(
           Seq(css.bootstrapInput, css.bootstrapInputPaper(Layout.isPaletteLight))
-        ),
+        )
       )
 
       div(

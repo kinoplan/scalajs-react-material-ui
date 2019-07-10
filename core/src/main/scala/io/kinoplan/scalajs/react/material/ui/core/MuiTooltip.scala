@@ -6,7 +6,6 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.{|, undefined, UndefOr}
 
 object MuiTooltip extends ReactBridgeComponent with MuiTooltipExtensions with JsWriterImplicits {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -16,23 +15,23 @@ object MuiTooltip extends ReactBridgeComponent with MuiTooltipExtensions with Js
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.Value, String] = Map.empty,
-    disableFocusListener: Boolean = false,
-    disableHoverListener: Boolean = false,
-    disableTouchListener: Boolean = false,
-    enterDelay: Int = 0,
-    enterTouchDelay: Int = 1000,
-    interactive: Boolean = false,
-    leaveDelay: Int = 0,
-    leaveTouchDelay: Int = 1500,
-    onClose: OnJSEv1[ReactEventFromHtml] = undefined,
-    onOpen: OnJSEv1[ReactEventFromHtml] = undefined,
-    open: UndefOr[Boolean] = undefined,
-    placement: Placement.Value = Placement.bottom,
-    PopperProps: js.Object = js.Object(),
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    disableFocusListener: js.UndefOr[Boolean] = js.undefined,
+    disableHoverListener: js.UndefOr[Boolean] = js.undefined,
+    disableTouchListener: js.UndefOr[Boolean] = js.undefined,
+    enterDelay: js.UndefOr[Int] = js.undefined,
+    enterTouchDelay: js.UndefOr[Int] = js.undefined,
+    interactive: js.UndefOr[Boolean] = js.undefined,
+    leaveDelay: js.UndefOr[Int] = js.undefined,
+    leaveTouchDelay: js.UndefOr[Int] = js.undefined,
+    onClose: ReactHandler1[ReactEventFromHtml] = js.undefined,
+    onOpen: ReactHandler1[ReactEventFromHtml] = js.undefined,
+    open: js.UndefOr[Boolean] = js.undefined,
+    placement: js.UndefOr[Placement.Value] = js.undefined,
+    PopperProps: js.UndefOr[js.Object] = js.undefined,
     title: VdomNode,
-    TransitionComponent: Option[String | VdomNode] = None,
-    TransitionProps: js.Object = js.Object()
+    TransitionComponent: OptComponentPropType = js.undefined,
+    TransitionProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
 }
 

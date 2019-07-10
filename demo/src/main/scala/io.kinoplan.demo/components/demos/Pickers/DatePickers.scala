@@ -2,6 +2,7 @@ package io.kinoplan.demo.components.demos.Pickers
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Pickers.{DefaultPickersStyle, PickersStyle}
+import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.demo.utils.props.MuiInputLabelProps
 import io.kinoplan.scalajs.react.material.ui.core.MuiTextField
 import japgolly.scalajs.react.vdom.all._
@@ -18,7 +19,7 @@ object DatePickers extends ScalaCssReactImplicits {
       div(
         ComponentContainer("Date pickers")(
           form(css.container, noValidate := true,
-            MuiTextField(label = Some("Birthday"), InputLabelProps = MuiInputLabelProps(shrink = Some(true)))(
+            MuiTextField(label = "Birthday".toVdom, InputLabelProps = MuiInputLabelProps(shrink = true))(
               css.textField,
               id := "date",
               `type` := "date",

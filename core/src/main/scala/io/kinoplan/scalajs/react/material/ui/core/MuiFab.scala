@@ -4,7 +4,6 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 object MuiFab extends ReactBridgeComponent with MuiFabExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -14,15 +13,13 @@ object MuiFab extends ReactBridgeComponent with MuiFabExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    color: Color.Value = Color.default,
-    component: Option[String | js.Function] = Some("button"),
-    disabled: Boolean = false,
-    disableFocusRipple: Boolean = false,
-    disableRipple: Option[Boolean] = None,
-    href: Option[String] = None,
-    size: Size.Value = Size.large,
-    variant: Variant.Value = Variant.round
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    color: js.UndefOr[Color.Value] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    disableFocusRipple: js.UndefOr[Boolean] = js.undefined,
+    disableRipple: js.UndefOr[Boolean] = js.undefined,
+    size: js.UndefOr[Size.Value] = js.undefined,
+    variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
 }
 
@@ -37,18 +34,22 @@ trait MuiFabExtensions {
   }
 
   object Size extends Enumeration {
-    val small = Value("small")
-    val medium = Value("medium")
-    val large = Value("large")
+    type Value = String
+
+    val small = "small"
+    val medium = "medium"
+    val large = "large"
   }
 
   object Variant extends Enumeration {
-    val round = Value("round")
-    val extended = Value("extended")
+    type Value = String
+
+    val round = "round"
+    val extended = "extended"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val label = "label"

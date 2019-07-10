@@ -13,32 +13,34 @@ object MuiInputLabel extends ReactBridgeComponent with MuiInputLabelExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    disableAnimation: Boolean = false,
-    disabled: Option[Boolean] = None,
-    error: Option[Boolean] = None,
-    focused: Option[Boolean] = None,
-    FormLabelClasses: js.Object = js.Object(),
-    margin: Option[Margin.Value] = None,
-    required: Option[Boolean] = None,
-    shrink: Option[Boolean] = None,
-    variant: Option[Variant.Value] = None
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    disableAnimation: js.UndefOr[Boolean] = js.undefined,
+    error: js.UndefOr[Boolean] = js.undefined,
+    focused: js.UndefOr[Boolean] = js.undefined,
+    FormLabelClasses: js.UndefOr[js.Object] = js.undefined,
+    margin: js.UndefOr[Margin.Value] = js.undefined,
+    shrink: js.UndefOr[Boolean] = js.undefined,
+    variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiInputLabelExtensions {
   object Margin extends Enumeration {
-    val dense = Value("dense")
+    type Value = String
+
+    val dense = "dense"
   }
 
   object Variant extends Enumeration {
-    val standard = Value("standard")
-    val outlined = Value("outlined")
-    val filled = Value("filled")
+    type Value = String
+
+    val standard = "standard"
+    val outlined = "outlined"
+    val filled = "filled"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val focused = "focused"

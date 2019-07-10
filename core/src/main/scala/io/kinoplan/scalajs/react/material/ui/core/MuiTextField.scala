@@ -15,37 +15,39 @@ object MuiTextField extends ReactBridgeComponent with MuiTextFieldExtensions wit
   object RawComponent extends js.Function
 
   def apply(
-    autoComplete: js.UndefOr[String] = js.undefined,
     error: js.UndefOr[Boolean] = js.undefined,
-    FormHelperTextProps: js.Object = js.Object(),
+    FormHelperTextProps: js.UndefOr[js.Object] = js.undefined,
     fullWidth: js.UndefOr[Boolean] = js.undefined,
-    helperText: Option[VdomNode] = None,
-    InputLabelProps: js.Object = js.Object(),
-    InputProps: js.Object = js.Object(),
-    inputProps: js.Object = js.Object(),
-    inputRef: Option[js.Function | js.Object] = None,
-    label: Option[VdomNode] = None,
+    helperText: js.UndefOr[VdomNode] = js.undefined,
+    InputLabelProps: js.UndefOr[js.Object] = js.undefined,
+    InputProps: js.UndefOr[js.Object] = js.undefined,
+    inputProps: js.UndefOr[js.Object] = js.undefined,
+    inputRef: OptComponentRefType = js.undefined,
+    label: js.UndefOr[VdomNode] = js.undefined,
     margin: js.UndefOr[Margin.Value] = js.undefined,
     multiline: js.UndefOr[Boolean] = js.undefined,
-    onChange: js.UndefOr[js.Function] = js.undefined,
     rows: js.UndefOr[String | Int] = js.undefined,
     rowsMax: js.UndefOr[String | Int] = js.undefined,
-    select: Boolean = false,
-    SelectProps: js.Object = js.Object(),
-    variant: Variant.Value = Variant.standard
+    select: js.UndefOr[Boolean] = js.undefined,
+    SelectProps: js.UndefOr[js.Object] = js.undefined,
+    variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiTextFieldExtensions {
   object Margin extends Enumeration {
-    val none = Value("none")
-    val dense = Value("dense")
-    val normal = Value("normal")
+    type Value = String
+
+    val none = "none"
+    val dense = "dense"
+    val normal = "normal"
   }
 
   object Variant extends Enumeration {
-    val standard = Value("standard")
-    val outlined = Value("outlined")
-    val filled = Value("filled")
+    type Value = String
+
+    val standard = "standard"
+    val outlined = "outlined"
+    val filled = "filled"
   }
 }

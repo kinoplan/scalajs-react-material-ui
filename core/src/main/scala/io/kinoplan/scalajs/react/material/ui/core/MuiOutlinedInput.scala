@@ -15,31 +15,33 @@ object MuiOutlinedInput extends ReactBridgeComponent with MuiOutlinedInputExtens
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    endAdornment: Option[VdomNode] = None,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    endAdornment: js.UndefOr[VdomNode] = js.undefined,
     error: js.UndefOr[Boolean] = js.undefined,
     fullWidth: js.UndefOr[Boolean] = js.undefined,
-    inputComponent: Option[String | js.Function] = None,
-    inputProps: js.Object = js.Object(),
-    inputRef: Option[js.Function | js.Object] = None,
+    inputComponent: OptComponentPropType = js.undefined,
+    inputProps: js.UndefOr[js.Object] = js.undefined,
+    inputRef: OptComponentRefType = js.undefined,
     labelWidth: Int,
-    margin: Option[Margin.Value] = None,
-    multiline: Option[Boolean] = None,
+    margin: js.UndefOr[Margin.Value] = js.undefined,
+    multiline: js.UndefOr[Boolean] = js.undefined,
     notched: js.UndefOr[Boolean] = js.undefined,
-    rows: Option[String | Int] = None,
-    rowsMax: Option[String | Int] = None,
-    startAdornment: Option[VdomNode] = None
+    rows: js.UndefOr[String | Int] = js.undefined,
+    rowsMax: js.UndefOr[String | Int] = js.undefined,
+    startAdornment: js.UndefOr[VdomNode] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
 }
 
 trait MuiOutlinedInputExtensions {
   object Margin extends Enumeration {
-    val dense = Value("dense")
-    val none = Value("none")
+    type Value = String
+
+    val dense = "dense"
+    val none = "none"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val focused = "focused"

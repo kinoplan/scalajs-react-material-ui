@@ -2,8 +2,9 @@ package io.kinoplan.demo.styles.demos.AppBar
 
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
-import io.kinoplan.scalajs.react.material.ui.core.styles.CreateTransitionsOptions
 import io.kinoplan.scalajs.react.material.ui.core.styles.colorManipulator.fade
+
+import scala.scalajs.js
 
 case class SearchAppBarStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
   import common.theme
@@ -12,13 +13,7 @@ case class SearchAppBarStyle(common: CommonStyle = DefaultCommonStyle) extends S
   private val fadeFirst = fade(theme.palette.common.white, 0.15)
   private val fadeSecond = fade(theme.palette.common.white, 0.25)
 
-  private val inputInputTransition = theme.transitions.create(
-    "width",
-    CreateTransitionsOptions(
-      easing = Some(theme.transitions.easing.easeInOut),
-      duration = Some(theme.transitions.duration.standard)
-    )
-  )
+  private val inputInputTransition = theme.transitions.create(js.Array("width"), js.undefined)
 
   val root = style(
     width(100.%%)

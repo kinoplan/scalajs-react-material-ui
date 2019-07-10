@@ -5,14 +5,16 @@ import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.colors
 import io.kinoplan.scalajs.react.material.ui.core.styles.CreateTransitionsOptions
 
+import scala.scalajs.js
+
 case class RecipeReviewCardStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
   import dsl._
   import common.theme
 
   private val expandTransition = theme.transitions.create(
-    "transform",
+    js.Array("transform"),
     CreateTransitionsOptions(
-      duration = Some(theme.transitions.duration.shortest)
+      duration = theme.transitions.duration.shortest
     )
   )
 

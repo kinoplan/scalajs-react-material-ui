@@ -4,7 +4,6 @@ import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 object MuiInputAdornment extends ReactBridgeComponent with MuiInputAdornmentExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -14,29 +13,33 @@ object MuiInputAdornment extends ReactBridgeComponent with MuiInputAdornmentExte
   object RawComponent extends js.Function
 
   def apply(
-    classes: Map[ClassKey.ClassKey, String] = Map.empty,
-    component: Option[String | js.Function] = Some("div"),
-    disablePointerEvents: Boolean = false,
-    disableTypography: Boolean = false,
-    position: Option[Position.Value] = None,
-    variant: Option[Variant.Value] = None
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    disablePointerEvents: js.UndefOr[Boolean] = js.undefined,
+    disableTypography: js.UndefOr[Boolean] = js.undefined,
+    position: js.UndefOr[Position.Value] = js.undefined,
+    variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiInputAdornmentExtensions {
   object Position extends Enumeration {
-    val start = Value("start")
-    val end = Value("end")
+    type Value = String
+
+    val start = "start"
+    val end = "end"
   }
 
   object Variant extends Enumeration {
-    val standard = Value("standard")
-    val outlined = Value("outlined")
-    val filled = Value("filled")
+    type Value = String
+
+    val standard = "standard"
+    val outlined = "outlined"
+    val filled = "filled"
   }
 
   object ClassKey extends Enumeration {
-    type ClassKey = String
+    type Value = String
 
     val root = "root"
     val filled = "filled"

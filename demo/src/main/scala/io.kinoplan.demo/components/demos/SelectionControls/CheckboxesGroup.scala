@@ -79,7 +79,8 @@ object CheckboxesGroup extends ScalaCssReactImplicits {
               ),
               MuiFormHelperText()("Be careful")
             ),
-            MuiFormControl(required = true, error = state.error, component = "fieldset")(css.formControl,
+            MuiFormControl(error = state.error, component = "fieldset")(css.formControl,
+              required := true,
               MuiFormLabel(component = "legend")("Pick two"),
               MuiFormGroup()(
                 MuiFormControlLabel(

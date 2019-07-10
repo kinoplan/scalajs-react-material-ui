@@ -2,6 +2,7 @@ package io.kinoplan.demo.components.demos.Pickers
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Pickers.{DefaultPickersStyle, PickersStyle}
+import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.demo.utils.props.MuiInputLabelProps
 import io.kinoplan.scalajs.react.material.ui.core.MuiTextField
 import japgolly.scalajs.react.vdom.all._
@@ -18,7 +19,7 @@ object DateAndTimePickers extends ScalaCssReactImplicits {
       div(
         ComponentContainer("Date & Time pickers")(
           form(css.container, noValidate := true,
-            MuiTextField(label = Some("Next appointment"), InputLabelProps = MuiInputLabelProps(shrink = Some(true)))(
+            MuiTextField(label = "Next appointment".toVdom, InputLabelProps = MuiInputLabelProps(shrink = true))(
               css.textField,
               id := "datetime-local",
               `type` := "datetime-local",

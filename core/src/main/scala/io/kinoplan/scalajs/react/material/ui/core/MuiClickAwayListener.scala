@@ -15,21 +15,25 @@ object MuiClickAwayListener extends ReactBridgeComponent with MuiClickAwayListen
   object RawComponent extends js.Function
 
   def apply(
-    mouseEvent: js.UndefOr[Boolean | MouseEvent.Value] = MouseEvent.onMouseUp,
+    mouseEvent: js.UndefOr[Boolean | MouseEvent.Value] = js.undefined,
     onClickAway: ReactHandler1[ReactEventFromHtml],
-    touchEvent: js.UndefOr[Boolean | TouchEvent.Value] = TouchEvent.onTouchEnd
+    touchEvent: js.UndefOr[Boolean | TouchEvent.Value] = js.undefined
   ): WithProps = auto
 }
 
 trait MuiClickAwayListenerExtensions {
   object MouseEvent extends Enumeration {
-    val onClick = Value("onClick")
-    val onMouseDown = Value("onMouseDown")
-    val onMouseUp = Value("onMouseUp")
+    type Value = String
+
+    val onClick = "onClick"
+    val onMouseDown = "onMouseDown"
+    val onMouseUp = "onMouseUp"
   }
 
   object TouchEvent extends Enumeration {
-    val onTouchStart = Value("onTouchStart")
-    val onTouchEnd = Value("onTouchEnd")
+    type Value = String
+
+    val onTouchStart = "onTouchStart"
+    val onTouchEnd = "onTouchEnd"
   }
 }

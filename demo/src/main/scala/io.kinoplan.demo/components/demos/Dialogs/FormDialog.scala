@@ -1,6 +1,7 @@
 package io.kinoplan.demo.components.demos.Dialogs
 
 import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiDialog, MuiDialogActions, MuiDialogContent, MuiDialogContentText, MuiDialogTitle, MuiTextField}
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
@@ -37,7 +38,7 @@ object FormDialog {
                 ),
                 MuiTextField(
                   margin = MuiTextField.Margin.dense,
-                  label = Some("Email Address"),
+                  label = "Email Address".toVdom,
                   fullWidth = true
                 )(
                   id := "name",
