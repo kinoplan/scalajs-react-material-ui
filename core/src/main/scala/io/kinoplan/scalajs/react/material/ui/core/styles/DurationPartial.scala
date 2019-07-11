@@ -16,23 +16,24 @@ trait DurationPartial extends js.Object {
 
 object DurationPartial {
   def apply(
-    shortest: Option[Int] = None,
-    shorter: Option[Int] = None,
-    short: Option[Int] = None,
-    standard: Option[Int] = None,
-    complex: Option[Int] = None,
-    enteringScreen: Option[Int] = None,
-    leavingScreen: Option[Int] = None
+    shortest: js.UndefOr[Int] = js.undefined,
+    shorter: js.UndefOr[Int] = js.undefined,
+    short: js.UndefOr[Int] = js.undefined,
+    standard: js.UndefOr[Int] = js.undefined,
+    complex: js.UndefOr[Int] = js.undefined,
+    enteringScreen: js.UndefOr[Int] = js.undefined,
+    leavingScreen: js.UndefOr[Int] = js.undefined
   ) = {
     val o: Map[String, Any] = Seq(
-      shortest.map("shortest" -> _),
-      shorter.map("shorter" -> _),
-      short.map("short" -> _),
-      standard.map("standard" -> _),
-      complex.map("complex" -> _),
-      enteringScreen.map("enteringScreen" -> _),
-      leavingScreen.map("leavingScreen" -> _)
+      shortest.toOption.map("shortest" -> _),
+      shorter.toOption.map("shorter" -> _),
+      short.toOption.map("short" -> _),
+      standard.toOption.map("standard" -> _),
+      complex.toOption.map("complex" -> _),
+      enteringScreen.toOption.map("enteringScreen" -> _),
+      leavingScreen.toOption.map("leavingScreen" -> _)
     ).flatten.toMap
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[DurationPartial]
   }
 }

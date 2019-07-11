@@ -11,6 +11,7 @@ trait Spacing extends js.Object {
 object Spacing {
   def apply(unit: Double) = {
     val o: Map[String, Any] = Map("unit" -> unit)
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[Spacing]
   }
 }

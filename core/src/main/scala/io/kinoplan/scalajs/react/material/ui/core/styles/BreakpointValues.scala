@@ -27,6 +27,7 @@ object BreakpointValues {
       "lg" -> lg,
       "xl" -> xl
     )
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[BreakpointValues]
   }
 }

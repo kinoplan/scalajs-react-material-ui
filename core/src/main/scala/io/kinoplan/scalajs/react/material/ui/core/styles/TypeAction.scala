@@ -30,6 +30,7 @@ object TypeAction {
       "disabled" -> disabled,
       "disabledBackground" -> disabledBackground
     )
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[TypeAction]
   }
 }

@@ -30,6 +30,7 @@ object ZIndex {
       "snackbar" -> snackbar,
       "tooltip" -> tooltip
     )
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[ZIndex]
   }
 }

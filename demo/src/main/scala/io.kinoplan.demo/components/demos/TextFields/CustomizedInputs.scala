@@ -40,12 +40,12 @@ object CustomizedInputs extends ScalaCssReactImplicits {
       ))
 
       val theme = createMuiTheme(ThemeOptions(
-        palette = Some(PaletteOptions(
-          primary = Some(colors.green)
-        )),
-        typography = Some(TypographyOptions(
-          useNextVariants = Some(true)
-        ))
+        palette = PaletteOptions(
+          primary = colors.green
+        ),
+        typography = TypographyOptions(
+          useNextVariants = true
+        )
       ))
 
       val inputBaseClasses = Map(

@@ -19,6 +19,7 @@ object Origin {
       "horizontal" -> horizontal,
       "vertical" -> vertical
     )
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[Origin]
   }
 }

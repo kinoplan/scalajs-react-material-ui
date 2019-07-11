@@ -11,11 +11,12 @@
 
 See the [demo](/demo) project.
 
-The project has almost all the examples in the js [Component Demos](https://v3.material-ui.com/getting-started/installation/) written in Scala!
+The project has almost all the examples in the js
+[Component Demos](https://v3.material-ui.com/getting-started/installation/) written in Scala!
 
 In the demo you can also find very detailed examples of using a bunch of [scala.js](http://scala-js.org), 
-[scalajs-react](https://github.com/japgolly/scalajs-react) and [scala-js-react-material-ui](https://github.com/kinoplan/scalajs-react-material-ui) 
-facade in Scala frontend!
+[scalajs-react](https://github.com/japgolly/scalajs-react), [scalacss](https://github.com/japgolly/scalacss)
+and [scalajs-react-material-ui](https://github.com/kinoplan/scalajs-react-material-ui) facade in Scala frontend!
 
 Start:
 1. `sbt`

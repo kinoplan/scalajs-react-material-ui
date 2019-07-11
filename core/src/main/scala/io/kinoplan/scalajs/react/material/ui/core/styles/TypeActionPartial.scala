@@ -15,21 +15,22 @@ trait TypeActionPartial extends js.Object {
 
 object TypeActionPartial {
   def apply(
-    active: Option[String] = None,
-    hover: Option[String] = None,
-    hoverOpacity: Option[Double] = None,
-    selected: Option[String] = None,
-    disabled: Option[String] = None,
-    disabledBackground: Option[String] = None
+    active: js.UndefOr[String] = js.undefined,
+    hover: js.UndefOr[String] = js.undefined,
+    hoverOpacity: js.UndefOr[Double] = js.undefined,
+    selected: js.UndefOr[String] = js.undefined,
+    disabled: js.UndefOr[String] = js.undefined,
+    disabledBackground: js.UndefOr[String] = js.undefined
   ) = {
     val o: Map[String, Any] = Seq(
-      active.map("active" -> _),
-      hover.map("hover" -> _),
-      hoverOpacity.map("hoverOpacity" -> _),
-      selected.map("selected" -> _),
-      disabled.map("disabled" -> _),
-      disabledBackground.map("disabledBackground" -> _)
+      active.toOption.map("active" -> _),
+      hover.toOption.map("hover" -> _),
+      hoverOpacity.toOption.map("hoverOpacity" -> _),
+      selected.toOption.map("selected" -> _),
+      disabled.toOption.map("disabled" -> _),
+      disabledBackground.toOption.map("disabledBackground" -> _)
     ).flatten.toMap
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[TypeActionPartial]
   }
 }

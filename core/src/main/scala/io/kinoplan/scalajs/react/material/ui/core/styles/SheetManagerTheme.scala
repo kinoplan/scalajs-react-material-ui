@@ -18,6 +18,7 @@ object SheetManagerTheme {
       "refs" -> refs,
       "sheet" -> sheet
     )
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[SheetManagerTheme]
   }
 }

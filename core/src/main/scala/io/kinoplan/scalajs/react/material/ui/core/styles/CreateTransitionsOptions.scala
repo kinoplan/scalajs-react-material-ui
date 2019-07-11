@@ -22,6 +22,7 @@ object CreateTransitionsOptions {
       easing.toOption.map("easing" -> _),
       delay.toOption.map("delay" -> _)
     ).flatten.toMap
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[CreateTransitionsOptions]
   }
 }

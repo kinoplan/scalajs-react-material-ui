@@ -26,6 +26,7 @@ object PaletteColor {
       "dark" -> dark,
       "contrastText" -> contrastText
     )
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[PaletteColor]
   }
 }

@@ -11,13 +11,14 @@ trait TypeBackgroundPartial extends js.Object {
 
 object TypeBackgroundPartial {
   def apply(
-    default: Option[String] = None,
-    paper: Option[String] = None
+    default: js.UndefOr[String] = js.undefined,
+    paper: js.UndefOr[String] = js.undefined
   ) = {
     val o: Map[String, Any] = Seq(
-      default.map("default" -> _),
-      paper.map("paper" -> _)
+      default.toOption.map("default" -> _),
+      paper.toOption.map("paper" -> _)
     ).flatten.toMap
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[TypeBackgroundPartial]
   }
 }

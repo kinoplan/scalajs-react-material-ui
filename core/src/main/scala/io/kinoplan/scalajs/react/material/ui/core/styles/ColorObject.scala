@@ -19,6 +19,7 @@ object ColorObject {
       "type" -> `type`,
       "values" -> values
     )
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[ColorObject]
   }
 }

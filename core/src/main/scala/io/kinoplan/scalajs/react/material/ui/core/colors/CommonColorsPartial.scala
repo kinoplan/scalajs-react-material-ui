@@ -11,13 +11,14 @@ trait CommonColorsPartial extends js.Object {
 
 object CommonColorsPartial {
   def apply(
-    black: Option[String] = None,
-    white: Option[String] = None
+    black: js.UndefOr[String] = js.undefined,
+    white: js.UndefOr[String] = js.undefined
   ) = {
     val o: Map[String, Any] = Seq(
-      black.map("black" -> _),
-      white.map("white" -> _)
+      black.toOption.map("black" -> _),
+      white.toOption.map("white" -> _)
     ).flatten.toMap
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[CommonColorsPartial]
   }
 }

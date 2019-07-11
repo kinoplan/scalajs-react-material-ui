@@ -54,6 +54,7 @@ object Color {
       "A400" -> `A400`,
       "A700" -> `A700`
     )
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[Color]
   }
 }

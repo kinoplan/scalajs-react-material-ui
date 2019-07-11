@@ -11,7 +11,7 @@ trait Theme extends js.Object {
   def mixins: Mixins = js.native
   def overrides: js.UndefOr[Overrides] = js.native
   def palette: Palette = js.native
-  def props: js.Object = js.native
+  def props: js.UndefOr[js.Object] = js.native
   def shadows: js.Array[String] = js.native
   def typography: Typography = js.native
   def transitions: Transitions = js.native
@@ -23,12 +23,12 @@ object Theme {
   def apply(
     shape: Shape,
     breakpoints: Breakpoints,
-    direction: Direction.Value = Direction.ltr,
+    direction: Direction.Value,
     mixins: Mixins,
-    overrides: Option[Overrides] = None,
+    overrides: js.UndefOr[Overrides] = js.undefined,
     palette: Palette,
-    props: Option[js.Object] = None,
-    shadows: Array[String],
+    props: js.UndefOr[js.Object] = js.undefined,
+    shadows: js.Array[String],
     spacing: Spacing,
     transitions: Transitions,
     typography: Typography,
@@ -39,9 +39,9 @@ object Theme {
       Some("breakpoints" -> breakpoints),
       Some("direction" -> direction.toString),
       Some("mixins" -> mixins),
-      overrides.map("overrides" -> _),
+      overrides.toOption.map("overrides" -> _),
       Some("palette" -> palette),
-      props.map("props" -> _),
+      props.toOption.map("props" -> _),
       Some("shadows" -> shadows),
       Some("spacing" -> spacing),
       Some("transitions" -> transitions),

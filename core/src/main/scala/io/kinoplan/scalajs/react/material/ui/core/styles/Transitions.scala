@@ -15,7 +15,7 @@ object Transitions {
   def apply(
     easing: Easing,
     duration: Duration,
-    create: js.Function2[js.Array[String], Option[CreateTransitionsOptions], String],
+    create: js.Function2[js.Array[String], js.UndefOr[CreateTransitionsOptions], String],
     getAutoHeightDuration: Double => Double
   ) = {
     val o: Map[String, Any] = Map(
@@ -24,6 +24,7 @@ object Transitions {
       "create" -> create,
       "getAutoHeightDuration" -> getAutoHeightDuration
     )
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[Transitions]
   }
 }

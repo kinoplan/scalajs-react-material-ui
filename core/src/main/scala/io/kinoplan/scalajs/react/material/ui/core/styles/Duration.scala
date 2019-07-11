@@ -33,6 +33,7 @@ object Duration {
       "enteringScreen" -> enteringScreen,
       "leavingScreen" -> leavingScreen
     )
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[Duration]
   }
 }

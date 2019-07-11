@@ -18,6 +18,7 @@ object CommonColors {
       "black" -> black,
       "white" -> white
     )
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[CommonColors]
   }
 }

@@ -24,6 +24,7 @@ object TypeText {
       "disabled" -> disabled,
       "hint" -> hint
     )
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[TypeText]
   }
 }

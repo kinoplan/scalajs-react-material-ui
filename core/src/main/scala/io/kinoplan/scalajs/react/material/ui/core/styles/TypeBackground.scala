@@ -18,6 +18,7 @@ object TypeBackground {
       "default" -> default,
       "paper" -> paper
     )
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[TypeBackground]
   }
 }

@@ -24,6 +24,7 @@ object ColorFormatValues {
       "hsl" -> hsl,
       "hsla" -> hsla
     )
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[ColorFormatValues]
   }
 }

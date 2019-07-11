@@ -35,9 +35,9 @@ object Dark extends TypeObject
 object Palette {
   def apply(
     common: CommonColors,
-    `type`: PaletteType.Value = PaletteType.dark,
+    `type`: PaletteType.Value,
     contrastThreshold: Int,
-    tonalOffset: Double = 0.2,
+    tonalOffset: Double,
     primary: PaletteColor,
     secondary: PaletteColor,
     error: PaletteColor,
@@ -65,6 +65,7 @@ object Palette {
       "getContrastText" -> getContrastText,
       "augmentColor" -> augmentColor
     )
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[Palette]
   }
 }

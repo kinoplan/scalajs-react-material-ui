@@ -17,24 +17,24 @@ trait TypographyOptions extends js.Object {
 
 object TypographyOptions {
   def apply(
-    pxToRem: Option[Int => String] = None,
-    round: Option[Double => Int] = None,
-    fontFamily: Option[String] = None,
-    fontSize: Option[Int] = None,
-    fontWeightLight: Option[Int] = None,
-    fontWeightRegular: Option[Int] = None,
-    fontWeightMedium: Option[Int] = None,
-    useNextVariants: Option[Boolean] = None
+    pxToRem: js.UndefOr[Int => String] = js.undefined,
+    round: js.UndefOr[Double => Int] = js.undefined,
+    fontFamily: js.UndefOr[String] = js.undefined,
+    fontSize: js.UndefOr[Int] = js.undefined,
+    fontWeightLight: js.UndefOr[Int] = js.undefined,
+    fontWeightRegular: js.UndefOr[Int] = js.undefined,
+    fontWeightMedium: js.UndefOr[Int] = js.undefined,
+    useNextVariants: js.UndefOr[Boolean] = js.undefined
   ): TypographyOptions = {
     val o: Map[String, Any] = Seq(
-      pxToRem.map("pxToRem" -> _),
-      round.map("round" -> _),
-      fontFamily.map("fontFamily" -> _),
-      fontSize.map("fontSize" -> _),
-      fontWeightLight.map("fontWeightLight" -> _),
-      fontWeightRegular.map("fontWeightRegular" -> _),
-      fontWeightMedium.map("fontWeightMedium" -> _),
-      useNextVariants.map("useNextVariants" -> _)
+      pxToRem.toOption.map("pxToRem" -> _),
+      round.toOption.map("round" -> _),
+      fontFamily.toOption.map("fontFamily" -> _),
+      fontSize.toOption.map("fontSize" -> _),
+      fontWeightLight.toOption.map("fontWeightLight" -> _),
+      fontWeightRegular.toOption.map("fontWeightRegular" -> _),
+      fontWeightMedium.toOption.map("fontWeightMedium" -> _),
+      useNextVariants.toOption.map("useNextVariants" -> _)
     ).flatten.toMap
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[TypographyOptions]

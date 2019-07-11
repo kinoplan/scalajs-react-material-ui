@@ -22,30 +22,30 @@ trait ThemeOptions extends js.Object {
 
 object ThemeOptions {
   def apply(
-    shape: Option[ShapeOptions] = None,
-    breakpoints: Option[BreakpointsOptions] = None,
-    direction: Option[Direction.Value] = None,
-    mixins: Option[MixinsOptions] = None,
-    overrides: Option[Overrides] = None,
-    palette: Option[PaletteOptions] = None,
-    props: Option[js.Object] = None,
-    shadows: Option[Array[String]] = None,
-    spacing: Option[SpacingOptions] = None,
-    transitions: Option[TransitionsOptions] = None,
-    typography: Option[TypographyOptions | js.Function1[Palette, TypographyOptions]] = None
+    shape: js.UndefOr[ShapeOptions] = js.undefined,
+    breakpoints: js.UndefOr[BreakpointsOptions] = js.undefined,
+    direction: js.UndefOr[Direction.Value] = js.undefined,
+    mixins: js.UndefOr[MixinsOptions] = js.undefined,
+    overrides: js.UndefOr[Overrides] = js.undefined,
+    palette: js.UndefOr[PaletteOptions] = js.undefined,
+    props: js.UndefOr[js.Object] = js.undefined,
+    shadows: js.UndefOr[js.Array[String]] = js.undefined,
+    spacing: js.UndefOr[SpacingOptions] = js.undefined,
+    transitions: js.UndefOr[TransitionsOptions] = js.undefined,
+    typography: js.UndefOr[TypographyOptions | js.Function1[Palette, TypographyOptions]] = js.undefined
   ) = {
     val o: Map[String, Any] = Seq(
-      shape.map("shape" -> _),
-      breakpoints.map("breakpoints" -> _),
-      direction.map("direction" -> _.toString),
-      mixins.map("mixins" -> _),
-      overrides.map("overrides" -> _),
-      palette.map("palette" -> _),
-      props.map("props" -> _),
-      shadows.map("shadows" -> _),
-      spacing.map("spacing" -> _),
-      transitions.map("transitions" -> _),
-      typography.map("typography" -> _)
+      shape.toOption.map("shape" -> _),
+      breakpoints.toOption.map("breakpoints" -> _),
+      direction.toOption.map("direction" -> _.toString),
+      mixins.toOption.map("mixins" -> _),
+      overrides.toOption.map("overrides" -> _),
+      palette.toOption.map("palette" -> _),
+      props.toOption.map("props" -> _),
+      shadows.toOption.map("shadows" -> _),
+      spacing.toOption.map("spacing" -> _),
+      transitions.toOption.map("transitions" -> _),
+      typography.toOption.map("typography" -> _)
     ).flatten.toMap
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[ThemeOptions]

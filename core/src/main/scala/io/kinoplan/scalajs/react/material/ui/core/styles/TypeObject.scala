@@ -24,6 +24,7 @@ object TypeObject {
       "divider" -> divider,
       "background" -> background
     )
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[TypeObject]
   }
 }

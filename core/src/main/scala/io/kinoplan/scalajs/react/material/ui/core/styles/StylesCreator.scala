@@ -21,6 +21,7 @@ object StylesCreator {
       "options" -> options,
       "themingEnabled" -> themingEnabled
     )
+    
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[StylesCreator]
   }
 }

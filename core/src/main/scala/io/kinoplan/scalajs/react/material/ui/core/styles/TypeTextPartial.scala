@@ -13,17 +13,18 @@ trait TypeTextPartial extends js.Object {
 
 object TypeTextPartial {
   def apply(
-    primary: Option[String] = None,
-    secondary: Option[String] = None,
-    disabled: Option[String] = None,
-    hint: Option[String] = None
+    primary: js.UndefOr[String] = js.undefined,
+    secondary: js.UndefOr[String] = js.undefined,
+    disabled: js.UndefOr[String] = js.undefined,
+    hint: js.UndefOr[String] = js.undefined
   ) = {
     val o: Map[String, Any] = Seq(
-      primary.map("primary" -> _),
-      secondary.map("secondary" -> _),
-      disabled.map("disabled" -> _),
-      hint.map("hint" -> _)
+      primary.toOption.map("primary" -> _),
+      secondary.toOption.map("secondary" -> _),
+      disabled.toOption.map("disabled" -> _),
+      hint.toOption.map("hint" -> _)
     ).flatten.toMap
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[TypeTextPartial]
   }
 }

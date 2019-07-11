@@ -1,5 +1,8 @@
 package io.kinoplan.scalajs.react.material.ui.core.styles
 
 object PaletteType extends Enumeration {
-  val light, dark = Value
+  type Value = String
+
+  val light = "light"
+  val dark = "dark"
 }

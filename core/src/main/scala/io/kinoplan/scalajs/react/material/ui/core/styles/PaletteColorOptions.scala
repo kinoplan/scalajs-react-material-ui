@@ -13,17 +13,18 @@ trait PaletteColorOptions extends js.Object {
 
 object PaletteColorOptions {
   def apply(
-    light: Option[String] = None,
+    light: js.UndefOr[String] = js.undefined,
     main: String,
-    dark: Option[String] = None,
-    contrastText: Option[String] = None
+    dark: js.UndefOr[String] = js.undefined,
+    contrastText: js.UndefOr[String] = js.undefined
   ) = {
     val o: Map[String, Any] = Seq(
-      light.map("light" -> _),
+      light.toOption.map("light" -> _),
       Some("main" -> main),
-      dark.map("dark" -> _),
-      contrastText.map("contrastText" -> _),
+      dark.toOption.map("dark" -> _),
+      contrastText.toOption.map("contrastText" -> _),
     ).flatten.toMap
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[PaletteColorOptions]
   }
 }

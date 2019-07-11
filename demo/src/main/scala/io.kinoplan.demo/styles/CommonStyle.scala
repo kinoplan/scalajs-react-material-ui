@@ -8,14 +8,12 @@ import io.kinoplan.scalajs.react.material.ui.core.styles.{PaletteOptions, ThemeO
 class CommonStyle extends StyleSheet.Inline {
   import dsl._
 
-  def theme = Layout.defaultTheme.getOrElse(createMuiTheme(options = ThemeOptions(
-    typography = Some(TypographyOptions(
-      useNextVariants = Some(true)
-    )),
-    palette = Some(PaletteOptions(
-      primary = Some(colors.blue)
-    ))
-  )))
+  def theme = Layout.defaultTheme.getOrElse(createMuiTheme(
+    options = ThemeOptions(
+      typography = TypographyOptions(useNextVariants = true),
+      palette = PaletteOptions(primary = colors.blue)
+    )
+  ))
 
   val gutters = style(
     paddingLeft((theme.spacing.unit * 2).px),

@@ -16,12 +16,8 @@ object CustomizedButtons extends ScalaCssReactImplicits {
       val css = props.style
 
       val theme = createMuiTheme(options = ThemeOptions(
-        typography = Some(TypographyOptions(
-          useNextVariants = Some(true)
-        )),
-        palette = Some(PaletteOptions(
-          primary = Some(colors.green)
-        ))
+        typography = TypographyOptions(useNextVariants = true),
+        palette = PaletteOptions(primary = colors.green)
       ))
 
       div(

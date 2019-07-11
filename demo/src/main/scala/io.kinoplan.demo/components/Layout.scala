@@ -5,8 +5,8 @@ import io.kinoplan.demo.router.AppRouter.Page
 import io.kinoplan.demo.styles.{DefaultLayoutStyle, LayoutStyle}
 import io.kinoplan.demo.utils.Helpers._
 import io.kinoplan.demo.utils.icons.{MuiLightBulbFullIcon, MuiLightBulbOutlineIcon}
-import io.kinoplan.scalajs.react.material.ui.core.styles._
 import io.kinoplan.scalajs.react.material.ui.core._
+import io.kinoplan.scalajs.react.material.ui.core.styles._
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiChevronLeftIcon, MuiMenuIcon, MuiNotificationsIcon}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.{Resolution, RouterCtl}
@@ -29,6 +29,8 @@ object Layout extends ScalaCssReactImplicits {
   ) {
     val isLightPaletteType = paletteType == PaletteType.light
 
+    val primaryMainColor = if (isLightPaletteType) "#2196f3" else "#fdd835"
+
     def handleDrawerOpen = copy(open = true)
     def handleDrawerClose = copy(open = false)
 
@@ -48,13 +50,15 @@ object Layout extends ScalaCssReactImplicits {
       val css = props.style
 
       val theme = createMuiTheme(options = ThemeOptions(
-        typography = Some(TypographyOptions(
-          useNextVariants = Some(true)
-        )),
-        palette = Some(PaletteOptions(
-          `type` = Some(state.paletteType),
-          primary = Some(colors.blue)
-        ))
+        typography = TypographyOptions(
+          useNextVariants = true
+        ),
+        palette = PaletteOptions(
+          `type` = state.paletteType,
+          primary = PaletteColorOptions(
+            main = state.primaryMainColor
+          )
+        )
       ))
 
       defaultTheme = Some(theme)

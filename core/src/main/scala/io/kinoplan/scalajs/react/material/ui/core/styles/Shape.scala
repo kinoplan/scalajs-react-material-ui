@@ -13,6 +13,7 @@ object Shape {
     val o = Map[String, Any](
       "borderRadius" -> borderRadius
     )
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[Shape]
   }
 }

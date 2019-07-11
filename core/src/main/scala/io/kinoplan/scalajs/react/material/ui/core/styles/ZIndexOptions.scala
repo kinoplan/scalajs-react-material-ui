@@ -15,21 +15,22 @@ trait ZIndexOptions extends js.Object {
 
 object ZIndexOptions {
   def apply(
-    mobileStepper: Option[Int] = None,
-    appBar: Option[Int] = None,
-    drawer: Option[Int] = None,
-    modal: Option[Int] = None,
-    snackbar: Option[Int] = None,
-    tooltip: Option[Int] = None
+    mobileStepper: js.UndefOr[Int] = js.undefined,
+    appBar: js.UndefOr[Int] = js.undefined,
+    drawer: js.UndefOr[Int] = js.undefined,
+    modal: js.UndefOr[Int] = js.undefined,
+    snackbar: js.UndefOr[Int] = js.undefined,
+    tooltip: js.UndefOr[Int] = js.undefined
   ): ZIndexOptions = {
     val o: Map[String, Any] = Seq(
-      mobileStepper.map("mobileStepper" -> _),
-      appBar.map("appBar" -> _),
-      drawer.map("drawer" -> _),
-      modal.map("modal" -> _),
-      snackbar.map("snackbar" -> _),
-      tooltip.map("tooltip" -> _)
+      mobileStepper.toOption.map("mobileStepper" -> _),
+      appBar.toOption.map("appBar" -> _),
+      drawer.toOption.map("drawer" -> _),
+      modal.toOption.map("modal" -> _),
+      snackbar.toOption.map("snackbar" -> _),
+      tooltip.toOption.map("tooltip" -> _)
     ).flatten.toMap
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[ZIndexOptions]
   }
 }

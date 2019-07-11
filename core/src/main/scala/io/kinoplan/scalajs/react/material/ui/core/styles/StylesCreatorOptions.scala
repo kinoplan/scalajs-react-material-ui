@@ -11,6 +11,7 @@ trait StylesCreatorOptions extends js.Object {
 object StylesCreatorOptions {
   def apply(index: Int) = {
     val o: Map[String, Any] = Map("index" -> index)
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[StylesCreatorOptions]
   }
 }

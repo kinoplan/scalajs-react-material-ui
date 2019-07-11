@@ -13,17 +13,18 @@ trait TransitionsOptions extends js.Object {
 
 object TransitionsOptions {
   def apply(
-    easing: Option[EasingPartial] = None,
-    duration: Option[DurationPartial] = None,
-    create: Option[js.Function2[js.Array[String], Option[CreateTransitionsOptions], String]] = None,
-    getAutoHeightDuration: Option[Double => Double] = None
+    easing: js.UndefOr[EasingPartial] = js.undefined,
+    duration: js.UndefOr[DurationPartial] = js.undefined,
+    create: js.UndefOr[js.Function2[js.Array[String], js.UndefOr[CreateTransitionsOptions], String]] = js.undefined,
+    getAutoHeightDuration: js.UndefOr[Double => Double] = js.undefined
   ) = {
     val o: Map[String, Any] = Seq(
-      easing.map("easing" -> _),
-      duration.map("duration" -> _),
-      create.map("create" -> _),
-      getAutoHeightDuration.map("getAutoHeightDuration" -> _)
+      easing.toOption.map("easing" -> _),
+      duration.toOption.map("duration" -> _),
+      create.toOption.map("create" -> _),
+      getAutoHeightDuration.toOption.map("getAutoHeightDuration" -> _)
     ).flatten.toMap
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[TransitionsOptions]
   }
 }

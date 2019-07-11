@@ -9,8 +9,8 @@ import scala.scalajs.js.|
 @js.native
 trait PaletteOptions extends js.Object {
   def primary: js.UndefOr[PaletteColorOptions | ColorPartial | Color] = js.native
-  def secondary: js.UndefOr[PaletteColorOptions | ColorPartial] = js.native
-  def error: js.UndefOr[PaletteColorOptions | ColorPartial] = js.native
+  def secondary: js.UndefOr[PaletteColorOptions | ColorPartial | Color] = js.native
+  def error: js.UndefOr[PaletteColorOptions | ColorPartial | Color] = js.native
   def `type`: js.UndefOr[String] = js.native
   def tonalOffset: js.UndefOr[Double] = js.native
   def constrastThreshold: js.UndefOr[Int] = js.native
@@ -25,35 +25,36 @@ trait PaletteOptions extends js.Object {
 
 object PaletteOptions {
   def apply(
-    primary: Option[PaletteColorOptions | ColorPartial | Color] = None,
-    secondary: Option[PaletteColorOptions | ColorPartial | Color] = None,
-    error: Option[PaletteColorOptions | ColorPartial | Color] = None,
-    `type`: Option[PaletteType.Value] = None,
-    tonalOffset: Option[Double] = None,
-    contrastThreshold: Option[Int] = None,
-    common: Option[CommonColorsPartial] = None,
-    grey: Option[ColorPartial] = None,
-    text: Option[TypeTextPartial] = None,
-    divider: Option[String] = None,
-    action: Option[TypeActionPartial] = None,
-    background: Option[TypeBackgroundPartial] = None,
-    getContrastText: Option[String => String] = None
+    primary: js.UndefOr[PaletteColorOptions | ColorPartial | Color] = js.undefined,
+    secondary: js.UndefOr[PaletteColorOptions | ColorPartial | Color] = js.undefined,
+    error: js.UndefOr[PaletteColorOptions | ColorPartial | Color] = js.undefined,
+    `type`: js.UndefOr[PaletteType.Value] = js.undefined,
+    tonalOffset: js.UndefOr[Double] = js.undefined,
+    contrastThreshold: js.UndefOr[Int] = js.undefined,
+    common: js.UndefOr[CommonColorsPartial] = js.undefined,
+    grey: js.UndefOr[ColorPartial] = js.undefined,
+    text: js.UndefOr[TypeTextPartial] = js.undefined,
+    divider: js.UndefOr[String] = js.undefined,
+    action: js.UndefOr[TypeActionPartial] = js.undefined,
+    background: js.UndefOr[TypeBackgroundPartial] = js.undefined,
+    getContrastText: js.UndefOr[String => String] = js.undefined
   ) = {
     val o: Map[String, Any] = Seq(
-      primary.map("primary" -> _),
-      secondary.map("secondary" -> _),
-      error.map("error" -> _),
-      `type`.map("type" -> _.toString),
-      tonalOffset.map("tonalOffset" -> _),
-      contrastThreshold.map("contrastThreshold" -> _),
-      common.map("common" -> _),
-      grey.map("grey" -> _),
-      text.map("text" -> _),
-      divider.map("divider" -> _),
-      action.map("action" -> _),
-      background.map("background" -> _),
-      getContrastText.map("getContrastText" -> _)
+      primary.toOption.map("primary" -> _),
+      secondary.toOption.map("secondary" -> _),
+      error.toOption.map("error" -> _),
+      `type`.toOption.map("type" -> _.toString),
+      tonalOffset.toOption.map("tonalOffset" -> _),
+      contrastThreshold.toOption.map("contrastThreshold" -> _),
+      common.toOption.map("common" -> _),
+      grey.toOption.map("grey" -> _),
+      text.toOption.map("text" -> _),
+      divider.toOption.map("divider" -> _),
+      action.toOption.map("action" -> _),
+      background.toOption.map("background" -> _),
+      getContrastText.toOption.map("getContrastText" -> _)
     ).flatten.toMap
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[PaletteOptions]
   }
 }

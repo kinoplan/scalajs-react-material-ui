@@ -11,13 +11,14 @@ trait Mixins extends js.Object {
 
 object Mixins {
   def apply(
-    gutters: Option[CSSProperties] => CSSProperties,
+    gutters: js.UndefOr[CSSProperties] => CSSProperties,
     toolbar: CSSProperties
   ) = {
     val o: Map[String, Any] = Map(
       "gutters" -> gutters,
       "toolbar" -> toolbar
     )
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[Mixins]
   }
 }

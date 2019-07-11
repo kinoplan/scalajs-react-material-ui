@@ -4,7 +4,7 @@ import scala.scalajs.js
 import scala.scalajs.js.JSConverters._
 
 @js.native
-trait Easing extends  js.Object {
+trait Easing extends js.Object {
   def easeInOut: String = js.native
   def easeOut: String = js.native
   def easeIn: String = js.native
