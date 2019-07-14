@@ -15,6 +15,9 @@ trait Palette extends js.Object {
   def primary: PaletteColor = js.native
   def secondary: PaletteColor = js.native
   def error: PaletteColor = js.native
+  def warning: PaletteColor = js.native
+  def success: PaletteColor = js.native
+  def info: PaletteColor = js.native
   def grey: Color = js.native
   def text: TypeText = js.native
   def divider: String = js.native
@@ -41,6 +44,9 @@ object Palette {
     primary: PaletteColor,
     secondary: PaletteColor,
     error: PaletteColor,
+    warning: PaletteColor,
+    success: PaletteColor,
+    info: PaletteColor,
     grey: Color,
     text: TypeText,
     divider: String,
@@ -57,6 +63,9 @@ object Palette {
       "primary" -> primary,
       "secondary" -> secondary,
       "error" -> error,
+      "warning" -> warning,
+      "success" -> success,
+      "info" -> info,
       "grey" -> grey,
       "text" -> text,
       "divider" -> divider,

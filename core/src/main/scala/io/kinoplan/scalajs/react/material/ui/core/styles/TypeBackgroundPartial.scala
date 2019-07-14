@@ -7,16 +7,19 @@ import scala.scalajs.js.JSConverters._
 trait TypeBackgroundPartial extends js.Object {
   def default: js.UndefOr[String] = js.native
   def paper: js.UndefOr[String] = js.native
+  def light: js.UndefOr[String] = js.native
 }
 
 object TypeBackgroundPartial {
   def apply(
     default: js.UndefOr[String] = js.undefined,
-    paper: js.UndefOr[String] = js.undefined
+    paper: js.UndefOr[String] = js.undefined,
+    light: js.UndefOr[String] = js.undefined
   ) = {
     val o: Map[String, Any] = Seq(
       default.toOption.map("default" -> _),
-      paper.toOption.map("paper" -> _)
+      paper.toOption.map("paper" -> _),
+      light.toOption.map("light" -> _)
     ).flatten.toMap
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[TypeBackgroundPartial]

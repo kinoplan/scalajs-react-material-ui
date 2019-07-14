@@ -11,6 +11,9 @@ trait PaletteOptions extends js.Object {
   def primary: js.UndefOr[PaletteColorOptions | ColorPartial | Color] = js.native
   def secondary: js.UndefOr[PaletteColorOptions | ColorPartial | Color] = js.native
   def error: js.UndefOr[PaletteColorOptions | ColorPartial | Color] = js.native
+  def warning: js.UndefOr[PaletteColorOptions | ColorPartial | Color] = js.native
+  def success: js.UndefOr[PaletteColorOptions | ColorPartial | Color] = js.native
+  def info: js.UndefOr[PaletteColorOptions | ColorPartial | Color] = js.native
   def `type`: js.UndefOr[String] = js.native
   def tonalOffset: js.UndefOr[Double] = js.native
   def constrastThreshold: js.UndefOr[Int] = js.native
@@ -28,6 +31,9 @@ object PaletteOptions {
     primary: js.UndefOr[PaletteColorOptions | ColorPartial | Color] = js.undefined,
     secondary: js.UndefOr[PaletteColorOptions | ColorPartial | Color] = js.undefined,
     error: js.UndefOr[PaletteColorOptions | ColorPartial | Color] = js.undefined,
+    warning: js.UndefOr[PaletteColorOptions | ColorPartial | Color] = js.undefined,
+    success: js.UndefOr[PaletteColorOptions | ColorPartial | Color] = js.undefined,
+    info: js.UndefOr[PaletteColorOptions | ColorPartial | Color] = js.undefined,
     `type`: js.UndefOr[PaletteType.Value] = js.undefined,
     tonalOffset: js.UndefOr[Double] = js.undefined,
     contrastThreshold: js.UndefOr[Int] = js.undefined,
@@ -43,7 +49,10 @@ object PaletteOptions {
       primary.toOption.map("primary" -> _),
       secondary.toOption.map("secondary" -> _),
       error.toOption.map("error" -> _),
-      `type`.toOption.map("type" -> _.toString),
+      warning.toOption.map("error" -> _),
+      success.toOption.map("error" -> _),
+      info.toOption.map("error" -> _),
+      `type`.toOption.map("type" -> _),
       tonalOffset.toOption.map("tonalOffset" -> _),
       contrastThreshold.toOption.map("contrastThreshold" -> _),
       common.toOption.map("common" -> _),

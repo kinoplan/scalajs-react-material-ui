@@ -14,6 +14,8 @@ import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._
 import scalacss.ScalaCssReactImplicits
 
+import scala.scalajs.js
+
 object Layout extends ScalaCssReactImplicits {
   var paletteValue: PaletteType.Value = PaletteType.light
 
@@ -57,6 +59,31 @@ object Layout extends ScalaCssReactImplicits {
           `type` = state.paletteType,
           primary = PaletteColorOptions(
             main = state.primaryMainColor
+          )
+        ),
+        overrides = Overrides(
+          MuiListItem = js.Dynamic.literal(
+            root = js.Dynamic.literal(
+              "&$" + "button" -> js.Dynamic.literal(
+                "&:hover, &:focus" -> js.Dynamic.literal(
+                  backgroundColor = "#F3F5FF"
+                )
+              ),
+              "&$" + "selected" -> js.Dynamic.literal(
+                "backgroundColor" -> "#F3F5FF !important",
+                "&:focus" -> js.Dynamic.literal(
+                  backgroundColor = "#F3F5FF"
+                )
+              )
+            )
+//            root = js.Dynamic.literal(
+//              "&$" + "button" -> js.Dynamic.literal(
+//                "&:hover, &:focus" -> js.Dynamic.literal(
+//                  backgroundColor = "#F3F5FF"
+//                )
+//              ),
+//              "&$" + "selected" -> styleAToClassName(css.selected)
+//            )
           )
         )
       ))

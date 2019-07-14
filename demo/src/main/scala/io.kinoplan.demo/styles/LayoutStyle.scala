@@ -112,6 +112,19 @@ case class LayoutStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSh
     flexGrow(1),
     padding((theme.spacing.unit * 3).px)
   )
+
+  val button = style(
+    (&.hover & &.focus)(
+      backgroundColor :=! "#5b7d38"
+    )
+  )
+
+  val selected = style(
+    backgroundColor :=! "#5b7d38 !important",
+    &.focus(
+      backgroundColor :=! "#5b7d38"
+    )
+  )
 }
 
 object DefaultLayoutStyle extends LayoutStyle

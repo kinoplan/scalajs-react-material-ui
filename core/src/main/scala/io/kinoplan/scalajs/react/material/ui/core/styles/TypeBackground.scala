@@ -7,16 +7,19 @@ import scala.scalajs.js.JSConverters._
 trait TypeBackground extends js.Object {
   def default: String = js.native
   def paper: String = js.native
+  def light: String = js.native
 }
 
 object TypeBackground {
   def apply(
     default: String,
-    paper: String
+    paper: String,
+    light: String
   ) = {
     val o: Map[String, Any] = Map(
       "default" -> default,
-      "paper" -> paper
+      "paper" -> paper,
+      "light" -> light
     )
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[TypeBackground]
