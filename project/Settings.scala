@@ -51,7 +51,7 @@ object Settings {
     "react-swipeable-views"       -> versions.npm.reactSwipeableViews,
     "react-swipeable-views-utils" -> versions.npm.reactSwipeableViews,
     "@material-ui/core"           -> versions.npm.materialUi,
-    "@material-ui/icons"          -> versions.npm.materialUiIcons,
+    "@material-ui/icons"          -> versions.npm.materialUiIcons
   ))
 
   def generateColors(src: File, npm: File): Seq[File] = {
