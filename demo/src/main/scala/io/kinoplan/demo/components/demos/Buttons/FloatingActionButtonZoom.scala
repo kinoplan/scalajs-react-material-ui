@@ -1,5 +1,6 @@
 package io.kinoplan.demo.components.demos.Buttons
 
+import io.kinoplan.demo.components.wrappers.SwipeableViews
 import io.kinoplan.demo.components.{ComponentContainer, Layout, TabContainer}
 import io.kinoplan.demo.models.Buttons.Fab
 import io.kinoplan.demo.styles.demos.Buttons.{DefaultFloatingActionButtonsZoomStyle, FloatingActionButtonsZoomStyle}
@@ -11,6 +12,7 @@ import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
+import typings.reactDashSwipeableDashViews.{reactDashSwipeableDashViewsStrings => SwipeableViewsStrings}
 
 import scala.scalajs.js
 
@@ -26,8 +28,8 @@ object FloatingActionButtonZoom extends ScalaCssReactImplicits {
       t.modState(_.handleChange(value))
     }
 
-    def handleChangeIndex: (Int, Int, js.Object) => Callback = (index, _, _) => {
-      t.modState(_.handleChange(index))
+    def handleChangeIndex: (Double, Double) => Unit = (index, _) => {
+      t.modState(_.handleChange(index)).runNow()
     }
 
     def render(props: Props, state: State): VdomElement = {
@@ -45,9 +47,9 @@ object FloatingActionButtonZoom extends ScalaCssReactImplicits {
       val transitionDuration = js.Dynamic.literal(enter = enter, exit = exit)
 
       val swipeableViewsAxis = if (css.theme.direction == Direction.rtl.toString) {
-        SwipeableViews.Axis.xReverse
+        SwipeableViewsStrings.`x-reverse`
       } else {
-        SwipeableViews.Axis.x
+        SwipeableViewsStrings.x
       }
 
       div(

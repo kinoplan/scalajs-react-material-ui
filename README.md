@@ -5,7 +5,6 @@
 [scalajs-react](https://github.com/japgolly/scalajs-react) facade for :
 * [@material-ui/core v3.9.0](https://github.com/mui-org/material-ui/tree/v3.x/packages/material-ui)
 * [@material-ui/icons v3.0.2](https://github.com/mui-org/material-ui/tree/v3.x/packages/material-ui-icons)
-* [react-swipeable-views v0.13.3](https://github.com/oliviertassinari/react-swipeable-views)
 
 ## Demo
 

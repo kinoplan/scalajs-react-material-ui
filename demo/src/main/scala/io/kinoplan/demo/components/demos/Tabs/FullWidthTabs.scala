@@ -1,13 +1,15 @@
 package io.kinoplan.demo.components.demos.Tabs
 
+import io.kinoplan.demo.components.wrappers.SwipeableViews
 import io.kinoplan.demo.components.{ComponentContainer, Layout, TabContainer}
 import io.kinoplan.demo.styles.demos.Tabs.{DefaultFullWidthTabsStyle, FullWidthTabsStyle}
 import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.scalajs.react.material.ui.core.styles.Direction
-import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiTab, MuiTabs, SwipeableViews}
+import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiTab, MuiTabs}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
+import typings.reactDashSwipeableDashViews.{reactDashSwipeableDashViewsStrings => SwipeableViewsStrings}
 
 import scala.scalajs.js
 
@@ -23,17 +25,17 @@ object FullWidthTabs extends ScalaCssReactImplicits {
       t.modState(_.handleChange(value))
     }
 
-    def handleChangeIndex: (Int, Int, js.Object) => Callback = (index, _, _) => {
-      t.modState(_.handleChange(index))
+    def handleChangeIndex: (Double, Double) => Unit = (index, _) => {
+      t.modState(_.handleChange(index)).runNow()
     }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
 
       val swipeableViewsAxis = if (css.theme.direction == Direction.rtl.toString) {
-        SwipeableViews.Axis.xReverse
+        SwipeableViewsStrings.`x-reverse`
       } else {
-        SwipeableViews.Axis.x
+        SwipeableViewsStrings.x
       }
 
       div(

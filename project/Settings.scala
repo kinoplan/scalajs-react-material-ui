@@ -1,5 +1,6 @@
 import sbt._
 import org.portablescala.sbtplatformdeps.PlatformDepsPlugin.autoImport._
+import org.scalablytyped.sbt.ScalablyTypedPlugin.autoImport.ScalablyTyped
 
 object Settings {
   val version = "0.0.1"
@@ -9,19 +10,19 @@ object Settings {
   val description = "scalajs-react facade for material-ui"
 
   object versions {
-    val scala = "2.12.8"
+    val scala = "2.12.10"
 
     object bundler {
-      val webpack = "4.33.0"
-      val webpackDev = "3.7.0"
-      val webpackCli = "3.3.2"
+      val webpack = "4.41.2"
+      val webpackDev = "3.9.0"
+      val webpackCli = "3.3.9"
     }
 
     object scalajs {
       val scalajsReact = "1.4.2"
       val scalaCss = "0.5.6"
       val scalajsDom = "0.9.7"
-      val catsCore = "2.0.0-M1"
+      val catsCore = "2.0.0"
       val scalajsReactBridge = "0.8.0"
     }
 
@@ -42,14 +43,14 @@ object Settings {
     "com.github.japgolly.scalacss"      %% "ext-scalatags"         % versions.scalajs.scalaCss,
     "org.scala-js"                      %%% "scalajs-dom"          % versions.scalajs.scalajsDom,
     "org.typelevel"                     %%% "cats-core"            % versions.scalajs.catsCore,
-    "com.payalabs"                      %%% "scalajs-react-bridge" % versions.scalajs.scalajsReactBridge
+    "com.payalabs"                      %%% "scalajs-react-bridge" % versions.scalajs.scalajsReactBridge,
+    ScalablyTyped.R.`react-swipeable-views`
   ))
 
   val npmDependencies = Def.setting(Seq(
     "react"                       -> versions.npm.react,
     "react-dom"                   -> versions.npm.react,
     "react-swipeable-views"       -> versions.npm.reactSwipeableViews,
-    "react-swipeable-views-utils" -> versions.npm.reactSwipeableViews,
     "@material-ui/core"           -> versions.npm.materialUi,
     "@material-ui/icons"          -> versions.npm.materialUiIcons
   ))
