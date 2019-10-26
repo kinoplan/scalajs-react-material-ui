@@ -1,11 +1,13 @@
 package io.kinoplan.scalajs.react.material.ui.utils
 
+import com.payalabs.scalajs.react.bridge.WithPropsAndTagsMods
 import io.kinoplan.scalajs.react.material.ui.core.{MuiSvgIcon, MuiSvgIconExtensions, OptComponentPropType}
+import japgolly.scalajs.react.vdom.TagMod
 import japgolly.scalajs.react.vdom.all._
 
 import scala.scalajs.js
 
-case class MuiSvgIconCustom(customValue: VdomNode) extends MuiSvgIconExtensions {
+case class MuiSvgIconCustom(attrs: TagMod*) extends MuiSvgIconExtensions {
   def apply(
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     color: js.UndefOr[Color.Value] = js.undefined,
@@ -15,7 +17,7 @@ case class MuiSvgIconCustom(customValue: VdomNode) extends MuiSvgIconExtensions 
     shapeRendering: js.UndefOr[String] = js.undefined,
     titleAccess: js.UndefOr[String] = js.undefined,
     viewBox: js.UndefOr[String] = js.undefined
-  )(implicit children: VdomNode = EmptyVdom): VdomElement = {
+  )(implicit attrAndChildren: TagMod*): WithPropsAndTagsMods = {
     MuiSvgIcon(
       classes,
       color,
@@ -26,8 +28,8 @@ case class MuiSvgIconCustom(customValue: VdomNode) extends MuiSvgIconExtensions 
       titleAccess,
       viewBox
     )(
-      children,
-      customValue
+      attrs.toTagMod(identity),
+      attrAndChildren.toTagMod(identity)
     )
   }
 }

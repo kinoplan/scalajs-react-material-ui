@@ -102,7 +102,7 @@ object Layout extends ScalaCssReactImplicits {
                   Attr("data-ga-event-category") := "AppBar",
                   Attr("data-ga-event-action") := "dark",
                   onClick --> handlePaletteTypeChange,
-                  if (state.isLightPaletteType) MuiLightBulbOutlineIcon() else MuiLightBulbFullIcon()
+                  if (state.isLightPaletteType) MuiLightBulbOutlineIcon()() else MuiLightBulbFullIcon()()
                 )
               ),
               MuiIconButton(color = MuiIconButton.Color.inherit)(
