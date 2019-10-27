@@ -19,8 +19,10 @@ object CustomizedDialog extends ScalaCssReactImplicits {
   class Backend(t: BackendScope[Props, State]) {
     def handleClickOpen = t.modState(_.handleClickOpen)
 
-    def handleClickClose: ReactEvent => Callback = _ => {
-      t.modState(_.handleClickClose)
+    def handleClickClose: Callback = t.modState(_.handleClickClose)
+
+    def onClose: (ReactEvent, String) => Callback = (_, _) => {
+      handleClickClose
     }
 
     def render(props: Props, state: State): VdomElement = {
@@ -33,7 +35,7 @@ object CustomizedDialog extends ScalaCssReactImplicits {
               onClick --> handleClickOpen,
               "Open simple dialog"
             ),
-            MuiDialog(open = state.open, onClose = handleClickClose)(
+            MuiDialog(open = state.open, onClose = onClose)(
               aria.labelledBy := "customized-dialog-title",
               CustomizedDialogTitleWrapped(handleClickClose),
               MuiDialogContent()(css.customizedDialogContent,
@@ -58,7 +60,7 @@ object CustomizedDialog extends ScalaCssReactImplicits {
               ),
               MuiDialogActions()(css.customizedDialogActions,
                 MuiButton(color = MuiButton.Color.primary)(
-                  onClick ==> handleClickClose,
+                  onClick --> handleClickClose,
                   "Save changes"
                 )
               )

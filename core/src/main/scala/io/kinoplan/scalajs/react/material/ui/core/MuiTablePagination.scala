@@ -40,32 +40,6 @@ object MuiTablePagination extends ReactBridgeComponent with MuiTablePaginationEx
 }
 
 trait MuiTablePaginationExtensions {
-  object ClassKey extends Enumeration {
-    type Value = String
-
-    val root = "root"
-    val toolbar = "toolbar"
-    val spacer = "spacer"
-    val caption = "caption"
-    val selectRoot = "selectRoot"
-    val select = "select"
-    val selectIcon = "selectIcon"
-    val input = "input"
-    val menuItem = "menuItem"
-    val actions = "actions"
-    val head = "head"
-    val body = "body"
-    val footer = "footer"
-    val numeric	= "numeric"
-    val paddingDense = "paddingDense"
-    val paddingCheckbox = "paddingCheckbox"
-    val paddingNone = "paddingNone"
-    val alignLeft = "alignLeft"
-    val alignCenter = "alignCenter"
-    val alignRight = "alignRight"
-    val alignJustify = "alignJustify"
-  }
-
   object Alignment extends Enumeration {
     type Value = String
 
@@ -98,5 +72,31 @@ trait MuiTablePaginationExtensions {
     val head = "head"
     val body = "body"
     val footer = "footer"
+  }
+
+  object ClassKey extends Enumeration {
+    type Value = String
+
+    val root = "root"
+    val toolbar = "toolbar"
+    val spacer = "spacer"
+    val caption = "caption"
+    val selectRoot = "selectRoot"
+    val select = "select"
+    val selectIcon = "selectIcon"
+    val input = "input"
+    val menuItem = "menuItem"
+    val actions = "actions"
+    val head = "head"
+    val body = "body"
+    val footer = "footer"
+    val numeric	= "numeric"
+    val paddingDense = "paddingDense"
+    val paddingCheckbox = "paddingCheckbox"
+    val paddingNone = "paddingNone"
+    val alignLeft = "alignLeft"
+    val alignCenter = "alignCenter"
+    val alignRight = "alignRight"
+    val alignJustify = "alignJustify"
   }
 }

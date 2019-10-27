@@ -56,5 +56,10 @@ trait MuiOutlinedInputExtensions {
     val inputMultiline = "inputMultiline"
     val inputAdornedStart = "inputAdornedStart"
     val inputAdornedEnd = "inputAdornedEnd"
+    val formControl = "formControl"
+    val marginDense = "marginDense"
+    val fullWidth = "fullWidth"
+    val inputType = "inputType"
+    val inputTypeSearch = "inputTypeSearch"
   }
 }

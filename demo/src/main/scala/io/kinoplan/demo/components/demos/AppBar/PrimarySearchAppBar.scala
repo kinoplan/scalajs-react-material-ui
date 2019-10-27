@@ -35,8 +35,10 @@ object PrimarySearchAppBar extends ScalaCssReactImplicits {
       t.modState(_.handleProfileMenuOpen(target))
     }
 
-    def handleProfileMenuClose: ReactEvent => Callback = e => {
-      t.modState(_.handleProfileMenuClose)
+    def handleProfileMenuClose: Callback = t.modState(_.handleProfileMenuClose)
+
+    def onCloseProfile: (ReactEvent, String) => Callback = (_, _) => {
+      handleProfileMenuClose
     }
 
     def handleMobileMenuOpen(e: ReactEventFromHtml): Callback = {
@@ -45,7 +47,7 @@ object PrimarySearchAppBar extends ScalaCssReactImplicits {
       t.modState(_.handleMobileMenuOpen(target))
     }
 
-    def handleMobileMenuClose: ReactEvent => Callback = e => {
+    def handleMobileMenuClose: (ReactEvent, String) => Callback = (_, _) => {
       t.modState(_.handleMobileMenuClose)
     }
 
@@ -68,12 +70,12 @@ object PrimarySearchAppBar extends ScalaCssReactImplicits {
           anchorOrigin = Origin(vertical = "top", horizontal = "right"),
           transformOrigin = Origin(vertical = "top", horizontal = "right"),
           open = isMenuOpen,
-          onClose = handleProfileMenuClose
+          onClose = onCloseProfile
         )(
-          MuiMenuItem()(onClick ==> handleProfileMenuClose,
+          MuiMenuItem()(onClick --> handleProfileMenuClose,
             "Profile"
           ),
-          MuiMenuItem()(onClick ==> handleProfileMenuClose,
+          MuiMenuItem()(onClick --> handleProfileMenuClose,
             "My account"
           )
         )

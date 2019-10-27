@@ -20,7 +20,9 @@ object MuiInputLabel extends ReactBridgeComponent with MuiInputLabelExtensions {
     FormLabelClasses: js.UndefOr[js.Object] = js.undefined,
     margin: js.UndefOr[Margin.Value] = js.undefined,
     shrink: js.UndefOr[Boolean] = js.undefined,
-    variant: js.UndefOr[Variant.Value] = js.undefined
+    variant: js.UndefOr[Variant.Value] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    filled: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }
 
@@ -53,5 +55,6 @@ trait MuiInputLabelExtensions {
     val animated = "animated"
     val filled = "filled"
     val outlined = "outlined"
+    val asterisk = "asterisk"
   }
 }

@@ -13,7 +13,17 @@ object MuiCardActionArea extends ReactBridgeComponent with MuiCardActionAreaExte
   object RawComponent extends js.Function
 
   def apply(
-    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    action: js.UndefOr[js.Function] = js.undefined,
+    buttonRef: OptComponentRefType = js.undefined,
+    centerRipple: js.UndefOr[Boolean] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    disableRipple: js.UndefOr[Boolean] = js.undefined,
+    disableTouchRipple: js.UndefOr[Boolean] = js.undefined,
+    focusRipple: js.UndefOr[Boolean] = js.undefined,
+    focusVisibleClassName: js.UndefOr[String] = js.undefined,
+    onFocusVisible: js.UndefOr[js.Function] = js.undefined,
+    TouchRippleProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
 }
 
@@ -24,5 +34,6 @@ trait MuiCardActionAreaExtensions {
     val root = "root"
     val focusVisible = "focusVisible"
     val focusHighlight = "focusHighlight"
+    val disabled = "disabled"
   }
 }

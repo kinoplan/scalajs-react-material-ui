@@ -1,6 +1,7 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.material.ui.core.internal.PaperClassKey
 import japgolly.scalajs.react.vdom.html_<^._
 
 import scala.scalajs.js
@@ -21,7 +22,10 @@ object MuiMobileStepper extends ReactBridgeComponent with MuiMobileStepperExtens
     nextButton: js.UndefOr[VdomNode] = js.undefined,
     position: js.UndefOr[Position.Value] = js.undefined,
     steps: Int,
-    variant: js.UndefOr[Variant.Value] = js.undefined
+    variant: js.UndefOr[Variant.Value] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    elevation: js.UndefOr[Int] = js.undefined,
+    square: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }
 
@@ -42,10 +46,10 @@ trait MuiMobileStepperExtensions {
     val progress = "progress"
   }
 
-  object ClassKey extends Enumeration {
+  object ClassKey extends Enumeration with PaperClassKey {
     type Value = String
 
-    val root = "root"
+    override val root = "root"
     val positionBottom = "positionBottom"
     val positionTop = "positionTop"
     val positionStatic = "positionStatic"

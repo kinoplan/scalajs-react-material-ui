@@ -16,8 +16,10 @@ object FormDialog {
   class Backend(t: BackendScope[Unit, State]) {
     def handleClickOpen = t.modState(_.handleClickOpen)
 
-    def handleClickClose: ReactEvent => Callback = _ => {
-      t.modState(_.handleClickClose)
+    def handleClickClose: Callback = t.modState(_.handleClickClose)
+
+    def onClose: (ReactEvent, String) => Callback = (_, _) => {
+      handleClickClose
     }
 
     def render(state: State): VdomElement = {
@@ -28,7 +30,7 @@ object FormDialog {
               onClick --> handleClickOpen,
               "Open form dialog"
             ),
-            MuiDialog(open = state.open, onClose = handleClickClose)(
+            MuiDialog(open = state.open, onClose = onClose)(
               aria.labelledBy := "form-dialog-title",
               MuiDialogTitle()(id := "form-dialog-title", "Subscribe"),
               MuiDialogContent()(
@@ -48,11 +50,11 @@ object FormDialog {
               ),
               MuiDialogActions()(
                 MuiButton(color = MuiButton.Color.primary)(
-                  onClick ==> handleClickClose,
+                  onClick --> handleClickClose,
                   "Cancel"
                 ),
                 MuiButton(color = MuiButton.Color.primary)(
-                  onClick ==> handleClickClose,
+                  onClick --> handleClickClose,
                   "Subscribe"
                 )
               )

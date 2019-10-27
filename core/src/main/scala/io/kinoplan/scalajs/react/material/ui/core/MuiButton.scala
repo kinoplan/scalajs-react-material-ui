@@ -22,7 +22,14 @@ object MuiButton extends ReactBridgeComponent with MuiButtonExtensions {
     mini: js.UndefOr[Boolean] = js.undefined,
     size: js.UndefOr[Size.Value] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined,
-    buttonRef: OptComponentRefType = js.undefined
+    buttonRef: OptComponentRefType = js.undefined,
+    action: js.UndefOr[js.Function] = js.undefined,
+    centerRipple: js.UndefOr[Boolean] = js.undefined,
+    disableTouchRipple: js.UndefOr[Boolean] = js.undefined,
+    focusRipple: js.UndefOr[Boolean] = js.undefined,
+    focusVisibleClassName: js.UndefOr[String] = js.undefined,
+    onFocusVisible: js.UndefOr[js.Function] = js.undefined,
+    TouchRippleProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
 }
 

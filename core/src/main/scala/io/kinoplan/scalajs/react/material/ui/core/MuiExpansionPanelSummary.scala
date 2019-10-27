@@ -16,7 +16,17 @@ object MuiExpansionPanelSummary extends ReactBridgeComponent with MuiExpansionPa
   def apply(
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     expandIcon: js.UndefOr[VdomNode] = js.undefined,
-    IconButtonProps: js.UndefOr[js.Object]= js.undefined
+    IconButtonProps: js.UndefOr[js.Object]= js.undefined,
+    action: js.UndefOr[js.Function] = js.undefined,
+    buttonRef: OptComponentRefType = js.undefined,
+    centerRipple: js.UndefOr[Boolean] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    disableRipple: js.UndefOr[Boolean] = js.undefined,
+    disableTouchRipple: js.UndefOr[Boolean] = js.undefined,
+    focusRipple: js.UndefOr[Boolean] = js.undefined,
+    focusVisibleClassName: js.UndefOr[String] = js.undefined,
+    onFocusVisible: js.UndefOr[js.Function] = js.undefined,
+    TouchRippleProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
 }
 
@@ -30,5 +40,6 @@ trait MuiExpansionPanelSummaryExtensions {
     val disabled = "disabled"
     val content = "content"
     val expandIcon = "expandIcon"
+    val focusVisible = "focusVisible"
   }
 }

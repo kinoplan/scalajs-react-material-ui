@@ -19,7 +19,14 @@ object MuiLink extends ReactBridgeComponent with MuiLinkExtensions {
     component: OptComponentPropType = js.undefined,
     TypographyClasses: js.UndefOr[js.Object] = js.undefined,
     underline: js.UndefOr[Underline.Value] = js.undefined,
-    variant: js.UndefOr[String] = js.undefined
+    variant: js.UndefOr[String] = js.undefined,
+    align: js.UndefOr[Alignment.Value] = js.undefined,
+    gutterBottom: js.UndefOr[Boolean] = js.undefined,
+    headlineMapping: js.UndefOr[js.Object] = js.undefined,
+    inline: js.UndefOr[Boolean] = js.undefined,
+    internalDeprecatedVariant: js.UndefOr[Boolean] = js.undefined,
+    noWrap: js.UndefOr[Boolean] = js.undefined,
+    paragraph: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }
 
@@ -27,6 +34,7 @@ trait MuiLinkExtensions {
   object Color extends Enumeration {
     type Value = String
 
+    val default = "default"
     val error = "error"
     val inherit = "inherit"
     val primary = "primary"
@@ -41,6 +49,16 @@ trait MuiLinkExtensions {
     val none = "none"
     val hover = "hover"
     val always = "always"
+  }
+
+  object Alignment extends Enumeration {
+    type Value = String
+
+    val inherit = "inherit"
+    val left = "left"
+    val center = "center"
+    val right = "right"
+    val justify = "justify"
   }
 
   object ClassKey extends Enumeration {

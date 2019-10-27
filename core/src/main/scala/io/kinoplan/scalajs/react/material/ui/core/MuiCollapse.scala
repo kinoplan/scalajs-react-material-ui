@@ -1,6 +1,7 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import org.scalajs.dom.html
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -18,10 +19,18 @@ object MuiCollapse extends ReactBridgeComponent with MuiCollapseExtensions {
     collapsedHeight: js.UndefOr[String] = js.undefined,
     component: OptComponentPropType = js.undefined,
     in: js.UndefOr[Boolean] = js.undefined,
-    timeout: js.UndefOr[Int | Timeout.Value] = js.undefined,
     mountOnEnter: js.UndefOr[Boolean] = js.undefined,
     unmountOnExit: js.UndefOr[Boolean] = js.undefined,
-    addEndListener: js.UndefOr[Boolean] = js.undefined
+    appear: js.UndefOr[Boolean] = js.undefined,
+    enter: js.UndefOr[Boolean] = js.undefined,
+    exit: js.UndefOr[Boolean] = js.undefined,
+    timeout: js.UndefOr[Int | Timeout.Value] = js.undefined,
+    onEnter: Handler1[html.Element] = js.undefined,
+    onEntering: Handler1[html.Element] = js.undefined,
+    onEntered: Handler1[html.Element] = js.undefined,
+    onExit: Handler1[html.Element] = js.undefined,
+    onExiting: Handler1[html.Element] = js.undefined,
+    onExited: Handler1[html.Element] = js.undefined
   ): WithProps = auto
 }
 

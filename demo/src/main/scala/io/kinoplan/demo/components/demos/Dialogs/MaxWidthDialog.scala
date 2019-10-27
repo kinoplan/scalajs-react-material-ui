@@ -25,8 +25,10 @@ object MaxWidthDialog extends ScalaCssReactImplicits {
   class Backend(t: BackendScope[Props, State]) {
     def handleClickOpen = t.modState(_.handleClickOpen)
 
-    def handleClickClose: ReactEvent => Callback = _ => {
-      t.modState(_.handleClickClose)
+    def handleClickClose: Callback = t.modState(_.handleClickClose)
+
+    def onClose: (ReactEvent, String) => Callback = (_, _) => {
+      handleClickClose
     }
 
     def handleFullWidthChange(e: ReactEventFromInput): Callback = {
@@ -61,7 +63,7 @@ object MaxWidthDialog extends ScalaCssReactImplicits {
                 fullWidth = state.fullWidth,
                 maxWidth = state.maxWidth,
                 open = state.open,
-                onClose = handleClickClose
+                onClose = onClose
               )(
                 aria.labelledBy := "max-width-dialog-title",
                 MuiDialogTitle()(
@@ -100,7 +102,7 @@ object MaxWidthDialog extends ScalaCssReactImplicits {
                 ),
                 MuiDialogActions()(
                   MuiButton(color = MuiButton.Color.primary)(
-                    onClick ==> handleClickClose,
+                    onClick --> handleClickClose,
                     "Close"
                   )
                 )

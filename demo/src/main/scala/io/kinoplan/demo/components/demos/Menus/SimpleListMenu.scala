@@ -35,7 +35,7 @@ object SimpleListMenu extends ScalaCssReactImplicits {
       t.modState(_.handleMenuItemClick(index))
     }
 
-    def handleClose: ReactEvent => Callback = _ => {
+    def onClose: (ReactEvent, String) => Callback = (_, _) => {
       t.modState(_.handleClose)
     }
 
@@ -64,7 +64,7 @@ object SimpleListMenu extends ScalaCssReactImplicits {
                 )
               )
             ),
-            MuiMenu(anchorEl = state.anchorEl.orUndefined, open = state.isMenuOpen, onClose = handleClose)(
+            MuiMenu(anchorEl = state.anchorEl.orUndefined, open = state.isMenuOpen, onClose = onClose)(
               id := "lock-menu",
               options.zipWithIndex.toVdomArray { case (option, index) =>
                 MuiMenuItem()(

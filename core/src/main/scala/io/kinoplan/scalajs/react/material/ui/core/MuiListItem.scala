@@ -33,14 +33,6 @@ trait MuiListItemExtensions {
     val center = "center"
   }
 
-  object Underline extends Enumeration {
-    type Value = String
-
-    val none = "none"
-    val hover = "hover"
-    val always = "always"
-  }
-
   object ClassKey extends Enumeration {
     type Value = String
 

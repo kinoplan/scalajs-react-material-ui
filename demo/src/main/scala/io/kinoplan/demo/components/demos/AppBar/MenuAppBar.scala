@@ -39,8 +39,10 @@ object MenuAppBar extends ScalaCssReactImplicits {
       t.modState(_.handleProfileMenuOpen(target))
     }
 
-    def handleProfileMenuClose: ReactEvent => Callback = e => {
-      t.modState(_.handleProfileMenuClose)
+    def handleProfileMenuClose: Callback = t.modState(_.handleProfileMenuClose)
+
+    def onClose: (ReactEvent, String) => Callback = (_, _) => {
+      handleProfileMenuClose
     }
 
     def render(props: Props, state: State): VdomElement = {
@@ -58,12 +60,12 @@ object MenuAppBar extends ScalaCssReactImplicits {
           anchorOrigin = Origin(vertical = "top", horizontal = "right"),
           transformOrigin = Origin(vertical = "top", horizontal = "right"),
           open = open,
-          onClose = handleProfileMenuClose,
+          onClose = onClose,
         )(
-          MuiMenuItem()(onClick ==> handleProfileMenuClose,
+          MuiMenuItem()(onClick --> handleProfileMenuClose,
             "Profile"
           ),
-          MuiMenuItem()(onClick ==> handleProfileMenuClose,
+          MuiMenuItem()(onClick --> handleProfileMenuClose,
             "My account"
           )
         )

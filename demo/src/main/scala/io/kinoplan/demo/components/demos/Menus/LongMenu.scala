@@ -28,8 +28,10 @@ object LongMenu extends ScalaCssReactImplicits {
       t.modState(_.handleClick(target))
     }
 
-    def handleClose: ReactEvent => Callback = _ => {
-      t.modState(_.handleClose)
+    def handleClickClose: Callback = t.modState(_.handleClose)
+
+    def onClose: (ReactEvent, String) => Callback = (_, _) => {
+      handleClickClose
     }
 
     val ITEM_HEIGHT = 48
@@ -69,7 +71,7 @@ object LongMenu extends ScalaCssReactImplicits {
             MuiMenu(
               anchorEl = state.anchorEl.orUndefined,
               open = state.isOpen,
-              onClose = handleClose,
+              onClose = onClose,
               PaperProps = MuiPaperProps(style = paperPropsStyle)
             )(
               id := "long-menu",
@@ -77,7 +79,7 @@ object LongMenu extends ScalaCssReactImplicits {
                 MuiMenuItem()(
                   Attr("key") := option,
                   selected := option == "Pyxis",
-                  onClick ==> handleClose,
+                  onClick --> handleClickClose,
                   option
                 )
               }

@@ -15,7 +15,7 @@ object SimpleDialogWrapped extends ScalaCssReactImplicits {
   case class Props(open: Boolean, onClose: js.Function1[String, Callback], selectedValue: String, style: DialogsStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def handleClose(props: Props): ReactEvent => Callback = _ => {
+    def handleClose(props: Props): (ReactEvent, String) => Callback = (_, _) => {
       props.onClose(props.selectedValue)
     }
 

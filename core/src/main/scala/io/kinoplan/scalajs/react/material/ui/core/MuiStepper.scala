@@ -1,6 +1,7 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.material.ui.core.internal.PaperClassKey
 import japgolly.scalajs.react.raw.React
 
 import scala.scalajs.js
@@ -19,7 +20,10 @@ object MuiStepper extends ReactBridgeComponent with MuiStepperExtensions {
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     connector: js.UndefOr[React.Element] = js.undefined,
     nonLinear: js.UndefOr[Boolean] = js.undefined,
-    orientation: js.UndefOr[Orientation.Value] = js.undefined
+    orientation: js.UndefOr[Orientation.Value] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    elevation: js.UndefOr[Int] = js.undefined,
+    square: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }
 
@@ -31,10 +35,10 @@ trait MuiStepperExtensions {
     val vertical = "vertical"
   }
 
-  object ClassKey extends Enumeration {
+  object ClassKey extends Enumeration with PaperClassKey {
     type Value = String
 
-    val root = "root"
+    override val root = "root"
     val horizontal = "horizontal"
     val vertical = "vertical"
     val alternativeLabel = "alternativeLabel"

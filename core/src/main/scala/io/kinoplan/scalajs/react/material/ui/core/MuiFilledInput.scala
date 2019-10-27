@@ -27,7 +27,7 @@ object MuiFilledInput extends ReactBridgeComponent with MuiFilledInputExtensions
     multiline: js.UndefOr[Boolean] = js.undefined,
     rows: js.UndefOr[String | Int] = js.undefined,
     rowsMax: js.UndefOr[String | Int] = js.undefined,
-    startAdornment: js.UndefOr[VdomNode] = js.undefined
+    startAdornment: js.UndefOr[VdomNode] = js.undefined,
   ): WithPropsNoChildren = autoNoChildren
 }
 
@@ -55,5 +55,10 @@ trait MuiFilledInputExtensions {
     val inputMultiline = "inputMultiline"
     val inputAdornedStart = "inputAdornedStart"
     val inputAdornedEnd = "inputAdornedEnd"
+    val formControl = "formControl"
+    val marginDense = "marginDense"
+    val fullWidth = "fullWidth"
+    val inputType = "inputType"
+    val inputTypeSearch = "inputTypeSearch"
   }
 }

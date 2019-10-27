@@ -28,6 +28,7 @@ object Settings {
 
     object npm {
       val react = "16.7.0"
+
       val reactSwipeableViews = "0.13.3"
 
       val materialUi = "3.9.0"
@@ -51,6 +52,7 @@ object Settings {
     "react"                       -> versions.npm.react,
     "react-dom"                   -> versions.npm.react,
     "react-swipeable-views"       -> versions.npm.reactSwipeableViews,
+    "react-swipeable-views-utils" -> versions.npm.reactSwipeableViews,
     "@material-ui/core"           -> versions.npm.materialUi,
     "@material-ui/icons"          -> versions.npm.materialUiIcons
   ))

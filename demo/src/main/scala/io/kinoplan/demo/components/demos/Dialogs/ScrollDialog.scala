@@ -15,8 +15,10 @@ object ScrollDialog {
   class Backend(t: BackendScope[Unit, State]) {
     def handleClickOpen(scroll: String) = t.modState(_.handleClickOpen(scroll))
 
-    def handleClose: ReactEvent => Callback = _ => {
-      t.modState(_.handleClose)
+    def handleClickClose: Callback = t.modState(_.handleClose)
+
+    def onClose: (ReactEvent, String) => Callback = (_, _) => {
+      handleClickClose
     }
 
     def render(state: State): VdomElement = {
@@ -31,7 +33,7 @@ object ScrollDialog {
               onClick --> handleClickOpen("body"),
               "scroll=body"
             ),
-            MuiDialog(open = state.open, onClose = handleClose, scroll = state.scroll)(
+            MuiDialog(open = state.open, onClose = onClose, scroll = state.scroll)(
               aria.labelledBy := "scroll-dialog-title",
               MuiDialogTitle()(id := "scroll-dialog-title", "Subscribe"),
               MuiDialogContent()(
@@ -76,11 +78,11 @@ object ScrollDialog {
               ),
               MuiDialogActions()(
                 MuiButton(color = MuiButton.Color.primary)(
-                  onClick ==> handleClose,
+                  onClick --> handleClickClose,
                   "Cancel"
                 ),
                 MuiButton(color = MuiButton.Color.primary)(
-                  onClick ==> handleClose,
+                  onClick --> handleClickClose,
                   autoFocus := true,
                   "Subscribe"
                 )

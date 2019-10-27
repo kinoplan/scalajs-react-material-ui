@@ -20,8 +20,10 @@ object FullScreenDialog extends ScalaCssReactImplicits {
   class Backend(t: BackendScope[Props, State]) {
     def handleClickOpen = t.modState(_.handleClickOpen)
 
-    def handleClickClose: ReactEvent => Callback = _ => {
-      t.modState(_.handleClickClose)
+    def handleClickClose: Callback = t.modState(_.handleClickClose)
+
+    def onClose: (ReactEvent, String) => Callback = (_, _) => {
+      handleClickClose
     }
 
     def render(props: Props, state: State): VdomElement = {
@@ -34,19 +36,19 @@ object FullScreenDialog extends ScalaCssReactImplicits {
               onClick --> handleClickOpen,
               "Open full-screen dialog"
             ),
-            MuiDialog(open = state.open, onClose = handleClickClose, fullScreen = true)(
+            MuiDialog(open = state.open, onClose = onClose, fullScreen = true)(
               MuiAppBar()(css.appBar,
                 MuiToolbar()(
                   MuiIconButton(color = MuiIconButton.Color.inherit)(
                     aria.label := "Close",
-                    onClick ==> handleClickClose,
+                    onClick --> handleClickClose,
                     MuiCloseIcon()
                   ),
                   MuiTypography(variant = MuiTypography.Variant.h6, color = MuiTypography.Color.inherit)(css.flexStyle,
                     "Sound"
                   ),
                   MuiButton(color = MuiButton.Color.inherit)(
-                    onClick ==> handleClickClose,
+                    onClick --> handleClickClose,
                     "save"
                   )
                 )
@@ -74,5 +76,3 @@ object FullScreenDialog extends ScalaCssReactImplicits {
 
   def apply(style: DialogsStyle = DefaultDialogsStyle) = component(Props(style))
 }
-
-

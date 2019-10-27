@@ -1,6 +1,7 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.material.ui.core.internal.PaperClassKey
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -15,7 +16,10 @@ object MuiAppBar extends ReactBridgeComponent with MuiAppBarExtensions {
   def apply(
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     color: js.UndefOr[Color.Value] = js.undefined,
-    position: js.UndefOr[Position.Value] = js.undefined
+    position: js.UndefOr[Position.Value] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    elevation: js.UndefOr[Int] = js.undefined,
+    square: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }
 
@@ -39,10 +43,10 @@ trait MuiAppBarExtensions {
     val relative = "relative"
   }
 
-  object ClassKey extends Enumeration {
+  object ClassKey extends Enumeration with PaperClassKey {
     type Value = String
 
-    val root = "root"
+    override val root = "root"
     val positionFixed = "positionFixed"
     val positionAbsolute = "positionAbsolute"
     val positionSticky = "positionSticky"

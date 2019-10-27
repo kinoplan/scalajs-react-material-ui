@@ -40,7 +40,21 @@ object MuiPopover extends ReactBridgeComponent with MuiPopoverExtensions {
     transformOrigin: js.UndefOr[Origin] = js.undefined,
     TransitionComponent: OptComponentPropType = js.undefined,
     transitionDuration: js.UndefOr[Int | js.Object | TransitionDuration.Value] = js.undefined,
-    TransitionProps: js.UndefOr[js.Object] = js.undefined
+    TransitionProps: js.UndefOr[js.Object] = js.undefined,
+    BackdropComponent: OptComponentPropType = js.undefined,
+    BackdropProps: js.UndefOr[js.Object] = js.undefined,
+    closeAfterTransition: js.UndefOr[Boolean] = js.undefined,
+    disableAutoFocus: js.UndefOr[Boolean] = js.undefined,
+    disableBackdropClick: js.UndefOr[Boolean] = js.undefined,
+    disableEnforceFocus: js.UndefOr[Boolean] = js.undefined,
+    disableEscapeKeyDown: js.UndefOr[Boolean] = js.undefined,
+    disablePortal: js.UndefOr[Boolean] = js.undefined,
+    disableRestoreFocus: js.UndefOr[Boolean] = js.undefined,
+    hideBackdrop: js.UndefOr[Boolean] = js.undefined,
+    keepMounted: js.UndefOr[Boolean] = js.undefined,
+    onBackdropClick: ReactHandler1[ReactEvent] = js.undefined,
+    onEscapeKeyDown: ReactHandler1[ReactEvent] = js.undefined,
+    onRendered: OptJsFun0 = js.undefined
   ): WithProps = auto
 }
 
@@ -63,5 +77,7 @@ trait MuiPopoverExtensions {
     type Value = String
 
     val paper = "paper"
+    val root = "root"
+    val hidden = "hidden"
   }
 }

@@ -27,7 +27,11 @@ object DialogSelect extends ScalaCssReactImplicits {
 
     def handleClickOpen: ReactEventFromInput => Callback = _ =>  t.modState(_.handleClickOpen)
 
-    def handleClose: ReactEvent => Callback = _ => t.modState(_.handleClose)
+    def handleClickClose: Callback = t.modState(_.handleClose)
+
+    def onClose: (ReactEvent, String) => Callback = (_, _) => {
+      handleClickClose
+    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
@@ -40,7 +44,7 @@ object DialogSelect extends ScalaCssReactImplicits {
               disableBackdropClick = true,
               disableEscapeKeyDown = true,
               open = state.open,
-              onClose = handleClose
+              onClose = onClose
             )(
               MuiDialogTitle()("Fill the form"),
               MuiDialogContent()(
@@ -73,8 +77,8 @@ object DialogSelect extends ScalaCssReactImplicits {
                 )
               ),
               MuiDialogActions()(
-                MuiButton(color = MuiButton.Color.primary)(onClick ==> handleClose, "Cancel"),
-                MuiButton(color = MuiButton.Color.primary)(onClick ==> handleClose, "Ok")
+                MuiButton(color = MuiButton.Color.primary)(onClick --> handleClickClose, "Cancel"),
+                MuiButton(color = MuiButton.Color.primary)(onClick --> handleClickClose, "Ok")
               )
             )
           )

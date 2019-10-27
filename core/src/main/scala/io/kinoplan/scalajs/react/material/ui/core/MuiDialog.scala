@@ -2,7 +2,7 @@ package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import japgolly.scalajs.react.ReactEvent
-import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.html
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -23,21 +23,32 @@ object MuiDialog extends ReactBridgeComponent with MuiDialogExtensions with JsWr
     fullWidth: js.UndefOr[Boolean] = js.undefined,
     maxWidth: js.UndefOr[Boolean | MaxWidth.Value] = js.undefined,
     onBackdropClick: ReactHandler1[ReactEvent] = js.undefined,
-    onClose: ReactHandler1[ReactEvent] = js.undefined,
-    onEnter: Handler2[HTMLElement, Boolean] = js.undefined,
-    onEntered: Handler2[HTMLElement, Boolean] = js.undefined,
-    onEntering: Handler2[HTMLElement, Boolean] = js.undefined,
+    onClose: ReactHandler2[ReactEvent, String] = js.undefined,
+    onEnter: Handler1[html.Element] = js.undefined,
+    onEntering: Handler1[html.Element] = js.undefined,
+    onEntered: Handler1[html.Element] = js.undefined,
+    onExit: Handler1[html.Element] = js.undefined,
+    onExiting: Handler1[html.Element] = js.undefined,
+    onExited: Handler1[html.Element] = js.undefined,
     onEscapeKeyDown: ReactHandler1[ReactEvent] = js.undefined,
-    onExit: Handler1[HTMLElement] = js.undefined,
-    onExited: Handler1[HTMLElement] = js.undefined,
-    onExiting: Handler1[HTMLElement] = js.undefined,
     open: Boolean,
     PaperComponent: OptComponentPropType = js.undefined,
     PaperProps: js.UndefOr[js.Object] = js.undefined,
     scroll: js.UndefOr[Scroll.Value] = js.undefined,
     TransitionComponent: OptComponentPropType = js.undefined,
     transitionDuration: js.UndefOr[Int | js.Object] = js.undefined,
-    TransitionProps: js.UndefOr[js.Object] = js.undefined
+    TransitionProps: js.UndefOr[js.Object] = js.undefined,
+    BackdropComponent: OptComponentPropType = js.undefined,
+    BackdropProps: js.UndefOr[js.Object] = js.undefined,
+    closeAfterTransition: js.UndefOr[Boolean] = js.undefined,
+    container: OptComponentContainerType = js.undefined,
+    disableAutoFocus: js.UndefOr[Boolean] = js.undefined,
+    disableEnforceFocus: js.UndefOr[Boolean] = js.undefined,
+    disablePortal: js.UndefOr[Boolean] = js.undefined,
+    disableRestoreFocus: js.UndefOr[Boolean] = js.undefined,
+    hideBackdrop: js.UndefOr[Boolean] = js.undefined,
+    keepMounted: js.UndefOr[Boolean] = js.undefined,
+    onRendered: OptJsFun0 = js.undefined
   ): WithProps = auto
 }
 
@@ -76,5 +87,6 @@ trait MuiDialogExtensions {
     val paperWidthXl = "paperWidthXl"
     val paperFullWidth = "paperFullWidth"
     val paperFullScreen = "paperFullScreen"
+    val hidden = "hidden"
   }
 }

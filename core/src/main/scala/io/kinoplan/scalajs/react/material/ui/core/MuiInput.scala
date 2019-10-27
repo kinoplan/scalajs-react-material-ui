@@ -55,5 +55,10 @@ trait MuiInputExtensions {
     val inputMultiline = "inputMultiline"
     val inputType = "inputType"
     val inputTypeSearch = "inputTypeSearch"
+    val adornedStart = "adornedStart"
+    val adornedEnd = "adornedEnd"
+    val marginDense = "marginDense"
+    val inputAdornedStart = "inputAdornedStart"
+    val inputAdornedEnd = "inputAdornedEnd"
   }
 }

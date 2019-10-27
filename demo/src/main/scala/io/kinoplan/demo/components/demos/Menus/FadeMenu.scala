@@ -26,8 +26,10 @@ object FadeMenu extends ScalaCssReactImplicits {
       t.modState(_.handleClick(target))
     }
 
-    def handleClose: ReactEvent => Callback = _ => {
-      t.modState(_.handleClose)
+    def handleClickClose: Callback = t.modState(_.handleClose)
+
+    def onClose: (ReactEvent, String) => Callback = (_, _) => {
+      handleClickClose
     }
 
     def render(state: State): VdomElement = {
@@ -45,13 +47,13 @@ object FadeMenu extends ScalaCssReactImplicits {
             MuiMenu(
               anchorEl = state.anchorEl.orUndefined,
               open = state.isMenuOpen,
-              onClose = handleClose,
+              onClose = onClose,
               TransitionComponent = MuiFade.RawComponent
             )(
               id := "fade-menu",
-              MuiMenuItem()(onClick ==> handleClose, "Profile"),
-              MuiMenuItem()(onClick ==> handleClose, "My account"),
-              MuiMenuItem()(onClick ==> handleClose, "Logout")
+              MuiMenuItem()(onClick --> handleClickClose, "Profile"),
+              MuiMenuItem()(onClick --> handleClickClose, "My account"),
+              MuiMenuItem()(onClick --> handleClickClose, "Logout")
             ).when(state.isMenuOpen)
           )
         )

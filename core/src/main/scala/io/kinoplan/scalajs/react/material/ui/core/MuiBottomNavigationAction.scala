@@ -17,7 +17,17 @@ object MuiBottomNavigationAction extends ReactBridgeComponent with MuiBottomNavi
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     icon: js.UndefOr[VdomNode] = js.undefined,
     label: js.UndefOr[VdomNode] = js.undefined,
-    showLabel: js.UndefOr[Boolean] = js.undefined
+    showLabel: js.UndefOr[Boolean] = js.undefined,
+    action: js.UndefOr[js.Function] = js.undefined,
+    buttonRef: OptComponentRefType = js.undefined,
+    centerRipple: js.UndefOr[Boolean] = js.undefined,
+    component: OptComponentPropType = js.undefined,
+    disableRipple: js.UndefOr[Boolean] = js.undefined,
+    disableTouchRipple: js.UndefOr[Boolean] = js.undefined,
+    focusRipple: js.UndefOr[Boolean] = js.undefined,
+    focusVisibleClassName: js.UndefOr[String] = js.undefined,
+    onFocusVisible: js.UndefOr[js.Function] = js.undefined,
+    TouchRippleProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
 }
 
@@ -30,5 +40,7 @@ trait MuiBottomNavigationActionExtensions {
     val iconOnly = "iconOnly"
     val wrapper = "wrapper"
     val label = "label"
+    val disabled = "disabled"
+    val focusVisible = "focusVisible"
   }
 }

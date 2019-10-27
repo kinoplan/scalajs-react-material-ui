@@ -15,8 +15,10 @@ object AlertDialog {
   class Backend(t: BackendScope[Unit, State]) {
     def handleClickOpen = t.modState(_.handleClickOpen)
 
-    def handleClickClose: ReactEvent => Callback = _ => {
-      t.modState(_.handleClickClose)
+    def handleClickClose: Callback = t.modState(_.handleClickClose)
+
+    def onClose: (ReactEvent, String) => Callback = (_, _) => {
+      handleClickClose
     }
 
     def render(state: State): VdomElement = {
@@ -27,7 +29,7 @@ object AlertDialog {
               onClick --> handleClickOpen,
               "Open simple dialog"
             ),
-            MuiDialog(open = state.open, onClose = handleClickClose)(
+            MuiDialog(open = state.open, onClose = onClose)(
               aria.labelledBy := "alert-dialog-title",
               aria.describedBy := "alert-dialog-description",
               MuiDialogTitle()(id := "alert-dialog-title", "Use Google's location service?"),
@@ -40,11 +42,11 @@ object AlertDialog {
               ),
               MuiDialogActions()(
                 MuiButton(color = MuiButton.Color.primary)(
-                  onClick ==> handleClickClose,
+                  onClick --> handleClickClose,
                   "Disagree"
                 ),
                 MuiButton(color = MuiButton.Color.primary)(
-                  onClick ==> handleClickClose,
+                  onClick --> handleClickClose,
                   autoFocus := true,
                   "Agree"
                 )

@@ -14,7 +14,7 @@ object MuiStep extends ReactBridgeComponent with MuiStepExtensions {
 
   def apply(
     active: js.UndefOr[Boolean] = js.undefined,
-    classes: Map[ClassKey.Value, String] = Map.empty,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     completed: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
 }

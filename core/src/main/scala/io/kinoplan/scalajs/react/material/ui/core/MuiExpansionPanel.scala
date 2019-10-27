@@ -1,6 +1,7 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.material.ui.core.internal.PaperClassKey
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -24,11 +25,11 @@ object MuiExpansionPanel extends ReactBridgeComponent with MuiExpansionPanelExte
 }
 
 trait MuiExpansionPanelExtensions {
-  object ClassKey extends Enumeration {
+  object ClassKey extends Enumeration with PaperClassKey {
     type Value = String
 
-    val root = "root"
-    val rounded = "rounded"
+    override val root = "root"
+    override val rounded = "rounded"
     val expanded = "expanded"
     val disabled = "disabled"
   }

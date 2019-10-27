@@ -30,7 +30,9 @@ object MuiTextField extends ReactBridgeComponent with MuiTextFieldExtensions wit
     rowsMax: js.UndefOr[String | Int] = js.undefined,
     select: js.UndefOr[Boolean] = js.undefined,
     SelectProps: js.UndefOr[js.Object] = js.undefined,
-    variant: js.UndefOr[Variant.Value] = js.undefined
+    variant: js.UndefOr[Variant.Value] = js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+    component: OptComponentPropType = js.undefined
   ): WithProps = auto
 }
 
@@ -49,5 +51,14 @@ trait MuiTextFieldExtensions {
     val standard = "standard"
     val outlined = "outlined"
     val filled = "filled"
+  }
+
+  object ClassKey extends Enumeration {
+    type Value = String
+
+    val root = "root"
+    val marginNormal = "marginNormal"
+    val marginDense = "marginDense"
+    val fullWidth = "fullWidth"
   }
 }
