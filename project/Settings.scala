@@ -1,6 +1,6 @@
 import sbt._
 import org.portablescala.sbtplatformdeps.PlatformDepsPlugin.autoImport._
-import org.scalablytyped.sbt.ScalablyTypedPlugin.autoImport.ScalablyTyped
+//import org.scalablytyped.sbt.ScalablyTypedPlugin.autoImport.ScalablyTyped
 
 object Settings {
   val version = "0.0.1"
@@ -15,28 +15,34 @@ object Settings {
     object bundler {
       val webpack = "4.41.2"
       val webpackDev = "3.9.0"
-      val webpackCli = "3.3.9"
+      val webpackCli = "3.3.10"
     }
 
     object scalajs {
       val scalajsReact = "1.4.2"
       val scalaCss = "0.5.6"
-      val scalajsDom = "0.9.7"
+      val scalajsDom = "0.9.8"
       val catsCore = "2.0.0"
-      val scalajsReactBridge = "0.8.0"
+      val scalajsReactBridge = "0.8.1"
+      val scalablyTypedRuntime = "2.1.0"
     }
 
     object npm {
       val react = "16.7.0"
 
-      val reactSwipeableViews = "0.13.3"
-
       val materialUi = "3.9.0"
       val materialUiIcons = "3.0.2"
+
+      val reactSwipeableViews = "0.13.3"
     }
   }
 
-  val scalajsDependencies = Def.setting(Seq(
+  val scalajsDependenciesLib = Def.setting(Seq(
+    "com.github.japgolly.scalajs-react" %%% "core"                 % versions.scalajs.scalajsReact,
+    "com.payalabs"                      %%% "scalajs-react-bridge" % versions.scalajs.scalajsReactBridge
+  ))
+
+  val scalajsDependenciesDemo = Def.setting(Seq(
     "com.github.japgolly.scalajs-react" %%% "core"                 % versions.scalajs.scalajsReact,
     "com.github.japgolly.scalajs-react" %%% "extra"                % versions.scalajs.scalajsReact,
     "com.github.japgolly.scalacss"      %%% "core"                 % versions.scalajs.scalaCss,
@@ -45,10 +51,25 @@ object Settings {
     "org.scala-js"                      %%% "scalajs-dom"          % versions.scalajs.scalajsDom,
     "org.typelevel"                     %%% "cats-core"            % versions.scalajs.catsCore,
     "com.payalabs"                      %%% "scalajs-react-bridge" % versions.scalajs.scalajsReactBridge,
-    ScalablyTyped.R.`react-swipeable-views`
+    "com.olvind"                        %%% "scalablytyped-runtime" % versions.scalajs.scalablyTypedRuntime
+//    Unmanaged jars in client/lib are used until the LTS version of sbt-scalablytyped appears
+//    ScalablyTyped.R.`react-swipeable-views`
   ))
 
-  val npmDependencies = Def.setting(Seq(
+  val npmDependenciesCore = Def.setting(Seq(
+    "react"                       -> versions.npm.react,
+    "react-dom"                   -> versions.npm.react,
+    "@material-ui/core"           -> versions.npm.materialUi
+  ))
+
+  val npmDependenciesIcons = Def.setting(Seq(
+    "react"                       -> versions.npm.react,
+    "react-dom"                   -> versions.npm.react,
+    "@material-ui/core"           -> versions.npm.materialUi,
+    "@material-ui/icons"          -> versions.npm.materialUiIcons
+  ))
+
+  val npmDependenciesDemo = Def.setting(Seq(
     "react"                       -> versions.npm.react,
     "react-dom"                   -> versions.npm.react,
     "react-swipeable-views"       -> versions.npm.reactSwipeableViews,

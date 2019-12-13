@@ -17,8 +17,8 @@ lazy val muiColorsGenerator = taskKey[Seq[File]]("mui-colors-generator")
 lazy val core = (project in file("core")).settings(commonSettings).settings(
   name := "scalajs-react-material-ui-core",
   scalaJSUseMainModuleInitializer  := false,
-  npmDependencies in Compile ++= Settings.npmDependencies.value,
-  libraryDependencies ++= Settings.scalajsDependencies.value,
+  npmDependencies in Compile ++= Settings.npmDependenciesCore.value,
+  libraryDependencies ++= Settings.scalajsDependenciesLib.value,
   muiColorsGenerator := Settings.generateColors(
     (sourceManaged in Compile).value / "io" / "kinoplan" / "scalajs" / "react" / "material" / "ui" / "core" / "colors",
     (npmInstallDependencies in Compile).value
@@ -31,8 +31,8 @@ lazy val muiIconsGenerator = taskKey[Seq[File]]("mui-icons-generator")
 lazy val icons = (project in file("icons")).settings(commonSettings).settings(
   name := "scalajs-react-material-ui-icons",
   scalaJSUseMainModuleInitializer  := false,
-  npmDependencies in Compile ++= Settings.npmDependencies.value,
-  libraryDependencies ++= Settings.scalajsDependencies.value,
+  npmDependencies in Compile ++= Settings.npmDependenciesIcons.value,
+  libraryDependencies ++= Settings.scalajsDependenciesLib.value,
   muiIconsGenerator := Settings.generateIcons(
     (sourceManaged in Compile).value / "io" / "kinoplan" / "scalajs" / "react" / "material" / "ui" / "icons",
     (npmInstallDependencies in Compile).value
@@ -43,8 +43,8 @@ lazy val icons = (project in file("icons")).settings(commonSettings).settings(
 lazy val demo = (project in file("demo")).dependsOn(core)
   .settings(commonSettings).settings(
   scalaJSUseMainModuleInitializer  := true,
-  npmDependencies in Compile ++= Settings.npmDependencies.value,
-  libraryDependencies ++= Settings.scalajsDependencies.value,
+  npmDependencies in Compile ++= Settings.npmDependenciesDemo.value,
+  libraryDependencies ++= Settings.scalajsDependenciesDemo.value,
   webpackDevServerExtraArgs        := Seq("--inline"),
   yarnExtraArgs                    := Seq("--silent"),
   webpackConfigFile in fastOptJS   := Some(baseDirectory.value / "dev.webpack.config.js"),
