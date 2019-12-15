@@ -121,46 +121,63 @@ object Settings {
   def generateIcons(src: File, npm: File): Seq[File] = {
     val iconSources = (npm / "node_modules" / "@material-ui" / "icons" ) * ("*.js" -- "index.js" -- "index.es.js")
 
-    val files: Seq[File] = iconSources.get.map(f => {
-      val name = f.getName.stripSuffix(".js")
-      val file = src / s"Mui${name}Icon.scala"
+    val iconNames = iconSources.get.map(_.getName.stripSuffix(".js")).sorted
 
-      IO.write(
-        file,
-        s"""package io.kinoplan.scalajs.react.material.ui.icons
-           |
-           |import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
-           |
-           |import scala.scalajs.js
-           |import scala.scalajs.js.annotation.JSImport
-           |import scala.scalajs.js.|
-           |
-           |object Mui${name}Icon extends ReactBridgeComponent with SvgIconExtensions {
-           |
-           |  override protected lazy val componentValue: js.Object = RawComponent
-           |
-           |  @JSImport("@material-ui/icons/$name", JSImport.Default)
-           |  @js.native
-           |  object RawComponent extends js.Object
-           |
-           |  def apply(
-           |    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
-           |    color: js.UndefOr[Color.Value] = js.undefined,
-           |    component: js.UndefOr[String | js.Function] = js.undefined,
-           |    fontSize: js.UndefOr[FontSize.Value] = js.undefined,
-           |    nativeColor: js.UndefOr[String] = js.undefined,
-           |    shapeRendering: js.UndefOr[String] = js.undefined,
-           |    titleAccess: js.UndefOr[String] = js.undefined,
-           |    viewBox: js.UndefOr[String] = js.undefined
-           |  ): WithProps = auto
-           |}
-          """.stripMargin.trim
-      )
+    val moduleFile: File = src / "MuiIconModule.scala"
 
-      file
-    })
+    val moduleIcons = iconNames.map(name => s"""|   def $name: js.Any = js.native""".stripMargin).mkString("\n")
 
-    files
+    IO.write(
+      moduleFile,
+      s"""package io.kinoplan.scalajs.react.material.ui.icons
+         |
+         |import scala.scalajs.js
+         |import scala.scalajs.js.annotation.JSImport
+         |
+         |@js.native
+         |@JSImport("@material-ui/icons", JSImport.Namespace)
+         |object MuiIconModule extends js.Object {
+       """.stripMargin.trim + "\n" + moduleIcons + "\n" + "}"
+    )
+
+    val packageFile: File = src / "package.scala"
+
+    val packageIcons = iconNames.map(name =>
+        s"""|   object Mui${name}Icon extends Bridge { override lazy val componentValue = $name }""".stripMargin
+    ).mkString("\n")
+
+    IO.write(
+      packageFile,
+      s"""package io.kinoplan.scalajs.react.material.ui
+         |
+         |import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+         |import io.kinoplan.scalajs.react.material.ui.icons.MuiIconModule._
+         |import io.kinoplan.scalajs.react.material.ui.icons.SvgIconExtensions
+         |
+         |import scala.scalajs.js
+         |import scala.scalajs.js.|
+         |
+         |trait Bridge extends ReactBridgeComponent with MuiIcons
+         |
+         |trait MuiIcons extends ReactBridgeComponent with SvgIconExtensions {
+         |  def apply(
+         |    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+         |    color: js.UndefOr[Color.Value] = js.undefined,
+         |    component: js.UndefOr[String | js.Function] = js.undefined,
+         |    fontSize: js.UndefOr[FontSize.Value] = js.undefined,
+         |    nativeColor: js.UndefOr[String] = js.undefined,
+         |    shapeRendering: js.UndefOr[String] = js.undefined,
+         |    titleAccess: js.UndefOr[String] = js.undefined,
+         |    viewBox: js.UndefOr[String] = js.undefined
+         |  ): WithProps = auto
+         |}
+         |
+         |package object icons {
+         |
+       """.stripMargin.trim + "\n" + packageIcons + "\n" + "}"
+    )
+
+    Seq(moduleFile, packageFile)
   }
 
   val javacOptions = Seq(
