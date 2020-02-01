@@ -40,7 +40,7 @@ object ConfirmationDialog extends ScalaCssReactImplicits {
                 MuiListItemText(primary = VdomNode("Interruptions"))
               ),
               MuiListItem(button = true, divider = true)(
-                aria.hasPopup := "true",
+                aria.haspopup.`true`,
                 aria.controls := "ringtone-menu",
                 aria.label := "Phone ringtone",
                 onClick --> handleClickListItem

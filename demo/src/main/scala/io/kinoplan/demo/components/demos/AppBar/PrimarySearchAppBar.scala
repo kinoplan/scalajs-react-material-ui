@@ -145,7 +145,7 @@ object PrimarySearchAppBar extends ScalaCssReactImplicits {
                   ),
                   MuiIconButton(color = MuiIconButton.Color.inherit)(
                     aria.owns := ariaOwns,
-                    aria.hasPopup := "true",
+                    aria.haspopup.`true`,
                     Attr("edge") := "end",
                     onClick ==> handleProfileMenuOpen,
                     MuiAccountCircleIcon()
@@ -153,7 +153,7 @@ object PrimarySearchAppBar extends ScalaCssReactImplicits {
                 ),
                 div(css.sectionMobile,
                   MuiIconButton(color = MuiIconButton.Color.inherit)(
-                    aria.hasPopup := "true",
+                    aria.haspopup.`true`,
                     onClick ==> handleMobileMenuOpen,
                     MuiMoreVertIcon()
                   )

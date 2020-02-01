@@ -7,7 +7,7 @@ lazy val root = project.in(file(".")).settings(commonSettings).aggregate(core, i
   publish              := {},
   publishLocal         := {},
   publishArtifact      := false,
-  Keys.`package`       := file(""),
+  Keys.`package`       := file("")
 ).settings(
   aggregate in doc := false
 )

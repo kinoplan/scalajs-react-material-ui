@@ -95,7 +95,7 @@ object MenuAppBar extends ScalaCssReactImplicits {
                 div(
                   MuiIconButton(color = MuiIconButton.Color.inherit)(
                     aria.owns := ariaOwns,
-                    aria.hasPopup := "true",
+                    aria.haspopup.`true`,
                     Attr("edge") := "end",
                     onClick ==> handleProfileMenuOpen,
                     MuiAccountCircleIcon()

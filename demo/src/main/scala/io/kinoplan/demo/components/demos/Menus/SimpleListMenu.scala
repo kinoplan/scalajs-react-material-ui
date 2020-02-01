@@ -54,7 +54,7 @@ object SimpleListMenu extends ScalaCssReactImplicits {
           div(css.root,  css.rootPaper(Layout.isPaletteLight),
             MuiList(component = "nav")(
               MuiListItem(button = true)(
-                aria.hasPopup := "true",
+                aria.haspopup.`true`,
                 aria.controls := "lock-menu",
                 aria.label := "When device is locked",
                 onClick ==> handleClickListItem,

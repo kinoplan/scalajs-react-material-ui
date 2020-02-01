@@ -13,16 +13,16 @@ object Settings {
     val scala = "2.12.10"
 
     object bundler {
-      val webpack = "4.41.2"
-      val webpackDev = "3.9.0"
+      val webpack = "4.41.5"
+      val webpackDev = "3.10.2"
       val webpackCli = "3.3.10"
     }
 
     object scalajs {
-      val scalajsReact = "1.4.2"
+      val scalajsReact = "1.6.0"
       val scalaCss = "0.5.6"
       val scalajsDom = "0.9.8"
-      val catsCore = "2.0.0"
+      val catsCore = "2.1.0"
       val scalajsReactBridge = "0.8.1"
       val scalablyTypedRuntime = "2.1.0"
     }

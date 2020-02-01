@@ -64,7 +64,7 @@ object LongMenu extends ScalaCssReactImplicits {
             MuiIconButton()(
               aria.label := "More",
               aria.owns := ariaOwns,
-              aria.hasPopup := "true",
+              aria.haspopup.`true`,
               onClick ==> handleClick,
               MuiMoreVertIcon()
             ),

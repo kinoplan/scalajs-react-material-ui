@@ -64,7 +64,7 @@ object AppRouter {
       | staticRoute("/#demos/tabs/", DemoTabsRoute) ~> renderR(TabsPage(_))
       | staticRoute("/#demos/text-fields/", DemoTextFieldsRoute) ~> renderR(TextFieldsPage(_))
       | staticRoute("/#demos/tooltips/", DemoTooltipsRoute) ~> renderR(TooltipsPage(_))
-    ).notFound(redirectToPage(DashboardRoute)(Redirect.Replace))
+    ).notFound(redirectToPage(DashboardRoute)(SetRouteVia.HistoryReplace))
   }.renderWith(layout)
 
 

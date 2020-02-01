@@ -38,7 +38,7 @@ object SimpleMenu extends ScalaCssReactImplicits {
           div(
             MuiButton()(
               aria.owns := ariaOwns,
-              aria.hasPopup := "true",
+              aria.haspopup.`true`,
               onClick ==> handleClick,
               "Open Menu"
             ),

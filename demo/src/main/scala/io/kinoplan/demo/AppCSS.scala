@@ -1,5 +1,6 @@
 package io.kinoplan.demo
 
+import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles._
 import io.kinoplan.demo.styles.demos.AppBar._
 import io.kinoplan.demo.styles.demos.Avatars.DefaultAvatarsStyle
@@ -26,11 +27,14 @@ import io.kinoplan.demo.styles.demos.Tables._
 import io.kinoplan.demo.styles.demos.Tabs._
 import io.kinoplan.demo.styles.demos.TextFields._
 import io.kinoplan.demo.styles.demos.Tooltips._
-import scalacss.internal.mutable.GlobalRegistry
+import scalacss.ScalaCssReactImplicits
+import scalacss.internal.mutable.StyleSheetRegistry
 
-object AppCSS {
+object AppCSS extends ScalaCssReactImplicits {
+  val registry = new StyleSheetRegistry
+
   def load(): Unit = {
-    GlobalRegistry.register(
+    registry.register(
       DefaultCommonStyle,
       DefaultLayoutStyle,
       DefaultSimpleTableStyle,
@@ -119,5 +123,7 @@ object AppCSS {
       DefaultVariableWidthStyle,
       DefaultInteractiveTooltipsStyle
     )
+
+    registry.addToDocumentOnRegistration()
   }
 }
