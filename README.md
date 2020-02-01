@@ -1,7 +1,7 @@
 # scalajs-react-material-ui
 
 [![Scala](https://img.shields.io/badge/Scala-2.12.10-red.svg?logo=Scala&logoColor=red)](https://www.scala-lang.org/)
-[![Scala.js](https://img.shields.io/badge/Scala.js-0.6.31-orange.svg?logo=Scala&logoColor=orange)](https://www.scala-js.org/)
+[![Scala.js](https://img.shields.io/badge/Scala.js-0.6.32-orange.svg?logo=Scala&logoColor=orange)](https://www.scala-js.org/)
 [![react](https://img.shields.io/badge/react-16.7.0-61DAFB.svg?logo=React)](https://ru.reactjs.org/)
 [![scalajs-react](https://img.shields.io/static/v1?label=scalajs-react&message=1.4.2&color=blue)](https://github.com/japgolly/scalajs-react)
 [![material-ui](https://img.shields.io/static/v1?label=@material-ui/core&message=3.9.0&color=ff69b4)](https://v3.material-ui.com/)
