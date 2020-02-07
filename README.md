@@ -1,9 +1,11 @@
 # scalajs-react-material-ui
 
+![Scala CI](https://github.com/kinoplan/scalajs-react-material-ui/workflows/Scala%20CI/badge.svg?branch=master)
+
 [![Scala](https://img.shields.io/badge/Scala-2.12.10-red.svg?logo=Scala&logoColor=red)](https://www.scala-lang.org/)
 [![Scala.js](https://img.shields.io/badge/Scala.js-0.6.32-orange.svg?logo=Scala&logoColor=orange)](https://www.scala-js.org/)
 [![react](https://img.shields.io/badge/react-16.7.0-61DAFB.svg?logo=React)](https://ru.reactjs.org/)
-[![scalajs-react](https://img.shields.io/static/v1?label=scalajs-react&message=1.4.2&color=blue)](https://github.com/japgolly/scalajs-react)
+[![scalajs-react](https://img.shields.io/static/v1?label=scalajs-react&message=1.6.0&color=blue)](https://github.com/japgolly/scalajs-react)
 [![material-ui](https://img.shields.io/static/v1?label=@material-ui/core&message=3.9.0&color=ff69b4)](https://v3.material-ui.com/)
 [![material-ui-icons](https://img.shields.io/static/v1?label=@material-ui/icons&message=3.0.2&color=ff69b4)](https://v3.material-ui.com/)
 
