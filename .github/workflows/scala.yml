@@ -22,4 +22,4 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}  
     - name: Run tests
-      run: sbt test
+      run: sbt -mem 4096 test
