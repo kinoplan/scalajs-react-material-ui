@@ -32,6 +32,7 @@ object Settings {
 
       val materialUi = "3.9.0"
       val materialUiIcons = "3.0.2"
+      val materialUiLab = "3.0.0-alpha.30"
 
       val reactSwipeableViews = "0.13.3"
     }
@@ -56,26 +57,31 @@ object Settings {
 //    ScalablyTyped.R.`react-swipeable-views`
   ))
 
-  val npmDependenciesCore = Def.setting(Seq(
-    "react"                       -> versions.npm.react,
-    "react-dom"                   -> versions.npm.react,
-    "@material-ui/core"           -> versions.npm.materialUi
+  val reactDependencies = Seq(
+    "react"     -> versions.npm.react,
+    "react-dom" -> versions.npm.react
+  )
+
+  val npmDependenciesCore = Def.setting(reactDependencies ++ Seq(
+    "@material-ui/core" -> versions.npm.materialUi
   ))
 
-  val npmDependenciesIcons = Def.setting(Seq(
-    "react"                       -> versions.npm.react,
-    "react-dom"                   -> versions.npm.react,
-    "@material-ui/core"           -> versions.npm.materialUi,
-    "@material-ui/icons"          -> versions.npm.materialUiIcons
+  val npmDependenciesIcons = Def.setting(reactDependencies ++ Seq(
+    "@material-ui/core"  -> versions.npm.materialUi,
+    "@material-ui/icons" -> versions.npm.materialUiIcons
   ))
 
-  val npmDependenciesDemo = Def.setting(Seq(
-    "react"                       -> versions.npm.react,
-    "react-dom"                   -> versions.npm.react,
+  val npmDependenciesLab = Def.setting(reactDependencies ++ Seq(
+    "@material-ui/core" -> versions.npm.materialUi,
+    "@material-ui/lab"  -> versions.npm.materialUiLab
+  ))
+
+  val npmDependenciesDemo = Def.setting(reactDependencies ++ Seq(
     "react-swipeable-views"       -> versions.npm.reactSwipeableViews,
     "react-swipeable-views-utils" -> versions.npm.reactSwipeableViews,
     "@material-ui/core"           -> versions.npm.materialUi,
-    "@material-ui/icons"          -> versions.npm.materialUiIcons
+    "@material-ui/icons"          -> versions.npm.materialUiIcons,
+    "@material-ui/lab"            -> versions.npm.materialUiLab
   ))
 
   def generateColors(src: File, npm: File): Seq[File] = {

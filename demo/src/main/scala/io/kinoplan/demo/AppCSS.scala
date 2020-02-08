@@ -27,6 +27,10 @@ import io.kinoplan.demo.styles.demos.Tables._
 import io.kinoplan.demo.styles.demos.Tabs._
 import io.kinoplan.demo.styles.demos.TextFields._
 import io.kinoplan.demo.styles.demos.Tooltips._
+import io.kinoplan.demo.styles.labs.Breadcrumbs.{DefaultBreadcrumbsStyle, DefaultCustomizedBreadcrumbsStyle}
+import io.kinoplan.demo.styles.labs.Slider.{DefaultDisabledSliderStyle, DefaultSliderStyle, DefaultVerticalSliderStyle}
+import io.kinoplan.demo.styles.labs.SpeedDial.DefaultSpeedDialStyle
+import io.kinoplan.demo.styles.labs.ToggleButton.DefaultToggleButtonStyle
 import scalacss.ScalaCssReactImplicits
 import scalacss.internal.mutable.StyleSheetRegistry
 
@@ -38,7 +42,7 @@ object AppCSS extends ScalaCssReactImplicits {
       DefaultCommonStyle,
       DefaultLayoutStyle,
       DefaultSimpleTableStyle,
-      DefaultDemoMenuStyle,
+      DefaultChildMenuStyle,
       DefaultPrimarySearchAppBarStyle,
       DefaultSearchAppBarStyle,
       DefaultBottomAppBarStyle,
@@ -121,7 +125,14 @@ object AppCSS extends ScalaCssReactImplicits {
       DefaultSimpleTooltipsStyle,
       DefaultPositionedTooltipsStyle,
       DefaultVariableWidthStyle,
-      DefaultInteractiveTooltipsStyle
+      DefaultInteractiveTooltipsStyle,
+      DefaultBreadcrumbsStyle,
+      DefaultCustomizedBreadcrumbsStyle,
+      DefaultSliderStyle,
+      DefaultDisabledSliderStyle,
+      DefaultVerticalSliderStyle,
+      DefaultToggleButtonStyle,
+      DefaultSpeedDialStyle
     )
 
     registry.addToDocumentOnRegistration()

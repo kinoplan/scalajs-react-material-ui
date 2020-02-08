@@ -1,6 +1,6 @@
 addCommandAlias("restartWDS", "; demo/fastOptJS::stopWebpackDevServer; ~demo/fastOptJS::startWebpackDevServer")
 
-lazy val root = project.in(file(".")).settings(commonSettings).aggregate(core, icons, demo).settings(
+lazy val root = project.in(file(".")).settings(commonSettings).aggregate(core, icons, lab, demo).settings(
   name                 := "scalajs-react-material-ui",
   // No, SBT, we don't want any artifacts for root.
   // No, not even an empty jar.
@@ -40,7 +40,14 @@ lazy val icons = (project in file("icons")).settings(commonSettings).settings(
   sourceGenerators in Compile += muiIconsGenerator.taskValue
 ).enablePlugins(ScalaJSBundlerPlugin)
 
-lazy val demo = (project in file("demo")).dependsOn(core)
+lazy val lab = (project in file("lab")).settings(commonSettings).settings(
+  name := "scalajs-react-material-ui-lab",
+  scalaJSUseMainModuleInitializer  := false,
+  npmDependencies in Compile ++= Settings.npmDependenciesLab.value,
+  libraryDependencies ++= Settings.scalajsDependenciesLib.value
+).enablePlugins(ScalaJSBundlerPlugin)
+
+lazy val demo = (project in file("demo")).dependsOn(core, lab)
   .settings(commonSettings).settings(
   scalaJSUseMainModuleInitializer  := true,
   npmDependencies in Compile ++= Settings.npmDependenciesDemo.value,
