@@ -1,15 +1,29 @@
 addCommandAlias("restartWDS", "; demo/fastOptJS::stopWebpackDevServer; ~demo/fastOptJS::startWebpackDevServer")
 
 lazy val root = project.in(file(".")).settings(commonSettings).aggregate(core, icons, lab, demo).settings(
-  name                 := "scalajs-react-material-ui",
-  // No, SBT, we don't want any artifacts for root.
-  // No, not even an empty jar.
-  publish              := {},
-  publishLocal         := {},
-  publishArtifact      := false,
-  Keys.`package`       := file("")
-).settings(
-  aggregate in doc := false
+  name            := "scalajs-react-material-ui",
+  skip in publish := true
+)
+
+inThisBuild(
+  List(
+    homepage := Some(url("https://github.com/kinoplan/scalajs-react-material-ui")),
+    licenses := Seq("MIT" -> url("http://opensource.org/licenses/MIT")),
+    developers := List(
+      Developer(
+        "kazievab",
+        "Alexey Kaziev",
+        "kazievab@gmail.com",
+        url("https://github.com/kazievab")
+      )
+    ),
+    scmInfo := Some(
+      ScmInfo(
+        url("https://github.com/kinoplan/scalajs-react-material-ui"),
+        "scm:git:git@github.com:kinoplan/scalajs-react-material-ui.git"
+      )
+    )
+  )
 )
 
 lazy val muiColorsGenerator = taskKey[Seq[File]]("mui-colors-generator")
@@ -55,11 +69,7 @@ lazy val demo = (project in file("demo")).dependsOn(core, lab)
   webpackDevServerExtraArgs        := Seq("--inline"),
   yarnExtraArgs                    := Seq("--silent"),
   webpackConfigFile in fastOptJS   := Some(baseDirectory.value / "dev.webpack.config.js"),
-  // don't publish the demo
-  publish                          := {},
-  publishLocal                     := {},
-  publishArtifact                  := false,
-  Keys.`package`                   := file("")
+  skip in publish := true
 ).enablePlugins(ScalaJSBundlerPlugin, WorkbenchPlugin)
 
 lazy val commonSettings = Seq(
@@ -67,6 +77,9 @@ lazy val commonSettings = Seq(
   scalaVersion := Settings.versions.scala,
   organization := Settings.organization,
   description := Settings.description,
+  homepage := Some(url("https://github.com/kinoplan/scalajs-react-material-ui")),
+  licenses := Seq("MIT" -> url("http://opensource.org/licenses/MIT")),
+  publishArtifact in Test := false,
   webpackBundlingMode := BundlingMode.LibraryOnly(),
   useYarn := true,
   version in webpack := Settings.versions.bundler.webpack,
