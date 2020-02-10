@@ -3,10 +3,12 @@ package io.kinoplan.demo.router
 import io.kinoplan.demo.components.Layout
 import io.kinoplan.demo.pages.SimpleTablePage
 import io.kinoplan.demo.pages.demos._
+import io.kinoplan.demo.pages.labs.{BreadcrumbsPage, SliderPage, SpeedDialPage, ToggleButtonPage}
 import japgolly.scalajs.react.extra.router._
 
 object AppRouter {
   sealed trait Page
+
   case object DashboardRoute extends Page
   case object DemoAppBarRoute extends Page
   case object DemoAvatarsRoute extends Page
@@ -33,6 +35,11 @@ object AppRouter {
   case object DemoTabsRoute extends Page
   case object DemoTextFieldsRoute extends Page
   case object DemoTooltipsRoute extends Page
+
+  case object LabBreadcrumbsRoute extends Page
+  case object LabSliderRoute extends Page
+  case object LabSpeedDialRoute extends Page
+  case object LabToggleButtonRoute extends Page
 
   val routerConfig = RouterConfigDsl[Page].buildConfig { dsl =>
     import dsl._
@@ -64,6 +71,10 @@ object AppRouter {
       | staticRoute("/#demos/tabs/", DemoTabsRoute) ~> renderR(TabsPage(_))
       | staticRoute("/#demos/text-fields/", DemoTextFieldsRoute) ~> renderR(TextFieldsPage(_))
       | staticRoute("/#demos/tooltips/", DemoTooltipsRoute) ~> renderR(TooltipsPage(_))
+      | staticRoute("/#lab/breadcrumbs/", LabBreadcrumbsRoute) ~> renderR(BreadcrumbsPage(_))
+      | staticRoute("/#lab/slider/", LabSliderRoute) ~> renderR(SliderPage(_))
+      | staticRoute("/#lab/speed-dial/", LabSpeedDialRoute) ~> renderR(SpeedDialPage(_))
+      | staticRoute("/#lab/toggle-button/", LabToggleButtonRoute) ~> renderR(ToggleButtonPage(_))
     ).notFound(redirectToPage(DashboardRoute)(SetRouteVia.HistoryReplace))
   }.renderWith(layout)
 

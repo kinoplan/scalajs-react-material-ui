@@ -2,7 +2,7 @@ package io.kinoplan.demo.styles
 
 import io.kinoplan.demo.CssSettings._
 
-case class DemoMenuStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+case class ChildMenuStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
   import dsl._
   import common.theme
 
@@ -11,4 +11,4 @@ case class DemoMenuStyle(common: CommonStyle = DefaultCommonStyle) extends Style
   )
 }
 
-object DefaultDemoMenuStyle extends DemoMenuStyle
+object DefaultChildMenuStyle extends ChildMenuStyle
