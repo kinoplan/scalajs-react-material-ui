@@ -70,7 +70,7 @@ lazy val demo = (project in file("demo")).dependsOn(core, lab)
   yarnExtraArgs                    := Seq("--silent"),
   webpackConfigFile in fastOptJS   := Some(baseDirectory.value / "dev.webpack.config.js"),
   skip in publish := true
-).enablePlugins(ScalaJSBundlerPlugin, WorkbenchPlugin)
+).enablePlugins(ScalaJSBundlerPlugin)
 
 lazy val commonSettings = Seq(
   version := Settings.version,
