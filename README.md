@@ -1,4 +1,4 @@
-# scalajs-react-material-ui
+# scalajs-react-material-ui 
 
 ![Scala CI](https://github.com/kinoplan/scalajs-react-material-ui/workflows/Scala%20CI/badge.svg?branch=master)
 
@@ -11,10 +11,33 @@
 [![material-ui-icons](https://img.shields.io/static/v1?label=@material-ui/icons&message=3.0.2&color=ff69b4)](https://v3.material-ui.com/)
 [![material-ui-lab](https://img.shields.io/static/v1?label=@material-ui/lab&message=3.0.0-alpha.30&color=ff69b4)](https://v3.material-ui.com/)
 
-[scalajs-react](https://github.com/japgolly/scalajs-react) facade for :
-* [@material-ui/core v3.9.0](https://github.com/mui-org/material-ui/tree/v3.x/packages/material-ui)
-* [@material-ui/icons v3.0.2](https://github.com/mui-org/material-ui/tree/v3.x/packages/material-ui-icons)
-* [@material-ui/lab v3.0.0-alpha.30](https://github.com/mui-org/material-ui/tree/v3.x/packages/material-ui-lab)
+[![Maven Central](https://img.shields.io/maven-central/v/io.kinoplan/scalajs-react-material-ui-core_sjs0.6_2.12.svg?label=scalajs-react-material-ui-core)](https://search.maven.org/search?q=g:%22io.kinoplan%22%20AND%20a:%22scalajs-react-material-ui-core_sjs0.6_2.12%22)
+[![Maven Central](https://img.shields.io/maven-central/v/io.kinoplan/scalajs-react-material-ui-icons_sjs0.6_2.12.svg?label=scalajs-react-material-ui-icons)](https://search.maven.org/search?q=g:%22io.kinoplan%22%20AND%20a:%22scalajs-react-material-ui-icons_sjs0.6_2.12%22)
+[![Maven Central](https://img.shields.io/maven-central/v/io.kinoplan/scalajs-react-material-ui-lab_sjs0.6_2.12.svg?label=scalajs-react-material-ui-lab)](https://search.maven.org/search?q=g:%22io.kinoplan%22%20AND%20a:%22scalajs-react-material-ui-lab_sjs0.6_2.12%22)
+
+[scalajs-react](https://github.com/japgolly/scalajs-react) facade developed with [scalajs-react-bridge](https://github.com/payalabs/scalajs-react-bridge) for:
+* [@material-ui/core](https://github.com/mui-org/material-ui/tree/v3.x/packages/material-ui)
+* [@material-ui/icons](https://github.com/mui-org/material-ui/tree/v3.x/packages/material-ui-icons)
+* [@material-ui/lab](https://github.com/mui-org/material-ui/tree/v3.x/packages/material-ui-lab)
+
+## Usage
+Add `libraryDependencies` to your [scalajs-react](https://github.com/japgolly/scalajs-react) project:
+ ```scala
+libraryDependencies ++= Seq(
+  "io.kinoplan" %%% "scalajs-react-material-ui-core"  % "0.0.1",
+  "io.kinoplan" %%% "scalajs-react-material-ui-icons" % "0.0.1",
+  "io.kinoplan" %%% "scalajs-react-material-ui-lab"   % "0.0.1"
+)
+```
+
+Add `npmDependencies` using [scalajs-bundler](https://scalacenter.github.io/scalajs-bundler/):
+```scala
+npmDependencies in Compile ++= Seq(
+  "@material-ui/core"  -> "3.9.0",
+  "@material-ui/icons" -> "3.0.2",
+  "@material-ui/lab"   -> "3.0.0-alpha.30"
+)
+```
 
 ## Demo
 
