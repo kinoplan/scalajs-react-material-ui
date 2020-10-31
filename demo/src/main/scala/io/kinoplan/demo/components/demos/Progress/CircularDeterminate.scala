@@ -54,7 +54,7 @@ object CircularDeterminate extends ScalaCssReactImplicits {
   private val component = ScalaComponent.builder[Props]("CircularDeterminate")
     .initialState(State())
     .renderBackend[Backend]
-    .componentWillMount(_.backend.mount)
+    .componentDidMount(_.backend.mount)
     .componentWillUnmount(_.backend.unmount)
     .build
 

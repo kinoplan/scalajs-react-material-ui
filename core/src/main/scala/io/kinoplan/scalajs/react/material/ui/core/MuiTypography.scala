@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -16,7 +16,7 @@ object MuiTypography extends ReactBridgeComponent with MuiTypographyExtensions {
     align: js.UndefOr[Alignment.Value] = js.undefined,
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     color: js.UndefOr[Color.Value] = js.undefined,
-    component: OptComponentPropType = js.undefined,
+    component: js.UndefOr[ComponentPropType] = js.undefined,
     gutterBottom: js.UndefOr[Boolean] = js.undefined,
     headlineMapping: js.UndefOr[js.Object] = js.undefined,
     inline: js.UndefOr[Boolean] = js.undefined,

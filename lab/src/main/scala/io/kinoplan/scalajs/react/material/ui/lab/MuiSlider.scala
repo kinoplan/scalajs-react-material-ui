@@ -1,13 +1,13 @@
 package io.kinoplan.scalajs.react.material.ui.lab
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import japgolly.scalajs.react.ReactEvent
 import japgolly.scalajs.react.raw.React
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-object MuiSlider extends ReactBridgeComponent with MuiSliderExtensions with JsWriterImplicits {
+object MuiSlider extends ReactBridgeComponent with MuiSliderExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/lab", "Slider")
@@ -16,13 +16,13 @@ object MuiSlider extends ReactBridgeComponent with MuiSliderExtensions with JsWr
 
   def apply(
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
-    component: OptComponentPropType = js.undefined,
+    component: js.UndefOr[ComponentPropType] = js.undefined,
     max: js.UndefOr[Int] = js.undefined,
     min: js.UndefOr[Int] = js.undefined,
     step: js.UndefOr[Int] = js.undefined,
     thumb: js.UndefOr[React.Element] = js.undefined,
     vertical: js.UndefOr[Boolean] = false,
-    onChange: ReactHandler2[ReactEvent, Double] = js.undefined
+    onChange: js.UndefOr[ReactHandler2[ReactEvent, Double]] = js.undefined
   ): WithProps = auto
 }
 

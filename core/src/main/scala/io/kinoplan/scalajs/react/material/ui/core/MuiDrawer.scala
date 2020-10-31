@@ -1,13 +1,13 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import japgolly.scalajs.react.ReactEventFromHtml
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
 
-object MuiDrawer extends ReactBridgeComponent with MuiDrawerExtensions with JsWriterImplicits {
+object MuiDrawer extends ReactBridgeComponent with MuiDrawerExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "Drawer")
@@ -19,7 +19,7 @@ object MuiDrawer extends ReactBridgeComponent with MuiDrawerExtensions with JsWr
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     elevation: js.UndefOr[Int] = js.undefined,
     ModalProps: js.UndefOr[js.Object] = js.undefined,
-    onClose: ReactHandler1[ReactEventFromHtml] = js.undefined,
+    onClose: js.UndefOr[ReactHandler1[ReactEventFromHtml]] = js.undefined,
     open: js.UndefOr[Boolean] = js.undefined,
     PaperProps: js.UndefOr[js.Object] = js.undefined,
     SlideProps: js.UndefOr[js.Object] = js.undefined,

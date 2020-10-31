@@ -4,6 +4,7 @@ target/
 .idea/
 .metals/
 .bloop/
+.bsp/
 local.*
 node_modules/
 package-lock.json

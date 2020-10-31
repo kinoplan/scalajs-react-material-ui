@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -14,11 +14,11 @@ object MuiMenuItem extends ReactBridgeComponent with MuiMenuItemExtensions {
 
   def apply(
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
-    component: OptComponentPropType = js.undefined,
+    component: js.UndefOr[ComponentPropType] = js.undefined,
     disableGutters: js.UndefOr[Boolean] = js.undefined,
     alignItems: js.UndefOr[AlignItems.Value] = js.undefined,
     button: js.UndefOr[Boolean] = js.undefined,
-    ContainerComponent: OptComponentPropType = js.undefined,
+    ContainerComponent: js.UndefOr[ComponentPropType] = js.undefined,
     ContainerProps: js.UndefOr[js.Object] = js.undefined,
     dense: js.UndefOr[Boolean] = js.undefined,
     divider: js.UndefOr[Boolean] = js.undefined

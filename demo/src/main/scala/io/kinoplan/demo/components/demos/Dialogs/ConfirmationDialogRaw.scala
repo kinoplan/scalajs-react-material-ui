@@ -20,7 +20,7 @@ object ConfirmationDialogRaw {
   )
 
   class Backend(t: BackendScope[Props, State]) {
-    def componentWillReceiveProps(currentProps: Props, nextProps: Props): Callback = {
+    def componentDidUpdate(currentProps: Props, nextProps: Props): Callback = {
       t.modState(_.setValue(nextProps.value)).when_(nextProps.value != currentProps.value)
     }
 
@@ -90,7 +90,7 @@ object ConfirmationDialogRaw {
   private val component = ScalaComponent.builder[Props]("ConfirmationDialogRaw")
     .initialStateFromProps(props => State(props.value))
     .renderBackend[Backend]
-    .componentWillReceiveProps(f => f.backend.componentWillReceiveProps(f.currentProps, f.nextProps))
+    .componentDidUpdate(f => f.backend.componentDidUpdate(f.prevProps, f.currentProps))
     .build
 
   def apply(

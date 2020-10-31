@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -17,7 +17,7 @@ object MuiGrid extends ReactBridgeComponent with MuiGridExtensions {
     alignContent: js.UndefOr[AlignContent.Value] = js.undefined,
     alignItems: js.UndefOr[AlignItems.Value] = js.undefined,
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
-    component: OptComponentPropType = js.undefined,
+    component: js.UndefOr[ComponentPropType] = js.undefined,
     container: js.UndefOr[Boolean] = js.undefined,
     direction: js.UndefOr[Direction.Value] = js.undefined,
     item: js.UndefOr[Boolean] = js.undefined,

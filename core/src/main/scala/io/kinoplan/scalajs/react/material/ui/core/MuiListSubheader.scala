@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -15,7 +15,7 @@ object MuiListSubheader extends ReactBridgeComponent with MuiListSubheaderExtens
   def apply(
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     color: js.UndefOr[Color.Value] = js.undefined,
-    component: OptComponentPropType = js.undefined,
+    component: js.UndefOr[ComponentPropType] = js.undefined,
     disableGutters: js.UndefOr[Boolean] = js.undefined,
     disableSticky: js.UndefOr[Boolean] = js.undefined,
     inset: js.UndefOr[Boolean] = js.undefined

@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.html_<^.VdomNode
 
@@ -8,7 +8,7 @@ import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
 
-object MuiNativeSelect extends ReactBridgeComponent with MuiNativeSelectExtensions with JsWriterImplicits {
+object MuiNativeSelect extends ReactBridgeComponent with MuiNativeSelectExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "NativeSelect")
@@ -17,7 +17,7 @@ object MuiNativeSelect extends ReactBridgeComponent with MuiNativeSelectExtensio
 
   def apply(
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
-    IconComponent: OptComponentPropType = js.undefined,
+    IconComponent: js.UndefOr[ComponentPropType] = js.undefined,
     input: js.UndefOr[React.Element] = js.undefined,
     inputProps: js.UndefOr[js.Object] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined,
@@ -25,8 +25,8 @@ object MuiNativeSelect extends ReactBridgeComponent with MuiNativeSelectExtensio
     endAdornment: js.UndefOr[VdomNode] = js.undefined,
     error: js.UndefOr[Boolean] = js.undefined,
     fullWidth: js.UndefOr[Boolean] = js.undefined,
-    inputComponent: OptComponentPropType = js.undefined,
-    inputRef: OptComponentRefType = js.undefined,
+    inputComponent: js.UndefOr[ComponentPropType] = js.undefined,
+    inputRef: js.UndefOr[ComponentRefType] = js.undefined,
     margin: js.UndefOr[Margin.Value] = js.undefined,
     multiline: js.UndefOr[Boolean] = js.undefined,
     rows: js.UndefOr[String | Int] = js.undefined,

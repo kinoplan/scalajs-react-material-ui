@@ -64,7 +64,7 @@ object LinearDeterminate extends ScalaCssReactImplicits {
   private val component = ScalaComponent.builder[Props]("LinearDeterminate")
     .initialState(State())
     .renderBackend[Backend]
-    .componentWillMount(_.backend.mount)
+    .componentDidMount(_.backend.mount)
     .componentWillUnmount(_.backend.unmount)
     .build
 

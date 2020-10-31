@@ -1,11 +1,11 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-object MuiListItem extends ReactBridgeComponent with MuiListItemExtensions with JsWriterImplicits {
+object MuiListItem extends ReactBridgeComponent with MuiListItemExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "ListItem")
@@ -16,8 +16,8 @@ object MuiListItem extends ReactBridgeComponent with MuiListItemExtensions with 
     alignItems: js.UndefOr[AlignItems.Value] = js.undefined,
     button: js.UndefOr[Boolean] = js.undefined,
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
-    component: OptComponentPropType = js.undefined,
-    ContainerComponent: OptComponentPropType = js.undefined,
+    component: js.UndefOr[ComponentPropType] = js.undefined,
+    ContainerComponent: js.UndefOr[ComponentPropType] = js.undefined,
     ContainerProps: js.UndefOr[js.Object] = js.undefined,
     dense: js.UndefOr[Boolean] = js.undefined,
     disableGutters: js.UndefOr[Boolean] = js.undefined,

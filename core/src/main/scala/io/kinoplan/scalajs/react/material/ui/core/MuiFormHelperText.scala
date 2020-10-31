@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -14,7 +14,7 @@ object MuiFormHelperText extends ReactBridgeComponent with MuiFormHelperTextExte
 
   def apply(
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
-    component: OptComponentPropType = js.undefined,
+    component: js.UndefOr[ComponentPropType] = js.undefined,
     error: js.UndefOr[Boolean] = js.undefined,
     filled: js.UndefOr[Boolean] = js.undefined,
     focused: js.UndefOr[Boolean] = js.undefined,

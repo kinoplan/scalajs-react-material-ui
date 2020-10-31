@@ -1,13 +1,13 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import japgolly.scalajs.react.ReactEventFromHtml
 import japgolly.scalajs.react.vdom.html_<^._
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-object MuiTooltip extends ReactBridgeComponent with MuiTooltipExtensions with JsWriterImplicits {
+object MuiTooltip extends ReactBridgeComponent with MuiTooltipExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "Tooltip")
@@ -24,13 +24,13 @@ object MuiTooltip extends ReactBridgeComponent with MuiTooltipExtensions with Js
     interactive: js.UndefOr[Boolean] = js.undefined,
     leaveDelay: js.UndefOr[Int] = js.undefined,
     leaveTouchDelay: js.UndefOr[Int] = js.undefined,
-    onClose: ReactHandler1[ReactEventFromHtml] = js.undefined,
-    onOpen: ReactHandler1[ReactEventFromHtml] = js.undefined,
+    onClose: js.UndefOr[ReactHandler1[ReactEventFromHtml]] = js.undefined,
+    onOpen: js.UndefOr[ReactHandler1[ReactEventFromHtml]] = js.undefined,
     open: js.UndefOr[Boolean] = js.undefined,
     placement: js.UndefOr[Placement.Value] = js.undefined,
     PopperProps: js.UndefOr[js.Object] = js.undefined,
     title: VdomNode,
-    TransitionComponent: OptComponentPropType = js.undefined,
+    TransitionComponent: js.UndefOr[ComponentPropType] = js.undefined,
     TransitionProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
 }

@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import japgolly.scalajs.react.ReactEvent
 
 import scala.scalajs.js
@@ -14,11 +14,11 @@ object MuiModal extends ReactBridgeComponent with MuiModalExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    BackdropComponent: OptComponentPropType = js.undefined,
+    BackdropComponent: js.UndefOr[ComponentPropType] = js.undefined,
     BackdropProps: js.UndefOr[js.Object] = js.undefined,
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     closeAfterTransition: js.UndefOr[Boolean] = js.undefined,
-    container: OptComponentContainerType = js.undefined,
+    container: js.UndefOr[ComponentRefType] = js.undefined,
     disableAutoFocus: js.UndefOr[Boolean] = js.undefined,
     disableBackdropClick: js.UndefOr[Boolean] = js.undefined,
     disableEnforceFocus: js.UndefOr[Boolean] = js.undefined,
@@ -27,10 +27,10 @@ object MuiModal extends ReactBridgeComponent with MuiModalExtensions {
     disableRestoreFocus: js.UndefOr[Boolean] = js.undefined,
     hideBackdrop: js.UndefOr[Boolean] = js.undefined,
     keepMounted: js.UndefOr[Boolean] = js.undefined,
-    onBackdropClick: ReactHandler1[ReactEvent] = js.undefined,
-    onClose: ReactHandler2[ReactEvent, String] = js.undefined,
-    onEscapeKeyDown: ReactHandler1[ReactEvent] = js.undefined,
-    onRendered: OptJsFun0 = js.undefined,
+    onBackdropClick: js.UndefOr[ReactHandler1[ReactEvent]] = js.undefined,
+    onClose: js.UndefOr[ReactHandler2[ReactEvent, String]] = js.undefined,
+    onEscapeKeyDown: js.UndefOr[ReactHandler1[ReactEvent]] = js.undefined,
+    onRendered: js.UndefOr[JsFun0] = js.undefined,
     open: Boolean
   ): WithProps = auto
 }

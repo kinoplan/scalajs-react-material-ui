@@ -11,7 +11,9 @@ import scala.scalajs.js
 import scala.scalajs.js.JSConverters._
 
 object FadeMenu extends ScalaCssReactImplicits {
+  @js.native
   trait JsObject extends js.Object
+
   case class State(anchorEl: Option[HTMLElement] = None) {
     val isMenuOpen = anchorEl.nonEmpty
 

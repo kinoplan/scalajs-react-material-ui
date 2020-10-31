@@ -1,13 +1,13 @@
 package io.kinoplan.scalajs.react.material.ui.lab
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import japgolly.scalajs.react.ReactEventFromHtml
 import japgolly.scalajs.react.vdom.html_<^.VdomNode
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-object MuiSpeedDialAction extends ReactBridgeComponent with MuiSpeedDialActionExtensions with JsWriterImplicits {
+object MuiSpeedDialAction extends ReactBridgeComponent with MuiSpeedDialActionExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/lab", "SpeedDialAction")
@@ -31,13 +31,13 @@ object MuiSpeedDialAction extends ReactBridgeComponent with MuiSpeedDialActionEx
     interactive: js.UndefOr[Boolean] = js.undefined,
     leaveDelay: js.UndefOr[Int] = js.undefined,
     leaveTouchDelay: js.UndefOr[Int] = js.undefined,
-    onClose: ReactHandler1[ReactEventFromHtml] = js.undefined,
-    onOpen: ReactHandler1[ReactEventFromHtml] = js.undefined,
+    onClose: js.UndefOr[ReactHandler1[ReactEventFromHtml]] = js.undefined,
+    onOpen: js.UndefOr[ReactHandler1[ReactEventFromHtml]] = js.undefined,
     open: js.UndefOr[Boolean] = js.undefined,
     placement: js.UndefOr[Placement.Value] = js.undefined,
     PopperProps: js.UndefOr[js.Object] = js.undefined,
     title: js.UndefOr[VdomNode] = js.undefined,
-    TransitionComponent: OptComponentPropType = js.undefined,
+    TransitionComponent: js.UndefOr[ComponentPropType] = js.undefined,
     TransitionProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
 }

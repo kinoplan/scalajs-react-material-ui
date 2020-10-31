@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -15,7 +15,7 @@ object MuiStepContent extends ReactBridgeComponent with MuiStepContentExtensions
 
   def apply(
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
-    TransitionComponent: OptComponentPropType = js.undefined,
+    TransitionComponent: js.UndefOr[ComponentPropType] = js.undefined,
     transitionDuration: js.UndefOr[Int | TransitionDuration.Value] = js.undefined,
     TransitionProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto

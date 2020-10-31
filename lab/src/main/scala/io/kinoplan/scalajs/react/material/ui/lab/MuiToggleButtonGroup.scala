@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.lab
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -16,7 +16,7 @@ object MuiToggleButtonGroup extends ReactBridgeComponent with MuiToggleButtonGro
   def apply(
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     exclusive: js.UndefOr[Boolean] = js.undefined,
-    onChange: Handler2[js.Object, String] = js.undefined,
+    onChange: js.UndefOr[Handler2[js.Object, String]] = js.undefined,
     selected: js.UndefOr[Boolean | Selected.Value] = js.undefined
   ): WithProps = auto
 }

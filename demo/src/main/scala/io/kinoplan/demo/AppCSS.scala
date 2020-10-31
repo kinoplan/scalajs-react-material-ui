@@ -31,6 +31,7 @@ import io.kinoplan.demo.styles.labs.Breadcrumbs.{DefaultBreadcrumbsStyle, Defaul
 import io.kinoplan.demo.styles.labs.Slider.{DefaultDisabledSliderStyle, DefaultSliderStyle, DefaultVerticalSliderStyle}
 import io.kinoplan.demo.styles.labs.SpeedDial.DefaultSpeedDialStyle
 import io.kinoplan.demo.styles.labs.ToggleButton.DefaultToggleButtonStyle
+import io.kinoplan.demo.utils.CSSUtils
 import scalacss.ScalaCssReactImplicits
 import scalacss.internal.mutable.StyleSheetRegistry
 
@@ -135,6 +136,11 @@ object AppCSS extends ScalaCssReactImplicits {
       DefaultSpeedDialStyle
     )
 
-    registry.addToDocumentOnRegistration()
+    registry.onRegistrationN { ss =>
+      val styleStr = ss.map(_.render[String]).mkString("\n")
+      val style = CSSUtils.createStyleElement(styleStr)
+
+      CSSUtils.installStyle(style)
+    }
   }
 }

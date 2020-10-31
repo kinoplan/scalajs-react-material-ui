@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.lab
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
 
@@ -8,7 +8,7 @@ import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
 
-object MuiSpeedDial extends ReactBridgeComponent with MuiSpeedDialExtensions with JsWriterImplicits {
+object MuiSpeedDial extends ReactBridgeComponent with MuiSpeedDialExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/lab", "SpeedDial")
@@ -21,10 +21,10 @@ object MuiSpeedDial extends ReactBridgeComponent with MuiSpeedDialExtensions wit
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     direction: js.UndefOr[Direction.Value] = js.undefined,
     icon: React.Element,
-    onClose: Handler2[js.Object, String] = js.undefined,
+    onClose: js.UndefOr[Handler2[js.Object, String]] = js.undefined,
     open: Boolean,
     openIcon: js.UndefOr[VdomNode] = js.undefined,
-    TransitionComponent: OptComponentPropType = js.undefined,
+    TransitionComponent: js.UndefOr[ComponentPropType] = js.undefined,
     transitionDuration: js.UndefOr[Int | js.Object] = js.undefined,
     TransitionProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto

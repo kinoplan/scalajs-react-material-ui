@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import io.kinoplan.scalajs.react.material.ui.core.internal.PaperClassKey
 import japgolly.scalajs.react.raw.React
 
@@ -21,7 +21,7 @@ object MuiStepper extends ReactBridgeComponent with MuiStepperExtensions {
     connector: js.UndefOr[React.Element] = js.undefined,
     nonLinear: js.UndefOr[Boolean] = js.undefined,
     orientation: js.UndefOr[Orientation.Value] = js.undefined,
-    component: OptComponentPropType = js.undefined,
+    component: js.UndefOr[ComponentPropType] = js.undefined,
     elevation: js.UndefOr[Int] = js.undefined,
     square: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto

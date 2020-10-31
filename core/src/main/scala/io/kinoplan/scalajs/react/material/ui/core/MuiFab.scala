@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -15,13 +15,13 @@ object MuiFab extends ReactBridgeComponent with MuiFabExtensions {
   def apply(
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     color: js.UndefOr[Color.Value] = js.undefined,
-    component: OptComponentPropType = js.undefined,
+    component: js.UndefOr[ComponentPropType] = js.undefined,
     disableFocusRipple: js.UndefOr[Boolean] = js.undefined,
     disableRipple: js.UndefOr[Boolean] = js.undefined,
     size: js.UndefOr[Size.Value] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined,
     action: js.UndefOr[js.Function] = js.undefined,
-    buttonRef: OptComponentRefType = js.undefined,
+    buttonRef: js.UndefOr[ComponentRefType] = js.undefined,
     centerRipple: js.UndefOr[Boolean] = js.undefined,
     disableTouchRipple: js.UndefOr[Boolean] = js.undefined,
     focusRipple: js.UndefOr[Boolean] = js.undefined,

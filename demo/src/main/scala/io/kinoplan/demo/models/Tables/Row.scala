@@ -10,7 +10,7 @@ case class Row(
   numeric: Boolean,
   disablePadding: Boolean,
   label: String,
-  ref: React.RefHandle[html.Element] = React.createRef[html.Element],
+  ref: React.RefHandle[html.Element] = React.createRef[html.Element](),
   open: Boolean = false
 ) {
   lazy val isOpen = ref.current match {

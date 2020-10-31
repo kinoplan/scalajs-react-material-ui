@@ -1,13 +1,13 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
 import japgolly.scalajs.react.vdom.html_<^._
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
 
-object MuiFilledInput extends ReactBridgeComponent with MuiFilledInputExtensions with JsWriterImplicits {
+object MuiFilledInput extends ReactBridgeComponent with MuiFilledInputExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "FilledInput")
@@ -20,9 +20,9 @@ object MuiFilledInput extends ReactBridgeComponent with MuiFilledInputExtensions
     endAdornment: js.UndefOr[VdomNode] = js.undefined,
     error: js.UndefOr[Boolean] = js.undefined,
     fullWidth: js.UndefOr[Boolean] = js.undefined,
-    inputComponent: OptComponentPropType = js.undefined,
+    inputComponent: js.UndefOr[ComponentPropType] = js.undefined,
     inputProps: js.UndefOr[js.Object] = js.undefined,
-    inputRef: OptComponentRefType = js.undefined,
+    inputRef: js.UndefOr[ComponentRefType] = js.undefined,
     margin: js.UndefOr[Margin.Value] = js.undefined,
     multiline: js.UndefOr[Boolean] = js.undefined,
     rows: js.UndefOr[String | Int] = js.undefined,

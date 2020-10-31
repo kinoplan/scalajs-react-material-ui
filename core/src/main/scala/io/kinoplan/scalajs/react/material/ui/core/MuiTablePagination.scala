@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
 import io.kinoplan.scalajs.react.material.ui.html.ReactEventFromNumberInput
 import japgolly.scalajs.react.ReactEvent
 import japgolly.scalajs.react.vdom.html_<^._
@@ -9,7 +9,7 @@ import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
 
-object MuiTablePagination extends ReactBridgeComponent with MuiTablePaginationExtensions with JsWriterImplicits {
+object MuiTablePagination extends ReactBridgeComponent with MuiTablePaginationExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "TablePagination")
@@ -17,16 +17,16 @@ object MuiTablePagination extends ReactBridgeComponent with MuiTablePaginationEx
   object RawComponent extends js.Function
 
   def apply(
-    ActionsComponent: OptComponentPropType = js.undefined,
+    ActionsComponent: js.UndefOr[ComponentPropType] = js.undefined,
     backIconButtonProps: js.UndefOr[js.Object] = js.undefined,
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
-    component: OptComponentPropType = js.undefined,
+    component: js.UndefOr[ComponentPropType] = js.undefined,
     count: Int,
     labelDisplayedRows: js.UndefOr[js.Function] = js.undefined,
     labelRowsPerPage: js.UndefOr[VdomNode] = js.undefined,
     nextIconButtonProps: js.UndefOr[js.Object] = js.undefined,
-    onChangePage: ReactHandler2[ReactEvent, Int] = js.undefined,
-    onChangeRowsPerPage: ReactHandler1[ReactEventFromNumberInput] = js.undefined,
+    onChangePage: js.UndefOr[ReactHandler2[ReactEvent, Int]] = js.undefined,
+    onChangeRowsPerPage: js.UndefOr[ReactHandler1[ReactEventFromNumberInput]] = js.undefined,
     page: Int,
     rowsPerPage: Int,
     rowsPerPageOptions: js.UndefOr[js.Array[Int]] = js.undefined,

@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import japgolly.scalajs.react.ReactEventFromInput
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.html_<^.VdomNode
@@ -9,7 +9,7 @@ import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
 
-object MuiSelect extends ReactBridgeComponent with MuiSelectExtensions with JsWriterImplicits {
+object MuiSelect extends ReactBridgeComponent with MuiSelectExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "Select")
@@ -20,24 +20,24 @@ object MuiSelect extends ReactBridgeComponent with MuiSelectExtensions with JsWr
     autoWidth: js.UndefOr[Boolean] = js.undefined,
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     displayEmpty: js.UndefOr[Boolean] = js.undefined,
-    IconComponent: OptComponentPropType = js.undefined,
+    IconComponent: js.UndefOr[ComponentPropType] = js.undefined,
     input: js.UndefOr[React.Element] = js.undefined,
     inputProps: js.UndefOr[js.Object] = js.undefined,
     MenuProps: js.UndefOr[js.Object] = js.undefined,
     multiple: js.UndefOr[Boolean] = js.undefined,
     native: js.UndefOr[Boolean] = js.undefined,
-    onClose: ReactHandler1[ReactEventFromInput] = js.undefined,
-    onOpen: ReactHandler1[ReactEventFromInput] = js.undefined,
+    onClose: js.UndefOr[ReactHandler1[ReactEventFromInput]] = js.undefined,
+    onOpen: js.UndefOr[ReactHandler1[ReactEventFromInput]] = js.undefined,
     open: js.UndefOr[Boolean] = js.undefined,
-    renderValue: OptRenderValueType = js.undefined,
+    renderValue: js.UndefOr[js.Any => React.Node] = js.undefined,
     SelectDisplayProps: js.UndefOr[js.Object] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined,
     disableUnderline: js.UndefOr[Boolean] = js.undefined,
     endAdornment: js.UndefOr[VdomNode] = js.undefined,
     error: js.UndefOr[Boolean] = js.undefined,
     fullWidth: js.UndefOr[Boolean] = js.undefined,
-    inputComponent: OptComponentPropType = js.undefined,
-    inputRef: OptComponentRefType = js.undefined,
+    inputComponent: js.UndefOr[ComponentPropType] = js.undefined,
+    inputRef: js.UndefOr[ComponentRefType] = js.undefined,
     margin: js.UndefOr[Margin.Value] = js.undefined,
     multiline: js.UndefOr[Boolean] = js.undefined,
     rows: js.UndefOr[String | Int] = js.undefined,

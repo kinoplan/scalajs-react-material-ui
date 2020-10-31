@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.ReactEvent
 import japgolly.scalajs.react.vdom.html_<^._
@@ -9,7 +9,7 @@ import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
 
-object MuiFormControlLabel extends ReactBridgeComponent with MuiFormControlLabelExtensions with JsWriterImplicits {
+object MuiFormControlLabel extends ReactBridgeComponent with MuiFormControlLabelExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "FormControlLabel")
@@ -20,10 +20,10 @@ object MuiFormControlLabel extends ReactBridgeComponent with MuiFormControlLabel
     checked: js.UndefOr[Boolean | String] = js.undefined,
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     control: js.UndefOr[React.Element] = js.undefined,
-    inputRef: OptComponentRefType = js.undefined,
+    inputRef: js.UndefOr[ComponentRefType] = js.undefined,
     label: js.UndefOr[VdomNode] = js.undefined,
     labelPlacement: js.UndefOr[LabelPlacement.Value] = js.undefined,
-    onChange: ReactHandler2[ReactEvent, Boolean] = js.undefined
+    onChange: js.UndefOr[ReactHandler2[ReactEvent, Boolean]] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
 }
 
