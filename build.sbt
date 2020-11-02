@@ -1,10 +1,12 @@
-lazy val root = if (Settings.isDemoEnabled)
-  project.in(file(".")).aggregate(core, icons, lab, bridge, demo).configure(Settings.rootProject)
-    else
-  project.in(file(".")).aggregate(core, icons, lab, bridge).configure(Settings.rootProject)
+lazy val root =
+  if (Settings.isDemoEnabled)
+    project.in(file(".")).aggregate(core, icons, lab, bridge, demo).configure(Settings.rootProject)
+  else
+    project.in(file(".")).aggregate(core, icons, lab, bridge).configure(Settings.rootProject)
 
 inThisBuild(
   List(
+    organization := Settings.organization,
     homepage := Some(url("https://github.com/kinoplan/scalajs-react-material-ui")),
     licenses := Seq("MIT" -> url("http://opensource.org/licenses/MIT")),
     developers := List(
@@ -37,9 +39,7 @@ lazy val core = (project in file("core")).dependsOn(bridge)
     (sourceManaged in Compile).value / "io" / "kinoplan" / "scalajs" / "react" / "material" / "ui" / "core" / "colors",
     (npmInstallDependencies in Compile).value
   ),
-  sourceGenerators in Compile += muiColorsGenerator.taskValue,
-  sources in(Compile, doc) := Seq.empty,
-  publishArtifact in(Compile, packageDoc) := false,
+  sourceGenerators in Compile += muiColorsGenerator.taskValue
 ).enablePlugins(ScalaJSBundlerPlugin)
 
 lazy val muiIconsGenerator = taskKey[Seq[File]]("mui-icons-generator")
@@ -55,9 +55,7 @@ lazy val icons = (project in file("icons")).dependsOn(bridge)
     (sourceManaged in Compile).value / "io" / "kinoplan" / "scalajs" / "react" / "material" / "ui" / "icons",
     (npmInstallDependencies in Compile).value
   ),
-  sourceGenerators in Compile += muiIconsGenerator.taskValue,
-  sources in(Compile, doc) := Seq.empty,
-  publishArtifact in(Compile, packageDoc) := false,
+  sourceGenerators in Compile += muiIconsGenerator.taskValue
 ).enablePlugins(ScalaJSBundlerPlugin)
 
 lazy val lab = (project in file("lab")).dependsOn(bridge)
@@ -66,9 +64,7 @@ lazy val lab = (project in file("lab")).dependsOn(bridge)
   scalaJSUseMainModuleInitializer := false,
   npmDependencies in Compile ++= Settings.npmDependenciesLab.value,
   npmResolutions in Compile ++= (npmDependencies in Compile).value.toMap,
-  libraryDependencies ++= Settings.scalajsDependenciesLib.value,
-  sources in(Compile, doc) := Seq.empty,
-  publishArtifact in(Compile, packageDoc) := false,
+  libraryDependencies ++= Settings.scalajsDependenciesLib.value
 ).enablePlugins(ScalaJSBundlerPlugin)
 
 lazy val demo = (project in file("demo")).dependsOn(core, lab, bridge)
@@ -97,14 +93,9 @@ lazy val bridge = (project in file("utils/bridge")).settings(commonSettings).set
 ).enablePlugins(ScalaJSBundlerPlugin, BridgeGeneratorPlugin)
 
 lazy val commonSettings = Seq(
-  version := Settings.version,
   crossScalaVersions := Seq("2.12.11", "2.13.3"),
   scalaVersion := crossScalaVersions.value.last,
-  organization := Settings.organization,
   description := Settings.description,
-  homepage := Some(url("https://github.com/kinoplan/scalajs-react-material-ui")),
-  licenses := Seq("MIT" -> url("http://opensource.org/licenses/MIT")),
-  publishArtifact in Test := false,
   webpackBundlingMode := BundlingMode.LibraryOnly(),
   useYarn := true,
   version in webpack := Settings.versions.bundler.webpack,

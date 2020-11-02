@@ -2,8 +2,6 @@ import sbt.Keys._
 import sbt._
 
 object Settings {
-  val version = "0.1.0"
-
   val organization = "io.kinoplan"
 
   val description = "scalajs-react facade for material-ui"
@@ -94,7 +92,10 @@ object Settings {
   )
 
   lazy val rootProject: Project => Project = _.settings(
-    name            := "scalajs-react-material-ui",
-    skip in publish := true
+    name := "scalajs-react-material-ui",
+    skip in publish := true,
+    skip in publishLocal := true,
+    skip in publishArtifact := true,
+    Keys.`package` := file("")
   )
 }

@@ -1,5 +1,6 @@
 val scalaJSVersion = Option(System.getenv("SCALAJS_VERSION")).getOrElse("1.1.1")
 
+resolvers += Resolver.sonatypeRepo("public")
 resolvers += Resolver.bintrayRepo("oyvindberg", "converter")
 
 addSbtPlugin("org.scalablytyped.converter" % s"sbt-converter${if (scalaJSVersion.startsWith("0.6")) "06" else ""}" % "1.0.0-beta28")
@@ -10,4 +11,4 @@ addSbtPlugin("ch.epfl.scala" % s"sbt-scalajs-bundler${if (scalaJSVersion.startsW
 
 addSbtPlugin("io.github.davidgregory084" % "sbt-tpolecat" % "0.1.14")
 
-addSbtPlugin("com.geirsson" % "sbt-ci-release" % "1.5.3")
+addSbtPlugin("com.geirsson" % "sbt-ci-release" % "1.5.4")
