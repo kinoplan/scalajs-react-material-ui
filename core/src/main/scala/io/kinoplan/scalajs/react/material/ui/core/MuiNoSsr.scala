@@ -1,12 +1,12 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import japgolly.scalajs.react.vdom.html_<^._
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-object MuiNoSsr extends ReactBridgeComponent with JsWriterImplicits {
+object MuiNoSsr extends ReactBridgeComponent {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "NoSsr")

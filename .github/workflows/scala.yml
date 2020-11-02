@@ -1,6 +1,6 @@
 name: Scala CI
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -11,5 +11,7 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Run tests
-      run: sbt -mem 4096 test
+    - name: Run test
+      run: sbt -mem 4096 clean test
+    - name: Run test 0.6
+      run: SCALAJS_VERSION=0.6.33 DEMO_ENABLED=0 sbt -mem 4096 clean test

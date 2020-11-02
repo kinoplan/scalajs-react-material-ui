@@ -1,5 +1,6 @@
 package io.kinoplan.demo.components.demos.TextFields
 
+import cats.syntax.option._
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.models.TextFields.FieldRange
 import io.kinoplan.demo.styles.demos.TextFields.{DefaultInputAdornmentsStyle, InputAdornmentsStyle}
@@ -11,6 +12,8 @@ import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ReactEventFromTextArea, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
+
+import scala.scalajs.js.JSConverters._
 
 object OutlinedInputAdornments extends ScalaCssReactImplicits {
   case class Props(style: InputAdornmentsStyle)
@@ -82,7 +85,9 @@ object OutlinedInputAdornments extends ScalaCssReactImplicits {
               label = "With outlined TextField".toVdom,
               variant = MuiTextField.Variant.outlined,
               InputProps = MuiInputProps(
-                startAdornment = MuiInputAdornment(position = MuiInputAdornment.Position.start)("Kg").rawNode
+                startAdornment = MuiInputAdornment(
+                  position = MuiInputAdornment.Position.start
+                )("Kg").rawNode.some.orUndefined
               )
             )(css.cssMargin, css.textField,
               id := "outlined-simple-start-adornment"
@@ -92,7 +97,9 @@ object OutlinedInputAdornments extends ScalaCssReactImplicits {
               label = "With Select".toVdom,
               variant = MuiTextField.Variant.outlined,
               InputProps = MuiInputProps(
-                startAdornment = MuiInputAdornment(position = MuiInputAdornment.Position.start)("Kg").rawNode
+                startAdornment = MuiInputAdornment(
+                  position = MuiInputAdornment.Position.start
+                )("Kg").rawNode.some.orUndefined
               )
             )(css.cssMargin, css.textField,
               value := state.weightRange,
@@ -105,7 +112,9 @@ object OutlinedInputAdornments extends ScalaCssReactImplicits {
               label = "Amount".toVdom,
               variant = MuiTextField.Variant.outlined,
               InputProps = MuiInputProps(
-                startAdornment = MuiInputAdornment(position = MuiInputAdornment.Position.start)("$").rawNode
+                startAdornment = MuiInputAdornment(
+                  position = MuiInputAdornment.Position.start
+                )("$").rawNode.some.orUndefined
               )
             )(css.cssMargin, css.textField,
               id := "outlined-adornment-amount",
@@ -116,7 +125,9 @@ object OutlinedInputAdornments extends ScalaCssReactImplicits {
               label = "Weight".toVdom,
               variant = MuiTextField.Variant.outlined,
               InputProps = MuiInputProps(
-                startAdornment = MuiInputAdornment(position = MuiInputAdornment.Position.start)("$").rawNode
+                startAdornment = MuiInputAdornment(
+                  position = MuiInputAdornment.Position.start
+                )("$").rawNode.some.orUndefined
               ),
               helperText = "Weight".toVdom
             )(css.cssMargin, css.textField,
@@ -127,7 +138,7 @@ object OutlinedInputAdornments extends ScalaCssReactImplicits {
             MuiTextField(
               label = "Password".toVdom,
               variant = MuiTextField.Variant.outlined,
-              InputProps = MuiInputProps(endAdornment = passwordEndAdormnent.rawNode)
+              InputProps = MuiInputProps(endAdornment = passwordEndAdormnent.rawNode.some.orUndefined)
             )(css.cssMargin, css.textField,
               id := "outlined-adornment-password",
               `type` := state.showPasswordType,

@@ -1,6 +1,6 @@
 package io.kinoplan.demo.models.Buttons
 
-import com.payalabs.scalajs.react.bridge.WithProps
+import io.kinoplan.scalajs.react.bridge.WithProps
 import io.kinoplan.scalajs.react.material.ui.core.MuiFab
 import scalacss.internal.StyleA
 

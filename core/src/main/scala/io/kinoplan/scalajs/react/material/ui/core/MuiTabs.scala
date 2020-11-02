@@ -1,12 +1,12 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import japgolly.scalajs.react.ReactEvent
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-object MuiTabs extends ReactBridgeComponent with MuiTabsExtensions with JsWriterImplicits {
+object MuiTabs extends ReactBridgeComponent with MuiTabsExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "Tabs")
@@ -14,13 +14,13 @@ object MuiTabs extends ReactBridgeComponent with MuiTabsExtensions with JsWriter
   object RawComponent extends js.Function
 
   def apply(
-    action: OnJSEv1[ReactEvent] = js.undefined,
+    action: js.UndefOr[OnJSEv1[ReactEvent]] = js.undefined,
     centered: js.UndefOr[Boolean] = js.undefined,
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
-    component: OptComponentPropType = js.undefined,
+    component: js.UndefOr[ComponentPropType] = js.undefined,
     indicatorColor: js.UndefOr[IndicatorColor.Value] = js.undefined,
-    onChange: ReactHandler2[ReactEvent, js.Any] = js.undefined,
-    ScrollButtonComponent: OptComponentPropType = js.undefined,
+    onChange: js.UndefOr[ReactHandler2[ReactEvent, js.Any]] = js.undefined,
+    ScrollButtonComponent: js.UndefOr[ComponentPropType] = js.undefined,
     scrollButtons: js.UndefOr[ScrollButtons.Value] = js.undefined,
     TabIndicatorProps: js.UndefOr[js.Object] = js.undefined,
     textColor: js.UndefOr[TextColor.Value] = js.undefined,

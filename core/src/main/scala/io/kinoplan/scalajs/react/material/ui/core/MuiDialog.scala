@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import japgolly.scalajs.react.ReactEvent
 import org.scalajs.dom.html
 
@@ -8,7 +8,7 @@ import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
 
-object MuiDialog extends ReactBridgeComponent with MuiDialogExtensions with JsWriterImplicits {
+object MuiDialog extends ReactBridgeComponent with MuiDialogExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "Dialog")
@@ -22,33 +22,33 @@ object MuiDialog extends ReactBridgeComponent with MuiDialogExtensions with JsWr
     fullScreen: js.UndefOr[Boolean] = js.undefined,
     fullWidth: js.UndefOr[Boolean] = js.undefined,
     maxWidth: js.UndefOr[Boolean | MaxWidth.Value] = js.undefined,
-    onBackdropClick: ReactHandler1[ReactEvent] = js.undefined,
-    onClose: ReactHandler2[ReactEvent, String] = js.undefined,
-    onEnter: Handler1[html.Element] = js.undefined,
-    onEntering: Handler1[html.Element] = js.undefined,
-    onEntered: Handler1[html.Element] = js.undefined,
-    onExit: Handler1[html.Element] = js.undefined,
-    onExiting: Handler1[html.Element] = js.undefined,
-    onExited: Handler1[html.Element] = js.undefined,
-    onEscapeKeyDown: ReactHandler1[ReactEvent] = js.undefined,
+    onBackdropClick: js.UndefOr[ReactHandler1[ReactEvent]] = js.undefined,
+    onClose: js.UndefOr[ReactHandler2[ReactEvent, String]] = js.undefined,
+    onEnter: js.UndefOr[Handler1[html.Element]] = js.undefined,
+    onEntering: js.UndefOr[Handler1[html.Element]] = js.undefined,
+    onEntered: js.UndefOr[Handler1[html.Element]] = js.undefined,
+    onExit: js.UndefOr[Handler1[html.Element]] = js.undefined,
+    onExiting: js.UndefOr[Handler1[html.Element]] = js.undefined,
+    onExited: js.UndefOr[Handler1[html.Element]] = js.undefined,
+    onEscapeKeyDown: js.UndefOr[ReactHandler1[ReactEvent]] = js.undefined,
     open: Boolean,
-    PaperComponent: OptComponentPropType = js.undefined,
+    PaperComponent: js.UndefOr[ComponentPropType] = js.undefined,
     PaperProps: js.UndefOr[js.Object] = js.undefined,
     scroll: js.UndefOr[Scroll.Value] = js.undefined,
-    TransitionComponent: OptComponentPropType = js.undefined,
+    TransitionComponent: js.UndefOr[ComponentPropType] = js.undefined,
     transitionDuration: js.UndefOr[Int | js.Object] = js.undefined,
     TransitionProps: js.UndefOr[js.Object] = js.undefined,
-    BackdropComponent: OptComponentPropType = js.undefined,
+    BackdropComponent: js.UndefOr[ComponentPropType] = js.undefined,
     BackdropProps: js.UndefOr[js.Object] = js.undefined,
     closeAfterTransition: js.UndefOr[Boolean] = js.undefined,
-    container: OptComponentContainerType = js.undefined,
+    container: js.UndefOr[ComponentRefType] = js.undefined,
     disableAutoFocus: js.UndefOr[Boolean] = js.undefined,
     disableEnforceFocus: js.UndefOr[Boolean] = js.undefined,
     disablePortal: js.UndefOr[Boolean] = js.undefined,
     disableRestoreFocus: js.UndefOr[Boolean] = js.undefined,
     hideBackdrop: js.UndefOr[Boolean] = js.undefined,
     keepMounted: js.UndefOr[Boolean] = js.undefined,
-    onRendered: OptJsFun0 = js.undefined
+    onRendered: js.UndefOr[JsFun0] = js.undefined
   ): WithProps = auto
 }
 

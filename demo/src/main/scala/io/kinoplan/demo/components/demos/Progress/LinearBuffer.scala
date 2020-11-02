@@ -67,7 +67,7 @@ object LinearBuffer extends ScalaCssReactImplicits {
   private val component = ScalaComponent.builder[Props]("LinearBuffer")
     .initialState(State())
     .renderBackend[Backend]
-    .componentWillMount(_.backend.mount)
+    .componentDidMount(_.backend.mount)
     .componentWillUnmount(_.backend.unmount)
     .build
 

@@ -1,12 +1,13 @@
-val scalaJSVersion = Option(System.getenv("SCALAJS_VERSION")).getOrElse("0.6.32")
+val scalaJSVersion = Option(System.getenv("SCALAJS_VERSION")).getOrElse("1.1.1")
 
-// Unmanaged jars in client/lib are used until the LTS version of sbt-scalablytyped appears
-//resolvers += Resolver.bintrayRepo("oyvindberg", "ScalablyTyped")
-//
-//addSbtPlugin("org.scalablytyped" % "sbt-scalablytyped" % "201912120707")
+resolvers += Resolver.bintrayRepo("oyvindberg", "converter")
+
+addSbtPlugin("org.scalablytyped.converter" % s"sbt-converter${if (scalaJSVersion.startsWith("0.6")) "06" else ""}" % "1.0.0-beta28")
 
 addSbtPlugin("org.scala-js" % "sbt-scalajs" % scalaJSVersion)
 
-addSbtPlugin("ch.epfl.scala" % "sbt-scalajs-bundler-sjs06" % "0.16.0")
+addSbtPlugin("ch.epfl.scala" % s"sbt-scalajs-bundler${if (scalaJSVersion.startsWith("0.6")) "-sjs06" else ""}" % s"0.${if (scalaJSVersion.startsWith("0.6")) "18" else "20"}.0")
 
-addSbtPlugin("com.geirsson" % "sbt-ci-release" % "1.5.2")
+addSbtPlugin("io.github.davidgregory084" % "sbt-tpolecat" % "0.1.14")
+
+addSbtPlugin("com.geirsson" % "sbt-ci-release" % "1.5.3")

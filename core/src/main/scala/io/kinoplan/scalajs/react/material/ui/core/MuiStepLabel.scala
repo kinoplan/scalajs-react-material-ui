@@ -1,12 +1,12 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import japgolly.scalajs.react.vdom.html_<^._
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-object MuiStepLabel extends ReactBridgeComponent with MuiStepLabelExtensions with JsWriterImplicits {
+object MuiStepLabel extends ReactBridgeComponent with MuiStepLabelExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "StepLabel")
@@ -18,7 +18,7 @@ object MuiStepLabel extends ReactBridgeComponent with MuiStepLabelExtensions wit
     error: js.UndefOr[Boolean] = js.undefined,
     icon: js.UndefOr[VdomNode] = js.undefined,
     optional: js.UndefOr[VdomNode] = js.undefined,
-    StepIconComponent: OptComponentPropType = js.undefined,
+    StepIconComponent: js.UndefOr[ComponentPropType] = js.undefined,
     StepIconProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
 }

@@ -1,12 +1,12 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import japgolly.scalajs.react.vdom.html_<^._
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-object MuiList extends ReactBridgeComponent with MuiListExtensions with JsWriterImplicits {
+object MuiList extends ReactBridgeComponent with MuiListExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "List")
@@ -15,7 +15,7 @@ object MuiList extends ReactBridgeComponent with MuiListExtensions with JsWriter
 
   def apply(
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
-    component: OptComponentPropType = js.undefined,
+    component: js.UndefOr[ComponentPropType] = js.undefined,
     dense: js.UndefOr[Boolean] = js.undefined,
     disablePadding: js.UndefOr[Boolean] = js.undefined,
     subheader: js.UndefOr[VdomNode] = js.undefined

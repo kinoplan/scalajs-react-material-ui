@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.lab
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -17,9 +17,9 @@ object MuiToggleButton extends ReactBridgeComponent with MuiToggleButtonExtensio
     disableFocusRipple: js.UndefOr[Boolean] = js.undefined,
     disableRipple: js.UndefOr[Boolean] = js.undefined,
     action: js.UndefOr[js.Function] = js.undefined,
-    buttonRef: OptComponentRefType = js.undefined,
+    buttonRef: js.UndefOr[ComponentRefType] = js.undefined,
     centerRipple: js.UndefOr[Boolean] = js.undefined,
-    component: OptComponentPropType = js.undefined,
+    component: js.UndefOr[ComponentPropType] = js.undefined,
     disableTouchRipple: js.UndefOr[Boolean] = js.undefined,
     focusRipple: js.UndefOr[Boolean] = js.undefined,
     focusVisibleClassName: js.UndefOr[String] = js.undefined,

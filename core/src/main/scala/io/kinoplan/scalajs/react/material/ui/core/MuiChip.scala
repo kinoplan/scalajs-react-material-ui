@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
 import japgolly.scalajs.react.ReactEvent
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.html_<^._
@@ -8,7 +8,7 @@ import japgolly.scalajs.react.vdom.html_<^._
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-object MuiChip extends ReactBridgeComponent with MuiChipExtensions with JsWriterImplicits {
+object MuiChip extends ReactBridgeComponent with MuiChipExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "Chip")
@@ -20,11 +20,11 @@ object MuiChip extends ReactBridgeComponent with MuiChipExtensions with JsWriter
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     clickable: js.UndefOr[Boolean] = js.undefined,
     color: js.UndefOr[Color.Value] = js.undefined,
-    component: OptComponentPropType = js.undefined,
+    component: js.UndefOr[ComponentPropType] = js.undefined,
     deleteIcon: js.UndefOr[React.Element] = js.undefined,
     icon: js.UndefOr[React.Element] = js.undefined,
     label: js.UndefOr[VdomNode] = js.undefined,
-    onDelete: ReactHandler1[ReactEvent] = js.undefined,
+    onDelete: js.UndefOr[ReactHandler1[ReactEvent]] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
 }

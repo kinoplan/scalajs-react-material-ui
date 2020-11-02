@@ -1,11 +1,13 @@
 package io.kinoplan.demo.utils
 
+import cats.syntax.option._
 import japgolly.scalajs.react.vdom.VdomNode
 import scalacss.internal.StyleA
 
-import scala.language.implicitConversions
 import scala.scalajs.js
 import scala.scalajs.js.JSNumberOps._
+
+import scala.scalajs.js.JSConverters._
 
 object Helpers {
   implicit class StringExtended(value: String) {
@@ -48,7 +50,7 @@ object Helpers {
     styleA.className.value
 
   implicit def styleAToUndefOrClassName(styleA: StyleA): js.UndefOr[String] =
-    js.UndefOr.any2undefOrA(styleA.className.value)
+    styleA.className.value.some.orUndefined
 
   implicit def stylesToClassName(styleAs: Seq[StyleA]): String =
     styleAs.map(styleAToClassName).mkString(" ")

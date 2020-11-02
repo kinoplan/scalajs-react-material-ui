@@ -63,7 +63,7 @@ object HorizontalNonLinearStepper extends ScalaCssReactImplicits {
 
     def handleComplete = {
       copy(
-        completed = completed + activeStep
+        completed = completed ++ SortedSet(activeStep)
       )
     }
 

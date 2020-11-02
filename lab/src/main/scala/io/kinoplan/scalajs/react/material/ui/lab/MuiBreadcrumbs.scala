@@ -1,12 +1,12 @@
 package io.kinoplan.scalajs.react.material.ui.lab
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import japgolly.scalajs.react.vdom.html_<^.VdomNode
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-object MuiBreadcrumbs extends ReactBridgeComponent with JsWriterImplicits {
+object MuiBreadcrumbs extends ReactBridgeComponent {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/lab", "Breadcrumbs")
@@ -15,7 +15,7 @@ object MuiBreadcrumbs extends ReactBridgeComponent with JsWriterImplicits {
 
   def apply(
     classes: js.UndefOr[Map[String, String]] = js.undefined,
-    component: OptComponentPropType = js.undefined,
+    component: js.UndefOr[ComponentPropType] = js.undefined,
     itemsAfterCollapse: js.UndefOr[Int] = js.undefined,
     itemsBeforeCollapse: js.UndefOr[Int] = js.undefined,
     maxItems: js.UndefOr[Int] = js.undefined,

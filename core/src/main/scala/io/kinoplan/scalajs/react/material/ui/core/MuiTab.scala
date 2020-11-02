@@ -1,12 +1,12 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
 import japgolly.scalajs.react.vdom.html_<^._
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-object MuiTab extends ReactBridgeComponent with MuiTabExtensions with JsWriterImplicits {
+object MuiTab extends ReactBridgeComponent with MuiTabExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "Tab")
@@ -18,9 +18,9 @@ object MuiTab extends ReactBridgeComponent with MuiTabExtensions with JsWriterIm
     icon: js.UndefOr[VdomNode] = js.undefined,
     label: js.UndefOr[VdomNode] = js.undefined,
     action: js.UndefOr[js.Function] = js.undefined,
-    buttonRef: OptComponentRefType = js.undefined,
+    buttonRef: js.UndefOr[ComponentRefType] = js.undefined,
     centerRipple: js.UndefOr[Boolean] = js.undefined,
-    component: OptComponentPropType = js.undefined,
+    component: js.UndefOr[ComponentPropType] = js.undefined,
     disableRipple: js.UndefOr[Boolean] = js.undefined,
     disableTouchRipple: js.UndefOr[Boolean] = js.undefined,
     focusRipple: js.UndefOr[Boolean] = js.undefined,

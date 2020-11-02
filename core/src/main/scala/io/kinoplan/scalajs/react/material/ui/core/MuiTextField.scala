@@ -1,13 +1,13 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import japgolly.scalajs.react.vdom.html_<^._
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
 
-object MuiTextField extends ReactBridgeComponent with MuiTextFieldExtensions with JsWriterImplicits {
+object MuiTextField extends ReactBridgeComponent with MuiTextFieldExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
   @JSImport("@material-ui/core", "TextField")
@@ -22,7 +22,7 @@ object MuiTextField extends ReactBridgeComponent with MuiTextFieldExtensions wit
     InputLabelProps: js.UndefOr[js.Object] = js.undefined,
     InputProps: js.UndefOr[js.Object] = js.undefined,
     inputProps: js.UndefOr[js.Object] = js.undefined,
-    inputRef: OptComponentRefType = js.undefined,
+    inputRef: js.UndefOr[ComponentRefType] = js.undefined,
     label: js.UndefOr[VdomNode] = js.undefined,
     margin: js.UndefOr[Margin.Value] = js.undefined,
     multiline: js.UndefOr[Boolean] = js.undefined,
@@ -32,7 +32,7 @@ object MuiTextField extends ReactBridgeComponent with MuiTextFieldExtensions wit
     SelectProps: js.UndefOr[js.Object] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined,
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
-    component: OptComponentPropType = js.undefined
+    component: js.UndefOr[ComponentPropType] = js.undefined
   ): WithProps = auto
 }
 

@@ -1,6 +1,6 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -13,8 +13,8 @@ object MuiPortal extends ReactBridgeComponent {
   object RawComponent extends js.Function
 
   def apply(
-    container: OptComponentContainerType = js.undefined,
+    container: js.UndefOr[ComponentRefType] = js.undefined,
     disablePortal: js.UndefOr[Boolean] = js.undefined,
-    onRendered: OptJsFun0 = js.undefined
+    onRendered: js.UndefOr[JsFun0] = js.undefined
   ): WithProps = auto
 }
