@@ -3,7 +3,7 @@ import org.portablescala.sbtplatformdeps.PlatformDepsPlugin.autoImport._
 //import org.scalablytyped.sbt.ScalablyTypedPlugin.autoImport.ScalablyTyped
 
 object Settings {
-  val version = "0.0.1"
+  val version = "0.0.2"
 
   val organization = "io.kinoplan"
 
