@@ -28,7 +28,9 @@ inThisBuild(
 
 lazy val muiColorsGenerator = taskKey[Seq[File]]("mui-colors-generator")
 
-lazy val core = (project in file("core")).dependsOn(bridge)
+lazy val core = (project in file("core"))
+  .dependsOn(bridge)
+  .configure(Settings.publishArtifactSettings)
   .settings(commonSettings).settings(
   name := "scalajs-react-material-ui-core",
   scalaJSUseMainModuleInitializer := false,
@@ -44,7 +46,9 @@ lazy val core = (project in file("core")).dependsOn(bridge)
 
 lazy val muiIconsGenerator = taskKey[Seq[File]]("mui-icons-generator")
 
-lazy val icons = (project in file("icons")).dependsOn(bridge)
+lazy val icons = (project in file("icons"))
+  .dependsOn(bridge)
+  .configure(Settings.publishArtifactSettings)
   .settings(commonSettings).settings(
   name := "scalajs-react-material-ui-icons",
   scalaJSUseMainModuleInitializer := false,
@@ -58,7 +62,9 @@ lazy val icons = (project in file("icons")).dependsOn(bridge)
   sourceGenerators in Compile += muiIconsGenerator.taskValue
 ).enablePlugins(ScalaJSBundlerPlugin)
 
-lazy val lab = (project in file("lab")).dependsOn(bridge)
+lazy val lab = (project in file("lab"))
+  .dependsOn(bridge)
+  .configure(Settings.publishArtifactSettings)
   .settings(commonSettings).settings(
   name := "scalajs-react-material-ui-lab",
   scalaJSUseMainModuleInitializer := false,
@@ -84,7 +90,9 @@ lazy val demo = (project in file("demo")).dependsOn(core, lab, bridge)
   skip in publish := true
 ).enablePlugins(ScalaJSBundlerPlugin, ScalablyTypedConverterPlugin)
 
-lazy val bridge = (project in file("utils/bridge")).settings(commonSettings).settings(
+lazy val bridge = (project in file("utils/bridge"))
+  .configure(Settings.publishArtifactSettings)
+  .settings(commonSettings).settings(
   name := "scalajs-react-bridge",
   scalaJSUseMainModuleInitializer := false,
   npmDependencies in Compile ++= Settings.npmDependenciesBridge.value,

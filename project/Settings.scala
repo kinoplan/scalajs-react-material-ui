@@ -10,6 +10,8 @@ object Settings {
 
   val isDemoEnabled = Option(System.getenv("DEMO_ENABLED")).getOrElse("1").startsWith("1")
 
+  val isPublishVersion = Option(System.getenv("PUBLISH_VERSION")).getOrElse("0").startsWith("1")
+
   object versions {
     object bundler {
       val webpack = "4.41.5"
@@ -98,4 +100,13 @@ object Settings {
     skip in publishArtifact := true,
     Keys.`package` := file("")
   )
+
+  lazy val publishArtifactSettings: Project => Project = project =>
+    if (isPublishVersion)
+      project
+    else
+      project.settings(
+        publishArtifact in(Compile, packageDoc) := false,
+        publishArtifact in(Compile, packageSrc) := false
+      )
 }

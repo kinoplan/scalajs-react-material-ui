@@ -52,7 +52,7 @@ In the demo you can also find very detailed examples of using a bunch of:
 - [ScalablyTyped/Distribution](https://github.com/ScalablyTyped/Distribution)
 
 Start:
-1. `sbt -mem 2048 runDev`
+1. `sbt runDev`
 2. Open in browser `localhost:8080`
 
 ## License
