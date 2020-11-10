@@ -3,7 +3,7 @@ package io.kinoplan.demo.components.demos.Tables.wrappers
 import io.kinoplan.demo.components.Layout
 import io.kinoplan.demo.styles.demos.Tables.{DefaultEnhancedTableToolbarStyle, EnhancedTableToolbarStyle}
 import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiDeleteIcon, MuiFilterListIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.all._
@@ -38,10 +38,10 @@ object EnhancedTableToolbar extends ScalaCssReactImplicits {
         div(css.spacer),
         div(css.actions,
           MuiTooltip(title = "Delete")(
-            MuiIconButton()(aria.label := "Delete", MuiDeleteIcon())
+            MuiIconButton()(aria.label := "Delete", MuiIcons(MuiIconsModule.Delete)())
           ).when(props.selectedNonEmpty),
           MuiTooltip(title = "Filter list")(
-            MuiIconButton()(aria.label := "Filter list", MuiFilterListIcon())
+            MuiIconButton()(aria.label := "Filter list", MuiIcons(MuiIconsModule.FilterList)())
           ).when(props.selectedIsEmpty)
         )
       ).rawNode

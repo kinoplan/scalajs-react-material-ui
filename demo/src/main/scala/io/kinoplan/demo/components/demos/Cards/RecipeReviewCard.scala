@@ -3,7 +3,7 @@ package io.kinoplan.demo.components.demos.Cards
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Cards.{DefaultRecipeReviewCardStyle, RecipeReviewCardStyle}
 import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiExpandMoreIcon, MuiFavoriteIcon, MuiMoreVertIcon, MuiShareIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
@@ -32,7 +32,7 @@ object RecipeReviewCard extends ScalaCssReactImplicits {
                 "R"
               ).rawNode),
               action = MuiIconButton()(
-                MuiMoreVertIcon()
+                MuiIcons(MuiIconsModule.MoreVert)()
               ),
               title = VdomNode("Shrimp and Chorizo Paella"),
               subheader = VdomNode("September 14, 2016")
@@ -49,17 +49,17 @@ object RecipeReviewCard extends ScalaCssReactImplicits {
             MuiCardActions(disableActionSpacing = true)(css.actions,
               MuiIconButton()(
                 aria.label := "Add to favorites",
-                MuiFavoriteIcon()
+                MuiIcons(MuiIconsModule.Favorite)()
               ),
               MuiIconButton()(
                 aria.label := "Share",
-                MuiShareIcon()
+                MuiIcons(MuiIconsModule.Share)()
               ),
               MuiIconButton()(css.expand, expandOpen,
                 aria.label := "Show more",
                 aria.expanded := state.expanded,
                 onClick --> handleExpandClick,
-                MuiExpandMoreIcon()
+                MuiIcons(MuiIconsModule.ExpandMore)()
               )
             ),
             MuiCollapse(in = state.expanded, timeout = MuiCollapse.Timeout.auto, unmountOnExit = true)(

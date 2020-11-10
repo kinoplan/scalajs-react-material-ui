@@ -4,13 +4,12 @@ import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
 import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiAccountCircleIcon, MuiMenuIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromHtml, ReactEventFromInput, ScalaComponent}
 import org.scalajs.dom.raw.HTMLElement
 import scalacss.ScalaCssReactImplicits
-
 import scala.scalajs.js.JSConverters._
 
 object MenuAppBar extends ScalaCssReactImplicits {
@@ -87,7 +86,7 @@ object MenuAppBar extends ScalaCssReactImplicits {
               MuiToolbar()(
                 MuiIconButton(color = MuiIconButton.Color.inherit)(css.menuButton,
                   aria.label := "Menu",
-                  MuiMenuIcon()
+                  MuiIcons(MuiIconsModule.Menu)()
                 ),
                 MuiTypography(variant = MuiTypography.Variant.h6, color = MuiTypography.Color.inherit)(css.flexGrowOne,
                   "Photos"
@@ -98,7 +97,7 @@ object MenuAppBar extends ScalaCssReactImplicits {
                     aria.haspopup.`true`,
                     Attr("edge") := "end",
                     onClick ==> handleProfileMenuOpen,
-                    MuiAccountCircleIcon()
+                    MuiIcons(MuiIconsModule.AccountCircle)()
                   ),
                   renderMenu().when(open)
                 ).when(state.auth)

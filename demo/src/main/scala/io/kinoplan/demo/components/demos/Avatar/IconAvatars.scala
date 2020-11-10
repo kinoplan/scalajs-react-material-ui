@@ -3,7 +3,7 @@ package io.kinoplan.demo.components.demos.Avatar
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Avatars.{AvatarsStyle, DefaultAvatarsStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiGrid}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiAssignmentIcon, MuiFolderIcon, MuiPageviewIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
@@ -19,13 +19,13 @@ object IconAvatars extends ScalaCssReactImplicits {
         ComponentContainer("Icon avatars")(
           MuiGrid(justify = MuiGrid.Justify.center, alignItems = MuiGrid.AlignItems.center, container = true)(
             MuiAvatar()(css.avatar,
-              MuiFolderIcon()
+              MuiIcons(MuiIconsModule.Folder)()
             ),
             MuiAvatar()(css.pinkAvatar,
-              MuiPageviewIcon()
+              MuiIcons(MuiIconsModule.Pageview)()
             ),
             MuiAvatar()(css.greenAvatar,
-              MuiAssignmentIcon()
+              MuiIcons(MuiIconsModule.Assignment)()
             )
           )
         )

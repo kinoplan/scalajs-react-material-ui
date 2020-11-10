@@ -3,7 +3,7 @@ package io.kinoplan.demo.components.labs.Breadcrumbs
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.labs.Breadcrumbs.{CustomizedBreadcrumbsStyle, DefaultCustomizedBreadcrumbsStyle}
 import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiExpandMoreIcon, MuiHomeIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import io.kinoplan.scalajs.react.material.ui.lab.MuiBreadcrumbs
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
@@ -28,14 +28,14 @@ object CustomizedBreadcrumbs extends ScalaCssReactImplicits {
                 component = "a",
                 label = VdomNode("Home"),
                 avatar = MuiAvatar()(css.avatar,
-                  MuiHomeIcon()
+                  MuiIcons(MuiIconsModule.Home)()
                 )().rawElement
               )(css.chip, href := "#", onClick --> handleClick),
               MuiChip(component = "a", label = VdomNode("Catalog"))(css.chip, href := "#", onClick --> handleClick),
               MuiChip(
                 label = VdomNode("Accessories"),
                 onDelete = handleChangeOnDelete,
-                deleteIcon = MuiExpandMoreIcon()().rawElement
+                deleteIcon = MuiIcons(MuiIconsModule.ExpandMore)()().rawElement
               )(css.chip, onClick --> handleClick)
             )
           )

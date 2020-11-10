@@ -110,7 +110,6 @@ lazy val commonSettings = Seq(
   version in startWebpackDevServer := Settings.versions.bundler.webpackDev,
   webpackCliVersion := Settings.versions.bundler.webpackCli,
   javacOptions ++= Settings.javacOptions,
-  scalacOptions ++= Settings.scalacOptions,
   scalacOptions ~= (_.filterNot(
     Set(
       "-Wdead-code",

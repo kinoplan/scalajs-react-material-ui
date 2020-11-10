@@ -3,7 +3,7 @@ package io.kinoplan.demo.components.demos.ExpansionPanels
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.ExpansionPanels.{ControlledExpansionPanelsStyle, DefaultControlledExpansionPanelsStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiExpansionPanel, MuiExpansionPanelDetails, MuiExpansionPanelSummary, MuiTypography}
-import io.kinoplan.scalajs.react.material.ui.icons.MuiExpandMoreIcon
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
@@ -33,7 +33,7 @@ object ControlledExpansionPanels extends ScalaCssReactImplicits {
         ComponentContainer("Controlled Accordion")(
           div(css.root,
             MuiExpansionPanel(expanded = state.isPanel1)(onChange --> handleChange("panel1"),
-              MuiExpansionPanelSummary(expandIcon = MuiExpandMoreIcon()())(
+              MuiExpansionPanelSummary(expandIcon = MuiIcons(MuiIconsModule.ExpandMore)()())(
                 MuiTypography()(css.heading, "General settings"),
                 MuiTypography()(css.secondaryHeading, "I am an expansion panel")
               ),
@@ -45,7 +45,7 @@ object ControlledExpansionPanels extends ScalaCssReactImplicits {
               )
             ),
             MuiExpansionPanel(expanded = state.isPanel2)(onChange --> handleChange("panel2"),
-              MuiExpansionPanelSummary(expandIcon = MuiExpandMoreIcon()())(
+              MuiExpansionPanelSummary(expandIcon = MuiIcons(MuiIconsModule.ExpandMore)()())(
                 MuiTypography()(css.heading, "Users"),
                 MuiTypography()(css.secondaryHeading, "You are currently not an owner")
               ),
@@ -57,7 +57,7 @@ object ControlledExpansionPanels extends ScalaCssReactImplicits {
               )
             ),
             MuiExpansionPanel(expanded = state.isPanel3)(onChange --> handleChange("panel3"),
-              MuiExpansionPanelSummary(expandIcon = MuiExpandMoreIcon()())(
+              MuiExpansionPanelSummary(expandIcon = MuiIcons(MuiIconsModule.ExpandMore)()())(
                 MuiTypography()(css.heading, "Advanced settings"),
                 MuiTypography()(css.secondaryHeading, "Filtering has been entirely disabled for whole web server")
               ),
@@ -69,7 +69,7 @@ object ControlledExpansionPanels extends ScalaCssReactImplicits {
               )
             ),
             MuiExpansionPanel(expanded = state.isPanel4)(onChange --> handleChange("panel4"),
-              MuiExpansionPanelSummary(expandIcon = MuiExpandMoreIcon()())(
+              MuiExpansionPanelSummary(expandIcon = MuiIcons(MuiIconsModule.ExpandMore)()())(
                 MuiTypography()(css.heading, "Personal data")
               ),
               MuiExpansionPanelDetails()(

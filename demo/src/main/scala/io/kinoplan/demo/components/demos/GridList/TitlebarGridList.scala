@@ -4,12 +4,11 @@ import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.models.GridList.TileData
 import io.kinoplan.demo.styles.demos.GridList.{DefaultTitlebarGridListStyle, TitlebarGridListStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiGridList, MuiGridListTile, MuiGridListTileBar, MuiIconButton, MuiListSubheader}
-import io.kinoplan.scalajs.react.material.ui.icons.MuiInfoIcon
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
-
 import scala.scalajs.js
 
 object TitlebarGridList extends ScalaCssReactImplicits {
@@ -33,7 +32,7 @@ object TitlebarGridList extends ScalaCssReactImplicits {
                   MuiGridListTileBar(
                     title = VdomNode(tile.title),
                     subtitle = VdomNode(span(s"by: ${tile.author}").rawNode),
-                    actionIcon = VdomNode(MuiIconButton()(css.iconStyle, MuiInfoIcon()).rawNode)
+                    actionIcon = VdomNode(MuiIconButton()(css.iconStyle, MuiIcons(MuiIconsModule.Info)()).rawNode)
                   )
                 )
               }

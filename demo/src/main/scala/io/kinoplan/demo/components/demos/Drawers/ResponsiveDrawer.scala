@@ -5,7 +5,7 @@ import io.kinoplan.demo.styles.demos.Drawers.{DefaultResponsiveDrawerStyle, Resp
 import io.kinoplan.demo.utils.Helpers.styleAToClassName
 import io.kinoplan.scalajs.react.material.ui.core.styles.Direction
 import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiInboxIcon, MuiMailIcon, MuiMenuIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEventFromHtml, ScalaComponent}
@@ -37,7 +37,7 @@ object ResponsiveDrawer extends ScalaCssReactImplicits {
           MuiList()(
             List("Inbox", "Starred", "Send email", "Drafts").zipWithIndex.toVdomArray { case (text, index) =>
               MuiListItem(button = true)(Attr("key") := text,
-                MuiListItemIcon()(if (index % 2 == 0) MuiInboxIcon() else MuiMailIcon()),
+                MuiListItemIcon()(if (index % 2 == 0) MuiIcons(MuiIconsModule.Inbox)() else MuiIcons(MuiIconsModule.Mail)()),
                 MuiListItemText(primary = VdomNode(text))
               )
             }
@@ -46,7 +46,7 @@ object ResponsiveDrawer extends ScalaCssReactImplicits {
           MuiList()(
             List("All mail", "Trash", "Spam").zipWithIndex.toVdomArray { case (text, index) =>
               MuiListItem(button = true)(Attr("key") := text,
-                MuiListItemIcon()(if (index % 2 == 0) MuiInboxIcon() else MuiMailIcon()),
+                MuiListItemIcon()(if (index % 2 == 0) MuiIcons(MuiIconsModule.Inbox)() else MuiIcons(MuiIconsModule.Mail)()),
                 MuiListItemText(primary = VdomNode(text))
               )
             }
@@ -63,7 +63,7 @@ object ResponsiveDrawer extends ScalaCssReactImplicits {
                 MuiIconButton(color = MuiIconButton.Color.inherit)(css.menuButton,
                   aria.label := "Open drawer",
                   onClick ==> handleDrawerToggle,
-                  MuiMenuIcon()
+                  MuiIcons(MuiIconsModule.Menu)()
                 ),
                 MuiTypography(variant = MuiTypography.Variant.h6, color = MuiTypography.Color.inherit, noWrap = true)(
                   "Responsive drawer"

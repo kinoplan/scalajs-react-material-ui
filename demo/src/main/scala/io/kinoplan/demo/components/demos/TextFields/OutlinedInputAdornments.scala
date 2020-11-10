@@ -7,12 +7,11 @@ import io.kinoplan.demo.styles.demos.TextFields.{DefaultInputAdornmentsStyle, In
 import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.demo.utils.props.MuiInputProps
 import io.kinoplan.scalajs.react.material.ui.core.{MuiIconButton, MuiInputAdornment, MuiMenuItem, MuiTextField}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiVisibilityIcon, MuiVisibilityOffIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ReactEventFromTextArea, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
-
 import scala.scalajs.js.JSConverters._
 
 object OutlinedInputAdornments extends ScalaCssReactImplicits {
@@ -73,7 +72,7 @@ object OutlinedInputAdornments extends ScalaCssReactImplicits {
           MuiIconButton()(
             aria.label := "Toggle password visibility",
             onClick --> handleClickShowPassword,
-            if (state.showPassword) MuiVisibilityIcon() else MuiVisibilityOffIcon()
+            if (state.showPassword) MuiIcons(MuiIconsModule.Visibility)() else MuiIcons(MuiIconsModule.VisibilityOff)()
           )
         )
       }

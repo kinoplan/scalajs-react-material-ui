@@ -3,11 +3,10 @@ package io.kinoplan.demo.components.demos.BottomNavigation
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.BottomNavigation.{BottomNavigationStyle, DefaultBottomNavigationStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiBottomNavigation, MuiBottomNavigationAction}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiFavoriteIcon, MuiLocationOnIcon, MuiRestoreIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
-
 import scala.scalajs.js
 
 object SimpleBottomNavigation extends ScalaCssReactImplicits {
@@ -33,9 +32,9 @@ object SimpleBottomNavigation extends ScalaCssReactImplicits {
               onChange = handleChange
             )(css.root,
               value := state.value,
-              MuiBottomNavigationAction(label = VdomNode("Recents"), icon = MuiRestoreIcon()()),
-              MuiBottomNavigationAction(label = VdomNode("Favorites"), icon = MuiFavoriteIcon()()),
-              MuiBottomNavigationAction(label = VdomNode("Nearby"), icon = MuiLocationOnIcon()())
+              MuiBottomNavigationAction(label = VdomNode("Recents"), icon = MuiIcons(MuiIconsModule.Restore)()()),
+              MuiBottomNavigationAction(label = VdomNode("Favorites"), icon = MuiIcons(MuiIconsModule.Favorite)()()),
+              MuiBottomNavigationAction(label = VdomNode("Nearby"), icon = MuiIcons(MuiIconsModule.LocationOn)()())
             )
           )
         )

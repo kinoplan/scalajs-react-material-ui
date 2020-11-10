@@ -6,13 +6,12 @@ import io.kinoplan.demo.styles.demos.Snackbars.{DefaultSimpleSnackbarStyle, Simp
 import io.kinoplan.demo.utils.props.MuiContentProps
 import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiIconButton, MuiSnackbar}
-import io.kinoplan.scalajs.react.material.ui.icons.MuiCloseIcon
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
 import org.scalajs.dom.html
 import scalacss.ScalaCssReactImplicits
-
 import scala.collection.mutable
 import scala.scalajs.js
 
@@ -80,7 +79,7 @@ object ConsecutiveSnackbars extends ScalaCssReactImplicits {
                   Attr("key") := "close",
                   aria.label := "Close",
                   onClick --> handleCloseClick,
-                  MuiCloseIcon()
+                  MuiIcons(MuiIconsModule.Close)()
                 )
               )
             )(Attr("key") := state.key)

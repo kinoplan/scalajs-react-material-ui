@@ -3,7 +3,7 @@ package io.kinoplan.demo.components.demos.Lists
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Lists.{DefaultListStyle, ListStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiCheckbox, MuiIconButton, MuiList, MuiListItem, MuiListItemSecondaryAction, MuiListItemText}
-import io.kinoplan.scalajs.react.material.ui.icons._
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
@@ -45,7 +45,7 @@ object CheckboxList extends ScalaCssReactImplicits {
                   MuiListItemSecondaryAction()(
                     MuiIconButton()(
                       aria.label := "Comments",
-                      MuiCommentIcon()
+                      MuiIcons(MuiIconsModule.Comment)()
                     )
                   )
                 )

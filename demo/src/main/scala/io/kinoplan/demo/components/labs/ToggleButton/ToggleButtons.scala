@@ -3,7 +3,7 @@ package io.kinoplan.demo.components.labs.ToggleButton
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.labs.ToggleButton.{DefaultToggleButtonStyle, ToggleButtonStyle}
 import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons._
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import io.kinoplan.scalajs.react.material.ui.lab.{MuiToggleButton, MuiToggleButtonGroup}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
@@ -42,10 +42,10 @@ object ToggleButtons extends ScalaCssReactImplicits {
               div(css.toggleContainer,
                 MuiToggleButtonGroup(exclusive = true, onChange = handleAlignment)(
                   value := state.alignment,
-                  MuiToggleButton()(value := "left", MuiFormatAlignLeftIcon()),
-                  MuiToggleButton()(value := "center", MuiFormatAlignCenterIcon()),
-                  MuiToggleButton()(value := "right", MuiFormatAlignRightIcon()),
-                  MuiToggleButton()(value := "justify", disabled := true, MuiFormatAlignJustifyIcon())
+                  MuiToggleButton()(value := "left", MuiIcons(MuiIconsModule.FormatAlignLeft)()),
+                  MuiToggleButton()(value := "center", MuiIcons(MuiIconsModule.FormatAlignCenter)()),
+                  MuiToggleButton()(value := "right", MuiIcons(MuiIconsModule.FormatAlignRight)()),
+                  MuiToggleButton()(value := "justify", disabled := true, MuiIcons(MuiIconsModule.FormatAlignJustify)())
                 )
               ),
               MuiTypography(variant = MuiTypography.Variant.caption, gutterBottom = true)("Exclusive Selection"),
@@ -59,12 +59,12 @@ object ToggleButtons extends ScalaCssReactImplicits {
               div(css.toggleContainer,
                 MuiToggleButtonGroup(exclusive = true, onChange = handleFormat)(
                   value := state.formats.toJSArray,
-                  MuiToggleButton()(value := "bold", MuiFormatBoldIcon()),
-                  MuiToggleButton()(value := "italic", MuiFormatItalicIcon()),
-                  MuiToggleButton()(value := "underlined", MuiFormatUnderlinedIcon()),
+                  MuiToggleButton()(value := "bold", MuiIcons(MuiIconsModule.FormatBold)()),
+                  MuiToggleButton()(value := "italic", MuiIcons(MuiIconsModule.FormatItalic)()),
+                  MuiToggleButton()(value := "underlined", MuiIcons(MuiIconsModule.FormatUnderlined)()),
                   MuiToggleButton()(value := "color", disabled := true,
-                    MuiFormatColorFillIcon(),
-                    MuiArrowDropDownIcon()
+                    MuiIcons(MuiIconsModule.FormatColorFill)(),
+                    MuiIcons(MuiIconsModule.ArrowDropDown)()
                   )
                 )
               ),

@@ -10,7 +10,7 @@ import io.kinoplan.scalajs.react.libs.external.reactSwipeableViews.components.Re
 import io.kinoplan.scalajs.react.libs.external.reactSwipeableViews.mod.{AxisType, SwipeableViewsProps}
 import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.core.styles.Direction
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiAddIcon, MuiEditIcon, MuiKeyboardArrowUpIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
@@ -36,9 +36,9 @@ object FloatingActionButtonZoom extends ScalaCssReactImplicits {
       val css = props.style
 
       val fabs = List(
-        Fab(MuiFab.Color.inherit, css.fab, MuiAddIcon()),
-        Fab(MuiFab.Color.secondary, css.fab, MuiEditIcon()),
-        Fab(MuiFab.Color.inherit, css.fabAndFabGreen, MuiKeyboardArrowUpIcon())
+        Fab(MuiFab.Color.inherit, css.fab, MuiIcons(MuiIconsModule.Add)()),
+        Fab(MuiFab.Color.secondary, css.fab, MuiIcons(MuiIconsModule.Edit)()),
+        Fab(MuiFab.Color.inherit, css.fabAndFabGreen, MuiIcons(MuiIconsModule.KeyboardArrowUp)())
       )
 
       val enter = css.theme.transitions.duration.enteringScreen

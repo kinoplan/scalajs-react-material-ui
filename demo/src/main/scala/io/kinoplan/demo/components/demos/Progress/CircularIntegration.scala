@@ -3,11 +3,10 @@ package io.kinoplan.demo.components.demos.Progress
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Progress.{CircularIntegrationStyle, DefaultCircularIntegrationStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiCircularProgress, MuiFab}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiCheckIcon, MuiSaveIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
-
 import scala.scalajs.js
 
 object CircularIntegration extends ScalaCssReactImplicits {
@@ -46,7 +45,7 @@ object CircularIntegration extends ScalaCssReactImplicits {
             div(css.wrapper,
               MuiFab(color = MuiFab.Color.primary)(buttonCss,
                 onClick --> handleButtonClick(state.loading),
-                if (state.success) MuiCheckIcon() else MuiSaveIcon()
+                if (state.success) MuiIcons(MuiIconsModule.Check)() else MuiIcons(MuiIconsModule.Save)()
               ),
               MuiCircularProgress(size = 68)(css.fabProgress).when(state.loading)
             ),

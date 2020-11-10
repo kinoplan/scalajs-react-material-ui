@@ -5,7 +5,7 @@ import io.kinoplan.demo.models.GridList.TileData
 import io.kinoplan.demo.styles.demos.GridList.{DefaultSingleLineGridListStyle, SingleLineGridListStyle}
 import io.kinoplan.demo.utils.Helpers.styleAToClassName
 import io.kinoplan.scalajs.react.material.ui.core.{MuiGridList, MuiGridListTile, MuiGridListTileBar, MuiIconButton}
-import io.kinoplan.scalajs.react.material.ui.icons.MuiStarBorderIcon
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
@@ -34,7 +34,7 @@ object SingleLineGridList extends ScalaCssReactImplicits {
                   MuiGridListTileBar(
                     title = VdomNode(tile.title),
                     classes = barClasses,
-                    actionIcon = VdomNode(MuiIconButton()(MuiStarBorderIcon()(css.title)).rawNode)
+                    actionIcon = VdomNode(MuiIconButton()(MuiIcons(MuiIconsModule.StarBorder)()(css.title)).rawNode)
                   )
                 )
               }

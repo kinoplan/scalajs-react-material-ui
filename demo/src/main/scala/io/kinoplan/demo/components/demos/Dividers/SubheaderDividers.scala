@@ -3,7 +3,7 @@ package io.kinoplan.demo.components.demos.Dividers
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Dividers.{DefaultDividersStyle, DividersStyle}
 import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiBeachAccessIcon, MuiImageIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
@@ -19,7 +19,7 @@ object SubheaderDividers extends ScalaCssReactImplicits {
         ComponentContainer("Subheader Dividers")(
           MuiList()(css.root, css.rootPaper(Layout.isPaletteLight),
             MuiListItem()(
-              MuiAvatar()(MuiImageIcon()),
+              MuiAvatar()(MuiIcons(MuiIconsModule.Image)()),
               MuiListItemText(primary = VdomNode("Photos"), secondary = VdomNode("Jan 9, 2014"))
             ),
             MuiDivider(component = "li"),
@@ -44,7 +44,7 @@ object SubheaderDividers extends ScalaCssReactImplicits {
               )
             ),
             MuiListItem()(
-              MuiAvatar()(MuiBeachAccessIcon()),
+              MuiAvatar()(MuiIcons(MuiIconsModule.BeachAccess)()),
               MuiListItemText(primary = VdomNode("Vacation"), secondary = VdomNode("July 20, 2014"))
             )
           )

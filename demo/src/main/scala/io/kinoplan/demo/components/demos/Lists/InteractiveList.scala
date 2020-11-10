@@ -3,7 +3,7 @@ package io.kinoplan.demo.components.demos.Lists
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Lists.{DefaultInteractiveListStyle, InteractiveListStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiCheckbox, MuiFormControlLabel, MuiFormGroup, MuiGrid, MuiIconButton, MuiList, MuiListItem, MuiListItemAvatar, MuiListItemIcon, MuiListItemSecondaryAction, MuiListItemText, MuiTypography}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiDeleteIcon, MuiFolderIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
@@ -80,7 +80,7 @@ object InteractiveList extends ScalaCssReactImplicits {
                     List(1, 2, 3).toVdomArray { generateKey =>
                       MuiListItem()(Attr("key") := generateKey,
                         MuiListItemIcon()(
-                          MuiFolderIcon()
+                          MuiIcons(MuiIconsModule.Folder)()
                         ),
                         MuiListItemText(
                           primary = VdomNode("Single-line item"),
@@ -101,7 +101,7 @@ object InteractiveList extends ScalaCssReactImplicits {
                       MuiListItem()(Attr("key") := generateKey,
                         MuiListItemAvatar()(
                           MuiAvatar()(
-                            MuiFolderIcon()
+                            MuiIcons(MuiIconsModule.Folder)()
                           )
                         ),
                         MuiListItemText(
@@ -121,7 +121,7 @@ object InteractiveList extends ScalaCssReactImplicits {
                       MuiListItem()(Attr("key") := generateKey,
                         MuiListItemAvatar()(
                           MuiAvatar()(
-                            MuiFolderIcon()
+                            MuiIcons(MuiIconsModule.Folder)()
                           )
                         ),
                         MuiListItemText(
@@ -131,7 +131,7 @@ object InteractiveList extends ScalaCssReactImplicits {
                         MuiListItemSecondaryAction()(
                           MuiIconButton()(
                             aria.label := "Delete",
-                            MuiDeleteIcon()
+                            MuiIcons(MuiIconsModule.Delete)()
                           )
                         )
                       )

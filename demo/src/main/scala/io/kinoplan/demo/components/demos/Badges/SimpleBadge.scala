@@ -4,7 +4,7 @@ import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Badges.{DefaultSimpleBadgeStyle, SimpleBadgeStyle}
 import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiBadge, MuiButton, MuiIconButton, MuiTab, MuiTabs, MuiTypography}
-import io.kinoplan.scalajs.react.material.ui.icons.MuiMailIcon
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
@@ -27,15 +27,15 @@ object SimpleBadge extends ScalaCssReactImplicits {
           div(
             div(
               MuiBadge(badgeContent = VdomNode(4), color = MuiBadge.Color.primary)(css.badgeMargin,
-                MuiMailIcon()
+                MuiIcons(MuiIconsModule.Mail)()
               ),
               MuiBadge(badgeContent = VdomNode(10), color = MuiBadge.Color.secondary)(css.badgeMargin,
-                MuiMailIcon()
+                MuiIcons(MuiIconsModule.Mail)()
               ),
               MuiIconButton()(css.badgeMargin,
                 aria.label := "4 pending messages",
                 MuiBadge(badgeContent = VdomNode(4), color = MuiBadge.Color.primary)(
-                  MuiMailIcon()
+                  MuiIcons(MuiIconsModule.Mail)()
                 )
               )
             ),

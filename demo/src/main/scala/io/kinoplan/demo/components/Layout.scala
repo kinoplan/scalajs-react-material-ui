@@ -7,7 +7,7 @@ import io.kinoplan.demo.utils.Helpers._
 import io.kinoplan.demo.utils.icons.{MuiLightBulbFullIcon, MuiLightBulbOutlineIcon}
 import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.core.styles._
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiChevronLeftIcon, MuiMenuIcon, MuiNotificationsIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.{Resolution, RouterCtl}
 import japgolly.scalajs.react.vdom.Attr
@@ -86,7 +86,7 @@ object Layout extends ScalaCssReactImplicits {
               MuiIconButton(color = MuiIconButton.Color.inherit)(css.menuButton, menuButtonHidden,
                 aria.label := "Open drawer",
                 onClick --> handleDrawerOpen,
-                MuiMenuIcon()
+                MuiIcons(MuiIconsModule.Menu)()
               ),
               MuiTypography(
                 component = "h1",
@@ -107,7 +107,7 @@ object Layout extends ScalaCssReactImplicits {
               ),
               MuiIconButton(color = MuiIconButton.Color.inherit)(
                 MuiBadge(badgeContent = VdomNode(4), color = MuiBadge.Color.secondary)(
-                  MuiNotificationsIcon()
+                  MuiIcons(MuiIconsModule.Notifications)()
                 )
               )
             )
@@ -117,7 +117,7 @@ object Layout extends ScalaCssReactImplicits {
             if (!state.open) css.drawerPaperClose else css.common.emptyStyle,
             div(css.toolbar,
               MuiIconButton()(onClick --> handleDrawerClose,
-                MuiChevronLeftIcon()
+                MuiIcons(MuiIconsModule.ChevronLeft)()
               )
             ),
             MainMenu(props.router, props.r)

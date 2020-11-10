@@ -1,13 +1,15 @@
 package io.kinoplan.demo.components.demos.SelectionControls
 
+import cats.syntax.option._
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.SelectionControls.{CustomControlStyle, DefaultCustomControlStyle}
 import io.kinoplan.demo.utils.Helpers.{StringExtended, styleAToClassName}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiCheckbox, MuiFormControlLabel, MuiFormGroup}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiCheckBoxOutlineBlankIcon, MuiFavoriteBorderIcon, MuiFavoriteIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
+import scala.scalajs.js.JSConverters._
 
 object CheckboxLabels extends ScalaCssReactImplicits {
   case class Props(style: CustomControlStyle)
@@ -58,7 +60,7 @@ object CheckboxLabels extends ScalaCssReactImplicits {
       val controlClasses = Map(
         MuiCheckbox.ClassKey.root -> styleAToClassName(css.root),
         MuiCheckbox.ClassKey.checked -> styleAToClassName(css.checked)
-      )
+      ).some.orUndefined
 
       div(
         ComponentContainer("Checkbox Labels")(
@@ -109,15 +111,15 @@ object CheckboxLabels extends ScalaCssReactImplicits {
             ),
             MuiFormControlLabel(
               control = MuiCheckbox(
-                icon = MuiFavoriteBorderIcon()(),
-                checkedIcon = MuiFavoriteIcon()()
+                icon = MuiIcons(MuiIconsModule.FavoriteBorder)()(),
+                checkedIcon = MuiIcons(MuiIconsModule.Favorite)()()
               )(value := "checkedH").rawElement,
               label = "Custom icon".toVdom
             ),
             MuiFormControlLabel(
               control = MuiCheckbox(
-                icon = MuiCheckBoxOutlineBlankIcon(fontSize = MuiCheckBoxOutlineBlankIcon.FontSize.small)(),
-                checkedIcon = MuiFavoriteIcon(fontSize = MuiFavoriteIcon.FontSize.small)()
+                icon = MuiIcons(MuiIconsModule.CheckBoxOutlineBlank)(fontSize = MuiIcons.FontSize.small)(),
+                checkedIcon = MuiIcons(MuiIconsModule.Favorite)(fontSize = MuiIcons.FontSize.small)()
               )(value := "checkedI").rawElement,
               label = "Custom size".toVdom
             )

@@ -2,7 +2,7 @@ package io.kinoplan.demo.models
 
 import io.kinoplan.scalajs.react.bridge.WithProps
 import io.kinoplan.demo.router.AppRouter.{DashboardRoute, Page}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiAssignmentIcon, MuiBarChartIcon, MuiDashboardIcon, MuiLayersIcon, MuiPeopleIcon, MuiShoppingCartIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 case class MenuItem(
   label: String,
@@ -12,16 +12,16 @@ case class MenuItem(
 
 object MenuItem {
   val menuItemsFirst = List(
-    MenuItem("Dashboard", MuiDashboardIcon(), DashboardRoute),
-    MenuItem("Orders", MuiShoppingCartIcon(), DashboardRoute),
-    MenuItem("Customers", MuiPeopleIcon(), DashboardRoute),
-    MenuItem("Reports", MuiBarChartIcon(), DashboardRoute),
-    MenuItem("Integrations", MuiLayersIcon(), DashboardRoute)
+    MenuItem("Dashboard", MuiIcons(MuiIconsModule.Dashboard)(), DashboardRoute),
+    MenuItem("Orders", MuiIcons(MuiIconsModule.ShoppingCart)(), DashboardRoute),
+    MenuItem("Customers", MuiIcons(MuiIconsModule.People)(), DashboardRoute),
+    MenuItem("Reports", MuiIcons(MuiIconsModule.BarChart)(), DashboardRoute),
+    MenuItem("Integrations", MuiIcons(MuiIconsModule.Layers)(), DashboardRoute)
   )
 
-  private val muiAssignment = MuiAssignmentIcon(
-    color = MuiAssignmentIcon.Color.primary,
-    fontSize = MuiAssignmentIcon.FontSize.default
+  private val muiAssignment = MuiIcons(MuiIconsModule.Assignment)(
+    color = MuiIcons.Color.primary,
+    fontSize = MuiIcons.FontSize.default
   )
 
   val menuItemsSecond = List(

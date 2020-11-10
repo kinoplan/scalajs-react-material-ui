@@ -5,7 +5,7 @@ import io.kinoplan.demo.models.Steppers.TutorialStep
 import io.kinoplan.demo.styles.demos.Steppers.{DefaultTextMobileStepperStyle, TextMobileStepperStyle}
 import io.kinoplan.scalajs.react.material.ui.core.styles.Direction
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiMobileStepper, MuiPaper, MuiTypography}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiKeyboardArrowLeftIcon, MuiKeyboardArrowRightIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
@@ -40,7 +40,11 @@ object TextMobileStepper extends ScalaCssReactImplicits {
           onClick --> handleNext,
           disabled := state.isNextDisabled,
           "Next",
-          if (css.theme.direction == Direction.rtl) MuiKeyboardArrowLeftIcon() else MuiKeyboardArrowRightIcon()
+          if (css.theme.direction == Direction.rtl) {
+            MuiIcons(MuiIconsModule.KeyboardArrowLeft)()
+          } else {
+            MuiIcons(MuiIconsModule.KeyboardArrowRight)()
+          }
         ).rawNode
       )
 
@@ -48,7 +52,11 @@ object TextMobileStepper extends ScalaCssReactImplicits {
         MuiButton(size = MuiButton.Size.small)(
           onClick --> handleBack,
           disabled := state.isBackDisabled,
-          if (css.theme.direction == Direction.rtl) MuiKeyboardArrowRightIcon() else MuiKeyboardArrowLeftIcon(),
+          if (css.theme.direction == Direction.rtl) {
+            MuiIcons(MuiIconsModule.KeyboardArrowRight)()
+          } else {
+            MuiIcons(MuiIconsModule.KeyboardArrowLeft)()
+          },
           "Back"
         ).rawNode
       )

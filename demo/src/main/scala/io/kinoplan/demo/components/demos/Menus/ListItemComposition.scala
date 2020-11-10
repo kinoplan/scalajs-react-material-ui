@@ -1,13 +1,15 @@
 package io.kinoplan.demo.components.demos.Menus
 
+import cats.syntax.option._
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Menus.{DefaultListItemCompositionStyle, ListItemCompositionStyle}
 import io.kinoplan.demo.utils.Helpers.styleAToClassName
 import io.kinoplan.scalajs.react.material.ui.core.{MuiListItemIcon, MuiListItemText, MuiMenuItem, MuiMenuList, MuiPaper}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiDraftsIcon, MuiInboxIcon, MuiSendIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
+import scala.scalajs.js.JSConverters._
 
 object ListItemComposition extends ScalaCssReactImplicits {
   case class Props(style: ListItemCompositionStyle)
@@ -18,7 +20,7 @@ object ListItemComposition extends ScalaCssReactImplicits {
 
       val textClasses = Map(
         MuiListItemText.ClassKey.primary -> styleAToClassName(css.primary)
-      )
+      ).some.orUndefined
 
       div(
         ComponentContainer("Customized MenuItem")(
@@ -27,19 +29,19 @@ object ListItemComposition extends ScalaCssReactImplicits {
               MuiMenuList()(
                 MuiMenuItem()(css.menuItem,
                   MuiListItemIcon()(css.icon,
-                    MuiSendIcon()
+                    MuiIcons(MuiIconsModule.Send)()
                   ),
                   MuiListItemText(classes = textClasses, inset = true, primary = VdomNode("Sent mail"))
                 ),
                 MuiMenuItem()(css.menuItem,
                   MuiListItemIcon()(css.icon,
-                    MuiDraftsIcon()
+                    MuiIcons(MuiIconsModule.Drafts)()
                   ),
                   MuiListItemText(classes = textClasses, inset = true, primary = VdomNode("Drafts"))
                 ),
                 MuiMenuItem()(css.menuItem,
                   MuiListItemIcon()(css.icon,
-                    MuiInboxIcon()
+                    MuiIcons(MuiIconsModule.Inbox)()
                   ),
                   MuiListItemText(classes = textClasses, inset = true, primary = VdomNode("Inbox"))
                 )

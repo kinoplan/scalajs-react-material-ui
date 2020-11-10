@@ -6,11 +6,10 @@ import io.kinoplan.demo.styles.demos.TextFields.{DefaultInputAdornmentsStyle, In
 import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.demo.utils.props.MuiInputProps
 import io.kinoplan.scalajs.react.material.ui.core.{MuiFormControl, MuiGrid, MuiInput, MuiInputAdornment, MuiInputLabel, MuiTextField}
-import io.kinoplan.scalajs.react.material.ui.icons.MuiAccountCircleIcon
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
-
 import scala.scalajs.js.JSConverters._
 
 object InputWithIcon extends ScalaCssReactImplicits {
@@ -26,7 +25,7 @@ object InputWithIcon extends ScalaCssReactImplicits {
             MuiFormControl()(css.cssMargin,
               MuiInputLabel()(htmlFor := "input-with-icon-adornment", "With a start adornment"),
               MuiInput(startAdornment = MuiInputAdornment(position = MuiInputAdornment.Position.start)(
-                MuiAccountCircleIcon()
+                MuiIcons(MuiIconsModule.AccountCircle)()
               ))(
                 id := "adornment-amount"
               )
@@ -35,7 +34,7 @@ object InputWithIcon extends ScalaCssReactImplicits {
               label = "TextField".toVdom,
               InputProps = MuiInputProps(
                 startAdornment = MuiInputAdornment(position = MuiInputAdornment.Position.start)(
-                  MuiAccountCircleIcon()
+                  MuiIcons(MuiIconsModule.AccountCircle)()
                 ).rawNode.some.orUndefined
               )
             )(css.cssMargin,
@@ -44,7 +43,7 @@ object InputWithIcon extends ScalaCssReactImplicits {
             div(css.cssMargin,
               MuiGrid(container = true, spacing = 8, alignItems = MuiGrid.AlignItems.flexEnd)(
                 MuiGrid(item = true)(
-                  MuiAccountCircleIcon()
+                  MuiIcons(MuiIconsModule.AccountCircle)()
                 ),
                 MuiGrid(item = true)(
                   MuiTextField(label = "With a grid".toVdom)(id := "input-with-icon-grid")

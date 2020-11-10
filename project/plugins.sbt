@@ -1,6 +1,5 @@
 val scalaJSVersion = Option(System.getenv("SCALAJS_VERSION")).getOrElse("1.1.1")
 
-resolvers += Resolver.sonatypeRepo("snapshots")
 resolvers += Resolver.bintrayRepo("oyvindberg", "converter")
 
 addSbtPlugin("org.scalablytyped.converter" % s"sbt-converter${if (scalaJSVersion.startsWith("0.6")) "06" else ""}" % "1.0.0-beta28")

@@ -3,7 +3,7 @@ package io.kinoplan.demo.components.labs.Breadcrumbs
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.labs.Breadcrumbs.{BreadcrumbsStyle, DefaultBreadcrumbsStyle}
 import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons.MuiNavigateNextIcon
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import io.kinoplan.scalajs.react.material.ui.lab.MuiBreadcrumbs
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
@@ -38,7 +38,9 @@ object CustomSeparator extends ScalaCssReactImplicits {
             ),
             br(),
             MuiPaper()(css.paper,
-              MuiBreadcrumbs(separator = MuiNavigateNextIcon(fontSize = MuiSvgIcon.FontSize.small)())(aria.label := "Breadcrumb",
+              MuiBreadcrumbs(
+                separator = MuiIcons(MuiIconsModule.Navigation)(fontSize = MuiIcons.FontSize.small)()
+              )(aria.label := "Breadcrumb",
                 MuiLink(color = MuiLink.Color.inherit)(href := "/", onClick --> handleClick, "Material-UI"),
                 MuiLink(color = MuiLink.Color.inherit)(href := "/#demos/app-bar/", onClick --> handleClick, "Lab"),
                 MuiTypography(color = MuiTypography.Color.textPrimary)("Breadcrumb")

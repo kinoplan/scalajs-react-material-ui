@@ -3,7 +3,7 @@ package io.kinoplan.demo.components.demos.Lists
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Lists.{DefaultListStyle, ListStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiList, MuiListItem, MuiListItemText}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiBeachAccessIcon, MuiImageIcon, MuiWorkIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
@@ -21,19 +21,19 @@ object FolderList extends ScalaCssReactImplicits {
             MuiList()(
               MuiListItem()(
                 MuiAvatar()(
-                  MuiImageIcon()
+                  MuiIcons(MuiIconsModule.Image)()
                 ),
                 MuiListItemText(primary = VdomNode("Photos"), secondary = VdomNode("Jan 9, 2014"))
               ),
               MuiListItem()(
                 MuiAvatar()(
-                  MuiWorkIcon()
+                  MuiIcons(MuiIconsModule.Work)()
                 ),
                 MuiListItemText(primary = VdomNode("Work"), secondary = VdomNode("Jan 7, 2014"))
               ),
               MuiListItem()(
                 MuiAvatar()(
-                  MuiBeachAccessIcon()
+                  MuiIcons(MuiIconsModule.BeachAccess)()
                 ),
                 MuiListItemText(primary = VdomNode("Vacation"), secondary = VdomNode("July 20, 2014"))
               )

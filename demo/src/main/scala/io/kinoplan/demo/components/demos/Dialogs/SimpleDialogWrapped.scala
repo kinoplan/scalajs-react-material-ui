@@ -3,12 +3,11 @@ package io.kinoplan.demo.components.demos.Dialogs
 import io.kinoplan.demo.models.Dialogs.Emails
 import io.kinoplan.demo.styles.demos.Dialogs.{DefaultDialogsStyle, DialogsStyle}
 import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiAddIcon, MuiPersonIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
-
 import scala.scalajs.js
 
 object SimpleDialogWrapped extends ScalaCssReactImplicits {
@@ -38,7 +37,7 @@ object SimpleDialogWrapped extends ScalaCssReactImplicits {
                   Attr("key") := email,
                   MuiListItemAvatar()(
                     MuiAvatar()(css.avatar,
-                      MuiPersonIcon()
+                      MuiIcons(MuiIconsModule.Person)()
                     )
                   ),
                   MuiListItemText(primary = VdomNode(email))
@@ -48,7 +47,7 @@ object SimpleDialogWrapped extends ScalaCssReactImplicits {
                 onClick --> handleListItemClick(props, "addAccount"),
                 MuiListItemAvatar()(
                   MuiAvatar()(
-                    MuiAddIcon()
+                    MuiIcons(MuiIconsModule.Add)()
                   )
                 ),
                 MuiListItemText(primary = VdomNode("add account"))

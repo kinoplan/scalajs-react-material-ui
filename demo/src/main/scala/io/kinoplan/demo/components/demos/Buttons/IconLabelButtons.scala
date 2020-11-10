@@ -3,7 +3,7 @@ package io.kinoplan.demo.components.demos.Buttons
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Buttons.{DefaultIconLabelButtonsStyle, IconLabelButtonsStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiIcon}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiCloudUploadIcon, MuiDeleteIcon, MuiKeyboardVoiceIcon, MuiSaveIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
@@ -20,7 +20,7 @@ object IconLabelButtons extends ScalaCssReactImplicits {
           div(
             MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.secondary)(css.common.marginButton,
               "Delete",
-              MuiDeleteIcon()(css.rightIcon)
+              MuiIcons(MuiIconsModule.Delete)()(css.rightIcon)
             ),
             MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.primary)(css.common.marginButton,
               "Send",
@@ -28,15 +28,15 @@ object IconLabelButtons extends ScalaCssReactImplicits {
             ),
             MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.default)(css.common.marginButton,
               "Upload",
-              MuiCloudUploadIcon()(css.rightIcon)
+              MuiIcons(MuiIconsModule.CloudUpload)()(css.rightIcon)
             ),
             MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.secondary)(css.common.marginButton,
               disabled := true,
-              MuiKeyboardVoiceIcon()(css.leftIcon),
+              MuiIcons(MuiIconsModule.KeyboardVoice)()(css.leftIcon),
               "Talk"
             ),
             MuiButton(variant = MuiButton.Variant.contained, size = MuiButton.Size.small)(css.common.marginButton,
-              MuiSaveIcon()(css.leftIcon, css.iconSmall),
+              MuiIcons(MuiIconsModule.Save)()(css.leftIcon, css.iconSmall),
               "Save"
             )
           )

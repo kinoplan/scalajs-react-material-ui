@@ -4,7 +4,7 @@ import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.SelectionControls.{CustomControlStyle, DefaultCustomControlStyle}
 import io.kinoplan.demo.utils.Helpers.styleAToClassName
 import io.kinoplan.scalajs.react.material.ui.core.MuiRadio
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiRadioButtonCheckedIcon, MuiRadioButtonUncheckedIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
@@ -67,8 +67,8 @@ object RadioButtons extends ScalaCssReactImplicits {
             MuiRadio(
               checked = state.isE,
               color = MuiRadio.Color.default,
-              icon = MuiRadioButtonUncheckedIcon(fontSize = MuiRadioButtonUncheckedIcon.FontSize.small)(),
-              checkedIcon = MuiRadioButtonCheckedIcon(fontSize = MuiRadioButtonCheckedIcon.FontSize.small)()
+              icon = MuiIcons(MuiIconsModule.RadioButtonUnchecked)(fontSize = MuiIcons.FontSize.small)(),
+              checkedIcon = MuiIcons(MuiIconsModule.RadioButtonChecked)(fontSize = MuiIcons.FontSize.small)()
             )(
               onChange ==> handleChange,
               value := "e",

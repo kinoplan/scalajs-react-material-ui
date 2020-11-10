@@ -82,9 +82,9 @@ object Generator {
 
     val iconNames = iconSources.get.map(_.getName.stripSuffix(".js")).sorted
 
-    val moduleFile: File = src / "MuiIconModule.scala"
+    val moduleFile: File = src / "MuiIconsModule.scala"
 
-    val moduleIcons = iconNames.map(name => s"""|   def $name: js.Any = js.native""".stripMargin).mkString("\n")
+    val moduleIcons = iconNames.map(name => s"""|  def $name: js.Any = js.native""".stripMargin).mkString("\n")
 
     IO.write(
       moduleFile,
@@ -95,47 +95,48 @@ object Generator {
          |
          |@js.native
          |@JSImport("@material-ui/icons", JSImport.Namespace)
-         |object MuiIconModule extends js.Object {
-       """.stripMargin.trim + "\n" + moduleIcons + "\n" + "}"
+         |object MuiIconsModule extends js.Object {
+         |  type Value = js.Any
+       """.stripMargin.trim + "\n\n" + moduleIcons + "\n" + "}"
     )
 
-    val packageFile: File = src / "package.scala"
+//    val packageFile: File = src / "package.scala"
+//
+//    val packageIcons = iconNames.map(name =>
+//      s"""|   object Mui${name}Icon extends Bridge { override lazy val componentValue = $name }""".stripMargin
+//    ).mkString("\n")
+//
+//    IO.write(
+//      packageFile,
+//      s"""package io.kinoplan.scalajs.react.material.ui
+//         |
+//         |import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+//         |import io.kinoplan.scalajs.react.material.ui.icons.MuiIconsModule._
+//         |import io.kinoplan.scalajs.react.material.ui.icons.SvgIconExtensions
+//         |
+//         |import scala.scalajs.js
+//         |import scala.scalajs.js.|
+//         |
+//         |trait Bridge extends ReactBridgeComponent with MuiIcons
+//         |
+//         |trait MuiIcons extends ReactBridgeComponent with SvgIconExtensions {
+//         |  def apply(
+//         |    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
+//         |    color: js.UndefOr[Color.Value] = js.undefined,
+//         |    component: js.UndefOr[String | js.Function] = js.undefined,
+//         |    fontSize: js.UndefOr[FontSize.Value] = js.undefined,
+//         |    nativeColor: js.UndefOr[String] = js.undefined,
+//         |    shapeRendering: js.UndefOr[String] = js.undefined,
+//         |    titleAccess: js.UndefOr[String] = js.undefined,
+//         |    viewBox: js.UndefOr[String] = js.undefined
+//         |  ): WithProps = auto
+//         |}
+//         |
+//         |package object icons {
+//         |
+//       """.stripMargin.trim + "\n" + packageIcons + "\n" + "}"
+//    )
 
-    val packageIcons = iconNames.map(name =>
-      s"""|   object Mui${name}Icon extends Bridge { override lazy val componentValue = $name }""".stripMargin
-    ).mkString("\n")
-
-    IO.write(
-      packageFile,
-      s"""package io.kinoplan.scalajs.react.material.ui
-         |
-         |import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
-         |import io.kinoplan.scalajs.react.material.ui.icons.MuiIconModule._
-         |import io.kinoplan.scalajs.react.material.ui.icons.SvgIconExtensions
-         |
-         |import scala.scalajs.js
-         |import scala.scalajs.js.|
-         |
-         |trait Bridge extends ReactBridgeComponent with MuiIcons
-         |
-         |trait MuiIcons extends ReactBridgeComponent with SvgIconExtensions {
-         |  def apply(
-         |    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
-         |    color: js.UndefOr[Color.Value] = js.undefined,
-         |    component: js.UndefOr[String | js.Function] = js.undefined,
-         |    fontSize: js.UndefOr[FontSize.Value] = js.undefined,
-         |    nativeColor: js.UndefOr[String] = js.undefined,
-         |    shapeRendering: js.UndefOr[String] = js.undefined,
-         |    titleAccess: js.UndefOr[String] = js.undefined,
-         |    viewBox: js.UndefOr[String] = js.undefined
-         |  ): WithProps = auto
-         |}
-         |
-         |package object icons {
-         |
-       """.stripMargin.trim + "\n" + packageIcons + "\n" + "}"
-    )
-
-    Seq(moduleFile, packageFile)
+    Seq(moduleFile)//, packageFile)
   }
 }

@@ -4,7 +4,7 @@ import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.models.Message
 import io.kinoplan.demo.styles.demos.AppBar.{BottomAppBarStyle, DefaultBottomAppBarStyle}
 import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiMenuIcon, MuiMoreVertIcon, MuiSearchIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import japgolly.scalajs.react.{BackendScope, React, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
@@ -42,14 +42,14 @@ object BottomAppBar extends ScalaCssReactImplicits {
                 MuiToolbar()(css.toolbar,
                   MuiIconButton(color = MuiIconButton.Color.inherit)(
                     aria.label := "Open drawer",
-                    MuiMenuIcon()
+                    MuiIcons(MuiIconsModule.Menu)()
                   ),
                   div(
                     MuiIconButton(color = MuiIconButton.Color.inherit)(
-                      MuiSearchIcon()
+                      MuiIcons(MuiIconsModule.Search)()
                     ),
                     MuiIconButton(color = MuiIconButton.Color.inherit)(
-                      MuiMoreVertIcon()
+                      MuiIcons(MuiIconsModule.MoreVert)()
                     )
                   )
                 )

@@ -3,7 +3,7 @@ package io.kinoplan.demo.components.demos.Tooltips
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Tooltips.{DefaultSimpleTooltipsStyle, SimpleTooltipsStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiFab, MuiIconButton, MuiTooltip}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiAddIcon, MuiDeleteIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.all._
 import japgolly.scalajs.react.{BackendScope, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
@@ -21,19 +21,19 @@ object SimpleTooltips extends ScalaCssReactImplicits {
             MuiTooltip(title = "Delete")(
               MuiIconButton()(
                 aria.label := "Delete",
-                MuiDeleteIcon()
+                MuiIcons(MuiIconsModule.Delete)()
               )
             ),
             MuiTooltip(title = "Add")(
               aria.label := "Add",
               MuiFab(color = MuiFab.Color.primary)(css.fab,
-                MuiAddIcon()
+                MuiIcons(MuiIconsModule.Add)()
               )
             ),
             MuiTooltip(title = "Add")(
               aria.label := "Add",
               MuiFab(color = MuiFab.Color.secondary)(css.fab,
-                MuiAddIcon()
+                MuiIcons(MuiIconsModule.Add)()
               )
             )
           )
