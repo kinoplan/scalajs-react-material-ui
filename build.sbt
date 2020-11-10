@@ -31,7 +31,7 @@ lazy val muiColorsGenerator = taskKey[Seq[File]]("mui-colors-generator")
 lazy val core = (project in file("core"))
   .dependsOn(bridge)
   .configure(Settings.publishArtifactSettings)
-  .settings(commonSettings).settings(
+  .configure(commonSettings).settings(
   name := "scalajs-react-material-ui-core",
   scalaJSUseMainModuleInitializer := false,
   npmDependencies in Compile ++= Settings.npmDependenciesCore.value,
@@ -42,14 +42,14 @@ lazy val core = (project in file("core"))
     (npmInstallDependencies in Compile).value
   ),
   sourceGenerators in Compile += muiColorsGenerator.taskValue
-).enablePlugins(ScalaJSBundlerPlugin)
+)
 
 lazy val muiIconsGenerator = taskKey[Seq[File]]("mui-icons-generator")
 
 lazy val icons = (project in file("icons"))
   .dependsOn(bridge)
   .configure(Settings.publishArtifactSettings)
-  .settings(commonSettings).settings(
+  .configure(commonSettings).settings(
   name := "scalajs-react-material-ui-icons",
   scalaJSUseMainModuleInitializer := false,
   npmDependencies in Compile ++= Settings.npmDependenciesIcons.value,
@@ -60,21 +60,21 @@ lazy val icons = (project in file("icons"))
     (npmInstallDependencies in Compile).value
   ),
   sourceGenerators in Compile += muiIconsGenerator.taskValue
-).enablePlugins(ScalaJSBundlerPlugin)
+)
 
 lazy val lab = (project in file("lab"))
   .dependsOn(bridge)
   .configure(Settings.publishArtifactSettings)
-  .settings(commonSettings).settings(
+  .configure(commonSettings).settings(
   name := "scalajs-react-material-ui-lab",
   scalaJSUseMainModuleInitializer := false,
   npmDependencies in Compile ++= Settings.npmDependenciesLab.value,
   npmResolutions in Compile ++= (npmDependencies in Compile).value.toMap,
   libraryDependencies ++= Settings.scalajsDependenciesLib.value
-).enablePlugins(ScalaJSBundlerPlugin)
+)
 
 lazy val demo = (project in file("demo")).dependsOn(core, lab, bridge)
-  .settings(commonSettings).settings(
+  .configure(commonSettings).settings(
   scalaJSUseMainModuleInitializer := true,
   scalaJSLinkerConfig ~= (_.withSourceMap(false)),
   stUseScalaJsDom := false,
@@ -88,19 +88,20 @@ lazy val demo = (project in file("demo")).dependsOn(core, lab, bridge)
   yarnExtraArgs := Seq("--silent"),
   webpackConfigFile in fastOptJS := Some(baseDirectory.value / "dev.webpack.config.js"),
   skip in publish := true
-).enablePlugins(ScalaJSBundlerPlugin, ScalablyTypedConverterPlugin)
+).enablePlugins(ScalablyTypedConverterPlugin)
 
 lazy val bridge = (project in file("utils/bridge"))
   .configure(Settings.publishArtifactSettings)
-  .settings(commonSettings).settings(
+  .configure(commonSettings).settings(
   name := "scalajs-react-bridge",
   scalaJSUseMainModuleInitializer := false,
   npmDependencies in Compile ++= Settings.npmDependenciesBridge.value,
   npmResolutions in Compile ++= (npmDependencies in Compile).value.toMap,
   libraryDependencies ++= Settings.scalajsDependenciesBridge.value
-).enablePlugins(ScalaJSBundlerPlugin, BridgeGeneratorPlugin)
+).enablePlugins(BridgeGeneratorPlugin)
 
-lazy val commonSettings = Seq(
+lazy val commonSettings: Project => Project  =
+  _.enablePlugins(ScalaJSBundlerPlugin, ScalafixPlugin).settings(
   crossScalaVersions := Seq("2.12.11", "2.13.3"),
   scalaVersion := crossScalaVersions.value.last,
   description := Settings.description,
