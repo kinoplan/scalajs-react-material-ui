@@ -1,9 +1,9 @@
 package io.kinoplan.scalajs.react.material.ui.lab
 
-import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 object MuiToggleButton extends ReactBridgeComponent with MuiToggleButtonExtensions {
   override protected lazy val componentValue: js.Function = RawComponent

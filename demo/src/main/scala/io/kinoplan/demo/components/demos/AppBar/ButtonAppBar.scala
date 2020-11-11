@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.AppBar
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons.MuiMenuIcon
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object ButtonAppBar extends ScalaCssReactImplicits {
   case class Props(style: CommonStyle)
@@ -21,7 +22,7 @@ object ButtonAppBar extends ScalaCssReactImplicits {
             MuiAppBar(position = MuiAppBar.Position.static)(
               MuiToolbar()(
                 MuiIconButton(color = MuiIconButton.Color.inherit)(css.menuButton, aria.label := "Menu",
-                  MuiMenuIcon()
+                  MuiIcons(MuiIconsModule.Menu)()
                 ),
                 MuiTypography(variant = MuiTypography.Variant.h6, color = MuiTypography.Color.inherit)(css.title,
                   "News"

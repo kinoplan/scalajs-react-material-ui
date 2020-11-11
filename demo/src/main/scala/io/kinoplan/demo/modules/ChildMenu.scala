@@ -1,14 +1,15 @@
 package io.kinoplan.demo.modules
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.extra.router.{Resolution, RouterCtl}
+import japgolly.scalajs.react.vdom.{Attr, VdomArray, VdomNode}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.models.ChildMenuItem
 import io.kinoplan.demo.router.AppRouter.Page
-import io.kinoplan.demo.styles.{DefaultChildMenuStyle, ChildMenuStyle}
+import io.kinoplan.demo.styles.{ChildMenuStyle, DefaultChildMenuStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiList, MuiListItem, MuiListItemText}
-import japgolly.scalajs.react.extra.router.{Resolution, RouterCtl}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.vdom.{Attr, VdomArray, VdomNode}
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object ChildMenu extends ScalaCssReactImplicits {
   case class Props(

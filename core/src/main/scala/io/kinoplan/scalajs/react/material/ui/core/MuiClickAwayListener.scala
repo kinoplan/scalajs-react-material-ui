@@ -1,11 +1,12 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
-import japgolly.scalajs.react.ReactEventFromHtml
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
+
+import japgolly.scalajs.react.ReactEventFromHtml
+
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 object MuiClickAwayListener extends ReactBridgeComponent with MuiClickAwayListenerExtensions {
   override protected lazy val componentValue: js.Function = RawComponent

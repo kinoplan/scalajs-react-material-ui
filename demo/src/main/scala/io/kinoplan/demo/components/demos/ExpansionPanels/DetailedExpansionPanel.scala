@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.ExpansionPanels
 
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.ExpansionPanels.{DefaultDetailedExpansionPanelStyle, DetailedExpansionPanelStyle}
 import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons.MuiExpandMoreIcon
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object DetailedExpansionPanel extends ScalaCssReactImplicits {
   case class Props(style: DetailedExpansionPanelStyle)
@@ -23,7 +24,7 @@ object DetailedExpansionPanel extends ScalaCssReactImplicits {
         ComponentContainer("Secondary heading and Columns")(
           div(css.root,
             MuiExpansionPanel(defaultExpanded = true)(
-              MuiExpansionPanelSummary(expandIcon = MuiExpandMoreIcon()())(
+              MuiExpansionPanelSummary(expandIcon = MuiIcons(MuiIconsModule.ExpandMore)()())(
                 div(css.column,
                   MuiTypography()(css.heading, "Location")
                 ),

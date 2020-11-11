@@ -1,11 +1,12 @@
 package io.kinoplan.scalajs.react.material.ui.lab
 
-import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import scala.scalajs.js
+import scala.scalajs.js.annotation.JSImport
+
 import japgolly.scalajs.react.ReactEvent
 import japgolly.scalajs.react.raw.React
 
-import scala.scalajs.js
-import scala.scalajs.js.annotation.JSImport
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 object MuiSlider extends ReactBridgeComponent with MuiSliderExtensions {
   override protected lazy val componentValue: js.Function = RawComponent

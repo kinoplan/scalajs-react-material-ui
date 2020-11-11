@@ -1,9 +1,9 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 object MuiStep extends ReactBridgeComponent with MuiStepExtensions {
   override protected lazy val componentValue: js.Function = RawComponent

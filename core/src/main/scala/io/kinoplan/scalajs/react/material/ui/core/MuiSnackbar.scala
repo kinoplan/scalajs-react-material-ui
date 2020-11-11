@@ -1,14 +1,15 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
-import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
+import scala.scalajs.js
+import scala.scalajs.js.annotation.JSImport
+import scala.scalajs.js.|
+
 import japgolly.scalajs.react.ReactEvent
 import japgolly.scalajs.react.vdom.html_<^._
 import org.scalajs.dom.html
 
-import scala.scalajs.js
-import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
 
 object MuiSnackbar extends ReactBridgeComponent with MuiSnackbarExtensions {
   override protected lazy val componentValue: js.Function = RawComponent

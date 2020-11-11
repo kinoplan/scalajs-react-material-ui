@@ -1,11 +1,12 @@
 package io.kinoplan.demo.components.demos.Selects
 
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromInput, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Selects.{DefaultSelectStyle, SelectStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiDialog, MuiDialogActions, MuiDialogContent, MuiDialogTitle, MuiFormControl, MuiInput, MuiInputLabel, MuiMenuItem, MuiSelect}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromInput, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object DialogSelect extends ScalaCssReactImplicits {
   case class Props(style: SelectStyle)

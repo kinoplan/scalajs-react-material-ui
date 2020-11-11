@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.SelectionControls
 
+import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.SelectionControls.{ControlButtonsGroupStyle, DefaultControlButtonsGroupStyle}
 import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.scalajs.react.material.ui.core.{MuiCheckbox, MuiFormControl, MuiFormControlLabel, MuiFormGroup, MuiFormHelperText, MuiFormLabel}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object CheckboxesGroup extends ScalaCssReactImplicits {
   case class Props(style: ControlButtonsGroupStyle)

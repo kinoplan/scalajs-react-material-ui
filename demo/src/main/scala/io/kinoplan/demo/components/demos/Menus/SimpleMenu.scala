@@ -1,13 +1,14 @@
 package io.kinoplan.demo.components.demos.Menus
 
-import io.kinoplan.demo.components.ComponentContainer
-import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiMenu, MuiMenuItem}
-import japgolly.scalajs.react.vdom.all._
+import scala.scalajs.js.JSConverters._
+
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromHtml, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
 import org.scalajs.dom.raw.HTMLElement
 import scalacss.ScalaCssReactImplicits
 
-import scala.scalajs.js.JSConverters._
+import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiMenu, MuiMenuItem}
 
 object SimpleMenu extends ScalaCssReactImplicits {
   case class State(anchorEl: Option[HTMLElement] = None) {

@@ -1,8 +1,8 @@
 package io.kinoplan.scalajs.react.material.ui.core.styles
 
 import scala.scalajs.js
-import scala.scalajs.js.|
 import scala.scalajs.js.JSConverters._
+import scala.scalajs.js.|
 
 @js.native
 trait Breakpoints extends js.Object {

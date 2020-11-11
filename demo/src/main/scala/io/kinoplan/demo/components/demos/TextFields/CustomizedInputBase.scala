@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.TextFields
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.TextFields.{CustomizedInputBaseStyle, DefaultCustomizedInputBaseStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiDivider, MuiIconButton, MuiInputBase, MuiPaper}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiDirectionsIcon, MuiMenuIcon, MuiSearchIcon}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object CustomizedInputBase extends ScalaCssReactImplicits {
   case class Props(style: CustomizedInputBaseStyle)
@@ -20,17 +21,17 @@ object CustomizedInputBase extends ScalaCssReactImplicits {
           MuiPaper(elevation = 1)(css.root,
             MuiIconButton()(css.iconButton,
               aria.label := "Menu",
-              MuiMenuIcon()
+              MuiIcons(MuiIconsModule.Menu)()
             ),
             MuiInputBase()(css.input, placeholder := "Search Google Maps"),
             MuiIconButton()(css.iconButton,
               aria.label := "Search",
-              MuiSearchIcon()
+              MuiIcons(MuiIconsModule.Search)()
             ),
             MuiDivider()(css.divider),
             MuiIconButton(color = MuiIconButton.Color.primary)(css.iconButton,
               aria.label := "Directions",
-              MuiDirectionsIcon()
+              MuiIcons(MuiIconsModule.Directions)()
             )
           )
         )

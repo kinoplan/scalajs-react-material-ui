@@ -1,17 +1,18 @@
 package io.kinoplan.demo.components.labs.SpeedDial
 
+import scala.scalajs.js
+
+import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
+import japgolly.scalajs.react.vdom.Attr
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.models.SpeedDial.Action
 import io.kinoplan.demo.styles.labs.SpeedDial.{DefaultSpeedDialStyle, SpeedDialStyle}
 import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons.MuiEditIcon
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import io.kinoplan.scalajs.react.material.ui.lab.{MuiSpeedDial, MuiSpeedDialAction, MuiSpeedDialIcon}
-import japgolly.scalajs.react.vdom.Attr
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
-
-import scala.scalajs.js
 
 object SpeedDialTooltipOpen extends ScalaCssReactImplicits {
   case class Props(style: SpeedDialStyle)
@@ -46,7 +47,7 @@ object SpeedDialTooltipOpen extends ScalaCssReactImplicits {
             MuiButton()(onClick --> handleVisibility, "Persistent action tooltips"),
             MuiSpeedDial(
               ariaLabel = "SpeedDial tooltip example",
-              icon = MuiSpeedDialIcon(openIcon = MuiEditIcon()())().rawElement,
+              icon = MuiSpeedDialIcon(openIcon = MuiIcons(MuiIconsModule.Edit)()())().rawElement,
               open = state.open,
               onClose = onClose
             )(css.speedDial,

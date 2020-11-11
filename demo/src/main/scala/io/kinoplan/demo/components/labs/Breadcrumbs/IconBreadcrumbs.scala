@@ -1,13 +1,14 @@
 package io.kinoplan.demo.components.labs.Breadcrumbs
 
+import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.labs.Breadcrumbs.{BreadcrumbsStyle, DefaultBreadcrumbsStyle}
 import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiGrainIcon, MuiHomeIcon, MuiWhatshotIcon}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import io.kinoplan.scalajs.react.material.ui.lab.MuiBreadcrumbs
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object IconBreadcrumbs extends ScalaCssReactImplicits {
   case class Props(style: BreadcrumbsStyle)
@@ -26,17 +27,17 @@ object IconBreadcrumbs extends ScalaCssReactImplicits {
                 MuiLink(color = MuiLink.Color.inherit)(css.link,
                   href := "/",
                   onClick --> handleClick,
-                  MuiHomeIcon()(css.icon),
+                  MuiIcons(MuiIconsModule.Home)()(css.icon),
                   "Material-UI"
                 ),
                 MuiLink(color = MuiLink.Color.inherit)(css.link,
                   href := "/#demos/app-bar/",
                   onClick --> handleClick,
-                  MuiWhatshotIcon()(css.icon),
+                  MuiIcons(MuiIconsModule.Whatshot)()(css.icon),
                   "Lab"
                 ),
                 MuiTypography(color = MuiTypography.Color.textPrimary)(css.link,
-                  MuiGrainIcon()(css.icon),
+                  MuiIcons(MuiIconsModule.Grain)()(css.icon),
                   "Breadcrumb"
                 )
               )

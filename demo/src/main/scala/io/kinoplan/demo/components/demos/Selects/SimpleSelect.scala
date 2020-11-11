@@ -1,16 +1,17 @@
 package io.kinoplan.demo.components.demos.Selects
 
+import scala.scalajs.js
+
+import japgolly.scalajs.react.{BackendScope, ReactDOM, ReactEventFromInput, ScalaComponent}
+import japgolly.scalajs.react.raw.React
+import japgolly.scalajs.react.vdom.all._
+import org.scalajs.dom.{Element, document}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Selects.{DefaultSelectStyle, SelectStyle}
 import io.kinoplan.demo.utils.props.MuiNativeInputProps
 import io.kinoplan.scalajs.react.material.ui.core.{MuiFilledInput, MuiFormControl, MuiFormHelperText, MuiInput, MuiInputLabel, MuiMenuItem, MuiOutlinedInput, MuiSelect}
-import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, ReactDOM, ReactEventFromInput, ScalaComponent}
-import org.scalajs.dom.{Element, document}
-import scalacss.ScalaCssReactImplicits
-
-import scala.scalajs.js
 
 object SimpleSelect extends ScalaCssReactImplicits {
   case class Props(style: SelectStyle)

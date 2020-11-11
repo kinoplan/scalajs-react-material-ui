@@ -1,15 +1,16 @@
 package io.kinoplan.demo.components.demos.Tabs
 
+import scala.scalajs.js
+
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.{ComponentContainer, Layout, TabContainer}
 import io.kinoplan.demo.styles.demos.Tabs.{DefaultScrollableTabsStyle, ScrollableTabsStyle}
 import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiTab, MuiTabs}
-import io.kinoplan.scalajs.react.material.ui.icons._
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
-
-import scala.scalajs.js
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object ScrollableTabsButtonForce extends ScalaCssReactImplicits {
   case class Props(style: ScrollableTabsStyle)
@@ -47,13 +48,13 @@ object ScrollableTabsButtonForce extends ScalaCssReactImplicits {
                 scrollButtons = MuiTabs.ScrollButtons.on
               )(
                 value := state.value,
-                MuiTab(label = "Item One".toVdom, icon = MuiPhoneIcon()()),
-                MuiTab(label = "Item Two".toVdom, icon = MuiFavoriteIcon()()),
-                MuiTab(label = "Item Three".toVdom, icon = MuiPersonPinIcon()()),
-                MuiTab(label = "Item Four".toVdom, icon = MuiHelpIcon()()),
-                MuiTab(label = "Item Five".toVdom, icon = MuiShoppingBasketIcon()()),
-                MuiTab(label = "Item Six".toVdom, icon = MuiThumbDownIcon()()),
-                MuiTab(label = "Item Seven".toVdom, icon = MuiThumbUpIcon()())
+                MuiTab(label = "Item One".toVdom, icon = MuiIcons(MuiIconsModule.Phone)()()),
+                MuiTab(label = "Item Two".toVdom, icon = MuiIcons(MuiIconsModule.Favorite)()()),
+                MuiTab(label = "Item Three".toVdom, icon = MuiIcons(MuiIconsModule.PersonPin)()()),
+                MuiTab(label = "Item Four".toVdom, icon = MuiIcons(MuiIconsModule.Help)()()),
+                MuiTab(label = "Item Five".toVdom, icon = MuiIcons(MuiIconsModule.ShoppingBasket)()()),
+                MuiTab(label = "Item Six".toVdom, icon = MuiIcons(MuiIconsModule.ThumbDown)()()),
+                MuiTab(label = "Item Seven".toVdom, icon = MuiIcons(MuiIconsModule.ThumbUp)()())
               )
             ),
             TabContainer()("Item One").when(state.isOne),

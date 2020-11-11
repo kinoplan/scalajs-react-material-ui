@@ -1,11 +1,12 @@
 package io.kinoplan.demo.components.demos.Dialogs
 
+import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.styles.demos.Dialogs.{DefaultDialogsStyle, DialogsStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiDialogTitle, MuiIconButton, MuiTypography}
-import io.kinoplan.scalajs.react.material.ui.icons.MuiCloseIcon
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object CustomizedDialogTitleWrapped extends ScalaCssReactImplicits {
   case class Props(onClose: Callback, style: DialogsStyle)
@@ -21,7 +22,7 @@ object CustomizedDialogTitleWrapped extends ScalaCssReactImplicits {
           MuiIconButton()(css.closeButton,
             aria.label := "Close",
             onClick --> props.onClose,
-            MuiCloseIcon()
+            MuiIcons(MuiIconsModule.Close)()
           )
         )
       )

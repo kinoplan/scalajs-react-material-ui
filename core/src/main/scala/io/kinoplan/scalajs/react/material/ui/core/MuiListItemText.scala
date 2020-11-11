@@ -1,10 +1,11 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
-import japgolly.scalajs.react.vdom.html_<^._
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+
+import japgolly.scalajs.react.vdom.html_<^._
+
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 object MuiListItemText extends ReactBridgeComponent with MuiListItemTextExtensions {
   override protected lazy val componentValue: js.Function = RawComponent

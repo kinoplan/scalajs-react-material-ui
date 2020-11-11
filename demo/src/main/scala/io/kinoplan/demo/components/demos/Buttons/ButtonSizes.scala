@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.Buttons
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Buttons.{CommonButtonStyle, DefaultCommonButtonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiFab, MuiIconButton}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiAddIcon, MuiDeleteIcon, MuiNavigationIcon}
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object ButtonSizes extends ScalaCssReactImplicits {
   case class Props(style: CommonButtonStyle)
@@ -78,15 +79,15 @@ object ButtonSizes extends ScalaCssReactImplicits {
             div(
               MuiFab(size = MuiFab.Size.small, color = MuiFab.Color.secondary)(css.marginButton,
                 aria.label := "Add",
-                MuiAddIcon()
+                MuiIcons(MuiIconsModule.Add)()
               ),
               MuiFab(size = MuiFab.Size.medium, color = MuiFab.Color.secondary)(css.marginButton,
                 aria.label := "Add",
-                MuiAddIcon()
+                MuiIcons(MuiIconsModule.Add)()
               ),
               MuiFab(color = MuiFab.Color.secondary)(css.marginButton,
                 aria.label := "Add",
-                MuiAddIcon()
+                MuiIcons(MuiIconsModule.Add)()
               )
             ),
             div(
@@ -96,7 +97,7 @@ object ButtonSizes extends ScalaCssReactImplicits {
                 color = MuiFab.Color.primary
               )(css.marginButton,
                 aria.label := "Add",
-                MuiNavigationIcon()(css.extendedIcon),
+                MuiIcons(MuiIconsModule.Navigation)()(css.extendedIcon),
                 "Extended"
               ),
               MuiFab(
@@ -105,27 +106,27 @@ object ButtonSizes extends ScalaCssReactImplicits {
                 color = MuiFab.Color.primary
               )(css.marginButton,
                 aria.label := "Add",
-                MuiNavigationIcon()(css.extendedIcon),
+                MuiIcons(MuiIconsModule.Navigation)()(css.extendedIcon),
                 "Extended"
               ),
               MuiFab(variant = MuiFab.Variant.extended, color = MuiFab.Color.primary)(css.marginButton,
                 aria.label := "Add",
-                MuiNavigationIcon()(css.extendedIcon),
+                MuiIcons(MuiIconsModule.Navigation)()(css.extendedIcon),
                 "Extended"
               )
             ),
             div(
               MuiIconButton()(css.marginButton,
                 aria.label := "Delete",
-                MuiDeleteIcon(fontSize = MuiDeleteIcon.FontSize.small)
+                MuiIcons(MuiIconsModule.Delete)(fontSize = MuiIcons.FontSize.small)
               ),
               MuiIconButton()(css.marginButton,
                 aria.label := "Delete",
-                MuiDeleteIcon()
+                MuiIcons(MuiIconsModule.Delete)()
               ),
               MuiIconButton()(css.marginButton,
                 aria.label := "Delete",
-                MuiDeleteIcon(fontSize = MuiDeleteIcon.FontSize.large)
+                MuiIcons(MuiIconsModule.Delete)(fontSize = MuiIcons.FontSize.large)
               )
             )
           )

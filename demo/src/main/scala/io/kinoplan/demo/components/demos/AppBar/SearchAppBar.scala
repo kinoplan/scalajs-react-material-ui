@@ -1,13 +1,17 @@
 package io.kinoplan.demo.components.demos.AppBar
 
+import scala.scalajs.js.JSConverters._
+
+import cats.syntax.option._
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.AppBar.{DefaultSearchAppBarStyle, SearchAppBarStyle}
 import io.kinoplan.demo.utils.Helpers._
 import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiMenuIcon, MuiSearchIcon}
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object SearchAppBar extends ScalaCssReactImplicits {
   case class Props(style: SearchAppBarStyle)
@@ -19,7 +23,7 @@ object SearchAppBar extends ScalaCssReactImplicits {
       val inputBaseClasses = Map(
         MuiInputBase.ClassKey.input -> styleAToClassName(css.inputInput),
         MuiInputBase.ClassKey.root -> styleAToClassName(css.inputRoot)
-      )
+      ).some.orUndefined
 
       div(
         ComponentContainer("App Bar with search field")(
@@ -28,14 +32,14 @@ object SearchAppBar extends ScalaCssReactImplicits {
               MuiToolbar()(
                 MuiIconButton(color = MuiIconButton.Color.inherit)(css.common.menuButton,
                   aria.label := "Open drawer",
-                  MuiMenuIcon()
+                  MuiIcons(MuiIconsModule.Menu)()
                 ),
                 MuiTypography(variant = MuiTypography.Variant.h6, color = MuiTypography.Color.inherit, noWrap = true)(css.title,
                   "Material-UI"
                 ),
                 div(css.common.flexGrowOne),
                 div(css.search,
-                  div(css.searchIcon, MuiSearchIcon()),
+                  div(css.searchIcon, MuiIcons(MuiIconsModule.Search)()),
                   MuiInputBase(classes = inputBaseClasses)(placeholder := "Search…")
                 )
               )

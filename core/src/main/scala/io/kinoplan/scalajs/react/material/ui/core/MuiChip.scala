@@ -1,12 +1,13 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
+import scala.scalajs.js
+import scala.scalajs.js.annotation.JSImport
+
 import japgolly.scalajs.react.ReactEvent
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.html_<^._
 
-import scala.scalajs.js
-import scala.scalajs.js.annotation.JSImport
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
 
 object MuiChip extends ReactBridgeComponent with MuiChipExtensions {
   override protected lazy val componentValue: js.Function = RawComponent

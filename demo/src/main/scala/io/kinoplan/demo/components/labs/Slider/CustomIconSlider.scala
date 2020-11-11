@@ -1,16 +1,19 @@
 package io.kinoplan.demo.components.labs.Slider
 
+import scala.scalajs.js
+import scala.scalajs.js.JSConverters._
+
+import cats.syntax.option._
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.labs.Slider.{DefaultSliderStyle, SliderStyle}
 import io.kinoplan.demo.utils.Helpers.styleAToClassName
 import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons.MuiLensIcon
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import io.kinoplan.scalajs.react.material.ui.lab.MuiSlider
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
-
-import scala.scalajs.js
 
 object CustomIconSlider extends ScalaCssReactImplicits {
   case class Props(style: SliderStyle)
@@ -29,12 +32,12 @@ object CustomIconSlider extends ScalaCssReactImplicits {
 
       val imageSliderClasses = Map(
         MuiSlider.ClassKey.container -> styleAToClassName(css.slider)
-      )
+      ).some.orUndefined
 
       val iconSliderClasses = Map(
         MuiSlider.ClassKey.container -> styleAToClassName(css.slider),
         MuiSlider.ClassKey.thumbIconWrapper -> styleAToClassName(css.thumbIconWrapper)
-      )
+      ).some.orUndefined
 
       div(
         ComponentContainer("Custom thumb")(
@@ -55,7 +58,7 @@ object CustomIconSlider extends ScalaCssReactImplicits {
             MuiSlider(
               classes = iconSliderClasses,
               onChange = handleChange,
-              thumb = MuiLensIcon()(style := js.Dictionary("color" -> "#fff"))().rawElement
+              thumb = MuiIcons(MuiIconsModule.Lens)()(style := js.Dictionary("color" -> "#fff"))().rawElement
             )(
               aria.labelledBy := "slider-icon",
               value := state.value

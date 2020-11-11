@@ -1,13 +1,14 @@
 package io.kinoplan.demo.components.demos.Snackbars
 
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Snackbars.{DefaultFabIntegrationSnackbarStyle, FabIntegrationSnackbarStyle}
 import io.kinoplan.demo.utils.props.MuiContentProps
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiButton, MuiFab, MuiIconButton, MuiSnackbar, MuiToolbar, MuiTypography}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiAddIcon, MuiMenuIcon}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object FabIntegrationSnackbar extends ScalaCssReactImplicits {
   case class Props(style: FabIntegrationSnackbarStyle)
@@ -39,7 +40,7 @@ object FabIntegrationSnackbar extends ScalaCssReactImplicits {
                 MuiToolbar()(
                   MuiIconButton(color = MuiIconButton.Color.inherit)(css.menuButton,
                     aria.label := "Menu",
-                    MuiMenuIcon()
+                    MuiIcons(MuiIconsModule.Menu)()
                   ),
                   MuiTypography(variant = MuiTypography.Variant.h6, color = MuiTypography.Color.inherit)(
                     "Out of my way!"
@@ -47,7 +48,7 @@ object FabIntegrationSnackbar extends ScalaCssReactImplicits {
                 )
               ),
               MuiFab(color = MuiFab.Color.secondary)(css.fab, if (state.open) css.fabMoveUp else css.fabMoveDown,
-                MuiAddIcon()
+                MuiIcons(MuiIconsModule.Add)()
               ),
               MuiSnackbar(
                 open = state.open,

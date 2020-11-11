@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.Tooltips
 
-import io.kinoplan.demo.components.ComponentContainer
-import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiClickAwayListener, MuiGrid, MuiTooltip}
-import japgolly.scalajs.react.vdom.all._
+import scala.scalajs.js
+
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEventFromHtml, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
 import scalacss.ScalaCssReactImplicits
 
-import scala.scalajs.js
+import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiClickAwayListener, MuiGrid, MuiTooltip}
 
 object TriggersTooltips extends ScalaCssReactImplicits {
   case class State(open: Boolean = false) {

@@ -1,11 +1,11 @@
 package io.kinoplan.demo.styles.demos.SelectionControls
 
+import scala.scalajs.js
+
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.colors
 import io.kinoplan.scalajs.react.material.ui.core.styles.CreateTransitionsOptions
-
-import scala.scalajs.js
 
 case class CustomizedSwitchesStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
   import common.theme

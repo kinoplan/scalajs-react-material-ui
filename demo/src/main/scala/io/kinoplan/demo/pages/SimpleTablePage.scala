@@ -1,14 +1,15 @@
 package io.kinoplan.demo.pages
 
-import io.kinoplan.demo.models.Tables.TableItem
-import io.kinoplan.demo.router.AppRouter.Page
-import io.kinoplan.demo.styles.demos.Tables.{DefaultSimpleTableStyle, SimpleTableStyle}
-import io.kinoplan.scalajs.react.material.ui.core._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._
 import scalacss.ScalaCssReactImplicits
+
+import io.kinoplan.demo.models.Tables.TableItem
+import io.kinoplan.demo.router.AppRouter.Page
+import io.kinoplan.demo.styles.demos.Tables.{DefaultSimpleTableStyle, SimpleTableStyle}
+import io.kinoplan.scalajs.react.material.ui.core._
 
 object SimpleTablePage extends ScalaCssReactImplicits {
   case class Props(router: RouterCtl[Page], style: SimpleTableStyle)

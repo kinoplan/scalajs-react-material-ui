@@ -1,10 +1,11 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
-import japgolly.scalajs.react.vdom.VdomNode
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+
+import japgolly.scalajs.react.vdom.VdomNode
+
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 object MuiBadge extends ReactBridgeComponent with MuiBadgeExtensions {
   override protected lazy val componentValue: js.Function = RawComponent

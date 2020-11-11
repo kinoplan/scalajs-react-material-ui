@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.Selects
 
+import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Selects.{CustomizedSelectsStyle, DefaultCustomizedSelectsStyle}
 import io.kinoplan.demo.utils.Helpers._
 import io.kinoplan.scalajs.react.material.ui.core.{MuiFormControl, MuiInputBase, MuiInputLabel, MuiMenuItem, MuiNativeSelect, MuiSelect}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object CustomizedSelects extends ScalaCssReactImplicits {
   case class Props(style: CustomizedSelectsStyle)

@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.Selects
 
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEventFromInput, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Selects.{ControlledOpenSelectStyle, DefaultControlledOpenSelectStyle}
 import io.kinoplan.demo.utils.props.MuiNativeInputProps
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiFormControl, MuiInputLabel, MuiMenuItem, MuiSelect}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEventFromInput, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object ControlledOpenSelect extends ScalaCssReactImplicits {
   case class Props(style: ControlledOpenSelectStyle)

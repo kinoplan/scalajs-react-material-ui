@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.Buttons
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Buttons.{CustomizedButtonsStyle, DefaultCustomizedButtonsStyle}
-import io.kinoplan.scalajs.react.material.ui.core.styles._
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, colors}
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
+import io.kinoplan.scalajs.react.material.ui.core.styles._
 
 object CustomizedButtons extends ScalaCssReactImplicits {
   case class Props(style: CustomizedButtonsStyle)

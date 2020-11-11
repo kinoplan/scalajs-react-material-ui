@@ -1,11 +1,12 @@
 package io.kinoplan.demo.components.demos.Snackbars
 
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.utils.props.MuiContentProps
-import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiSnackbar}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
+import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
 
 object PositionedSnackbar {
   case class State(

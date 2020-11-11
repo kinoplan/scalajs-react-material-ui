@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.Lists
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Lists.{DefaultListStyle, ListStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiList, MuiListItem, MuiListItemIcon, MuiListItemSecondaryAction, MuiListItemText, MuiListSubheader, MuiSwitch}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiBluetoothIcon, MuiWifiIcon}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object SwitchListSecondary extends ScalaCssReactImplicits {
   case class Props(style: ListStyle)
@@ -35,7 +36,7 @@ object SwitchListSecondary extends ScalaCssReactImplicits {
             MuiList(subheader = MuiListSubheader()("Settings"))(
               MuiListItem()(
                 MuiListItemIcon()(
-                  MuiWifiIcon()
+                  MuiIcons(MuiIconsModule.Wifi)()
                 ),
                 MuiListItemText(primary = VdomNode("Wi-Fi")),
                 MuiListItemSecondaryAction()(
@@ -47,7 +48,7 @@ object SwitchListSecondary extends ScalaCssReactImplicits {
               ),
               MuiListItem()(
                 MuiListItemIcon()(
-                  MuiBluetoothIcon()
+                  MuiIcons(MuiIconsModule.Bluetooth)()
                 ),
                 MuiListItemText(primary = VdomNode("Bluetooth")),
                 MuiListItemSecondaryAction()(

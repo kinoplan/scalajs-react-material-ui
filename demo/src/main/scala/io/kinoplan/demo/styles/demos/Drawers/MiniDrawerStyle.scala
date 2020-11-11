@@ -1,10 +1,10 @@
 package io.kinoplan.demo.styles.demos.Drawers
 
+import scala.scalajs.js
+
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.styles.CreateTransitionsOptions
-
-import scala.scalajs.js
 
 case class MiniDrawerStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
   import dsl._

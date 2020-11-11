@@ -1,10 +1,10 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
+
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
 
 object MuiBackdrop extends ReactBridgeComponent with MuiBackdropExtensions {
   override protected lazy val componentValue: js.Function = RawComponent

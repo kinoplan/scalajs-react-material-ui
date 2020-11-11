@@ -1,15 +1,16 @@
 package io.kinoplan.demo.components.demos.Dialogs
 
+import scala.scalajs.js
+
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
+import japgolly.scalajs.react.vdom.Attr
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.models.Dialogs.Emails
 import io.kinoplan.demo.styles.demos.Dialogs.{DefaultDialogsStyle, DialogsStyle}
 import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiAddIcon, MuiPersonIcon}
-import japgolly.scalajs.react.vdom.Attr
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
-
-import scala.scalajs.js
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object SimpleDialogWrapped extends ScalaCssReactImplicits {
   case class Props(open: Boolean, onClose: js.Function1[String, Callback], selectedValue: String, style: DialogsStyle)
@@ -38,7 +39,7 @@ object SimpleDialogWrapped extends ScalaCssReactImplicits {
                   Attr("key") := email,
                   MuiListItemAvatar()(
                     MuiAvatar()(css.avatar,
-                      MuiPersonIcon()
+                      MuiIcons(MuiIconsModule.Person)()
                     )
                   ),
                   MuiListItemText(primary = VdomNode(email))
@@ -48,7 +49,7 @@ object SimpleDialogWrapped extends ScalaCssReactImplicits {
                 onClick --> handleListItemClick(props, "addAccount"),
                 MuiListItemAvatar()(
                   MuiAvatar()(
-                    MuiAddIcon()
+                    MuiIcons(MuiIconsModule.Add)()
                   )
                 ),
                 MuiListItemText(primary = VdomNode("add account"))

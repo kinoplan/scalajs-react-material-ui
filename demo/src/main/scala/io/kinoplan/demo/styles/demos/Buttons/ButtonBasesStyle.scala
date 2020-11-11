@@ -1,8 +1,8 @@
 package io.kinoplan.demo.styles.demos.Buttons
 
-import io.kinoplan.demo.CssSettings._
-
 import scala.scalajs.js
+
+import io.kinoplan.demo.CssSettings._
 
 case class ButtonBasesStyle(common: CommonButtonStyle = DefaultCommonButtonStyle) extends StyleSheet.Inline {
   import common.theme

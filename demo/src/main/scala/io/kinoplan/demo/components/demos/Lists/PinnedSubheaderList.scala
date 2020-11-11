@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.Lists
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.Attr
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Lists.{DefaultPinnedSubheaderListStyle, PinnedSubheaderListStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiList, MuiListItem, MuiListItemText, MuiListSubheader}
-import japgolly.scalajs.react.vdom.Attr
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object PinnedSubheaderList extends ScalaCssReactImplicits {
   case class Props(style: PinnedSubheaderListStyle)

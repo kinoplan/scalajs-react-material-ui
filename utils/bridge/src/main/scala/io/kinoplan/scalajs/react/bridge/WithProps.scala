@@ -1,8 +1,8 @@
 package io.kinoplan.scalajs.react.bridge
 
-import japgolly.scalajs.react.vdom.{TagMod, VdomElement, VdomNode}
-
 import scala.scalajs.js
+
+import japgolly.scalajs.react.vdom.{TagMod, VdomElement, VdomNode}
 
 class WithProps(jsComponent: JsComponentType, jsProps: js.Object) {
   def apply(attrAndChildren: TagMod*): WithPropsAndTagsMods = {

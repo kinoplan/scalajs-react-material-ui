@@ -1,16 +1,17 @@
 package io.kinoplan.demo.components.demos.Tables
 
-import io.kinoplan.demo.components.ComponentContainer
-import io.kinoplan.demo.models.Tables.SpanningItem
-import io.kinoplan.demo.styles.demos.Tables.{DefaultSimpleTableStyle, SimpleTableStyle}
-import io.kinoplan.demo.utils.Helpers.DoubleExtended
-import io.kinoplan.scalajs.react.material.ui.core._
+import scala.scalajs.js.JSNumberOps._
+
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._
 import scalacss.ScalaCssReactImplicits
 
-import scala.scalajs.js.JSNumberOps._
+import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.models.Tables.SpanningItem
+import io.kinoplan.demo.styles.demos.Tables.{DefaultSimpleTableStyle, SimpleTableStyle}
+import io.kinoplan.demo.utils.Helpers.DoubleExtended
+import io.kinoplan.scalajs.react.material.ui.core._
 
 object SpanningTable extends ScalaCssReactImplicits {
   val TAX_RATE = 0.07

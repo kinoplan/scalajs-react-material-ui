@@ -1,13 +1,14 @@
 package io.kinoplan.demo.components.demos.Badges
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Badges.{CustomizedBadgeStyle, DefaultCustomizedBadgeStyle}
 import io.kinoplan.demo.utils.Helpers.styleAToClassName
 import io.kinoplan.scalajs.react.material.ui.core.{MuiBadge, MuiIconButton}
-import io.kinoplan.scalajs.react.material.ui.icons.MuiMailIcon
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object CustomizedBadge extends ScalaCssReactImplicits {
   case class Props(style: CustomizedBadgeStyle)
@@ -26,7 +27,7 @@ object CustomizedBadge extends ScalaCssReactImplicits {
             MuiIconButton()(
               aria.label := "Cart",
               MuiBadge(badgeContent = VdomNode(4), color = MuiBadge.Color.primary, classes = badgeClasses)(
-                MuiMailIcon()
+                MuiIcons(MuiIconsModule.Mail)()
               )
             )
           )

@@ -1,9 +1,10 @@
 package io.kinoplan.demo.components.demos.Tooltips
 
-import io.kinoplan.demo.components.ComponentContainer
-import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiTooltip}
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.all._
+
+import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiTooltip}
 
 object DelayTooltips {
   private val component = ScalaComponent.builder[Unit]("DelayTooltips")

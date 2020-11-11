@@ -1,18 +1,20 @@
 package io.kinoplan.demo.components.demos.AppBar
 
-import io.kinoplan.demo.components.ComponentContainer
-import io.kinoplan.demo.styles.demos.AppBar.{DefaultPrimarySearchAppBarStyle, PrimarySearchAppBarStyle}
-import io.kinoplan.demo.utils.Helpers._
-import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
-import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons._
+import scala.scalajs.js.JSConverters._
+
+import cats.syntax.option._
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromHtml, ScalaComponent}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromHtml, ScalaComponent}
 import org.scalajs.dom.raw.HTMLElement
 import scalacss.ScalaCssReactImplicits
 
-import scala.scalajs.js.JSConverters._
+import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.styles.demos.AppBar.{DefaultPrimarySearchAppBarStyle, PrimarySearchAppBarStyle}
+import io.kinoplan.demo.utils.Helpers._
+import io.kinoplan.scalajs.react.material.ui.core._
+import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object PrimarySearchAppBar extends ScalaCssReactImplicits {
   case class Props(style: PrimarySearchAppBarStyle)
@@ -60,7 +62,7 @@ object PrimarySearchAppBar extends ScalaCssReactImplicits {
       val inputBaseClasses = Map(
         MuiInputBase.ClassKey.input -> styleAToClassName(css.inputInput),
         MuiInputBase.ClassKey.root -> styleAToClassName(css.inputRoot)
-      )
+      ).some.orUndefined
 
       val ariaOwns = if (isMenuOpen) "material-appbar" else ""
 
@@ -92,7 +94,7 @@ object PrimarySearchAppBar extends ScalaCssReactImplicits {
           MuiMenuItem()(
             MuiIconButton(color = MuiIconButton.Color.inherit)(
               MuiBadge(badgeContent = VdomNode(4), color = MuiBadge.Color.secondary)(
-                MuiMailIcon()
+                MuiIcons(MuiIconsModule.Mail)()
               )
             ),
             p("Messages")
@@ -100,14 +102,14 @@ object PrimarySearchAppBar extends ScalaCssReactImplicits {
           MuiMenuItem()(
             MuiIconButton(color = MuiIconButton.Color.inherit)(
               MuiBadge(badgeContent = VdomNode(11), color = MuiBadge.Color.secondary)(
-                MuiNotificationsIcon()
+                MuiIcons(MuiIconsModule.Notifications)()
               )
             ),
             p("Notifications")
           ),
           MuiMenuItem()(onClick ==> handleProfileMenuOpen,
             MuiIconButton(color = MuiIconButton.Color.inherit)(
-              MuiAccountCircleIcon()
+              MuiIcons(MuiIconsModule.AccountCircle)()
             ),
             p("Profile")
           )
@@ -122,25 +124,25 @@ object PrimarySearchAppBar extends ScalaCssReactImplicits {
                 MuiIconButton(color = MuiIconButton.Color.inherit)(css.common.menuButton,
                   aria.label := "Open drawer",
                   Attr("edge") := "start",
-                  MuiMenuIcon()
+                  MuiIcons(MuiIconsModule.Menu)()
                 ),
                 MuiTypography(variant = MuiTypography.Variant.h6, color = MuiTypography.Color.inherit, noWrap = true)(css.title,
                   "Material-UI"
                 ),
                 div(css.search,
-                  div(css.searchIcon, MuiSearchIcon()),
+                  div(css.searchIcon, MuiIcons(MuiIconsModule.Search)()),
                   MuiInputBase(classes = inputBaseClasses)(placeholder := "Search…")
                 ),
                 div(css.common.flexGrowOne),
                 div(css.sectionDesktop,
                   MuiIconButton(color = MuiIconButton.Color.inherit)(
                     MuiBadge(badgeContent = VdomNode(4), color = MuiBadge.Color.secondary)(
-                      MuiMailIcon()
+                      MuiIcons(MuiIconsModule.Mail)()
                     )
                   ),
                   MuiIconButton(color = MuiIconButton.Color.inherit)(
                     MuiBadge(badgeContent = VdomNode(17), color = MuiBadge.Color.secondary)(
-                      MuiNotificationsIcon()
+                      MuiIcons(MuiIconsModule.Notifications)()
                     )
                   ),
                   MuiIconButton(color = MuiIconButton.Color.inherit)(
@@ -148,14 +150,14 @@ object PrimarySearchAppBar extends ScalaCssReactImplicits {
                     aria.haspopup.`true`,
                     Attr("edge") := "end",
                     onClick ==> handleProfileMenuOpen,
-                    MuiAccountCircleIcon()
+                    MuiIcons(MuiIconsModule.AccountCircle)()
                   )
                 ),
                 div(css.sectionMobile,
                   MuiIconButton(color = MuiIconButton.Color.inherit)(
                     aria.haspopup.`true`,
                     onClick ==> handleMobileMenuOpen,
-                    MuiMoreVertIcon()
+                    MuiIcons(MuiIconsModule.MoreVert)()
                   )
                 )
               )

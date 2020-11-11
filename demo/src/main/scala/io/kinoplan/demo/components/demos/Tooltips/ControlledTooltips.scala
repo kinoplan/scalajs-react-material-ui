@@ -1,10 +1,11 @@
 package io.kinoplan.demo.components.demos.Tooltips
 
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEventFromHtml, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiTooltip}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEventFromHtml, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object ControlledTooltips extends ScalaCssReactImplicits {
   case class State(open: Boolean = false) {

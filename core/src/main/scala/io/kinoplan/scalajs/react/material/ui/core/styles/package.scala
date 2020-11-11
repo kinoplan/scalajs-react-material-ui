@@ -1,10 +1,10 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import japgolly.scalajs.react.vdom.VdomNode
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
+
+import japgolly.scalajs.react.vdom.VdomNode
 
 package object styles {
   @JSImport("@material-ui/core/styles/colorManipulator.js", JSImport.Default)

@@ -1,9 +1,9 @@
 package io.kinoplan.demo.styles.demos.Steppers
 
+import scala.scalajs.js
+
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
-
-import scala.scalajs.js
 
 case class CustomizedStepperStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
   import common.theme

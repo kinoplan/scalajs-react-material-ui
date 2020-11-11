@@ -1,17 +1,18 @@
 package io.kinoplan.demo.components.demos.TextFields
 
+import scala.scalajs.js
+
+import japgolly.scalajs.react.{BackendScope, ReactEventFromTextArea, ScalaComponent}
+import japgolly.scalajs.react.vdom.Attr
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.models.TextFields.Currency
 import io.kinoplan.demo.styles.demos.TextFields.{DefaultVariantTextFieldsStyle, VariantTextFieldsStyle}
 import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.demo.utils.props.{MuiInputLabelProps, MuiInputProps, MuiMenuProps, MuiSelectProps}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiMenuItem, MuiTextField}
-import japgolly.scalajs.react.vdom.Attr
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, ReactEventFromTextArea, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
-
-import scala.scalajs.js
 
 object OutlinedTextFields extends ScalaCssReactImplicits {
   case class Props(style: VariantTextFieldsStyle)

@@ -1,15 +1,16 @@
 package io.kinoplan.demo.components.demos.Drawers
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.Attr
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Drawers.{DefaultPersistentDrawerStyle, PersistentDrawerStyle}
 import io.kinoplan.demo.utils.Helpers.styleAToClassName
-import io.kinoplan.scalajs.react.material.ui.core.styles.Direction
 import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons._
-import japgolly.scalajs.react.vdom.Attr
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
+import io.kinoplan.scalajs.react.material.ui.core.styles.Direction
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object PersistentDrawer extends ScalaCssReactImplicits {
   case class Props(style: PersistentDrawerStyle)
@@ -37,14 +38,18 @@ object PersistentDrawer extends ScalaCssReactImplicits {
           div(css.drawerHeader,
             MuiIconButton()(
               onClick --> handleDrawerClose,
-              if (css.theme.direction == Direction.ltr) MuiChevronLeftIcon() else MuiChevronRightIcon()
+              if (css.theme.direction == Direction.ltr) {
+                MuiIcons(MuiIconsModule.ChevronLeft)()
+              } else {
+                MuiIcons(MuiIconsModule.ChevronRight)()
+              }
             )
           ),
           MuiDivider(),
           MuiList()(
             List("Inbox", "Starred", "Send email", "Drafts").zipWithIndex.toVdomArray { case (text, index) =>
               MuiListItem(button = true)(Attr("key") := text,
-                MuiListItemIcon()(if (index % 2 == 0) MuiInboxIcon() else MuiMailIcon()),
+                MuiListItemIcon()(if (index % 2 == 0) MuiIcons(MuiIconsModule.Inbox)() else MuiIcons(MuiIconsModule.Mail)()),
                 MuiListItemText(primary = VdomNode(text))
               )
             }
@@ -53,7 +58,7 @@ object PersistentDrawer extends ScalaCssReactImplicits {
           MuiList()(
             List("All mail", "Trash", "Spam").zipWithIndex.toVdomArray { case (text, index) =>
               MuiListItem(button = true)(Attr("key") := text,
-                MuiListItemIcon()(if (index % 2 == 0) MuiInboxIcon() else MuiMailIcon()),
+                MuiListItemIcon()(if (index % 2 == 0) MuiIcons(MuiIconsModule.Inbox)() else MuiIcons(MuiIconsModule.Mail)()),
                 MuiListItemText(primary = VdomNode(text))
               )
             }
@@ -72,7 +77,7 @@ object PersistentDrawer extends ScalaCssReactImplicits {
                 MuiIconButton(color = MuiIconButton.Color.inherit)(css.menuButton, if (state.open) css.hide else css.common.emptyStyle,
                   aria.label := "Open drawer",
                   onClick --> handleDrawerOpen,
-                  MuiMenuIcon()
+                  MuiIcons(MuiIconsModule.Menu)()
                 ),
                 MuiTypography(variant = MuiTypography.Variant.h6, color = MuiTypography.Color.inherit, noWrap = true)(
                   "Persistent drawer"

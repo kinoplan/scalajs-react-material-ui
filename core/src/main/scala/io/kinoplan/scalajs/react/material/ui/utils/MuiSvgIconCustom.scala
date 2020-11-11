@@ -1,10 +1,12 @@
 package io.kinoplan.scalajs.react.material.ui.utils
 
-import io.kinoplan.scalajs.react.bridge.WithPropsAndTagsMods
-import io.kinoplan.scalajs.react.material.ui.core.{ComponentPropType, MuiSvgIcon, MuiSvgIconExtensions}
+import scala.scalajs.js
+
 import japgolly.scalajs.react.vdom.TagMod
 import japgolly.scalajs.react.vdom.all._
-import scala.scalajs.js
+
+import io.kinoplan.scalajs.react.bridge.WithPropsAndTagsMods
+import io.kinoplan.scalajs.react.material.ui.core.{ComponentPropType, MuiSvgIcon, MuiSvgIconExtensions}
 
 case class MuiSvgIconCustom(attrs: TagMod*) extends MuiSvgIconExtensions {
   def apply(

@@ -1,19 +1,20 @@
 package io.kinoplan.demo.components.demos.Selects
 
+import scala.scalajs.js
+import scala.scalajs.js.JSConverters._
+
+import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
+import japgolly.scalajs.react.raw.React
+import japgolly.scalajs.react.vdom.Attr
+import japgolly.scalajs.react.vdom.all._
+import org.scalajs.dom.raw.HTMLSelectElement
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Selects.{DefaultMultipleSelectStyle, MultipleSelectStyle}
 import io.kinoplan.demo.utils.props.{MuiMenuProps, MuiNativeInputProps, MuiPaperProps}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiCheckbox, MuiChip, MuiFormControl, MuiInput, MuiInputLabel, MuiListItemText, MuiMenuItem, MuiSelect}
 import io.kinoplan.scalajs.react.material.ui.html.ReactEventFromMultipleSelect
-import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.vdom.Attr
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
-import org.scalajs.dom.raw.HTMLSelectElement
-import scalacss.ScalaCssReactImplicits
-
-import scala.scalajs.js
-import scala.scalajs.js.JSConverters._
 
 object MultipleSelect extends ScalaCssReactImplicits {
   case class Props(style: MultipleSelectStyle)

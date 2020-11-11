@@ -1,15 +1,16 @@
 package io.kinoplan.demo.components.demos.Snackbars.wrappers
 
-import io.kinoplan.demo.styles.demos.Snackbars.{DefaultMySnackbarContentWrapperStyle, MySnackbarContentWrapperStyle}
-import io.kinoplan.scalajs.react.material.ui.core.{MuiIconButton, MuiSnackbarContent}
-import io.kinoplan.scalajs.react.material.ui.icons._
+import scala.scalajs.js
+
+import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
 import scalacss.ScalaCssReactImplicits
 import scalacss.internal.StyleA
 
-import scala.scalajs.js
+import io.kinoplan.demo.styles.demos.Snackbars.{DefaultMySnackbarContentWrapperStyle, MySnackbarContentWrapperStyle}
+import io.kinoplan.scalajs.react.material.ui.core.{MuiIconButton, MuiSnackbarContent}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object MySnackbarContentWrapper extends ScalaCssReactImplicits {
   case class Props(
@@ -23,11 +24,11 @@ object MySnackbarContentWrapper extends ScalaCssReactImplicits {
   class Backend(t: BackendScope[Props, Unit]) {
     def variantIcon(variant: String) = {
       variant match {
-        case "success" => MuiCheckCircleIcon()
-        case "warning" => MuiWarningIcon()
-        case "error" => MuiErrorIcon()
-        case "info" => MuiInfoIcon()
-        case _ => MuiInfoIcon()
+        case "success" => MuiIcons(MuiIconsModule.CheckCircle)()
+        case "warning" => MuiIcons(MuiIconsModule.Warning)()
+        case "error" => MuiIcons(MuiIconsModule.Error)()
+        case "info" => MuiIcons(MuiIconsModule.Info)()
+        case _ => MuiIcons(MuiIconsModule.Info)()
       }
     }
 
@@ -46,7 +47,7 @@ object MySnackbarContentWrapper extends ScalaCssReactImplicits {
           Attr("key") := "close",
           aria.label := "Close",
           onClick -->? props.onCloseClick,
-          MuiCloseIcon()(css.icon)
+          MuiIcons(MuiIconsModule.Close)()(css.icon)
         ).rawNode
       )
 

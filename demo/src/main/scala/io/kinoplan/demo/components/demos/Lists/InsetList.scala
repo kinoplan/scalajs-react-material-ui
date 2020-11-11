@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.Lists
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Lists.{DefaultListStyle, ListStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiList, MuiListItem, MuiListItemIcon, MuiListItemText}
-import io.kinoplan.scalajs.react.material.ui.icons.MuiStarIcon
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object InsetList extends ScalaCssReactImplicits {
   case class Props(style: ListStyle)
@@ -21,7 +22,7 @@ object InsetList extends ScalaCssReactImplicits {
             MuiList(component = "nav")(
               MuiListItem(button = true)(
                 MuiListItemIcon()(
-                  MuiStarIcon()
+                  MuiIcons(MuiIconsModule.Star)()
                 ),
                 MuiListItemText(inset = true, primary = VdomNode("Chelsea Otakan"))
               ),

@@ -1,7 +1,8 @@
 package io.kinoplan.demo.models.SpeedDial
 
-import io.kinoplan.scalajs.react.material.ui.icons._
 import japgolly.scalajs.react.vdom.VdomNode
+
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 case class Action(
   icon: VdomNode,
@@ -10,10 +11,10 @@ case class Action(
 
 object Action {
   val commons = List(
-    Action(MuiFileCopyIcon(), "Copy"),
-    Action(MuiSaveIcon(), "Save"),
-    Action(MuiPrintIcon(), "Print"),
-    Action(MuiShareIcon(), "Share"),
-    Action(MuiDeleteIcon(), "Delete")
+    Action(MuiIcons(MuiIconsModule.FileCopy)(), "Copy"),
+    Action(MuiIcons(MuiIconsModule.Save)(), "Save"),
+    Action(MuiIcons(MuiIconsModule.Print)(), "Print"),
+    Action(MuiIcons(MuiIconsModule.Share)(), "Share"),
+    Action(MuiIcons(MuiIconsModule.Delete)(), "Delete")
   )
 }

@@ -1,10 +1,11 @@
 package io.kinoplan.demo.components
 
+import japgolly.scalajs.react.{BackendScope, PropsChildren, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, div, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.MuiTypography
-import japgolly.scalajs.react.vdom.all.{VdomElement, div, _}
-import japgolly.scalajs.react.{BackendScope, PropsChildren, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object ComponentContainer extends ScalaCssReactImplicits {
   case class Props(title: String, style: CommonStyle)

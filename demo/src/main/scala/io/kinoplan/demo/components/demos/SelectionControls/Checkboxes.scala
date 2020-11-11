@@ -1,9 +1,10 @@
 package io.kinoplan.demo.components.demos.SelectionControls
 
+import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.scalajs.react.material.ui.core.MuiCheckbox
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
 
 object Checkboxes {
   case class State(

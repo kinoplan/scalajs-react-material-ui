@@ -1,17 +1,18 @@
 package io.kinoplan.demo.components.demos.Menus
 
-import io.kinoplan.demo.components.ComponentContainer
-import io.kinoplan.demo.utils.props.MuiPaperProps
-import io.kinoplan.scalajs.react.material.ui.core.{MuiIconButton, MuiMenu, MuiMenuItem}
-import io.kinoplan.scalajs.react.material.ui.icons.MuiMoreVertIcon
+import scala.scalajs.js
+import scala.scalajs.js.JSConverters._
+
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromHtml, ScalaComponent}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromHtml, ScalaComponent}
 import org.scalajs.dom.raw.HTMLElement
 import scalacss.ScalaCssReactImplicits
 
-import scala.scalajs.js
-import scala.scalajs.js.JSConverters._
+import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.utils.props.MuiPaperProps
+import io.kinoplan.scalajs.react.material.ui.core.{MuiIconButton, MuiMenu, MuiMenuItem}
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object LongMenu extends ScalaCssReactImplicits {
   case class State(anchorEl: Option[HTMLElement] = None) {
@@ -66,7 +67,7 @@ object LongMenu extends ScalaCssReactImplicits {
               aria.owns := ariaOwns,
               aria.haspopup.`true`,
               onClick ==> handleClick,
-              MuiMoreVertIcon()
+              MuiIcons(MuiIconsModule.MoreVert)()
             ),
             MuiMenu(
               anchorEl = state.anchorEl.orUndefined,

@@ -1,9 +1,9 @@
 package io.kinoplan.demo.styles
 
+import scala.scalajs.js
+
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.scalajs.react.material.ui.core.styles.CreateTransitionsOptions
-
-import scala.scalajs.js
 
 case class LayoutStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
   import dsl._

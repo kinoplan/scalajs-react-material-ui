@@ -1,13 +1,14 @@
 package io.kinoplan.demo.components.demos.Cards
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Cards.{DefaultMediaControlCardStyle, MediaControlCardStyle}
-import io.kinoplan.scalajs.react.material.ui.core.styles.Direction
 import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiPlayArrowIcon, MuiSkipNextIcon, MuiSkipPreviousIcon}
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
+import io.kinoplan.scalajs.react.material.ui.core.styles.Direction
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object MediaControlCard extends ScalaCssReactImplicits {
   case class Props(style: MediaControlCardStyle)
@@ -31,15 +32,23 @@ object MediaControlCard extends ScalaCssReactImplicits {
               div(css.controls,
                 MuiIconButton()(
                   aria.label := "Previous",
-                  if (css.theme.direction == Direction.rtl.toString) MuiSkipNextIcon() else MuiSkipPreviousIcon()
+                  if (css.theme.direction == Direction.rtl) {
+                    MuiIcons(MuiIconsModule.SkipNext)()
+                  } else {
+                    MuiIcons(MuiIconsModule.SkipPrevious)()
+                  }
                 ),
                 MuiIconButton()(
                   aria.label := "Play/pause",
-                  MuiPlayArrowIcon()(css.playIcon)
+                  MuiIcons(MuiIconsModule.PlayArrow)()(css.playIcon)
                 ),
                 MuiIconButton()(
                   aria.label := "Next",
-                  if (css.theme.direction == Direction.rtl.toString) MuiSkipPreviousIcon() else MuiSkipNextIcon()
+                  if (css.theme.direction == Direction.rtl) {
+                    MuiIcons(MuiIconsModule.SkipPrevious)()
+                  } else {
+                    MuiIcons(MuiIconsModule.SkipNext)()
+                  }
                 )
               )
             ),

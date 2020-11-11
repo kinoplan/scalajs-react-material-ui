@@ -1,14 +1,15 @@
 package io.kinoplan.demo.components.demos.Tabs
 
+import scala.scalajs.js
+
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.{ComponentContainer, Layout, TabContainer}
 import io.kinoplan.demo.styles.demos.Tabs.{DefaultScrollableTabsStyle, ScrollableTabsStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiTab, MuiTabs}
-import io.kinoplan.scalajs.react.material.ui.icons._
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
-
-import scala.scalajs.js
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object ScrollableTabsButtonPrevent extends ScalaCssReactImplicits {
   case class Props(style: ScrollableTabsStyle)
@@ -44,13 +45,13 @@ object ScrollableTabsButtonPrevent extends ScalaCssReactImplicits {
                 scrollButtons = MuiTabs.ScrollButtons.off
               )(
                 value := state.value,
-                MuiTab(icon = MuiPhoneIcon()()),
-                MuiTab(icon = MuiFavoriteIcon()()),
-                MuiTab(icon = MuiPersonPinIcon()()),
-                MuiTab(icon = MuiHelpIcon()()),
-                MuiTab(icon = MuiShoppingBasketIcon()()),
-                MuiTab(icon = MuiThumbDownIcon()()),
-                MuiTab(icon = MuiThumbUpIcon()())
+                MuiTab(icon = MuiIcons(MuiIconsModule.Phone)()()),
+                MuiTab(icon = MuiIcons(MuiIconsModule.Favorite)()()),
+                MuiTab(icon = MuiIcons(MuiIconsModule.PersonPin)()()),
+                MuiTab(icon = MuiIcons(MuiIconsModule.Help)()()),
+                MuiTab(icon = MuiIcons(MuiIconsModule.ShoppingBasket)()()),
+                MuiTab(icon = MuiIcons(MuiIconsModule.ThumbDown)()()),
+                MuiTab(icon = MuiIcons(MuiIconsModule.ThumbUp)()())
               )
             ),
             TabContainer()("Item One").when(state.isOne),

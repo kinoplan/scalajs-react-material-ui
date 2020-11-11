@@ -1,9 +1,9 @@
 package io.kinoplan.demo.utils.props
 
-import japgolly.scalajs.react.raw.React
-
 import scala.scalajs.js
 import scala.scalajs.js.JSConverters._
+
+import japgolly.scalajs.react.raw.React
 
 @js.native
 trait MuiInputProps extends js.Object {

@@ -1,13 +1,14 @@
 package io.kinoplan.demo.components.demos.Chips
 
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Chips.{ChipsStyle, DefaultChipsStyle}
 import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiChip}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiDoneIcon, MuiFaceIcon}
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object OutlinedChips extends ScalaCssReactImplicits {
   case class Props(style: ChipsStyle)
@@ -46,7 +47,7 @@ object OutlinedChips extends ScalaCssReactImplicits {
             )(css.chip),
             MuiChip(
               label = "Clickable Deletable Chip".toVdom,
-              avatar = MuiAvatar()(MuiFaceIcon()).rawElement,
+              avatar = MuiAvatar()(MuiIcons(MuiIconsModule.Face)()).rawElement,
               onDelete = handleDelete,
               variant = MuiChip.Variant.outlined
             )(css.chip,
@@ -54,7 +55,7 @@ object OutlinedChips extends ScalaCssReactImplicits {
             ),
             MuiChip(
               label = "Clickable Deletable Chip".toVdom,
-              icon = MuiFaceIcon()().rawElement,
+              icon = MuiIcons(MuiIconsModule.Face)()().rawElement,
               onDelete = handleDelete,
               variant = MuiChip.Variant.outlined
             )(css.chip,
@@ -62,7 +63,7 @@ object OutlinedChips extends ScalaCssReactImplicits {
             ),
             MuiChip(
               label = "Custom delete icon Chip".toVdom,
-              deleteIcon = MuiDoneIcon()().rawElement,
+              deleteIcon = MuiIcons(MuiIconsModule.Done)()().rawElement,
               onDelete = handleDelete,
               variant = MuiChip.Variant.outlined
             )(css.chip,
@@ -79,7 +80,7 @@ object OutlinedChips extends ScalaCssReactImplicits {
             MuiChip(
               label = "Primary Clickable Chip".toVdom,
               avatar = MuiAvatar()("MB").rawElement,
-              deleteIcon = MuiDoneIcon()().rawElement,
+              deleteIcon = MuiIcons(MuiIconsModule.Done)()().rawElement,
               onDelete = handleDelete,
               color = MuiChip.Color.primary,
               clickable = true,
@@ -87,8 +88,8 @@ object OutlinedChips extends ScalaCssReactImplicits {
             )(css.chip),
             MuiChip(
               label = "Primary Clickable Chip".toVdom,
-              icon = MuiFaceIcon()().rawElement,
-              deleteIcon = MuiDoneIcon()().rawElement,
+              icon = MuiIcons(MuiIconsModule.Face)()().rawElement,
+              deleteIcon = MuiIcons(MuiIconsModule.Done)()().rawElement,
               onDelete = handleDelete,
               color = MuiChip.Color.primary,
               clickable = true,
@@ -102,14 +103,14 @@ object OutlinedChips extends ScalaCssReactImplicits {
             )(css.chip),
             MuiChip(
               label = "Deletable Secondary Chip".toVdom,
-              avatar = MuiAvatar()(MuiFaceIcon()).rawElement,
+              avatar = MuiAvatar()(MuiIcons(MuiIconsModule.Face)()).rawElement,
               onDelete = handleDelete,
               color = MuiChip.Color.secondary,
               variant = MuiChip.Variant.outlined
             )(css.chip),
             MuiChip(
               label = "Deletable Secondary Chip".toVdom,
-              icon = MuiFaceIcon()().rawElement,
+              icon = MuiIcons(MuiIconsModule.Face)()().rawElement,
               onDelete = handleDelete,
               color = MuiChip.Color.secondary,
               variant = MuiChip.Variant.outlined

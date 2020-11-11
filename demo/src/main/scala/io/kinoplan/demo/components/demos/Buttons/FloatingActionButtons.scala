@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.Buttons
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Buttons.{CommonButtonStyle, DefaultCommonButtonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiFab, MuiIcon}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiAddIcon, MuiDeleteIcon, MuiNavigationIcon}
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object FloatingActionButtons extends ScalaCssReactImplicits {
   case class Props(style: CommonButtonStyle)
@@ -20,7 +21,7 @@ object FloatingActionButtons extends ScalaCssReactImplicits {
           div(
             MuiFab(color = MuiFab.Color.primary)(css.marginButton,
               aria.label := "Add",
-              MuiAddIcon()
+              MuiIcons(MuiIconsModule.Add)()
             ),
             MuiFab(color = MuiFab.Color.secondary)(css.marginButton,
               aria.label := "Edit",
@@ -28,13 +29,13 @@ object FloatingActionButtons extends ScalaCssReactImplicits {
             ),
             MuiFab(variant = MuiFab.Variant.extended)(css.marginButton,
               aria.label := "Delete",
-              MuiNavigationIcon()(css.extendedIcon),
+              MuiIcons(MuiIconsModule.Navigation)()(css.extendedIcon),
               "Extended"
             ),
             MuiFab()(css.marginButton,
               disabled := true,
               aria.label := "Delete",
-              MuiDeleteIcon()
+              MuiIcons(MuiIconsModule.Delete)()
             )
           )
         )

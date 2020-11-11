@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.Buttons
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Buttons.{CommonButtonStyle, DefaultCommonButtonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiIcon, MuiIconButton}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiAddShoppingCartIcon, MuiDeleteIcon, MuiPhotoCameraIcon}
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object IconButtons extends ScalaCssReactImplicits {
   case class Props(style: CommonButtonStyle)
@@ -20,12 +21,12 @@ object IconButtons extends ScalaCssReactImplicits {
           div(
             MuiIconButton()(css.marginButton,
               aria.label := "Delete",
-              MuiDeleteIcon()
+              MuiIcons(MuiIconsModule.Delete)()
             ),
             MuiIconButton(color = MuiIconButton.Color.primary)(css.marginButton,
               disabled := true,
               aria.label := "Delete",
-              MuiDeleteIcon()
+              MuiIcons(MuiIconsModule.Delete)()
             ),
             MuiIconButton(color = MuiIconButton.Color.secondary)(css.marginButton,
               aria.label := "Add an alarm",
@@ -33,12 +34,12 @@ object IconButtons extends ScalaCssReactImplicits {
             ),
             MuiIconButton(color = MuiIconButton.Color.primary)(css.marginButton,
               aria.label := "Add to shopping cart",
-              MuiAddShoppingCartIcon()
+              MuiIcons(MuiIconsModule.AddShoppingCart)()
             ),
             input.file(css.inputButton, accept := "image/*", id := "icon-button-file"),
             label(htmlFor := "icon-button-file")(
               MuiIconButton(color = MuiIconButton.Color.primary, component = "span")(css.marginButton,
-                MuiPhotoCameraIcon()
+                MuiIcons(MuiIconsModule.PhotoCamera)()
               )
             )
           )

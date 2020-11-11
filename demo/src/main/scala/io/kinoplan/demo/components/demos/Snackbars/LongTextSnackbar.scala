@@ -1,11 +1,12 @@
 package io.kinoplan.demo.components.demos.Snackbars
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Snackbars.{CustomizedSnackbarsStyle, DefaultCustomizedSnackbarsStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiSnackbarContent}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object LongTextSnackbar extends ScalaCssReactImplicits {
   case class Props(style: CustomizedSnackbarsStyle)

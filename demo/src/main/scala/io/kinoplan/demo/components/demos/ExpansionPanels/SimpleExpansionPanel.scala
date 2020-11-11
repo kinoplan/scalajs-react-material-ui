@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.ExpansionPanels
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.ExpansionPanels.{DefaultSimpleExpansionPanelStyle, SimpleExpansionPanelStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiExpansionPanel, MuiExpansionPanelDetails, MuiExpansionPanelSummary, MuiTypography}
-import io.kinoplan.scalajs.react.material.ui.icons.MuiExpandMoreIcon
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object SimpleExpansionPanel extends ScalaCssReactImplicits {
   case class Props(style: SimpleExpansionPanelStyle)
@@ -19,7 +20,7 @@ object SimpleExpansionPanel extends ScalaCssReactImplicits {
         ComponentContainer("Simple Expansion Panel")(
           div(css.root,
             MuiExpansionPanel()(
-              MuiExpansionPanelSummary(expandIcon = MuiExpandMoreIcon()())(
+              MuiExpansionPanelSummary(expandIcon = MuiIcons(MuiIconsModule.ExpandMore)()())(
                 MuiTypography()(css.heading,
                   "Expansion Panel 1"
                 )
@@ -32,7 +33,7 @@ object SimpleExpansionPanel extends ScalaCssReactImplicits {
               )
             ),
             MuiExpansionPanel()(
-              MuiExpansionPanelSummary(expandIcon = MuiExpandMoreIcon()())(
+              MuiExpansionPanelSummary(expandIcon = MuiIcons(MuiIconsModule.ExpandMore)()())(
                 MuiTypography()(css.heading,
                   "Expansion Panel 2"
                 )
@@ -46,7 +47,7 @@ object SimpleExpansionPanel extends ScalaCssReactImplicits {
             ),
             MuiExpansionPanel()(
               disabled := true,
-              MuiExpansionPanelSummary(expandIcon = MuiExpandMoreIcon()())(
+              MuiExpansionPanelSummary(expandIcon = MuiIcons(MuiIconsModule.ExpandMore)()())(
                 MuiTypography()(css.heading,
                   "Disabled Expansion Panel"
                 )

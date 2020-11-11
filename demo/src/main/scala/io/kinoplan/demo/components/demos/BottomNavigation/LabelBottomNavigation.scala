@@ -1,14 +1,15 @@
 package io.kinoplan.demo.components.demos.BottomNavigation
 
+import scala.scalajs.js
+
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.BottomNavigation.{BottomNavigationStyle, DefaultBottomNavigationStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiBottomNavigation, MuiBottomNavigationAction, MuiIcon}
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiFavoriteIcon, MuiLocationOnIcon, MuiRestoreIcon}
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
-
-import scala.scalajs.js
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object LabelBottomNavigation extends ScalaCssReactImplicits {
   case class Props(style: BottomNavigationStyle)
@@ -30,13 +31,13 @@ object LabelBottomNavigation extends ScalaCssReactImplicits {
           div(
             MuiBottomNavigation(onChange = handleChange)(css.root,
               value := state.value,
-              MuiBottomNavigationAction(label = VdomNode("Recents"), icon = MuiRestoreIcon()())(
+              MuiBottomNavigationAction(label = VdomNode("Recents"), icon = MuiIcons(MuiIconsModule.Restore)()())(
                 value := "recents"
               ),
-              MuiBottomNavigationAction(label = VdomNode("Favorites"), icon = MuiFavoriteIcon()())(
+              MuiBottomNavigationAction(label = VdomNode("Favorites"), icon = MuiIcons(MuiIconsModule.Favorite)()())(
                 value := "favorites"
               ),
-              MuiBottomNavigationAction(label = VdomNode("Nearby"), icon = MuiLocationOnIcon()())(
+              MuiBottomNavigationAction(label = VdomNode("Nearby"), icon = MuiIcons(MuiIconsModule.LocationOn)()())(
                 value := "nearby"
               ),
               MuiBottomNavigationAction(label = VdomNode("Folder"), icon = MuiIcon()("folder"))(

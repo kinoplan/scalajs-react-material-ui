@@ -1,11 +1,12 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
-import io.kinoplan.scalajs.react.material.ui.core.internal.PaperClassKey
-import japgolly.scalajs.react.vdom.html_<^._
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+
+import japgolly.scalajs.react.vdom.html_<^._
+
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.material.ui.core.internal.PaperClassKey
 
 object MuiMobileStepper extends ReactBridgeComponent with MuiMobileStepperExtensions {
   override protected lazy val componentValue: js.Function = RawComponent

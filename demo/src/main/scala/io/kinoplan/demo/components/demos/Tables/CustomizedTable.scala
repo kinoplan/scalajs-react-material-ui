@@ -1,14 +1,15 @@
 package io.kinoplan.demo.components.demos.Tables
 
+import japgolly.scalajs.react._
+import japgolly.scalajs.react.vdom.Attr
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.models.Tables.TableItem
 import io.kinoplan.demo.styles.demos.Tables.{CustomizedTableStyle, DefaultCustomizedTableStyle}
 import io.kinoplan.demo.utils.Helpers.styleAToClassName
 import io.kinoplan.scalajs.react.material.ui.core._
-import japgolly.scalajs.react._
-import japgolly.scalajs.react.vdom.Attr
-import japgolly.scalajs.react.vdom.all._
-import scalacss.ScalaCssReactImplicits
 
 object CustomizedTable extends ScalaCssReactImplicits {
   case class Props(style: CustomizedTableStyle)

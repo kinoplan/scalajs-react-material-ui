@@ -1,11 +1,12 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
-import japgolly.scalajs.react.vdom.html_<^._
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
+
+import japgolly.scalajs.react.vdom.html_<^._
+
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 object MuiTextField extends ReactBridgeComponent with MuiTextFieldExtensions {
   override protected lazy val componentValue: js.Function = RawComponent

@@ -1,9 +1,9 @@
 package io.kinoplan.scalajs.react.material.ui.core.styles
 
-import io.kinoplan.scalajs.react.material.ui.core.colors.Color
-
 import scala.scalajs.js
 import scala.scalajs.js.JSConverters._
+
+import io.kinoplan.scalajs.react.material.ui.core.colors.Color
 
 @js.native
 trait PaletteColor extends Color {

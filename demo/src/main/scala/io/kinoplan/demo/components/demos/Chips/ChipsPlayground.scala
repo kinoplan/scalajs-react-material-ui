@@ -1,15 +1,16 @@
 package io.kinoplan.demo.components.demos.Chips
 
+import scala.scalajs.js.JSConverters._
+
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromInput, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Chips.{ChipsPlaygroundStyle, DefaultChipsPlaygroundStyle}
 import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiDoneIcon, MuiFaceIcon}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromInput, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
-
-import scala.scalajs.js.JSConverters._
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object ChipsPlayground extends ScalaCssReactImplicits {
   case class Props(style: ChipsPlaygroundStyle)
@@ -81,7 +82,7 @@ object ChipsPlayground extends ScalaCssReactImplicits {
       } else {
         state.icon match {
           case "none" => None
-          case _ => Some(MuiFaceIcon()().rawElement)
+          case _ => Some(MuiIcons(MuiIconsModule.Face)()().rawElement)
         }
       }
 
@@ -89,7 +90,7 @@ object ChipsPlayground extends ScalaCssReactImplicits {
         case "none" => None
         case "img" => Some(MuiAvatar()(src := "/static/images/avatar/1.jpg")().rawElement)
         case "letter" => Some(MuiAvatar()("FH").rawElement)
-        case _ => Some(MuiAvatar()(MuiFaceIcon()).rawElement)
+        case _ => Some(MuiAvatar()(MuiIcons(MuiIconsModule.Face)()).rawElement)
       }
 
       div(
@@ -106,7 +107,11 @@ object ChipsPlayground extends ScalaCssReactImplicits {
                   MuiChip(
                     label = "Awesome Chip Component".toVdom,
                     color = state.color,
-                    deleteIcon = (if (state.isOnDeleteCustom) Some(MuiDoneIcon()().rawElement) else None).orUndefined,
+                    deleteIcon = (if (state.isOnDeleteCustom) {
+                      Some(MuiIcons(MuiIconsModule.Done)()().rawElement)
+                    } else {
+                      None
+                    }).orUndefined,
                     onDelete = handleDeleteExample(state),
                     avatar = avatarToPlayground.orUndefined,
                     icon = iconToPlayground.orUndefined,
