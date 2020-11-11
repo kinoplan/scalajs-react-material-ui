@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.Tooltips
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Tooltips.{DefaultVariableWidthStyle, VariableWidthStyle}
 import io.kinoplan.demo.utils.Helpers.styleAToClassName
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiTooltip}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object VariableWidth extends ScalaCssReactImplicits {
   case class Props(style: VariableWidthStyle)

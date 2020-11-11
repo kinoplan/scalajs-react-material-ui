@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.SelectionControls
 
+import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.SelectionControls.{CustomizedSwitchesStyle, DefaultCustomizedSwitchesStyle}
 import io.kinoplan.demo.utils.Helpers.styleAToClassName
 import io.kinoplan.scalajs.react.material.ui.core.{MuiFormControlLabel, MuiFormGroup, MuiSwitch}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object CustomizedSwitches extends ScalaCssReactImplicits {
   case class Props(style: CustomizedSwitchesStyle)

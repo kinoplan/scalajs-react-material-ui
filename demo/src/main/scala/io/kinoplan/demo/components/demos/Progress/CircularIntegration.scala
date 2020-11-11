@@ -1,13 +1,15 @@
 package io.kinoplan.demo.components.demos.Progress
 
+import scala.scalajs.js
+
+import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Progress.{CircularIntegrationStyle, DefaultCircularIntegrationStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiCircularProgress, MuiFab}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
-import scala.scalajs.js
 
 object CircularIntegration extends ScalaCssReactImplicits {
   case class Props(style: CircularIntegrationStyle)

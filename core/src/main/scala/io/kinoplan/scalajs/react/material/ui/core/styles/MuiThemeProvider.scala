@@ -1,10 +1,10 @@
 package io.kinoplan.scalajs.react.material.ui.core.styles
 
-import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.{JSGlobal, JSImport}
 import scala.scalajs.js.|
+
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 object MuiThemeProvider extends ReactBridgeComponent {
   override protected lazy val componentValue: js.Object = RawComponent

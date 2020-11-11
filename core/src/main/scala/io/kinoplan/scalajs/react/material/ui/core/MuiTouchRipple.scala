@@ -1,9 +1,9 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
 
 object MuiTouchRipple extends ReactBridgeComponent with MuiTouchRippleExtensions {
   override protected lazy val componentValue: js.Function = RawComponent

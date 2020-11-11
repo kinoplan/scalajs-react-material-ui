@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.Steppers
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.Attr
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Steppers.{DefaultStepperStyle, StepperStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiStep, MuiStepLabel, MuiStepper, MuiTypography}
-import japgolly.scalajs.react.vdom.Attr
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object HorizontalLabelPositionBelowStepper extends ScalaCssReactImplicits {
   val steps = List("Select master blaster campaign settings", "Create an ad group", "Create an ad")

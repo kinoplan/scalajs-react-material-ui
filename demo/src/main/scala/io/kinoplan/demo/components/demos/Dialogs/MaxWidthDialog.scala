@@ -1,13 +1,14 @@
 package io.kinoplan.demo.components.demos.Dialogs
 
+import scala.scalajs.js
+
+import japgolly.scalajs.react.{BackendScope, Callback, React, ReactEvent, ReactEventFromInput, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Dialogs.{DefaultDialogsStyle, DialogsStyle}
 import io.kinoplan.scalajs.react.material.ui.core._
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, React, ReactEvent, ReactEventFromInput, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
-
-import scala.scalajs.js
 
 object MaxWidthDialog extends ScalaCssReactImplicits {
   case class Props(style: DialogsStyle)

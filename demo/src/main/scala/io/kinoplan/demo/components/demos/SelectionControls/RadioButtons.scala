@@ -1,13 +1,14 @@
 package io.kinoplan.demo.components.demos.SelectionControls
 
+import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.SelectionControls.{CustomControlStyle, DefaultCustomControlStyle}
 import io.kinoplan.demo.utils.Helpers.styleAToClassName
 import io.kinoplan.scalajs.react.material.ui.core.MuiRadio
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object RadioButtons extends ScalaCssReactImplicits {
   case class Props(style: CustomControlStyle)

@@ -1,19 +1,21 @@
 package io.kinoplan.demo.components.demos.Snackbars
 
+import scala.collection.mutable
+import scala.scalajs.js
+
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
+import japgolly.scalajs.react.vdom.Attr
+import japgolly.scalajs.react.vdom.all._
+import org.scalajs.dom.html
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.models.Snackbars.MessageInfo
 import io.kinoplan.demo.styles.demos.Snackbars.{DefaultSimpleSnackbarStyle, SimpleSnackbarStyle}
 import io.kinoplan.demo.utils.props.MuiContentProps
-import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiIconButton, MuiSnackbar}
+import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
-import japgolly.scalajs.react.vdom.Attr
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import org.scalajs.dom.html
-import scalacss.ScalaCssReactImplicits
-import scala.collection.mutable
-import scala.scalajs.js
 
 object ConsecutiveSnackbars extends ScalaCssReactImplicits {
   var queues = mutable.Queue[MessageInfo]()

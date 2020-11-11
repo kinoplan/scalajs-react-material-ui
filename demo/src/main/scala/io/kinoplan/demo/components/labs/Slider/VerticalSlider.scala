@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.labs.Slider
 
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.labs.Slider.{DefaultVerticalSliderStyle, VerticalSliderStyle}
 import io.kinoplan.demo.utils.Helpers.styleAToClassName
 import io.kinoplan.scalajs.react.material.ui.lab.MuiSlider
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object VerticalSlider extends ScalaCssReactImplicits {
   case class Props(style: VerticalSliderStyle)

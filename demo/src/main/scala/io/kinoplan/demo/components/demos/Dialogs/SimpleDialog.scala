@@ -1,11 +1,12 @@
 package io.kinoplan.demo.components.demos.Dialogs
 
+import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.models.Dialogs.Emails
 import io.kinoplan.demo.styles.demos.Chips.{ChipsArrayStyle, DefaultChipsArrayStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiTypography}
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
 
 object SimpleDialog {
   case class State(open: Boolean = false, selectedValue: String = Emails.default(1)) {

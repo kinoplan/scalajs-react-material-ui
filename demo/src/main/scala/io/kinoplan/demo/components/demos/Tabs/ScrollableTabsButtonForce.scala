@@ -2,14 +2,15 @@ package io.kinoplan.demo.components.demos.Tabs
 
 import scala.scalajs.js
 
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.{ComponentContainer, Layout, TabContainer}
 import io.kinoplan.demo.styles.demos.Tabs.{DefaultScrollableTabsStyle, ScrollableTabsStyle}
 import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiTab, MuiTabs}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object ScrollableTabsButtonForce extends ScalaCssReactImplicits {
   case class Props(style: ScrollableTabsStyle)

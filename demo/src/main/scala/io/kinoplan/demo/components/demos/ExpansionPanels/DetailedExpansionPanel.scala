@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.ExpansionPanels
 
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.ExpansionPanels.{DefaultDetailedExpansionPanelStyle, DetailedExpansionPanelStyle}
 import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object DetailedExpansionPanel extends ScalaCssReactImplicits {
   case class Props(style: DetailedExpansionPanelStyle)

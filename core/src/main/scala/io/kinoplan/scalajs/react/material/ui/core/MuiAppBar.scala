@@ -1,10 +1,10 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
-import io.kinoplan.scalajs.react.material.ui.core.internal.PaperClassKey
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.material.ui.core.internal.PaperClassKey
 
 object MuiAppBar extends ReactBridgeComponent with MuiAppBarExtensions {
   override protected lazy val componentValue: js.Function = RawComponent

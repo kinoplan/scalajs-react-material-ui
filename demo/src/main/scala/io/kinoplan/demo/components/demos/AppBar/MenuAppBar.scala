@@ -1,16 +1,18 @@
 package io.kinoplan.demo.components.demos.AppBar
 
-import io.kinoplan.demo.components.ComponentContainer
-import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
-import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
-import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
+import scala.scalajs.js.JSConverters._
+
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromHtml, ReactEventFromInput, ScalaComponent}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromHtml, ReactEventFromInput, ScalaComponent}
 import org.scalajs.dom.raw.HTMLElement
 import scalacss.ScalaCssReactImplicits
-import scala.scalajs.js.JSConverters._
+
+import io.kinoplan.demo.components.ComponentContainer
+import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
+import io.kinoplan.scalajs.react.material.ui.core._
+import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object MenuAppBar extends ScalaCssReactImplicits {
   case class Props(style: CommonStyle)

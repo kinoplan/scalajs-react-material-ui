@@ -1,7 +1,7 @@
 package io.kinoplan.demo.models
 
-import io.kinoplan.scalajs.react.bridge.WithProps
 import io.kinoplan.demo.router.AppRouter.{DashboardRoute, Page}
+import io.kinoplan.scalajs.react.bridge.WithProps
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 case class MenuItem(

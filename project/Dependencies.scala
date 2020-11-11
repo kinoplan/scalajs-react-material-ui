@@ -1,6 +1,5 @@
 import sbt._
 import org.portablescala.sbtplatformdeps.PlatformDepsPlugin.autoImport._
-import sbt.Keys.scalaVersion
 
 object Dependencies {
 
@@ -19,6 +18,5 @@ object Dependencies {
   val scalaJsDom           = Def.setting("org.scala-js"                      %%% "scalajs-dom"           % "0.9.8")
   val scalaJsReactCore     = Def.setting("com.github.japgolly.scalajs-react" %%% "core"                  % scalaJsReactV)
   val scalaJsReactExtra    = Def.setting("com.github.japgolly.scalajs-react" %%% "extra"                 % scalaJsReactV)
-  val scalaReflect         = Def.setting("org.scala-lang"                      % "scala-reflect"         % scalaVersion.value)
   val scalablyTypedRuntime = Def.setting("com.olvind"                        %%% "scalablytyped-runtime" % "2.1.0")
 }

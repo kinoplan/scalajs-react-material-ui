@@ -1,7 +1,8 @@
 package io.kinoplan.demo.models.SpeedDial
 
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react.vdom.VdomNode
+
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 case class Action(
   icon: VdomNode,

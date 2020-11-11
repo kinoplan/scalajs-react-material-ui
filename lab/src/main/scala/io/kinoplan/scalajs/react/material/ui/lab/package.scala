@@ -1,10 +1,10 @@
 package io.kinoplan.scalajs.react.material.ui
 
-import japgolly.scalajs.react.Callback
-import japgolly.scalajs.react.raw.SyntheticEvent
-
 import scala.scalajs.js
 import scala.scalajs.js.|
+
+import japgolly.scalajs.react.Callback
+import japgolly.scalajs.react.raw.SyntheticEvent
 
 package object lab {
   type Handler1[A]                              = A => Callback

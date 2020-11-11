@@ -1,14 +1,15 @@
 package io.kinoplan.demo.components.demos.Snackbars.wrappers
 
-import io.kinoplan.demo.styles.demos.Snackbars.{DefaultMySnackbarContentWrapperStyle, MySnackbarContentWrapperStyle}
-import io.kinoplan.scalajs.react.material.ui.core.{MuiIconButton, MuiSnackbarContent}
-import japgolly.scalajs.react.vdom.Attr
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
-import scalacss.internal.StyleA
 import scala.scalajs.js
 
+import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
+import japgolly.scalajs.react.vdom.Attr
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+import scalacss.internal.StyleA
+
+import io.kinoplan.demo.styles.demos.Snackbars.{DefaultMySnackbarContentWrapperStyle, MySnackbarContentWrapperStyle}
+import io.kinoplan.scalajs.react.material.ui.core.{MuiIconButton, MuiSnackbarContent}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object MySnackbarContentWrapper extends ScalaCssReactImplicits {

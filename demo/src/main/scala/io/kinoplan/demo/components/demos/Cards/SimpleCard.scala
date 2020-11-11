@@ -1,11 +1,12 @@
 package io.kinoplan.demo.components.demos.Cards
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Cards.{DefaultSimpleCardStyle, SimpleCardStyle}
 import io.kinoplan.scalajs.react.material.ui.core._
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object SimpleCard extends ScalaCssReactImplicits {
   case class Props(style: SimpleCardStyle)

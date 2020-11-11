@@ -1,13 +1,14 @@
 package io.kinoplan.demo.components.demos.Tables.wrappers
 
-import io.kinoplan.demo.components.Layout
-import io.kinoplan.demo.styles.demos.Tables.{DefaultEnhancedTableToolbarStyle, EnhancedTableToolbarStyle}
-import io.kinoplan.scalajs.react.material.ui.core._
-import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.all._
 import scalacss.ScalaCssReactImplicits
+
+import io.kinoplan.demo.components.Layout
+import io.kinoplan.demo.styles.demos.Tables.{DefaultEnhancedTableToolbarStyle, EnhancedTableToolbarStyle}
+import io.kinoplan.scalajs.react.material.ui.core._
+import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object EnhancedTableToolbar extends ScalaCssReactImplicits {
   case class Props(selectedCount: Int, style: EnhancedTableToolbarStyle) {

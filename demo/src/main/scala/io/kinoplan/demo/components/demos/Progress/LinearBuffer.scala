@@ -1,14 +1,15 @@
 package io.kinoplan.demo.components.demos.Progress
 
+import scala.scalajs.js
+import scala.scalajs.js.Math
+
+import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.MuiLinearProgress
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
-
-import scala.scalajs.js
-import scala.scalajs.js.Math
 
 object LinearBuffer extends ScalaCssReactImplicits {
   case class Props(style: CommonStyle)

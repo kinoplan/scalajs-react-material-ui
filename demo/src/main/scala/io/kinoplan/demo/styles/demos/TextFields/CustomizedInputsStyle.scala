@@ -1,10 +1,10 @@
 package io.kinoplan.demo.styles.demos.TextFields
 
+import scala.scalajs.js
+
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.colors
-
-import scala.scalajs.js
 
 case class CustomizedInputsStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
   import common.theme

@@ -1,7 +1,8 @@
 package io.kinoplan.demo
 
-import io.kinoplan.demo.router.AppRouter
 import org.scalajs.dom
+
+import io.kinoplan.demo.router.AppRouter
 
 object AppMain {
   def main(args: Array[String]): Unit = {

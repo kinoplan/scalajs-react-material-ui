@@ -3,14 +3,14 @@ package io.kinoplan.scalajs.react
 import scala.concurrent.{ExecutionContext, Future}
 import scala.reflect.ClassTag
 import scala.scalajs.js
-import scala.scalajs.js.JSConverters._
 import scala.scalajs.js.{Object, |}
+import scala.scalajs.js.JSConverters._
 
+import japgolly.scalajs.react.{CallbackTo, Children, CtorType}
 import japgolly.scalajs.react.component.Js
 import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.vdom.Implicits._
 import japgolly.scalajs.react.vdom.{TagMod, VdomElement, VdomNode}
-import japgolly.scalajs.react.{CallbackTo, Children, CtorType}
+import japgolly.scalajs.react.vdom.Implicits._
 
 package object bridge extends GeneratedImplicits {
   def writerFromConversion[A](implicit conv: A => js.Any): JsWriter[A] = JsWriter(x => x)

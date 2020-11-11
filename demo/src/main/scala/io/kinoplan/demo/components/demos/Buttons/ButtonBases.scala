@@ -1,15 +1,16 @@
 package io.kinoplan.demo.components.demos.Buttons
 
+import scala.scalajs.js
+
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.Attr
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.models.Buttons.Image
 import io.kinoplan.demo.styles.demos.Buttons.{ButtonBasesStyle, DefaultButtonBasesStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButtonBase, MuiTypography}
-import japgolly.scalajs.react.vdom.Attr
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
-
-import scala.scalajs.js
 
 object ButtonBases extends ScalaCssReactImplicits {
   case class Props(style: ButtonBasesStyle)

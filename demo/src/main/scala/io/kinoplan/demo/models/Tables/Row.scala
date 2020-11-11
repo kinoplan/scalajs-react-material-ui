@@ -1,9 +1,9 @@
 package io.kinoplan.demo.models.Tables
 
+import scala.scalajs.js.|
+
 import japgolly.scalajs.react.raw._
 import org.scalajs.dom.html
-
-import scala.scalajs.js.|
 
 case class Row(
   id: String,

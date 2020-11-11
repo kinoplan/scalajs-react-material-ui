@@ -1,10 +1,11 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
-import japgolly.scalajs.react.vdom.html_<^._
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+
+import japgolly.scalajs.react.vdom.html_<^._
+
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
 
 object MuiStepIcon extends ReactBridgeComponent with MuiStepIconExtensions {
   override protected lazy val componentValue: js.Function = RawComponent

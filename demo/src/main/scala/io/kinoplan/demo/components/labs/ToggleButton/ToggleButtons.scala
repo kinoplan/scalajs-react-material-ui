@@ -1,16 +1,17 @@
 package io.kinoplan.demo.components.labs.ToggleButton
 
+import scala.scalajs.js
+import scala.scalajs.js.JSConverters._
+
+import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.labs.ToggleButton.{DefaultToggleButtonStyle, ToggleButtonStyle}
 import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 import io.kinoplan.scalajs.react.material.ui.lab.{MuiToggleButton, MuiToggleButtonGroup}
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
-
-import scala.scalajs.js
-import scala.scalajs.js.JSConverters._
 
 object ToggleButtons extends ScalaCssReactImplicits {
   case class Props(style: ToggleButtonStyle)

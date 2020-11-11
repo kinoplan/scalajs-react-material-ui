@@ -89,54 +89,17 @@ object Generator {
     IO.write(
       moduleFile,
       s"""package io.kinoplan.scalajs.react.material.ui.icons
-         |
-         |import scala.scalajs.js
-         |import scala.scalajs.js.annotation.JSImport
-         |
-         |@js.native
-         |@JSImport("@material-ui/icons", JSImport.Namespace)
-         |object MuiIconsModule extends js.Object {
-         |  type Value = js.Any
-       """.stripMargin.trim + "\n\n" + moduleIcons + "\n" + "}"
+        |
+        |import scala.scalajs.js
+        |import scala.scalajs.js.annotation.JSImport
+        |
+        |@js.native
+        |@JSImport("@material-ui/icons", JSImport.Namespace)
+        |object MuiIconsModule extends js.Object {
+        |  type Value = js.Any
+      """.stripMargin.trim + "\n\n" + moduleIcons + "\n" + "}\n"
     )
 
-//    val packageFile: File = src / "package.scala"
-//
-//    val packageIcons = iconNames.map(name =>
-//      s"""|   object Mui${name}Icon extends Bridge { override lazy val componentValue = $name }""".stripMargin
-//    ).mkString("\n")
-//
-//    IO.write(
-//      packageFile,
-//      s"""package io.kinoplan.scalajs.react.material.ui
-//         |
-//         |import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
-//         |import io.kinoplan.scalajs.react.material.ui.icons.MuiIconsModule._
-//         |import io.kinoplan.scalajs.react.material.ui.icons.SvgIconExtensions
-//         |
-//         |import scala.scalajs.js
-//         |import scala.scalajs.js.|
-//         |
-//         |trait Bridge extends ReactBridgeComponent with MuiIcons
-//         |
-//         |trait MuiIcons extends ReactBridgeComponent with SvgIconExtensions {
-//         |  def apply(
-//         |    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
-//         |    color: js.UndefOr[Color.Value] = js.undefined,
-//         |    component: js.UndefOr[String | js.Function] = js.undefined,
-//         |    fontSize: js.UndefOr[FontSize.Value] = js.undefined,
-//         |    nativeColor: js.UndefOr[String] = js.undefined,
-//         |    shapeRendering: js.UndefOr[String] = js.undefined,
-//         |    titleAccess: js.UndefOr[String] = js.undefined,
-//         |    viewBox: js.UndefOr[String] = js.undefined
-//         |  ): WithProps = auto
-//         |}
-//         |
-//         |package object icons {
-//         |
-//       """.stripMargin.trim + "\n" + packageIcons + "\n" + "}"
-//    )
-
-    Seq(moduleFile)//, packageFile)
+    Seq(moduleFile)
   }
 }

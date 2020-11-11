@@ -1,12 +1,12 @@
 package io.kinoplan.scalajs.react.material.ui
 
-import japgolly.scalajs.react.raw.SyntheticEvent
-import japgolly.scalajs.react.{Callback, ReactEventTypes}
-import org.scalajs.dom.raw.HTMLElement
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSGlobal
 import scala.scalajs.js.|
+
+import japgolly.scalajs.react.{Callback, ReactEventTypes}
+import japgolly.scalajs.react.raw.SyntheticEvent
+import org.scalajs.dom.raw.HTMLElement
 
 package object core {
   type JsFun0                                   = js.Function0[Callback]

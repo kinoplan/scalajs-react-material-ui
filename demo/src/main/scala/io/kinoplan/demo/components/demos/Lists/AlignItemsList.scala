@@ -1,11 +1,12 @@
 package io.kinoplan.demo.components.demos.Lists
 
+import japgolly.scalajs.react.{BackendScope, React, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Lists.{DefaultListStyle, ListStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiList, MuiListItem, MuiListItemAvatar, MuiListItemText, MuiTypography}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, React, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object AlignItemsList extends ScalaCssReactImplicits {
   case class Props(style: ListStyle)

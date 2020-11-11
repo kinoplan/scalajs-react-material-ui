@@ -1,13 +1,14 @@
 package io.kinoplan.demo.components.demos.Drawers
 
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEventFromHtml, ScalaComponent}
+import japgolly.scalajs.react.vdom.Attr
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Drawers.{DefaultDrawersStyle, DrawersStyle}
 import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
-import japgolly.scalajs.react.vdom.Attr
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEventFromHtml, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object SwipeableTemporaryDrawer extends ScalaCssReactImplicits {
   case class Props(style: DrawersStyle)

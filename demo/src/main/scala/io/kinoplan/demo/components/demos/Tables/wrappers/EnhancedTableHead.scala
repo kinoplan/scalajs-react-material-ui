@@ -1,11 +1,12 @@
 package io.kinoplan.demo.components.demos.Tables.wrappers
 
-import io.kinoplan.demo.models.Tables.Row
-import io.kinoplan.scalajs.react.material.ui.core._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._
 import scalacss.ScalaCssReactImplicits
+
+import io.kinoplan.demo.models.Tables.Row
+import io.kinoplan.scalajs.react.material.ui.core._
 
 object EnhancedTableHead extends ScalaCssReactImplicits {
   case class Props(

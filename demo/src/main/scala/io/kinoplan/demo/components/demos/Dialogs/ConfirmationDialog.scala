@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.Dialogs
 
+import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Dialogs.{ConfirmationDialogStyle, DefaultConfirmationDialogStyle}
 import io.kinoplan.demo.utils.Helpers.styleAToClassName
 import io.kinoplan.scalajs.react.material.ui.core.{MuiDialog, MuiList, MuiListItem, MuiListItemText}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object ConfirmationDialog extends ScalaCssReactImplicits {
   case class Props(style: ConfirmationDialogStyle)

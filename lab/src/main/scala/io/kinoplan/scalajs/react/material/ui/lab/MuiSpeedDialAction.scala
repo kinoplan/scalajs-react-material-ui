@@ -1,11 +1,12 @@
 package io.kinoplan.scalajs.react.material.ui.lab
 
-import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import scala.scalajs.js
+import scala.scalajs.js.annotation.JSImport
+
 import japgolly.scalajs.react.ReactEventFromHtml
 import japgolly.scalajs.react.vdom.html_<^.VdomNode
 
-import scala.scalajs.js
-import scala.scalajs.js.annotation.JSImport
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
 object MuiSpeedDialAction extends ReactBridgeComponent with MuiSpeedDialActionExtensions {
   override protected lazy val componentValue: js.Function = RawComponent

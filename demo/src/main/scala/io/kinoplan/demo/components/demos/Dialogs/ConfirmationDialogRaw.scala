@@ -1,11 +1,12 @@
 package io.kinoplan.demo.components.demos.Dialogs
 
-import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiDialog, MuiDialogActions, MuiDialogContent, MuiDialogTitle, MuiFormControlLabel, MuiRadio, MuiRadioGroup}
+import scala.scalajs.js
+
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEventFromInput, ScalaComponent}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEventFromInput, ScalaComponent}
 
-import scala.scalajs.js
+import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiDialog, MuiDialogActions, MuiDialogContent, MuiDialogTitle, MuiFormControlLabel, MuiRadio, MuiRadioGroup}
 
 object ConfirmationDialogRaw {
   case class Props(open: Boolean, onClose: js.Function1[String, Callback], value: String, dialogClassess: Map[String, String])

@@ -2,6 +2,11 @@ package io.kinoplan.demo.components.demos.Buttons
 
 import scala.scalajs.js
 
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
+import japgolly.scalajs.react.vdom.Attr
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.{ComponentContainer, Layout, TabContainer}
 import io.kinoplan.demo.models.Buttons.Fab
 import io.kinoplan.demo.styles.demos.Buttons.{DefaultFloatingActionButtonsZoomStyle, FloatingActionButtonsZoomStyle}
@@ -11,10 +16,6 @@ import io.kinoplan.scalajs.react.libs.external.reactSwipeableViews.mod.{AxisType
 import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.core.styles.Direction
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
-import japgolly.scalajs.react.vdom.Attr
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object FloatingActionButtonZoom extends ScalaCssReactImplicits {
   case class Props(style: FloatingActionButtonsZoomStyle)

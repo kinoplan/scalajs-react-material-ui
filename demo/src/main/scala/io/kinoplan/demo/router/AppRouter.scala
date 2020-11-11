@@ -1,10 +1,11 @@
 package io.kinoplan.demo.router
 
+import japgolly.scalajs.react.extra.router._
+
 import io.kinoplan.demo.components.Layout
 import io.kinoplan.demo.pages.SimpleTablePage
 import io.kinoplan.demo.pages.demos._
 import io.kinoplan.demo.pages.labs.{BreadcrumbsPage, SliderPage, SpeedDialPage, ToggleButtonPage}
-import japgolly.scalajs.react.extra.router._
 
 object AppRouter {
   sealed trait Page

@@ -34,15 +34,6 @@ object Settings {
     Dependencies.scalaJsReactExtra.value
   ))
 
-  val scalajsDependenciesBridge = Def.setting(Seq(
-    Dependencies.scalaJsReactCore.value,
-    Dependencies.scalaReflect.value
-  ))
-
-  val scalajsDependenciesExternalLibs = Def.setting(Seq(
-    Dependencies.scalaJsReactCore.value
-  ))
-
   val reactDependencies = Seq(
     DependenciesNPM.react,
     DependenciesNPM.reactDom

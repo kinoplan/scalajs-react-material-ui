@@ -1,15 +1,17 @@
 package io.kinoplan.demo.components.demos.Chips
 
+import scala.scalajs.js.JSConverters._
+
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
+import japgolly.scalajs.react.vdom.Attr
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.models.Chips.Chip
 import io.kinoplan.demo.styles.demos.Chips.{ChipsArrayStyle, DefaultChipsArrayStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiChip, MuiPaper}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
-import japgolly.scalajs.react.vdom.Attr
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
-import scala.scalajs.js.JSConverters._
 
 object ChipsArray extends ScalaCssReactImplicits {
   case class Props(style: ChipsArrayStyle)

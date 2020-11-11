@@ -97,7 +97,7 @@ lazy val bridge = (project in file("utils/bridge"))
   scalaJSUseMainModuleInitializer := false,
   npmDependencies in Compile ++= Settings.npmDependenciesBridge.value,
   npmResolutions in Compile ++= (npmDependencies in Compile).value.toMap,
-  libraryDependencies ++= Settings.scalajsDependenciesBridge.value
+  libraryDependencies ++= Settings.scalajsDependenciesLib.value
 ).enablePlugins(BridgeGeneratorPlugin)
 
 lazy val commonSettings: Project => Project  =

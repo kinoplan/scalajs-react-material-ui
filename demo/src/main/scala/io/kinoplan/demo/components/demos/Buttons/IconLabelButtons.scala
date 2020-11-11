@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.Buttons
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Buttons.{DefaultIconLabelButtonsStyle, IconLabelButtonsStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiIcon}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object IconLabelButtons extends ScalaCssReactImplicits {
   case class Props(style: IconLabelButtonsStyle)

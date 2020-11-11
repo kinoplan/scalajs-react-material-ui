@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.TextFields
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.TextFields.{CustomizedInputBaseStyle, DefaultCustomizedInputBaseStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiDivider, MuiIconButton, MuiInputBase, MuiPaper}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object CustomizedInputBase extends ScalaCssReactImplicits {
   case class Props(style: CustomizedInputBaseStyle)

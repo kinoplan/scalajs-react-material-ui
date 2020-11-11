@@ -1,14 +1,15 @@
 package io.kinoplan.demo.components.demos.Tabs
 
+import scala.scalajs.js
+
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Tabs.{CustomizedTabsStyle, DefaultCustomizedTabsStyle}
 import io.kinoplan.demo.utils.Helpers.{StringExtended, _}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiTab, MuiTabs, MuiTypography}
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
-
-import scala.scalajs.js
 
 object CustomizedTabs extends ScalaCssReactImplicits {
   case class Props(style: CustomizedTabsStyle)

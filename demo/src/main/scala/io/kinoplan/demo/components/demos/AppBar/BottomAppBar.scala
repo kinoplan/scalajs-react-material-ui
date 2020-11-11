@@ -1,13 +1,14 @@
 package io.kinoplan.demo.components.demos.AppBar
 
+import japgolly.scalajs.react.{BackendScope, React, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.models.Message
 import io.kinoplan.demo.styles.demos.AppBar.{BottomAppBarStyle, DefaultBottomAppBarStyle}
 import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, React, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object BottomAppBar extends ScalaCssReactImplicits {
   case class Props(style: BottomAppBarStyle)

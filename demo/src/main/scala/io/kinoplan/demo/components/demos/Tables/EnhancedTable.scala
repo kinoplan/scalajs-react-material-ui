@@ -1,5 +1,13 @@
 package io.kinoplan.demo.components.demos.Tables
 
+import scala.scalajs.js
+import scala.scalajs.js.Math
+
+import japgolly.scalajs.react._
+import japgolly.scalajs.react.vdom.Attr
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.components.demos.Tables.wrappers.{EnhancedTableHead, EnhancedTableToolbar}
 import io.kinoplan.demo.models.Tables.TableItem
@@ -7,13 +15,6 @@ import io.kinoplan.demo.styles.demos.Tables.{DefaultEnhancedTableStyle, Enhanced
 import io.kinoplan.demo.utils.props.{MuiBackIconButtonProps, MuiNextIconButtonProps}
 import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.html.ReactEventFromNumberInput
-import japgolly.scalajs.react._
-import japgolly.scalajs.react.vdom.Attr
-import japgolly.scalajs.react.vdom.all._
-import scalacss.ScalaCssReactImplicits
-
-import scala.scalajs.js
-import scala.scalajs.js.Math
 
 object EnhancedTable extends ScalaCssReactImplicits {
   case class Props(style: EnhancedTableStyle)

@@ -1,14 +1,15 @@
 package io.kinoplan.demo.modules
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.extra.router.{Resolution, RouterCtl}
+import japgolly.scalajs.react.vdom.{Attr, VdomArray, VdomNode}
+import japgolly.scalajs.react.vdom.all._
+
 import io.kinoplan.demo.components.Layout
 import io.kinoplan.demo.models.{ChildMenuItem, MenuItem}
 import io.kinoplan.demo.router.AppRouter.Page
 import io.kinoplan.scalajs.react.material.ui.core.{MuiCollapse, MuiDivider, MuiList, MuiListItem, MuiListItemIcon, MuiListItemText, MuiListSubheader, colors}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
-import japgolly.scalajs.react.extra.router.{Resolution, RouterCtl}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.vdom.{Attr, VdomArray, VdomNode}
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
 
 object MainMenu {
   case class Props(router: RouterCtl[Page], r: Resolution[Page])

@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.Steppers
 
+import japgolly.scalajs.react.{BackendScope, ScalaComponent}
+import japgolly.scalajs.react.vdom.Attr
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Steppers.{DefaultVerticalLinearStepperStyle, VerticalLinearStepperStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiPaper, MuiStep, MuiStepContent, MuiStepLabel, MuiStepper, MuiTypography}
-import japgolly.scalajs.react.vdom.Attr
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object VerticalLinearStepper extends ScalaCssReactImplicits {
   val steps = List("Select campaign settings", "Create an ad group", "Create an ad")

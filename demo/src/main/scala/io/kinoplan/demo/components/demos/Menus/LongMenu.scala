@@ -1,16 +1,18 @@
 package io.kinoplan.demo.components.demos.Menus
 
+import scala.scalajs.js
+import scala.scalajs.js.JSConverters._
+
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromHtml, ScalaComponent}
+import japgolly.scalajs.react.vdom.Attr
+import japgolly.scalajs.react.vdom.all._
+import org.scalajs.dom.raw.HTMLElement
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.utils.props.MuiPaperProps
 import io.kinoplan.scalajs.react.material.ui.core.{MuiIconButton, MuiMenu, MuiMenuItem}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
-import japgolly.scalajs.react.vdom.Attr
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromHtml, ScalaComponent}
-import org.scalajs.dom.raw.HTMLElement
-import scalacss.ScalaCssReactImplicits
-import scala.scalajs.js
-import scala.scalajs.js.JSConverters._
 
 object LongMenu extends ScalaCssReactImplicits {
   case class State(anchorEl: Option[HTMLElement] = None) {

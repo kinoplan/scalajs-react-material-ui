@@ -1,13 +1,14 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
-import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
-import japgolly.scalajs.react.ReactEvent
-import org.scalajs.dom.html
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
+
+import japgolly.scalajs.react.ReactEvent
+import org.scalajs.dom.html
+
+import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
 
 object MuiPopover extends ReactBridgeComponent with MuiPopoverExtensions {
   override protected lazy val componentValue: js.Function = RawComponent

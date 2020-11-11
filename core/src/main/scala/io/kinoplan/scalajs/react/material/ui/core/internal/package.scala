@@ -1,9 +1,9 @@
 package io.kinoplan.scalajs.react.material.ui.core
 
-import japgolly.scalajs.react.vdom.VdomNode
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+
+import japgolly.scalajs.react.vdom.VdomNode
 
 package object internal {
   @JSImport("@material-ui/core/internal/svg-icons/ArrowDropDown", JSImport.Default)

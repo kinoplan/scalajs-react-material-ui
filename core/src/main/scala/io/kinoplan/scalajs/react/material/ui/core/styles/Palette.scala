@@ -1,10 +1,10 @@
 package io.kinoplan.scalajs.react.material.ui.core.styles
 
-import io.kinoplan.scalajs.react.material.ui.core.colors.{Color, CommonColors}
-
 import scala.scalajs.js
 import scala.scalajs.js.JSConverters._
 import scala.scalajs.js.annotation.JSImport
+
+import io.kinoplan.scalajs.react.material.ui.core.colors.{Color, CommonColors}
 
 @js.native
 trait Palette extends js.Object {

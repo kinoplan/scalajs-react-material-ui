@@ -1,12 +1,13 @@
 package io.kinoplan.demo.components.demos.Badges
 
+import japgolly.scalajs.react.{BackendScope, React, ScalaComponent}
+import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Badges.{BadgeMaxStyle, DefaultBadgeMaxStyle}
 import io.kinoplan.scalajs.react.material.ui.core.MuiBadge
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import japgolly.scalajs.react.{BackendScope, React, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
 
 object BadgeMax extends ScalaCssReactImplicits {
   case class Props(style: BadgeMaxStyle)

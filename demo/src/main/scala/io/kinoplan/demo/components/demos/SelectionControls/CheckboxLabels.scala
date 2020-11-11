@@ -1,15 +1,17 @@
 package io.kinoplan.demo.components.demos.SelectionControls
 
+import scala.scalajs.js.JSConverters._
+
 import cats.syntax.option._
+import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.SelectionControls.{CustomControlStyle, DefaultCustomControlStyle}
 import io.kinoplan.demo.utils.Helpers.{StringExtended, styleAToClassName}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiCheckbox, MuiFormControlLabel, MuiFormGroup}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
-import scala.scalajs.js.JSConverters._
 
 object CheckboxLabels extends ScalaCssReactImplicits {
   case class Props(style: CustomControlStyle)

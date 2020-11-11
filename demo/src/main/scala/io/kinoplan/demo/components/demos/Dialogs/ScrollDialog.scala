@@ -1,9 +1,10 @@
 package io.kinoplan.demo.components.demos.Dialogs
 
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiDialog, MuiDialogActions, MuiDialogContent, MuiDialogContentText, MuiDialogTitle}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
 
 object ScrollDialog {
   case class State(open: Boolean = false, scroll: String = "paper") {

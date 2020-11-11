@@ -1,13 +1,14 @@
 package io.kinoplan.demo.components.demos.Snackbars
 
+import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
+
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.components.demos.Snackbars.wrappers.MySnackbarContentWrapper
 import io.kinoplan.demo.styles.demos.Snackbars.{CustomizedSnackbarsStyle, DefaultCustomizedSnackbarsStyle}
-import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiSnackbar}
-import japgolly.scalajs.react.vdom.all._
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ScalaComponent}
-import scalacss.ScalaCssReactImplicits
+import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
 
 object CustomizedSnackbars extends ScalaCssReactImplicits {
   case class Props(style: CustomizedSnackbarsStyle)
