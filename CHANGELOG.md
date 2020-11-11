@@ -1,5 +1,9 @@
 # Changes
 
+## 0.2.0
+
+* Reduce the size of icons from ~25 MB to ~200 KB
+
 ## 0.1.0
 
 * Add cross-build for ScalaJS 0.6.x/1.x.x and Scala 2.12.x/2.13.x

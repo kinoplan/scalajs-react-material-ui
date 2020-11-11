@@ -91,13 +91,4 @@ object Settings {
     skip in publishArtifact := true,
     Keys.`package` := file("")
   )
-
-  lazy val publishArtifactSettings: Project => Project = project =>
-    if (isPublishVersion)
-      project
-    else
-      project.settings(
-        publishArtifact in(Compile, packageDoc) := false,
-        publishArtifact in(Compile, packageSrc) := false
-      )
 }

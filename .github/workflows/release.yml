@@ -15,9 +15,6 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - if: ${{ github.ref == 'ref/tags/v*' }}
-        run: |
-          echo "PUBLISH_VERSION=1" >> $GITHUB_ENV
       - uses: actions/checkout@v2.3.3
       - uses: olafurpg/setup-scala@v10
       - uses: actions/setup-node@v1
