@@ -21,9 +21,9 @@ The scalajs-react-material-ui libraries is currently available for Scala.js 0.6.
 
     ```scala
     libraryDependencies ++= Seq(
-      "io.kinoplan" %%% "scalajs-react-material-ui-core"  % "0.1.0",
-      "io.kinoplan" %%% "scalajs-react-material-ui-icons" % "0.1.0",
-      "io.kinoplan" %%% "scalajs-react-material-ui-lab"   % "0.1.0"
+      "io.kinoplan" %%% "scalajs-react-material-ui-core"  % "0.2.0",
+      "io.kinoplan" %%% "scalajs-react-material-ui-icons" % "0.2.0",
+      "io.kinoplan" %%% "scalajs-react-material-ui-lab"   % "0.2.0"
     )
     ```
 
