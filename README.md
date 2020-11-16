@@ -4,12 +4,12 @@
 
 [scalajs-react](https://github.com/japgolly/scalajs-react) facade for [@material-ui/core](https://github.com/mui-org/material-ui/tree/v3.x/packages/material-ui), [@material-ui/icons](https://github.com/mui-org/material-ui/tree/v3.x/packages/material-ui-icons), [@material-ui/lab](https://github.com/mui-org/material-ui/tree/v3.x/packages/material-ui-lab)
 
-![Scala CI](https://github.com/kinoplan/scalajs-react-material-ui/workflows/Scala%20CI/badge.svg?branch=master)
+![build](https://github.com/kinoplan/scalajs-react-material-ui/workflows/build/badge.svg)
 [![Maven Central](https://img.shields.io/maven-central/v/io.kinoplan/scalajs-react-material-ui-core_sjs0.6_2.12.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.kinoplan%22%20AND%20(a:%22scalajs-react-material-ui-core_sjs0.6_2.12%22%20OR%20a:%22scalajs-react-material-ui-icons_sjs0.6_2.12%22%20OR%20a:%22scalajs-react-material-ui-lab_sjs0.6_2.12%22))
 [![Scala.js](https://www.scala-js.org/assets/badges/scalajs-1.1.0.svg)](https://www.scala-js.org/)
 [![Scala.js](http://scala-js.org/assets/badges/scalajs-0.6.29.svg)](http://scala-js.org)
 [![react](https://img.shields.io/badge/react-16.13.1-61DAFB.svg?logo=React)](https://ru.reactjs.org/)
-[![scalajs-react](https://img.shields.io/static/v1?label=scalajs-react&message=1.7.5&color=blue)](https://github.com/japgolly/scalajs-react)
+[![scalajs-react](https://img.shields.io/static/v1?label=scalajs-react&message=1.7.6&color=blue)](https://github.com/japgolly/scalajs-react)
 [![material-ui](https://img.shields.io/static/v1?label=material-ui&message=3.9.0&color=ff69b4)](https://v3.material-ui.com/)
 
 </div>
@@ -21,9 +21,9 @@ The scalajs-react-material-ui libraries is currently available for Scala.js 0.6.
 
     ```scala
     libraryDependencies ++= Seq(
-      "io.kinoplan" %%% "scalajs-react-material-ui-core"  % "0.2.0",
-      "io.kinoplan" %%% "scalajs-react-material-ui-icons" % "0.2.0",
-      "io.kinoplan" %%% "scalajs-react-material-ui-lab"   % "0.2.0"
+      "io.kinoplan" %%% "scalajs-react-material-ui-core"  % "0.2.1",
+      "io.kinoplan" %%% "scalajs-react-material-ui-icons" % "0.2.1",
+      "io.kinoplan" %%% "scalajs-react-material-ui-lab"   % "0.2.1"
     )
     ```
 
