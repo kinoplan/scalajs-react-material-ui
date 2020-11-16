@@ -54,7 +54,7 @@ In the demo you can also find very detailed examples of using a bunch of:
 - [scalablytyped](https://scalablytyped.org/docs/readme.html)
 
 Start:
-1. `sbt runDev`
+1. `sbt dev`
 2. Open in browser `localhost:8080`
 
 ## License

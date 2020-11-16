@@ -5,7 +5,7 @@ object Dependencies {
 
   object Versions {
     val scalaCssV = "0.6.1"
-    val scalaJsReactV = "1.7.5"
+    val scalaJsReactV = "1.7.6"
   }
 
   import Versions._
