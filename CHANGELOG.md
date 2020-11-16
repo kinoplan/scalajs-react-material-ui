@@ -1,5 +1,9 @@
 # Changes
 
+## 0.2.1
+
+* Bump scalajs-react to 1.7.6
+
 ## 0.2.0
 
 * Reduce the size of icons from ~25 MB to ~200 KB
