@@ -1,4 +1,4 @@
-val scalaJSVersion = Option(System.getenv("SCALAJS_VERSION")).getOrElse("1.1.1")
+val scalaJSVersion = Option(System.getenv("SCALAJS_VERSION")).getOrElse("1.3.1")
 
 resolvers += Resolver.bintrayRepo("oyvindberg", "converter")
 
