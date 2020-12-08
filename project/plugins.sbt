@@ -8,7 +8,7 @@ addSbtPlugin("org.scala-js" % "sbt-scalajs" % scalaJSVersion)
 
 addSbtPlugin("ch.epfl.scala" % s"sbt-scalajs-bundler${if (scalaJSVersion.startsWith("0.6")) "-sjs06" else ""}" % s"0.${if (scalaJSVersion.startsWith("0.6")) "18" else "20"}.0")
 
-addSbtPlugin("io.github.davidgregory084" % "sbt-tpolecat" % "0.1.15")
+addSbtPlugin("io.github.davidgregory084" % "sbt-tpolecat" % "0.1.16")
 
 addSbtPlugin("ch.epfl.scala" % "sbt-scalafix" % "0.9.23")
 
