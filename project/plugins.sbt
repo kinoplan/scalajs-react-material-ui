@@ -10,6 +10,6 @@ addSbtPlugin("ch.epfl.scala" % s"sbt-scalajs-bundler${if (scalaJSVersion.startsW
 
 addSbtPlugin("io.github.davidgregory084" % "sbt-tpolecat" % "0.1.16")
 
-addSbtPlugin("ch.epfl.scala" % "sbt-scalafix" % "0.9.23")
+addSbtPlugin("ch.epfl.scala" % "sbt-scalafix" % "0.9.24")
 
 addSbtPlugin("com.geirsson" % "sbt-ci-release" % "1.5.5")
