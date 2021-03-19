@@ -17,4 +17,10 @@ package object internal {
   object ArrowDownward extends js.Function0[js.Function1[js.Object, VdomNode]] {
     def apply(): js.Function1[js.Object, VdomNode] = js.native
   }
+
+  @JSImport("@material-ui/core/useScrollTrigger/useScrollTrigger.js", JSImport.Default)
+  @js.native
+  object useScrollTrigger extends js.Function1[js.UndefOr[UseScrollTriggerOptions], Boolean] {
+     def apply(options: js.UndefOr[UseScrollTriggerOptions] = js.undefined): Boolean = js.native
+  }
 }

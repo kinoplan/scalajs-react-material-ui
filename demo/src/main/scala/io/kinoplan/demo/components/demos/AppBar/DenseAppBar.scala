@@ -36,7 +36,7 @@ object DenseAppBar extends ScalaCssReactImplicits {
     }
   }
 
-  private val component = ScalaComponent.builder[Props]("DenseAppBar")
+  private val component = ScalaComponent.builder[Props]
     .renderBackend[Backend]
     .build
 

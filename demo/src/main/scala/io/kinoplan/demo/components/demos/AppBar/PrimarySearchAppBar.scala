@@ -170,7 +170,7 @@ object PrimarySearchAppBar extends ScalaCssReactImplicits {
     }
   }
 
-  private val component = ScalaComponent.builder[Props]("PrimarySearchAppBar")
+  private val component = ScalaComponent.builder[Props]
     .initialState(State())
     .renderBackend[Backend]
     .build

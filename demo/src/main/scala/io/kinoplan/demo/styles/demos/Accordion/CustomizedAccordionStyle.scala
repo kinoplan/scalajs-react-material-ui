@@ -1,13 +1,15 @@
-package io.kinoplan.demo.styles.demos.ExpansionPanels
+package io.kinoplan.demo.styles.demos.Accordion
 
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
-case class CustomizedExpansionPanelStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+case class CustomizedAccordionStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
   import common.theme
   import dsl._
 
-  val panelRoot = style(
+  val accordionExpanded = style()
+
+  val accordionRoot = style(
     border :=! "1px solid rgba(0,0,0,.125)",
     boxShadow := "none",
     &.not(_.lastChild)(
@@ -15,11 +17,10 @@ case class CustomizedExpansionPanelStyle(common: CommonStyle = DefaultCommonStyl
     ),
     &.before(
       display.none
+    ),
+    unsafeRoot(s".${accordionExpanded.htmlClass}")(
+      margin.auto
     )
-  )
-
-  val panelExpanded = style(
-    margin.auto
   )
 
   val summaryExpanded = style()
@@ -41,8 +42,8 @@ case class CustomizedExpansionPanelStyle(common: CommonStyle = DefaultCommonStyl
   )
 
   val detailsRoot = style(
-    padding((theme.spacing.unit * 2).px)
+    padding((theme.spacing.unit * 1).px)
   )
 }
 
-object DefaultCustomizedExpansionPanelStyle extends CustomizedExpansionPanelStyle
+object DefaultCustomizedAccordionStyle extends CustomizedAccordionStyle

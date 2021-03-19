@@ -50,7 +50,7 @@ object SearchAppBar extends ScalaCssReactImplicits {
     }
   }
 
-  private val component = ScalaComponent.builder[Props]("SearchAppBar")
+  private val component = ScalaComponent.builder[Props]
     .renderBackend[Backend]
     .build
 

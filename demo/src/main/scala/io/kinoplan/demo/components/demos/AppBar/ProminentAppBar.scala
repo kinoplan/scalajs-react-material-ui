@@ -5,30 +5,37 @@ import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import scalacss.ScalaCssReactImplicits
 
 import io.kinoplan.demo.components.ComponentContainer
-import io.kinoplan.demo.styles.demos.AppBar.{DefaultSimpleAppBarStyle, SimpleAppBarStyle}
+import io.kinoplan.demo.styles.demos.AppBar.{DefaultProminentAppBarStyle, ProminentAppBarStyle}
 import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
-object SimpleAppBar extends ScalaCssReactImplicits {
-  case class Props(style: SimpleAppBarStyle)
+object ProminentAppBar extends ScalaCssReactImplicits {
+  case class Props(style: ProminentAppBarStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
-        ComponentContainer("Simple App Bar")(
+        ComponentContainer("Prominent")(
           div(css.root,
             MuiAppBar(position = MuiAppBar.Position.static)(
-              MuiToolbar()(
+              MuiToolbar()(css.toolbar,
                 MuiIconButton(edge = MuiIconButton.Edge.start, color = MuiIconButton.Color.inherit)(css.menuButton,
-                  aria.label := "menu",
+                  aria.label := "open drawer",
                   MuiIcons(MuiIconsModule.Menu)()
                 ),
-                MuiTypography(variant = MuiTypography.Variant.h6)(css.title,
-                  "News"
+                MuiTypography(variant = MuiTypography.Variant.h5, noWrap = true)(css.title,
+                  "Material-UI"
                 ),
-                MuiButton(color = MuiButton.Color.inherit)("Login")
+                MuiIconButton(color = MuiIconButton.Color.inherit)(
+                  aria.label := "search",
+                  MuiIcons(MuiIconsModule.Search)()
+                ),
+                MuiIconButton(edge = MuiIconButton.Edge.end, color = MuiIconButton.Color.inherit)(
+                  aria.label := "display more actions",
+                  MuiIcons(MuiIconsModule.More)()
+                )
               )
             )
           )
@@ -41,5 +48,5 @@ object SimpleAppBar extends ScalaCssReactImplicits {
     .renderBackend[Backend]
     .build
 
-  def apply(style: SimpleAppBarStyle = DefaultSimpleAppBarStyle) = component(Props(style))
+  def apply(style: ProminentAppBarStyle = DefaultProminentAppBarStyle) = component(Props(style))
 }

@@ -4,29 +4,26 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.all._
 
-import io.kinoplan.demo.components.demos.AppBar._
+import io.kinoplan.demo.components.demos.Accordion._
 import io.kinoplan.demo.router.AppRouter.Page
 
-object AppBarPage {
+object AccordionPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
     def render(props: Props): VdomElement = {
 
       div(
-        SimpleAppBar(),
-        PrimarySearchAppBar(),
-        MenuAppBar(),
-        SearchAppBar(),
-        DenseAppBar(),
-        ProminentAppBar(),
-        BottomAppBar(),
-        HideAppBar()
+        SimpleAccordion(),
+        ControlledAccordion(),
+        CustomizedAccordion(),
+        AdditionalAccordion(),
+        DetailedAccordion()
       )
     }
   }
 
-  private val component = ScalaComponent.builder[Props]("AppBarPage")
+  private val component = ScalaComponent.builder[Props]("AccordionPage")
     .renderBackend[Backend]
     .build
 

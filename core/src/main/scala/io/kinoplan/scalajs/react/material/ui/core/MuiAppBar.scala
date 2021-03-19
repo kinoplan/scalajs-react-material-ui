@@ -19,7 +19,8 @@ object MuiAppBar extends ReactBridgeComponent with MuiAppBarExtensions {
     position: js.UndefOr[Position.Value] = js.undefined,
     component: js.UndefOr[ComponentPropType] = js.undefined,
     elevation: js.UndefOr[Int] = js.undefined,
-    square: js.UndefOr[Boolean] = js.undefined
+    square: js.UndefOr[Boolean] = js.undefined,
+    variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
 }
 
@@ -27,20 +28,28 @@ trait MuiAppBarExtensions {
   object Color extends Enumeration {
     type Value = String
 
+    val default = "default"
     val inherit = "inherit"
     val primary = "primary"
     val secondary = "secondary"
-    val default = "default"
+    val transparent = "transparent"
   }
 
   object Position extends Enumeration {
     type Value = String
 
-    val fixed = "fixed"
     val absolute = "absolute"
-    val sticky = "sticky"
-    val static = "static"
+    val fixed = "fixed"
     val relative = "relative"
+    val static = "static"
+    val sticky = "sticky"
+  }
+
+  object Variant extends Enumeration {
+    type Value = String
+
+    val elevation = "elevation"
+    val outlined = "outlined"
   }
 
   object ClassKey extends Enumeration with PaperClassKey {
@@ -55,5 +64,7 @@ trait MuiAppBarExtensions {
     val colorDefault = "colorDefault"
     val colorPrimary = "colorPrimary"
     val colorSecondary = "colorSecondary"
+    val colorInherit = "colorInherit"
+    val colorTransparent = "colorTransparent"
   }
 }

@@ -32,7 +32,9 @@ object BottomAppBar extends ScalaCssReactImplicits {
                       if (message.id == 1) MuiListSubheader()(css.subHeader(Layout.isPaletteLight), "Today") else EmptyVdom,
                       if (message.id == 3) MuiListSubheader()(css.subHeader(Layout.isPaletteLight), "Yesterday") else EmptyVdom,
                       MuiListItem(button = true)(
-                        MuiAvatar()(alt := "Profile Picture", src := message.person),
+                        MuiListItemAvatar()(
+                          MuiAvatar()(alt := "Profile Picture", src := message.person)
+                        ),
                         MuiListItemText(primary = VdomNode(message.primary), secondary = VdomNode(message.secondary))
                       )
                     )
@@ -62,7 +64,7 @@ object BottomAppBar extends ScalaCssReactImplicits {
     }
   }
 
-  private val component = ScalaComponent.builder[Props]("BottomAppBar")
+  private val component = ScalaComponent.builder[Props]
     .renderBackend[Backend]
     .build
 

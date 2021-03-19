@@ -5,6 +5,7 @@ import scalacss.internal.mutable.StyleSheetRegistry
 
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles._
+import io.kinoplan.demo.styles.demos.Accordion._
 import io.kinoplan.demo.styles.demos.AppBar._
 import io.kinoplan.demo.styles.demos.Avatars.DefaultAvatarsStyle
 import io.kinoplan.demo.styles.demos.Badges._
@@ -15,7 +16,6 @@ import io.kinoplan.demo.styles.demos.Chips._
 import io.kinoplan.demo.styles.demos.Dialogs.{DefaultConfirmationDialogStyle, DefaultDialogsStyle}
 import io.kinoplan.demo.styles.demos.Dividers.DefaultDividersStyle
 import io.kinoplan.demo.styles.demos.Drawers._
-import io.kinoplan.demo.styles.demos.ExpansionPanels._
 import io.kinoplan.demo.styles.demos.GridList._
 import io.kinoplan.demo.styles.demos.Lists.{DefaultInteractiveListStyle, DefaultListStyle, DefaultPinnedSubheaderListStyle}
 import io.kinoplan.demo.styles.demos.Menus.{DefaultListItemCompositionStyle, DefaultMenuStyle, DefaultTypographyMenuStyle}
@@ -30,6 +30,7 @@ import io.kinoplan.demo.styles.demos.Tables._
 import io.kinoplan.demo.styles.demos.Tabs._
 import io.kinoplan.demo.styles.demos.TextFields._
 import io.kinoplan.demo.styles.demos.Tooltips._
+import io.kinoplan.demo.styles.labs.Alerts._
 import io.kinoplan.demo.styles.labs.Breadcrumbs.{DefaultBreadcrumbsStyle, DefaultCustomizedBreadcrumbsStyle}
 import io.kinoplan.demo.styles.labs.Slider.{DefaultDisabledSliderStyle, DefaultSliderStyle, DefaultVerticalSliderStyle}
 import io.kinoplan.demo.styles.labs.SpeedDial.DefaultSpeedDialStyle
@@ -43,11 +44,18 @@ object AppCSS extends ScalaCssReactImplicits {
     registry.register(
       DefaultCommonStyle,
       DefaultLayoutStyle,
-      DefaultSimpleTableStyle,
-      DefaultChildMenuStyle,
+      DefaultSimpleAccordionStyle,
+      DefaultControlledAccordionStyle,
+      DefaultCustomizedAccordionStyle,
+      DefaultAdditionalAccordionStyle,
+      DefaultDetailedAccordionStyle,
+      DefaultSimpleAppBarStyle,
       DefaultPrimarySearchAppBarStyle,
       DefaultSearchAppBarStyle,
       DefaultBottomAppBarStyle,
+      DefaultProminentAppBarStyle,
+      DefaultSimpleTableStyle,
+      DefaultChildMenuStyle,
       DefaultAvatarsStyle,
       DefaultSimpleBadgeStyle,
       DefaultBadgeMaxStyle,
@@ -75,10 +83,6 @@ object AppCSS extends ScalaCssReactImplicits {
       DefaultResponsiveDrawerStyle,
       DefaultPersistentDrawerStyle,
       DefaultMiniDrawerStyle,
-      DefaultSimpleExpansionPanelStyle,
-      DefaultControlledExpansionPanelsStyle,
-      DefaultDetailedExpansionPanelStyle,
-      DefaultCustomizedExpansionPanelStyle,
       DefaultImageGridListStyle,
       DefaultTitlebarGridListStyle,
       DefaultSingleLineGridListStyle,
@@ -128,6 +132,9 @@ object AppCSS extends ScalaCssReactImplicits {
       DefaultPositionedTooltipsStyle,
       DefaultVariableWidthStyle,
       DefaultInteractiveTooltipsStyle,
+
+      //Lab
+      DefaultAlertsStyle,
       DefaultBreadcrumbsStyle,
       DefaultCustomizedBreadcrumbsStyle,
       DefaultSliderStyle,

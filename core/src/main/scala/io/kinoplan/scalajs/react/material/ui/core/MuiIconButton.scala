@@ -2,6 +2,7 @@ package io.kinoplan.scalajs.react.material.ui.core
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+import scala.scalajs.js.|
 
 import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
@@ -15,6 +16,8 @@ object MuiIconButton extends ReactBridgeComponent with MuiIconButtonExtensions {
   def apply(
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     color: js.UndefOr[Color.Value] = js.undefined,
+    size: js.UndefOr[Size.Value] = js.undefined,
+    edge: js.UndefOr[Edge.Value | Boolean] = js.undefined,
     disableRipple: js.UndefOr[Boolean] = js.undefined,
     action: js.UndefOr[js.Function] = js.undefined,
     buttonRef: js.UndefOr[ComponentRefType] = js.undefined,
@@ -36,6 +39,19 @@ trait MuiIconButtonExtensions {
     val inherit = "inherit"
     val primary = "primary"
     val secondary = "secondary"
+  }
+
+  object Size extends Enumeration {
+    type Value = String
+
+    val small = "small"
+  }
+
+  object Edge extends Enumeration {
+    type Value = String
+
+    val start = "start"
+    val end = "end"
   }
 
   object ClassKey extends Enumeration {

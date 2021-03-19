@@ -111,7 +111,7 @@ object MenuAppBar extends ScalaCssReactImplicits {
     }
   }
 
-  private val component = ScalaComponent.builder[Props]("MenuAppBar")
+  private val component = ScalaComponent.builder[Props]
     .initialState(State())
     .renderBackend[Backend]
     .build

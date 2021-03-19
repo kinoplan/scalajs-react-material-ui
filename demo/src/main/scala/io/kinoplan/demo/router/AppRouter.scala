@@ -5,12 +5,13 @@ import japgolly.scalajs.react.extra.router._
 import io.kinoplan.demo.components.Layout
 import io.kinoplan.demo.pages.SimpleTablePage
 import io.kinoplan.demo.pages.demos._
-import io.kinoplan.demo.pages.labs.{BreadcrumbsPage, SliderPage, SpeedDialPage, ToggleButtonPage}
+import io.kinoplan.demo.pages.labs._
 
 object AppRouter {
   sealed trait Page
 
   case object DashboardRoute extends Page
+  case object DemoAccordionRoute extends Page
   case object DemoAppBarRoute extends Page
   case object DemoAvatarsRoute extends Page
   case object DemoBadgesRoute extends Page
@@ -21,7 +22,6 @@ object AppRouter {
   case object DemoDialogsRoute extends Page
   case object DemoDividersRoute extends Page
   case object DemoDrawersRoute extends Page
-  case object DemoExpansionPanelsRoute extends Page
   case object DemoGridListRoute extends Page
   case object DemoListsRoute extends Page
   case object DemoMenusRoute extends Page
@@ -37,6 +37,7 @@ object AppRouter {
   case object DemoTextFieldsRoute extends Page
   case object DemoTooltipsRoute extends Page
 
+  case object LabAlertsRoute extends Page
   case object LabBreadcrumbsRoute extends Page
   case object LabSliderRoute extends Page
   case object LabSpeedDialRoute extends Page
@@ -47,6 +48,7 @@ object AppRouter {
 
     (
       staticRoute("/", DashboardRoute) ~> renderR(SimpleTablePage(_))
+      | staticRoute("/#demos/accordion/", DemoAccordionRoute) ~> renderR(AccordionPage(_))
       | staticRoute("/#demos/app-bar/", DemoAppBarRoute) ~> renderR(AppBarPage(_))
       | staticRoute("/#demos/avatars/", DemoAvatarsRoute) ~> renderR(AvatarsPage(_))
       | staticRoute("/#demos/badges/", DemoBadgesRoute) ~> renderR(BadgesPage(_))
@@ -57,7 +59,6 @@ object AppRouter {
       | staticRoute("/#demos/dialogs/", DemoDialogsRoute) ~> renderR(DialogsPage(_))
       | staticRoute("/#demos/dividers/", DemoDividersRoute) ~> renderR(DividersPage(_))
       | staticRoute("/#demos/drawers/", DemoDrawersRoute) ~> renderR(DrawersPage(_))
-      | staticRoute("/#demos/expansion-panels/", DemoExpansionPanelsRoute) ~> renderR(ExpansionPanelsPage(_))
       | staticRoute("/#demos/grid-list/", DemoGridListRoute) ~> renderR(GridListPage(_))
       | staticRoute("/#demos/lists/", DemoListsRoute) ~> renderR(ListsPage(_))
       | staticRoute("/#demos/menus/", DemoMenusRoute) ~> renderR(MenusPage(_))
@@ -72,6 +73,7 @@ object AppRouter {
       | staticRoute("/#demos/tabs/", DemoTabsRoute) ~> renderR(TabsPage(_))
       | staticRoute("/#demos/text-fields/", DemoTextFieldsRoute) ~> renderR(TextFieldsPage(_))
       | staticRoute("/#demos/tooltips/", DemoTooltipsRoute) ~> renderR(TooltipsPage(_))
+      | staticRoute("/#lab/alerts/", LabAlertsRoute) ~> renderR(AlertsPage(_))
       | staticRoute("/#lab/breadcrumbs/", LabBreadcrumbsRoute) ~> renderR(BreadcrumbsPage(_))
       | staticRoute("/#lab/slider/", LabSliderRoute) ~> renderR(SliderPage(_))
       | staticRoute("/#lab/speed-dial/", LabSpeedDialRoute) ~> renderR(SpeedDialPage(_))

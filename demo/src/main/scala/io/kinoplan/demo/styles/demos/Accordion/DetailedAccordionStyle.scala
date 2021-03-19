@@ -1,9 +1,9 @@
-package io.kinoplan.demo.styles.demos.ExpansionPanels
+package io.kinoplan.demo.styles.demos.Accordion
 
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
-case class DetailedExpansionPanelStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+case class DetailedAccordionStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
   import common.theme
   import dsl._
 
@@ -48,4 +48,4 @@ case class DetailedExpansionPanelStyle(common: CommonStyle = DefaultCommonStyle)
   )
 }
 
-object DefaultDetailedExpansionPanelStyle extends DetailedExpansionPanelStyle
+object DefaultDetailedAccordionStyle extends DetailedAccordionStyle

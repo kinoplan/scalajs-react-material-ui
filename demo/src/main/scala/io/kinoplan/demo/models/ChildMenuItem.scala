@@ -9,6 +9,7 @@ case class ChildMenuItem(
 
 object ChildMenuItem {
   val demos = List(
+    ChildMenuItem("Accordion", DemoAccordionRoute),
     ChildMenuItem("App Bar", DemoAppBarRoute),
     ChildMenuItem("Avatars", DemoAvatarsRoute),
     ChildMenuItem("Badges", DemoBadgesRoute),
@@ -19,7 +20,6 @@ object ChildMenuItem {
     ChildMenuItem("Dialogs", DemoDialogsRoute),
     ChildMenuItem("Dividers", DemoDividersRoute),
     ChildMenuItem("Drawers", DemoDrawersRoute),
-    ChildMenuItem("Expansion Panels", DemoExpansionPanelsRoute),
     ChildMenuItem("Grid List", DemoGridListRoute),
     ChildMenuItem("Lists", DemoListsRoute),
     ChildMenuItem("Menus", DemoMenusRoute),
@@ -37,6 +37,7 @@ object ChildMenuItem {
   )
 
   val labs = List(
+    ChildMenuItem("Alerts", LabAlertsRoute),
     ChildMenuItem("Breadcrumbs", LabBreadcrumbsRoute),
     ChildMenuItem("Slider", LabSliderRoute),
     ChildMenuItem("Speed Dial", LabSpeedDialRoute),

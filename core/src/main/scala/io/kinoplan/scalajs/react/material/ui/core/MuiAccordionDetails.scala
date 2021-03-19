@@ -5,10 +5,10 @@ import scala.scalajs.js.annotation.JSImport
 
 import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
-object MuiExpansionPanelDetails extends ReactBridgeComponent with MuiExpansionPanelDetailsExtensions {
+object MuiAccordionDetails extends ReactBridgeComponent with MuiAccordionDetailsExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "ExpansionPanelDetails")
+  @JSImport("@material-ui/core", "AccordionDetails")
   @js.native
   object RawComponent extends js.Function
 
@@ -17,7 +17,7 @@ object MuiExpansionPanelDetails extends ReactBridgeComponent with MuiExpansionPa
   ): WithProps = auto
 }
 
-trait MuiExpansionPanelDetailsExtensions {
+trait MuiAccordionDetailsExtensions {
   object ClassKey extends Enumeration {
     type Value = String
 

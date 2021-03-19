@@ -7,6 +7,7 @@ import scala.scalajs.js.|
 import org.scalajs.dom.html
 
 import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.material.ui.core.internal.Timeout
 
 object MuiSlide extends ReactBridgeComponent with MuiSlideExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -23,7 +24,7 @@ object MuiSlide extends ReactBridgeComponent with MuiSlideExtensions {
     appear: js.UndefOr[Boolean] = js.undefined,
     enter: js.UndefOr[Boolean] = js.undefined,
     exit: js.UndefOr[Boolean] = js.undefined,
-    timeout: js.UndefOr[Int | js.Object] = js.undefined,
+    timeout: js.UndefOr[Int | Timeout] = js.undefined,
     onEnter: js.UndefOr[Handler1[html.Element]] = js.undefined,
     onEntering: js.UndefOr[Handler1[html.Element]] = js.undefined,
     onEntered: js.UndefOr[Handler1[html.Element]] = js.undefined,
@@ -37,9 +38,9 @@ trait MuiSlideExtensions {
   object Direction extends Enumeration {
     type Value = String
 
+    val down = "down"
     val left = "left"
     val right = "right"
     val up = "up"
-    val down = "down"
   }
 }
