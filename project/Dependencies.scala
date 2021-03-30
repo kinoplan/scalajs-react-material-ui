@@ -11,7 +11,7 @@ object Dependencies {
   import Versions._
 
   //A -> Z
-  val catsCore             = Def.setting("org.typelevel"                     %%% "cats-core"             % "2.1.1")
+  val catsCore             = Def.setting("org.typelevel"                     %%% "cats-core"             % "2.5.0")
   val scalaCssCore         = Def.setting("com.github.japgolly.scalacss"      %%% "core"                  % scalaCssV)
   val scalaCssExtReact     = Def.setting("com.github.japgolly.scalacss"      %%% "ext-react"             % scalaCssV)
   val scalaCssExtScalatags = Def.setting("com.github.japgolly.scalacss"       %% "ext-scalatags"         % scalaCssV)
