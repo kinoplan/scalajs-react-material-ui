@@ -1,9 +1,9 @@
-semanticdbEnabled in ThisBuild := true
+ThisBuild / semanticdbEnabled := true
 
-semanticdbVersion in ThisBuild := scalafixSemanticdb.revision
+ThisBuild / semanticdbVersion := "4.4.22"
 
-scalafixScalaBinaryVersion in ThisBuild := "2.13"
+ThisBuild / scalafixScalaBinaryVersion := CrossVersion.binaryScalaVersion(scalaVersion.value)
 
-scalafixDependencies in ThisBuild ++= Seq(
+ThisBuild / scalafixDependencies ++= Seq(
   "com.github.liancheng" %% "organize-imports" % "0.5.0"
 )
