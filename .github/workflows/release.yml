@@ -33,5 +33,3 @@ jobs:
           restore-keys: ${{ runner.os }}-sbt-
       - name: Publish
         run: sbt clean ci-release
-      - name: Publish 0.6
-        run: SCALAJS_VERSION=0.6.33 sbt clean ci-release
