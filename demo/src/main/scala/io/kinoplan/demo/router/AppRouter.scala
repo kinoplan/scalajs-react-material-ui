@@ -14,6 +14,7 @@ object AppRouter {
   case object DemoAccordionRoute extends Page
   case object DemoAppBarRoute extends Page
   case object DemoAvatarsRoute extends Page
+  case object DemoBackdropRoute extends Page
   case object DemoBadgesRoute extends Page
   case object DemoBottomNavigationRoute extends Page
   case object DemoButtonsRoute extends Page
@@ -51,6 +52,7 @@ object AppRouter {
       | staticRoute("/#demos/accordion/", DemoAccordionRoute) ~> renderR(AccordionPage(_))
       | staticRoute("/#demos/app-bar/", DemoAppBarRoute) ~> renderR(AppBarPage(_))
       | staticRoute("/#demos/avatars/", DemoAvatarsRoute) ~> renderR(AvatarsPage(_))
+      | staticRoute("/#demos/backdrop/", DemoBackdropRoute) ~> renderR(BackdropPage(_))
       | staticRoute("/#demos/badges/", DemoBadgesRoute) ~> renderR(BadgesPage(_))
       | staticRoute("/#demos/bottom-navigation/", DemoBottomNavigationRoute) ~> renderR(BottomNavigationPage(_))
       | staticRoute("/#demos/buttons/", DemoButtonsRoute) ~> renderR(ButtonsPage(_))

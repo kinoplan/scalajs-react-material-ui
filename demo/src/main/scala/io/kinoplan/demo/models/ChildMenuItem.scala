@@ -12,6 +12,7 @@ object ChildMenuItem {
     ChildMenuItem("Accordion", DemoAccordionRoute),
     ChildMenuItem("App Bar", DemoAppBarRoute),
     ChildMenuItem("Avatars", DemoAvatarsRoute),
+    ChildMenuItem("Backdrop", DemoBackdropRoute),
     ChildMenuItem("Badges", DemoBadgesRoute),
     ChildMenuItem("Bottom Navigation", DemoBottomNavigationRoute),
     ChildMenuItem("Buttons", DemoButtonsRoute),
