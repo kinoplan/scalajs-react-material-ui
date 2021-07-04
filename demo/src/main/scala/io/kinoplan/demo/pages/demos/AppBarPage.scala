@@ -26,7 +26,7 @@ object AppBarPage {
     }
   }
 
-  private val component = ScalaComponent.builder[Props]("AppBarPage")
+  private val component = ScalaComponent.builder[Props]
     .renderBackend[Backend]
     .build
 

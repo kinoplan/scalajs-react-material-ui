@@ -6,6 +6,7 @@ import scala.scalajs.js.annotation.JSImport
 import japgolly.scalajs.react.vdom.VdomNode
 
 import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import io.kinoplan.scalajs.react.material.ui.core.internal.BadgeOrigin
 
 object MuiBadge extends ReactBridgeComponent with MuiBadgeExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
@@ -15,12 +16,14 @@ object MuiBadge extends ReactBridgeComponent with MuiBadgeExtensions {
   object RawComponent extends js.Function
 
   def apply(
+    anchorOrigin: js.UndefOr[BadgeOrigin] = js.undefined,
     badgeContent: js.UndefOr[VdomNode] = js.undefined,
     classes: js.UndefOr[Map[ClassKey.Value, String]] =js.undefined,
     color: js.UndefOr[Color.Value] = js.undefined,
     component: js.UndefOr[ComponentPropType] = js.undefined,
     invisible: js.UndefOr[Boolean] = js.undefined,
     max: js.UndefOr[Int] = js.undefined,
+    overlap: js.UndefOr[Overlap.Value] = js.undefined,
     showZero: js.UndefOr[Boolean] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
@@ -34,6 +37,13 @@ trait MuiBadgeExtensions {
     val primary = "primary"
     val secondary = "secondary"
     val error = "error"
+  }
+
+  object Overlap extends Enumeration {
+    type Value = String
+
+    val circle = "circle"
+    val rectangle = "rectangle"
   }
 
   object Variant extends Enumeration {

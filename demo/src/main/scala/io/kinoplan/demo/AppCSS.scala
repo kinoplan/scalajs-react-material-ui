@@ -7,7 +7,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles._
 import io.kinoplan.demo.styles.demos.Accordion._
 import io.kinoplan.demo.styles.demos.AppBar._
-import io.kinoplan.demo.styles.demos.Avatars.DefaultAvatarsStyle
+import io.kinoplan.demo.styles.demos.Avatars._
 import io.kinoplan.demo.styles.demos.Badges._
 import io.kinoplan.demo.styles.demos.BottomNavigation.DefaultBottomNavigationStyle
 import io.kinoplan.demo.styles.demos.Buttons._
@@ -44,19 +44,30 @@ object AppCSS extends ScalaCssReactImplicits {
     registry.register(
       DefaultCommonStyle,
       DefaultLayoutStyle,
+      //Accordion
       DefaultSimpleAccordionStyle,
       DefaultControlledAccordionStyle,
       DefaultCustomizedAccordionStyle,
       DefaultAdditionalAccordionStyle,
       DefaultDetailedAccordionStyle,
+      //AppBar
       DefaultSimpleAppBarStyle,
       DefaultPrimarySearchAppBarStyle,
       DefaultSearchAppBarStyle,
       DefaultBottomAppBarStyle,
       DefaultProminentAppBarStyle,
+      //None
       DefaultSimpleTableStyle,
       DefaultChildMenuStyle,
-      DefaultAvatarsStyle,
+      //Avatar
+      DefaultImageAvatarsStyle,
+      DefaultLettersAvatarsStyle,
+      DefaultIconAvatarsStyle,
+      DefaultSizesAvatarsStyle,
+      DefaultVariantAvatarsStyle,
+      DefaultFallbackAvatarsStyle,
+      DefaultBadgeAvatarsStyle,
+      //
       DefaultSimpleBadgeStyle,
       DefaultBadgeMaxStyle,
       DefaultDotBadgeStyle,

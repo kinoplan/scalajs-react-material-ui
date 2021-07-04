@@ -23,7 +23,7 @@ object AccordionPage {
     }
   }
 
-  private val component = ScalaComponent.builder[Props]("AccordionPage")
+  private val component = ScalaComponent.builder[Props]
     .renderBackend[Backend]
     .build
 

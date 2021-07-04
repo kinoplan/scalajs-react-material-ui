@@ -4,7 +4,7 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.all._
 
-import io.kinoplan.demo.components.demos.Avatar.{IconAvatars, ImageAvatars, LetterAvatars}
+import io.kinoplan.demo.components.demos.Avatar._
 import io.kinoplan.demo.router.AppRouter.Page
 
 object AvatarsPage {
@@ -15,12 +15,17 @@ object AvatarsPage {
       div(
         ImageAvatars(),
         LetterAvatars(),
-        IconAvatars()
+        IconAvatars(),
+        SizesAvatars(),
+        VariantAvatars(),
+        FallbackAvatars(),
+        GroupAvatars(),
+        BadgeAvatars()
       )
     }
   }
 
-  private val component = ScalaComponent.builder[Props]("AvatarsPage")
+  private val component = ScalaComponent.builder[Props]
     .renderBackend[Backend]
     .build
 

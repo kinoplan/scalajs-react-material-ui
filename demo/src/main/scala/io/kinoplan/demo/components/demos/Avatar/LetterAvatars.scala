@@ -1,35 +1,31 @@
 package io.kinoplan.demo.components.demos.Avatar
 
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
+import japgolly.scalajs.react.ScalaComponent
+import japgolly.scalajs.react.vdom.all._
 import scalacss.ScalaCssReactImplicits
 
 import io.kinoplan.demo.components.ComponentContainer
-import io.kinoplan.demo.styles.demos.Avatars.{AvatarsStyle, DefaultAvatarsStyle}
-import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiGrid}
+import io.kinoplan.demo.styles.demos.Avatars.{DefaultLettersAvatarsStyle, LettersAvatarsStyle}
+import io.kinoplan.scalajs.react.material.ui.core.MuiAvatar
 
 object LetterAvatars extends ScalaCssReactImplicits {
-  case class Props(style: AvatarsStyle)
+  case class Props(style: LettersAvatarsStyle)
 
-  class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
+  private val component = ScalaComponent.builder[Props]
+    .render_P { props =>
       val css = props.style
 
       div(
         ComponentContainer("Letter avatars")(
-          MuiGrid(justify = MuiGrid.Justify.center, alignItems = MuiGrid.AlignItems.center, container = true)(
+          div(css.root,
             MuiAvatar()(css.avatar, "H"),
-            MuiAvatar()(css.orangeAvatar, "N"),
-            MuiAvatar()(css.purpleAvatar, "OP")
+            MuiAvatar()(css.avatar, css.orange, "N"),
+            MuiAvatar()(css.avatar, css.purple, "OP")
           )
         )
       )
     }
-  }
-
-  private val component = ScalaComponent.builder[Props]("LetterAvatars")
-    .renderBackend[Backend]
     .build
 
-  def apply(style: AvatarsStyle = DefaultAvatarsStyle) = component(Props(style))
+  def apply(style: LettersAvatarsStyle = DefaultLettersAvatarsStyle) = component(Props(style))
 }
