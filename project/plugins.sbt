@@ -8,6 +8,6 @@ addSbtPlugin("ch.epfl.scala" % s"sbt-scalajs-bundler" % s"0.20.0")
 
 addSbtPlugin("io.github.davidgregory084" % "sbt-tpolecat" % "0.1.20")
 
-addSbtPlugin("ch.epfl.scala" % "sbt-scalafix" % "0.9.30")
+addSbtPlugin("ch.epfl.scala" % "sbt-scalafix" % "0.9.31")
 
 addSbtPlugin("com.geirsson" % "sbt-ci-release" % "1.5.7")
