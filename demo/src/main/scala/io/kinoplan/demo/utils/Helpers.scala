@@ -25,6 +25,7 @@ object Helpers {
         // For example: padding-top => paddingTop
         val propertyName = property.attr.id.split("-") match {
           case Array(head, other@_*) => head + other.map(_.capitalize).mkString
+          case _ => throw new Throwable("Css property name is empty for toDictionary implicit")
         }
         result(propertyName) = property.value
       }
@@ -38,6 +39,7 @@ object Helpers {
         // For example: padding-top => paddingTop
         val propertyName = property.attr.id.split("-") match {
           case Array(head, other@_*) => head + other.map(_.capitalize).mkString
+          case _ => throw new Throwable("Css property name is empty for toAny implicit")
         }
         result(propertyName) = property.value
       }

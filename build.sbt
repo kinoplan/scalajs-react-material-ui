@@ -4,19 +4,15 @@ lazy val root =
   else
     project.in(file(".")).aggregate(core, icons, lab, bridge).configure(Settings.rootProject)
 
+// format: off
 inThisBuild(
   List(
-    organization := Settings.organization,
+    sonatypeCredentialHost := Sonatype.sonatype01,
+    versionScheme := Some(VersionScheme.EarlySemVer),
+    organization := "io.kinoplan",
     homepage := Some(url("https://github.com/kinoplan/scalajs-react-material-ui")),
-    licenses := Seq("MIT" -> url("http://opensource.org/licenses/MIT")),
-    developers := List(
-      Developer(
-        "kinoplan",
-        "Kinoplan",
-        "job@kinoplan.ru",
-        url("https://kinoplan.tech")
-      )
-    ),
+    licenses := Seq("Apache-2.0" -> url("https://opensource.org/licenses/Apache-2.0")),
+    developers := List(Developer("kinoplan", "Kinoplan", "job@kinoplan.ru", url("https://kinoplan.tech"))),
     scmInfo := Some(
       ScmInfo(
         url("https://github.com/kinoplan/scalajs-react-material-ui"),
@@ -25,6 +21,7 @@ inThisBuild(
     )
   )
 )
+// format: on
 
 lazy val muiColorsGenerator = taskKey[Seq[File]]("mui-colors-generator")
 
@@ -102,7 +99,7 @@ lazy val bridge = (project in file("utils/bridge"))
 
 lazy val commonProfile: Project => Project  =
   _.enablePlugins(ScalaJSBundlerPlugin, ScalafixPlugin).settings(
-  crossScalaVersions := Seq("2.12.15", "2.13.3"),
+  crossScalaVersions := Seq("2.12.15", "2.13.7"),
   scalaVersion := crossScalaVersions.value.last,
   description := Settings.description,
   webpackBundlingMode := BundlingMode.LibraryOnly(),
