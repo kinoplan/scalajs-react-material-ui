@@ -34,9 +34,9 @@ trait MuiBadgeExtensions {
     type Value = String
 
     val default = "default"
+    val error = "error"
     val primary = "primary"
     val secondary = "secondary"
-    val error = "error"
   }
 
   object Overlap extends Enumeration {
@@ -49,8 +49,8 @@ trait MuiBadgeExtensions {
   object Variant extends Enumeration {
     type Value = String
 
-    val standard = "standard"
     val dot = "dot"
+    val standard = "standard"
   }
 
   object ClassKey extends Enumeration {
@@ -61,7 +61,15 @@ trait MuiBadgeExtensions {
     val colorPrimary = "colorPrimary"
     val colorSecondary = "colorSecondary"
     val colorError = "colorError"
-    val invisible = "invisible"
     val dot = "dot"
+    val anchorOriginTopRightRectangle = "anchorOriginTopRightRectangle"
+    val anchorOriginBottomRightRectangle = "anchorOriginBottomRightRectangle"
+    val anchorOriginTopLeftRectangle = "anchorOriginTopLeftRectangle"
+    val anchorOriginBottomLeftRectangle = "anchorOriginBottomLeftRectangle"
+    val anchorOriginTopRightCircle = "anchorOriginTopRightCircle"
+    val anchorOriginBottomRightCircle = "anchorOriginBottomRightCircle"
+    val anchorOriginTopLeftCircle = "anchorOriginTopLeftCircle"
+    val anchorOriginBottomLeftCircle = "anchorOriginBottomLeftCircle"
+    val invisible = "invisible"
   }
 }

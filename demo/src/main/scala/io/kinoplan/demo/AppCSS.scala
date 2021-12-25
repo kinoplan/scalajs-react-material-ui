@@ -70,12 +70,13 @@ object AppCSS extends ScalaCssReactImplicits {
       DefaultBadgeAvatarsStyle,
       //Backdrop
       DefaultSimpleBackdropStyle,
-      //
+      //Badge
       DefaultSimpleBadgeStyle,
+      DefaultCustomizedBadgeStyle,
       DefaultBadgeMaxStyle,
       DefaultDotBadgeStyle,
       DefaultBadgeVisibilityStyle,
-      DefaultCustomizedBadgeStyle,
+      //
       DefaultBottomNavigationStyle,
       DefaultCommonButtonStyle,
       DefaultFloatingActionButtonsZoomStyle,

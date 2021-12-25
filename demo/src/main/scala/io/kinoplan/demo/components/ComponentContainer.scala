@@ -15,12 +15,12 @@ object ComponentContainer extends ScalaCssReactImplicits {
       val css = props.style
 
       div(
-        div(css.componentTitleFont, css.componentTitlePadding,
+        div(
           MuiTypography(variant = MuiTypography.Variant.h4, gutterBottom = true, component = "h2")(
             props.title
           )
         ),
-        div(css.demo, css.demoPaper(Layout.isPaletteLight),
+        div(css.demo, css.demoBgOutlined,
           children
         )
       )

@@ -1,20 +1,19 @@
 package io.kinoplan.demo.components.demos.Badges
 
-import japgolly.scalajs.react.{BackendScope, ScalaComponent}
-import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import scalacss.ScalaCssReactImplicits
-
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Badges.{CustomizedBadgeStyle, DefaultCustomizedBadgeStyle}
 import io.kinoplan.demo.utils.Helpers.styleAToClassName
 import io.kinoplan.scalajs.react.material.ui.core.{MuiBadge, MuiIconButton}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
+import japgolly.scalajs.react.ScalaComponent
+import japgolly.scalajs.react.vdom.all._
+import scalacss.ScalaCssReactImplicits
 
 object CustomizedBadge extends ScalaCssReactImplicits {
   case class Props(style: CustomizedBadgeStyle)
 
-  class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
+  private val component = ScalaComponent.builder[Props]
+    .render_P { props =>
       val css = props.style
 
       val badgeClasses = Map(
@@ -22,22 +21,18 @@ object CustomizedBadge extends ScalaCssReactImplicits {
       )
 
       div(
-        ComponentContainer("Customized Badge")(
+        ComponentContainer("Customized badges")(
           div(
             MuiIconButton()(
-              aria.label := "Cart",
-              MuiBadge(badgeContent = VdomNode(4), color = MuiBadge.Color.primary, classes = badgeClasses)(
-                MuiIcons(MuiIconsModule.Mail)()
+              aria.label := "cart",
+              MuiBadge(badgeContent = VdomNode(4), color = MuiBadge.Color.secondary, classes = badgeClasses)(
+                MuiIcons(MuiIconsModule.ShoppingCart)()
               )
             )
           )
         )
       )
     }
-  }
-
-  private val component = ScalaComponent.builder[Props]("CustomizedBadge")
-    .renderBackend[Backend]
     .build
 
   def apply(style: CustomizedBadgeStyle = DefaultCustomizedBadgeStyle) = component(Props(style))

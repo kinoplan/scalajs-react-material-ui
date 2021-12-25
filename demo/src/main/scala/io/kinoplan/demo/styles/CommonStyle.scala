@@ -3,6 +3,7 @@ package io.kinoplan.demo.styles
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.components.Layout
 import io.kinoplan.scalajs.react.material.ui.core.colors
+import io.kinoplan.scalajs.react.material.ui.core.styles.colorManipulator.fade
 import io.kinoplan.scalajs.react.material.ui.core.styles.{PaletteOptions, ThemeOptions, TypographyOptions, createMuiTheme}
 
 class CommonStyle extends StyleSheet.Inline {
@@ -43,40 +44,26 @@ class CommonStyle extends StyleSheet.Inline {
     flexGrow(1)
   )
 
-  val componentTitleFont = style(
-    color.rgba(0, 0, 0, 0.87),
-    fontSize(16.px),
-    fontFamily :=! "\"Roboto\", \"Helvetica\", \"Arial\", sans-serif;"
-  )
-
-  val componentTitlePadding = style(
-    padding(0.px, 8.px),
-    marginTop(16.px),
-    marginBottom(16.px)
-  )
-
   val demo = style(
-    borderRadius(theme.shape.borderRadius.px),
+    position.relative,
+    outline(0.px),
+    margin.auto,
     display.flex,
     justifyContent.center,
-    paddingTop((theme.spacing.unit * 2).px),
-    paddingBottom((theme.spacing.unit * 2).px),
-    paddingLeft((theme.spacing.unit * 2).px),
-    paddingRight((theme.spacing.unit * 2).px),
     media.minWidth(theme.breakpoints.values.sm.px)(
-      paddingLeft((theme.spacing.unit * 3).px),
-      paddingRight((theme.spacing.unit * 3).px),
-      paddingTop((theme.spacing.unit * 6).px),
-      paddingBottom((theme.spacing.unit * 3).px),
+      borderRadius(theme.shape.borderRadius.px)
     )
   )
 
-  val demoPaper = styleF.bool(isLight =>
-    if (isLight) {
-      styleS(backgroundColor :=! theme.palette.grey.`200`)
-    } else {
-      styleS(backgroundColor :=!  theme.palette.grey.`900`)
-    }
+  val demoBgOutlined = style(
+    padding((theme.spacing.unit * 3).px),
+    border :=! s"1px solid ${fade(theme.palette.action.active, 0.12)}",
+    borderLeftWidth(0.px),
+    borderRightWidth(0.px),
+    media.minWidth(theme.breakpoints.values.sm.px)(
+      borderLeftWidth(1.px),
+      borderRightWidth(1.px),
+    )
   )
 
   val paper = styleF.bool(isLight =>

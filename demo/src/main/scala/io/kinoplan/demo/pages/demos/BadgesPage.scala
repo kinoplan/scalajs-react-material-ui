@@ -14,10 +14,11 @@ object BadgesPage {
     def render(props: Props): VdomElement = {
       div(
         SimpleBadge(),
+        script(src :="https://scastie.scala-lang.org/JJpaNm3vRdCisZfO4QQ6YA.js" ),
+        CustomizedBadge(),
         BadgeMax(),
         DotBadge(),
-        BadgeVisibility(),
-        CustomizedBadge()
+        BadgeVisibility()
       )
     }
   }
