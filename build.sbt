@@ -99,7 +99,7 @@ lazy val bridge = (project in file("utils/bridge"))
 
 lazy val commonProfile: Project => Project  =
   _.enablePlugins(ScalaJSBundlerPlugin, ScalafixPlugin).settings(
-  crossScalaVersions := Seq("2.12.15", "2.13.6"),
+  crossScalaVersions := Seq("2.12.15", "2.13.7"),
   scalaVersion := crossScalaVersions.value.last,
   description := Settings.description,
   webpackBundlingMode := BundlingMode.LibraryOnly(),
