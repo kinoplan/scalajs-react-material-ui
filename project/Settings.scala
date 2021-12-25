@@ -2,8 +2,6 @@ import sbt.Keys._
 import sbt._
 
 object Settings {
-  val organization = "io.kinoplan"
-
   val description = "scalajs-react facade for material-ui"
 
   val isScalaJSVersion06 = Option(System.getenv("SCALAJS_VERSION")).exists(_.startsWith("0.6"))
