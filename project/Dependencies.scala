@@ -15,7 +15,7 @@ object Dependencies {
   val scalaCssCore         = Def.setting("com.github.japgolly.scalacss"      %%% "core"                  % scalaCssV)
   val scalaCssExtReact     = Def.setting("com.github.japgolly.scalacss"      %%% "ext-react"             % scalaCssV)
   val scalaCssExtScalatags = Def.setting("com.github.japgolly.scalacss"       %% "ext-scalatags"         % scalaCssV)
-  val scalaJsDom           = Def.setting("org.scala-js"                      %%% "scalajs-dom"           % "1.2.0")
+  val scalaJsDom           = Def.setting("org.scala-js"                      %%% "scalajs-dom"           % "2.0.0")
   val scalaJsReactCore     = Def.setting("com.github.japgolly.scalajs-react" %%% "core"                  % scalaJsReactV)
   val scalaJsReactExtra    = Def.setting("com.github.japgolly.scalajs-react" %%% "extra"                 % scalaJsReactV)
   val scalablyTypedRuntime = Def.setting("com.olvind"                        %%% "scalablytyped-runtime" % "2.1.0")
