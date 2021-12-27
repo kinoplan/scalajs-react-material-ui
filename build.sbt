@@ -70,7 +70,7 @@ lazy val lab = (project in file("lab"))
   libraryDependencies ++= Settings.scalajsDependenciesLib.value
 )
 
-lazy val demo = (project in file("demo")).dependsOn(core, lab, bridge)
+lazy val demo = (project in file("demo")).dependsOn(core, icons, lab, bridge)
   .configure(commonProfile).settings(
   scalaJSUseMainModuleInitializer := true,
   scalaJSLinkerConfig ~= (_.withSourceMap(false)),
