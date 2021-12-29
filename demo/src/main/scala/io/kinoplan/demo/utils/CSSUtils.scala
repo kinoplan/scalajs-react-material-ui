@@ -1,7 +1,6 @@
 package io.kinoplan.demo.utils
 
-import org.scalajs.dom.document
-import org.scalajs.dom.raw.HTMLStyleElement
+import org.scalajs.dom.{HTMLStyleElement, document}
 
 object CSSUtils {
   def createStyleElement(styleStr: String): HTMLStyleElement = {

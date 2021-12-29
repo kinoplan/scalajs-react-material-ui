@@ -16,9 +16,9 @@ object ProjectSettings {
       scalaVersion := crossScalaVersions.value.last,
       webpackBundlingMode := BundlingMode.LibraryOnly(),
       useYarn := true,
-      webpack / version := "4.41.5",
-      startWebpackDevServer / version := "3.10.2",
-      webpackCliVersion := "3.3.10",
+      webpack / version := "5.65.0",
+      startWebpackDevServer / version := "4.7.2",
+      webpackCliVersion := "4.9.1",
       scalacOptions ~= (_.filterNot(
         Set(
           "-Wdead-code",

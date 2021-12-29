@@ -3,7 +3,7 @@ package io.kinoplan.demo.components.demos.Selects
 import scala.scalajs.js
 
 import japgolly.scalajs.react.{BackendScope, ReactDOM, ReactEventFromInput, ScalaComponent}
-import japgolly.scalajs.react.raw.React
+import japgolly.scalajs.react.facade.React
 import japgolly.scalajs.react.vdom.all._
 import org.scalajs.dom.{Element, document}
 import scalacss.ScalaCssReactImplicits

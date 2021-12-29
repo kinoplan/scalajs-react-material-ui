@@ -4,7 +4,7 @@ import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
 
-import japgolly.scalajs.react.raw.React
+import japgolly.scalajs.react.facade.React
 import japgolly.scalajs.react.vdom.html_<^.VdomNode
 
 import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
