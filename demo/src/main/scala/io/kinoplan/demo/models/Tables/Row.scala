@@ -2,7 +2,7 @@ package io.kinoplan.demo.models.Tables
 
 import scala.scalajs.js.|
 
-import japgolly.scalajs.react.raw._
+import japgolly.scalajs.react.facade.React
 import org.scalajs.dom.html
 
 case class Row(
