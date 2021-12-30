@@ -12,7 +12,7 @@ object ProjectSettings {
   lazy val commonProfile: Project => Project = _
     .enablePlugins(ScalaJSBundlerPlugin, ScalafixPlugin)
     .settings(
-      crossScalaVersions := Seq("2.12.15", "2.13.7"),
+      crossScalaVersions := Seq("2.13.7"),
       scalaVersion := crossScalaVersions.value.last,
       webpackBundlingMode := BundlingMode.LibraryOnly(),
       useYarn := true,
