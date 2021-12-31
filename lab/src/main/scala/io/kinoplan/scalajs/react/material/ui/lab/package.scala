@@ -4,7 +4,7 @@ import scala.scalajs.js
 import scala.scalajs.js.|
 
 import japgolly.scalajs.react.Callback
-import japgolly.scalajs.react.raw.SyntheticEvent
+import japgolly.scalajs.react.facade.SyntheticEvent
 
 package object lab {
   type Handler1[A]                              = A => Callback

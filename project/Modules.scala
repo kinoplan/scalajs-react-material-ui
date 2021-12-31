@@ -68,11 +68,11 @@ object Modules {
     .settings(
       scalaJSUseMainModuleInitializer := true,
       scalaJSLinkerConfig ~= (_.withSourceMap(false)),
-      webpackDevServerExtraArgs := Seq("--inline"),
+      fastOptJS / webpackDevServerExtraArgs := Seq("--hot"),
       yarnExtraArgs := Seq("--silent"),
       fastOptJS / webpackConfigFile := Some(baseDirectory.value / "dev.webpack.config.js"),
       stUseScalaJsDom := false,
-      stFlavour := Flavour.Japgolly,
+      stFlavour := Flavour.ScalajsReact,
       stIgnore ++= List(
         "react-dom",
         "@material-ui/core",
@@ -106,7 +106,7 @@ object Modules {
         DependenciesNPM.typesReact,
         DependenciesNPM.typesReactDom
       ),
-      Compile / npmResolutions ++= (Compile / npmDependencies).value.toMap,
+      Compile / npmResolutions ++= (Compile / npmDependencies).value.toMap
     )
     .settings(publish / skip := true)
 

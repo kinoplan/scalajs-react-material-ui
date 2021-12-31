@@ -5,7 +5,7 @@ import scala.scalajs.js.JSConverters._
 import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromHtml, ReactEventFromInput, ScalaComponent}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
-import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.HTMLElement
 import scalacss.ScalaCssReactImplicits
 
 import io.kinoplan.demo.components.ComponentContainer

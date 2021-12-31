@@ -12,13 +12,13 @@ object ProjectSettings {
   lazy val commonProfile: Project => Project = _
     .enablePlugins(ScalaJSBundlerPlugin, ScalafixPlugin)
     .settings(
-      crossScalaVersions := Seq("2.12.15", "2.13.7"),
+      crossScalaVersions := Seq("2.13.7"),
       scalaVersion := crossScalaVersions.value.last,
       webpackBundlingMode := BundlingMode.LibraryOnly(),
       useYarn := true,
-      webpack / version := "4.41.5",
-      startWebpackDevServer / version := "3.10.2",
-      webpackCliVersion := "3.3.10",
+      webpack / version := "5.65.0",
+      startWebpackDevServer / version := "4.7.2",
+      webpackCliVersion := "4.9.1",
       scalacOptions ~= (_.filterNot(
         Set(
           "-Wdead-code",

@@ -8,8 +8,8 @@ import scala.scalajs.js.JSConverters._
 
 import japgolly.scalajs.react.{CallbackTo, Children, CtorType}
 import japgolly.scalajs.react.component.Js
-import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.vdom.{TagMod, VdomElement, VdomNode}
+import japgolly.scalajs.react.facade.React
+import japgolly.scalajs.react.vdom.{TagMod, VdomBuilder, VdomElement, VdomNode}
 import japgolly.scalajs.react.vdom.Implicits._
 
 package object bridge extends GeneratedImplicits {
@@ -89,7 +89,7 @@ package object bridge extends GeneratedImplicits {
   type JsComponentType = Js.ComponentSimple[Object, CtorType.Summoner.Aux[Object, Children.Varargs, CtorType.PropsAndChildren]#CT, Js.UnmountedWithRawType[Object, Null, Js.RawMounted[Object, Null]]]
 
   def extractPropsAndChildren(attrAndChildren: Seq[TagMod]): (js.Object, List[VdomNode]) = {
-    val b = new japgolly.scalajs.react.vdom.Builder.ToJs {}
+    val b = new VdomBuilder.ToJs {}
     attrAndChildren.toTagMod.applyTo(b)
     b.addClassNameToProps()
     b.addStyleToProps()
