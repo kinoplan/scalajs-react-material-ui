@@ -17,6 +17,7 @@ trait TypographyStyle extends js.Object {
 }
 
 object TypographyStyle {
+
   def apply(
     fontFamily: Int | String,
     fontSize: Int | String,
@@ -40,4 +41,5 @@ object TypographyStyle {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[TypographyStyle]
   }
+
 }

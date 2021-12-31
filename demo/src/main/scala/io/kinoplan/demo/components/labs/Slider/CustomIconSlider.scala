@@ -23,9 +23,9 @@ object CustomIconSlider extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
-    def handleChange: (ReactEvent, Double) => Callback = (_, value) => {
+
+    def handleChange: (ReactEvent, Double) => Callback = (_, value) =>
       t.modState(_.handleChange(value))
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
@@ -41,12 +41,14 @@ object CustomIconSlider extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Custom thumb")(
-          div(css.root,
+          div(
+            css.root,
             MuiTypography()(id := "slider-image", "Image thumb"),
             MuiSlider(
               classes = imageSliderClasses,
               onChange = handleChange,
-              thumb = img(css.thumbIcon,
+              thumb = img(
+                css.thumbIcon,
                 alt := "slider thumb icon",
                 src := "/static/images/misc/circle.png"
               ).rawElement
@@ -67,6 +69,7 @@ object CustomIconSlider extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("CustomIconSlider")

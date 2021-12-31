@@ -29,68 +29,79 @@ object TemporaryDrawer extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
-    def toggleDrawerTop(value: Boolean): ReactEventFromHtml => Callback = _ => {
+
+    def toggleDrawerTop(value: Boolean): ReactEventFromHtml => Callback = _ =>
       t.modState(_.toggleDrawerTop(value))
-    }
 
-    def toggleDrawerLeft(value: Boolean): ReactEventFromHtml => Callback = _ => {
+    def toggleDrawerLeft(value: Boolean): ReactEventFromHtml => Callback = _ =>
       t.modState(_.toggleDrawerLeft(value))
-    }
 
-    def toggleDrawerBottom(value: Boolean): ReactEventFromHtml => Callback = _ => {
+    def toggleDrawerBottom(value: Boolean): ReactEventFromHtml => Callback = _ =>
       t.modState(_.toggleDrawerBottom(value))
-    }
 
-    def toggleDrawerRight(value: Boolean): ReactEventFromHtml => Callback = _ => {
+    def toggleDrawerRight(value: Boolean): ReactEventFromHtml => Callback = _ =>
       t.modState(_.toggleDrawerRight(value))
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
 
-      val sideList = {
-        div()(css.list,
-          MuiList()(
-            List("Inbox", "Starred", "Send email", "Drafts").zipWithIndex.toVdomArray { case (text, index) =>
-              MuiListItem(button = true)(Attr("key") := text,
-                MuiListItemIcon()(if (index % 2 == 0) MuiIcons(MuiIconsModule.Inbox)() else MuiIcons(MuiIconsModule.Mail)()),
-                MuiListItemText(primary = VdomNode(text))
-              )
-            }
-          ),
-          MuiDivider(),
-          MuiList()(
-            List("All mail", "Trash", "Spam").zipWithIndex.toVdomArray { case (text, index) =>
-              MuiListItem(button = true)(Attr("key") := text,
-                MuiListItemIcon()(if (index % 2 == 0) MuiIcons(MuiIconsModule.Inbox)() else MuiIcons(MuiIconsModule.Mail)()),
-                MuiListItemText(primary = VdomNode(text))
-              )
-            }
-          )
+      val sideList = div()(
+        css.list,
+        MuiList()(
+          List("Inbox", "Starred", "Send email", "Drafts").zipWithIndex.toVdomArray { case (text, index) =>
+            MuiListItem(button = true)(
+              Attr("key") := text,
+              MuiListItemIcon()(
+                if (index % 2 == 0) MuiIcons(MuiIconsModule.Inbox)()
+                else MuiIcons(MuiIconsModule.Mail)()
+              ),
+              MuiListItemText(primary = VdomNode(text))
+            )
+          }
+        ),
+        MuiDivider(),
+        MuiList()(
+          List("All mail", "Trash", "Spam").zipWithIndex.toVdomArray { case (text, index) =>
+            MuiListItem(button = true)(
+              Attr("key") := text,
+              MuiListItemIcon()(
+                if (index % 2 == 0) MuiIcons(MuiIconsModule.Inbox)()
+                else MuiIcons(MuiIconsModule.Mail)()
+              ),
+              MuiListItemText(primary = VdomNode(text))
+            )
+          }
         )
-      }
+      )
 
-      val fullList = {
-        div()(css.fullList,
-          MuiList()(
-            List("Inbox", "Starred", "Send email", "Drafts").zipWithIndex.toVdomArray { case (text, index) =>
-              MuiListItem(button = true)(Attr("key") := text,
-                MuiListItemIcon()(if (index % 2 == 0) MuiIcons(MuiIconsModule.Inbox)() else MuiIcons(MuiIconsModule.Mail)()),
-                MuiListItemText(primary = VdomNode(text))
-              )
-            }
-          ),
-          MuiDivider(),
-          MuiList()(
-            List("All mail", "Trash", "Spam").zipWithIndex.toVdomArray { case (text, index) =>
-              MuiListItem(button = true)(Attr("key") := text,
-                MuiListItemIcon()(if (index % 2 == 0) MuiIcons(MuiIconsModule.Inbox)() else MuiIcons(MuiIconsModule.Mail)()),
-                MuiListItemText(primary = VdomNode(text))
-              )
-            }
-          )
+      val fullList = div()(
+        css.fullList,
+        MuiList()(
+          List("Inbox", "Starred", "Send email", "Drafts").zipWithIndex.toVdomArray { case (text, index) =>
+            MuiListItem(button = true)(
+              Attr("key") := text,
+              MuiListItemIcon()(
+                if (index % 2 == 0) MuiIcons(MuiIconsModule.Inbox)()
+                else MuiIcons(MuiIconsModule.Mail)()
+              ),
+              MuiListItemText(primary = VdomNode(text))
+            )
+          }
+        ),
+        MuiDivider(),
+        MuiList()(
+          List("All mail", "Trash", "Spam").zipWithIndex.toVdomArray { case (text, index) =>
+            MuiListItem(button = true)(
+              Attr("key") := text,
+              MuiListItemIcon()(
+                if (index % 2 == 0) MuiIcons(MuiIconsModule.Inbox)()
+                else MuiIcons(MuiIconsModule.Mail)()
+              ),
+              MuiListItemText(primary = VdomNode(text))
+            )
+          }
         )
-      }
+      )
 
       div(
         ComponentContainer("Temporary drawer")(
@@ -108,7 +119,11 @@ object TemporaryDrawer extends ScalaCssReactImplicits {
                 sideList
               )
             ),
-            MuiDrawer(anchor = MuiDrawer.Anchor.top, open = state.top, onClose = toggleDrawerTop(false))(
+            MuiDrawer(
+              anchor = MuiDrawer.Anchor.top,
+              open = state.top,
+              onClose = toggleDrawerTop(false)
+            )(
               div(
                 tabIndex := 0,
                 role := "button",
@@ -117,7 +132,11 @@ object TemporaryDrawer extends ScalaCssReactImplicits {
                 fullList
               )
             ),
-            MuiDrawer(anchor = MuiDrawer.Anchor.bottom, open = state.bottom, onClose = toggleDrawerBottom(false))(
+            MuiDrawer(
+              anchor = MuiDrawer.Anchor.bottom,
+              open = state.bottom,
+              onClose = toggleDrawerBottom(false)
+            )(
               div(
                 tabIndex := 0,
                 role := "button",
@@ -126,7 +145,11 @@ object TemporaryDrawer extends ScalaCssReactImplicits {
                 fullList
               )
             ),
-            MuiDrawer(anchor = MuiDrawer.Anchor.right, open = state.right, onClose = toggleDrawerRight(false))(
+            MuiDrawer(
+              anchor = MuiDrawer.Anchor.right,
+              open = state.right,
+              onClose = toggleDrawerRight(false)
+            )(
               div(
                 tabIndex := 0,
                 role := "button",
@@ -139,6 +162,7 @@ object TemporaryDrawer extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("TemporaryDrawer")

@@ -19,6 +19,7 @@ object CustomizedSwitches extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
+
     def handleChangeCheckedA(e: ReactEventFromInput) = {
       val value = e.target.checked
 
@@ -71,6 +72,7 @@ object CustomizedSwitches extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("CustomizedSwitches")

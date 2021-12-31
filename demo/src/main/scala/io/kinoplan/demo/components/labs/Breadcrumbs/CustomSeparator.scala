@@ -21,27 +21,34 @@ object CustomSeparator extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Custom separator")(
-          div(css.root,
-            MuiPaper()(css.paper,
-              MuiBreadcrumbs(separator = VdomNode(">"))(aria.label := "Breadcrumb",
+          div(
+            css.root,
+            MuiPaper()(
+              css.paper,
+              MuiBreadcrumbs(separator = VdomNode(">"))(
+                aria.label := "Breadcrumb",
                 MuiLink(color = MuiLink.Color.inherit)(href := "/", onClick --> handleClick, "Material-UI"),
                 MuiLink(color = MuiLink.Color.inherit)(href := "/#demos/app-bar/", onClick --> handleClick, "Lab"),
                 MuiTypography(color = MuiTypography.Color.textPrimary)("Breadcrumb")
               )
             ),
             br(),
-            MuiPaper()(css.paper,
-              MuiBreadcrumbs(separator = VdomNode("-"))(aria.label := "Breadcrumb",
+            MuiPaper()(
+              css.paper,
+              MuiBreadcrumbs(separator = VdomNode("-"))(
+                aria.label := "Breadcrumb",
                 MuiLink(color = MuiLink.Color.inherit)(href := "/", onClick --> handleClick, "Material-UI"),
                 MuiLink(color = MuiLink.Color.inherit)(href := "/#demos/app-bar/", onClick --> handleClick, "Lab"),
                 MuiTypography(color = MuiTypography.Color.textPrimary)("Breadcrumb")
               )
             ),
             br(),
-            MuiPaper()(css.paper,
+            MuiPaper()(
+              css.paper,
               MuiBreadcrumbs(
                 separator = MuiIcons(MuiIconsModule.Navigation)(fontSize = MuiIcons.FontSize.small)()
-              )(aria.label := "Breadcrumb",
+              )(
+                aria.label := "Breadcrumb",
                 MuiLink(color = MuiLink.Color.inherit)(href := "/", onClick --> handleClick, "Material-UI"),
                 MuiLink(color = MuiLink.Color.inherit)(href := "/#demos/app-bar/", onClick --> handleClick, "Lab"),
                 MuiTypography(color = MuiTypography.Color.textPrimary)("Breadcrumb")
@@ -51,6 +58,7 @@ object CustomSeparator extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("CustomSeparator")

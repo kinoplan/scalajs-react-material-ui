@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class CustomizedTableStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -35,6 +36,7 @@ case class CustomizedTableStyle(common: CommonStyle = DefaultCommonStyle) extend
   val body = style(
     fontSize(14.px)
   )
+
 }
 
 object DefaultCustomizedTableStyle extends CustomizedTableStyle

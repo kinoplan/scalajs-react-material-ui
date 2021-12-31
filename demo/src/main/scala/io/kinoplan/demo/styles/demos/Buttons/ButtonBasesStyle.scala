@@ -5,6 +5,7 @@ import scala.scalajs.js
 import io.kinoplan.demo.CssSettings._
 
 case class ButtonBasesStyle(common: CommonButtonStyle = DefaultCommonButtonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -54,7 +55,11 @@ case class ButtonBasesStyle(common: CommonButtonStyle = DefaultCommonButtonStyle
 
   val imageTitle = style(
     position.relative,
-    padding((theme.spacing.unit * 2).px, (theme.spacing.unit * 4).px, (theme.spacing.unit + 6).px)
+    padding(
+      (theme.spacing.unit * 2).px,
+      (theme.spacing.unit * 4).px,
+      (theme.spacing.unit + 6).px
+    )
   )
 
   val imageMarked = style(
@@ -62,7 +67,7 @@ case class ButtonBasesStyle(common: CommonButtonStyle = DefaultCommonButtonStyle
     width(18.px),
     backgroundColor :=! theme.palette.common.white,
     position.absolute,
-    bottom((-2).px),
+    bottom(-2.px),
     left :=! "calc(50% - 9px)",
     transition := opacityTransition
   )
@@ -77,36 +82,47 @@ case class ButtonBasesStyle(common: CommonButtonStyle = DefaultCommonButtonStyle
   )
 
   private val focusVisibleImagePreliminary = style(
-    unsafeRoot(s".${imagePreliminary.htmlClass}:hover, .${imagePreliminary.htmlClass}.${focusVisible.htmlClass}")(
+    unsafeRoot(
+      s".${imagePreliminary.htmlClass}:hover, .${imagePreliminary.htmlClass}.${focusVisible.htmlClass}"
+    )(
       zIndex :=! 1.toString
     )
   )
 
   private val backdropImagePreliminary = style(
-    unsafeRoot(s".${imagePreliminary.htmlClass}:hover .${imageBackdrop.htmlClass}, .${imagePreliminary.htmlClass}.${focusVisible.htmlClass} .${imageBackdrop.htmlClass}")(
+    unsafeRoot(
+      s".${imagePreliminary.htmlClass}:hover .${imageBackdrop.htmlClass}, .${imagePreliminary.htmlClass}.${focusVisible.htmlClass} .${imageBackdrop.htmlClass}"
+    )(
       opacity(0.15)
     )
   )
 
   private val markedImagePreliminary = style(
-    unsafeRoot(s".${imagePreliminary.htmlClass}:hover .${imageMarked.htmlClass}, .${imagePreliminary.htmlClass}.${focusVisible.htmlClass} .${imageMarked.htmlClass}")(
+    unsafeRoot(
+      s".${imagePreliminary.htmlClass}:hover .${imageMarked.htmlClass}, .${imagePreliminary.htmlClass}.${focusVisible.htmlClass} .${imageMarked.htmlClass}"
+    )(
       opacity(0)
     )
   )
 
   private val titleImagePreliminary = style(
-    unsafeRoot(s".${imagePreliminary.htmlClass}:hover .${imageTitle.htmlClass}, .${imagePreliminary.htmlClass}.${focusVisible.htmlClass} .${imageTitle.htmlClass}")(
+    unsafeRoot(
+      s".${imagePreliminary.htmlClass}:hover .${imageTitle.htmlClass}, .${imagePreliminary.htmlClass}.${focusVisible.htmlClass} .${imageTitle.htmlClass}"
+    )(
       border :=! "4px solid currentColor"
     )
   )
 
-  val image = style(addClassNames(
-    imagePreliminary.htmlClass,
-    focusVisibleImagePreliminary.htmlClass,
-    backdropImagePreliminary.htmlClass,
-    markedImagePreliminary.htmlClass,
-    titleImagePreliminary.htmlClass
-  ))
+  val image = style(
+    addClassNames(
+      imagePreliminary.htmlClass,
+      focusVisibleImagePreliminary.htmlClass,
+      backdropImagePreliminary.htmlClass,
+      markedImagePreliminary.htmlClass,
+      titleImagePreliminary.htmlClass
+    )
+  )
+
 }
 
 object DefaultButtonBasesStyle extends ButtonBasesStyle

@@ -2,7 +2,14 @@ package io.kinoplan.demo.components.demos.AppBar
 
 import scala.scalajs.js.JSConverters._
 
-import japgolly.scalajs.react.{BackendScope, Callback, ReactEvent, ReactEventFromHtml, ReactEventFromInput, ScalaComponent}
+import japgolly.scalajs.react.{
+  BackendScope,
+  Callback,
+  ReactEvent,
+  ReactEventFromHtml,
+  ReactEventFromInput,
+  ScalaComponent
+}
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all.{VdomElement, _}
 import org.scalajs.dom.HTMLElement
@@ -28,6 +35,7 @@ object MenuAppBar extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
+
     def handleChange(e: ReactEventFromInput): Callback = {
       val target = e.target.checked
 
@@ -42,9 +50,8 @@ object MenuAppBar extends ScalaCssReactImplicits {
 
     def handleProfileMenuClose: Callback = t.modState(_.handleProfileMenuClose)
 
-    def onClose: (ReactEvent, String) => Callback = (_, _) => {
+    def onClose: (ReactEvent, String) => Callback = (_, _) =>
       handleProfileMenuClose
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
@@ -55,26 +62,21 @@ object MenuAppBar extends ScalaCssReactImplicits {
 
       val ariaOwns = if (open) "menu-appbar" else ""
 
-      def renderMenu() = {
-        MuiMenu(
-          anchorEl = state.anchorEl.orUndefined,
-          anchorOrigin = Origin(vertical = "top", horizontal = "right"),
-          transformOrigin = Origin(vertical = "top", horizontal = "right"),
-          open = open,
-          onClose = onClose,
-        )(
-          MuiMenuItem()(onClick --> handleProfileMenuClose,
-            "Profile"
-          ),
-          MuiMenuItem()(onClick --> handleProfileMenuClose,
-            "My account"
-          )
-        )
-      }
+      def renderMenu() = MuiMenu(
+        anchorEl = state.anchorEl.orUndefined,
+        anchorOrigin = Origin(vertical = "top", horizontal = "right"),
+        transformOrigin = Origin(vertical = "top", horizontal = "right"),
+        open = open,
+        onClose = onClose
+      )(
+        MuiMenuItem()(onClick --> handleProfileMenuClose, "Profile"),
+        MuiMenuItem()(onClick --> handleProfileMenuClose, "My account")
+      )
 
       div(
         ComponentContainer("App Bar with menu")(
-          div(css.flexGrowOne,
+          div(
+            css.flexGrowOne,
             MuiFormGroup()(
               MuiFormControlLabel(
                 control = MuiSwitch(checked = state.auth)(
@@ -86,13 +88,15 @@ object MenuAppBar extends ScalaCssReactImplicits {
             ),
             MuiAppBar(position = MuiAppBar.Position.static)(
               MuiToolbar()(
-                MuiIconButton(color = MuiIconButton.Color.inherit)(css.menuButton,
+                MuiIconButton(color = MuiIconButton.Color.inherit)(
+                  css.menuButton,
                   aria.label := "Menu",
                   MuiIcons(MuiIconsModule.Menu)()
                 ),
-                MuiTypography(variant = MuiTypography.Variant.h6, color = MuiTypography.Color.inherit)(css.flexGrowOne,
-                  "Photos"
-                ),
+                MuiTypography(
+                  variant = MuiTypography.Variant.h6,
+                  color = MuiTypography.Color.inherit
+                )(css.flexGrowOne, "Photos"),
                 div(
                   MuiIconButton(color = MuiIconButton.Color.inherit)(
                     aria.owns := ariaOwns,
@@ -109,6 +113,7 @@ object MenuAppBar extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("MenuAppBar")

@@ -23,7 +23,7 @@ object ConsecutiveSnackbars extends ScalaCssReactImplicits {
   case class Props(style: SimpleSnackbarStyle)
 
   case class State(open: Boolean = false, messageInfo: Option[MessageInfo] = None) {
-    val key = messageInfo.map(_.key).getOrElse(0d)
+    val key = messageInfo.map(_.key).getOrElse(0D)
 
     val message = messageInfo.map(_.message).getOrElse("")
 
@@ -35,6 +35,7 @@ object ConsecutiveSnackbars extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
+
     def setQueue(message: String) = Callback {
       queues.enqueue(MessageInfo(message = message, key = new js.Date().getTime()))
     }
@@ -49,9 +50,8 @@ object ConsecutiveSnackbars extends ScalaCssReactImplicits {
 
     def handleCloseClick: Callback = t.modState(_.handleClose)
 
-    def handleClose: (ReactEvent, String) => Callback = (_, reason) => {
+    def handleClose: (ReactEvent, String) => Callback = (_, reason) =>
       handleCloseClick.when_(reason != "clickaway")
-    }
 
     def handleExited: html.Element => Callback = _ => processQueue
 
@@ -77,7 +77,8 @@ object ConsecutiveSnackbars extends ScalaCssReactImplicits {
                   onClick --> handleCloseClick,
                   "UNDO"
                 ),
-                MuiIconButton(color = MuiIconButton.Color.inherit)(css.close,
+                MuiIconButton(color = MuiIconButton.Color.inherit)(
+                  css.close,
                   Attr("key") := "close",
                   aria.label := "Close",
                   onClick --> handleCloseClick,
@@ -89,6 +90,7 @@ object ConsecutiveSnackbars extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("ConsecutiveSnackbars")

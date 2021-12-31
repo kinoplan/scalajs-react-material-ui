@@ -8,6 +8,7 @@ class TypographyMenuStyle extends StyleSheet.Inline {
   val root = style(
     width(230.px)
   )
+
 }
 
 object DefaultTypographyMenuStyle extends TypographyMenuStyle

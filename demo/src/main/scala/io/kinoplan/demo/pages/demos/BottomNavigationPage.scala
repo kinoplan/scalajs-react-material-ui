@@ -11,12 +11,12 @@ object BottomNavigationPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        SimpleBottomNavigation(),
-        LabelBottomNavigation()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      SimpleBottomNavigation(),
+      LabelBottomNavigation()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("BottomNavigationPage")

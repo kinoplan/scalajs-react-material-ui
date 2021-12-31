@@ -21,16 +21,17 @@ object ChipsArray extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
-    def handleDelete(chip: Chip): ReactEvent => Callback = e => {
+
+    def handleDelete(chip: Chip): ReactEvent => Callback = e =>
       Callback.alert("Why would you want to delete React?! :)").when(chip.isReact) >> t.modState(_.handleDelete(chip))
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Chip array")(
-          MuiPaper()(css.root,
+          MuiPaper()(
+            css.root,
             state.chips.toVdomArray { chip =>
               val iconO = if (chip.isReact) Some(MuiIcons(MuiIconsModule.TagFaces)()().rawElement) else None
 
@@ -38,14 +39,13 @@ object ChipsArray extends ScalaCssReactImplicits {
                 label = VdomNode(chip.label),
                 icon = iconO.orUndefined,
                 onDelete = handleDelete(chip)
-              )(css.chip,
-                Attr("key") := chip.key
-              )
+              )(css.chip, Attr("key") := chip.key)
             }
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("ChipsArray")

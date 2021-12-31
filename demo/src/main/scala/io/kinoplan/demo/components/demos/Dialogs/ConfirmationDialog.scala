@@ -21,9 +21,8 @@ object ConfirmationDialog extends ScalaCssReactImplicits {
   class Backend(t: BackendScope[Props, State]) {
     def handleClickListItem = t.modState(_.handleClickListItem)
 
-    def handleClose: String => Callback = value => {
+    def handleClose: String => Callback = value =>
       t.modState(_.handleClose(value))
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
@@ -34,7 +33,9 @@ object ConfirmationDialog extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Confirmation dialogs")(
-          div(css.root, css.rootPaper(Layout.isPaletteLight),
+          div(
+            css.root,
+            css.rootPaper(Layout.isPaletteLight),
             MuiList()(
               MuiListItem(button = true, divider = true)(
                 disabled := true,
@@ -46,11 +47,17 @@ object ConfirmationDialog extends ScalaCssReactImplicits {
                 aria.label := "Phone ringtone",
                 onClick --> handleClickListItem
               )(
-                MuiListItemText(primary = VdomNode("Interruptions"), secondary = VdomNode(state.value))
+                MuiListItemText(
+                  primary = VdomNode("Interruptions"),
+                  secondary = VdomNode(state.value)
+                )
               ),
               MuiListItem(button = true, divider = true)(
                 disabled := true,
-                MuiListItemText(primary = VdomNode("Default notification ringtone"), secondary = VdomNode("Tethys"))
+                MuiListItemText(
+                  primary = VdomNode("Default notification ringtone"),
+                  secondary = VdomNode("Tethys")
+                )
               ),
               ConfirmationDialogRaw(
                 state.open,
@@ -63,6 +70,7 @@ object ConfirmationDialog extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("ConfirmationDialog")

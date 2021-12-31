@@ -50,6 +50,7 @@ object CircularDeterminate extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("CircularDeterminate")

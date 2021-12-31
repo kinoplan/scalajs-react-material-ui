@@ -1,8 +1,12 @@
 lazy val root =
-  if (ProjectSettings.isDemoEnabled)
-    project.in(file(".")).aggregate(core, icons, lab, bridge, demo).configure(ProjectSettings.rootProfile)
-  else
-    project.in(file(".")).aggregate(core, icons, lab, bridge).configure(ProjectSettings.rootProfile)
+  if (ProjectSettings.isDemoEnabled) project
+    .in(file("."))
+    .aggregate(core, icons, lab, bridge, demo)
+    .configure(ProjectSettings.rootProfile)
+  else project
+    .in(file("."))
+    .aggregate(core, icons, lab, bridge)
+    .configure(ProjectSettings.rootProfile)
 
 lazy val core = project
   .in(file("core"))
@@ -51,9 +55,6 @@ inThisBuild(
 )
 // format: on
 
-onLoad in Global := (
-  "project bridge" ::
-  "bridgeImplicitsGenerator" ::
-  "project root" ::
-  (_: State)
-) compose (onLoad in Global).value
+onLoad in Global :=
+  ("project bridge" :: "bridgeImplicitsGenerator" :: "project root" :: (_: State))
+    .compose((onLoad in Global).value)

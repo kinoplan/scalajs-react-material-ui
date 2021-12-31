@@ -29,9 +29,11 @@ object MuiSpeedDial extends ReactBridgeComponent with MuiSpeedDialExtensions {
     transitionDuration: js.UndefOr[Int | js.Object] = js.undefined,
     TransitionProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiSpeedDialExtensions {
+
   object Direction extends Enumeration {
     type Value = String
 
@@ -48,9 +50,10 @@ trait MuiSpeedDialExtensions {
     val fab = "fab"
     val directionUp = "directionUp"
     val directionDown = "directionDown"
-    val directionLeft	= "directionLeft"
+    val directionLeft = "directionLeft"
     val directionRight = "directionRight"
     val actions = "actions"
     val actionsClosed = "actionsClosed"
   }
+
 }

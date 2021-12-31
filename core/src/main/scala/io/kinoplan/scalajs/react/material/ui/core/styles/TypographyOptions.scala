@@ -30,6 +30,7 @@ trait TypographyOptions extends js.Object {
 }
 
 object TypographyOptions {
+
   def apply(
     fontFamily: js.UndefOr[Int | String] = js.undefined,
     fontSize: js.UndefOr[Int] = js.undefined,
@@ -79,4 +80,5 @@ object TypographyOptions {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[TypographyOptions]
   }
+
 }

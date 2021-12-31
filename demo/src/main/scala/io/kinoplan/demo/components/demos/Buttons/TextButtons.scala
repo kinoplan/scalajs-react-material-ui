@@ -12,6 +12,7 @@ object TextButtons extends ScalaCssReactImplicits {
   case class Props(style: CommonButtonStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
@@ -23,16 +24,20 @@ object TextButtons extends ScalaCssReactImplicits {
             MuiButton(color = MuiButton.Color.secondary)(css.marginButton, "Secondary"),
             MuiButton()(css.marginButton, disabled := true, "Disabled"),
             MuiButton()(css.marginButton, href := "#text-buttons", "Link"),
-            input.file(css.inputButton, accept := "image/*", id := "text-button-file", multiple := true),
+            input.file(
+              css.inputButton,
+              accept := "image/*",
+              id := "text-button-file",
+              multiple := true
+            ),
             label(htmlFor := "text-button-file")(
-              MuiButton(component = "span")(css.marginButton,
-                "Upload"
-              )
+              MuiButton(component = "span")(css.marginButton, "Upload")
             )
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("TextButtons")

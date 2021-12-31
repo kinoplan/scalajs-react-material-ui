@@ -20,9 +20,11 @@ object MuiDivider extends ReactBridgeComponent with MuiDividerExtensions {
     light: js.UndefOr[Boolean] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
+
 }
 
 trait MuiDividerExtensions {
+
   object Variant extends Enumeration {
     type Value = String
 
@@ -40,4 +42,5 @@ trait MuiDividerExtensions {
     val light = "light"
     val middle = "middle"
   }
+
 }

@@ -27,6 +27,7 @@ case class CustomizedInputBaseStyle(common: CommonStyle = DefaultCommonStyle) ex
     height(28.px),
     margin(4.px)
   )
+
 }
 
 object DefaultCustomizedInputBaseStyle extends CustomizedInputBaseStyle

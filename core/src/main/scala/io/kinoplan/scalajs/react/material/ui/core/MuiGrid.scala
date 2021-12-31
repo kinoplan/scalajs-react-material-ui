@@ -31,9 +31,11 @@ object MuiGrid extends ReactBridgeComponent with MuiGridExtensions {
     xs: js.UndefOr[Boolean | Int] = js.undefined,
     zeroMinWidth: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiGridExtensions {
+
   object AlignContent extends Enumeration {
     type Value = String
 
@@ -138,4 +140,5 @@ trait MuiGridExtensions {
     val gridXs11 = "grid-xs-11"
     val gridXs12 = "grid-xs-12"
   }
+
 }

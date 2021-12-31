@@ -20,17 +20,22 @@ object SimpleBreadcrumbs extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Simple breadcrumbs")(
-          div(css.root,
-            MuiPaper()(css.paper,
-              MuiBreadcrumbs()(aria.label := "Breadcrumb",
+          div(
+            css.root,
+            MuiPaper()(
+              css.paper,
+              MuiBreadcrumbs()(
+                aria.label := "Breadcrumb",
                 MuiLink(color = MuiLink.Color.inherit)(href := "/", onClick --> handleClick, "Material-UI"),
                 MuiLink(color = MuiLink.Color.inherit)(href := "/#demos/app-bar/", onClick --> handleClick, "Lab"),
                 MuiTypography(color = MuiTypography.Color.textPrimary)("Breadcrumb")
               )
             ),
             br(),
-            MuiPaper()(css.paper,
-              MuiBreadcrumbs()(aria.label := "Breadcrumb",
+            MuiPaper()(
+              css.paper,
+              MuiBreadcrumbs()(
+                aria.label := "Breadcrumb",
                 MuiLink(color = MuiLink.Color.inherit)(href := "/", onClick --> handleClick, "Material-UI"),
                 MuiLink(color = MuiLink.Color.inherit)(href := "/#demos/app-bar/", onClick --> handleClick, "Lab"),
                 MuiLink(color = MuiLink.Color.textPrimary)(
@@ -45,6 +50,7 @@ object SimpleBreadcrumbs extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("SimpleBreadcrumbs")

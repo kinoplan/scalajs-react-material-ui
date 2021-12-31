@@ -7,7 +7,14 @@ import scalacss.ScalaCssReactImplicits
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.SelectionControls.{ControlButtonsGroupStyle, DefaultControlButtonsGroupStyle}
 import io.kinoplan.demo.utils.Helpers.StringExtended
-import io.kinoplan.scalajs.react.material.ui.core.{MuiCheckbox, MuiFormControl, MuiFormControlLabel, MuiFormGroup, MuiFormHelperText, MuiFormLabel}
+import io.kinoplan.scalajs.react.material.ui.core.{
+  MuiCheckbox,
+  MuiFormControl,
+  MuiFormControlLabel,
+  MuiFormGroup,
+  MuiFormHelperText,
+  MuiFormLabel
+}
 
 object CheckboxesGroup extends ScalaCssReactImplicits {
   case class Props(style: ControlButtonsGroupStyle)
@@ -27,6 +34,7 @@ object CheckboxesGroup extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
+
     def handleChangeGilad(e: ReactEventFromInput) = {
       val value = e.target.checked
 
@@ -50,8 +58,10 @@ object CheckboxesGroup extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Checkboxes with FormGroup")(
-          div(css.root,
-            MuiFormControl(component = "fieldset")(css.formControl,
+          div(
+            css.root,
+            MuiFormControl(component = "fieldset")(
+              css.formControl,
               MuiFormLabel(component = "legend")("Assign responsibility"),
               MuiFormGroup()(
                 MuiFormControlLabel(
@@ -81,7 +91,8 @@ object CheckboxesGroup extends ScalaCssReactImplicits {
               ),
               MuiFormHelperText()("Be careful")
             ),
-            MuiFormControl(error = state.error, component = "fieldset")(css.formControl,
+            MuiFormControl(error = state.error, component = "fieldset")(
+              css.formControl,
               required := true,
               MuiFormLabel(component = "legend")("Pick two"),
               MuiFormGroup()(
@@ -116,6 +127,7 @@ object CheckboxesGroup extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("CheckboxesGroup")

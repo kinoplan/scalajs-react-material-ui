@@ -35,9 +35,11 @@ object MuiTextField extends ReactBridgeComponent with MuiTextFieldExtensions {
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     component: js.UndefOr[ComponentPropType] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiTextFieldExtensions {
+
   object Margin extends Enumeration {
     type Value = String
 
@@ -62,4 +64,5 @@ trait MuiTextFieldExtensions {
     val marginDense = "marginDense"
     val fullWidth = "fullWidth"
   }
+
 }

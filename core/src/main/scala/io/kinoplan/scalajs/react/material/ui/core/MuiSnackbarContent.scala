@@ -22,9 +22,11 @@ object MuiSnackbarContent extends ReactBridgeComponent with MuiSnackbarContentEx
     elevation: js.UndefOr[Int] = js.undefined,
     square: js.UndefOr[Boolean] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
+
 }
 
 trait MuiSnackbarContentExtensions {
+
   object ClassKey extends Enumeration with MuiPaperExtensions {
     type Value = String
 
@@ -32,4 +34,5 @@ trait MuiSnackbarContentExtensions {
     val message = "message"
     val action = "action"
   }
+
 }

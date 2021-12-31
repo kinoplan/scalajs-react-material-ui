@@ -25,9 +25,11 @@ object MuiRadio extends ReactBridgeComponent with MuiRadioExtensions {
     inputProps: js.UndefOr[js.Object] = js.undefined,
     inputRef: js.UndefOr[ComponentRefType] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
+
 }
 
 trait MuiRadioExtensions {
+
   object Color extends Enumeration {
     type Value = String
 
@@ -45,4 +47,5 @@ trait MuiRadioExtensions {
     val colorPrimary = "colorPrimary"
     val colorSecondary = "colorSecondary"
   }
+
 }

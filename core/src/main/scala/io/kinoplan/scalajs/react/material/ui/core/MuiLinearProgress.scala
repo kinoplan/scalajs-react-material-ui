@@ -19,9 +19,11 @@ object MuiLinearProgress extends ReactBridgeComponent with MuiLinearProgressExte
     valueBuffer: js.UndefOr[Int] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
+
 }
 
 trait MuiLinearProgressExtensions {
+
   object Color extends Enumeration {
     type Value = String
 
@@ -60,4 +62,5 @@ trait MuiLinearProgressExtensions {
     val bar2Indeterminate = "bar2Indeterminate"
     val bar2Buffer = "bar2Buffer"
   }
+
 }

@@ -13,13 +13,15 @@ object TypographyMenu extends ScalaCssReactImplicits {
   case class Props(style: TypographyMenuStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Limitations")(
           div(
-            MuiPaper()(css.root,
+            MuiPaper()(
+              css.root,
               MuiMenuList()(
                 MuiMenuItem()(
                   MuiListItemIcon()(
@@ -47,6 +49,7 @@ object TypographyMenu extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("TypographyMenu")

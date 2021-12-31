@@ -1,13 +1,13 @@
 object DependenciesNPM {
 
   object Versions {
-    val reactV = "17.0.2"
+    val reactV               = "17.0.2"
     val reactSwipeableViewsV = "0.14.0"
   }
 
   import Versions._
 
-  //A -> Z
+  // A -> Z
   val materialUiCore                = "@material-ui/core"                  -> "3.9.0"
   val materialUiIcons               = "@material-ui/icons"                 -> "3.0.2"
   val materialUiLab                 = "@material-ui/lab"                   -> "3.0.0-alpha.30"

@@ -13,19 +13,25 @@ object DenseAppBar extends ScalaCssReactImplicits {
   case class Props(style: CommonStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Dense (desktop only)")(
-          div(css.flexGrowOne,
+          div(
+            css.flexGrowOne,
             MuiAppBar(position = MuiAppBar.Position.static)(
               MuiToolbar(variant = MuiToolbar.Variant.dense)(
-                MuiIconButton(color = MuiIconButton.Color.inherit)(css.menuButtonDesktop,
+                MuiIconButton(color = MuiIconButton.Color.inherit)(
+                  css.menuButtonDesktop,
                   aria.label := "Menu",
                   MuiIcons(MuiIconsModule.Menu)()
                 ),
-                MuiTypography(variant = MuiTypography.Variant.h6, color = MuiTypography.Color.inherit)(
+                MuiTypography(
+                  variant = MuiTypography.Variant.h6,
+                  color = MuiTypography.Color.inherit
+                )(
                   "Photos"
                 )
               )
@@ -34,6 +40,7 @@ object DenseAppBar extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("DenseAppBar")

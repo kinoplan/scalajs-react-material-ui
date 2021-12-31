@@ -26,9 +26,11 @@ object MuiCheckbox extends ReactBridgeComponent with MuiCheckboxExtensions {
     inputRef: js.UndefOr[ComponentRefType] = js.undefined,
     defaultChecked: js.UndefOr[Boolean] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
+
 }
 
 trait MuiCheckboxExtensions {
+
   object Color extends Enumeration {
     type Value = String
 
@@ -47,4 +49,5 @@ trait MuiCheckboxExtensions {
     val colorPrimary = "colorPrimary"
     val colorSecondary = "colorSecondary"
   }
+
 }

@@ -34,9 +34,11 @@ object MuiTooltip extends ReactBridgeComponent with MuiTooltipExtensions {
     TransitionComponent: js.UndefOr[ComponentPropType] = js.undefined,
     TransitionProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiTooltipExtensions {
+
   object Placement extends Enumeration {
     type Value = String
 
@@ -66,4 +68,5 @@ trait MuiTooltipExtensions {
     val tooltipPlacementTop = "tooltipPlacementTop"
     val tooltipPlacementBottom = "tooltipPlacementBottom"
   }
+
 }

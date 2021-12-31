@@ -11,13 +11,12 @@ object SpeedDialPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
 
-      div(
-        OpenIconSpeedDial(),
-        SpeedDialTooltipOpen()
-      )
-    }
+    def render(props: Props): VdomElement = div(
+      OpenIconSpeedDial(),
+      SpeedDialTooltipOpen()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("SpeedDialPage")

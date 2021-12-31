@@ -13,6 +13,7 @@ object DisabledSlider extends ScalaCssReactImplicits {
   case class Props(style: DisabledSliderStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
@@ -22,7 +23,8 @@ object DisabledSlider extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Disabled slider")(
-          div(css.root,
+          div(
+            css.root,
             MuiSlider(classes = sliderClasses)(value := 0, disabled := true),
             MuiSlider(classes = sliderClasses)(value := 50, disabled := true),
             MuiSlider(classes = sliderClasses)(value := 100, disabled := true)
@@ -30,6 +32,7 @@ object DisabledSlider extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("DisabledSlider")

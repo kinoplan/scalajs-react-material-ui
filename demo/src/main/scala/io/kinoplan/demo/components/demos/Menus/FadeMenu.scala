@@ -12,6 +12,7 @@ import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiFade, MuiMenu, MuiMenuItem}
 
 object FadeMenu extends ScalaCssReactImplicits {
+
   @js.native
   trait JsObject extends js.Object
 
@@ -23,6 +24,7 @@ object FadeMenu extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Unit, State]) {
+
     def handleClick(e: ReactEventFromHtml): Callback = {
       val target = e.currentTarget
 
@@ -31,9 +33,8 @@ object FadeMenu extends ScalaCssReactImplicits {
 
     def handleClickClose: Callback = t.modState(_.handleClose)
 
-    def onClose: (ReactEvent, String) => Callback = (_, _) => {
+    def onClose: (ReactEvent, String) => Callback = (_, _) =>
       handleClickClose
-    }
 
     def render(state: State): VdomElement = {
       val ariaOwns = if (state.isMenuOpen) "fade-menu" else ""
@@ -62,6 +63,7 @@ object FadeMenu extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Unit]("FadeMenu")

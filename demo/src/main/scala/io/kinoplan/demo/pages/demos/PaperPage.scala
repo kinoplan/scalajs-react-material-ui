@@ -11,11 +11,11 @@ object PaperPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        PaperSheet()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      PaperSheet()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("PaperPage")

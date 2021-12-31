@@ -9,6 +9,7 @@ import io.kinoplan.scalajs.react.bridge.WithPropsAndTagsMods
 import io.kinoplan.scalajs.react.material.ui.core.{ComponentPropType, MuiSvgIcon, MuiSvgIconExtensions}
 
 case class MuiSvgIconCustom(attrs: TagMod*) extends MuiSvgIconExtensions {
+
   def apply(
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     color: js.UndefOr[Color.Value] = js.undefined,
@@ -18,19 +19,20 @@ case class MuiSvgIconCustom(attrs: TagMod*) extends MuiSvgIconExtensions {
     shapeRendering: js.UndefOr[String] = js.undefined,
     titleAccess: js.UndefOr[String] = js.undefined,
     viewBox: js.UndefOr[String] = js.undefined
-  )(implicit attrAndChildren: TagMod*): WithPropsAndTagsMods = {
-    MuiSvgIcon(
-      classes,
-      color,
-      component,
-      fontSize,
-      nativeColor,
-      shapeRendering,
-      titleAccess,
-      viewBox
-    )(
-      attrs.toTagMod(identity),
-      attrAndChildren.toTagMod(identity)
-    )
-  }
+  )(implicit
+    attrAndChildren: TagMod*
+  ): WithPropsAndTagsMods = MuiSvgIcon(
+    classes,
+    color,
+    component,
+    fontSize,
+    nativeColor,
+    shapeRendering,
+    titleAccess,
+    viewBox
+  )(
+    attrs.toTagMod(identity),
+    attrAndChildren.toTagMod(identity)
+  )
+
 }

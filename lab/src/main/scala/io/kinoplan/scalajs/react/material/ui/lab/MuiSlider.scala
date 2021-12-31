@@ -25,9 +25,11 @@ object MuiSlider extends ReactBridgeComponent with MuiSliderExtensions {
     vertical: js.UndefOr[Boolean] = false,
     onChange: js.UndefOr[ReactHandler2[ReactEvent, Double]] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiSliderExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -35,7 +37,7 @@ trait MuiSliderExtensions {
     val container = "container"
     val track = "track"
     val trackBefore = "trackBefore"
-    val trackAfter	= "trackAfter"
+    val trackAfter = "trackAfter"
     val thumbWrapper = "thumbWrapper"
     val thumb = "thumb"
     val thumbIconWrapper = "thumbIconWrapper"
@@ -46,4 +48,5 @@ trait MuiSliderExtensions {
     val activated = "activated"
     val vertical = "vertical"
   }
+
 }

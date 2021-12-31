@@ -9,6 +9,7 @@ import io.kinoplan.demo.styles.demos.Chips.{ChipsArrayStyle, DefaultChipsArraySt
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiTypography}
 
 object SimpleDialog {
+
   case class State(open: Boolean = false, selectedValue: String = Emails.default(1)) {
     def handleClickOpen = copy(open = true)
 
@@ -16,35 +17,34 @@ object SimpleDialog {
   }
 
   class Backend(t: BackendScope[Unit, State]) {
-    def handleClickOpen = {
-      t.modState(_.handleClickOpen)
-    }
+    def handleClickOpen = t.modState(_.handleClickOpen)
 
-    def handleClose: String => Callback = value => {
+    def handleClose: String => Callback = value =>
       t.modState(_.handleClose(value))
-    }
 
-    def render(state: State): VdomElement = {
-      div(
-        ComponentContainer("Simple Dialogs")(
-          div(
-            MuiTypography(variant = MuiTypography.Variant.subtitle1)(
-              s"Selected: ${state.selectedValue}"
-            ),
-            br,
-            MuiButton(variant = MuiButton.Variant.outlined, color = MuiButton.Color.primary)(
-              onClick --> handleClickOpen,
-              "Open simple dialog"
-            ),
-            SimpleDialogWrapped(
-              open = state.open,
-              onClose = handleClose,
-              selectedValue = state.selectedValue
-            )
+    def render(state: State): VdomElement = div(
+      ComponentContainer("Simple Dialogs")(
+        div(
+          MuiTypography(variant = MuiTypography.Variant.subtitle1)(
+            s"Selected: ${state.selectedValue}"
+          ),
+          br,
+          MuiButton(
+            variant = MuiButton.Variant.outlined,
+            color = MuiButton.Color.primary
+          )(
+            onClick --> handleClickOpen,
+            "Open simple dialog"
+          ),
+          SimpleDialogWrapped(
+            open = state.open,
+            onClose = handleClose,
+            selectedValue = state.selectedValue
           )
         )
       )
-    }
+    )
+
   }
 
   private val component = ScalaComponent.builder[Unit]("SimpleDialog")

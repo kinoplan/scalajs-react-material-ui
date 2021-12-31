@@ -11,6 +11,7 @@ trait StylesCreator extends js.Object {
 }
 
 object StylesCreator {
+
   def apply(
     create: (Theme, String) => StyleRules,
     options: StylesCreatorOptions,
@@ -21,7 +22,8 @@ object StylesCreator {
       "options" -> options,
       "themingEnabled" -> themingEnabled
     )
-    
+
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[StylesCreator]
   }
+
 }

@@ -11,12 +11,33 @@ case class MenuItem(
 )
 
 object MenuItem {
+
   val menuItemsFirst = List(
-    MenuItem("Dashboard", MuiIcons(MuiIconsModule.Dashboard)(), DashboardRoute),
-    MenuItem("Orders", MuiIcons(MuiIconsModule.ShoppingCart)(), DashboardRoute),
-    MenuItem("Customers", MuiIcons(MuiIconsModule.People)(), DashboardRoute),
-    MenuItem("Reports", MuiIcons(MuiIconsModule.BarChart)(), DashboardRoute),
-    MenuItem("Integrations", MuiIcons(MuiIconsModule.Layers)(), DashboardRoute)
+    MenuItem(
+      "Dashboard",
+      MuiIcons(MuiIconsModule.Dashboard)(),
+      DashboardRoute
+    ),
+    MenuItem(
+      "Orders",
+      MuiIcons(MuiIconsModule.ShoppingCart)(),
+      DashboardRoute
+    ),
+    MenuItem(
+      "Customers",
+      MuiIcons(MuiIconsModule.People)(),
+      DashboardRoute
+    ),
+    MenuItem(
+      "Reports",
+      MuiIcons(MuiIconsModule.BarChart)(),
+      DashboardRoute
+    ),
+    MenuItem(
+      "Integrations",
+      MuiIcons(MuiIconsModule.Layers)(),
+      DashboardRoute
+    )
   )
 
   private val muiAssignment = MuiIcons(MuiIconsModule.Assignment)(
@@ -29,4 +50,5 @@ object MenuItem {
     MenuItem("Last quarter", muiAssignment, DashboardRoute),
     MenuItem("Year-end sale", muiAssignment, DashboardRoute)
   )
+
 }

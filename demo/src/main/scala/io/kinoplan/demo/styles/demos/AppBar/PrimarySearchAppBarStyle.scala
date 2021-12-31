@@ -6,7 +6,8 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.styles.colorManipulator.fade
 
-case class PrimarySearchAppBarStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline  {
+case class PrimarySearchAppBarStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -82,6 +83,7 @@ case class PrimarySearchAppBarStyle(common: CommonStyle = DefaultCommonStyle) ex
       display.none
     )
   )
+
 }
 
 object DefaultPrimarySearchAppBarStyle extends PrimarySearchAppBarStyle

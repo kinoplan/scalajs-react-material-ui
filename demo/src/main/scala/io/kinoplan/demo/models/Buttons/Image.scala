@@ -7,6 +7,7 @@ case class Image(
 )
 
 object Image {
+
   val default = List(
     Image(
       url = "/static/images/grid-list/breakfast.jpg",
@@ -24,4 +25,5 @@ object Image {
       width = "30%"
     )
   )
+
 }

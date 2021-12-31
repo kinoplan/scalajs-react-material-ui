@@ -9,7 +9,7 @@ class AvatarsStyle extends StyleSheet.Inline {
 
   private val commonAvatar = style(
     margin(10.px),
-    color :=! "#fff",
+    color :=! "#fff"
   )
 
   val avatar = style(
@@ -41,6 +41,7 @@ class AvatarsStyle extends StyleSheet.Inline {
     commonAvatar,
     backgroundColor :=! colors.green.`500`
   )
+
 }
 
 object DefaultAvatarsStyle extends AvatarsStyle

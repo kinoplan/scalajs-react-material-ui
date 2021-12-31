@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class ChipsPlaygroundStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import dsl._
   import common.theme
 
@@ -18,7 +19,7 @@ case class ChipsPlaygroundStyle(common: CommonStyle = DefaultCommonStyle) extend
   val chipWrapper = style(
     marginBottom((theme.spacing.unit * 5).px)
   )
+
 }
 
 object DefaultChipsPlaygroundStyle extends ChipsPlaygroundStyle
-

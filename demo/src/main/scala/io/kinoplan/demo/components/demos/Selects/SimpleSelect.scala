@@ -11,7 +11,16 @@ import scalacss.ScalaCssReactImplicits
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Selects.{DefaultSelectStyle, SelectStyle}
 import io.kinoplan.demo.utils.props.MuiNativeInputProps
-import io.kinoplan.scalajs.react.material.ui.core.{MuiFilledInput, MuiFormControl, MuiFormHelperText, MuiInput, MuiInputLabel, MuiMenuItem, MuiOutlinedInput, MuiSelect}
+import io.kinoplan.scalajs.react.material.ui.core.{
+  MuiFilledInput,
+  MuiFormControl,
+  MuiFormHelperText,
+  MuiInput,
+  MuiInputLabel,
+  MuiMenuItem,
+  MuiOutlinedInput,
+  MuiSelect
+}
 
 object SimpleSelect extends ScalaCssReactImplicits {
   case class Props(style: SelectStyle)
@@ -30,6 +39,7 @@ object SimpleSelect extends ScalaCssReactImplicits {
 
       copy(labelWidth = offsetWidth)
     }
+
   }
 
   class Backend(t: BackendScope[Props, State]) {
@@ -51,22 +61,26 @@ object SimpleSelect extends ScalaCssReactImplicits {
       t.modState(_.handleChangeName(value))
     }
 
-    def selectRenderValue: js.Any => React.Node = value => {
+    def selectRenderValue: js.Any => React.Node = value =>
       VdomNode(s"⚠️  - $value").rawNode
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Simple Select")(
-          form(css.root, autoComplete := "off",
-            MuiFormControl()(css.formControl,
+          form(
+            css.root,
+            autoComplete := "off",
+            MuiFormControl()(
+              css.formControl,
               MuiInputLabel()(htmlFor := "age-simple", "Age"),
-              MuiSelect(inputProps = MuiNativeInputProps(
-                name = Some("age"),
-                id = Some("age-simple")
-              ))(
+              MuiSelect(
+                inputProps = MuiNativeInputProps(
+                  name = Some("age"),
+                  id = Some("age-simple")
+                )
+              )(
                 value := state.age,
                 onChange ==> handleChangeAge,
                 MuiMenuItem()(value := "", em("None")),
@@ -75,7 +89,8 @@ object SimpleSelect extends ScalaCssReactImplicits {
                 MuiMenuItem()(value := "30", "Thirty")
               )
             ),
-            MuiFormControl()(css.formControl,
+            MuiFormControl()(
+              css.formControl,
               MuiInputLabel()(htmlFor := "age-helper", "Age"),
               MuiSelect(input = MuiInput()(name := "age", id := "age-helper").rawElement)(
                 value := state.age,
@@ -87,8 +102,10 @@ object SimpleSelect extends ScalaCssReactImplicits {
               ),
               MuiFormHelperText()("Some important helper text")
             ),
-            MuiFormControl()(css.formControl,
-              MuiSelect(displayEmpty = true)(css.selectEmpty,
+            MuiFormControl()(
+              css.formControl,
+              MuiSelect(displayEmpty = true)(
+                css.selectEmpty,
                 value := state.age,
                 onChange ==> handleChangeAge,
                 name := "age",
@@ -99,12 +116,14 @@ object SimpleSelect extends ScalaCssReactImplicits {
               ),
               MuiFormHelperText()("Without label")
             ),
-            MuiFormControl()(css.formControl,
+            MuiFormControl()(
+              css.formControl,
               MuiInputLabel(shrink = true)(htmlFor := "age-label-placeholder", "Age"),
               MuiSelect(
                 displayEmpty = true,
                 input = MuiInput()(name := "age", id := "age-label-placeholder").rawElement
-              )(css.selectEmpty,
+              )(
+                css.selectEmpty,
                 value := state.age,
                 onChange ==> handleChangeAge,
                 name := "age",
@@ -115,10 +134,13 @@ object SimpleSelect extends ScalaCssReactImplicits {
               ),
               MuiFormHelperText()("Label + placeholder")
             ),
-            MuiFormControl()(css.formControl,
+            MuiFormControl()(
+              css.formControl,
               disabled := true,
               MuiInputLabel()(htmlFor := "name-disabled", "Name"),
-              MuiSelect(input = MuiInput()(name := "name", id := "name-disabled").rawElement)(
+              MuiSelect(
+                input = MuiInput()(name := "name", id := "name-disabled").rawElement
+              )(
                 value := state.name,
                 onChange ==> handleChangeName,
                 MuiMenuItem()(value := "", em("None")),
@@ -128,7 +150,8 @@ object SimpleSelect extends ScalaCssReactImplicits {
               ),
               MuiFormHelperText()("Disabled")
             ),
-            MuiFormControl(error = true)(css.formControl,
+            MuiFormControl(error = true)(
+              css.formControl,
               MuiInputLabel()(htmlFor := "name-error", "Name"),
               MuiSelect(
                 input = MuiInput()(id := "name-error").rawElement,
@@ -144,9 +167,12 @@ object SimpleSelect extends ScalaCssReactImplicits {
               ),
               MuiFormHelperText()("Error")
             ),
-            MuiFormControl()(css.formControl,
+            MuiFormControl()(
+              css.formControl,
               MuiInputLabel()(htmlFor := "name-readonly", "Name"),
-              MuiSelect(input = MuiInput()(id := "name-readonly", name := "name", readOnly := true).rawElement)(
+              MuiSelect(
+                input = MuiInput()(id := "name-readonly", name := "name", readOnly := true).rawElement
+              )(
                 value := state.name,
                 onChange ==> handleChangeName,
                 MuiMenuItem()(value := "", em("None")),
@@ -156,7 +182,8 @@ object SimpleSelect extends ScalaCssReactImplicits {
               ),
               MuiFormHelperText()("Read only")
             ),
-            MuiFormControl()(css.formControl,
+            MuiFormControl()(
+              css.formControl,
               MuiInputLabel()(htmlFor := "age-auto-width", "Age"),
               MuiSelect(
                 input = MuiInput()(id := "age-auto-width", name := "age").rawElement,
@@ -171,8 +198,10 @@ object SimpleSelect extends ScalaCssReactImplicits {
               ),
               MuiFormHelperText()("Auto width")
             ),
-            MuiFormControl()(css.formControl,
-              MuiSelect(displayEmpty = true)(css.selectEmpty,
+            MuiFormControl()(
+              css.formControl,
+              MuiSelect(displayEmpty = true)(
+                css.selectEmpty,
                 value := state.age,
                 onChange ==> handleChangeAge,
                 name := "age",
@@ -183,10 +212,12 @@ object SimpleSelect extends ScalaCssReactImplicits {
               ),
               MuiFormHelperText()("Placeholder")
             ),
-            MuiFormControl()(css.formControl,
+            MuiFormControl()(
+              css.formControl,
               required := true,
               MuiInputLabel()(htmlFor := "age-required", "Age"),
-              MuiSelect(inputProps = MuiNativeInputProps(id = Some("age-required")))(css.selectEmpty,
+              MuiSelect(inputProps = MuiNativeInputProps(id = Some("age-required")))(
+                css.selectEmpty,
                 value := state.age,
                 onChange ==> handleChangeAge,
                 name := "age",
@@ -197,7 +228,8 @@ object SimpleSelect extends ScalaCssReactImplicits {
               ),
               MuiFormHelperText()("Required")
             ),
-            MuiFormControl(variant = MuiFormControl.Variant.outlined)(css.formControl,
+            MuiFormControl(variant = MuiFormControl.Variant.outlined)(
+              css.formControl,
               MuiInputLabel()(id := inputRefId, htmlFor := "outlined-age-simple", "Age"),
               MuiSelect(
                 input = MuiOutlinedInput(labelWidth = state.labelWidth)(
@@ -213,9 +245,12 @@ object SimpleSelect extends ScalaCssReactImplicits {
                 MuiMenuItem()(value := "30", "Thirty")
               )
             ),
-            MuiFormControl(variant = MuiFormControl.Variant.filled)(css.formControl,
+            MuiFormControl(variant = MuiFormControl.Variant.filled)(
+              css.formControl,
               MuiInputLabel()(htmlFor := "filled-age-simple", "Age"),
-              MuiSelect(input = MuiFilledInput()(name := "age", id := "filled-age-simple").rawElement)(
+              MuiSelect(
+                input = MuiFilledInput()(name := "age", id := "filled-age-simple").rawElement
+              )(
                 value := state.age,
                 onChange ==> handleChangeAge,
                 MuiMenuItem()(value := "", em("None")),
@@ -228,6 +263,7 @@ object SimpleSelect extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("SimpleSelect")

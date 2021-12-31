@@ -12,6 +12,7 @@ class DrawersStyle extends StyleSheet.Inline {
   val fullList = style(
     width.auto
   )
+
 }
 
 object DefaultDrawersStyle extends DrawersStyle

@@ -19,21 +19,22 @@ object IconTabs extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
-    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) => {
+
+    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) =>
       t.modState(_.handleChange(value))
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("IconTabs")(
-          MuiPaper(square = true)(css.root,
+          MuiPaper(square = true)(
+            css.root,
             MuiTabs(
               onChange = handleChange,
               variant = MuiTabs.Variant.fullWidth,
               indicatorColor = MuiTabs.IndicatorColor.primary,
-              textColor = MuiTabs.TextColor.primary,
+              textColor = MuiTabs.TextColor.primary
             )(
               value := state.value,
               MuiTab(icon = MuiIcons(MuiIconsModule.Phone)()()),
@@ -44,6 +45,7 @@ object IconTabs extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("IconTabs")

@@ -34,9 +34,11 @@ object MuiNativeSelect extends ReactBridgeComponent with MuiNativeSelectExtensio
     rowsMax: js.UndefOr[String | Int] = js.undefined,
     startAdornment: js.UndefOr[VdomNode] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiNativeSelectExtensions {
+
   object Variant extends Enumeration {
     type Value = String
 
@@ -79,4 +81,5 @@ trait MuiNativeSelectExtensions {
     val inputAdornedStart = "inputAdornedStart"
     val inputAdornedEnd = "inputAdornedEnd"
   }
+
 }

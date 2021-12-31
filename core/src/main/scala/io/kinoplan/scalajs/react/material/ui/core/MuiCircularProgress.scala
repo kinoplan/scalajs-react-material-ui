@@ -22,9 +22,11 @@ object MuiCircularProgress extends ReactBridgeComponent with MuiCircularProgress
     value: js.UndefOr[Int] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiCircularProgressExtensions {
+
   object Color extends Enumeration {
     type Value = String
 
@@ -55,4 +57,5 @@ trait MuiCircularProgressExtensions {
     val circleIndeterminate = "circleIndeterminate"
     val circleDisableShrink = "circleDisableShrink"
   }
+
 }

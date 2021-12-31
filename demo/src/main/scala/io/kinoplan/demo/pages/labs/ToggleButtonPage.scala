@@ -11,12 +11,11 @@ object ToggleButtonPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
 
-      div(
-        ToggleButtons()
-      )
-    }
+    def render(props: Props): VdomElement = div(
+      ToggleButtons()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("ToggleButtonPage")

@@ -31,9 +31,11 @@ object MuiOutlinedInput extends ReactBridgeComponent with MuiOutlinedInputExtens
     rowsMax: js.UndefOr[String | Int] = js.undefined,
     startAdornment: js.UndefOr[VdomNode] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
+
 }
 
 trait MuiOutlinedInputExtensions {
+
   object Margin extends Enumeration {
     type Value = String
 
@@ -63,4 +65,5 @@ trait MuiOutlinedInputExtensions {
     val inputType = "inputType"
     val inputTypeSearch = "inputTypeSearch"
   }
+
 }

@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class SimpleBadgeStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -14,6 +15,7 @@ case class SimpleBadgeStyle(common: CommonStyle = DefaultCommonStyle) extends St
   val badgePadding = style(
     padding :=! s"0 ${theme.spacing.unit * 2}px"
   )
+
 }
 
 object DefaultSimpleBadgeStyle extends SimpleBadgeStyle

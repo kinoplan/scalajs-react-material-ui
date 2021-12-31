@@ -8,6 +8,7 @@ case class Message(
 )
 
 object Message {
+
   val default = List(
     Message(
       id = 1,
@@ -56,4 +57,5 @@ object Message {
       person = "/static/images/avatar/1.jpg"
     )
   )
+
 }

@@ -44,18 +44,18 @@ object EnhancedTable extends ScalaCssReactImplicits {
     val sortedData = {
       orderBy match {
         case "name" => if (order == "asc") data.sortBy(_.name) else data.sortBy(_.name)(Ordering[String].reverse)
-        case "calories" => if (order == "asc") data.sortBy(_.calories) else data.sortBy(_.calories)(Ordering[Int].reverse)
-        case "fat" => if (order == "asc") data.sortBy(_.fat) else data.sortBy(_.fat)(Ordering[Double].reverse)
+        case "calories" =>
+          if (order == "asc") data.sortBy(_.calories) else data.sortBy(_.calories)(Ordering[Int].reverse)
+        case "fat"   => if (order == "asc") data.sortBy(_.fat) else data.sortBy(_.fat)(Ordering[Double].reverse)
         case "carbs" => if (order == "asc") data.sortBy(_.carbs) else data.sortBy(_.carbs)(Ordering[Int].reverse)
-        case "protein" => if (order == "asc") data.sortBy(_.protein) else data.sortBy(_.protein)(Ordering[Double].reverse)
+        case "protein" =>
+          if (order == "asc") data.sortBy(_.protein) else data.sortBy(_.protein)(Ordering[Double].reverse)
       }
     }
 
     def isSelected(index: Int) = selected.contains(index)
 
-    def handleSelectAllClick(checked: Boolean) = {
-      if (checked) copy(selected = ids) else copy(selected = Set.empty[Int])
-    }
+    def handleSelectAllClick(checked: Boolean) = if (checked) copy(selected = ids) else copy(selected = Set.empty[Int])
 
     def handleRequestSort(property: String) = {
       val updatedOrder = if (orderBy == property && order == "desc") "asc" else "desc"
@@ -63,9 +63,7 @@ object EnhancedTable extends ScalaCssReactImplicits {
       copy(order = updatedOrder, orderBy = property)
     }
 
-    def handleClick(id: Int) = {
-      if (isSelected(id)) copy(selected = selected - id) else copy(selected = selected + id)
-    }
+    def handleClick(id: Int) = if (isSelected(id)) copy(selected = selected - id) else copy(selected = selected + id)
 
     def handleChangePage(page: Int) = copy(page = page)
 
@@ -73,6 +71,7 @@ object EnhancedTable extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
+
     def handleSelectAllClick(e: ReactEventFromInput): Callback = {
       val checked = e.target.checked
 
@@ -83,9 +82,8 @@ object EnhancedTable extends ScalaCssReactImplicits {
 
     def handleClick(id: Int) = t.modState(_.handleClick(id))
 
-    def handleChangePage: (ReactEvent, Int) => Callback = (_, page) => {
+    def handleChangePage: (ReactEvent, Int) => Callback = (_, page) =>
       t.modState(_.handleChangePage(page))
-    }
 
     def handleChangeRowsPerPage: ReactEventFromNumberInput => Callback = e => {
       val value = e.target.value
@@ -98,10 +96,13 @@ object EnhancedTable extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Sorting & Selecting")(
-          MuiPaper()(css.root,
+          MuiPaper()(
+            css.root,
             EnhancedTableToolbar(selectedCount = state.selectedCount),
-            div(css.tableWrapper,
-              MuiTable()(css.table,
+            div(
+              css.tableWrapper,
+              MuiTable()(
+                css.table,
                 aria.labelledBy := "tableTitle",
                 EnhancedTableHead(
                   selectedCount = state.selectedCount,
@@ -125,7 +126,11 @@ object EnhancedTable extends ScalaCssReactImplicits {
                       MuiTableCell(padding = MuiTableCell.Padding.checkbox)(
                         MuiCheckbox()(checked := isSelected)
                       ),
-                      MuiTableCell(component = "th", scope = "row", padding = MuiTableCell.Padding.none)(tableItem.name),
+                      MuiTableCell(
+                        component = "th",
+                        scope = "row",
+                        padding = MuiTableCell.Padding.none
+                      )(tableItem.name),
                       MuiTableCell(align = MuiTableCell.Alignment.right)(tableItem.calories),
                       MuiTableCell(align = MuiTableCell.Alignment.right)(tableItem.fat),
                       MuiTableCell(align = MuiTableCell.Alignment.right)(tableItem.carbs),
@@ -154,6 +159,7 @@ object EnhancedTable extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("EnhancedTable")

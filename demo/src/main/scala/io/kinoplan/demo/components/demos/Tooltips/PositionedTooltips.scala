@@ -12,12 +12,14 @@ object PositionedTooltips extends ScalaCssReactImplicits {
   case class Props(style: PositionedTooltipsStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Positioned Tooltips")(
-          div(css.root,
+          div(
+            css.root,
             MuiGrid(container = true, justify = MuiGrid.Justify.center)(
               MuiGrid(item = true)(
                 MuiTooltip(title = "Add", placement = MuiTooltip.Placement.topStart)(
@@ -87,6 +89,7 @@ object PositionedTooltips extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("PositionedTooltips")

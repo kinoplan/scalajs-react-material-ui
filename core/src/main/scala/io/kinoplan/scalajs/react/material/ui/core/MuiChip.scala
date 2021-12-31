@@ -28,9 +28,11 @@ object MuiChip extends ReactBridgeComponent with MuiChipExtensions {
     onDelete: js.UndefOr[ReactHandler1[ReactEvent]] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
+
 }
 
 trait MuiChipExtensions {
+
   object Color extends Enumeration {
     type Value = String
 
@@ -75,4 +77,5 @@ trait MuiChipExtensions {
     val deleteIconOutlinedColorPrimary = "deleteIconOutlinedColorPrimary"
     val deleteIconOutlinedColorSecondary = "deleteIconOutlinedColorSecondary"
   }
+
 }

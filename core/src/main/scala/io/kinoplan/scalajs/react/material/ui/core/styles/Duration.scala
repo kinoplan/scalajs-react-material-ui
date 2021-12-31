@@ -15,6 +15,7 @@ trait Duration extends js.Object {
 }
 
 object Duration {
+
   def apply(
     shortest: Int,
     shorter: Int,
@@ -36,4 +37,5 @@ object Duration {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[Duration]
   }
+
 }

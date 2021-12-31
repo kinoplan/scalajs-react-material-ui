@@ -33,6 +33,7 @@ object Light extends TypeObject
 object Dark extends TypeObject
 
 object Palette {
+
   def apply(
     common: CommonColors,
     `type`: PaletteType.Value,
@@ -68,4 +69,5 @@ object Palette {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[Palette]
   }
+
 }

@@ -12,19 +12,25 @@ object LinearQuery extends ScalaCssReactImplicits {
   case class Props(style: CommonStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Linear Query")(
-          div(css.flexGrowOne,
+          div(
+            css.flexGrowOne,
             MuiLinearProgress(variant = MuiLinearProgress.Variant.query),
             br,
-            MuiLinearProgress(variant = MuiLinearProgress.Variant.query, color = MuiLinearProgress.Color.secondary)
+            MuiLinearProgress(
+              variant = MuiLinearProgress.Variant.query,
+              color = MuiLinearProgress.Color.secondary
+            )
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("LinearQuery")

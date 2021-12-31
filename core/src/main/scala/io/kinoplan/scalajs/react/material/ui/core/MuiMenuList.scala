@@ -22,4 +22,5 @@ object MuiMenuList extends ReactBridgeComponent with MuiListExtensions {
     disablePadding: js.UndefOr[Boolean] = js.undefined,
     subheader: js.UndefOr[VdomNode] = js.undefined
   ): WithProps = auto
+
 }

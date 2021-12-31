@@ -31,9 +31,11 @@ object MuiButton extends ReactBridgeComponent with MuiButtonExtensions {
     onFocusVisible: js.UndefOr[js.Function] = js.undefined,
     TouchRippleProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiButtonExtensions {
+
   object Color extends Enumeration {
     type Value = String
 
@@ -93,4 +95,5 @@ trait MuiButtonExtensions {
     val sizeLarge = "sizeLarge"
     val fullWidth = "fullWidth"
   }
+
 }

@@ -41,11 +41,8 @@ object TextMobileStepper extends ScalaCssReactImplicits {
           onClick --> handleNext,
           disabled := state.isNextDisabled,
           "Next",
-          if (css.theme.direction == Direction.rtl) {
-            MuiIcons(MuiIconsModule.KeyboardArrowLeft)()
-          } else {
-            MuiIcons(MuiIconsModule.KeyboardArrowRight)()
-          }
+          if (css.theme.direction == Direction.rtl) MuiIcons(MuiIconsModule.KeyboardArrowLeft)()
+          else MuiIcons(MuiIconsModule.KeyboardArrowRight)()
         ).rawNode
       )
 
@@ -53,19 +50,19 @@ object TextMobileStepper extends ScalaCssReactImplicits {
         MuiButton(size = MuiButton.Size.small)(
           onClick --> handleBack,
           disabled := state.isBackDisabled,
-          if (css.theme.direction == Direction.rtl) {
-            MuiIcons(MuiIconsModule.KeyboardArrowRight)()
-          } else {
-            MuiIcons(MuiIconsModule.KeyboardArrowLeft)()
-          },
+          if (css.theme.direction == Direction.rtl) MuiIcons(MuiIconsModule.KeyboardArrowRight)()
+          else MuiIcons(MuiIconsModule.KeyboardArrowLeft)(),
           "Back"
         ).rawNode
       )
 
       div(
         ComponentContainer("Mobile Stepper - Text")(
-          div(css.root,
-            MuiPaper(square = true, elevation = 0)(css.header, css.headerPaper(Layout.isPaletteLight),
+          div(
+            css.root,
+            MuiPaper(square = true, elevation = 0)(
+              css.header,
+              css.headerPaper(Layout.isPaletteLight),
               MuiTypography()(tutorialStep.label)
             ),
             img(css.img, src := tutorialStep.imgPath, alt := tutorialStep.label),
@@ -80,6 +77,7 @@ object TextMobileStepper extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("TextMobileStepper")

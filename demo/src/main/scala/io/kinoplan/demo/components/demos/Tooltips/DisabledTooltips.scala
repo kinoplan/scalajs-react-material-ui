@@ -7,6 +7,7 @@ import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiTooltip}
 
 object DisabledTooltips {
+
   private val component = ScalaComponent.builder[Unit]("DisabledTooltips")
     .renderStatic(
       div(

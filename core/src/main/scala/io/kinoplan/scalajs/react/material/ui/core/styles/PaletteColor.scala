@@ -14,6 +14,7 @@ trait PaletteColor extends Color {
 }
 
 object PaletteColor {
+
   def apply(
     light: String,
     main: String,
@@ -29,4 +30,5 @@ object PaletteColor {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[PaletteColor]
   }
+
 }

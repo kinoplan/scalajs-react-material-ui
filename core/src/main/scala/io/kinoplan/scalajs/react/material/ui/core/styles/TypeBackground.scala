@@ -10,6 +10,7 @@ trait TypeBackground extends js.Object {
 }
 
 object TypeBackground {
+
   def apply(
     default: String,
     paper: String
@@ -21,4 +22,5 @@ object TypeBackground {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[TypeBackground]
   }
+
 }

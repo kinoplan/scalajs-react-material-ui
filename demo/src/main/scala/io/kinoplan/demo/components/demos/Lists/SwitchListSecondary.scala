@@ -6,7 +6,15 @@ import scalacss.ScalaCssReactImplicits
 
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Lists.{DefaultListStyle, ListStyle}
-import io.kinoplan.scalajs.react.material.ui.core.{MuiList, MuiListItem, MuiListItemIcon, MuiListItemSecondaryAction, MuiListItemText, MuiListSubheader, MuiSwitch}
+import io.kinoplan.scalajs.react.material.ui.core.{
+  MuiList,
+  MuiListItem,
+  MuiListItemIcon,
+  MuiListItemSecondaryAction,
+  MuiListItemText,
+  MuiListSubheader,
+  MuiSwitch
+}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object SwitchListSecondary extends ScalaCssReactImplicits {
@@ -15,13 +23,10 @@ object SwitchListSecondary extends ScalaCssReactImplicits {
   case class State(checked: List[String] = List("wifi")) {
     def isChecked(value: String) = checked.contains(value)
 
-    def handleToggle(value: String) = {
-      if (checked.contains(value)) {
-        copy(checked = checked.filterNot(_ == value))
-      } else {
-        copy(checked = checked :+ value)
-      }
-    }
+    def handleToggle(value: String) =
+      if (checked.contains(value)) copy(checked = checked.filterNot(_ == value))
+      else copy(checked = checked :+ value)
+
   }
 
   class Backend(t: BackendScope[Props, State]) {
@@ -32,7 +37,9 @@ object SwitchListSecondary extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("List Controls Switch Secondary")(
-          div(css.root, css.rootPaper(Layout.isPaletteLight),
+          div(
+            css.root,
+            css.rootPaper(Layout.isPaletteLight),
             MuiList(subheader = MuiListSubheader()("Settings"))(
               MuiListItem()(
                 MuiListItemIcon()(
@@ -63,6 +70,7 @@ object SwitchListSecondary extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("SwitchListSecondary")

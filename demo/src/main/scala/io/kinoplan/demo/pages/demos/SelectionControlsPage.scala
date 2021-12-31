@@ -11,20 +11,20 @@ object SelectionControlsPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        RadioButtonsGroup(),
-        RadioButtons(),
-        Checkboxes(),
-        CheckboxLabels(),
-        CheckboxesGroup(),
-        Switches(),
-        SwitchLabels(),
-        SwitchesGroup(),
-        CustomizedSwitches(),
-        FormControlLabelPosition()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      RadioButtonsGroup(),
+      RadioButtons(),
+      Checkboxes(),
+      CheckboxLabels(),
+      CheckboxesGroup(),
+      Switches(),
+      SwitchLabels(),
+      SwitchesGroup(),
+      CustomizedSwitches(),
+      FormControlLabelPosition()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("SelectionControlsPage")

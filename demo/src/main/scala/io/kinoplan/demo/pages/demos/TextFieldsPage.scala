@@ -11,22 +11,22 @@ object TextFieldsPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        TextFields(),
-        OutlinedTextFields(),
-        FilledTextFields(),
-        ComposedTextField(),
-        Inputs(),
-        CustomizedInputs(),
-        CustomizedInputBase(),
-        InputAdornments(),
-        InputWithIcon(),
-        FilledInputAdornments(),
-        OutlinedInputAdornments(),
-        TextFieldMargins()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      TextFields(),
+      OutlinedTextFields(),
+      FilledTextFields(),
+      ComposedTextField(),
+      Inputs(),
+      CustomizedInputs(),
+      CustomizedInputBase(),
+      InputAdornments(),
+      InputWithIcon(),
+      FilledInputAdornments(),
+      OutlinedInputAdornments(),
+      TextFieldMargins()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("TextFieldsPage")

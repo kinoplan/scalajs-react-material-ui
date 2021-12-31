@@ -16,7 +16,7 @@ object MuiBadge extends ReactBridgeComponent with MuiBadgeExtensions {
 
   def apply(
     badgeContent: js.UndefOr[VdomNode] = js.undefined,
-    classes: js.UndefOr[Map[ClassKey.Value, String]] =js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     color: js.UndefOr[Color.Value] = js.undefined,
     component: js.UndefOr[ComponentPropType] = js.undefined,
     invisible: js.UndefOr[Boolean] = js.undefined,
@@ -24,9 +24,11 @@ object MuiBadge extends ReactBridgeComponent with MuiBadgeExtensions {
     showZero: js.UndefOr[Boolean] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiBadgeExtensions {
+
   object Color extends Enumeration {
     type Value = String
 
@@ -54,4 +56,5 @@ trait MuiBadgeExtensions {
     val invisible = "invisible"
     val dot = "dot"
   }
+
 }

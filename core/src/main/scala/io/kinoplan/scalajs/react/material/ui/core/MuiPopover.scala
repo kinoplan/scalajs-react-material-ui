@@ -57,9 +57,11 @@ object MuiPopover extends ReactBridgeComponent with MuiPopoverExtensions {
     onEscapeKeyDown: js.UndefOr[ReactHandler1[ReactEvent]] = js.undefined,
     onRendered: js.UndefOr[JsFun0] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiPopoverExtensions {
+
   object AnchorReference extends Enumeration {
     type Value = String
 
@@ -81,4 +83,5 @@ trait MuiPopoverExtensions {
     val root = "root"
     val hidden = "hidden"
   }
+
 }

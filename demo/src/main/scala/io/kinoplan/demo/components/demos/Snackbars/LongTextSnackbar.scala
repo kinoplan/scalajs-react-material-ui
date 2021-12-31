@@ -12,6 +12,7 @@ object LongTextSnackbar extends ScalaCssReactImplicits {
   case class Props(style: CustomizedSnackbarsStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
@@ -25,7 +26,9 @@ object LongTextSnackbar extends ScalaCssReactImplicits {
               message = VdomNode("This is an error message!")
             )(css.snackbar),
             MuiSnackbarContent(
-              message = VdomNode("I love candy. I love cookies. I love cupcakes. I love cheesecake. I love chocolate.")
+              message = VdomNode(
+                "I love candy. I love cookies. I love cupcakes. I love cheesecake. I love chocolate."
+              )
             )(css.snackbar),
             MuiSnackbarContent(
               action = action,
@@ -33,12 +36,15 @@ object LongTextSnackbar extends ScalaCssReactImplicits {
             )(css.snackbar),
             MuiSnackbarContent(
               action = action,
-              message = VdomNode("I love candy. I love cookies. I love cupcakes. I love cheesecake. I love chocolate.")
+              message = VdomNode(
+                "I love candy. I love cookies. I love cupcakes. I love cheesecake. I love chocolate."
+              )
             )(css.snackbar)
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("LongTextSnackbar")

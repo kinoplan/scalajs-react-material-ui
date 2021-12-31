@@ -7,6 +7,7 @@ import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiTooltip}
 
 object DelayTooltips {
+
   private val component = ScalaComponent.builder[Unit]("DelayTooltips")
     .renderStatic(
       div(

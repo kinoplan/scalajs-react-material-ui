@@ -21,9 +21,11 @@ object MuiAppBar extends ReactBridgeComponent with MuiAppBarExtensions {
     elevation: js.UndefOr[Int] = js.undefined,
     square: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiAppBarExtensions {
+
   object Color extends Enumeration {
     type Value = String
 
@@ -56,4 +58,5 @@ trait MuiAppBarExtensions {
     val colorPrimary = "colorPrimary"
     val colorSecondary = "colorSecondary"
   }
+
 }

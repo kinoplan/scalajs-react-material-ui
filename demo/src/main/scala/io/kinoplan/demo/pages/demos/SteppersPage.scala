@@ -11,20 +11,20 @@ object SteppersPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        HorizontalLinearStepper(),
-        HorizontalNonLinearStepper(),
-        HorizontalLabelPositionBelowStepper(),
-        HorizontalNonLinearAlternativeLabelStepper(),
-        HorizontalNonLinearStepperWithError(),
-        VerticalLinearStepper(),
-        CustomizedStepper(),
-        TextMobileStepper(),
-        DotsMobileStepper(),
-        ProgressMobileStepper()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      HorizontalLinearStepper(),
+      HorizontalNonLinearStepper(),
+      HorizontalLabelPositionBelowStepper(),
+      HorizontalNonLinearAlternativeLabelStepper(),
+      HorizontalNonLinearStepperWithError(),
+      VerticalLinearStepper(),
+      CustomizedStepper(),
+      TextMobileStepper(),
+      DotsMobileStepper(),
+      ProgressMobileStepper()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("SteppersPage")

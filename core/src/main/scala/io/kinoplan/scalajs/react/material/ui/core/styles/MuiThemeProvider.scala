@@ -18,8 +18,8 @@ object MuiThemeProvider extends ReactBridgeComponent {
     sheetsManager: js.UndefOr[JSMap[StylesCreator, JSMap[Theme, SheetManagerTheme]]] = js.undefined,
     theme: js.Object | js.Function
   ): WithProps = auto
-}
 
+}
 
 @js.native
 @JSGlobal("Map")

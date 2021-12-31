@@ -11,21 +11,21 @@ object ProgressPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        CircularIndeterminate(),
-        CircularIntegration(),
-        CircularDeterminate(),
-        CircularStatic(),
-        LinearIndeterminate(),
-        LinearDeterminate(),
-        LinearBuffer(),
-        LinearQuery(),
-        CustomizedProgress(),
-        DelayingAppearance(),
-        CircularUnderLoad()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      CircularIndeterminate(),
+      CircularIntegration(),
+      CircularDeterminate(),
+      CircularStatic(),
+      LinearIndeterminate(),
+      LinearDeterminate(),
+      LinearBuffer(),
+      LinearQuery(),
+      CustomizedProgress(),
+      DelayingAppearance(),
+      CircularUnderLoad()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("ProgressPage")

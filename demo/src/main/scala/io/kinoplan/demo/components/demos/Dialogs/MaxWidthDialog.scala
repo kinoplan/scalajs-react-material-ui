@@ -28,9 +28,8 @@ object MaxWidthDialog extends ScalaCssReactImplicits {
 
     def handleClickClose: Callback = t.modState(_.handleClickClose)
 
-    def onClose: (ReactEvent, String) => Callback = (_, _) => {
+    def onClose: (ReactEvent, String) => Callback = (_, _) =>
       handleClickClose
-    }
 
     def handleFullWidthChange(e: ReactEventFromInput): Callback = {
       val value = e.target.checked
@@ -55,7 +54,10 @@ object MaxWidthDialog extends ScalaCssReactImplicits {
       div(
         ComponentContainer("Optional sizes")(
           React.Fragment(
-            MuiButton(variant = MuiButton.Variant.outlined, color = MuiButton.Color.primary)(
+            MuiButton(
+              variant = MuiButton.Variant.outlined,
+              color = MuiButton.Color.primary
+            )(
               onClick --> handleClickOpen,
               "Open max-width dialog"
             ),
@@ -75,8 +77,11 @@ object MaxWidthDialog extends ScalaCssReactImplicits {
                   MuiDialogContentText()(
                     "You can set my maximum width and whether to adapt or not."
                   ),
-                  form(css.form, noValidate := true,
-                    MuiFormControl()(css.formControl,
+                  form(
+                    css.form,
+                    noValidate := true,
+                    MuiFormControl()(
+                      css.formControl,
                       MuiInputLabel()(
                         htmlFor := "max-width",
                         "maxWidth"
@@ -113,6 +118,7 @@ object MaxWidthDialog extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("MaxWidthDialog")

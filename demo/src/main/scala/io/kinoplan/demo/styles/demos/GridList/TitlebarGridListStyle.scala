@@ -23,6 +23,7 @@ case class TitlebarGridListStyle(common: CommonStyle = DefaultCommonStyle) exten
   val iconStyle = style(
     color :=! "rgba(255, 255, 255, 0.54)"
   )
+
 }
 
 object DefaultTitlebarGridListStyle extends TitlebarGridListStyle

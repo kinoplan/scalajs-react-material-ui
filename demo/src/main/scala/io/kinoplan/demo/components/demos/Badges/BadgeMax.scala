@@ -13,25 +13,31 @@ object BadgeMax extends ScalaCssReactImplicits {
   case class Props(style: BadgeMaxStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Maximum Value")(
           React.Fragment(
-            MuiBadge(badgeContent = VdomNode(99), color = MuiBadge.Color.primary)(css.badgeMargin,
+            MuiBadge(badgeContent = VdomNode(99), color = MuiBadge.Color.primary)(
+              css.badgeMargin,
               MuiIcons(MuiIconsModule.Mail)()
             ),
-            MuiBadge(badgeContent = VdomNode(100), color = MuiBadge.Color.primary)(css.badgeMargin,
+            MuiBadge(badgeContent = VdomNode(100), color = MuiBadge.Color.primary)(
+              css.badgeMargin,
               MuiIcons(MuiIconsModule.Mail)()
             ),
-            MuiBadge(badgeContent = VdomNode(1000), max = 999, color = MuiBadge.Color.primary)(css.badgeMargin,
-              MuiIcons(MuiIconsModule.Mail)()
-            )
+            MuiBadge(
+              badgeContent = VdomNode(1000),
+              max = 999,
+              color = MuiBadge.Color.primary
+            )(css.badgeMargin, MuiIcons(MuiIconsModule.Mail)())
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("BadgeMax")

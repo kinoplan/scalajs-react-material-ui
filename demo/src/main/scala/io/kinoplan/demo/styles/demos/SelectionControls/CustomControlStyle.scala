@@ -19,10 +19,13 @@ case class CustomControlStyle(common: CommonStyle = DefaultCommonStyle) extends 
     )
   )
 
-  val root = style(addClassNames(
-    preliminaryRoot.htmlClass,
-    preliminaryChecked.htmlClass
-  ))
+  val root = style(
+    addClassNames(
+      preliminaryRoot.htmlClass,
+      preliminaryChecked.htmlClass
+    )
+  )
+
 }
 
 object DefaultCustomControlStyle extends CustomControlStyle

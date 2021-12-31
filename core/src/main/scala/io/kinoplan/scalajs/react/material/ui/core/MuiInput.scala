@@ -30,9 +30,11 @@ object MuiInput extends ReactBridgeComponent with MuiInputExtensions {
     rowsMax: js.UndefOr[String | Int] = js.undefined,
     startAdornment: js.UndefOr[VdomNode] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
+
 }
 
 trait MuiInputExtensions {
+
   object Margin extends Enumeration {
     type Value = String
 
@@ -62,4 +64,5 @@ trait MuiInputExtensions {
     val inputAdornedStart = "inputAdornedStart"
     val inputAdornedEnd = "inputAdornedEnd"
   }
+
 }

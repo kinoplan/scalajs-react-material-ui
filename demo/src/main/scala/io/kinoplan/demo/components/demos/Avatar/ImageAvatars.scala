@@ -12,18 +12,32 @@ object ImageAvatars extends ScalaCssReactImplicits {
   case class Props(style: AvatarsStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Image avatars")(
-          MuiGrid(justify = MuiGrid.Justify.center, alignItems = MuiGrid.AlignItems.center, container = true)(
-            MuiAvatar()(css.avatar, alt := "Remy Sharp", src := "/static/images/avatar/1.jpg"),
-            MuiAvatar()(css.bigAvatar, alt := "Remy Sharp", src := "/static/images/avatar/1.jpg")
+          MuiGrid(
+            justify = MuiGrid.Justify.center,
+            alignItems = MuiGrid.AlignItems.center,
+            container = true
+          )(
+            MuiAvatar()(
+              css.avatar,
+              alt := "Remy Sharp",
+              src := "/static/images/avatar/1.jpg"
+            ),
+            MuiAvatar()(
+              css.bigAvatar,
+              alt := "Remy Sharp",
+              src := "/static/images/avatar/1.jpg"
+            )
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("ImageAvatars")

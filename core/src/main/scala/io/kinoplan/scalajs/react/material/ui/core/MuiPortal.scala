@@ -17,4 +17,5 @@ object MuiPortal extends ReactBridgeComponent {
     disablePortal: js.UndefOr[Boolean] = js.undefined,
     onRendered: js.UndefOr[JsFun0] = js.undefined
   ): WithProps = auto
+
 }

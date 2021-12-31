@@ -28,9 +28,11 @@ object MuiHidden extends ReactBridgeComponent with MuiHiddenExtensions {
     xsDown: js.UndefOr[Boolean] = js.undefined,
     xsUp: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiHiddenExtensions {
+
   object Implementation extends Enumeration {
     type Value = String
 
@@ -47,4 +49,5 @@ trait MuiHiddenExtensions {
     val lg = "lg"
     val xl = "xl"
   }
+
 }

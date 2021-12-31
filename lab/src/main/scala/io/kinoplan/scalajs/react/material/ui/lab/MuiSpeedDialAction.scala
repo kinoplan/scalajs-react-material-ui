@@ -41,9 +41,11 @@ object MuiSpeedDialAction extends ReactBridgeComponent with MuiSpeedDialActionEx
     TransitionComponent: js.UndefOr[ComponentPropType] = js.undefined,
     TransitionProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiSpeedDialActionExtensions {
+
   object Placement extends Enumeration {
     type Value = String
 
@@ -92,4 +94,5 @@ trait MuiSpeedDialActionExtensions {
     val tooltipPlacementTop = "tooltipPlacementTop"
     val tooltipPlacementBottom = "tooltipPlacementBottom"
   }
+
 }

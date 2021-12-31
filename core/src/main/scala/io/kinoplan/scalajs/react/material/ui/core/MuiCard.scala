@@ -20,10 +20,13 @@ object MuiCard extends ReactBridgeComponent with MuiCardExtensions {
     elevation: js.UndefOr[Int] = js.undefined,
     square: js.UndefOr[Boolean] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
+
 }
 
 trait MuiCardExtensions {
+
   object ClassKey extends Enumeration with PaperClassKey {
     type Value = String
   }
+
 }

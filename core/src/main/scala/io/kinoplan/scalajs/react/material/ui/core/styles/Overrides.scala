@@ -100,6 +100,7 @@ trait Overrides extends js.Object {
 }
 
 object Overrides {
+
   def apply(
     MuiAppBar: js.UndefOr[js.Object] = js.undefined,
     MuiAvatar: js.UndefOr[js.Object] = js.undefined,
@@ -291,4 +292,5 @@ object Overrides {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[Overrides]
   }
+
 }

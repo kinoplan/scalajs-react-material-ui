@@ -10,15 +10,17 @@ trait MuiContentProps extends js.Object {
 }
 
 object MuiContentProps {
+
   def apply(
     ariaDescribedby: js.UndefOr[String] = js.undefined,
     className: js.UndefOr[String] = js.undefined
   ) = {
-    val o : Map[String, Any] = Seq(
+    val o: Map[String, Any] = Seq(
       ariaDescribedby.toOption.map("aria-describedby" -> _),
       className.toOption.map("className" -> _)
     ).flatten.toMap
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[MuiContentProps]
   }
+
 }

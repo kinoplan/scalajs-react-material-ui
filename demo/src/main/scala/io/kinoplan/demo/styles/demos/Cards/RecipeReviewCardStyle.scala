@@ -8,6 +8,7 @@ import io.kinoplan.scalajs.react.material.ui.core.colors
 import io.kinoplan.scalajs.react.material.ui.core.styles.CreateTransitionsOptions
 
 case class RecipeReviewCardStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import dsl._
   import common.theme
 
@@ -44,6 +45,7 @@ case class RecipeReviewCardStyle(common: CommonStyle = DefaultCommonStyle) exten
   val avatar = style(
     backgroundColor :=! colors.red.`500`
   )
+
 }
 
 object DefaultRecipeReviewCardStyle extends RecipeReviewCardStyle

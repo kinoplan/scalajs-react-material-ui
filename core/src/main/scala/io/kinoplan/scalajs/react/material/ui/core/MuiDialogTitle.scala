@@ -16,12 +16,15 @@ object MuiDialogTitle extends ReactBridgeComponent with MuiDialogTitleExtensions
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     disableTypography: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiDialogTitleExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
     val root = "root"
   }
+
 }

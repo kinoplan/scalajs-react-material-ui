@@ -19,6 +19,7 @@ object SpanningTable extends ScalaCssReactImplicits {
   case class Props(style: SimpleTableStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
       val tableItems = SpanningItem.rows
@@ -29,8 +30,10 @@ object SpanningTable extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Spanning Table")(
-          MuiPaper()(css.root,
-            MuiTable()(css.table,
+          MuiPaper()(
+            css.root,
+            MuiTable()(
+              css.table,
               MuiTableHead()(
                 MuiTableRow()(
                   MuiTableCell()("Desc"),
@@ -41,7 +44,8 @@ object SpanningTable extends ScalaCssReactImplicits {
               ),
               MuiTableBody()(
                 tableItems.zipWithIndex.toVdomArray { case (tableItem, index) =>
-                  MuiTableRow()(Attr("key") := index,
+                  MuiTableRow()(
+                    Attr("key") := index,
                     MuiTableCell()(tableItem.desc),
                     MuiTableCell(align = MuiTableCell.Alignment.right)(tableItem.qty),
                     MuiTableCell(align = MuiTableCell.Alignment.right)(tableItem.unit),
@@ -68,6 +72,7 @@ object SpanningTable extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("SpanningTable")

@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class ComponentTextFieldStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -15,6 +16,7 @@ case class ComponentTextFieldStyle(common: CommonStyle = DefaultCommonStyle) ext
   val formControl = style(
     margin(theme.spacing.unit.px)
   )
+
 }
 
 object DefaultComponentTextFieldStyle extends ComponentTextFieldStyle

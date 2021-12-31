@@ -14,6 +14,7 @@ case class VerticalSliderStyle(common: CommonStyle = DefaultCommonStyle) extends
   val slider = style(
     padding(0.px, 22.px)
   )
+
 }
 
 object DefaultVerticalSliderStyle extends VerticalSliderStyle

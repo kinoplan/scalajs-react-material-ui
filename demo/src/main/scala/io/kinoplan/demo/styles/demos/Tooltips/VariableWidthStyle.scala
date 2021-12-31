@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class VariableWidthStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -18,6 +19,7 @@ case class VariableWidthStyle(common: CommonStyle = DefaultCommonStyle) extends 
   val noMaxWidth = style(
     maxWidth.none
   )
+
 }
 
 object DefaultVariableWidthStyle extends VariableWidthStyle

@@ -13,13 +13,16 @@ object TextFieldMargins extends ScalaCssReactImplicits {
   case class Props(style: TextFieldsStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Layout")(
-          div(css.container,
-            MuiTextField(label = "None".toVdom, helperText = "Some important text".toVdom)(css.textField,
+          div(
+            css.container,
+            MuiTextField(label = "None".toVdom, helperText = "Some important text".toVdom)(
+              css.textField,
               id := "margin-none",
               defaultValue := "Default Value"
             ),
@@ -27,7 +30,8 @@ object TextFieldMargins extends ScalaCssReactImplicits {
               label = "Dense".toVdom,
               helperText = "Some important text".toVdom,
               margin = MuiTextField.Margin.dense
-            )(css.textField,
+            )(
+              css.textField,
               id := "margin-dense",
               defaultValue := "Default Value"
             ),
@@ -35,7 +39,8 @@ object TextFieldMargins extends ScalaCssReactImplicits {
               label = "Normal".toVdom,
               helperText = "Some important text".toVdom,
               margin = MuiTextField.Margin.normal
-            )(css.textField,
+            )(
+              css.textField,
               id := "margin-normal",
               defaultValue := "Default Value"
             )
@@ -43,6 +48,7 @@ object TextFieldMargins extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("TextFieldMargins")

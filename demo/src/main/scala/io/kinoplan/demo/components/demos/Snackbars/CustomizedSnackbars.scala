@@ -24,9 +24,8 @@ object CustomizedSnackbars extends ScalaCssReactImplicits {
 
     def handleCloseClick: Callback = t.modState(_.handleClose)
 
-    def handleClose: (ReactEvent, String) => Callback = (_, reason) => {
+    def handleClose: (ReactEvent, String) => Callback = (_, reason) =>
       handleCloseClick.when_(reason != "clickaway")
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
@@ -71,6 +70,7 @@ object CustomizedSnackbars extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("CustomizedSnackbars")

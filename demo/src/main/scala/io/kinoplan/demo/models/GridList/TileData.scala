@@ -13,6 +13,7 @@ case class TileData(
 }
 
 object TileData {
+
   val default = List(
     TileData(
       image = "/static/images/grid-list/breakfast.jpg",
@@ -80,4 +81,5 @@ object TileData {
       author = "danfador"
     )
   )
+
 }

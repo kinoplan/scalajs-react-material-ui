@@ -4,25 +4,34 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.all._
 
-import io.kinoplan.demo.components.demos.Dialogs.{AlertDialog, ConfirmationDialog, CustomizedDialog, FormDialog, FullScreenDialog, MaxWidthDialog, ScrollDialog, SimpleDialog}
+import io.kinoplan.demo.components.demos.Dialogs.{
+  AlertDialog,
+  ConfirmationDialog,
+  CustomizedDialog,
+  FormDialog,
+  FullScreenDialog,
+  MaxWidthDialog,
+  ScrollDialog,
+  SimpleDialog
+}
 import io.kinoplan.demo.router.AppRouter.Page
 
 object DialogsPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        SimpleDialog(),
-        AlertDialog(),
-        FormDialog(),
-        CustomizedDialog(),
-        FullScreenDialog(),
-        MaxWidthDialog(),
-        ConfirmationDialog(),
-        ScrollDialog()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      SimpleDialog(),
+      AlertDialog(),
+      FormDialog(),
+      CustomizedDialog(),
+      FullScreenDialog(),
+      MaxWidthDialog(),
+      ConfirmationDialog(),
+      ScrollDialog()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("DialogsPage")

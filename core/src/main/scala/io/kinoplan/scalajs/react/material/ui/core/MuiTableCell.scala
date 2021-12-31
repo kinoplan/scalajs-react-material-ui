@@ -22,9 +22,11 @@ object MuiTableCell extends ReactBridgeComponent with MuiTableCellExtensions {
     sortDirection: js.UndefOr[Boolean | SortDirection.Value] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiTableCellExtensions {
+
   object Alignment extends Enumeration {
     type Value = String
 
@@ -66,7 +68,7 @@ trait MuiTableCellExtensions {
     val head = "head"
     val body = "body"
     val footer = "footer"
-    val numeric	= "numeric"
+    val numeric = "numeric"
     val paddingDense = "paddingDense"
     val paddingCheckbox = "paddingCheckbox"
     val paddingNone = "paddingNone"
@@ -75,4 +77,5 @@ trait MuiTableCellExtensions {
     val alignRight = "alignRight"
     val alignJustify = "alignJustify"
   }
+
 }

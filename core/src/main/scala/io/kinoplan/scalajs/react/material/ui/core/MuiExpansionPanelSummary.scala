@@ -17,7 +17,7 @@ object MuiExpansionPanelSummary extends ReactBridgeComponent with MuiExpansionPa
   def apply(
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     expandIcon: js.UndefOr[VdomNode] = js.undefined,
-    IconButtonProps: js.UndefOr[js.Object]= js.undefined,
+    IconButtonProps: js.UndefOr[js.Object] = js.undefined,
     action: js.UndefOr[js.Function] = js.undefined,
     buttonRef: js.UndefOr[ComponentRefType] = js.undefined,
     centerRipple: js.UndefOr[Boolean] = js.undefined,
@@ -29,9 +29,11 @@ object MuiExpansionPanelSummary extends ReactBridgeComponent with MuiExpansionPa
     onFocusVisible: js.UndefOr[js.Function] = js.undefined,
     TouchRippleProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiExpansionPanelSummaryExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -43,4 +45,5 @@ trait MuiExpansionPanelSummaryExtensions {
     val expandIcon = "expandIcon"
     val focusVisible = "focusVisible"
   }
+
 }

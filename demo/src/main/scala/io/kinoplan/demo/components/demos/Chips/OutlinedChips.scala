@@ -14,28 +14,26 @@ object OutlinedChips extends ScalaCssReactImplicits {
   case class Props(style: ChipsStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def handleDelete: ReactEvent => Callback = e => {
-      Callback.alert("You clicked the delete icon.")
-    }
 
-    def handleClick: ReactEvent => Callback = e => {
+    def handleDelete: ReactEvent => Callback = e =>
+      Callback.alert("You clicked the delete icon.")
+
+    def handleClick: ReactEvent => Callback = e =>
       Callback.alert("You clicked the Chip.")
-    }
 
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Outlined Chips")(
-          div(css.root,
+          div(
+            css.root,
             MuiChip(label = "Basic Chip".toVdom, variant = MuiChip.Variant.outlined)(css.chip),
             MuiChip(
               label = "Clickable Chip".toVdom,
               avatar = MuiAvatar()("MB").rawElement,
               variant = MuiChip.Variant.outlined
-            )(css.chip,
-              onClick ==> handleClick
-            ),
+            )(css.chip, onClick ==> handleClick),
             MuiChip(
               label = "Deletable Chip".toVdom,
               avatar = MuiAvatar()(
@@ -50,33 +48,25 @@ object OutlinedChips extends ScalaCssReactImplicits {
               avatar = MuiAvatar()(MuiIcons(MuiIconsModule.Face)()).rawElement,
               onDelete = handleDelete,
               variant = MuiChip.Variant.outlined
-            )(css.chip,
-              onClick ==> handleClick
-            ),
+            )(css.chip, onClick ==> handleClick),
             MuiChip(
               label = "Clickable Deletable Chip".toVdom,
               icon = MuiIcons(MuiIconsModule.Face)()().rawElement,
               onDelete = handleDelete,
               variant = MuiChip.Variant.outlined
-            )(css.chip,
-              onClick ==> handleClick
-            ),
+            )(css.chip, onClick ==> handleClick),
             MuiChip(
               label = "Custom delete icon Chip".toVdom,
               deleteIcon = MuiIcons(MuiIconsModule.Done)()().rawElement,
               onDelete = handleDelete,
               variant = MuiChip.Variant.outlined
-            )(css.chip,
-              onClick ==> handleClick
-            ),
+            )(css.chip, onClick ==> handleClick),
             MuiChip(
               label = "Clickable Link Chip".toVdom,
               component = "a",
               clickable = true,
               variant = MuiChip.Variant.outlined
-            )(css.chip,
-              href := "/#demos/chips/",
-            ),
+            )(css.chip, href := "/#demos/chips/"),
             MuiChip(
               label = "Primary Clickable Chip".toVdom,
               avatar = MuiAvatar()("MB").rawElement,
@@ -119,6 +109,7 @@ object OutlinedChips extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("OutlinedChips")

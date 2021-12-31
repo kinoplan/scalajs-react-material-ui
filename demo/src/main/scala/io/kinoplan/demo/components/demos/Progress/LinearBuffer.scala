@@ -15,16 +15,16 @@ object LinearBuffer extends ScalaCssReactImplicits {
   case class Props(style: CommonStyle)
 
   case class State(completed: Int = 0, buffer: Int = 10) {
-    def setProgress = {
-      if (completed > 100) {
-        copy(completed = 0, buffer = 10)
-      } else {
+
+    def setProgress =
+      if (completed > 100) copy(completed = 0, buffer = 10)
+      else {
         val diff = (Math.random() * 10).toInt
         val diff2 = (Math.random() * 10).toInt
 
         copy(completed = completed + diff, buffer = completed + diff + diff2)
       }
-    }
+
   }
 
   class Backend(t: BackendScope[Props, State]) {
@@ -46,7 +46,8 @@ object LinearBuffer extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Linear Buffer")(
-          div(css.flexGrowOne,
+          div(
+            css.flexGrowOne,
             MuiLinearProgress(
               variant = MuiLinearProgress.Variant.buffer,
               value = state.completed,
@@ -63,6 +64,7 @@ object LinearBuffer extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("LinearBuffer")

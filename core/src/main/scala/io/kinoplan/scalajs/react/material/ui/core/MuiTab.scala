@@ -29,9 +29,11 @@ object MuiTab extends ReactBridgeComponent with MuiTabExtensions {
     onFocusVisible: js.UndefOr[js.Function] = js.undefined,
     TouchRippleProps: js.UndefOr[js.Object] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
+
 }
 
 trait MuiTabExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -40,7 +42,7 @@ trait MuiTabExtensions {
     val labelIcon = "labelIcon"
     val textColorInherit = "textColorInherit"
     val textColorPrimary = "textColorPrimary"
-    val textColorSecondary	= "textColorSecondary"
+    val textColorSecondary = "textColorSecondary"
     val selected = "selected"
     val disabled = "disabled"
     val fullWidth = "fullWidth"
@@ -49,4 +51,5 @@ trait MuiTabExtensions {
     val label = "label"
     val labelWrapped = "labelWrapped"
   }
+
 }

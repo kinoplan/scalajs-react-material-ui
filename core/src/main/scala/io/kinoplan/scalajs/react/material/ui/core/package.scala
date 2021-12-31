@@ -9,20 +9,20 @@ import japgolly.scalajs.react.facade.SyntheticEvent
 import org.scalajs.dom.HTMLElement
 
 package object core {
-  type JsFun0                                   = js.Function0[Callback]
-  type OptJsFun1[A]                             = js.Function1[A, Unit]
-  type OptJsFun2[A, B]                          = js.Function2[A, B, Unit]
-  type OnJSEv1[E <: SyntheticEvent[_]]          = OptJsFun1[E]
-  type OnJSEv2[E <: SyntheticEvent[_], A]       = OptJsFun2[E, A]
-  type Handler1[A]                              = A => Callback
-  type Handler2[A, B]                           = (A, B) => Callback
-  type Handler3[A, B, C]                        = (A, B, C) => Callback
-  type ReactHandler1[E <: SyntheticEvent[_]]    = Handler1[E]
+  type JsFun0 = js.Function0[Callback]
+  type OptJsFun1[A] = js.Function1[A, Unit]
+  type OptJsFun2[A, B] = js.Function2[A, B, Unit]
+  type OnJSEv1[E <: SyntheticEvent[_]] = OptJsFun1[E]
+  type OnJSEv2[E <: SyntheticEvent[_], A] = OptJsFun2[E, A]
+  type Handler1[A] = A => Callback
+  type Handler2[A, B] = (A, B) => Callback
+  type Handler3[A, B, C] = (A, B, C) => Callback
+  type ReactHandler1[E <: SyntheticEvent[_]] = Handler1[E]
   type ReactHandler2[E <: SyntheticEvent[_], A] = Handler2[E, A]
-  type CssProperties                            = js.Any
-  type ComponentPropType                        = String | js.Function
-  type ComponentRefType                         = js.Function | js.Object
-  type ComponentContainerType                   = js.Function | js.Object
+  type CssProperties = js.Any
+  type ComponentPropType = String | js.Function
+  type ComponentRefType = js.Function | js.Object
+  type ComponentContainerType = js.Function | js.Object
 }
 
 @js.native

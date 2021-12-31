@@ -12,6 +12,7 @@ trait ColorFormatValues extends js.Object {
 }
 
 object ColorFormatValues {
+
   def apply(
     rgb: String,
     rgba: String,
@@ -27,4 +28,5 @@ object ColorFormatValues {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[ColorFormatValues]
   }
+
 }

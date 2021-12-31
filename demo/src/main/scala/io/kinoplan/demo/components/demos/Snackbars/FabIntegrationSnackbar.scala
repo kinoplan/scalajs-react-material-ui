@@ -7,7 +7,15 @@ import scalacss.ScalaCssReactImplicits
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Snackbars.{DefaultFabIntegrationSnackbarStyle, FabIntegrationSnackbarStyle}
 import io.kinoplan.demo.utils.props.MuiContentProps
-import io.kinoplan.scalajs.react.material.ui.core.{MuiAppBar, MuiButton, MuiFab, MuiIconButton, MuiSnackbar, MuiToolbar, MuiTypography}
+import io.kinoplan.scalajs.react.material.ui.core.{
+  MuiAppBar,
+  MuiButton,
+  MuiFab,
+  MuiIconButton,
+  MuiSnackbar,
+  MuiToolbar,
+  MuiTypography
+}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object FabIntegrationSnackbar extends ScalaCssReactImplicits {
@@ -24,30 +32,41 @@ object FabIntegrationSnackbar extends ScalaCssReactImplicits {
 
     def handleCloseClick: Callback = t.modState(_.handleClose)
 
-    def handleClose: (ReactEvent, String) => Callback = (_, _) => {
+    def handleClose: (ReactEvent, String) => Callback = (_, _) =>
       handleCloseClick
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Don't block the floating action button")(
-          div(css.root,
+          div(
+            css.root,
             MuiButton()(css.button, onClick --> handleClick, "Open snackbar"),
-            div(css.appFrame, css.appFramePaper(Layout.isPaletteLight),
-              MuiAppBar(position = MuiAppBar.Position.static, color = MuiAppBar.Color.primary)(
+            div(
+              css.appFrame,
+              css.appFramePaper(Layout.isPaletteLight),
+              MuiAppBar(
+                position = MuiAppBar.Position.static,
+                color = MuiAppBar.Color.primary
+              )(
                 MuiToolbar()(
-                  MuiIconButton(color = MuiIconButton.Color.inherit)(css.menuButton,
+                  MuiIconButton(color = MuiIconButton.Color.inherit)(
+                    css.menuButton,
                     aria.label := "Menu",
                     MuiIcons(MuiIconsModule.Menu)()
                   ),
-                  MuiTypography(variant = MuiTypography.Variant.h6, color = MuiTypography.Color.inherit)(
+                  MuiTypography(
+                    variant = MuiTypography.Variant.h6,
+                    color = MuiTypography.Color.inherit
+                  )(
                     "Out of my way!"
                   )
                 )
               ),
-              MuiFab(color = MuiFab.Color.secondary)(css.fab, if (state.open) css.fabMoveUp else css.fabMoveDown,
+              MuiFab(color = MuiFab.Color.secondary)(
+                css.fab,
+                if (state.open) css.fabMoveUp else css.fabMoveDown,
                 MuiIcons(MuiIconsModule.Add)()
               ),
               MuiSnackbar(
@@ -59,16 +78,19 @@ object FabIntegrationSnackbar extends ScalaCssReactImplicits {
                   className = css.snackbarContent.htmlClass
                 ),
                 message = span(id := "snackbar-fab-message-id", "Archived"),
-                action = VdomNode(MuiButton(color = MuiButton.Color.inherit, size = MuiButton.Size.small)(
-                  onClick --> handleCloseClick,
-                  "Undo"
-                ).rawNode)
+                action = VdomNode(
+                  MuiButton(color = MuiButton.Color.inherit, size = MuiButton.Size.small)(
+                    onClick --> handleCloseClick,
+                    "Undo"
+                  ).rawNode
+                )
               )(css.snackbar)
             )
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("FabIntegrationSnackbar")

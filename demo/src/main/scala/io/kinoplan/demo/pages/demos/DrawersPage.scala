@@ -11,15 +11,15 @@ object DrawersPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        TemporaryDrawer(),
-        SwipeableTemporaryDrawer(),
-        ResponsiveDrawer(),
-        PersistentDrawer(),
-        MiniDrawer()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      TemporaryDrawer(),
+      SwipeableTemporaryDrawer(),
+      ResponsiveDrawer(),
+      PersistentDrawer(),
+      MiniDrawer()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("DrawersPage")

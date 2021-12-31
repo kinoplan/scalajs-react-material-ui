@@ -33,6 +33,7 @@ object FilledTextFields extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
+
     def handleChangeName(e: ReactEventFromTextArea) = {
       val value = e.target.value
 
@@ -62,12 +63,16 @@ object FilledTextFields extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Filled")(
-          form(css.container, noValidate := true, autoComplete := "off",
+          form(
+            css.container,
+            noValidate := true,
+            autoComplete := "off",
             MuiTextField(
               label = "Name".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.filled
-            )(css.textField,
+            )(
+              css.textField,
               id := "filled-name",
               value := state.name,
               onChange ==> handleChangeName
@@ -76,15 +81,13 @@ object FilledTextFields extends ScalaCssReactImplicits {
               label = "Uncontrolled".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.filled
-            )(css.textField,
-              id := "filled-uncontrolled",
-              defaultValue := "foo"
-            ),
+            )(css.textField, id := "filled-uncontrolled", defaultValue := "foo"),
             MuiTextField(
               label = "Required".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.filled
-            )(css.textField,
+            )(
+              css.textField,
               required := true,
               id := "filled-required",
               defaultValue := "Hello World"
@@ -94,7 +97,8 @@ object FilledTextFields extends ScalaCssReactImplicits {
               label = "Error".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.filled
-            )(css.textField,
+            )(
+              css.textField,
               id := "filled-error",
               defaultValue := "Hello World"
             ),
@@ -102,7 +106,8 @@ object FilledTextFields extends ScalaCssReactImplicits {
               label = "Disabled".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.filled
-            )(css.textField,
+            )(
+              css.textField,
               disabled := true,
               id := "filled-disabled",
               defaultValue := "Hello World"
@@ -111,7 +116,8 @@ object FilledTextFields extends ScalaCssReactImplicits {
               label = "Email".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.filled
-            )(css.textField,
+            )(
+              css.textField,
               autoComplete := "email",
               id := "filled-email-input",
               `type` := "email",
@@ -121,7 +127,8 @@ object FilledTextFields extends ScalaCssReactImplicits {
               label = "Password".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.filled
-            )(css.textField,
+            )(
+              css.textField,
               autoComplete := "current-password",
               id := "filled-password-input",
               `type` := "password"
@@ -131,7 +138,8 @@ object FilledTextFields extends ScalaCssReactImplicits {
               margin = MuiTextField.Margin.normal,
               InputProps = MuiInputProps(readOnly = true),
               variant = MuiTextField.Variant.filled
-            )(css.textField,
+            )(
+              css.textField,
               id := "filled-read-only-input",
               defaultValue := "Hello World"
             ),
@@ -139,9 +147,7 @@ object FilledTextFields extends ScalaCssReactImplicits {
               label = "Dense".toVdom,
               margin = MuiTextField.Margin.dense,
               variant = MuiTextField.Variant.filled
-            )(css.textField, css.dense,
-              id := "filled-dense"
-            ),
+            )(css.textField, css.dense, id := "filled-dense"),
             MuiTextField(
               label = "Multiline".toVdom,
               multiline = true,
@@ -149,7 +155,8 @@ object FilledTextFields extends ScalaCssReactImplicits {
               margin = MuiTextField.Margin.normal,
               helperText = "hello".toVdom,
               variant = MuiTextField.Variant.filled
-            )(css.textField,
+            )(
+              css.textField,
               id := "filled-multiline-flexible",
               value := state.multiline,
               onChange ==> handleChangeMultiline
@@ -160,7 +167,8 @@ object FilledTextFields extends ScalaCssReactImplicits {
               rows = 4,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.filled
-            )(css.textField,
+            )(
+              css.textField,
               id := "filled-multiline-static",
               defaultValue := "Default Value"
             ),
@@ -169,7 +177,8 @@ object FilledTextFields extends ScalaCssReactImplicits {
               helperText = "Some important text".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.filled
-            )(css.textField,
+            )(
+              css.textField,
               id := "filled-helperText",
               defaultValue := "Default Value"
             ),
@@ -177,7 +186,8 @@ object FilledTextFields extends ScalaCssReactImplicits {
               label = "With placeholder".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.filled
-            )(css.textField,
+            )(
+              css.textField,
               id := "filled-with-placeholder",
               placeholder := "Placeholder"
             ),
@@ -186,7 +196,8 @@ object FilledTextFields extends ScalaCssReactImplicits {
               multiline = true,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.filled
-            )(css.textField,
+            )(
+              css.textField,
               id := "filled-textarea",
               placeholder := "Placeholder"
             ),
@@ -195,7 +206,8 @@ object FilledTextFields extends ScalaCssReactImplicits {
               InputLabelProps = MuiInputLabelProps(shrink = true),
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.filled
-            )(css.textField,
+            )(
+              css.textField,
               id := "filled-number",
               value := state.age,
               `type` := "number",
@@ -205,10 +217,7 @@ object FilledTextFields extends ScalaCssReactImplicits {
               label = "Search field".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.filled
-            )(css.textField,
-              id := "filled-search",
-              `type` := "search"
-            ),
+            )(css.textField, id := "filled-search", `type` := "search"),
             MuiTextField(
               select = true,
               label = "Select".toVdom,
@@ -217,7 +226,8 @@ object FilledTextFields extends ScalaCssReactImplicits {
               helperText = "Please select your currency".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.filled
-            )(css.textField,
+            )(
+              css.textField,
               id := "filled-select-currency",
               value := state.currency,
               onChange ==> handleChangeCurrency,
@@ -228,11 +238,15 @@ object FilledTextFields extends ScalaCssReactImplicits {
             MuiTextField(
               select = true,
               label = "Native select".toVdom,
-              SelectProps = MuiSelectProps(native = true, MenuProps = MuiMenuProps(className = css.menu.htmlClass)),
+              SelectProps = MuiSelectProps(
+                native = true,
+                MenuProps = MuiMenuProps(className = css.menu.htmlClass)
+              ),
               helperText = "Please select your currency".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.filled
-            )(css.textField,
+            )(
+              css.textField,
               id := "filled-select-currency-native",
               value := state.currency,
               onChange ==> handleChangeCurrency,
@@ -255,14 +269,12 @@ object FilledTextFields extends ScalaCssReactImplicits {
             MuiTextField(
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.filled
-            )(css.textField,
-              id := "filled-bare",
-              defaultValue := "Bare"
-            )
+            )(css.textField, id := "filled-bare", defaultValue := "Bare")
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("FilledTextFields")

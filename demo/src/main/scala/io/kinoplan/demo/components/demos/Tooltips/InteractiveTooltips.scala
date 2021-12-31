@@ -12,6 +12,7 @@ object InteractiveTooltips extends ScalaCssReactImplicits {
   case class Props(style: InteractiveTooltipsStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
@@ -28,6 +29,7 @@ object InteractiveTooltips extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("InteractiveTooltips")

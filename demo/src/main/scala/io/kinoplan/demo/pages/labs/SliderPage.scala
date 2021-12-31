@@ -11,16 +11,15 @@ object SliderPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
 
-      div(
-        SimpleSlider(),
-        StepSlider(),
-        DisabledSlider(),
-        VerticalSlider(),
-        CustomIconSlider()
-      )
-    }
+    def render(props: Props): VdomElement = div(
+      SimpleSlider(),
+      StepSlider(),
+      DisabledSlider(),
+      VerticalSlider(),
+      CustomIconSlider()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("SliderPage")

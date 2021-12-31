@@ -34,13 +34,16 @@ object MuiModal extends ReactBridgeComponent with MuiModalExtensions {
     onRendered: js.UndefOr[JsFun0] = js.undefined,
     open: Boolean
   ): WithProps = auto
+
 }
 
 trait MuiModalExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
     val root = "root"
     val hidden = "hidden"
   }
+
 }

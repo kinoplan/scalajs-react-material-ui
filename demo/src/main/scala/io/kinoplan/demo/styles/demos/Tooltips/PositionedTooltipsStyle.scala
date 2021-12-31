@@ -9,6 +9,7 @@ case class PositionedTooltipsStyle(common: CommonStyle = DefaultCommonStyle) ext
   val root = style(
     width(500.px)
   )
+
 }
 
 object DefaultPositionedTooltipsStyle extends PositionedTooltipsStyle

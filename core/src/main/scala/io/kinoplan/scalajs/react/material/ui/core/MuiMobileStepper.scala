@@ -28,9 +28,11 @@ object MuiMobileStepper extends ReactBridgeComponent with MuiMobileStepperExtens
     elevation: js.UndefOr[Int] = js.undefined,
     square: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiMobileStepperExtensions {
+
   object Position extends Enumeration {
     type Value = String
 
@@ -59,4 +61,5 @@ trait MuiMobileStepperExtensions {
     val dotActive = "dotActive"
     val progress = "progress"
   }
+
 }

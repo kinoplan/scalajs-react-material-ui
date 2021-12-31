@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class SimpleTooltipsStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -16,6 +17,7 @@ case class SimpleTooltipsStyle(common: CommonStyle = DefaultCommonStyle) extends
     bottom((theme.spacing.unit * 2).px),
     right((theme.spacing.unit * 3).px)
   )
+
 }
 
 object DefaultSimpleTooltipsStyle extends SimpleTooltipsStyle

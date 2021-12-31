@@ -8,10 +8,22 @@ import scalacss.ScalaCssReactImplicits
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Steppers.{CustomizedStepperStyle, DefaultCustomizedStepperStyle}
 import io.kinoplan.demo.utils.Helpers.styleAToClassName
-import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiStep, MuiStepConnector, MuiStepLabel, MuiStepper, MuiTypography}
+import io.kinoplan.scalajs.react.material.ui.core.{
+  MuiButton,
+  MuiStep,
+  MuiStepConnector,
+  MuiStepLabel,
+  MuiStepper,
+  MuiTypography
+}
 
 object CustomizedStepper extends ScalaCssReactImplicits {
-  val steps = List("Select campaign settings", "Create an ad group", "Create an ad")
+
+  val steps = List(
+    "Select campaign settings",
+    "Create an ad group",
+    "Create an ad"
+  )
 
   def getStepContent(step: Int) = step match {
     case 0 => "Select campaign settings..."
@@ -61,20 +73,17 @@ object CustomizedStepper extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Customized Stepper")(
-          div(css.root,
+          div(
+            css.root,
             MuiStepper(activeStep = state.activeStep, connector = connector)(
-              steps.toVdomArray { label =>
-                MuiStep()(Attr("key") := label,
-                  MuiStepLabel()(label)
-                )
-              }
+              steps.toVdomArray(label => MuiStep()(Attr("key") := label, MuiStepLabel()(label)))
             ),
-            MuiStepper(alternativeLabel = true, activeStep = state.activeStep, connector = connector)(
-              steps.toVdomArray { label =>
-                MuiStep()(Attr("key") := label,
-                  MuiStepLabel()(label)
-                )
-              }
+            MuiStepper(
+              alternativeLabel = true,
+              activeStep = state.activeStep,
+              connector = connector
+            )(
+              steps.toVdomArray(label => MuiStep()(Attr("key") := label, MuiStepLabel()(label)))
             ),
             div(
               div(
@@ -84,10 +93,15 @@ object CustomizedStepper extends ScalaCssReactImplicits {
               div(
                 MuiTypography()(css.instructions, getStepContent(state.activeStep)),
                 div(
-                  MuiButton()(css.button, onClick --> handleBack, disabled := state.isBackDisabled, "Back"),
+                  MuiButton()(
+                    css.button,
+                    onClick --> handleBack,
+                    disabled := state.isBackDisabled,
+                    "Back"
+                  ),
                   MuiButton(
                     variant = MuiButton.Variant.contained,
-                    color = MuiButton.Color.primary,
+                    color = MuiButton.Color.primary
                   )(onClick --> handleNext, state.nextTitle)
                 )
               ).when(state.notTotalStep)
@@ -96,6 +110,7 @@ object CustomizedStepper extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("CustomizedStepper")

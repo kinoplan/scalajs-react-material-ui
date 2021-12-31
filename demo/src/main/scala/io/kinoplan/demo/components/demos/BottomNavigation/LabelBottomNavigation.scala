@@ -19,9 +19,9 @@ object LabelBottomNavigation extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
-    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) => {
+
+    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) =>
       t.modState(_.handleChange(value))
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
@@ -29,15 +29,25 @@ object LabelBottomNavigation extends ScalaCssReactImplicits {
       div(
         ComponentContainer("Bottom Navigation with no label")(
           div(
-            MuiBottomNavigation(onChange = handleChange)(css.root,
+            MuiBottomNavigation(onChange = handleChange)(
+              css.root,
               value := state.value,
-              MuiBottomNavigationAction(label = VdomNode("Recents"), icon = MuiIcons(MuiIconsModule.Restore)()())(
+              MuiBottomNavigationAction(
+                label = VdomNode("Recents"),
+                icon = MuiIcons(MuiIconsModule.Restore)()()
+              )(
                 value := "recents"
               ),
-              MuiBottomNavigationAction(label = VdomNode("Favorites"), icon = MuiIcons(MuiIconsModule.Favorite)()())(
+              MuiBottomNavigationAction(
+                label = VdomNode("Favorites"),
+                icon = MuiIcons(MuiIconsModule.Favorite)()()
+              )(
                 value := "favorites"
               ),
-              MuiBottomNavigationAction(label = VdomNode("Nearby"), icon = MuiIcons(MuiIconsModule.LocationOn)()())(
+              MuiBottomNavigationAction(
+                label = VdomNode("Nearby"),
+                icon = MuiIcons(MuiIconsModule.LocationOn)()()
+              )(
                 value := "nearby"
               ),
               MuiBottomNavigationAction(label = VdomNode("Folder"), icon = MuiIcon()("folder"))(
@@ -48,6 +58,7 @@ object LabelBottomNavigation extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("LabelBottomNavigation")

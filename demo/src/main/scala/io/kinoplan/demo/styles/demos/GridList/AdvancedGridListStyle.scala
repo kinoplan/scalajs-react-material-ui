@@ -28,6 +28,7 @@ case class AdvancedGridListStyle(common: CommonStyle = DefaultCommonStyle) exten
   val iconStyle = style(
     color.white
   )
+
 }
 
 object DefaultAdvancedGridListStyle extends AdvancedGridListStyle

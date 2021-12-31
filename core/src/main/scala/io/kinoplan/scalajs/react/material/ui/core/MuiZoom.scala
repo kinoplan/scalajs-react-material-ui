@@ -30,4 +30,5 @@ object MuiZoom extends ReactBridgeComponent {
     onExiting: js.UndefOr[Handler1[html.Element]] = js.undefined,
     onExited: js.UndefOr[Handler1[html.Element]] = js.undefined
   ): WithProps = auto
+
 }

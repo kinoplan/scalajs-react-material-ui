@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class ControlledOpenSelectStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -16,6 +17,7 @@ case class ControlledOpenSelectStyle(common: CommonStyle = DefaultCommonStyle) e
     margin(theme.spacing.unit.px),
     minWidth(120.px)
   )
+
 }
 
 object DefaultControlledOpenSelectStyle extends ControlledOpenSelectStyle

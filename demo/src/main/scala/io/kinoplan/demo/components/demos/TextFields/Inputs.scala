@@ -13,29 +13,36 @@ object Inputs extends ScalaCssReactImplicits {
   case class Props(style: ComponentTextFieldStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Inputs")(
-          div(css.container,
-            MuiInput(inputProps = MuiInputProps(ariaLabel = "Description"))(css.formControl,
+          div(
+            css.container,
+            MuiInput(inputProps = MuiInputProps(ariaLabel = "Description"))(
+              css.formControl,
               defaultValue := "Hello world"
             ),
-            MuiInput(inputProps = MuiInputProps(ariaLabel = "Description"))(css.formControl,
+            MuiInput(inputProps = MuiInputProps(ariaLabel = "Description"))(
+              css.formControl,
               placeholder := "Placeholder"
             ),
-            MuiInput(inputProps = MuiInputProps(ariaLabel = "Description"))(css.formControl,
+            MuiInput(inputProps = MuiInputProps(ariaLabel = "Description"))(
+              css.formControl,
               disabled := true,
               value := "Disabled"
             ),
-            MuiInput(error = true, inputProps = MuiInputProps(ariaLabel = "Description"))(css.formControl,
-              defaultValue := "Error"
-            )
+            MuiInput(
+              error = true,
+              inputProps = MuiInputProps(ariaLabel = "Description")
+            )(css.formControl, defaultValue := "Error")
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("Inputs")

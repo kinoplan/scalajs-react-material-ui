@@ -21,9 +21,11 @@ object MuiList extends ReactBridgeComponent with MuiListExtensions {
     disablePadding: js.UndefOr[Boolean] = js.undefined,
     subheader: js.UndefOr[VdomNode] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiListExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -32,4 +34,5 @@ trait MuiListExtensions {
     val dense = "dense"
     val subheader = "subheader"
   }
+
 }

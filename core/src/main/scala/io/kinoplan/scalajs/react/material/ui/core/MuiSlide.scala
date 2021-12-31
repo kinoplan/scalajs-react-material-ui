@@ -31,9 +31,11 @@ object MuiSlide extends ReactBridgeComponent with MuiSlideExtensions {
     onExiting: js.UndefOr[Handler1[html.Element]] = js.undefined,
     onExited: js.UndefOr[Handler1[html.Element]] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiSlideExtensions {
+
   object Direction extends Enumeration {
     type Value = String
 
@@ -42,4 +44,5 @@ trait MuiSlideExtensions {
     val up = "up"
     val down = "down"
   }
+
 }

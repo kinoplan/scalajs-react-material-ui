@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class ChipsArrayStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import dsl._
   import common.theme
 
@@ -17,6 +18,7 @@ case class ChipsArrayStyle(common: CommonStyle = DefaultCommonStyle) extends Sty
   val chip = style(
     margin((theme.spacing.unit / 2).px)
   )
+
 }
 
 object DefaultChipsArrayStyle extends ChipsArrayStyle

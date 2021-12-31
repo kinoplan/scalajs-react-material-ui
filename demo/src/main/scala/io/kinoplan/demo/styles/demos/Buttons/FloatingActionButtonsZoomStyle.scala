@@ -3,7 +3,9 @@ package io.kinoplan.demo.styles.demos.Buttons
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.scalajs.react.material.ui.core.colors
 
-case class FloatingActionButtonsZoomStyle(common: CommonButtonStyle = DefaultCommonButtonStyle) extends StyleSheet.Inline {
+case class FloatingActionButtonsZoomStyle(common: CommonButtonStyle = DefaultCommonButtonStyle)
+    extends StyleSheet.Inline {
+
   import dsl._
 
   val theme = common.theme

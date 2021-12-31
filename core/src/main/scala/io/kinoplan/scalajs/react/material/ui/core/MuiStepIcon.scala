@@ -21,9 +21,11 @@ object MuiStepIcon extends ReactBridgeComponent with MuiStepIconExtensions {
     error: js.UndefOr[Boolean] = js.undefined,
     icon: VdomNode
   ): WithPropsNoChildren = autoNoChildren
+
 }
 
 trait MuiStepIconExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -33,4 +35,5 @@ trait MuiStepIconExtensions {
     val completed = "completed"
     val error = "error"
   }
+
 }

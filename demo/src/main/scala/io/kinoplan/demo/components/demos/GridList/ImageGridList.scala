@@ -14,16 +14,21 @@ object ImageGridList extends ScalaCssReactImplicits {
   case class Props(style: ImageGridListStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Image-only Grid list")(
-          div(css.root, css.rootPaper(Layout.isPaletteLight),
-            MuiGridList(cellHeight = 160)(css.gridList,
+          div(
+            css.root,
+            css.rootPaper(Layout.isPaletteLight),
+            MuiGridList(cellHeight = 160)(
+              css.gridList,
               cols := 3,
               TileData.default.toVdomArray { tile =>
-                MuiGridListTile()(Attr("key") := tile.image,
+                MuiGridListTile()(
+                  Attr("key") := tile.image,
                   cols := tile.defaultCols,
                   img(src := tile.image, alt := tile.title)
                 )
@@ -33,6 +38,7 @@ object ImageGridList extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("ImageGridList")

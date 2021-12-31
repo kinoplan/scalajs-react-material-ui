@@ -17,9 +17,9 @@ object VerticalSlider extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
-    def handleChange: (ReactEvent, Double) => Callback = (_, value) => {
+
+    def handleChange: (ReactEvent, Double) => Callback = (_, value) =>
       t.modState(_.handleChange(value))
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
@@ -30,7 +30,8 @@ object VerticalSlider extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Vertical slider")(
-          div(css.root,
+          div(
+            css.root,
             MuiSlider(classes = sliderClasses, onChange = handleChange, vertical = true)(
               value := state.value
             )
@@ -38,6 +39,7 @@ object VerticalSlider extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("VerticalSlider")

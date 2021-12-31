@@ -16,13 +16,16 @@ object MuiRadioGroup extends ReactBridgeComponent with MuiRadioGroupExtensions {
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     row: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiRadioGroupExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
     val root = "root"
     val row = "row"
   }
+
 }

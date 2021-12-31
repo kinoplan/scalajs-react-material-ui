@@ -26,9 +26,11 @@ object MuiSwitch extends ReactBridgeComponent with MuiSwitchExtensions {
     inputRef: js.UndefOr[ComponentRefType] = js.undefined,
     defaultChecked: js.UndefOr[Boolean] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
+
 }
 
 trait MuiSwitchExtensions {
+
   object Color extends Enumeration {
     type Value = String
 
@@ -44,10 +46,11 @@ trait MuiSwitchExtensions {
     val icon = "icon"
     val iconChecked = "iconChecked"
     val switchBase = "switchBase"
-    val checked	= "checked"
+    val checked = "checked"
     val colorPrimary = "colorPrimary"
     val colorSecondary = "colorSecondary"
     val disabled = "disabled"
     val bar = "bar"
   }
+
 }

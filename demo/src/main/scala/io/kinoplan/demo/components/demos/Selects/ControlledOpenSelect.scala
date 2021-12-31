@@ -21,6 +21,7 @@ object ControlledOpenSelect extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
+
     def handleChangeAge(e: ReactEventFromInput) = {
       val value = e.target.value
 
@@ -36,9 +37,11 @@ object ControlledOpenSelect extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Controlled open Select")(
-          form(autoComplete := "off",
+          form(
+            autoComplete := "off",
             MuiButton()(css.button, onClick ==> handleOpen, "Open the select"),
-            MuiFormControl()(css.formControl,
+            MuiFormControl()(
+              css.formControl,
               MuiInputLabel()(htmlFor := "demo-controlled-open-select", "Age"),
               MuiSelect(
                 open = state.open,
@@ -61,6 +64,7 @@ object ControlledOpenSelect extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("ControlledOpenSelect")

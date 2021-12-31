@@ -12,6 +12,7 @@ trait TypeText extends js.Object {
 }
 
 object TypeText {
+
   def apply(
     primary: String,
     secondary: String,
@@ -27,4 +28,5 @@ object TypeText {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[TypeText]
   }
+
 }

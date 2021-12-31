@@ -17,9 +17,11 @@ object MuiTableRow extends ReactBridgeComponent with MuiTableRowExtensions {
     component: js.UndefOr[ComponentPropType] = js.undefined,
     hover: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiTableRowExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -29,4 +31,5 @@ trait MuiTableRowExtensions {
     val head = "head"
     val footer = "footer"
   }
+
 }

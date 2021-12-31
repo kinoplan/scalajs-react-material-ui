@@ -146,6 +146,7 @@ case class PersistentDrawerStyle(common: CommonStyle = DefaultCommonStyle) exten
   val contentShiftRight = style(
     marginRight(0.px)
   )
+
 }
 
 object DefaultPersistentDrawerStyle extends PersistentDrawerStyle

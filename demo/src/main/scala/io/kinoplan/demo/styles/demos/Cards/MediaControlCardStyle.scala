@@ -36,6 +36,7 @@ case class MediaControlCardStyle(common: CommonStyle = DefaultCommonStyle) exten
     height(38.px),
     width(38.px)
   )
+
 }
 
 object DefaultMediaControlCardStyle extends MediaControlCardStyle

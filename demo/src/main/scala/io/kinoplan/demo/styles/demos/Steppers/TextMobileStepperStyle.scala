@@ -22,11 +22,8 @@ case class TextMobileStepperStyle(common: CommonStyle = DefaultCommonStyle) exte
   )
 
   val headerPaper = styleF.bool(isLight =>
-    if (isLight) {
-      styleS(backgroundColor :=! colors.grey.`50`)
-    } else {
-      styleS(backgroundColor :=! "#303030")
-    }
+    if (isLight) styleS(backgroundColor :=! colors.grey.`50`)
+    else styleS(backgroundColor :=! "#303030")
   )
 
   val img = style(
@@ -36,6 +33,7 @@ case class TextMobileStepperStyle(common: CommonStyle = DefaultCommonStyle) exte
     display.block,
     width(100.%%)
   )
+
 }
 
 object DefaultTextMobileStepperStyle extends TextMobileStepperStyle

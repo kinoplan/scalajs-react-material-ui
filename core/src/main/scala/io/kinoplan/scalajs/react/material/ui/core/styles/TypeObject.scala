@@ -12,6 +12,7 @@ trait TypeObject extends js.Object {
 }
 
 object TypeObject {
+
   def apply(
     text: TypeText,
     action: TypeAction,
@@ -27,4 +28,5 @@ object TypeObject {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[TypeObject]
   }
+
 }

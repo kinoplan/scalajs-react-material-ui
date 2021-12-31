@@ -14,29 +14,34 @@ object MediaControlCard extends ScalaCssReactImplicits {
   case class Props(style: MediaControlCardStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("UI Controls")(
-          MuiCard()(css.card,
-            div(css.details,
-              MuiCardContent()(css.content,
+          MuiCard()(
+            css.card,
+            div(
+              css.details,
+              MuiCardContent()(
+                css.content,
                 MuiTypography(component = "h5", variant = MuiTypography.Variant.h5)(
                   "Live From Space"
                 ),
-                MuiTypography(variant = MuiTypography.Variant.subtitle1, color = MuiTypography.Color.textSecondary)(
+                MuiTypography(
+                  variant = MuiTypography.Variant.subtitle1,
+                  color = MuiTypography.Color.textSecondary
+                )(
                   "Mac Miller"
                 )
               ),
-              div(css.controls,
+              div(
+                css.controls,
                 MuiIconButton()(
                   aria.label := "Previous",
-                  if (css.theme.direction == Direction.rtl) {
-                    MuiIcons(MuiIconsModule.SkipNext)()
-                  } else {
-                    MuiIcons(MuiIconsModule.SkipPrevious)()
-                  }
+                  if (css.theme.direction == Direction.rtl) MuiIcons(MuiIconsModule.SkipNext)()
+                  else MuiIcons(MuiIconsModule.SkipPrevious)()
                 ),
                 MuiIconButton()(
                   aria.label := "Play/pause",
@@ -44,21 +49,20 @@ object MediaControlCard extends ScalaCssReactImplicits {
                 ),
                 MuiIconButton()(
                   aria.label := "Next",
-                  if (css.theme.direction == Direction.rtl) {
-                    MuiIcons(MuiIconsModule.SkipPrevious)()
-                  } else {
-                    MuiIcons(MuiIconsModule.SkipNext)()
-                  }
+                  if (css.theme.direction == Direction.rtl) MuiIcons(MuiIconsModule.SkipPrevious)()
+                  else MuiIcons(MuiIconsModule.SkipNext)()
                 )
               )
             ),
-            MuiCardMedia(image = "/static/images/cards/live-from-space.jpg")(css.cover,
+            MuiCardMedia(image = "/static/images/cards/live-from-space.jpg")(
+              css.cover,
               title := "Live from space album cover"
             )
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("MediaControlCard")

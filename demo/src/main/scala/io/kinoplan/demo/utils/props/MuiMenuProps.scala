@@ -10,15 +10,17 @@ trait MuiMenuProps extends js.Object {
 }
 
 object MuiMenuProps {
+
   def apply(
     PaperProps: js.UndefOr[js.Object] = js.undefined,
     className: js.UndefOr[String] = js.undefined
   ) = {
-    val o : Map[String, Any] = Seq(
+    val o: Map[String, Any] = Seq(
       PaperProps.toOption.map("PaperProps" -> _),
       className.toOption.map("className" -> _)
     ).flatten.toMap
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[MuiMenuProps]
   }
+
 }

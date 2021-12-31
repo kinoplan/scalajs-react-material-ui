@@ -6,6 +6,7 @@ case class FieldRange(
 )
 
 object FieldRange {
+
   val commons = List(
     FieldRange(
       value = "0-20",
@@ -20,4 +21,5 @@ object FieldRange {
       label = "51 to 100"
     )
   )
+
 }

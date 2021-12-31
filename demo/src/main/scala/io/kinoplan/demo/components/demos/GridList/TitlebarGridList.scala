@@ -10,31 +10,46 @@ import scalacss.ScalaCssReactImplicits
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.models.GridList.TileData
 import io.kinoplan.demo.styles.demos.GridList.{DefaultTitlebarGridListStyle, TitlebarGridListStyle}
-import io.kinoplan.scalajs.react.material.ui.core.{MuiGridList, MuiGridListTile, MuiGridListTileBar, MuiIconButton, MuiListSubheader}
+import io.kinoplan.scalajs.react.material.ui.core.{
+  MuiGridList,
+  MuiGridListTile,
+  MuiGridListTileBar,
+  MuiIconButton,
+  MuiListSubheader
+}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object TitlebarGridList extends ScalaCssReactImplicits {
   case class Props(style: TitlebarGridListStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Grid list with titlebars")(
-          div(css.root, css.rootPaper(Layout.isPaletteLight),
-            MuiGridList()(css.gridList,
-              MuiGridListTile()(Attr("key") := "Subheader", style := js.Dictionary("height" -> "auto"),
+          div(
+            css.root,
+            css.rootPaper(Layout.isPaletteLight),
+            MuiGridList()(
+              css.gridList,
+              MuiGridListTile()(
+                Attr("key") := "Subheader",
+                style := js.Dictionary("height" -> "auto"),
                 cols := 2,
                 MuiListSubheader(component = "div")("December")
               ),
               TileData.default.toVdomArray { tile =>
-                MuiGridListTile()(Attr("key") := tile.image,
+                MuiGridListTile()(
+                  Attr("key") := tile.image,
                   img(src := tile.image, alt := tile.title),
                   MuiGridListTileBar(
                     title = VdomNode(tile.title),
                     subtitle = VdomNode(span(s"by: ${tile.author}").rawNode),
-                    actionIcon = VdomNode(MuiIconButton()(css.iconStyle, MuiIcons(MuiIconsModule.Info)()).rawNode)
+                    actionIcon = VdomNode(
+                      MuiIconButton()(css.iconStyle, MuiIcons(MuiIconsModule.Info)()).rawNode
+                    )
                   )
                 )
               }
@@ -43,6 +58,7 @@ object TitlebarGridList extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("TitlebarGridList")

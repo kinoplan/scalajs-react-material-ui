@@ -10,6 +10,7 @@ trait MuiInputLabelProps extends js.Object {
 }
 
 object MuiInputLabelProps {
+
   def apply(
     shrink: js.UndefOr[Boolean] = js.undefined,
     classes: js.UndefOr[js.Object] = js.undefined
@@ -21,4 +22,5 @@ object MuiInputLabelProps {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[MuiInputLabelProps]
   }
+
 }

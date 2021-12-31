@@ -29,9 +29,11 @@ object MuiFab extends ReactBridgeComponent with MuiFabExtensions {
     onFocusVisible: js.UndefOr[js.Function] = js.undefined,
     TouchRippleProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiFabExtensions {
+
   object Color extends Enumeration {
     type Value = String
 
@@ -70,4 +72,5 @@ trait MuiFabExtensions {
     val sizeSmall = "sizeSmall"
     val sizeMedium = "sizeMedium"
   }
+
 }

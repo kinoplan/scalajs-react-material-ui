@@ -29,6 +29,7 @@ trait Typography extends js.Object {
 }
 
 object Typography {
+
   def apply(
     pxToRem: Int => String,
     round: Double => Int,
@@ -78,4 +79,5 @@ object Typography {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[Typography]
   }
+
 }

@@ -28,17 +28,22 @@ object ScrollableTabsButtonAuto extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
-    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) => {
+
+    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) =>
       t.modState(_.handleChange(value))
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Scrollable Tabs - Automatic Scroll Buttons")(
-          div(css.root, css.rootPaper(Layout.isPaletteLight),
-            MuiAppBar(position = MuiAppBar.Position.static, color = MuiAppBar.Color.default)(
+          div(
+            css.root,
+            css.rootPaper(Layout.isPaletteLight),
+            MuiAppBar(
+              position = MuiAppBar.Position.static,
+              color = MuiAppBar.Color.default
+            )(
               MuiTabs(
                 onChange = handleChange,
                 indicatorColor = MuiTabs.IndicatorColor.primary,
@@ -67,6 +72,7 @@ object ScrollableTabsButtonAuto extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("ScrollableTabsButtonAuto")

@@ -15,12 +15,15 @@ object MuiListItemSecondaryAction extends ReactBridgeComponent with MuiListItemS
   def apply(
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiListItemSecondaryActionExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
     val root = "root"
   }
+
 }

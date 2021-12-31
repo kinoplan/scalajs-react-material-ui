@@ -7,7 +7,14 @@ import scalacss.ScalaCssReactImplicits
 
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.TextFields.{ComponentTextFieldStyle, DefaultComponentTextFieldStyle}
-import io.kinoplan.scalajs.react.material.ui.core.{MuiFilledInput, MuiFormControl, MuiFormHelperText, MuiInput, MuiInputLabel, MuiOutlinedInput}
+import io.kinoplan.scalajs.react.material.ui.core.{
+  MuiFilledInput,
+  MuiFormControl,
+  MuiFormHelperText,
+  MuiInput,
+  MuiInputLabel,
+  MuiOutlinedInput
+}
 
 object ComposedTextField extends ScalaCssReactImplicits {
   case class Props(style: ComponentTextFieldStyle)
@@ -23,6 +30,7 @@ object ComposedTextField extends ScalaCssReactImplicits {
 
       copy(labelWidth = offsetWidth)
     }
+
   }
 
   class Backend(t: BackendScope[Props, State]) {
@@ -43,8 +51,10 @@ object ComposedTextField extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Components")(
-          div(css.container,
-            MuiFormControl()(css.formControl,
+          div(
+            css.container,
+            MuiFormControl()(
+              css.formControl,
               MuiInputLabel()(htmlFor := "component-simple", "Name"),
               MuiInput()(
                 id := "component-simple",
@@ -52,7 +62,8 @@ object ComposedTextField extends ScalaCssReactImplicits {
                 onChange ==> handleChange
               )
             ),
-            MuiFormControl()(css.formControl,
+            MuiFormControl()(
+              css.formControl,
               MuiInputLabel()(htmlFor := "component-helper", "Name"),
               MuiInput()(
                 id := "component-helper",
@@ -62,7 +73,8 @@ object ComposedTextField extends ScalaCssReactImplicits {
               ),
               MuiFormHelperText()(id := "component-helper-text", "Some important helper text")
             ),
-            MuiFormControl()(css.formControl,
+            MuiFormControl()(
+              css.formControl,
               disabled := true,
               MuiInputLabel()(htmlFor := "component-disabled", "Name"),
               MuiInput()(
@@ -72,7 +84,8 @@ object ComposedTextField extends ScalaCssReactImplicits {
               ),
               MuiFormHelperText()("Disabled")
             ),
-            MuiFormControl(error = true)(css.formControl,
+            MuiFormControl(error = true)(
+              css.formControl,
               MuiInputLabel()(htmlFor := "component-error", "Name"),
               MuiInput()(
                 id := "component-error",
@@ -82,15 +95,17 @@ object ComposedTextField extends ScalaCssReactImplicits {
               ),
               MuiFormHelperText()(id := "component-error-text", "Error")
             ),
-            MuiFormControl(variant = MuiFormControl.Variant.outlined)(css.formControl,
+            MuiFormControl(variant = MuiFormControl.Variant.outlined)(
+              css.formControl,
               MuiInputLabel()(id := inputRefId, htmlFor := "component-outlined", "Name"),
               MuiOutlinedInput(labelWidth = state.labelWidth)(
                 id := "component-outlined",
                 value := state.name,
-                onChange ==> handleChange,
+                onChange ==> handleChange
               )
             ),
-            MuiFormControl(variant = MuiFormControl.Variant.filled)(css.formControl,
+            MuiFormControl(variant = MuiFormControl.Variant.filled)(
+              css.formControl,
               MuiInputLabel()(htmlFor := "component-filled", "Name"),
               MuiFilledInput()(
                 id := "component-filled",
@@ -102,6 +117,7 @@ object ComposedTextField extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("ComposedTextField")

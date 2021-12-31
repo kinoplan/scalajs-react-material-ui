@@ -13,23 +13,28 @@ object CustomizedInputBase extends ScalaCssReactImplicits {
   case class Props(style: CustomizedInputBaseStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Customized Input Base")(
-          MuiPaper(elevation = 1)(css.root,
-            MuiIconButton()(css.iconButton,
+          MuiPaper(elevation = 1)(
+            css.root,
+            MuiIconButton()(
+              css.iconButton,
               aria.label := "Menu",
               MuiIcons(MuiIconsModule.Menu)()
             ),
             MuiInputBase()(css.input, placeholder := "Search Google Maps"),
-            MuiIconButton()(css.iconButton,
+            MuiIconButton()(
+              css.iconButton,
               aria.label := "Search",
               MuiIcons(MuiIconsModule.Search)()
             ),
             MuiDivider()(css.divider),
-            MuiIconButton(color = MuiIconButton.Color.primary)(css.iconButton,
+            MuiIconButton(color = MuiIconButton.Color.primary)(
+              css.iconButton,
               aria.label := "Directions",
               MuiIcons(MuiIconsModule.Directions)()
             )
@@ -37,6 +42,7 @@ object CustomizedInputBase extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("CustomizedInputBase")

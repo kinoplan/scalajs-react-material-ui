@@ -30,57 +30,72 @@ object MiniDrawer extends ScalaCssReactImplicits {
       val css = props.style
 
       val drawerClasses = Map(
-        MuiDrawer.ClassKey.paper -> stylesToClassName(Seq(
-          if (state.open) css.drawerOpen else css.common.emptyStyle,
-          if (!state.open) css.drawerClose else css.common.emptyStyle
-        ))
-      )
-
-      val drawer = {
-        div(
-          div(css.toolbar,
-            MuiIconButton()(
-              onClick --> handleDrawerClose,
-              if (css.theme.direction == Direction.ltr) {
-                MuiIcons(MuiIconsModule.ChevronLeft)()
-              } else {
-                MuiIcons(MuiIconsModule.ChevronRight)()
-              }
-            )
-          ),
-          MuiDivider(),
-          MuiList()(
-            List("Inbox", "Starred", "Send email", "Drafts").zipWithIndex.toVdomArray { case (text, index) =>
-              MuiListItem(button = true)(Attr("key") := text,
-                MuiListItemIcon()(if (index % 2 == 0) MuiIcons(MuiIconsModule.Inbox)() else MuiIcons(MuiIconsModule.Mail)()),
-                MuiListItemText(primary = VdomNode(text))
-              )
-            }
-          ),
-          MuiDivider(),
-          MuiList()(
-            List("All mail", "Trash", "Spam").zipWithIndex.toVdomArray { case (text, index) =>
-              MuiListItem(button = true)(Attr("key") := text,
-                MuiListItemIcon()(if (index % 2 == 0) MuiIcons(MuiIconsModule.Inbox)() else MuiIcons(MuiIconsModule.Mail)()),
-                MuiListItemText(primary = VdomNode(text))
-              )
-            }
+        MuiDrawer.ClassKey.paper -> stylesToClassName(
+          Seq(
+            if (state.open) css.drawerOpen else css.common.emptyStyle,
+            if (!state.open) css.drawerClose else css.common.emptyStyle
           )
         )
-      }
+      )
+
+      val drawer = div(
+        div(
+          css.toolbar,
+          MuiIconButton()(
+            onClick --> handleDrawerClose,
+            if (css.theme.direction == Direction.ltr) MuiIcons(MuiIconsModule.ChevronLeft)()
+            else MuiIcons(MuiIconsModule.ChevronRight)()
+          )
+        ),
+        MuiDivider(),
+        MuiList()(
+          List("Inbox", "Starred", "Send email", "Drafts").zipWithIndex.toVdomArray { case (text, index) =>
+            MuiListItem(button = true)(
+              Attr("key") := text,
+              MuiListItemIcon()(
+                if (index % 2 == 0) MuiIcons(MuiIconsModule.Inbox)()
+                else MuiIcons(MuiIconsModule.Mail)()
+              ),
+              MuiListItemText(primary = VdomNode(text))
+            )
+          }
+        ),
+        MuiDivider(),
+        MuiList()(
+          List("All mail", "Trash", "Spam").zipWithIndex.toVdomArray { case (text, index) =>
+            MuiListItem(button = true)(
+              Attr("key") := text,
+              MuiListItemIcon()(
+                if (index % 2 == 0) MuiIcons(MuiIconsModule.Inbox)()
+                else MuiIcons(MuiIconsModule.Mail)()
+              ),
+              MuiListItemText(primary = VdomNode(text))
+            )
+          }
+        )
+      )
 
       div(
         ComponentContainer("Mini variant drawer")(
-          div(css.root,
+          div(
+            css.root,
             MuiCssBaseline(),
-            MuiAppBar(position = MuiAppBar.Position.absolute)(css.appBar, if (state.open) css.appBarShift else css.common.emptyStyle,
+            MuiAppBar(position = MuiAppBar.Position.absolute)(
+              css.appBar,
+              if (state.open) css.appBarShift else css.common.emptyStyle,
               MuiToolbar(disableGutters = !state.open)(
-                MuiIconButton(color = MuiIconButton.Color.inherit)(css.menuButton, if (state.open) css.hide else css.common.emptyStyle,
+                MuiIconButton(color = MuiIconButton.Color.inherit)(
+                  css.menuButton,
+                  if (state.open) css.hide else css.common.emptyStyle,
                   aria.label := "Open drawer",
                   onClick --> handleDrawerOpen,
                   MuiIcons(MuiIconsModule.Menu)()
                 ),
-                MuiTypography(variant = MuiTypography.Variant.h6, color = MuiTypography.Color.inherit, noWrap = true)(
+                MuiTypography(
+                  variant = MuiTypography.Variant.h6,
+                  color = MuiTypography.Color.inherit,
+                  noWrap = true
+                )(
                   "Mini variant drawer"
                 )
               )
@@ -89,12 +104,14 @@ object MiniDrawer extends ScalaCssReactImplicits {
               variant = MuiDrawer.Variant.permanent,
               open = state.open,
               classes = drawerClasses
-            )(css.drawer,
+            )(
+              css.drawer,
               if (state.open) css.drawerOpen else css.common.emptyStyle,
               if (!state.open) css.drawerClose else css.common.emptyStyle,
               drawer
             ),
-            main(css.content,
+            main(
+              css.content,
               div(css.toolbar),
               MuiTypography(paragraph = true)(
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
@@ -125,6 +142,7 @@ object MiniDrawer extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("MiniDrawer")

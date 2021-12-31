@@ -59,9 +59,11 @@ object MuiMenu extends ReactBridgeComponent with MuiMenuExtensions {
     onEscapeKeyDown: js.UndefOr[ReactHandler1[ReactEvent]] = js.undefined,
     onRendered: js.UndefOr[JsFun0] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiMenuExtensions {
+
   object AnchorReference extends Enumeration {
     type Value = String
 
@@ -83,4 +85,5 @@ trait MuiMenuExtensions {
     val root = "root"
     val hidden = "hidden"
   }
+
 }

@@ -40,6 +40,7 @@ object ChipsPlayground extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
+
     def handleChangeColor: ReactEventFromInput => Callback = e => {
       val value = e.target.value
 
@@ -70,32 +71,32 @@ object ChipsPlayground extends ScalaCssReactImplicits {
       t.modState(_.handleChangeVariant(value))
     }
 
-    def handleDeleteExample(state: State): ReactEvent => Callback = _ => {
+    def handleDeleteExample(state: State): ReactEvent => Callback = _ =>
       Callback.alert("You clicked the delete icon.").when_(state.isOnDeleteNotNone)
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
 
-      val iconToPlayground = if (state.isAvatarNotNone) {
-        None
-      } else {
-        state.icon match {
+      val iconToPlayground =
+        if (state.isAvatarNotNone) None
+        else state.icon match {
           case "none" => None
-          case _ => Some(MuiIcons(MuiIconsModule.Face)()().rawElement)
+          case _      => Some(MuiIcons(MuiIconsModule.Face)()().rawElement)
         }
-      }
 
       val avatarToPlayground = state.avatar match {
         case "none" => None
-        case "img" => Some(MuiAvatar()(src := "/static/images/avatar/1.jpg")().rawElement)
+        case "img" => Some(
+            MuiAvatar()(src := "/static/images/avatar/1.jpg")().rawElement
+          )
         case "letter" => Some(MuiAvatar()("FH").rawElement)
-        case _ => Some(MuiAvatar()(MuiIcons(MuiIconsModule.Face)()).rawElement)
+        case _        => Some(MuiAvatar()(MuiIcons(MuiIconsModule.Face)()).rawElement)
       }
 
       div(
         ComponentContainer("Chip Playground")(
-          MuiGrid(item = true, container = true)(css.root,
+          MuiGrid(item = true, container = true)(
+            css.root,
             MuiGrid(item = true, xs = 12)(
               MuiGrid(
                 container = true,
@@ -103,15 +104,13 @@ object ChipsPlayground extends ScalaCssReactImplicits {
                 alignItems = MuiGrid.AlignItems.center,
                 spacing = MuiGrid.Spacing.`40`
               )(
-                MuiGrid(item = true)(css.chipWrapper,
+                MuiGrid(item = true)(
+                  css.chipWrapper,
                   MuiChip(
                     label = "Awesome Chip Component".toVdom,
                     color = state.color,
-                    deleteIcon = (if (state.isOnDeleteCustom) {
-                      Some(MuiIcons(MuiIconsModule.Done)()().rawElement)
-                    } else {
-                      None
-                    }).orUndefined,
+                    deleteIcon = (if (state.isOnDeleteCustom) Some(MuiIcons(MuiIconsModule.Done)()().rawElement)
+                                  else None).orUndefined,
                     onDelete = handleDeleteExample(state),
                     avatar = avatarToPlayground.orUndefined,
                     icon = iconToPlayground.orUndefined,
@@ -121,7 +120,8 @@ object ChipsPlayground extends ScalaCssReactImplicits {
               )
             ),
             MuiGrid(item = true, xs = 12)(
-              MuiPaper()(css.control,
+              MuiPaper()(
+                css.control,
                 MuiGrid(item = true, container = true, spacing = MuiGrid.Spacing.`24`)(
                   MuiGrid(item = true, xs = 12)(
                     MuiFormControl(component = "fieldset")(
@@ -241,6 +241,7 @@ object ChipsPlayground extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("ChipsPlayground")

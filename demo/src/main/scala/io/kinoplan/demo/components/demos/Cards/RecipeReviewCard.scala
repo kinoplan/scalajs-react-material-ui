@@ -26,28 +26,25 @@ object RecipeReviewCard extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Complex Interaction")(
-          MuiCard()(css.card,
+          MuiCard()(
+            css.card,
             MuiCardHeader(
-              avatar = VdomNode(MuiAvatar()(css.avatar,
-                aria.label := "Recipe",
-                "R"
-              ).rawNode),
+              avatar = VdomNode(MuiAvatar()(css.avatar, aria.label := "Recipe", "R").rawNode),
               action = MuiIconButton()(
                 MuiIcons(MuiIconsModule.MoreVert)()
               ),
               title = VdomNode("Shrimp and Chorizo Paella"),
               subheader = VdomNode("September 14, 2016")
             ),
-            MuiCardMedia(image = "/static/images/cards/paella.jpg")(css.media,
-              title := "Paella dish"
-            ),
+            MuiCardMedia(image = "/static/images/cards/paella.jpg")(css.media, title := "Paella dish"),
             MuiCardContent()(
               MuiTypography(component = "p")(
                 " This impressive paella is a perfect party dish and a fun meal to cook together with your " +
-                "guests. Add 1 cup of frozen peas along with the mussels, if you like."
+                  "guests. Add 1 cup of frozen peas along with the mussels, if you like."
               )
             ),
-            MuiCardActions(disableActionSpacing = true)(css.actions,
+            MuiCardActions(disableActionSpacing = true)(
+              css.actions,
               MuiIconButton()(
                 aria.label := "Add to favorites",
                 MuiIcons(MuiIconsModule.Favorite)()
@@ -56,14 +53,20 @@ object RecipeReviewCard extends ScalaCssReactImplicits {
                 aria.label := "Share",
                 MuiIcons(MuiIconsModule.Share)()
               ),
-              MuiIconButton()(css.expand, expandOpen,
+              MuiIconButton()(
+                css.expand,
+                expandOpen,
                 aria.label := "Show more",
                 aria.expanded := state.expanded,
                 onClick --> handleExpandClick,
                 MuiIcons(MuiIconsModule.ExpandMore)()
               )
             ),
-            MuiCollapse(in = state.expanded, timeout = MuiCollapse.Timeout.auto, unmountOnExit = true)(
+            MuiCollapse(
+              in = state.expanded,
+              timeout = MuiCollapse.Timeout.auto,
+              unmountOnExit = true
+            )(
               MuiCardContent()(
                 MuiTypography(paragraph = true)("Method:"),
                 MuiTypography(paragraph = true)(
@@ -71,18 +74,18 @@ object RecipeReviewCard extends ScalaCssReactImplicits {
                 ),
                 MuiTypography(paragraph = true)(
                   "Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high " +
-                  "heat. Add chicken, shrimp and chorizo, and cook, stirring occasionally until lightly " +
-                  "browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving " +
-                  "chicken and chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes, onion, " +
-                  "salt and pepper, and cook, stirring often until thickened and fragrant, about 10 " +
-                  "minutes. Add saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil."
+                    "heat. Add chicken, shrimp and chorizo, and cook, stirring occasionally until lightly " +
+                    "browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving " +
+                    "chicken and chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes, onion, " +
+                    "salt and pepper, and cook, stirring often until thickened and fragrant, about 10 " +
+                    "minutes. Add saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil."
                 ),
                 MuiTypography(paragraph = true)(
                   "Add rice and stir very gently to distribute. Top with artichokes and peppers, and cook " +
-                  "without stirring, until most of the liquid is absorbed, 15 to 18 minutes. Reduce heat " +
-                  "to medium-low, add reserved shrimp and mussels, tucking them down into the rice, and " +
-                  "cook again without stirring, until mussels have opened and rice is just tender, 5 to 7 " +
-                  "minutes more. (Discard any mussels that don’t open.)"
+                    "without stirring, until most of the liquid is absorbed, 15 to 18 minutes. Reduce heat " +
+                    "to medium-low, add reserved shrimp and mussels, tucking them down into the rice, and " +
+                    "cook again without stirring, until mussels have opened and rice is just tender, 5 to 7 " +
+                    "minutes more. (Discard any mussels that don’t open.)"
                 ),
                 MuiTypography()(
                   "Set aside off of the heat to let rest for 10 minutes, and then serve."
@@ -93,6 +96,7 @@ object RecipeReviewCard extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("RecipeReviewCard")

@@ -20,9 +20,12 @@ object CollapsedBreadcrumbs extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Collapsed breadcrumbs")(
-          div(css.root,
-            MuiPaper()(css.paper,
-              MuiBreadcrumbs(maxItems = 2)(aria.label := "Breadcrumb",
+          div(
+            css.root,
+            MuiPaper()(
+              css.paper,
+              MuiBreadcrumbs(maxItems = 2)(
+                aria.label := "Breadcrumb",
                 MuiLink(color = MuiLink.Color.inherit)(href := "#", onClick --> handleClick, "Home"),
                 MuiLink(color = MuiLink.Color.inherit)(href := "#", onClick --> handleClick, "Catalog"),
                 MuiLink(color = MuiLink.Color.inherit)(href := "#", onClick --> handleClick, "Accessories"),
@@ -34,6 +37,7 @@ object CollapsedBreadcrumbs extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("CollapsedBreadcrumbs")

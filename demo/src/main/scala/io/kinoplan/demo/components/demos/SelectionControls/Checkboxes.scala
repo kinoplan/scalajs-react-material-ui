@@ -7,6 +7,7 @@ import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.scalajs.react.material.ui.core.MuiCheckbox
 
 object Checkboxes {
+
   case class State(
     checkedA: Boolean = true,
     checkedB: Boolean = true,
@@ -20,6 +21,7 @@ object Checkboxes {
   }
 
   class Backend(t: BackendScope[Unit, State]) {
+
     def handleChangeCheckedA(e: ReactEventFromInput) = {
       val value = e.target.checked
 
@@ -38,33 +40,32 @@ object Checkboxes {
       t.modState(_.handleChangeCheckedF(value))
     }
 
-    def render(state: State): VdomElement = {
-      div(
-        ComponentContainer("Checkboxes")(
-          div(
-            MuiCheckbox()(
-              checked := state.checkedA,
-              value := "checkedA",
-              onChange ==> handleChangeCheckedA
-            ),
-            MuiCheckbox(color = MuiCheckbox.Color.primary)(
-              checked := state.checkedB,
-              value := "checkedB",
-              onChange ==> handleChangeCheckedB
-            ),
-            MuiCheckbox()(value := "checkedC"),
-            MuiCheckbox()(disabled := true, value := "checkedD"),
-            MuiCheckbox()(disabled := true, checked := true, value := "checkedE"),
-            MuiCheckbox(indeterminate = true)(
-              checked := state.checkedF,
-              value := "checkedF",
-              onChange ==> handleChangeCheckedF
-            ),
-            MuiCheckbox(defaultChecked = true, color = MuiCheckbox.Color.default)(value := "checkedG")
-          )
+    def render(state: State): VdomElement = div(
+      ComponentContainer("Checkboxes")(
+        div(
+          MuiCheckbox()(
+            checked := state.checkedA,
+            value := "checkedA",
+            onChange ==> handleChangeCheckedA
+          ),
+          MuiCheckbox(color = MuiCheckbox.Color.primary)(
+            checked := state.checkedB,
+            value := "checkedB",
+            onChange ==> handleChangeCheckedB
+          ),
+          MuiCheckbox()(value := "checkedC"),
+          MuiCheckbox()(disabled := true, value := "checkedD"),
+          MuiCheckbox()(disabled := true, checked := true, value := "checkedE"),
+          MuiCheckbox(indeterminate = true)(
+            checked := state.checkedF,
+            value := "checkedF",
+            onChange ==> handleChangeCheckedF
+          ),
+          MuiCheckbox(defaultChecked = true, color = MuiCheckbox.Color.default)(value := "checkedG")
         )
       )
-    }
+    )
+
   }
 
   private val component = ScalaComponent.builder[Unit]("Checkboxes")

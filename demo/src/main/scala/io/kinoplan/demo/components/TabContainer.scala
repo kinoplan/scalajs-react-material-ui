@@ -11,13 +11,13 @@ object TabContainer extends ScalaCssReactImplicits {
   case class Props(style: TabContainerStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props, children: PropsChildren): VdomNode = {
       val css = props.style
 
-      MuiTypography(component = "div")(css.root,
-        children
-      )
+      MuiTypography(component = "div")(css.root, children)
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("TabContainer")
@@ -26,5 +26,6 @@ object TabContainer extends ScalaCssReactImplicits {
 
   def apply(
     style: TabContainerStyle = DefaultTabContainerStyle
-  )(children: VdomNode*): VdomNode = component(Props(style))(children:_*)
+  )(children: VdomNode*): VdomNode = component(Props(style))(children: _*)
+
 }

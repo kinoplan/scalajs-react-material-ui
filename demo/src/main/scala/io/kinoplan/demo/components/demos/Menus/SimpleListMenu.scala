@@ -26,19 +26,17 @@ object SimpleListMenu extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
+
     def handleClickListItem(e: ReactEventFromHtml): Callback = {
       val target = e.currentTarget
 
       t.modState(_.handleClickListItem(target))
     }
 
-    def handleMenuItemClick(index: Int): Callback = {
-      t.modState(_.handleMenuItemClick(index))
-    }
+    def handleMenuItemClick(index: Int): Callback = t.modState(_.handleMenuItemClick(index))
 
-    def onClose: (ReactEvent, String) => Callback = (_, _) => {
+    def onClose: (ReactEvent, String) => Callback = (_, _) =>
       t.modState(_.handleClose)
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
@@ -52,7 +50,9 @@ object SimpleListMenu extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Selected menus")(
-          div(css.root,  css.rootPaper(Layout.isPaletteLight),
+          div(
+            css.root,
+            css.rootPaper(Layout.isPaletteLight),
             MuiList(component = "nav")(
               MuiListItem(button = true)(
                 aria.haspopup.`true`,
@@ -65,7 +65,11 @@ object SimpleListMenu extends ScalaCssReactImplicits {
                 )
               )
             ),
-            MuiMenu(anchorEl = state.anchorEl.orUndefined, open = state.isMenuOpen, onClose = onClose)(
+            MuiMenu(
+              anchorEl = state.anchorEl.orUndefined,
+              open = state.isMenuOpen,
+              onClose = onClose
+            )(
               id := "lock-menu",
               options.zipWithIndex.toVdomArray { case (option, index) =>
                 MuiMenuItem()(
@@ -81,6 +85,7 @@ object SimpleListMenu extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("SimpleListMenu")

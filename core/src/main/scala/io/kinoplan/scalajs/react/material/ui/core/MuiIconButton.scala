@@ -26,9 +26,11 @@ object MuiIconButton extends ReactBridgeComponent with MuiIconButtonExtensions {
     onFocusVisible: js.UndefOr[js.Function] = js.undefined,
     TouchRippleProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiIconButtonExtensions {
+
   object Color extends Enumeration {
     type Value = String
 
@@ -49,4 +51,5 @@ trait MuiIconButtonExtensions {
     val label = "label"
     val focusVisible = "focusVisible"
   }
+
 }

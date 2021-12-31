@@ -10,9 +10,11 @@ case class SpanningItem(
 }
 
 object SpanningItem {
+
   val rows = List(
     SpanningItem(0, "Paperclips (Box)", 100, 1.15),
     SpanningItem(1, "Paper (Case)", 10, 45.99),
     SpanningItem(2, "Waste Basket", 2, 17.99)
   )
+
 }

@@ -25,9 +25,11 @@ object MuiButtonBase extends ReactBridgeComponent with MuiButtonBaseExtensions {
     onFocusVisible: js.UndefOr[js.Function] = js.undefined,
     TouchRippleProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiButtonBaseExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -35,4 +37,5 @@ trait MuiButtonBaseExtensions {
     val disabled = "disabled"
     val focusVisible = "focusVisible"
   }
+
 }

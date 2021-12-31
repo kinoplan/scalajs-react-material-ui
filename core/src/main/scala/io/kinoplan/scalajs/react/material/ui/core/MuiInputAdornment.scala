@@ -20,9 +20,11 @@ object MuiInputAdornment extends ReactBridgeComponent with MuiInputAdornmentExte
     position: js.UndefOr[Position.Value] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiInputAdornmentExtensions {
+
   object Position extends Enumeration {
     type Value = String
 
@@ -47,4 +49,5 @@ trait MuiInputAdornmentExtensions {
     val positionEnd = "positionEnd"
     val disablePointerEvents = "disablePointerEvents"
   }
+
 }

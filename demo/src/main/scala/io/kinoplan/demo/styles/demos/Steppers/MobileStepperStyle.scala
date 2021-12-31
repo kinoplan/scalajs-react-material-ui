@@ -12,6 +12,7 @@ case class MobileStepperStyle(common: CommonStyle = DefaultCommonStyle) extends 
     maxWidth(400.px),
     flexGrow(1)
   )
+
 }
 
 object DefaultMobileStepperStyle extends MobileStepperStyle

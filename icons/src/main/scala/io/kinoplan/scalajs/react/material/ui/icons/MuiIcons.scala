@@ -18,9 +18,11 @@ class MuiIcons(value: js.Any) extends ReactBridgeComponent with SvgIconExtension
     titleAccess: js.UndefOr[String] = js.undefined,
     viewBox: js.UndefOr[String] = js.undefined
   ): WithProps = auto
+
 }
 
 object MuiIcons extends SvgIconExtensions {
+
   def apply(value: MuiIconsModule.Value)(
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     color: js.UndefOr[Color.Value] = js.undefined,
@@ -40,4 +42,5 @@ object MuiIcons extends SvgIconExtensions {
     titleAccess = titleAccess,
     viewBox = viewBox
   )
+
 }

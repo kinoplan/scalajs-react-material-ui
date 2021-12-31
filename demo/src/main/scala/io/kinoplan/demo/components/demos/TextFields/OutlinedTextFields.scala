@@ -33,6 +33,7 @@ object OutlinedTextFields extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
+
     def handleChangeName(e: ReactEventFromTextArea) = {
       val value = e.target.value
 
@@ -62,12 +63,16 @@ object OutlinedTextFields extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Outlined")(
-          form(css.container, noValidate := true, autoComplete := "off",
+          form(
+            css.container,
+            noValidate := true,
+            autoComplete := "off",
             MuiTextField(
               label = "Name".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.outlined
-            )(css.textField,
+            )(
+              css.textField,
               id := "outlined-name",
               value := state.name,
               onChange ==> handleChangeName
@@ -76,7 +81,8 @@ object OutlinedTextFields extends ScalaCssReactImplicits {
               label = "Uncontrolled".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.outlined
-            )(css.textField,
+            )(
+              css.textField,
               id := "outlined-uncontrolled",
               defaultValue := "foo"
             ),
@@ -84,7 +90,8 @@ object OutlinedTextFields extends ScalaCssReactImplicits {
               label = "Required".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.outlined
-            )(css.textField,
+            )(
+              css.textField,
               required := true,
               id := "outlined-required",
               defaultValue := "Hello World"
@@ -94,7 +101,8 @@ object OutlinedTextFields extends ScalaCssReactImplicits {
               label = "Error".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.outlined
-            )(css.textField,
+            )(
+              css.textField,
               id := "outlined-error",
               defaultValue := "Hello World"
             ),
@@ -102,7 +110,8 @@ object OutlinedTextFields extends ScalaCssReactImplicits {
               label = "Disabled".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.outlined
-            )(css.textField,
+            )(
+              css.textField,
               disabled := true,
               id := "outlined-disabled",
               defaultValue := "Hello World"
@@ -111,7 +120,8 @@ object OutlinedTextFields extends ScalaCssReactImplicits {
               label = "Email".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.outlined
-            )(css.textField,
+            )(
+              css.textField,
               autoComplete := "email",
               id := "outlined-email-input",
               `type` := "email",
@@ -121,7 +131,8 @@ object OutlinedTextFields extends ScalaCssReactImplicits {
               label = "Password".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.outlined
-            )(css.textField,
+            )(
+              css.textField,
               autoComplete := "current-password",
               id := "outlined-password-input",
               `type` := "password"
@@ -131,7 +142,8 @@ object OutlinedTextFields extends ScalaCssReactImplicits {
               margin = MuiTextField.Margin.normal,
               InputProps = MuiInputProps(readOnly = true),
               variant = MuiTextField.Variant.outlined
-            )(css.textField,
+            )(
+              css.textField,
               id := "outlined-read-only-input",
               defaultValue := "Hello World"
             ),
@@ -139,9 +151,7 @@ object OutlinedTextFields extends ScalaCssReactImplicits {
               label = "Dense".toVdom,
               margin = MuiTextField.Margin.dense,
               variant = MuiTextField.Variant.outlined
-            )(css.textField, css.dense,
-              id := "outlined-dense"
-            ),
+            )(css.textField, css.dense, id := "outlined-dense"),
             MuiTextField(
               label = "Multiline".toVdom,
               multiline = true,
@@ -149,7 +159,8 @@ object OutlinedTextFields extends ScalaCssReactImplicits {
               margin = MuiTextField.Margin.normal,
               helperText = "hello".toVdom,
               variant = MuiTextField.Variant.outlined
-            )(css.textField,
+            )(
+              css.textField,
               id := "outlined-multiline-flexible",
               value := state.multiline,
               onChange ==> handleChangeMultiline
@@ -160,7 +171,8 @@ object OutlinedTextFields extends ScalaCssReactImplicits {
               rows = 4,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.outlined
-            )(css.textField,
+            )(
+              css.textField,
               id := "outlined-multiline-static",
               defaultValue := "Default Value"
             ),
@@ -169,7 +181,8 @@ object OutlinedTextFields extends ScalaCssReactImplicits {
               helperText = "Some important text".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.outlined
-            )(css.textField,
+            )(
+              css.textField,
               id := "outlined-helperText",
               defaultValue := "Default Value"
             ),
@@ -177,7 +190,8 @@ object OutlinedTextFields extends ScalaCssReactImplicits {
               label = "With placeholder".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.outlined
-            )(css.textField,
+            )(
+              css.textField,
               id := "outlined-with-placeholder",
               placeholder := "Placeholder"
             ),
@@ -186,7 +200,8 @@ object OutlinedTextFields extends ScalaCssReactImplicits {
               multiline = true,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.outlined
-            )(css.textField,
+            )(
+              css.textField,
               id := "outlined-textarea",
               placeholder := "Placeholder"
             ),
@@ -195,7 +210,8 @@ object OutlinedTextFields extends ScalaCssReactImplicits {
               InputLabelProps = MuiInputLabelProps(shrink = true),
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.outlined
-            )(css.textField,
+            )(
+              css.textField,
               id := "outlined-number",
               value := state.age,
               `type` := "number",
@@ -205,10 +221,7 @@ object OutlinedTextFields extends ScalaCssReactImplicits {
               label = "Search field".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.outlined
-            )(css.textField,
-              id := "outlined-search",
-              `type` := "search"
-            ),
+            )(css.textField, id := "outlined-search", `type` := "search"),
             MuiTextField(
               select = true,
               label = "Select".toVdom,
@@ -217,7 +230,8 @@ object OutlinedTextFields extends ScalaCssReactImplicits {
               helperText = "Please select your currency".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.outlined
-            )(css.textField,
+            )(
+              css.textField,
               id := "outlined-select-currency",
               value := state.currency,
               onChange ==> handleChangeCurrency,
@@ -228,11 +242,15 @@ object OutlinedTextFields extends ScalaCssReactImplicits {
             MuiTextField(
               select = true,
               label = "Native select".toVdom,
-              SelectProps = MuiSelectProps(native = true, MenuProps = MuiMenuProps(className = css.menu.htmlClass)),
+              SelectProps = MuiSelectProps(
+                native = true,
+                MenuProps = MuiMenuProps(className = css.menu.htmlClass)
+              ),
               helperText = "Please select your currency".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.outlined
-            )(css.textField,
+            )(
+              css.textField,
               id := "outlined-select-currency-native",
               value := state.currency,
               onChange ==> handleChangeCurrency,
@@ -255,14 +273,12 @@ object OutlinedTextFields extends ScalaCssReactImplicits {
             MuiTextField(
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.outlined
-            )(css.textField,
-              id := "outlined-bare",
-              defaultValue := "Bare"
-            )
+            )(css.textField, id := "outlined-bare", defaultValue := "Bare")
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("OutlinedTextFields")

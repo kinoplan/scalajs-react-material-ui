@@ -20,9 +20,11 @@ object MuiClickAwayListener extends ReactBridgeComponent with MuiClickAwayListen
     onClickAway: js.UndefOr[ReactHandler1[ReactEventFromHtml]],
     touchEvent: js.UndefOr[Boolean | TouchEvent.Value] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiClickAwayListenerExtensions {
+
   object MouseEvent extends Enumeration {
     type Value = String
 
@@ -37,4 +39,5 @@ trait MuiClickAwayListenerExtensions {
     val onTouchStart = "onTouchStart"
     val onTouchEnd = "onTouchEnd"
   }
+
 }

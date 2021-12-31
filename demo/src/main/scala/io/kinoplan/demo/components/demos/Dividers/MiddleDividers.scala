@@ -12,13 +12,17 @@ object MiddleDividers extends ScalaCssReactImplicits {
   case class Props(style: DividersStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Middle Dividers")(
-          div(css.root, css.rootPaper(Layout.isPaletteLight),
-            div(css.section1,
+          div(
+            css.root,
+            css.rootPaper(Layout.isPaletteLight),
+            div(
+              css.section1,
               MuiGrid(container = true, alignItems = MuiGrid.AlignItems.center)(
                 MuiGrid(item = true, xs = true)(
                   MuiTypography(gutterBottom = true, variant = MuiTypography.Variant.h4)(
@@ -33,11 +37,12 @@ object MiddleDividers extends ScalaCssReactImplicits {
               ),
               MuiTypography(color = MuiTypography.Color.textSecondary)(
                 "Pinstriped cornflower blue cotton blouse takes you on a walk to the park or just down the " +
-                "hall."
+                  "hall."
               )
             ),
             MuiDivider(variant = MuiDivider.Variant.middle),
-            div(css.section2,
+            div(
+              css.section2,
               MuiTypography(gutterBottom = true, variant = MuiTypography.Variant.body1)(
                 "Select type"
               ),
@@ -45,11 +50,16 @@ object MiddleDividers extends ScalaCssReactImplicits {
                 MuiChip(label = VdomNode("Extra Soft"))(css.chip),
                 MuiChip(label = VdomNode("Soft"))(css.chip),
                 MuiChip(label = VdomNode("Medium"))(css.chip),
-                MuiChip(label = VdomNode("Hard"))(css.chip),
+                MuiChip(label = VdomNode("Hard"))(css.chip)
               )
             ),
-            div(css.section3,
-              MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.primary, fullWidth = true)(
+            div(
+              css.section3,
+              MuiButton(
+                variant = MuiButton.Variant.contained,
+                color = MuiButton.Color.primary,
+                fullWidth = true
+              )(
                 "Add to cart"
               )
             )
@@ -57,6 +67,7 @@ object MiddleDividers extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("MiddleDividers")
@@ -65,4 +76,3 @@ object MiddleDividers extends ScalaCssReactImplicits {
 
   def apply(style: DividersStyle = DefaultDividersStyle) = component(Props(style))
 }
-

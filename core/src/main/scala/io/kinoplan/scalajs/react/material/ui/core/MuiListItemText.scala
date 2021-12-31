@@ -23,9 +23,11 @@ object MuiListItemText extends ReactBridgeComponent with MuiListItemTextExtensio
     secondary: js.UndefOr[VdomNode] = js.undefined,
     secondaryTypographyProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiListItemTextExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -36,4 +38,5 @@ trait MuiListItemTextExtensions {
     val secondary = "secondary"
     val textDense = "textDense"
   }
+
 }

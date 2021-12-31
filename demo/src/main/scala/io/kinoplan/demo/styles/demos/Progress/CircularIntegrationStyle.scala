@@ -5,6 +5,7 @@ import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.colors
 
 case class CircularIntegrationStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -41,6 +42,7 @@ case class CircularIntegrationStyle(common: CommonStyle = DefaultCommonStyle) ex
     marginTop(-12.px),
     marginLeft(-12.px)
   )
+
 }
 
 object DefaultCircularIntegrationStyle extends CircularIntegrationStyle

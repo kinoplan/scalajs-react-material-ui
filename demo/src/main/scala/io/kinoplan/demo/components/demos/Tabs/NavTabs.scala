@@ -24,16 +24,14 @@ object NavTabs extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
-    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) => {
-      t.modState(_.handleChange(value))
-    }
 
-    def LinkTab(labelValue: String, hrefValue: String) = {
-      MuiTab(component = "a", label = labelValue.toVdom)(
-        onClick ==> (event => Callback {event.preventDefault()}),
-        href := hrefValue
-      )
-    }
+    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) =>
+      t.modState(_.handleChange(value))
+
+    def LinkTab(labelValue: String, hrefValue: String) = MuiTab(component = "a", label = labelValue.toVdom)(
+      onClick ==> (event => Callback(event.preventDefault())),
+      href := hrefValue
+    )
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
@@ -41,7 +39,9 @@ object NavTabs extends ScalaCssReactImplicits {
       div(
         ComponentContainer("Nav Tabs")(
           MuiNoSsr()(
-            div(css.flexGrowOne, css.paper(Layout.isPaletteLight),
+            div(
+              css.flexGrowOne,
+              css.paper(Layout.isPaletteLight),
               MuiAppBar(position = MuiAppBar.Position.static)(
                 MuiTabs(variant = MuiTabs.Variant.fullWidth, onChange = handleChange)(
                   value := state.value,
@@ -58,6 +58,7 @@ object NavTabs extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("NavTabs")

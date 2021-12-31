@@ -42,11 +42,15 @@ object CircularStatic extends ScalaCssReactImplicits {
             MuiCircularProgress(variant = MuiCircularProgress.Variant.static, value = 50)(css.progress),
             MuiCircularProgress(variant = MuiCircularProgress.Variant.static, value = 75)(css.progress),
             MuiCircularProgress(variant = MuiCircularProgress.Variant.static, value = 100)(css.progress),
-            MuiCircularProgress(variant = MuiCircularProgress.Variant.static, value = state.completed)(css.progress)
+            MuiCircularProgress(
+              variant = MuiCircularProgress.Variant.static,
+              value = state.completed
+            )(css.progress)
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("CircularStatic")

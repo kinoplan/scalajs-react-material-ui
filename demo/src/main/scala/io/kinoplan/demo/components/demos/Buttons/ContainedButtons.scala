@@ -12,39 +12,41 @@ object ContainedButtons extends ScalaCssReactImplicits {
   case class Props(style: CommonButtonStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Contained Buttons")(
           div(
-            MuiButton(variant = MuiButton.Variant.contained)(css.marginButton,
-              "Default"
+            MuiButton(variant = MuiButton.Variant.contained)(css.marginButton, "Default"),
+            MuiButton(
+              variant = MuiButton.Variant.contained,
+              color = MuiButton.Color.primary
+            )(css.marginButton, "Primary"),
+            MuiButton(
+              variant = MuiButton.Variant.contained,
+              color = MuiButton.Color.secondary
+            )(css.marginButton, "Secondary"),
+            MuiButton(
+              variant = MuiButton.Variant.contained,
+              color = MuiButton.Color.secondary
+            )(css.marginButton, disabled := true, "Disabled"),
+            MuiButton(variant = MuiButton.Variant.contained)(css.marginButton, href := "#contained-buttons", "Link"),
+            input.file(
+              css.inputButton,
+              accept := "image/*",
+              id := "contained-button-file",
+              multiple := true
             ),
-            MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.primary)(css.marginButton,
-              "Primary"
-            ),
-            MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.secondary)(css.marginButton,
-              "Secondary"
-            ),
-            MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.secondary)(css.marginButton,
-              disabled := true,
-              "Disabled"
-            ),
-            MuiButton(variant = MuiButton.Variant.contained)(css.marginButton,
-              href := "#contained-buttons",
-              "Link"
-            ),
-            input.file(css.inputButton, accept := "image/*", id := "contained-button-file", multiple := true),
             label(htmlFor := "contained-button-file")(
-              MuiButton(variant = MuiButton.Variant.contained, component = "span")(css.marginButton,
-                "Upload"
-              )
+              MuiButton(variant = MuiButton.Variant.contained, component = "span")(css.marginButton, "Upload")
             )
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("ContainedButtons")

@@ -11,22 +11,22 @@ object TabsPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        SimpleTabs(),
-        TabsWrappedLabel(),
-        DisabledTabs(),
-        FullWidthTabs(),
-        CenteredTabs(),
-        ScrollableTabsButtonAuto(),
-        ScrollableTabsButtonForce(),
-        ScrollableTabsButtonPrevent(),
-        CustomizedTabs(),
-        NavTabs(),
-        IconTabs(),
-        IconLabelTabs()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      SimpleTabs(),
+      TabsWrappedLabel(),
+      DisabledTabs(),
+      FullWidthTabs(),
+      CenteredTabs(),
+      ScrollableTabsButtonAuto(),
+      ScrollableTabsButtonForce(),
+      ScrollableTabsButtonPrevent(),
+      CustomizedTabs(),
+      NavTabs(),
+      IconTabs(),
+      IconLabelTabs()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("TabsPage")

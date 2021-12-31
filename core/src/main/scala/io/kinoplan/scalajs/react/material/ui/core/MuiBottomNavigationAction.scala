@@ -30,9 +30,11 @@ object MuiBottomNavigationAction extends ReactBridgeComponent with MuiBottomNavi
     onFocusVisible: js.UndefOr[js.Function] = js.undefined,
     TouchRippleProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiBottomNavigationActionExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -44,4 +46,5 @@ trait MuiBottomNavigationActionExtensions {
     val disabled = "disabled"
     val focusVisible = "focusVisible"
   }
+
 }

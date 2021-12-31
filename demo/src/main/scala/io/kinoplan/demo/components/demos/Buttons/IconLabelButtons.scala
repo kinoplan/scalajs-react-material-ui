@@ -13,30 +13,51 @@ object IconLabelButtons extends ScalaCssReactImplicits {
   case class Props(style: IconLabelButtonsStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Buttons with icons and label")(
           div(
-            MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.secondary)(css.common.marginButton,
+            MuiButton(
+              variant = MuiButton.Variant.contained,
+              color = MuiButton.Color.secondary
+            )(
+              css.common.marginButton,
               "Delete",
               MuiIcons(MuiIconsModule.Delete)()(css.rightIcon)
             ),
-            MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.primary)(css.common.marginButton,
+            MuiButton(
+              variant = MuiButton.Variant.contained,
+              color = MuiButton.Color.primary
+            )(
+              css.common.marginButton,
               "Send",
               MuiIcon()(css.rightIcon, "send")
             ),
-            MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.default)(css.common.marginButton,
+            MuiButton(
+              variant = MuiButton.Variant.contained,
+              color = MuiButton.Color.default
+            )(
+              css.common.marginButton,
               "Upload",
               MuiIcons(MuiIconsModule.CloudUpload)()(css.rightIcon)
             ),
-            MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.secondary)(css.common.marginButton,
+            MuiButton(
+              variant = MuiButton.Variant.contained,
+              color = MuiButton.Color.secondary
+            )(
+              css.common.marginButton,
               disabled := true,
               MuiIcons(MuiIconsModule.KeyboardVoice)()(css.leftIcon),
               "Talk"
             ),
-            MuiButton(variant = MuiButton.Variant.contained, size = MuiButton.Size.small)(css.common.marginButton,
+            MuiButton(
+              variant = MuiButton.Variant.contained,
+              size = MuiButton.Size.small
+            )(
+              css.common.marginButton,
               MuiIcons(MuiIconsModule.Save)()(css.leftIcon, css.iconSmall),
               "Save"
             )
@@ -44,6 +65,7 @@ object IconLabelButtons extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("IconLabelButtons")
@@ -52,4 +74,3 @@ object IconLabelButtons extends ScalaCssReactImplicits {
 
   def apply(style: IconLabelButtonsStyle = DefaultIconLabelButtonsStyle) = component(Props(style))
 }
-

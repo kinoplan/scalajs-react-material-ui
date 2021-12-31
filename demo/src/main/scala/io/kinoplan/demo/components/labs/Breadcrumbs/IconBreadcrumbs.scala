@@ -21,22 +21,28 @@ object IconBreadcrumbs extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Breadcrumbs with icons")(
-          div(css.root,
-            MuiPaper()(css.paper,
-              MuiBreadcrumbs()(aria.label := "Breadcrumb",
-                MuiLink(color = MuiLink.Color.inherit)(css.link,
+          div(
+            css.root,
+            MuiPaper()(
+              css.paper,
+              MuiBreadcrumbs()(
+                aria.label := "Breadcrumb",
+                MuiLink(color = MuiLink.Color.inherit)(
+                  css.link,
                   href := "/",
                   onClick --> handleClick,
                   MuiIcons(MuiIconsModule.Home)()(css.icon),
                   "Material-UI"
                 ),
-                MuiLink(color = MuiLink.Color.inherit)(css.link,
+                MuiLink(color = MuiLink.Color.inherit)(
+                  css.link,
                   href := "/#demos/app-bar/",
                   onClick --> handleClick,
                   MuiIcons(MuiIconsModule.Whatshot)()(css.icon),
                   "Lab"
                 ),
-                MuiTypography(color = MuiTypography.Color.textPrimary)(css.link,
+                MuiTypography(color = MuiTypography.Color.textPrimary)(
+                  css.link,
                   MuiIcons(MuiIconsModule.Grain)()(css.icon),
                   "Breadcrumb"
                 )
@@ -46,6 +52,7 @@ object IconBreadcrumbs extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("IconBreadcrumbs")

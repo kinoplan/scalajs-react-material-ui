@@ -12,6 +12,7 @@ trait EasingPartial extends js.Object {
 }
 
 object EasingPartial {
+
   def apply(
     easeInOut: js.UndefOr[String] = js.undefined,
     easeOut: js.UndefOr[String] = js.undefined,
@@ -27,4 +28,5 @@ object EasingPartial {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[EasingPartial]
   }
+
 }

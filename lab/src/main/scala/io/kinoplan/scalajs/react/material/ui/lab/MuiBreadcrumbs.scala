@@ -22,4 +22,5 @@ object MuiBreadcrumbs extends ReactBridgeComponent {
     maxItems: js.UndefOr[Int] = js.undefined,
     separator: js.UndefOr[VdomNode] = js.undefined
   ): WithProps = auto
+
 }

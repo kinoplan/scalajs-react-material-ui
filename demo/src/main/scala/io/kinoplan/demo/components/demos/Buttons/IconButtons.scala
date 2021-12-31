@@ -13,32 +13,38 @@ object IconButtons extends ScalaCssReactImplicits {
   case class Props(style: CommonButtonStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Icon Buttons")(
           div(
-            MuiIconButton()(css.marginButton,
+            MuiIconButton()(
+              css.marginButton,
               aria.label := "Delete",
               MuiIcons(MuiIconsModule.Delete)()
             ),
-            MuiIconButton(color = MuiIconButton.Color.primary)(css.marginButton,
+            MuiIconButton(color = MuiIconButton.Color.primary)(
+              css.marginButton,
               disabled := true,
               aria.label := "Delete",
               MuiIcons(MuiIconsModule.Delete)()
             ),
-            MuiIconButton(color = MuiIconButton.Color.secondary)(css.marginButton,
+            MuiIconButton(color = MuiIconButton.Color.secondary)(
+              css.marginButton,
               aria.label := "Add an alarm",
               MuiIcon()("alarm")
             ),
-            MuiIconButton(color = MuiIconButton.Color.primary)(css.marginButton,
+            MuiIconButton(color = MuiIconButton.Color.primary)(
+              css.marginButton,
               aria.label := "Add to shopping cart",
               MuiIcons(MuiIconsModule.AddShoppingCart)()
             ),
             input.file(css.inputButton, accept := "image/*", id := "icon-button-file"),
             label(htmlFor := "icon-button-file")(
-              MuiIconButton(color = MuiIconButton.Color.primary, component = "span")(css.marginButton,
+              MuiIconButton(color = MuiIconButton.Color.primary, component = "span")(
+                css.marginButton,
                 MuiIcons(MuiIconsModule.PhotoCamera)()
               )
             )
@@ -46,6 +52,7 @@ object IconButtons extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("IconButtons")

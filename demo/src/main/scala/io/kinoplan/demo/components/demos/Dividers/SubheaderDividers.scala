@@ -13,24 +13,28 @@ object SubheaderDividers extends ScalaCssReactImplicits {
   case class Props(style: DividersStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Subheader Dividers")(
-          MuiList()(css.root, css.rootPaper(Layout.isPaletteLight),
+          MuiList()(
+            css.root,
+            css.rootPaper(Layout.isPaletteLight),
             MuiListItem()(
               MuiAvatar()(MuiIcons(MuiIconsModule.Image)()),
-              MuiListItemText(primary = VdomNode("Photos"), secondary = VdomNode("Jan 9, 2014"))
+              MuiListItemText(
+                primary = VdomNode("Photos"),
+                secondary = VdomNode("Jan 9, 2014")
+              )
             ),
             MuiDivider(component = "li"),
             li(
               MuiTypography(
                 color = MuiTypography.Color.textSecondary,
                 variant = MuiTypography.Variant.caption
-              )(css.dividerFullWidth,
-                "Divider"
-              )
+              )(css.dividerFullWidth, "Divider")
             ),
             MuiListItem()(
               MuiListItemText(primary = VdomNode("Work"), secondary = VdomNode("Jan 7, 2014"))
@@ -40,18 +44,20 @@ object SubheaderDividers extends ScalaCssReactImplicits {
               MuiTypography(
                 color = MuiTypography.Color.textSecondary,
                 variant = MuiTypography.Variant.caption
-              )(css.dividerInset,
-                "Leisure"
-              )
+              )(css.dividerInset, "Leisure")
             ),
             MuiListItem()(
               MuiAvatar()(MuiIcons(MuiIconsModule.BeachAccess)()),
-              MuiListItemText(primary = VdomNode("Vacation"), secondary = VdomNode("July 20, 2014"))
+              MuiListItemText(
+                primary = VdomNode("Vacation"),
+                secondary = VdomNode("July 20, 2014")
+              )
             )
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("SubheaderDividers")

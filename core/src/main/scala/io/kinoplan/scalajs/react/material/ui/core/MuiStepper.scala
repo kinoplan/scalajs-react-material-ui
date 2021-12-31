@@ -26,9 +26,11 @@ object MuiStepper extends ReactBridgeComponent with MuiStepperExtensions {
     elevation: js.UndefOr[Int] = js.undefined,
     square: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiStepperExtensions {
+
   object Orientation extends Enumeration {
     type Value = String
 
@@ -44,4 +46,5 @@ trait MuiStepperExtensions {
     val vertical = "vertical"
     val alternativeLabel = "alternativeLabel"
   }
+
 }

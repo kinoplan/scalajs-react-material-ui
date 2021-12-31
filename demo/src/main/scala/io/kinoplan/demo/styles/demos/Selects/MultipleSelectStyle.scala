@@ -31,6 +31,7 @@ case class MultipleSelectStyle(common: CommonStyle = DefaultCommonStyle) extends
   val noLabel = style(
     marginTop((theme.spacing.unit * 3).px)
   )
+
 }
 
 object DefaultMultipleSelectStyle extends MultipleSelectStyle

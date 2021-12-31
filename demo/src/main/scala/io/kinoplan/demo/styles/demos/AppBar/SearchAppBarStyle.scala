@@ -7,6 +7,7 @@ import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.styles.colorManipulator.fade
 
 case class SearchAppBarStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -70,6 +71,7 @@ case class SearchAppBarStyle(common: CommonStyle = DefaultCommonStyle) extends S
       )
     )
   )
+
 }
 
 object DefaultSearchAppBarStyle extends SearchAppBarStyle

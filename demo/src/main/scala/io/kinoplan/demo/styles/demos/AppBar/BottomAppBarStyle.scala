@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class BottomAppBarStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -44,11 +45,12 @@ case class BottomAppBarStyle(common: CommonStyle = DefaultCommonStyle) extends S
   val fabButton = style(
     position.absolute,
     zIndex :=! 1.toString,
-    top :=! (-30).toString,
+    top :=! -30.toString,
     left :=! 0.toString,
     right :=! 0.toString,
     margin :=! "0 auto"
   )
+
 }
 
 object DefaultBottomAppBarStyle extends BottomAppBarStyle

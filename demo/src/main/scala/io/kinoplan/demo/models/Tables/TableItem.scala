@@ -10,6 +10,7 @@ case class TableItem(
 )
 
 object TableItem {
+
   val simples = List(
     TableItem(0, "Frozen yoghurt", 159, 6.0, 24, 4.0),
     TableItem(1, "Ice cream sandwich", 237, 9.0, 37, 4.3),
@@ -33,4 +34,5 @@ object TableItem {
     TableItem(11, "Nougat", 360, 19.0, 9, 37.0),
     TableItem(12, "Oreo", 437, 18.0, 63, 4.0)
   )
+
 }

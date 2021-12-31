@@ -21,6 +21,7 @@ case class SliderStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSh
   val thumbIconWrapper = style(
     backgroundColor :=! "#2196f3"
   )
+
 }
 
 object DefaultSliderStyle extends SliderStyle

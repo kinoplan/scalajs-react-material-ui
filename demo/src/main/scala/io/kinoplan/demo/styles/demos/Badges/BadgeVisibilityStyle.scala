@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class BadgeVisibilityStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -25,7 +26,7 @@ case class BadgeVisibilityStyle(common: CommonStyle = DefaultCommonStyle) extend
   val row = style(
     marginTop((theme.spacing.unit * 2).px)
   )
+
 }
 
 object DefaultBadgeVisibilityStyle extends BadgeVisibilityStyle
-

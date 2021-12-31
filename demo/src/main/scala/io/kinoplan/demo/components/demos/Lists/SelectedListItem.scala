@@ -26,7 +26,9 @@ object SelectedListItem extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Selected ListItem")(
-          div(css.root, css.rootPaper(Layout.isPaletteLight),
+          div(
+            css.root,
+            css.rootPaper(Layout.isPaletteLight),
             MuiList(component = "nav")(
               MuiListItem(button = true)(
                 selected := state.isSelectedIndex(0),
@@ -62,6 +64,7 @@ object SelectedListItem extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("SelectedListItem")
@@ -71,4 +74,3 @@ object SelectedListItem extends ScalaCssReactImplicits {
 
   def apply(style: ListStyle = DefaultListStyle) = component(Props(style))
 }
-

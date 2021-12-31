@@ -11,17 +11,17 @@ object SnackbarsPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        SimpleSnackbar(),
-        CustomizedSnackbars(),
-        PositionedSnackbar(),
-        LongTextSnackbar(),
-        ConsecutiveSnackbars(),
-        FabIntegrationSnackbar(),
-        FadeSnackbar()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      SimpleSnackbar(),
+      CustomizedSnackbars(),
+      PositionedSnackbar(),
+      LongTextSnackbar(),
+      ConsecutiveSnackbars(),
+      FabIntegrationSnackbar(),
+      FadeSnackbar()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("SnackbarsPage")

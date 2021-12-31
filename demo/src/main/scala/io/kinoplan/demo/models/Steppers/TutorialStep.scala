@@ -6,6 +6,7 @@ case class TutorialStep(
 )
 
 object TutorialStep {
+
   val default = List(
     TutorialStep(
       label = "San Francisco – Oakland Bay Bridge, United States",
@@ -28,4 +29,5 @@ object TutorialStep {
       imgPath = "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60"
     )
   )
+
 }

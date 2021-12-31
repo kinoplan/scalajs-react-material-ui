@@ -11,20 +11,20 @@ object ButtonsPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        ContainedButtons(),
-        TextButtons(),
-        OutlinedButtons(),
-        FloatingActionButtons(),
-        FloatingActionButtonZoom(),
-        ButtonSizes(),
-        IconLabelButtons(),
-        IconButtons(),
-        CustomizedButtons(),
-        ButtonBases()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      ContainedButtons(),
+      TextButtons(),
+      OutlinedButtons(),
+      FloatingActionButtons(),
+      FloatingActionButtonZoom(),
+      ButtonSizes(),
+      IconLabelButtons(),
+      IconButtons(),
+      CustomizedButtons(),
+      ButtonBases()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("ButtonsPage")

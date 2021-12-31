@@ -15,6 +15,7 @@ object CustomizedTable extends ScalaCssReactImplicits {
   case class Props(style: CustomizedTableStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
       val tableItems = TableItem.simples
@@ -26,8 +27,10 @@ object CustomizedTable extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Customized Tables")(
-          MuiPaper()(css.root,
-            MuiTable()(css.table,
+          MuiPaper()(
+            css.root,
+            MuiTable()(
+              css.table,
               MuiTableHead()(
                 MuiTableRow()(
                   MuiTableCell(classes = cellClasses)("Dessert (100g serving)"),
@@ -38,14 +41,15 @@ object CustomizedTable extends ScalaCssReactImplicits {
                 )
               ),
               MuiTableBody()(
-                tableItems.zipWithIndex.toVdomArray { case (tableItem, index) =>
-                  MuiTableRow()(Attr("key") := index,
-                    MuiTableCell(classes = cellClasses, component = "th", scope = "row")(tableItem.name),
-                    MuiTableCell(classes = cellClasses, align = MuiTableCell.Alignment.right)(tableItem.calories),
-                    MuiTableCell(classes = cellClasses, align = MuiTableCell.Alignment.right)(tableItem.fat),
-                    MuiTableCell(classes = cellClasses, align = MuiTableCell.Alignment.right)(tableItem.carbs),
-                    MuiTableCell(classes = cellClasses, align = MuiTableCell.Alignment.right)(tableItem.protein)
-                  )
+                tableItems.zipWithIndex.toVdomArray {
+                  case (tableItem, index) => MuiTableRow()(
+                      Attr("key") := index,
+                      MuiTableCell(classes = cellClasses, component = "th", scope = "row")(tableItem.name),
+                      MuiTableCell(classes = cellClasses, align = MuiTableCell.Alignment.right)(tableItem.calories),
+                      MuiTableCell(classes = cellClasses, align = MuiTableCell.Alignment.right)(tableItem.fat),
+                      MuiTableCell(classes = cellClasses, align = MuiTableCell.Alignment.right)(tableItem.carbs),
+                      MuiTableCell(classes = cellClasses, align = MuiTableCell.Alignment.right)(tableItem.protein)
+                    )
                 }
               )
             )
@@ -53,6 +57,7 @@ object CustomizedTable extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("CustomizedTable")
