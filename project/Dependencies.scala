@@ -4,7 +4,7 @@ import org.portablescala.sbtplatformdeps.PlatformDepsPlugin.autoImport._
 object Dependencies {
 
   object Versions {
-    val catsCoreV = "2.6.1"
+    val catsCoreV = "2.7.0"
     val scalaCssV = "1.0.0"
     val scalaJsDomV = "2.0.0"
     val scalaJsReactV = "2.0.0"
