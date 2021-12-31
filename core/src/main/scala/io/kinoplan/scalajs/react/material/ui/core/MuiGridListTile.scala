@@ -16,9 +16,11 @@ object MuiGridListTile extends ReactBridgeComponent with MuiGridListTileExtensio
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     component: js.UndefOr[ComponentPropType] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiGridListTileExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -27,4 +29,5 @@ trait MuiGridListTileExtensions {
     val imgFullHeight = "imgFullHeight"
     val imgFullWidth = "imgFullWidth"
   }
+
 }

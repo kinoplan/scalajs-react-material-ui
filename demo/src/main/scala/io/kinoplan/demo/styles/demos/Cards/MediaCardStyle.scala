@@ -16,6 +16,7 @@ class MediaCardStyle extends StyleSheet.Inline {
   val mediaFit = style(
     objectFit.cover
   )
+
 }
 
 object DefaultMediaCardStyle extends MediaCardStyle

@@ -10,6 +10,7 @@ case class IconTabsStyle(common: CommonStyle = DefaultCommonStyle) extends Style
     flexGrow(1),
     width(500.px)
   )
+
 }
 
 object DefaultIconTabsStyle extends IconTabsStyle

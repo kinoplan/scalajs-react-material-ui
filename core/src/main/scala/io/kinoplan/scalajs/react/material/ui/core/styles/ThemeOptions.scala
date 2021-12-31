@@ -21,6 +21,7 @@ trait ThemeOptions extends js.Object {
 }
 
 object ThemeOptions {
+
   def apply(
     shape: js.UndefOr[ShapeOptions] = js.undefined,
     breakpoints: js.UndefOr[BreakpointsOptions] = js.undefined,
@@ -50,4 +51,5 @@ object ThemeOptions {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[ThemeOptions]
   }
+
 }

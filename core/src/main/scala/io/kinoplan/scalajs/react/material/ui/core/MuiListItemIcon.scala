@@ -15,12 +15,15 @@ object MuiListItemIcon extends ReactBridgeComponent with MuiListItemIconExtensio
   def apply(
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiListItemIconExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
     val root = "root"
   }
+
 }

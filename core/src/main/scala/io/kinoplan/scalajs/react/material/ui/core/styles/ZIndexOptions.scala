@@ -14,6 +14,7 @@ trait ZIndexOptions extends js.Object {
 }
 
 object ZIndexOptions {
+
   def apply(
     mobileStepper: js.UndefOr[Int] = js.undefined,
     appBar: js.UndefOr[Int] = js.undefined,
@@ -33,4 +34,5 @@ object ZIndexOptions {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[ZIndexOptions]
   }
+
 }

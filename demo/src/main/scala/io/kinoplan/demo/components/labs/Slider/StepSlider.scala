@@ -18,9 +18,9 @@ object StepSlider extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
-    def handleChange: (ReactEvent, Double) => Callback = (_, value) => {
+
+    def handleChange: (ReactEvent, Double) => Callback = (_, value) =>
       t.modState(_.handleChange(value))
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
@@ -31,7 +31,8 @@ object StepSlider extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Slider with steps")(
-          div(css.root,
+          div(
+            css.root,
             MuiTypography()(id := "label", "Slider label"),
             MuiSlider(
               classes = sliderClasses,
@@ -47,6 +48,7 @@ object StepSlider extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("StepSlider")

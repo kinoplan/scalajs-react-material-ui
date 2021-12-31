@@ -19,6 +19,7 @@ case class CommonButtonStyle(common: CommonStyle = DefaultCommonStyle) extends S
   val extendedIcon = style(
     marginRight(theme.spacing.unit.px)
   )
+
 }
 
 object DefaultCommonButtonStyle extends CommonButtonStyle

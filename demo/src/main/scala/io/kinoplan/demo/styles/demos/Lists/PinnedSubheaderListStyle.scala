@@ -24,6 +24,7 @@ case class PinnedSubheaderListStyle(common: CommonStyle = DefaultCommonStyle) ex
     backgroundColor.inherit,
     padding(0.px)
   )
+
 }
 
 object DefaultPinnedSubheaderListStyle extends PinnedSubheaderListStyle

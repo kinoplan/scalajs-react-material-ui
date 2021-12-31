@@ -15,4 +15,5 @@ object MuiRootRef extends ReactBridgeComponent {
   def apply(
     rootRef: ComponentRefType
   ): WithProps = auto
+
 }

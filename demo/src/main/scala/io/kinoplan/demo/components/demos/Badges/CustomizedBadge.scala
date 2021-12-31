@@ -14,6 +14,7 @@ object CustomizedBadge extends ScalaCssReactImplicits {
   case class Props(style: CustomizedBadgeStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
@@ -26,7 +27,11 @@ object CustomizedBadge extends ScalaCssReactImplicits {
           div(
             MuiIconButton()(
               aria.label := "Cart",
-              MuiBadge(badgeContent = VdomNode(4), color = MuiBadge.Color.primary, classes = badgeClasses)(
+              MuiBadge(
+                badgeContent = VdomNode(4),
+                color = MuiBadge.Color.primary,
+                classes = badgeClasses
+              )(
                 MuiIcons(MuiIconsModule.Mail)()
               )
             )
@@ -34,6 +39,7 @@ object CustomizedBadge extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("CustomizedBadge")

@@ -6,6 +6,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class CustomizedStepperStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -31,7 +32,9 @@ case class CustomizedStepperStyle(common: CommonStyle = DefaultCommonStyle) exte
   val connectorActive = style()
 
   val connectorActiveRoot = style(
-    unsafeRoot(s".${connectorActive.htmlClass} .${connectorLine.htmlClass}")(
+    unsafeRoot(
+      s".${connectorActive.htmlClass} .${connectorLine.htmlClass}"
+    )(
       borderColor :=! theme.palette.secondary.main
     )
   )
@@ -39,7 +42,9 @@ case class CustomizedStepperStyle(common: CommonStyle = DefaultCommonStyle) exte
   val connectorCompleted = style()
 
   val connectorCompletedRoot = style(
-    unsafeRoot(s".${connectorCompleted.htmlClass} .${connectorLine.htmlClass}")(
+    unsafeRoot(
+      s".${connectorCompleted.htmlClass} .${connectorLine.htmlClass}"
+    )(
       borderColor :=! theme.palette.primary.main
     )
   )
@@ -47,10 +52,13 @@ case class CustomizedStepperStyle(common: CommonStyle = DefaultCommonStyle) exte
   val connectorDisabled = style()
 
   val connectorDisabledRoot = style(
-    unsafeRoot(s".${connectorDisabled.htmlClass} .${connectorLine.htmlClass}")(
+    unsafeRoot(
+      s".${connectorDisabled.htmlClass} .${connectorLine.htmlClass}"
+    )(
       borderColor :=! theme.palette.grey.`100`
     )
   )
+
 }
 
 object DefaultCustomizedStepperStyle extends CustomizedStepperStyle

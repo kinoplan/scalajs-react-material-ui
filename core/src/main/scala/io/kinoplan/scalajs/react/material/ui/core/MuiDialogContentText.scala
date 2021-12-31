@@ -25,9 +25,11 @@ object MuiDialogContentText extends ReactBridgeComponent with MuiDialogContentTe
     paragraph: js.UndefOr[Boolean] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiDialogContentTextExtensions {
+
   object Alignment extends Enumeration {
     type Value = String
 
@@ -117,4 +119,5 @@ trait MuiDialogContentTextExtensions {
     val colorError = "colorError"
     val inline = "inline"
   }
+
 }

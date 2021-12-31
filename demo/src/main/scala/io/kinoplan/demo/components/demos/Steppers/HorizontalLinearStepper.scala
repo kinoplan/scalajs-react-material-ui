@@ -12,7 +12,12 @@ import io.kinoplan.demo.styles.demos.Steppers.{DefaultStepperStyle, StepperStyle
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiStep, MuiStepLabel, MuiStepper, MuiTypography}
 
 object HorizontalLinearStepper extends ScalaCssReactImplicits {
-  val steps = List("Select campaign settings", "Create an ad group", "Create an ad")
+
+  val steps = List(
+    "Select campaign settings",
+    "Create an ad group",
+    "Create an ad"
+  )
 
   def getStepContent(step: Int) = step match {
     case 0 => "Select campaign settings..."
@@ -40,18 +45,14 @@ object HorizontalLinearStepper extends ScalaCssReactImplicits {
 
     def isStepActive(step: Int) = step == activeStep
 
-    def handleNext = {
-      if (isStepSkipped()) {
-        copy(
-          skipped = skipped.filterNot(_ == activeStep),
-          activeStep = activeStep + 1
-        )
-      } else {
-        copy(
-          activeStep = activeStep + 1
-        )
-      }
-    }
+    def handleNext =
+      if (isStepSkipped()) copy(
+        skipped = skipped.filterNot(_ == activeStep),
+        activeStep = activeStep + 1
+      )
+      else copy(
+        activeStep = activeStep + 1
+      )
 
     def handleBack = copy(activeStep = activeStep - 1)
 
@@ -77,18 +78,17 @@ object HorizontalLinearStepper extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Horizontal Linear")(
-          div(css.root,
+          div(
+            css.root,
             MuiStepper(activeStep = state.activeStep)(
               steps.zipWithIndex.toVdomArray { case (label, index) =>
-                val optional = if (state.isStepOptional(index)) {
-                  MuiTypography(variant = MuiTypography.Variant.caption)("Optional")
-                } else EmptyVdom
+                val optional =
+                  if (state.isStepOptional(index)) MuiTypography(variant = MuiTypography.Variant.caption)("Optional")
+                  else EmptyVdom
 
                 val completed = if (state.isStepSkipped(index)) Some(false) else None
 
-                MuiStep(completed = completed.orUndefined)(Attr("key") := label,
-                  MuiStepLabel(optional = optional)(label)
-                )
+                MuiStep(completed = completed.orUndefined)(Attr("key") := label, MuiStepLabel(optional = optional)(label))
               }
             ),
             div(
@@ -99,18 +99,24 @@ object HorizontalLinearStepper extends ScalaCssReactImplicits {
               div(
                 MuiTypography()(css.instructions, getStepContent(state.activeStep)),
                 div(
-                  MuiButton()(css.button, onClick --> handleBack, disabled := state.isBackDisabled, "Back"),
+                  MuiButton()(
+                    css.button,
+                    onClick --> handleBack,
+                    disabled := state.isBackDisabled,
+                    "Back"
+                  ),
                   MuiButton(
                     variant = MuiButton.Variant.contained,
-                    color = MuiButton.Color.primary,
-                  )(css.button,
+                    color = MuiButton.Color.primary
+                  )(
+                    css.button,
                     onClick --> handleSkip,
                     disabled := state.isBackDisabled,
                     "Skip"
                   ).when(state.isStepOptional()),
                   MuiButton(
                     variant = MuiButton.Variant.contained,
-                    color = MuiButton.Color.primary,
+                    color = MuiButton.Color.primary
                   )(css.button, onClick --> handleNext, state.nextTitle)
                 )
               ).when(state.notFinish)
@@ -119,6 +125,7 @@ object HorizontalLinearStepper extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("HorizontalLinearStepper")

@@ -15,9 +15,11 @@ object MuiListItemAvatar extends ReactBridgeComponent with MuiListItemAvatarExte
   def apply(
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiListItemAvatarExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -25,4 +27,5 @@ trait MuiListItemAvatarExtensions {
     val alignItemsFlexStart = "alignItemsFlexStart"
     val icon = "icon"
   }
+
 }

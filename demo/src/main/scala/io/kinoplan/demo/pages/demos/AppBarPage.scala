@@ -11,18 +11,17 @@ object AppBarPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
 
-      div(
-        ButtonAppBar(),
-        SimpleAppBar(),
-        PrimarySearchAppBar(),
-        MenuAppBar(),
-        SearchAppBar(),
-        DenseAppBar(),
-        BottomAppBar()
-      )
-    }
+    def render(props: Props): VdomElement = div(
+      ButtonAppBar(),
+      SimpleAppBar(),
+      PrimarySearchAppBar(),
+      MenuAppBar(),
+      SearchAppBar(),
+      DenseAppBar(),
+      BottomAppBar()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("AppBarPage")

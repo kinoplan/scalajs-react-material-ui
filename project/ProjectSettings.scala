@@ -19,24 +19,25 @@ object ProjectSettings {
       webpack / version := "5.65.0",
       startWebpackDevServer / version := "4.7.2",
       webpackCliVersion := "4.9.1",
-      scalacOptions ~= (_.filterNot(
-        Set(
-          "-Wdead-code",
-          "-Wunused:params",
-          "-Ywarn-dead-code",
-          "-Ywarn-unused:params",
-          "-Ywarn-unused:patvars",
-          "-Wunused:explicits"
-        )
-      ))
+      scalacOptions ~=
+        (_.filterNot(
+          Set(
+            "-Wdead-code",
+            "-Wunused:params",
+            "-Ywarn-dead-code",
+            "-Ywarn-unused:params",
+            "-Ywarn-unused:patvars",
+            "-Wunused:explicits"
+          )
+        ))
     )
 
-  lazy val rootProfile: Project => Project = _
-    .settings(
-      name := "scalajs-react-material-ui",
-      publish / skip  := true,
-      publishLocal / skip := true,
-      publishArtifact / skip := true,
-      Keys.`package` := file("")
-    )
+  lazy val rootProfile: Project => Project = _.settings(
+    name := "scalajs-react-material-ui",
+    publish / skip := true,
+    publishLocal / skip := true,
+    publishArtifact / skip := true,
+    Keys.`package` := file("")
+  )
+
 }

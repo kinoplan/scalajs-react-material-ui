@@ -20,9 +20,11 @@ object MuiListSubheader extends ReactBridgeComponent with MuiListSubheaderExtens
     disableSticky: js.UndefOr[Boolean] = js.undefined,
     inset: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiListSubheaderExtensions {
+
   object Color extends Enumeration {
     type Value = String
 
@@ -41,4 +43,5 @@ trait MuiListSubheaderExtensions {
     val inset = "inset"
     val sticky = "sticky"
   }
+
 }

@@ -16,13 +16,15 @@ object MuiTableBody extends ReactBridgeComponent with MuiTableBodyExtensions {
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     component: js.UndefOr[ComponentPropType] = js.undefined
   ): WithProps = auto
+
 }
 
-
 trait MuiTableBodyExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
     val root = "root"
   }
+
 }

@@ -12,12 +12,15 @@ object ListDividers extends ScalaCssReactImplicits {
   case class Props(style: DividersStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("List Dividers")(
-          MuiList(component = "nav")(css.root, css.rootPaper(Layout.isPaletteLight),
+          MuiList(component = "nav")(
+            css.root,
+            css.rootPaper(Layout.isPaletteLight),
             MuiListItem(button = true)(
               MuiListItemText(primary = VdomNode("Inbox"))
             ),
@@ -36,6 +39,7 @@ object ListDividers extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("ListDividers")

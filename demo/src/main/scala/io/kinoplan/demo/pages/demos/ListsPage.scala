@@ -11,21 +11,21 @@ object ListsPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        SimpleList(),
-        NestedList(),
-        FolderList(),
-        InteractiveList(),
-        SelectedListItem(),
-        AlignItemsList(),
-        CheckboxList(),
-        CheckboxListSecondary(),
-        SwitchListSecondary(),
-        PinnedSubheaderList(),
-        InsetList()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      SimpleList(),
+      NestedList(),
+      FolderList(),
+      InteractiveList(),
+      SelectedListItem(),
+      AlignItemsList(),
+      CheckboxList(),
+      CheckboxListSecondary(),
+      SwitchListSecondary(),
+      PinnedSubheaderList(),
+      InsetList()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("ListsPage")

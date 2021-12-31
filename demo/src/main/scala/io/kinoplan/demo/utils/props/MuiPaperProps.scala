@@ -9,6 +9,7 @@ trait MuiPaperProps extends js.Object {
 }
 
 object MuiPaperProps {
+
   def apply(
     style: js.Dictionary[String]
   ) = {
@@ -18,4 +19,5 @@ object MuiPaperProps {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[MuiPaperProps]
   }
+
 }

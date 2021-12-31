@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class ListStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -21,6 +22,7 @@ case class ListStyle(common: CommonStyle = DefaultCommonStyle) extends StyleShee
   val inline = style(
     display.inline
   )
+
 }
 
 object DefaultListStyle extends ListStyle

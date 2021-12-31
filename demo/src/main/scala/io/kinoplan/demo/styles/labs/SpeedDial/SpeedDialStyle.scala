@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class SpeedDialStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -16,6 +17,7 @@ case class SpeedDialStyle(common: CommonStyle = DefaultCommonStyle) extends Styl
     float.right,
     bottom((theme.spacing.unit * 2).px)
   )
+
 }
 
 object DefaultSpeedDialStyle extends SpeedDialStyle

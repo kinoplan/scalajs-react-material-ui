@@ -7,6 +7,7 @@ import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.colors
 
 case class CustomizedInputsStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -40,7 +41,9 @@ case class CustomizedInputsStyle(common: CommonStyle = DefaultCommonStyle) exten
   val cssOutlinedInput = style()
 
   val cssOutlinedInputPreliminary = style(
-    unsafeRoot(s".${cssOutlinedInput.htmlClass}.${cssFocused.htmlClass} .${notchedOutline.htmlClass}")(
+    unsafeRoot(
+      s".${cssOutlinedInput.htmlClass}.${cssFocused.htmlClass} .${notchedOutline.htmlClass}"
+    )(
       borderColor :=! colors.purple.`500`
     )
   )

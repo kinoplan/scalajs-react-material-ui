@@ -15,15 +15,15 @@ object LinearDeterminate extends ScalaCssReactImplicits {
   case class Props(style: CommonStyle)
 
   case class State(completed: Int = 0) {
-    def setProgress = {
-      if (completed == 100) {
-        copy(completed = 0)
-      } else {
+
+    def setProgress =
+      if (completed == 100) copy(completed = 0)
+      else {
         val diff = Math.random() * 10
 
         copy(completed = Math.min(completed + diff, 100).toInt)
       }
-    }
+
   }
 
   class Backend(t: BackendScope[Props, State]) {
@@ -45,7 +45,8 @@ object LinearDeterminate extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Linear Determinate")(
-          div(css.flexGrowOne,
+          div(
+            css.flexGrowOne,
             MuiLinearProgress(
               variant = MuiLinearProgress.Variant.determinate,
               value = state.completed
@@ -60,6 +61,7 @@ object LinearDeterminate extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("LinearDeterminate")

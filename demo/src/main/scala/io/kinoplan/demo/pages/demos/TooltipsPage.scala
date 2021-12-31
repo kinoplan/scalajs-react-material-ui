@@ -11,19 +11,19 @@ object TooltipsPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        SimpleTooltips(),
-        PositionedTooltips(),
-        TriggersTooltips(),
-        ControlledTooltips(),
-        VariableWidth(),
-        InteractiveTooltips(),
-        DisabledTooltips(),
-        TransitionsTooltips(),
-        DelayTooltips()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      SimpleTooltips(),
+      PositionedTooltips(),
+      TriggersTooltips(),
+      ControlledTooltips(),
+      VariableWidth(),
+      InteractiveTooltips(),
+      DisabledTooltips(),
+      TransitionsTooltips(),
+      DelayTooltips()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("TooltipsPage")

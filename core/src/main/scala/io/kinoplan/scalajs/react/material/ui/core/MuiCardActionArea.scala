@@ -25,9 +25,11 @@ object MuiCardActionArea extends ReactBridgeComponent with MuiCardActionAreaExte
     onFocusVisible: js.UndefOr[js.Function] = js.undefined,
     TouchRippleProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiCardActionAreaExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -36,4 +38,5 @@ trait MuiCardActionAreaExtensions {
     val focusHighlight = "focusHighlight"
     val disabled = "disabled"
   }
+
 }

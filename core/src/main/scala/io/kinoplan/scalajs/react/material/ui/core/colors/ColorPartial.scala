@@ -22,6 +22,7 @@ trait ColorPartial extends js.Object {
 }
 
 object ColorPartial {
+
   def apply(
     `50`: js.UndefOr[String] = js.undefined,
     `100`: js.UndefOr[String] = js.undefined,
@@ -57,4 +58,5 @@ object ColorPartial {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[ColorPartial]
   }
+
 }

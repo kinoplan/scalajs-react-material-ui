@@ -12,6 +12,7 @@ trait Transitions extends js.Object {
 }
 
 object Transitions {
+
   def apply(
     easing: Easing,
     duration: Duration,
@@ -27,4 +28,5 @@ object Transitions {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[Transitions]
   }
+
 }

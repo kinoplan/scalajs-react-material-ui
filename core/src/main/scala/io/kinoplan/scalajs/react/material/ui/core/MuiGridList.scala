@@ -19,9 +19,11 @@ object MuiGridList extends ReactBridgeComponent with MuiGridListExtensions {
     component: js.UndefOr[ComponentPropType] = js.undefined,
     spacing: js.UndefOr[Int] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiGridListExtensions {
+
   object CellHeight extends Enumeration {
     type Value = String
 
@@ -33,4 +35,5 @@ trait MuiGridListExtensions {
 
     val root = "root"
   }
+
 }

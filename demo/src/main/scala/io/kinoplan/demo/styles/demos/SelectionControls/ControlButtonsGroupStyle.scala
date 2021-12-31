@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class ControlButtonsGroupStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -18,6 +19,7 @@ case class ControlButtonsGroupStyle(common: CommonStyle = DefaultCommonStyle) ex
   val group = style(
     margin :=! s"${theme.spacing.unit}px 0"
   )
+
 }
 
 object DefaultControlButtonsGroupStyle extends ControlButtonsGroupStyle

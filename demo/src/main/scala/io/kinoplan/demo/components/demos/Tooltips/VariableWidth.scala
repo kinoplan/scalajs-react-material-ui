@@ -17,6 +17,7 @@ object VariableWidth extends ScalaCssReactImplicits {
     "Nullam eget est sed sem iaculis gravida eget vitae justo."
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
@@ -43,6 +44,7 @@ object VariableWidth extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("VariableWidth")

@@ -13,6 +13,7 @@ object CustomizedProgress extends ScalaCssReactImplicits {
   case class Props(style: CustomizedProgressStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
@@ -23,10 +24,12 @@ object CustomizedProgress extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Customized Progress")(
-          MuiPaper()(css.common.flexGrowOne,
+          MuiPaper()(
+            css.common.flexGrowOne,
             MuiCircularProgress(size = 30, thickness = 5.0)(css.progress),
             MuiLinearProgress(classes = linearClasses),
-            div(css.facebook,
+            div(
+              css.facebook,
               MuiCircularProgress(
                 variant = MuiCircularProgress.Variant.determinate,
                 value = 100,
@@ -38,12 +41,13 @@ object CustomizedProgress extends ScalaCssReactImplicits {
                 disableShrink = true,
                 size = 24,
                 thickness = 4.0
-              )(css.facebook2),
+              )(css.facebook2)
             )
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("CustomizedProgress")

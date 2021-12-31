@@ -7,6 +7,7 @@ import scala.scalajs.js.|
 import japgolly.scalajs.react.vdom.VdomNode
 
 package object styles {
+
   @JSImport("@material-ui/core/styles/colorManipulator.js", JSImport.Default)
   @js.native
   object colorManipulator extends js.Object {
@@ -59,11 +60,14 @@ package object styles {
 
   @JSImport("@material-ui/core/styles/createTypography.js", JSImport.Default)
   @js.native
-  object createTypography extends js.Function2[Palette, TypographyOptions | js.Function1[Palette, TypographyOptions], Typography] {
+  object createTypography
+      extends js.Function2[Palette, TypographyOptions | js.Function1[Palette, TypographyOptions], Typography] {
+
     override def apply(
       palette: Palette,
       typography: TypographyOptions | js.Function1[Palette, TypographyOptions]
     ): Typography = js.native
+
   }
 
   @JSImport("@material-ui/core/styles/getStylesCreator.js", JSImport.Default)
@@ -107,4 +111,5 @@ package object styles {
   @JSImport("@material-ui/core/styles/zIndex.js", JSImport.Default)
   @js.native
   object zIndex extends ZIndex
+
 }

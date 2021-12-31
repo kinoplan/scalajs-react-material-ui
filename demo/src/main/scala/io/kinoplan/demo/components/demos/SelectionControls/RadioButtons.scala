@@ -24,6 +24,7 @@ object RadioButtons extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
+
     def handleChange(e: ReactEventFromInput) = {
       val value = e.target.value
 
@@ -57,13 +58,13 @@ object RadioButtons extends ScalaCssReactImplicits {
               onChange ==> handleChange,
               value := "c",
               name := "radio-button-demo",
-              aria.label := "C",
+              aria.label := "C"
             ),
             MuiRadio(checked = state.isD, color = MuiRadio.Color.default)(
               onChange ==> handleChange,
               value := "d",
               name := "radio-button-demo",
-              aria.label := "D",
+              aria.label := "D"
             ),
             MuiRadio(
               checked = state.isE,
@@ -74,12 +75,13 @@ object RadioButtons extends ScalaCssReactImplicits {
               onChange ==> handleChange,
               value := "e",
               name := "radio-button-demo",
-              aria.label := "E",
+              aria.label := "E"
             )
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("RadioButtons")

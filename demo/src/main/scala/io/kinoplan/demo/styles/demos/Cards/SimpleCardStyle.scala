@@ -22,7 +22,7 @@ class SimpleCardStyle extends StyleSheet.Inline {
   val pos = style(
     marginBottom(12.px)
   )
+
 }
 
 object DefaultSimpleCardStyle extends SimpleCardStyle
-

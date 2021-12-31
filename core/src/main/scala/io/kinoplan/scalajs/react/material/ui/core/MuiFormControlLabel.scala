@@ -26,9 +26,11 @@ object MuiFormControlLabel extends ReactBridgeComponent with MuiFormControlLabel
     labelPlacement: js.UndefOr[LabelPlacement.Value] = js.undefined,
     onChange: js.UndefOr[ReactHandler2[ReactEvent, Boolean]] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
+
 }
 
 trait MuiFormControlLabelExtensions {
+
   object LabelPlacement extends Enumeration {
     type Value = String
 
@@ -48,4 +50,5 @@ trait MuiFormControlLabelExtensions {
     val disabled = "disabled"
     val label = "label"
   }
+
 }

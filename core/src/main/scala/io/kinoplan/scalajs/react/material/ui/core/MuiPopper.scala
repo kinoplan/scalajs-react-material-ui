@@ -26,9 +26,11 @@ object MuiPopper extends ReactBridgeComponent with MuiPopperExtensions {
     popperOptions: js.UndefOr[js.Object] = js.undefined,
     transition: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiPopperExtensions {
+
   object Placement extends Enumeration {
     type Value = String
 
@@ -45,4 +47,5 @@ trait MuiPopperExtensions {
     val topStart = "top-start"
     val top = "top"
   }
+
 }

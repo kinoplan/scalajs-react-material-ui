@@ -38,6 +38,7 @@ object Layout extends ScalaCssReactImplicits {
     def handlePaletteTypeChange = copy(
       paletteType = if (paletteType == PaletteType.light) PaletteType.dark else PaletteType.light
     )
+
   }
 
   class Backend(t: BackendScope[Props, State]) {
@@ -50,17 +51,19 @@ object Layout extends ScalaCssReactImplicits {
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
 
-      val theme = createMuiTheme(options = ThemeOptions(
-        typography = TypographyOptions(
-          useNextVariants = true
-        ),
-        palette = PaletteOptions(
-          `type` = state.paletteType,
-          primary = PaletteColorOptions(
-            main = state.primaryMainColor
+      val theme = createMuiTheme(
+        options = ThemeOptions(
+          typography = TypographyOptions(
+            useNextVariants = true
+          ),
+          palette = PaletteOptions(
+            `type` = state.paletteType,
+            primary = PaletteColorOptions(
+              main = state.primaryMainColor
+            )
           )
         )
-      ))
+      )
 
       defaultTheme = Some(theme)
 
@@ -79,12 +82,17 @@ object Layout extends ScalaCssReactImplicits {
 
       val menuButtonHidden = if (state.open) css.menuButtonHidden else css.common.emptyStyle
 
-      div(css.root,
+      div(
+        css.root,
         MuiThemeProvider(theme = theme)(
           MuiCssBaseline(),
-          MuiAppBar(position = MuiAppBar.Position.fixed)(css.appBar, appBarShift,
+          MuiAppBar(position = MuiAppBar.Position.fixed)(
+            css.appBar,
+            appBarShift,
             MuiToolbar(disableGutters = !state.open)(
-              MuiIconButton(color = MuiIconButton.Color.inherit)(css.menuButton, menuButtonHidden,
+              MuiIconButton(color = MuiIconButton.Color.inherit)(
+                css.menuButton,
+                menuButtonHidden,
                 aria.label := "Open drawer",
                 onClick --> handleDrawerOpen,
                 MuiIcons(MuiIconsModule.Menu)()
@@ -94,9 +102,7 @@ object Layout extends ScalaCssReactImplicits {
                 variant = MuiTypography.Variant.h6,
                 color = MuiTypography.Color.inherit,
                 noWrap = true
-              )(css.common.flexGrowOne,
-                "Dashboard"
-              ),
+              )(css.common.flexGrowOne, "Dashboard"),
               MuiTooltip(title = VdomNode("Toggle light/dark theme"), enterDelay = 300)(
                 MuiIconButton(color = MuiIconButton.Color.inherit)(
                   aria.label := "Toggle light/dark theme",
@@ -113,23 +119,28 @@ object Layout extends ScalaCssReactImplicits {
               )
             )
           ),
-          MuiDrawer(variant = MuiDrawer.Variant.permanent, open = state.open, classes = drawerClasses)(css.drawer,
+          MuiDrawer(
+            variant = MuiDrawer.Variant.permanent,
+            open = state.open,
+            classes = drawerClasses
+          )(
+            css.drawer,
             if (state.open) css.drawerPaperOpen else css.common.emptyStyle,
             if (!state.open) css.drawerPaperClose else css.common.emptyStyle,
-            div(css.toolbar,
-              MuiIconButton()(onClick --> handleDrawerClose,
+            div(
+              css.toolbar,
+              MuiIconButton()(
+                onClick --> handleDrawerClose,
                 MuiIcons(MuiIconsModule.ChevronLeft)()
               )
             ),
             MainMenu(props.router, props.r)
           ),
-          main(css.content,
-            div(css.toolbar),
-            props.r.render()
-          )
+          main(css.content, div(css.toolbar), props.r.render())
         )
       )
     }
+
   }
 
   val component = ScalaComponent.builder[Props]("Layout")
@@ -142,4 +153,5 @@ object Layout extends ScalaCssReactImplicits {
     r: Resolution[Page],
     style: LayoutStyle = DefaultLayoutStyle
   ) = component(Props(router, r, style))
+
 }

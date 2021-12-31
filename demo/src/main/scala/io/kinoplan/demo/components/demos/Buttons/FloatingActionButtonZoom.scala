@@ -25,21 +25,28 @@ object FloatingActionButtonZoom extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
-    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) => {
-      t.modState(_.handleChange(value))
-    }
 
-    def handleChangeIndex: (Double, Double) => Callback = (index, _) => {
+    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) =>
+      t.modState(_.handleChange(value))
+
+    def handleChangeIndex: (Double, Double) => Callback = (index, _) =>
       t.modState(_.handleChange(index))
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
 
       val fabs = List(
         Fab(MuiFab.Color.inherit, css.fab, MuiIcons(MuiIconsModule.Add)()),
-        Fab(MuiFab.Color.secondary, css.fab, MuiIcons(MuiIconsModule.Edit)()),
-        Fab(MuiFab.Color.inherit, css.fabAndFabGreen, MuiIcons(MuiIconsModule.KeyboardArrowUp)())
+        Fab(
+          MuiFab.Color.secondary,
+          css.fab,
+          MuiIcons(MuiIconsModule.Edit)()
+        ),
+        Fab(
+          MuiFab.Color.inherit,
+          css.fabAndFabGreen,
+          MuiIcons(MuiIconsModule.KeyboardArrowUp)()
+        )
       )
 
       val enter = css.theme.transitions.duration.enteringScreen
@@ -47,16 +54,19 @@ object FloatingActionButtonZoom extends ScalaCssReactImplicits {
 
       val transitionDuration = js.Dynamic.literal(enter = enter, exit = exit)
 
-      val swipeableViewsAxis = if (css.theme.direction == Direction.rtl) {
-        AxisType.`x-reverse`
-      } else {
-        AxisType.x
-      }
+      val swipeableViewsAxis =
+        if (css.theme.direction == Direction.rtl) AxisType.`x-reverse`
+        else AxisType.x
 
       div(
         ComponentContainer("Floating Action Button Zoom")(
-          div(css.root, css.rootPaper(Layout.isPaletteLight),
-            MuiAppBar(position = MuiAppBar.Position.static, color = MuiAppBar.Color.default)(
+          div(
+            css.root,
+            css.rootPaper(Layout.isPaletteLight),
+            MuiAppBar(
+              position = MuiAppBar.Position.static,
+              color = MuiAppBar.Color.default
+            )(
               MuiTabs(
                 onChange = handleChange,
                 indicatorColor = MuiTabs.IndicatorColor.primary,
@@ -80,7 +90,10 @@ object FloatingActionButtonZoom extends ScalaCssReactImplicits {
               TabContainer()("Item Three")
             ),
             fabs.zipWithIndex.toVdomArray { case (fab, index) =>
-              MuiZoom(in = state.value == index.asInstanceOf[js.Any], timeout = transitionDuration)(
+              MuiZoom(
+                in = state.value == index.asInstanceOf[js.Any],
+                timeout = transitionDuration
+              )(
                 style := js.Dictionary(
                   "transitionDelay" -> s"${if (state.value == index.asInstanceOf[js.Any]) exit else 0}ms"
                 ),
@@ -92,6 +105,7 @@ object FloatingActionButtonZoom extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("FloatingActionButtonZoom")

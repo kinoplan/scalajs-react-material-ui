@@ -19,9 +19,11 @@ object MuiFormLabel extends ReactBridgeComponent with MuiFormLabelExtensions {
     filled: js.UndefOr[Boolean] = js.undefined,
     focused: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiFormLabelExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -33,4 +35,5 @@ trait MuiFormLabelExtensions {
     val required = "required"
     val asterisk = "asterisk"
   }
+
 }

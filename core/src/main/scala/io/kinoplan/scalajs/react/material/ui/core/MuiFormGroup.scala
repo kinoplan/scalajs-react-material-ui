@@ -16,13 +16,16 @@ object MuiFormGroup extends ReactBridgeComponent with MuiFormGroupExtensions {
     classes: js.UndefOr[Map[ClassKey.ClassKey, String]] = js.undefined,
     row: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiFormGroupExtensions {
+
   object ClassKey extends Enumeration {
     type ClassKey = String
 
     val root = "root"
     val row = "row"
   }
+
 }

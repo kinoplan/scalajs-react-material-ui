@@ -12,20 +12,30 @@ object MediaCardFit extends ScalaCssReactImplicits {
   case class Props(style: MediaCardStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Media fit")(
-          MuiCard()(css.card,
+          MuiCard()(
+            css.card,
             MuiCardActionArea()(
-              MuiCardMedia(component = "img", image = "/static/images/cards/contemplative-reptile.jpg")(css.mediaFit,
+              MuiCardMedia(
+                component = "img",
+                image = "/static/images/cards/contemplative-reptile.jpg"
+              )(
+                css.mediaFit,
                 alt := "Contemplative Reptile",
                 height := "140",
                 title := "Contemplative Reptile"
               ),
               MuiCardContent()(
-                MuiTypography(component = "h2", variant = MuiTypography.Variant.h5, gutterBottom = true)(
+                MuiTypography(
+                  component = "h2",
+                  variant = MuiTypography.Variant.h5,
+                  gutterBottom = true
+                )(
                   "Lizard"
                 ),
                 MuiTypography(component = "p")(
@@ -46,6 +56,7 @@ object MediaCardFit extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("MediaCardFit")

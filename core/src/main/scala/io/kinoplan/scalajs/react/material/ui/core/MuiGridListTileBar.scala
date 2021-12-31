@@ -22,9 +22,11 @@ object MuiGridListTileBar extends ReactBridgeComponent with MuiGridListTileBarEx
     title: js.UndefOr[VdomNode] = js.undefined,
     titlePosition: js.UndefOr[TitlePosition.Value] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiGridListTileBarExtensions {
+
   object ActionPosition extends Enumeration {
     type Value = String
 
@@ -54,4 +56,5 @@ trait MuiGridListTileBarExtensions {
     val actionIcon = "actionIcon"
     val actionIconActionPosLeft = "actionIconActionPosLeft"
   }
+
 }

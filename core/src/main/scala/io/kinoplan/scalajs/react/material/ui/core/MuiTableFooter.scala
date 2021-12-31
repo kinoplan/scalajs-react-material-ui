@@ -16,12 +16,15 @@ object MuiTableFooter extends ReactBridgeComponent with MuiTableFooterExtensions
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     component: js.UndefOr[ComponentPropType] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiTableFooterExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
     val root = "root"
   }
+
 }

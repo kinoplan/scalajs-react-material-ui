@@ -12,7 +12,12 @@ import io.kinoplan.demo.styles.demos.Steppers.{DefaultStepperStyle, StepperStyle
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiStep, MuiStepButton, MuiStepper, MuiTypography}
 
 object HorizontalNonLinearStepper extends ScalaCssReactImplicits {
-  val steps = List("Select campaign settings", "Create an ad group", "Create an ad")
+
+  val steps = List(
+    "Select campaign settings",
+    "Create an ad group",
+    "Create an ad"
+  )
 
   def getStepContent(step: Int) = step match {
     case 0 => "Step 1: Select campaign settings..."
@@ -47,11 +52,9 @@ object HorizontalNonLinearStepper extends ScalaCssReactImplicits {
     def isStepActive(step: Int) = step == activeStep
 
     def handleNext = {
-      val newActiveStep = (if (isLastStep && notAllStepsCompleted) {
-        steps.indices.diff(completed.toList).sorted.headOption
-      } else {
-        Some(activeStep + 1)
-      }).getOrElse(0)
+      val newActiveStep = (if (isLastStep && notAllStepsCompleted)
+                             steps.indices.diff(completed.toList).sorted.headOption
+                           else Some(activeStep + 1)).getOrElse(0)
 
       copy(activeStep = newActiveStep)
     }
@@ -62,16 +65,15 @@ object HorizontalNonLinearStepper extends ScalaCssReactImplicits {
       activeStep = step
     )
 
-    def handleComplete = {
-      copy(
-        completed = completed ++ SortedSet(activeStep)
-      )
-    }
+    def handleComplete = copy(
+      completed = completed ++ SortedSet(activeStep)
+    )
 
     def handleReset = copy(
       activeStep = 0,
       completed = SortedSet.empty
     )
+
   }
 
   class Backend(t: BackendScope[Props, State]) {
@@ -90,10 +92,12 @@ object HorizontalNonLinearStepper extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Horizontal Non-linear")(
-          div(css.root,
+          div(
+            css.root,
             MuiStepper(nonLinear = true, activeStep = state.activeStep)(
               steps.zipWithIndex.toVdomArray { case (label, index) =>
-                MuiStep()(Attr("key") := label,
+                MuiStep()(
+                  Attr("key") := label,
                   MuiStepButton(completed = state.isCompleted(index))(onClick --> handleStep(index), label)
                 )
               }
@@ -106,25 +110,27 @@ object HorizontalNonLinearStepper extends ScalaCssReactImplicits {
               div(
                 MuiTypography()(css.instructions, getStepContent(state.activeStep)),
                 div(
-                  MuiButton()(css.button, onClick --> handleBack, disabled := state.isBackDisabled, "Back"),
+                  MuiButton()(
+                    css.button,
+                    onClick --> handleBack,
+                    disabled := state.isBackDisabled,
+                    "Back"
+                  ),
                   MuiButton(
                     variant = MuiButton.Variant.contained,
-                    color = MuiButton.Color.primary,
-                  )(css.button,
-                    onClick --> handleNext,
-                    "Next"
-                  ),
+                    color = MuiButton.Color.primary
+                  )(css.button, onClick --> handleNext, "Next"),
                   TagMod(
-                    MuiTypography(variant = MuiTypography.Variant.caption)(css.completed,
+                    MuiTypography(variant = MuiTypography.Variant.caption)(
+                      css.completed,
                       s" Step ${state.activeStep + 1} already completed"
                     ).when(state.isCompleted(state.activeStep)),
                     MuiButton(
                       variant = MuiButton.Variant.contained,
-                      color = MuiButton.Color.primary,
-                    )(css.button,
-                      onClick --> handleComplete,
-                      state.finishTitle
-                    ).when(state.notCompleted(state.activeStep))
+                      color = MuiButton.Color.primary
+                    )(css.button, onClick --> handleComplete, state.finishTitle).when(state.notCompleted(
+                      state.activeStep
+                    ))
                   ).when(state.notAllStepsCompleted)
                 )
               ).when(state.notAllStepsCompleted)
@@ -133,6 +139,7 @@ object HorizontalNonLinearStepper extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("HorizontalNonLinearStepper")

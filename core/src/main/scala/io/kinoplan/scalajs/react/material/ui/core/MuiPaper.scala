@@ -18,9 +18,11 @@ object MuiPaper extends ReactBridgeComponent with MuiPaperExtensions {
     elevation: js.UndefOr[Int] = js.undefined,
     square: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiPaperExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -52,4 +54,5 @@ trait MuiPaperExtensions {
     val elevation23 = "elevation23"
     val elevation24 = "elevation24"
   }
+
 }

@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class EnhancedTableStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -19,6 +20,7 @@ case class EnhancedTableStyle(common: CommonStyle = DefaultCommonStyle) extends 
   val tableWrapper = style(
     overflowX.auto
   )
+
 }
 
 object DefaultEnhancedTableStyle extends EnhancedTableStyle

@@ -5,6 +5,7 @@ import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.colors
 
 case class MySnackbarContentWrapperStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -26,10 +27,10 @@ case class MySnackbarContentWrapperStyle(common: CommonStyle = DefaultCommonStyl
 
   def get(variant: String) = variant match {
     case "success" => success
-    case "error" => error
-    case "info" => info
+    case "error"   => error
+    case "info"    => info
     case "warning" => warning
-    case _ => style()
+    case _         => style()
   }
 
   val icon = style(
@@ -45,6 +46,7 @@ case class MySnackbarContentWrapperStyle(common: CommonStyle = DefaultCommonStyl
     display.flex,
     alignItems.center
   )
+
 }
 
 object DefaultMySnackbarContentWrapperStyle extends MySnackbarContentWrapperStyle

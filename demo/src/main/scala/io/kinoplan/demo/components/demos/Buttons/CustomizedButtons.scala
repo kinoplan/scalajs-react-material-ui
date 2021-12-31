@@ -13,35 +13,51 @@ object CustomizedButtons extends ScalaCssReactImplicits {
   case class Props(style: CustomizedButtonsStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
-      val theme = createMuiTheme(options = ThemeOptions(
-        typography = TypographyOptions(useNextVariants = true),
-        palette = PaletteOptions(primary = colors.green)
-      ))
+      val theme = createMuiTheme(
+        options = ThemeOptions(
+          typography = TypographyOptions(useNextVariants = true),
+          palette = PaletteOptions(primary = colors.green)
+        )
+      )
 
       div(
         ComponentContainer("Customized Buttons")(
           div(
-            MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.primary)(
-              css.common.marginButton, css.cssRoot,
+            MuiButton(
+              variant = MuiButton.Variant.contained,
+              color = MuiButton.Color.primary
+            )(
+              css.common.marginButton,
+              css.cssRoot,
               "Custom CSS"
             ),
             MuiThemeProvider(theme = theme)(
-              MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.primary)(
+              MuiButton(
+                variant = MuiButton.Variant.contained,
+                color = MuiButton.Color.primary
+              )(
                 css.common.marginButton,
                 "MuiThemeProvider"
               )
             ),
-            MuiButton(variant = MuiButton.Variant.contained, color = MuiButton.Color.primary, disableRipple = true)(
-              css.common.marginButton, css.bootstrapRoot,
+            MuiButton(
+              variant = MuiButton.Variant.contained,
+              color = MuiButton.Color.primary,
+              disableRipple = true
+            )(
+              css.common.marginButton,
+              css.bootstrapRoot,
               "Bootstrap"
             )
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("CustomizedButtons")

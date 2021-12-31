@@ -25,9 +25,11 @@ object MuiCardHeader extends ReactBridgeComponent with MuiCardHeaderExtensions {
     title: js.UndefOr[VdomNode] = js.undefined,
     titleTypographyProps: js.UndefOr[js.Object] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
+
 }
 
 trait MuiCardHeaderExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -38,4 +40,5 @@ trait MuiCardHeaderExtensions {
     val title = "title"
     val subheader = "subheader"
   }
+
 }

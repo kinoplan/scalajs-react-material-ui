@@ -19,9 +19,9 @@ object SimpleBottomNavigation extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
-    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) => {
+
+    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) =>
       t.modState(_.handleChange(value))
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
@@ -32,16 +32,27 @@ object SimpleBottomNavigation extends ScalaCssReactImplicits {
             MuiBottomNavigation(
               showLabels = true,
               onChange = handleChange
-            )(css.root,
+            )(
+              css.root,
               value := state.value,
-              MuiBottomNavigationAction(label = VdomNode("Recents"), icon = MuiIcons(MuiIconsModule.Restore)()()),
-              MuiBottomNavigationAction(label = VdomNode("Favorites"), icon = MuiIcons(MuiIconsModule.Favorite)()()),
-              MuiBottomNavigationAction(label = VdomNode("Nearby"), icon = MuiIcons(MuiIconsModule.LocationOn)()())
+              MuiBottomNavigationAction(
+                label = VdomNode("Recents"),
+                icon = MuiIcons(MuiIconsModule.Restore)()()
+              ),
+              MuiBottomNavigationAction(
+                label = VdomNode("Favorites"),
+                icon = MuiIcons(MuiIconsModule.Favorite)()()
+              ),
+              MuiBottomNavigationAction(
+                label = VdomNode("Nearby"),
+                icon = MuiIcons(MuiIconsModule.LocationOn)()()
+              )
             )
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("SimpleBottomNavigation")

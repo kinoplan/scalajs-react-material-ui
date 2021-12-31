@@ -24,16 +24,18 @@ object SimpleTabs extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
-    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) => {
+
+    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) =>
       t.modState(_.handleChange(value))
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Simple Tabs")(
-          div(css.flexGrowOne, css.paper(Layout.isPaletteLight),
+          div(
+            css.flexGrowOne,
+            css.paper(Layout.isPaletteLight),
             MuiAppBar(position = MuiAppBar.Position.static)(
               MuiTabs(onChange = handleChange)(
                 value := state.value,
@@ -49,6 +51,7 @@ object SimpleTabs extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("SimpleTabs")

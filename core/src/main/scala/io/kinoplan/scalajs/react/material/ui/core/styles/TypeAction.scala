@@ -14,6 +14,7 @@ trait TypeAction extends js.Object {
 }
 
 object TypeAction {
+
   def apply(
     active: String,
     hover: String,
@@ -33,4 +34,5 @@ object TypeAction {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[TypeAction]
   }
+
 }

@@ -24,44 +24,47 @@ object BadgeVisibility extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Badge visibility")(
-          div(css.root,
-            div(css.row,
+          div(
+            css.root,
+            div(
+              css.row,
               MuiBadge(
                 badgeContent = VdomNode(4),
                 invisible = state.invisible,
                 color = MuiBadge.Color.secondary
-              )(css.badgeMargin,
-                MuiIcons(MuiIconsModule.Mail)()
-              ),
+              )(css.badgeMargin, MuiIcons(MuiIconsModule.Mail)()),
               MuiBadge(
                 variant = MuiBadge.Variant.dot,
                 invisible = state.invisible,
                 color = MuiBadge.Color.secondary
-              )(css.badgeMargin,
-                MuiIcons(MuiIconsModule.Mail)()
-              )
+              )(css.badgeMargin, MuiIcons(MuiIconsModule.Mail)())
             ),
             MuiFormGroup(row = true)(
               MuiFormControlLabel(
                 control = MuiSwitch(checked = !state.invisible, color = MuiSwitch.Color.primary)(
-                  onChange --> handleBadgeVisibility,
+                  onChange --> handleBadgeVisibility
                 ).rawElement,
                 label = VdomNode("Show Badge")
               )
             ),
             MuiDivider()(css.divider),
-            div(css.row,
-              MuiBadge(badgeContent = VdomNode(0), color = MuiBadge.Color.secondary)(css.badgeMargin,
+            div(
+              css.row,
+              MuiBadge(badgeContent = VdomNode(0), color = MuiBadge.Color.secondary)(
+                css.badgeMargin,
                 MuiIcons(MuiIconsModule.Mail)()
               ),
-              MuiBadge(badgeContent = VdomNode(0), showZero = true, color = MuiBadge.Color.secondary)(css.badgeMargin,
-                MuiIcons(MuiIconsModule.Mail)()
-              )
+              MuiBadge(
+                badgeContent = VdomNode(0),
+                showZero = true,
+                color = MuiBadge.Color.secondary
+              )(css.badgeMargin, MuiIcons(MuiIconsModule.Mail)())
             )
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("BadgeVisibility")

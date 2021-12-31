@@ -18,9 +18,11 @@ object MuiIcon extends ReactBridgeComponent with MuiIconExtensions {
     component: js.UndefOr[ComponentPropType] = js.undefined,
     fontSize: js.UndefOr[FontSize.Value] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiIconExtensions {
+
   object Color extends Enumeration {
     type Value = String
 
@@ -54,4 +56,5 @@ trait MuiIconExtensions {
     val fontSizeSmall = "fontSizeSmall"
     val fontSizeLarge = "fontSizeLarge"
   }
+
 }

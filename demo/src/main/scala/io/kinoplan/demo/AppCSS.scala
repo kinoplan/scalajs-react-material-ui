@@ -17,8 +17,16 @@ import io.kinoplan.demo.styles.demos.Dividers.DefaultDividersStyle
 import io.kinoplan.demo.styles.demos.Drawers._
 import io.kinoplan.demo.styles.demos.ExpansionPanels._
 import io.kinoplan.demo.styles.demos.GridList._
-import io.kinoplan.demo.styles.demos.Lists.{DefaultInteractiveListStyle, DefaultListStyle, DefaultPinnedSubheaderListStyle}
-import io.kinoplan.demo.styles.demos.Menus.{DefaultListItemCompositionStyle, DefaultMenuStyle, DefaultTypographyMenuStyle}
+import io.kinoplan.demo.styles.demos.Lists.{
+  DefaultInteractiveListStyle,
+  DefaultListStyle,
+  DefaultPinnedSubheaderListStyle
+}
+import io.kinoplan.demo.styles.demos.Menus.{
+  DefaultListItemCompositionStyle,
+  DefaultMenuStyle,
+  DefaultTypographyMenuStyle
+}
 import io.kinoplan.demo.styles.demos.Paper.DefaultPaperStyle
 import io.kinoplan.demo.styles.demos.Pickers.DefaultPickersStyle
 import io.kinoplan.demo.styles.demos.Progress._
@@ -144,4 +152,5 @@ object AppCSS extends ScalaCssReactImplicits {
       CSSUtils.installStyle(style)
     }
   }
+
 }

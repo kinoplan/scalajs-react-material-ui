@@ -1,6 +1,7 @@
 package io.kinoplan.scalajs.react.material.ui.icons
 
 trait SvgIconExtensions {
+
   object Color extends Enumeration {
     type Value = String
 
@@ -34,4 +35,5 @@ trait SvgIconExtensions {
     val fontSizeSmall = "fontSizeSmall"
     val fontSizeLarge = "fontSizeLarge"
   }
+
 }

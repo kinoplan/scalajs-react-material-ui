@@ -13,26 +13,27 @@ object FloatingActionButtons extends ScalaCssReactImplicits {
   case class Props(style: CommonButtonStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Floating Action Buttons")(
           div(
-            MuiFab(color = MuiFab.Color.primary)(css.marginButton,
+            MuiFab(color = MuiFab.Color.primary)(
+              css.marginButton,
               aria.label := "Add",
               MuiIcons(MuiIconsModule.Add)()
             ),
-            MuiFab(color = MuiFab.Color.secondary)(css.marginButton,
-              aria.label := "Edit",
-              MuiIcon()("edit_icon")
-            ),
-            MuiFab(variant = MuiFab.Variant.extended)(css.marginButton,
+            MuiFab(color = MuiFab.Color.secondary)(css.marginButton, aria.label := "Edit", MuiIcon()("edit_icon")),
+            MuiFab(variant = MuiFab.Variant.extended)(
+              css.marginButton,
               aria.label := "Delete",
               MuiIcons(MuiIconsModule.Navigation)()(css.extendedIcon),
               "Extended"
             ),
-            MuiFab()(css.marginButton,
+            MuiFab()(
+              css.marginButton,
               disabled := true,
               aria.label := "Delete",
               MuiIcons(MuiIconsModule.Delete)()
@@ -41,6 +42,7 @@ object FloatingActionButtons extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("FloatingActionButtons")

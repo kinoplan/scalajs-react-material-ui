@@ -10,7 +10,12 @@ import io.kinoplan.demo.styles.demos.Steppers.{DefaultStepperStyle, StepperStyle
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiStep, MuiStepLabel, MuiStepper, MuiTypography}
 
 object HorizontalLabelPositionBelowStepper extends ScalaCssReactImplicits {
-  val steps = List("Select master blaster campaign settings", "Create an ad group", "Create an ad")
+
+  val steps = List(
+    "Select master blaster campaign settings",
+    "Create an ad group",
+    "Create an ad"
+  )
 
   def getStepContent(step: Int) = step match {
     case 0 => "Select campaign settings..."
@@ -51,13 +56,10 @@ object HorizontalLabelPositionBelowStepper extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Horizontal Linear - Alternative Label")(
-          div(css.root,
+          div(
+            css.root,
             MuiStepper(activeStep = state.activeStep, alternativeLabel = true)(
-              steps.toVdomArray { label =>
-                MuiStep()(Attr("key") := label,
-                  MuiStepLabel()(label)
-                )
-              }
+              steps.toVdomArray(label => MuiStep()(Attr("key") := label, MuiStepLabel()(label)))
             ),
             div(
               div(
@@ -67,10 +69,15 @@ object HorizontalLabelPositionBelowStepper extends ScalaCssReactImplicits {
               div(
                 MuiTypography()(css.instructions, getStepContent(state.activeStep)),
                 div(
-                  MuiButton()(css.button, onClick --> handleBack, disabled := state.isBackDisabled, "Back"),
+                  MuiButton()(
+                    css.button,
+                    onClick --> handleBack,
+                    disabled := state.isBackDisabled,
+                    "Back"
+                  ),
                   MuiButton(
                     variant = MuiButton.Variant.contained,
-                    color = MuiButton.Color.primary,
+                    color = MuiButton.Color.primary
                   )(onClick --> handleNext, state.nextTitle)
                 )
               ).when(state.notFinish)
@@ -79,6 +86,7 @@ object HorizontalLabelPositionBelowStepper extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("HorizontalLabelPositionBelowStepper")

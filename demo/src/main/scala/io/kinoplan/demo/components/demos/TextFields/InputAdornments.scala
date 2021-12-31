@@ -13,7 +13,16 @@ import io.kinoplan.demo.models.TextFields.FieldRange
 import io.kinoplan.demo.styles.demos.TextFields.{DefaultInputAdornmentsStyle, InputAdornmentsStyle}
 import io.kinoplan.demo.utils.Helpers.StringExtended
 import io.kinoplan.demo.utils.props.MuiInputProps
-import io.kinoplan.scalajs.react.material.ui.core.{MuiFormControl, MuiFormHelperText, MuiIconButton, MuiInput, MuiInputAdornment, MuiInputLabel, MuiMenuItem, MuiTextField}
+import io.kinoplan.scalajs.react.material.ui.core.{
+  MuiFormControl,
+  MuiFormHelperText,
+  MuiIconButton,
+  MuiInput,
+  MuiInputAdornment,
+  MuiInputLabel,
+  MuiMenuItem,
+  MuiTextField
+}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object InputAdornments extends ScalaCssReactImplicits {
@@ -40,6 +49,7 @@ object InputAdornments extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
+
     def handleChangeAmount(e: ReactEventFromTextArea) = {
       val value = e.target.value
 
@@ -69,19 +79,19 @@ object InputAdornments extends ScalaCssReactImplicits {
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
 
-      val passwordEndAdormnent = {
-        MuiInputAdornment(position = MuiInputAdornment.Position.end)(
-          MuiIconButton()(
-            aria.label := "Toggle password visibility",
-            onClick --> handleClickShowPassword,
-            if (state.showPassword) MuiIcons(MuiIconsModule.Visibility)() else MuiIcons(MuiIconsModule.VisibilityOff)()
-          )
+      val passwordEndAdormnent = MuiInputAdornment(position = MuiInputAdornment.Position.end)(
+        MuiIconButton()(
+          aria.label := "Toggle password visibility",
+          onClick --> handleClickShowPassword,
+          if (state.showPassword) MuiIcons(MuiIconsModule.Visibility)()
+          else MuiIcons(MuiIconsModule.VisibilityOff)()
         )
-      }
+      )
 
       div(
         ComponentContainer("Input Adornments")(
-          div(css.root,
+          div(
+            css.root,
             MuiTextField(
               label = "With normal TextField".toVdom,
               InputProps = MuiInputProps(
@@ -89,9 +99,7 @@ object InputAdornments extends ScalaCssReactImplicits {
                   position = MuiInputAdornment.Position.start
                 )("Kg").rawNode.some.orUndefined
               )
-            )(css.cssMargin, css.textField,
-              id := "simple-start-adornment"
-            ),
+            )(css.cssMargin, css.textField, id := "simple-start-adornment"),
             MuiTextField(
               select = true,
               label = "With Select".toVdom,
@@ -100,22 +108,30 @@ object InputAdornments extends ScalaCssReactImplicits {
                   position = MuiInputAdornment.Position.start
                 )("Kg").rawNode.some.orUndefined
               )
-            )(css.cssMargin, css.textField,
+            )(
+              css.cssMargin,
+              css.textField,
               value := state.weightRange,
               onChange ==> handleChangeWeightRange,
               FieldRange.commons.toVdomArray { range =>
                 MuiMenuItem()(Attr("key") := range.value, value := range.value, range.label)
               }
             ),
-            MuiFormControl(fullWidth = true)(css.cssMargin,
+            MuiFormControl(fullWidth = true)(
+              css.cssMargin,
               MuiInputLabel()(htmlFor := "adornment-amount", "Amount"),
-              MuiInput(startAdornment = MuiInputAdornment(position = MuiInputAdornment.Position.start)("$"))(
+              MuiInput(
+                startAdornment = MuiInputAdornment(position = MuiInputAdornment.Position.start)("$")
+              )(
                 id := "adornment-amount",
                 value := state.amount,
                 onChange ==> handleChangeAmount
               )
             ),
-            MuiFormControl()(css.cssMargin, css.withoutLabel, css.textField,
+            MuiFormControl()(
+              css.cssMargin,
+              css.withoutLabel,
+              css.textField,
               MuiInput(
                 endAdornment = MuiInputAdornment(position = MuiInputAdornment.Position.end)("Kg"),
                 inputProps = MuiInputProps(ariaLabel = "Weight")
@@ -127,7 +143,9 @@ object InputAdornments extends ScalaCssReactImplicits {
               ),
               MuiFormHelperText()(id := "weight-helper-text", "Weight")
             ),
-            MuiFormControl()(css.cssMargin, css.textField,
+            MuiFormControl()(
+              css.cssMargin,
+              css.textField,
               MuiInputLabel()(htmlFor := "adornment-password", "Password"),
               MuiInput(endAdornment = passwordEndAdormnent)(
                 id := "adornment-password",
@@ -141,6 +159,7 @@ object InputAdornments extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("InputAdornments")

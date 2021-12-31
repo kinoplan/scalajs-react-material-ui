@@ -21,9 +21,11 @@ object MuiFormHelperText extends ReactBridgeComponent with MuiFormHelperTextExte
     margin: js.UndefOr[Margin.Value] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiFormHelperTextExtensions {
+
   object Margin extends Enumeration {
     type Value = String
 
@@ -50,4 +52,5 @@ trait MuiFormHelperTextExtensions {
     val filled = "filled"
     val required = "required"
   }
+
 }

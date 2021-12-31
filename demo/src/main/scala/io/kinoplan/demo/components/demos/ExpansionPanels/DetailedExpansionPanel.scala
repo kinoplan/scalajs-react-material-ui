@@ -13,37 +13,39 @@ object DetailedExpansionPanel extends ScalaCssReactImplicits {
   case class Props(style: DetailedExpansionPanelStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def handleDelete: ReactEvent => Callback = e => {
+
+    def handleDelete: ReactEvent => Callback = e =>
       Callback.empty
-    }
 
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Secondary heading and Columns")(
-          div(css.root,
+          div(
+            css.root,
             MuiExpansionPanel(defaultExpanded = true)(
               MuiExpansionPanelSummary(expandIcon = MuiIcons(MuiIconsModule.ExpandMore)()())(
-                div(css.column,
-                  MuiTypography()(css.heading, "Location")
-                ),
-                div(css.column,
+                div(css.column, MuiTypography()(css.heading, "Location")),
+                div(
+                  css.column,
                   MuiTypography()(css.secondaryHeading, "Select trip destination")
                 )
               ),
-              MuiExpansionPanelDetails()(css.details,
+              MuiExpansionPanelDetails()(
+                css.details,
                 div(css.column),
-                div(css.column,
+                div(
+                  css.column,
                   MuiChip(label = VdomNode("Barbados"), onDelete = handleDelete)
                 ),
-                div(css.column, css.helper,
+                div(
+                  css.column,
+                  css.helper,
                   MuiTypography(variant = MuiTypography.Variant.caption)(
                     "Select your destination of choice",
                     br,
-                    a(href := "#sub-labels-and-columns")(css.linkStyle,
-                      "Learn more"
-                    )
+                    a(href := "#sub-labels-and-columns")(css.linkStyle, "Learn more")
                   )
                 )
               ),
@@ -57,6 +59,7 @@ object DetailedExpansionPanel extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("DetailedExpansionPanel")

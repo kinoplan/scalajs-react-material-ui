@@ -13,12 +13,15 @@ object SimpleList extends ScalaCssReactImplicits {
   case class Props(style: ListStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Simple List")(
-          div(css.root, css.rootPaper(Layout.isPaletteLight),
+          div(
+            css.root,
+            css.rootPaper(Layout.isPaletteLight),
             MuiList(component = "nav")(
               MuiListItem(button = true)(
                 MuiListItemIcon()(
@@ -37,7 +40,8 @@ object SimpleList extends ScalaCssReactImplicits {
                 MuiListItem(button = true)(
                   MuiListItemText(primary = VdomNode("Trash"))
                 ),
-                MuiListItem(component = "a", button = true)(href := "#simple-list",
+                MuiListItem(component = "a", button = true)(
+                  href := "#simple-list",
                   MuiListItemText(primary = VdomNode("Spam"))
                 )
               )
@@ -46,6 +50,7 @@ object SimpleList extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("SimpleList")

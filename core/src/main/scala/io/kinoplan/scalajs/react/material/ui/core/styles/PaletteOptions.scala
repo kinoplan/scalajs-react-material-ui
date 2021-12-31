@@ -24,6 +24,7 @@ trait PaletteOptions extends js.Object {
 }
 
 object PaletteOptions {
+
   def apply(
     primary: js.UndefOr[PaletteColorOptions | ColorPartial | Color] = js.undefined,
     secondary: js.UndefOr[PaletteColorOptions | ColorPartial | Color] = js.undefined,
@@ -57,4 +58,5 @@ object PaletteOptions {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[PaletteOptions]
   }
+
 }

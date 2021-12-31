@@ -12,14 +12,17 @@ object CustomizedDialogTitleWrapped extends ScalaCssReactImplicits {
   case class Props(onClose: Callback, style: DialogsStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
-        MuiDialogTitle(disableTypography = true)(css.root,
+        MuiDialogTitle(disableTypography = true)(
+          css.root,
           id := "customized-dialog-title",
           MuiTypography(variant = MuiTypography.Variant.h6)("Modal title"),
-          MuiIconButton()(css.closeButton,
+          MuiIconButton()(
+            css.closeButton,
             aria.label := "Close",
             onClick --> props.onClose,
             MuiIcons(MuiIconsModule.Close)()
@@ -27,6 +30,7 @@ object CustomizedDialogTitleWrapped extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   val component = ScalaComponent.builder[Props]("CustomizedDialogTitleWrapped")
@@ -37,4 +41,5 @@ object CustomizedDialogTitleWrapped extends ScalaCssReactImplicits {
     onClose: Callback,
     style: DialogsStyle = DefaultDialogsStyle
   ): VdomElement = component(Props(onClose, style))
+
 }

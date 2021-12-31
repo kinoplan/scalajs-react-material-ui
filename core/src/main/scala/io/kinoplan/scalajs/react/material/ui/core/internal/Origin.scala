@@ -11,6 +11,7 @@ trait Origin extends js.Object {
 }
 
 object Origin {
+
   def apply(
     horizontal: String | Double,
     vertical: String | Double
@@ -22,4 +23,5 @@ object Origin {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[Origin]
   }
+
 }

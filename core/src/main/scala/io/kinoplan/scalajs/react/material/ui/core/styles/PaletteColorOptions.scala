@@ -12,6 +12,7 @@ trait PaletteColorOptions extends js.Object {
 }
 
 object PaletteColorOptions {
+
   def apply(
     light: js.UndefOr[String] = js.undefined,
     main: String,
@@ -22,9 +23,10 @@ object PaletteColorOptions {
       light.toOption.map("light" -> _),
       Some("main" -> main),
       dark.toOption.map("dark" -> _),
-      contrastText.toOption.map("contrastText" -> _),
+      contrastText.toOption.map("contrastText" -> _)
     ).flatten.toMap
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[PaletteColorOptions]
   }
+
 }

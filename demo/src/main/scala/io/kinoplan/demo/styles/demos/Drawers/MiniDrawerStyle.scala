@@ -131,6 +131,7 @@ case class MiniDrawerStyle(common: CommonStyle = DefaultCommonStyle) extends Sty
     backgroundColor :=! theme.palette.background.default,
     padding((theme.spacing.unit * 3).px)
   )
+
 }
 
 object DefaultMiniDrawerStyle extends MiniDrawerStyle

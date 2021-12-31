@@ -28,11 +28,13 @@ object MuiFilledInput extends ReactBridgeComponent with MuiFilledInputExtensions
     multiline: js.UndefOr[Boolean] = js.undefined,
     rows: js.UndefOr[String | Int] = js.undefined,
     rowsMax: js.UndefOr[String | Int] = js.undefined,
-    startAdornment: js.UndefOr[VdomNode] = js.undefined,
+    startAdornment: js.UndefOr[VdomNode] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
+
 }
 
 trait MuiFilledInputExtensions {
+
   object Margin extends Enumeration {
     type Value = String
 
@@ -62,4 +64,5 @@ trait MuiFilledInputExtensions {
     val inputType = "inputType"
     val inputTypeSearch = "inputTypeSearch"
   }
+
 }

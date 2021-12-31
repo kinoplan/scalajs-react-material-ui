@@ -12,6 +12,7 @@ trait TypeTextPartial extends js.Object {
 }
 
 object TypeTextPartial {
+
   def apply(
     primary: js.UndefOr[String] = js.undefined,
     secondary: js.UndefOr[String] = js.undefined,
@@ -27,4 +28,5 @@ object TypeTextPartial {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[TypeTextPartial]
   }
+
 }

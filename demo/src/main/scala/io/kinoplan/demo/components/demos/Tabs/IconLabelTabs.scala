@@ -20,31 +20,42 @@ object IconLabelTabs extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
-    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) => {
+
+    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) =>
       t.modState(_.handleChange(value))
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("IconTabs - Label")(
-          MuiPaper(square = true)(css.root,
+          MuiPaper(square = true)(
+            css.root,
             MuiTabs(
               onChange = handleChange,
               variant = MuiTabs.Variant.fullWidth,
               indicatorColor = MuiTabs.IndicatorColor.secondary,
-              textColor = MuiTabs.TextColor.secondary,
+              textColor = MuiTabs.TextColor.secondary
             )(
               value := state.value,
-              MuiTab(icon = MuiIcons(MuiIconsModule.Phone)()(), label = "RECENTS".toVdom),
-              MuiTab(icon = MuiIcons(MuiIconsModule.Favorite)()(), label = "FAVORITES".toVdom),
-              MuiTab(icon = MuiIcons(MuiIconsModule.PersonPin)()(), label = "NEARBY".toVdom)
+              MuiTab(
+                icon = MuiIcons(MuiIconsModule.Phone)()(),
+                label = "RECENTS".toVdom
+              ),
+              MuiTab(
+                icon = MuiIcons(MuiIconsModule.Favorite)()(),
+                label = "FAVORITES".toVdom
+              ),
+              MuiTab(
+                icon = MuiIcons(MuiIconsModule.PersonPin)()(),
+                label = "NEARBY".toVdom
+              )
             )
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("IconLabelTabs")

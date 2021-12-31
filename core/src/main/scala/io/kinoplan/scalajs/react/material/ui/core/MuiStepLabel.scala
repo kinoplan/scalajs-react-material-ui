@@ -22,9 +22,11 @@ object MuiStepLabel extends ReactBridgeComponent with MuiStepLabelExtensions {
     StepIconComponent: js.UndefOr[ComponentPropType] = js.undefined,
     StepIconProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiStepLabelExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -40,4 +42,5 @@ trait MuiStepLabelExtensions {
     val alternativeLabel = "alternativeLabel"
     val labelContainer = "labelContainer"
   }
+
 }

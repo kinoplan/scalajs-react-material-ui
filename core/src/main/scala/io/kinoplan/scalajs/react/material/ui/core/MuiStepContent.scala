@@ -19,9 +19,11 @@ object MuiStepContent extends ReactBridgeComponent with MuiStepContentExtensions
     transitionDuration: js.UndefOr[Int | TransitionDuration.Value] = js.undefined,
     TransitionProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiStepContentExtensions {
+
   object TransitionDuration extends Enumeration {
     type Value = String
 
@@ -35,4 +37,5 @@ trait MuiStepContentExtensions {
     val last = "last"
     val transition = "transition"
   }
+
 }

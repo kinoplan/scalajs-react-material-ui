@@ -17,6 +17,7 @@ object ListItemComposition extends ScalaCssReactImplicits {
   case class Props(style: ListItemCompositionStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
@@ -29,22 +30,23 @@ object ListItemComposition extends ScalaCssReactImplicits {
           div(
             MuiPaper()(
               MuiMenuList()(
-                MuiMenuItem()(css.menuItem,
-                  MuiListItemIcon()(css.icon,
-                    MuiIcons(MuiIconsModule.Send)()
-                  ),
-                  MuiListItemText(classes = textClasses, inset = true, primary = VdomNode("Sent mail"))
+                MuiMenuItem()(
+                  css.menuItem,
+                  MuiListItemIcon()(css.icon, MuiIcons(MuiIconsModule.Send)()),
+                  MuiListItemText(
+                    classes = textClasses,
+                    inset = true,
+                    primary = VdomNode("Sent mail")
+                  )
                 ),
-                MuiMenuItem()(css.menuItem,
-                  MuiListItemIcon()(css.icon,
-                    MuiIcons(MuiIconsModule.Drafts)()
-                  ),
+                MuiMenuItem()(
+                  css.menuItem,
+                  MuiListItemIcon()(css.icon, MuiIcons(MuiIconsModule.Drafts)()),
                   MuiListItemText(classes = textClasses, inset = true, primary = VdomNode("Drafts"))
                 ),
-                MuiMenuItem()(css.menuItem,
-                  MuiListItemIcon()(css.icon,
-                    MuiIcons(MuiIconsModule.Inbox)()
-                  ),
+                MuiMenuItem()(
+                  css.menuItem,
+                  MuiListItemIcon()(css.icon, MuiIcons(MuiIconsModule.Inbox)()),
                   MuiListItemText(classes = textClasses, inset = true, primary = VdomNode("Inbox"))
                 )
               )
@@ -53,6 +55,7 @@ object ListItemComposition extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("ListItemComposition")

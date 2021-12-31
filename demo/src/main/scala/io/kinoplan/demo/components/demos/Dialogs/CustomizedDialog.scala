@@ -22,9 +22,8 @@ object CustomizedDialog extends ScalaCssReactImplicits {
 
     def handleClickClose: Callback = t.modState(_.handleClickClose)
 
-    def onClose: (ReactEvent, String) => Callback = (_, _) => {
+    def onClose: (ReactEvent, String) => Callback = (_, _) =>
       handleClickClose
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
@@ -32,22 +31,26 @@ object CustomizedDialog extends ScalaCssReactImplicits {
       div(
         ComponentContainer("Customized dialog")(
           div(
-            MuiButton(variant = MuiButton.Variant.outlined, color = MuiButton.Color.secondary)(
+            MuiButton(
+              variant = MuiButton.Variant.outlined,
+              color = MuiButton.Color.secondary
+            )(
               onClick --> handleClickOpen,
               "Open simple dialog"
             ),
             MuiDialog(open = state.open, onClose = onClose)(
               aria.labelledBy := "customized-dialog-title",
               CustomizedDialogTitleWrapped(handleClickClose),
-              MuiDialogContent()(css.customizedDialogContent,
+              MuiDialogContent()(
+                css.customizedDialogContent,
                 MuiTypography(gutterBottom = true)(
                   "Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac " +
-                  "facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum " +
-                  "at eros."
+                    "facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum " +
+                    "at eros."
                 ),
                 MuiTypography(gutterBottom = true)(
                   "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis " +
-                  "lacus vel augue laoreet rutrum faucibus dolor auctor."
+                    "lacus vel augue laoreet rutrum faucibus dolor auctor."
                 ),
                 MuiTypography(gutterBottom = true)(
                   "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis " +
@@ -55,11 +58,12 @@ object CustomizedDialog extends ScalaCssReactImplicits {
                 ),
                 MuiTypography(gutterBottom = true)(
                   "Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel " +
-                  "scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus " +
-                  "auctor fringilla."
+                    "scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus " +
+                    "auctor fringilla."
                 )
               ),
-              MuiDialogActions()(css.customizedDialogActions,
+              MuiDialogActions()(
+                css.customizedDialogActions,
                 MuiButton(color = MuiButton.Color.primary)(
                   onClick --> handleClickClose,
                   "Save changes"
@@ -70,6 +74,7 @@ object CustomizedDialog extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("CustomizedDialog")

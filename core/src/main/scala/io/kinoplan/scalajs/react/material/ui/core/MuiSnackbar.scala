@@ -40,9 +40,11 @@ object MuiSnackbar extends ReactBridgeComponent with MuiSnackbarExtensions {
     transitionDuration: js.UndefOr[Int | js.Object] = js.undefined,
     TransitionProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiSnackbarExtensions {
+
   object Direction extends Enumeration {
     type Value = String
 
@@ -63,4 +65,5 @@ trait MuiSnackbarExtensions {
     val anchorOriginTopLeft = "anchorOriginTopLeft"
     val anchorOriginBottomLeft = "anchorOriginBottomLeft"
   }
+
 }

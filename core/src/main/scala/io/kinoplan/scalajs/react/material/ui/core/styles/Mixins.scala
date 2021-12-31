@@ -10,6 +10,7 @@ trait Mixins extends js.Object {
 }
 
 object Mixins {
+
   def apply(
     gutters: js.UndefOr[CSSProperties] => CSSProperties,
     toolbar: CSSProperties
@@ -21,4 +22,5 @@ object Mixins {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[Mixins]
   }
+
 }

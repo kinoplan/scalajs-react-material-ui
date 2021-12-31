@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class ListItemCompositionStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -18,7 +19,9 @@ case class ListItemCompositionStyle(common: CommonStyle = DefaultCommonStyle) ex
   val icon = style()
 
   private val preliminaryFocus = style(
-    unsafeRoot(s".${item.htmlClass}:focus .${primary.htmlClass}, .${item.htmlClass}:focus .${icon.htmlClass}")(
+    unsafeRoot(
+      s".${item.htmlClass}:focus .${primary.htmlClass}, .${item.htmlClass}:focus .${icon.htmlClass}"
+    )(
       color :=! theme.palette.common.white
     )
   )
@@ -27,6 +30,7 @@ case class ListItemCompositionStyle(common: CommonStyle = DefaultCommonStyle) ex
     item.htmlClass,
     preliminaryFocus.htmlClass
   ))
+
 }
 
 object DefaultListItemCompositionStyle extends ListItemCompositionStyle

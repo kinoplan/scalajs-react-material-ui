@@ -7,7 +7,9 @@ trait JsWriter[T] {
 }
 
 object JsWriter {
+
   def apply[A](f: A => js.Any): JsWriter[A] = new JsWriter[A] {
     override def toJs(value: A) = f(value)
   }
+
 }

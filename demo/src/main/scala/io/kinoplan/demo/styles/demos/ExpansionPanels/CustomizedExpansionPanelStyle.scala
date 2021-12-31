@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class CustomizedExpansionPanelStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -43,6 +44,7 @@ case class CustomizedExpansionPanelStyle(common: CommonStyle = DefaultCommonStyl
   val detailsRoot = style(
     padding((theme.spacing.unit * 2).px)
   )
+
 }
 
 object DefaultCustomizedExpansionPanelStyle extends CustomizedExpansionPanelStyle

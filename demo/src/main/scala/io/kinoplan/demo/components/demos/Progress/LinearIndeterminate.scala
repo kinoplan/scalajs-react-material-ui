@@ -12,12 +12,14 @@ object LinearIndeterminate extends ScalaCssReactImplicits {
   case class Props(style: CommonStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Linear Indeterminate")(
-          div(css.flexGrowOne,
+          div(
+            css.flexGrowOne,
             MuiLinearProgress(),
             br,
             MuiLinearProgress(color = MuiLinearProgress.Color.secondary)
@@ -25,6 +27,7 @@ object LinearIndeterminate extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("LinearIndeterminate")

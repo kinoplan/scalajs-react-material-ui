@@ -8,6 +8,7 @@ class BottomNavigationStyle extends StyleSheet.Inline {
   val root = style(
     width(500.px)
   )
+
 }
 
 object DefaultBottomNavigationStyle extends BottomNavigationStyle

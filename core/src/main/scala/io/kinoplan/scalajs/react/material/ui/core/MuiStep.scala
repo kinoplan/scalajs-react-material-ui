@@ -17,9 +17,11 @@ object MuiStep extends ReactBridgeComponent with MuiStepExtensions {
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     completed: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiStepExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -29,4 +31,5 @@ trait MuiStepExtensions {
     val alternativeLabel = "alternativeLabel"
     val completed = "completed"
   }
+
 }

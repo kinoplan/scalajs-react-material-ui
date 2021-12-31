@@ -12,6 +12,7 @@ trait TransitionsOptions extends js.Object {
 }
 
 object TransitionsOptions {
+
   def apply(
     easing: js.UndefOr[EasingPartial] = js.undefined,
     duration: js.UndefOr[DurationPartial] = js.undefined,
@@ -27,4 +28,5 @@ object TransitionsOptions {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[TransitionsOptions]
   }
+
 }

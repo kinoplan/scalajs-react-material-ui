@@ -30,12 +30,15 @@ object MuiGrow extends ReactBridgeComponent with MuiGrowExtensions {
     onExiting: js.UndefOr[Handler1[html.Element]] = js.undefined,
     onExited: js.UndefOr[Handler1[html.Element]] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiGrowExtensions {
+
   object Timeout extends Enumeration {
     type Value = String
 
     val auto = "auto"
   }
+
 }

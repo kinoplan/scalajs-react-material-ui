@@ -12,6 +12,7 @@ import io.kinoplan.demo.styles.{ChildMenuStyle, DefaultChildMenuStyle}
 import io.kinoplan.scalajs.react.material.ui.core.{MuiList, MuiListItem, MuiListItemText}
 
 object ChildMenu extends ScalaCssReactImplicits {
+
   case class Props(
     router: RouterCtl[Page],
     r: Resolution[Page],
@@ -20,13 +21,16 @@ object ChildMenu extends ScalaCssReactImplicits {
   )
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomArray = {
       val css = props.style
 
       VdomArray(
-        MuiList(component = "div", disablePadding = true)(Attr("key") := 2,
+        MuiList(component = "div", disablePadding = true)(
+          Attr("key") := 2,
           props.items.zipWithIndex.toVdomArray { case (item, index) =>
-            MuiListItem(button = true)(css.nested,
+            MuiListItem(button = true)(
+              css.nested,
               Attr("key") := index,
               href := props.router.urlFor(item.location).value,
               props.router.setOnLinkClick(item.location)
@@ -37,6 +41,7 @@ object ChildMenu extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("ChildMenu")
@@ -49,4 +54,5 @@ object ChildMenu extends ScalaCssReactImplicits {
     items: List[ChildMenuItem],
     style: ChildMenuStyle = DefaultChildMenuStyle
   ) = component(Props(router, r, items, style))
+
 }

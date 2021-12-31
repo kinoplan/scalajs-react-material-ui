@@ -8,6 +8,7 @@ case class ChildMenuItem(
 )
 
 object ChildMenuItem {
+
   val demos = List(
     ChildMenuItem("App Bar", DemoAppBarRoute),
     ChildMenuItem("Avatars", DemoAvatarsRoute),
@@ -40,6 +41,7 @@ object ChildMenuItem {
     ChildMenuItem("Breadcrumbs", LabBreadcrumbsRoute),
     ChildMenuItem("Slider", LabSliderRoute),
     ChildMenuItem("Speed Dial", LabSpeedDialRoute),
-    ChildMenuItem("Toggle Button", LabToggleButtonRoute),
+    ChildMenuItem("Toggle Button", LabToggleButtonRoute)
   )
+
 }

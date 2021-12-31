@@ -32,9 +32,7 @@ object CircularIntegration extends ScalaCssReactImplicits {
       timer = js.timers.setTimeout(2000)(t.modState(_.setSuccess).runNow())
     }
 
-    def handleButtonClick(loading: Boolean) = {
-      (t.modState(_.setLoading) >> setSuccess).when(!loading) >> Callback.empty
-    }
+    def handleButtonClick(loading: Boolean) = (t.modState(_.setLoading) >> setSuccess).when(!loading) >> Callback.empty
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
@@ -43,19 +41,24 @@ object CircularIntegration extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Interactive Integration")(
-          div(css.root,
-            div(css.wrapper,
-              MuiFab(color = MuiFab.Color.primary)(buttonCss,
+          div(
+            css.root,
+            div(
+              css.wrapper,
+              MuiFab(color = MuiFab.Color.primary)(
+                buttonCss,
                 onClick --> handleButtonClick(state.loading),
                 if (state.success) MuiIcons(MuiIconsModule.Check)() else MuiIcons(MuiIconsModule.Save)()
               ),
               MuiCircularProgress(size = 68)(css.fabProgress).when(state.loading)
             ),
-            div(css.wrapper,
+            div(
+              css.wrapper,
               MuiButton(
                 variant = MuiButton.Variant.contained,
                 color = MuiButton.Color.primary
-              )(buttonCss,
+              )(
+                buttonCss,
                 onClick --> handleButtonClick(state.loading),
                 disabled := state.loading,
                 "Accept terms"
@@ -66,6 +69,7 @@ object CircularIntegration extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("CircularIntegration")

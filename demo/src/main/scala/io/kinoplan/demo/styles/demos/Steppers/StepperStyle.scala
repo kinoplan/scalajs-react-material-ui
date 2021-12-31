@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class StepperStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -23,6 +24,7 @@ case class StepperStyle(common: CommonStyle = DefaultCommonStyle) extends StyleS
     marginTop(theme.spacing.unit.px),
     marginBottom(theme.spacing.unit.px)
   )
+
 }
 
 object DefaultStepperStyle extends StepperStyle

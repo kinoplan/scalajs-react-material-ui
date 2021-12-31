@@ -11,14 +11,14 @@ object ChipsPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        Chips(),
-        OutlinedChips(),
-        ChipsArray(),
-        ChipsPlayground()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      Chips(),
+      OutlinedChips(),
+      ChipsArray(),
+      ChipsPlayground()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("ChipsPage")

@@ -9,6 +9,7 @@ trait Shape extends js.Object {
 }
 
 object Shape {
+
   def apply(borderRadius: Double) = {
     val o = Map[String, Any](
       "borderRadius" -> borderRadius
@@ -16,4 +17,5 @@ object Shape {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[Shape]
   }
+
 }

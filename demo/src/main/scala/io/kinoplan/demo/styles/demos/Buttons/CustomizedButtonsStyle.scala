@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.scalajs.react.material.ui.core.colors
 
 case class CustomizedButtonsStyle(common: CommonButtonStyle = DefaultCommonButtonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -50,6 +51,7 @@ case class CustomizedButtonsStyle(common: CommonButtonStyle = DefaultCommonButto
       boxShadow := "0 0 0 0.2rem rgba(0,123,255,.5)"
     )
   )
+
 }
 
 object DefaultCustomizedButtonsStyle extends CustomizedButtonsStyle

@@ -20,12 +20,15 @@ object MuiBottomNavigation extends ReactBridgeComponent with MuiBottomNavigation
     onChange: js.UndefOr[ReactHandler2[ReactEvent, js.Any]] = js.undefined,
     showLabels: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiBottomNavigationExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
     val root = "root"
   }
+
 }

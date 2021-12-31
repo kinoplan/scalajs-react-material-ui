@@ -27,9 +27,11 @@ object MuiDrawer extends ReactBridgeComponent with MuiDrawerExtensions {
     transitionDuration: js.UndefOr[Int | js.Object] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiDrawerExtensions {
+
   object Anchor extends Enumeration {
     type Value = String
 
@@ -63,4 +65,5 @@ trait MuiDrawerExtensions {
     val paperAnchorDockedBottom = "paperAnchorDockedBottom"
     val modal = "modal"
   }
+
 }

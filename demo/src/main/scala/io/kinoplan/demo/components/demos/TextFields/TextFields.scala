@@ -33,6 +33,7 @@ object TextFields extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
+
     def handleChangeName(e: ReactEventFromTextArea) = {
       val value = e.target.value
 
@@ -62,31 +63,47 @@ object TextFields extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("TextField")(
-          form(css.container, noValidate := true, autoComplete := "off",
-            MuiTextField(label = "Name".toVdom, margin = MuiTextField.Margin.normal)(css.textField,
+          form(
+            css.container,
+            noValidate := true,
+            autoComplete := "off",
+            MuiTextField(label = "Name".toVdom, margin = MuiTextField.Margin.normal)(
+              css.textField,
               id := "standard-name",
               value := state.name,
               onChange ==> handleChangeName
             ),
-            MuiTextField(label = "Uncontrolled".toVdom, margin = MuiTextField.Margin.normal)(css.textField,
+            MuiTextField(
+              label = "Uncontrolled".toVdom,
+              margin = MuiTextField.Margin.normal
+            )(
+              css.textField,
               id := "standard-uncontrolled",
               defaultValue := "foo"
             ),
-            MuiTextField(label = "Required".toVdom, margin = MuiTextField.Margin.normal)(css.textField,
+            MuiTextField(label = "Required".toVdom, margin = MuiTextField.Margin.normal)(
+              css.textField,
               required := true,
               id := "standard-required",
               defaultValue := "Hello World"
             ),
-            MuiTextField(error = true, label = "Error".toVdom, margin = MuiTextField.Margin.normal)(css.textField,
+            MuiTextField(
+              error = true,
+              label = "Error".toVdom,
+              margin = MuiTextField.Margin.normal
+            )(
+              css.textField,
               id := "standard-error",
               defaultValue := "Hello World"
             ),
-            MuiTextField(label = "Disabled".toVdom, margin = MuiTextField.Margin.normal)(css.textField,
+            MuiTextField(label = "Disabled".toVdom, margin = MuiTextField.Margin.normal)(
+              css.textField,
               disabled := true,
               id := "standard-disabled",
               defaultValue := "Hello World"
             ),
-            MuiTextField(label = "Password".toVdom, margin = MuiTextField.Margin.normal)(css.textField,
+            MuiTextField(label = "Password".toVdom, margin = MuiTextField.Margin.normal)(
+              css.textField,
               autoComplete := "current-password",
               id := "standard-password-input",
               `type` := "password"
@@ -95,11 +112,14 @@ object TextFields extends ScalaCssReactImplicits {
               label = "Read Only".toVdom,
               margin = MuiTextField.Margin.normal,
               InputProps = MuiInputProps(readOnly = true)
-            )(css.textField,
+            )(
+              css.textField,
               id := "standard-read-only-input",
               defaultValue := "Hello World"
             ),
-            MuiTextField(label = "Dense".toVdom, margin = MuiTextField.Margin.dense)(css.textField, css.dense,
+            MuiTextField(label = "Dense".toVdom, margin = MuiTextField.Margin.dense)(
+              css.textField,
+              css.dense,
               id := "standard-dense"
             ),
             MuiTextField(
@@ -107,7 +127,8 @@ object TextFields extends ScalaCssReactImplicits {
               multiline = true,
               rowsMax = 4,
               margin = MuiTextField.Margin.normal
-            )(css.textField,
+            )(
+              css.textField,
               id := "standard-multiline-flexible",
               value := state.multiline,
               onChange ==> handleChangeMultiline
@@ -117,7 +138,8 @@ object TextFields extends ScalaCssReactImplicits {
               multiline = true,
               rows = 4,
               margin = MuiTextField.Margin.normal
-            )(css.textField,
+            )(
+              css.textField,
               id := "standard-multiline-static",
               defaultValue := "Default Value"
             ),
@@ -125,11 +147,16 @@ object TextFields extends ScalaCssReactImplicits {
               label = "Helper text".toVdom,
               helperText = "Some important text".toVdom,
               margin = MuiTextField.Margin.normal
-            )(css.textField,
+            )(
+              css.textField,
               id := "standard-helperText",
               defaultValue := "Default Value"
             ),
-            MuiTextField(label = "With placeholder".toVdom, margin = MuiTextField.Margin.normal)(css.textField,
+            MuiTextField(
+              label = "With placeholder".toVdom,
+              margin = MuiTextField.Margin.normal
+            )(
+              css.textField,
               id := "standard-with-placeholder",
               placeholder := "Placeholder"
             ),
@@ -137,7 +164,8 @@ object TextFields extends ScalaCssReactImplicits {
               label = "With placeholder multiline".toVdom,
               multiline = true,
               margin = MuiTextField.Margin.normal
-            )(css.textField,
+            )(
+              css.textField,
               id := "standard-textarea",
               placeholder := "Placeholder"
             ),
@@ -145,16 +173,17 @@ object TextFields extends ScalaCssReactImplicits {
               label = "Number".toVdom,
               InputLabelProps = MuiInputLabelProps(shrink = true),
               margin = MuiTextField.Margin.normal
-            )(css.textField,
+            )(
+              css.textField,
               id := "standard-number",
               value := state.age,
               `type` := "number",
               onChange ==> handleChangeAge
             ),
-            MuiTextField(label = "Search field".toVdom, margin = MuiTextField.Margin.normal)(css.textField,
-              id := "standard-search",
-              `type` := "search"
-            ),
+            MuiTextField(
+              label = "Search field".toVdom,
+              margin = MuiTextField.Margin.normal
+            )(css.textField, id := "standard-search", `type` := "search"),
             MuiTextField(
               select = true,
               label = "Select".toVdom,
@@ -162,7 +191,8 @@ object TextFields extends ScalaCssReactImplicits {
               SelectProps = MuiSelectProps(MenuProps = MuiMenuProps(className = css.menu.htmlClass)),
               helperText = "Please select your currency".toVdom,
               margin = MuiTextField.Margin.normal
-            )(css.textField,
+            )(
+              css.textField,
               id := "standard-select-currency",
               value := state.currency,
               onChange ==> handleChangeCurrency,
@@ -173,10 +203,14 @@ object TextFields extends ScalaCssReactImplicits {
             MuiTextField(
               select = true,
               label = "Native select".toVdom,
-              SelectProps = MuiSelectProps(native = true, MenuProps = MuiMenuProps(className = css.menu.htmlClass)),
+              SelectProps = MuiSelectProps(
+                native = true,
+                MenuProps = MuiMenuProps(className = css.menu.htmlClass)
+              ),
               helperText = "Please select your currency".toVdom,
               margin = MuiTextField.Margin.normal
-            )(css.textField,
+            )(
+              css.textField,
               id := "standard-select-currency-native",
               value := state.currency,
               onChange ==> handleChangeCurrency,
@@ -195,7 +229,8 @@ object TextFields extends ScalaCssReactImplicits {
               style := js.Dictionary("margin" -> "8px"),
               placeholder := "Placeholder"
             ),
-            MuiTextField(margin = MuiTextField.Margin.normal)(css.textField,
+            MuiTextField(margin = MuiTextField.Margin.normal)(
+              css.textField,
               id := "standard-bare",
               defaultValue := "Bare"
             )
@@ -203,6 +238,7 @@ object TextFields extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("TextFields")

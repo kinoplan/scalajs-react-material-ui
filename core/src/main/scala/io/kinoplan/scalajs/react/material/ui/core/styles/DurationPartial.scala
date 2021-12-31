@@ -15,6 +15,7 @@ trait DurationPartial extends js.Object {
 }
 
 object DurationPartial {
+
   def apply(
     shortest: js.UndefOr[Int] = js.undefined,
     shorter: js.UndefOr[Int] = js.undefined,
@@ -36,4 +37,5 @@ object DurationPartial {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[DurationPartial]
   }
+
 }

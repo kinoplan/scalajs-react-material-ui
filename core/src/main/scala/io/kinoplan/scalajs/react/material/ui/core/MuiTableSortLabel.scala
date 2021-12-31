@@ -29,9 +29,11 @@ object MuiTableSortLabel extends ReactBridgeComponent with MuiTableSortLabelExte
     onFocusVisible: js.UndefOr[js.Function] = js.undefined,
     TouchRippleProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiTableSortLabelExtensions {
+
   object Direction extends Enumeration {
     type Value = String
 
@@ -50,4 +52,5 @@ trait MuiTableSortLabelExtensions {
     val iconDirectionDesc = "iconDirectionDesc"
     val iconDirectionAsc = "iconDirectionAsc"
   }
+
 }

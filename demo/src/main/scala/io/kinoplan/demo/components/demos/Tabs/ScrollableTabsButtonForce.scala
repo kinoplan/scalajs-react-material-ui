@@ -29,17 +29,22 @@ object ScrollableTabsButtonForce extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
-    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) => {
+
+    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) =>
       t.modState(_.handleChange(value))
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Scrollable Tabs - Forced Scroll Buttons")(
-          div(css.root, css.rootPaper(Layout.isPaletteLight),
-            MuiAppBar(position = MuiAppBar.Position.static, color = MuiAppBar.Color.default)(
+          div(
+            css.root,
+            css.rootPaper(Layout.isPaletteLight),
+            MuiAppBar(
+              position = MuiAppBar.Position.static,
+              color = MuiAppBar.Color.default
+            )(
               MuiTabs(
                 onChange = handleChange,
                 indicatorColor = MuiTabs.IndicatorColor.primary,
@@ -48,13 +53,34 @@ object ScrollableTabsButtonForce extends ScalaCssReactImplicits {
                 scrollButtons = MuiTabs.ScrollButtons.on
               )(
                 value := state.value,
-                MuiTab(label = "Item One".toVdom, icon = MuiIcons(MuiIconsModule.Phone)()()),
-                MuiTab(label = "Item Two".toVdom, icon = MuiIcons(MuiIconsModule.Favorite)()()),
-                MuiTab(label = "Item Three".toVdom, icon = MuiIcons(MuiIconsModule.PersonPin)()()),
-                MuiTab(label = "Item Four".toVdom, icon = MuiIcons(MuiIconsModule.Help)()()),
-                MuiTab(label = "Item Five".toVdom, icon = MuiIcons(MuiIconsModule.ShoppingBasket)()()),
-                MuiTab(label = "Item Six".toVdom, icon = MuiIcons(MuiIconsModule.ThumbDown)()()),
-                MuiTab(label = "Item Seven".toVdom, icon = MuiIcons(MuiIconsModule.ThumbUp)()())
+                MuiTab(
+                  label = "Item One".toVdom,
+                  icon = MuiIcons(MuiIconsModule.Phone)()()
+                ),
+                MuiTab(
+                  label = "Item Two".toVdom,
+                  icon = MuiIcons(MuiIconsModule.Favorite)()()
+                ),
+                MuiTab(
+                  label = "Item Three".toVdom,
+                  icon = MuiIcons(MuiIconsModule.PersonPin)()()
+                ),
+                MuiTab(
+                  label = "Item Four".toVdom,
+                  icon = MuiIcons(MuiIconsModule.Help)()()
+                ),
+                MuiTab(
+                  label = "Item Five".toVdom,
+                  icon = MuiIcons(MuiIconsModule.ShoppingBasket)()()
+                ),
+                MuiTab(
+                  label = "Item Six".toVdom,
+                  icon = MuiIcons(MuiIconsModule.ThumbDown)()()
+                ),
+                MuiTab(
+                  label = "Item Seven".toVdom,
+                  icon = MuiIcons(MuiIconsModule.ThumbUp)()()
+                )
               )
             ),
             TabContainer()("Item One").when(state.isOne),
@@ -68,6 +94,7 @@ object ScrollableTabsButtonForce extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("ScrollableTabsButtonForce")

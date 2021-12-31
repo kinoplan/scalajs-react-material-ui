@@ -24,9 +24,11 @@ object MuiInputLabel extends ReactBridgeComponent with MuiInputLabelExtensions {
     component: js.UndefOr[ComponentPropType] = js.undefined,
     filled: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiInputLabelExtensions {
+
   object Margin extends Enumeration {
     type Value = String
 
@@ -57,4 +59,5 @@ trait MuiInputLabelExtensions {
     val outlined = "outlined"
     val asterisk = "asterisk"
   }
+
 }

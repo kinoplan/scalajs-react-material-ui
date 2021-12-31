@@ -26,9 +26,11 @@ object MuiToggleButton extends ReactBridgeComponent with MuiToggleButtonExtensio
     onFocusVisible: js.UndefOr[js.Function] = js.undefined,
     TouchRippleProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiToggleButtonExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -38,4 +40,5 @@ trait MuiToggleButtonExtensions {
     val label = "label"
     val focusVisible = "focusVisible"
   }
+
 }

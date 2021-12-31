@@ -8,6 +8,7 @@ import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiTooltip}
 
 object ControlledTooltips extends ScalaCssReactImplicits {
+
   case class State(open: Boolean = false) {
     def handleTooltipClose = copy(open = false)
 
@@ -19,20 +20,19 @@ object ControlledTooltips extends ScalaCssReactImplicits {
 
     def handleTooltipOpen: ReactEventFromHtml => Callback = _ => t.modState(_.handleTooltipOpen)
 
-    def render(state: State): VdomElement = {
-      div(
-        ComponentContainer("Controlled Tooltips")(
-          MuiTooltip(
-            onClose = handleTooltipClose,
-            onOpen = handleTooltipOpen,
-            open = state.open,
-            title = "Add"
-          )(
-            MuiButton()("Controlled")
-          )
+    def render(state: State): VdomElement = div(
+      ComponentContainer("Controlled Tooltips")(
+        MuiTooltip(
+          onClose = handleTooltipClose,
+          onOpen = handleTooltipOpen,
+          open = state.open,
+          title = "Add"
+        )(
+          MuiButton()("Controlled")
         )
       )
-    }
+    )
+
   }
 
   private val component = ScalaComponent.builder[Unit]("ControlledTooltips")

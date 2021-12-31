@@ -13,6 +13,7 @@ object SimpleTooltips extends ScalaCssReactImplicits {
   case class Props(style: SimpleTooltipsStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
@@ -27,20 +28,17 @@ object SimpleTooltips extends ScalaCssReactImplicits {
             ),
             MuiTooltip(title = "Add")(
               aria.label := "Add",
-              MuiFab(color = MuiFab.Color.primary)(css.fab,
-                MuiIcons(MuiIconsModule.Add)()
-              )
+              MuiFab(color = MuiFab.Color.primary)(css.fab, MuiIcons(MuiIconsModule.Add)())
             ),
             MuiTooltip(title = "Add")(
               aria.label := "Add",
-              MuiFab(color = MuiFab.Color.secondary)(css.fab,
-                MuiIcons(MuiIconsModule.Add)()
-              )
+              MuiFab(color = MuiFab.Color.secondary)(css.fab, MuiIcons(MuiIconsModule.Add)())
             )
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("SimpleTooltips")

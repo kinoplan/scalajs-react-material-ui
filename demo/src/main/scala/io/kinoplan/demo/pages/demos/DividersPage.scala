@@ -11,14 +11,14 @@ object DividersPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        ListDividers(),
-        InsetDividers(),
-        SubheaderDividers(),
-        MiddleDividers()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      ListDividers(),
+      InsetDividers(),
+      SubheaderDividers(),
+      MiddleDividers()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("DividersPage")

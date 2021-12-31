@@ -13,12 +13,15 @@ object InsetList extends ScalaCssReactImplicits {
   case class Props(style: ListStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Inset List")(
-          div(css.root, css.rootPaper(Layout.isPaletteLight),
+          div(
+            css.root,
+            css.rootPaper(Layout.isPaletteLight),
             MuiList(component = "nav")(
               MuiListItem(button = true)(
                 MuiListItemIcon()(
@@ -34,6 +37,7 @@ object InsetList extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("InsetList")

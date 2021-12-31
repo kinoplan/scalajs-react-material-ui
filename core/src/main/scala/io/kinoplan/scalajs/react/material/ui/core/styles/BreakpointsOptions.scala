@@ -18,6 +18,7 @@ trait BreakpointsOptions extends js.Object {
 }
 
 object BreakpointsOptions {
+
   def apply(
     unit: js.UndefOr[String] = js.undefined,
     step: js.UndefOr[Double] = js.undefined,
@@ -43,4 +44,5 @@ object BreakpointsOptions {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[BreakpointsOptions]
   }
+
 }

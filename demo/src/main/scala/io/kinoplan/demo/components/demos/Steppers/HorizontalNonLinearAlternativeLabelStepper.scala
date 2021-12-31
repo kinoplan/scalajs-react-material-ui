@@ -12,7 +12,12 @@ import io.kinoplan.demo.styles.demos.Steppers.{DefaultStepperStyle, StepperStyle
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiStep, MuiStepButton, MuiStepper, MuiTypography}
 
 object HorizontalNonLinearAlternativeLabelStepper extends ScalaCssReactImplicits {
-  val steps = List("Select campaign settings", "Create an ad group", "Create an ad")
+
+  val steps = List(
+    "Select campaign settings",
+    "Create an ad group",
+    "Create an ad"
+  )
 
   def getStepContent(step: Int) = step match {
     case 0 => "Step 1: Select campaign settings..."
@@ -57,11 +62,9 @@ object HorizontalNonLinearAlternativeLabelStepper extends ScalaCssReactImplicits
     val isSkipEnabled = isStepOptional(activeStep) && !isStepComplete(activeStep)
 
     def handleNext = {
-      val newActiveStep = (if (isLastStep && notAllStepsCompleted) {
-        steps.indices.diff(completed.toList).sorted.headOption
-      } else {
-        Some(activeStep + 1)
-      }).getOrElse(0)
+      val newActiveStep = (if (isLastStep && notAllStepsCompleted)
+                             steps.indices.diff(completed.toList).sorted.headOption
+                           else Some(activeStep + 1)).getOrElse(0)
 
       copy(activeStep = newActiveStep)
     }
@@ -77,17 +80,16 @@ object HorizontalNonLinearAlternativeLabelStepper extends ScalaCssReactImplicits
       activeStep = step
     )
 
-    def handleComplete = {
-      copy(
-        completed = completed + activeStep
-      )
-    }
+    def handleComplete = copy(
+      completed = completed + activeStep
+    )
 
     def handleReset = copy(
       activeStep = 0,
       completed = Set.empty,
       skipped = Set.empty
     )
+
   }
 
   class Backend(t: BackendScope[Props, State]) {
@@ -112,16 +114,22 @@ object HorizontalNonLinearAlternativeLabelStepper extends ScalaCssReactImplicits
 
       div(
         ComponentContainer("Horizontal Non Linear - Alternative Label")(
-          div(css.root,
-            MuiStepper(activeStep = state.activeStep, alternativeLabel = true, nonLinear = true)(
+          div(
+            css.root,
+            MuiStepper(
+              activeStep = state.activeStep,
+              alternativeLabel = true,
+              nonLinear = true
+            )(
               steps.zipWithIndex.toVdomArray { case (label, index) =>
-                val optional = if (state.isStepOptional(index)) {
-                  MuiTypography(variant = MuiTypography.Variant.caption)("Optional")
-                } else EmptyVdom
+                val optional =
+                  if (state.isStepOptional(index)) MuiTypography(variant = MuiTypography.Variant.caption)("Optional")
+                  else EmptyVdom
 
                 val completed = if (state.isStepSkipped(index)) Some(false) else None
 
-                MuiStep(completed = completed.orUndefined)(Attr("key") := label,
+                MuiStep(completed = completed.orUndefined)(
+                  Attr("key") := label,
                   MuiStepButton(
                     optional = optional,
                     completed = state.isStepComplete(index)
@@ -137,32 +145,31 @@ object HorizontalNonLinearAlternativeLabelStepper extends ScalaCssReactImplicits
               div(
                 MuiTypography()(css.instructions, getStepContent(state.activeStep)),
                 div(
-                  MuiButton()(css.button, onClick --> handleBack, disabled := state.isBackDisabled, "Back"),
-                  MuiButton(
-                    variant = MuiButton.Variant.contained,
-                    color = MuiButton.Color.primary,
-                  )(css.button,
-                    onClick --> handleNext,
-                    "Next"
+                  MuiButton()(
+                    css.button,
+                    onClick --> handleBack,
+                    disabled := state.isBackDisabled,
+                    "Back"
                   ),
                   MuiButton(
                     variant = MuiButton.Variant.contained,
-                    color = MuiButton.Color.primary,
-                  )(css.button,
-                    onClick --> handleSkip,
-                    "Skip"
-                  ).when(state.isSkipEnabled),
+                    color = MuiButton.Color.primary
+                  )(css.button, onClick --> handleNext, "Next"),
+                  MuiButton(
+                    variant = MuiButton.Variant.contained,
+                    color = MuiButton.Color.primary
+                  )(css.button, onClick --> handleSkip, "Skip").when(state.isSkipEnabled),
                   TagMod(
-                    MuiTypography(variant = MuiTypography.Variant.caption)(css.completed,
+                    MuiTypography(variant = MuiTypography.Variant.caption)(
+                      css.completed,
                       s" Step ${state.activeStep + 1} already completed"
                     ).when(state.isStepComplete(state.activeStep)),
                     MuiButton(
                       variant = MuiButton.Variant.contained,
-                      color = MuiButton.Color.primary,
-                    )(css.button,
-                      onClick --> handleComplete,
-                      state.finishTitle
-                    ).when(state.notStepComplete(state.activeStep))
+                      color = MuiButton.Color.primary
+                    )(css.button, onClick --> handleComplete, state.finishTitle).when(state.notStepComplete(
+                      state.activeStep
+                    ))
                   ).when(state.notTotalStep)
                 )
               ).when(state.notAllStepsCompleted)
@@ -171,6 +178,7 @@ object HorizontalNonLinearAlternativeLabelStepper extends ScalaCssReactImplicits
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("HorizontalNonLinearAlternativeLabelStepper")

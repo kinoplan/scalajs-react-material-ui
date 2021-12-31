@@ -20,9 +20,11 @@ object MuiFormControl extends ReactBridgeComponent with MuiFormControlExtensions
     margin: js.UndefOr[Margin.Value] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiFormControlExtensions {
+
   object Margin extends Enumeration {
     type Value = String
 
@@ -47,4 +49,5 @@ trait MuiFormControlExtensions {
     val marginDense = "marginDense"
     val fullWidth = "fullWidth"
   }
+
 }

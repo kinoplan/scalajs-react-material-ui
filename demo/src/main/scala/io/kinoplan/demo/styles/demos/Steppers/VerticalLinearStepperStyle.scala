@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class VerticalLinearStepperStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -17,12 +18,13 @@ case class VerticalLinearStepperStyle(common: CommonStyle = DefaultCommonStyle) 
   )
 
   val actionsContainer = style(
-    marginBottom((theme.spacing.unit * 2).px),
+    marginBottom((theme.spacing.unit * 2).px)
   )
 
   val resetContainer = style(
     padding((theme.spacing.unit * 3).px)
   )
+
 }
 
 object DefaultVerticalLinearStepperStyle extends VerticalLinearStepperStyle

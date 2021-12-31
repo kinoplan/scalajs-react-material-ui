@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class ToggleButtonStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -16,6 +17,7 @@ case class ToggleButtonStyle(common: CommonStyle = DefaultCommonStyle) extends S
     margin(theme.spacing.unit.px, 0.px),
     background := theme.palette.background.default
   )
+
 }
 
 object DefaultToggleButtonStyle extends ToggleButtonStyle

@@ -10,15 +10,17 @@ trait MuiSelectProps extends js.Object {
 }
 
 object MuiSelectProps {
+
   def apply(
     native: js.UndefOr[Boolean] = js.undefined,
     MenuProps: js.UndefOr[js.Object] = js.undefined
   ) = {
-    val o : Map[String, Any] = Seq(
+    val o: Map[String, Any] = Seq(
       MenuProps.toOption.map("MenuProps" -> _),
       native.toOption.map("native" -> _)
     ).flatten.toMap
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[MuiSelectProps]
   }
+
 }

@@ -9,9 +9,11 @@ trait SpacingOptions extends js.Object {
 }
 
 object SpacingOptions {
+
   def apply(unit: js.UndefOr[Double] = js.undefined) = {
     val o: Map[String, Any] = unit.toOption.map("unit" -> _).toMap
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[SpacingOptions]
   }
+
 }

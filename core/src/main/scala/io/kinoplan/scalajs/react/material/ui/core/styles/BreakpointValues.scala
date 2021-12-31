@@ -13,6 +13,7 @@ trait BreakpointValues extends js.Object {
 }
 
 object BreakpointValues {
+
   def apply(
     xs: Int,
     sm: Int,
@@ -30,4 +31,5 @@ object BreakpointValues {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[BreakpointValues]
   }
+
 }

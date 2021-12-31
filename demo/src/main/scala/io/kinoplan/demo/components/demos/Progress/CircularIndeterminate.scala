@@ -12,6 +12,7 @@ object CircularIndeterminate extends ScalaCssReactImplicits {
   case class Props(style: CircularProgressStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
@@ -24,6 +25,7 @@ object CircularIndeterminate extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("CircularIndeterminate")

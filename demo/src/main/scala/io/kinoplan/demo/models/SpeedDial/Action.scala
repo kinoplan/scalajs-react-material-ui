@@ -10,6 +10,7 @@ case class Action(
 )
 
 object Action {
+
   val commons = List(
     Action(MuiIcons(MuiIconsModule.FileCopy)(), "Copy"),
     Action(MuiIcons(MuiIconsModule.Save)(), "Save"),
@@ -17,4 +18,5 @@ object Action {
     Action(MuiIcons(MuiIconsModule.Share)(), "Share"),
     Action(MuiIcons(MuiIconsModule.Delete)(), "Delete")
   )
+
 }

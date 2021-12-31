@@ -11,13 +11,13 @@ object AvatarsPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        ImageAvatars(),
-        LetterAvatars(),
-        IconAvatars()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      ImageAvatars(),
+      LetterAvatars(),
+      IconAvatars()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("AvatarsPage")

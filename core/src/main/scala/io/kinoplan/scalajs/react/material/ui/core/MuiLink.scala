@@ -15,7 +15,7 @@ object MuiLink extends ReactBridgeComponent with MuiLinkExtensions {
   def apply(
     block: js.UndefOr[Boolean] = js.undefined,
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
-    color: js.UndefOr[Color.Value]= js.undefined,
+    color: js.UndefOr[Color.Value] = js.undefined,
     component: js.UndefOr[ComponentPropType] = js.undefined,
     TypographyClasses: js.UndefOr[js.Object] = js.undefined,
     underline: js.UndefOr[Underline.Value] = js.undefined,
@@ -28,9 +28,11 @@ object MuiLink extends ReactBridgeComponent with MuiLinkExtensions {
     noWrap: js.UndefOr[Boolean] = js.undefined,
     paragraph: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiLinkExtensions {
+
   object Color extends Enumeration {
     type Value = String
 
@@ -70,4 +72,5 @@ trait MuiLinkExtensions {
     val underlineAlways = "underlineAlways"
     val button = "button"
   }
+
 }

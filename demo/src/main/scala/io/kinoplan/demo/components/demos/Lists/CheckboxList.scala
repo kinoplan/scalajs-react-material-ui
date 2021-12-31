@@ -7,7 +7,14 @@ import scalacss.ScalaCssReactImplicits
 
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Lists.{DefaultListStyle, ListStyle}
-import io.kinoplan.scalajs.react.material.ui.core.{MuiCheckbox, MuiIconButton, MuiList, MuiListItem, MuiListItemSecondaryAction, MuiListItemText}
+import io.kinoplan.scalajs.react.material.ui.core.{
+  MuiCheckbox,
+  MuiIconButton,
+  MuiList,
+  MuiListItem,
+  MuiListItemSecondaryAction,
+  MuiListItemText
+}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object CheckboxList extends ScalaCssReactImplicits {
@@ -16,13 +23,10 @@ object CheckboxList extends ScalaCssReactImplicits {
   case class State(checked: List[Int] = List(0)) {
     def isChecked(value: Int) = checked.contains(value)
 
-    def handleToggle(value: Int) = {
-      if (checked.contains(value)) {
-        copy(checked = checked.filterNot(_ == value))
-      } else {
-        copy(checked = checked :+ value)
-      }
-    }
+    def handleToggle(value: Int) =
+      if (checked.contains(value)) copy(checked = checked.filterNot(_ == value))
+      else copy(checked = checked :+ value)
+
   }
 
   class Backend(t: BackendScope[Props, State]) {
@@ -33,10 +37,13 @@ object CheckboxList extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("List Controls Checkbox")(
-          div(css.root, css.rootPaper(Layout.isPaletteLight),
+          div(
+            css.root,
+            css.rootPaper(Layout.isPaletteLight),
             MuiList()(
               List(0, 1, 2, 3).toVdomArray { value =>
-                MuiListItem(dense = true, button = true)(Attr("key") := value,
+                MuiListItem(dense = true, button = true)(
+                  Attr("key") := value,
                   onClick --> handleToggle(value),
                   MuiCheckbox(disableRipple = true)(
                     checked := state.isChecked(value),
@@ -56,6 +63,7 @@ object CheckboxList extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("CheckboxList")

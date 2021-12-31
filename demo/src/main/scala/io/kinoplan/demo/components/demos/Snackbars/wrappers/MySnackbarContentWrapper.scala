@@ -13,6 +13,7 @@ import io.kinoplan.scalajs.react.material.ui.core.{MuiIconButton, MuiSnackbarCon
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object MySnackbarContentWrapper extends ScalaCssReactImplicits {
+
   case class Props(
     className: js.UndefOr[StyleA],
     message: String,
@@ -22,14 +23,13 @@ object MySnackbarContentWrapper extends ScalaCssReactImplicits {
   )
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def variantIcon(variant: String) = {
-      variant match {
-        case "success" => MuiIcons(MuiIconsModule.CheckCircle)()
-        case "warning" => MuiIcons(MuiIconsModule.Warning)()
-        case "error" => MuiIcons(MuiIconsModule.Error)()
-        case "info" => MuiIcons(MuiIconsModule.Info)()
-        case _ => MuiIcons(MuiIconsModule.Info)()
-      }
+
+    def variantIcon(variant: String) = variant match {
+      case "success" => MuiIcons(MuiIconsModule.CheckCircle)()
+      case "warning" => MuiIcons(MuiIconsModule.Warning)()
+      case "error"   => MuiIcons(MuiIconsModule.Error)()
+      case "info"    => MuiIcons(MuiIconsModule.Info)()
+      case _         => MuiIcons(MuiIconsModule.Info)()
     }
 
     def render(props: Props): VdomElement = {
@@ -37,7 +37,9 @@ object MySnackbarContentWrapper extends ScalaCssReactImplicits {
 
       val Icon = variantIcon(props.variant)
 
-      val message = span(css.message, id := "client-snackbar",
+      val message = span(
+        css.message,
+        id := "client-snackbar",
         Icon(css.icon, css.iconVariant),
         props.message
       )
@@ -56,10 +58,13 @@ object MySnackbarContentWrapper extends ScalaCssReactImplicits {
       MuiSnackbarContent(
         message = message,
         action = action
-      )(css.get(props.variant), cssClassName,
+      )(
+        css.get(props.variant),
+        cssClassName,
         aria.describedBy := "client-snackbar"
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("MySnackbarContentWrapper")
@@ -73,4 +78,5 @@ object MySnackbarContentWrapper extends ScalaCssReactImplicits {
     variant: String,
     style: MySnackbarContentWrapperStyle = DefaultMySnackbarContentWrapperStyle
   ) = component(Props(className, message, onCloseClick, variant, style))
+
 }

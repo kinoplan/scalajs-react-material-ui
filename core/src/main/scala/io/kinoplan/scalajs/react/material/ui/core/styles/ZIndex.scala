@@ -14,6 +14,7 @@ trait ZIndex extends js.Object {
 }
 
 object ZIndex {
+
   def apply(
     mobileStepper: Int,
     appBar: Int,
@@ -33,4 +34,5 @@ object ZIndex {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[ZIndex]
   }
+
 }

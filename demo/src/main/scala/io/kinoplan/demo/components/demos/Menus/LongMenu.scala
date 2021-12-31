@@ -15,6 +15,7 @@ import io.kinoplan.scalajs.react.material.ui.core.{MuiIconButton, MuiMenu, MuiMe
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object LongMenu extends ScalaCssReactImplicits {
+
   case class State(anchorEl: Option[HTMLElement] = None) {
     val isOpen = anchorEl.nonEmpty
 
@@ -23,6 +24,7 @@ object LongMenu extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Unit, State]) {
+
     def handleClick(e: ReactEventFromHtml): Callback = {
       val target = e.currentTarget
 
@@ -31,9 +33,8 @@ object LongMenu extends ScalaCssReactImplicits {
 
     def handleClickClose: Callback = t.modState(_.handleClose)
 
-    def onClose: (ReactEvent, String) => Callback = (_, _) => {
+    def onClose: (ReactEvent, String) => Callback = (_, _) =>
       handleClickClose
-    }
 
     val ITEM_HEIGHT = 48
 
@@ -89,6 +90,7 @@ object LongMenu extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Unit]("LongMenu")

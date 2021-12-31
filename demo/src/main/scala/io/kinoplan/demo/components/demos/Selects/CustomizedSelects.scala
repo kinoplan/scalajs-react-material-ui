@@ -7,7 +7,14 @@ import scalacss.ScalaCssReactImplicits
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Selects.{CustomizedSelectsStyle, DefaultCustomizedSelectsStyle}
 import io.kinoplan.demo.utils.Helpers._
-import io.kinoplan.scalajs.react.material.ui.core.{MuiFormControl, MuiInputBase, MuiInputLabel, MuiMenuItem, MuiNativeSelect, MuiSelect}
+import io.kinoplan.scalajs.react.material.ui.core.{
+  MuiFormControl,
+  MuiInputBase,
+  MuiInputLabel,
+  MuiMenuItem,
+  MuiNativeSelect,
+  MuiSelect
+}
 
 object CustomizedSelects extends ScalaCssReactImplicits {
   case class Props(style: CustomizedSelectsStyle)
@@ -17,6 +24,7 @@ object CustomizedSelects extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
+
     def handleChangeAge(e: ReactEventFromInput) = {
       val value = e.target.value
 
@@ -29,19 +37,34 @@ object CustomizedSelects extends ScalaCssReactImplicits {
       val inputBaseClasses = Map(
         MuiInputBase.ClassKey.root -> styleAToClassName(css.bootstrapRoot),
         MuiInputBase.ClassKey.input -> stylesToClassName(
-          Seq(css.bootstrapInput, css.bootstrapInputPaper(Layout.isPaletteLight))
+          Seq(
+            css.bootstrapInput,
+            css.bootstrapInputPaper(Layout.isPaletteLight)
+          )
         )
       )
 
       div(
         ComponentContainer("Customized selects")(
-          form(css.root, autoComplete := "off",
-            MuiFormControl()(css.marginStyle,
-              MuiInputLabel()(css.bootstrapFormLabel, htmlFor := "age-customized-select", "Age"),
+          form(
+            css.root,
+            autoComplete := "off",
+            MuiFormControl()(
+              css.marginStyle,
+              MuiInputLabel()(
+                css.bootstrapFormLabel,
+                htmlFor := "age-customized-select",
+                "Age"
+              ),
               MuiInputBase(classes = inputBaseClasses)
             ),
-            MuiFormControl()(css.marginStyle,
-              MuiInputLabel()(css.bootstrapFormLabel, htmlFor := "age-customized-select", "Age"),
+            MuiFormControl()(
+              css.marginStyle,
+              MuiInputLabel()(
+                css.bootstrapFormLabel,
+                htmlFor := "age-customized-select",
+                "Age"
+              ),
               MuiSelect(
                 input = MuiInputBase(classes = inputBaseClasses)(
                   name := "age",
@@ -56,8 +79,13 @@ object CustomizedSelects extends ScalaCssReactImplicits {
                 MuiMenuItem()(value := "30", "Thirty")
               )
             ),
-            MuiFormControl()(css.marginStyle,
-              MuiInputLabel()(css.bootstrapFormLabel, htmlFor := "age-customized-native-simple", "Age"),
+            MuiFormControl()(
+              css.marginStyle,
+              MuiInputLabel()(
+                css.bootstrapFormLabel,
+                htmlFor := "age-customized-native-simple",
+                "Age"
+              ),
               MuiNativeSelect(
                 input = MuiInputBase(classes = inputBaseClasses)(
                   name := "age",
@@ -76,6 +104,7 @@ object CustomizedSelects extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("CustomizedSelects")

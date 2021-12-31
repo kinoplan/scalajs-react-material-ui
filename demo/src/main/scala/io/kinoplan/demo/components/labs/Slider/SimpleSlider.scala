@@ -18,9 +18,9 @@ object SimpleSlider extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
-    def handleChange: (ReactEvent, Double) => Callback = (_, value) => {
+
+    def handleChange: (ReactEvent, Double) => Callback = (_, value) =>
       t.modState(_.handleChange(value))
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
@@ -31,7 +31,8 @@ object SimpleSlider extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Simple slider")(
-          div(css.root,
+          div(
+            css.root,
             MuiTypography()(id := "label", "Slider label"),
             MuiSlider(classes = sliderClasses, onChange = handleChange)(
               aria.labelledBy := "label",
@@ -41,6 +42,7 @@ object SimpleSlider extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("SimpleSlider")

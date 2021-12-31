@@ -11,6 +11,7 @@ trait ColorObject extends js.Object {
 }
 
 object ColorObject {
+
   def apply(
     `type`: ColorFormatValues,
     values: (Double, Double, Double) | (Double, Double, Double, Double)
@@ -22,4 +23,5 @@ object ColorObject {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[ColorObject]
   }
+
 }

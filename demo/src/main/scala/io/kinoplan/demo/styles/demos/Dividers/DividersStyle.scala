@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class DividersStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -37,6 +38,7 @@ case class DividersStyle(common: CommonStyle = DefaultCommonStyle) extends Style
   val section3 = style(
     margin :=! s"${theme.spacing.unit * 6}px ${theme.spacing.unit * 2}px ${theme.spacing.unit * 2}px"
   )
+
 }
 
 object DefaultDividersStyle extends DividersStyle

@@ -12,15 +12,23 @@ object SimpleAppBar extends ScalaCssReactImplicits {
   case class Props(style: CommonStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Simple App Bar")(
-          div(css.flexGrowOne,
-            MuiAppBar(position = MuiAppBar.Position.static, color = MuiAppBar.Color.default)(
+          div(
+            css.flexGrowOne,
+            MuiAppBar(
+              position = MuiAppBar.Position.static,
+              color = MuiAppBar.Color.default
+            )(
               MuiToolbar()(
-                MuiTypography(variant = MuiTypography.Variant.h6, color = MuiTypography.Color.inherit)(
+                MuiTypography(
+                  variant = MuiTypography.Variant.h6,
+                  color = MuiTypography.Color.inherit
+                )(
                   "Photos"
                 )
               )
@@ -29,6 +37,7 @@ object SimpleAppBar extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("SimpleAppBar")

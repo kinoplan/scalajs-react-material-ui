@@ -23,14 +23,14 @@ object CustomizedBreadcrumbs extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Customized breadcrumbs")(
-          MuiPaper()(css.root,
-            MuiBreadcrumbs()(aria.label := "Breadcrumb",
+          MuiPaper()(
+            css.root,
+            MuiBreadcrumbs()(
+              aria.label := "Breadcrumb",
               MuiChip(
                 component = "a",
                 label = VdomNode("Home"),
-                avatar = MuiAvatar()(css.avatar,
-                  MuiIcons(MuiIconsModule.Home)()
-                )().rawElement
+                avatar = MuiAvatar()(css.avatar, MuiIcons(MuiIconsModule.Home)())().rawElement
               )(css.chip, href := "#", onClick --> handleClick),
               MuiChip(component = "a", label = VdomNode("Catalog"))(css.chip, href := "#", onClick --> handleClick),
               MuiChip(
@@ -43,6 +43,7 @@ object CustomizedBreadcrumbs extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("CustomizedBreadcrumbs")

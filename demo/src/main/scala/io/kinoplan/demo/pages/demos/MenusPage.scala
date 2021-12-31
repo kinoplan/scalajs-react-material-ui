@@ -11,16 +11,16 @@ object MenusPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        SimpleMenu(),
-        SimpleListMenu(),
-        ListItemComposition(),
-        LongMenu(),
-        TypographyMenu(),
-        FadeMenu()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      SimpleMenu(),
+      SimpleListMenu(),
+      ListItemComposition(),
+      LongMenu(),
+      TypographyMenu(),
+      FadeMenu()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("MenusPage")

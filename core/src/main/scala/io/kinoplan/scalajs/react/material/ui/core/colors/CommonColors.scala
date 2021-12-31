@@ -10,6 +10,7 @@ trait CommonColors extends js.Object {
 }
 
 object CommonColors {
+
   def apply(
     black: String,
     white: String
@@ -21,4 +22,5 @@ object CommonColors {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[CommonColors]
   }
+
 }

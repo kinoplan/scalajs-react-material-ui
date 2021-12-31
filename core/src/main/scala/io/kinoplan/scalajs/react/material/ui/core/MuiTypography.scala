@@ -25,9 +25,11 @@ object MuiTypography extends ReactBridgeComponent with MuiTypographyExtensions {
     paragraph: js.UndefOr[Boolean] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiTypographyExtensions {
+
   object Alignment extends Enumeration {
     type Value = String
 
@@ -117,4 +119,5 @@ trait MuiTypographyExtensions {
     val colorError = "colorError"
     val inline = "inline"
   }
+
 }

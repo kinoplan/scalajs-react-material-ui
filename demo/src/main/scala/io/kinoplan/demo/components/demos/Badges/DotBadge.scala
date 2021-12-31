@@ -13,6 +13,7 @@ object DotBadge extends ScalaCssReactImplicits {
   case class Props(style: DotBadgeStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
@@ -20,20 +21,24 @@ object DotBadge extends ScalaCssReactImplicits {
         ComponentContainer("Dot Badge")(
           div(
             div(
-              MuiBadge(variant = MuiBadge.Variant.dot, color = MuiBadge.Color.primary)(css.badgeMargin,
+              MuiBadge(variant = MuiBadge.Variant.dot, color = MuiBadge.Color.primary)(
+                css.badgeMargin,
                 MuiIcons(MuiIconsModule.Mail)()
               ),
-              MuiBadge(variant = MuiBadge.Variant.dot, color = MuiBadge.Color.secondary)(css.badgeMargin,
+              MuiBadge(variant = MuiBadge.Variant.dot, color = MuiBadge.Color.secondary)(
+                css.badgeMargin,
                 MuiIcons(MuiIconsModule.Mail)()
               )
             ),
-            MuiBadge(variant = MuiBadge.Variant.dot, color = MuiBadge.Color.primary)(css.badgeMargin,
+            MuiBadge(variant = MuiBadge.Variant.dot, color = MuiBadge.Color.primary)(
+              css.badgeMargin,
               MuiTypography()("Typography")
             )
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("DotBadge")

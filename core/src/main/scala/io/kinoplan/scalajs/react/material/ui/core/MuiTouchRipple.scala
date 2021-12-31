@@ -16,9 +16,11 @@ object MuiTouchRipple extends ReactBridgeComponent with MuiTouchRippleExtensions
     center: js.UndefOr[Boolean] = js.undefined,
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
+
 }
 
 trait MuiTouchRippleExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -30,4 +32,5 @@ trait MuiTouchRippleExtensions {
     val childLeaving = "childLeaving"
     val childPulsate = "childPulsate"
   }
+
 }

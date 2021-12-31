@@ -8,6 +8,7 @@ case class Chip(
 }
 
 object Chip {
+
   val default = List(
     Chip(0, "Angular"),
     Chip(1, "jQuery"),
@@ -15,4 +16,5 @@ object Chip {
     Chip(3, "React"),
     Chip(4, "Vue.js")
   )
+
 }

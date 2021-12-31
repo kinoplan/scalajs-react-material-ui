@@ -9,6 +9,7 @@ import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.scalajs.react.material.ui.core.{MuiButton, MuiFade, MuiTooltip, MuiZoom}
 
 object TransitionsTooltips {
+
   private val component = ScalaComponent.builder[Unit]("TransitionsTooltips")
     .renderStatic(
       div(

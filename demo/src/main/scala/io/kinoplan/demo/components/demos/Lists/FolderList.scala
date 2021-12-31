@@ -13,18 +13,24 @@ object FolderList extends ScalaCssReactImplicits {
   case class Props(style: ListStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Folder List")(
-          div(css.root, css.rootPaper(Layout.isPaletteLight),
+          div(
+            css.root,
+            css.rootPaper(Layout.isPaletteLight),
             MuiList()(
               MuiListItem()(
                 MuiAvatar()(
                   MuiIcons(MuiIconsModule.Image)()
                 ),
-                MuiListItemText(primary = VdomNode("Photos"), secondary = VdomNode("Jan 9, 2014"))
+                MuiListItemText(
+                  primary = VdomNode("Photos"),
+                  secondary = VdomNode("Jan 9, 2014")
+                )
               ),
               MuiListItem()(
                 MuiAvatar()(
@@ -36,13 +42,17 @@ object FolderList extends ScalaCssReactImplicits {
                 MuiAvatar()(
                   MuiIcons(MuiIconsModule.BeachAccess)()
                 ),
-                MuiListItemText(primary = VdomNode("Vacation"), secondary = VdomNode("July 20, 2014"))
+                MuiListItemText(
+                  primary = VdomNode("Vacation"),
+                  secondary = VdomNode("July 20, 2014")
+                )
               )
             )
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("FolderList")

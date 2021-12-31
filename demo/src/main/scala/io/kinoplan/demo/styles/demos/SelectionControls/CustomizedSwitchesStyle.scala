@@ -8,6 +8,7 @@ import io.kinoplan.scalajs.react.material.ui.core.colors
 import io.kinoplan.scalajs.react.material.ui.core.styles.CreateTransitionsOptions
 
 case class CustomizedSwitchesStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -62,54 +63,69 @@ case class CustomizedSwitchesStyle(common: CommonStyle = DefaultCommonStyle) ext
     )
   )
 
-  val iOSChecked = style(addClassNames(
-    iOSCheckedTransform.htmlClass,
-    iOSCheckedCond.htmlClass
-  ))
+  val iOSChecked = style(
+    addClassNames(
+      iOSCheckedTransform.htmlClass,
+      iOSCheckedCond.htmlClass
+    )
+  )
 
   private val iOSSwitchTransition = style(
     transition := iOSSwitchBaseTransition
   )
 
   private val iOSSwitchBaseBar = style(
-    unsafeRoot(s".${iOSSwitchTransition.htmlClass}.${iOSCheckedTransform.htmlClass} + .${iOSBar.htmlClass}")(
+    unsafeRoot(
+      s".${iOSSwitchTransition.htmlClass}.${iOSCheckedTransform.htmlClass} + .${iOSBar.htmlClass}"
+    )(
       backgroundColor :=! "#52d869"
     )
   )
 
   private val iOSSwitchBaseChecked = style(
-    unsafeRoot(s".${iOSSwitchTransition.htmlClass}.${iOSCheckedTransform.htmlClass}")(
+    unsafeRoot(
+      s".${iOSSwitchTransition.htmlClass}.${iOSCheckedTransform.htmlClass}"
+    )(
       color :=! theme.palette.common.white
     )
   )
 
-  val iOSSwitchBase = style(addClassNames(
-    iOSSwitchTransition.htmlClass,
-    iOSSwitchBaseChecked.htmlClass,
-    iOSSwitchBaseBar.htmlClass
-  ))
+  val iOSSwitchBase = style(
+    addClassNames(
+      iOSSwitchTransition.htmlClass,
+      iOSSwitchBaseChecked.htmlClass,
+      iOSSwitchBaseBar.htmlClass
+    )
+  )
 
   private val colorSwitchBaseColor = style(
     color :=! colors.purple.`300`
   )
 
   private val colorSwitchBaseBar = style(
-    unsafeRoot(s".${colorSwitchBaseColor.htmlClass}.${colorChecked.htmlClass} + .${colorBar.htmlClass}")(
+    unsafeRoot(
+      s".${colorSwitchBaseColor.htmlClass}.${colorChecked.htmlClass} + .${colorBar.htmlClass}"
+    )(
       backgroundColor :=! colors.purple.`500`
     )
   )
 
   private val colorSwitchBaseChecked = style(
-    unsafeRoot(s".${colorSwitchBaseColor.htmlClass}.${colorChecked.htmlClass}")(
+    unsafeRoot(
+      s".${colorSwitchBaseColor.htmlClass}.${colorChecked.htmlClass}"
+    )(
       color :=! colors.purple.`500`
     )
   )
 
-  val colorSwitchBase = style(addClassNames(
-    colorSwitchBaseColor.htmlClass,
-    colorSwitchBaseChecked.htmlClass,
-    colorSwitchBaseBar.htmlClass
-  ))
+  val colorSwitchBase = style(
+    addClassNames(
+      colorSwitchBaseColor.htmlClass,
+      colorSwitchBaseChecked.htmlClass,
+      colorSwitchBaseBar.htmlClass
+    )
+  )
+
 }
 
 object DefaultCustomizedSwitchesStyle extends CustomizedSwitchesStyle

@@ -31,9 +31,11 @@ object MuiStepButton extends ReactBridgeComponent with MuiStepButtonExtensions {
     onFocusVisible: js.UndefOr[js.Function] = js.undefined,
     TouchRippleProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiStepButtonExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -44,4 +46,5 @@ trait MuiStepButtonExtensions {
     val disabled = "disabled"
     val focusVisible = "focusVisible"
   }
+
 }

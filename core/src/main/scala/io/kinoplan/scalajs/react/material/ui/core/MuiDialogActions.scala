@@ -16,13 +16,16 @@ object MuiDialogActions extends ReactBridgeComponent with MuiDialogActionsExtens
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     disableActionSpacing: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiDialogActionsExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
     val root = "root"
     val action = "action"
   }
+
 }

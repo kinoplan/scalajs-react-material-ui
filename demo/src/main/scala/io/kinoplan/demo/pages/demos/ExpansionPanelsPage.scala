@@ -11,14 +11,14 @@ object ExpansionPanelsPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        SimpleExpansionPanel(),
-        ControlledExpansionPanels(),
-        DetailedExpansionPanel(),
-        CustomizedExpansionPanel()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      SimpleExpansionPanel(),
+      ControlledExpansionPanels(),
+      DetailedExpansionPanel(),
+      CustomizedExpansionPanel()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("ExpansionPanelsPage")

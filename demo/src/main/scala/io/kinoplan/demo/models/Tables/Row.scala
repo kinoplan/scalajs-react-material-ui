@@ -13,9 +13,10 @@ case class Row(
   ref: React.RefHandle[html.Element] = React.createRef[html.Element](),
   open: Boolean = false
 ) {
+
   lazy val isOpen = ref.current match {
     case element: html.Element => element.scrollWidth > element.clientWidth
-    case _ => false
+    case _                     => false
   }
 
   def setOpen = if (isOpen) copy(open = true) else this
@@ -32,6 +33,7 @@ case class Row(
 }
 
 object Row {
+
   val commons = List(
     Row("name", false, true, "Dessert (100g serving)"),
     Row("calories", true, false, "Calories"),
@@ -39,4 +41,5 @@ object Row {
     Row("carbs", true, false, "Carbs (g)"),
     Row("protein", true, false, "Protein (g)")
   )
+
 }

@@ -65,6 +65,7 @@ case class ResponsiveDrawerStyle(common: CommonStyle = DefaultCommonStyle) exten
     backgroundColor :=! theme.palette.background.default,
     padding((theme.spacing.unit * 3).px)
   )
+
 }
 
 object DefaultResponsiveDrawerStyle extends ResponsiveDrawerStyle

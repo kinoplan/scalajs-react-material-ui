@@ -15,9 +15,11 @@ object MuiStepConnector extends ReactBridgeComponent with MuiStepConnectorExtens
   def apply(
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
+
 }
 
 trait MuiStepConnectorExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -32,4 +34,5 @@ trait MuiStepConnectorExtensions {
     val lineHorizontal = "lineHorizontal"
     val lineVertical = "lineVertical"
   }
+
 }

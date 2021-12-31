@@ -11,13 +11,13 @@ object PickersPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        DatePickers(),
-        DateAndTimePickers(),
-        TimePickers()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      DatePickers(),
+      DateAndTimePickers(),
+      TimePickers()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("PickersPage")

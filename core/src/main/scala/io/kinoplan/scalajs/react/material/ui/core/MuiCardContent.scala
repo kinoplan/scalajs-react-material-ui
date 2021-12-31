@@ -16,12 +16,15 @@ object MuiCardContent extends ReactBridgeComponent with MuiCardContentExtensions
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     component: js.UndefOr[ComponentPropType] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
+
 }
 
 trait MuiCardContentExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
     val root = "root"
   }
+
 }

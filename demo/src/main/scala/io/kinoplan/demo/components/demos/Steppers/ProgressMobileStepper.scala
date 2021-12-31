@@ -36,11 +36,8 @@ object ProgressMobileStepper extends ScalaCssReactImplicits {
           onClick --> handleNext,
           disabled := state.isNextDisabled,
           "Next",
-          if (css.theme.direction == Direction.rtl) {
-            MuiIcons(MuiIconsModule.KeyboardArrowLeft)()
-          } else {
-            MuiIcons(MuiIconsModule.KeyboardArrowRight)()
-          }
+          if (css.theme.direction == Direction.rtl) MuiIcons(MuiIconsModule.KeyboardArrowLeft)()
+          else MuiIcons(MuiIconsModule.KeyboardArrowRight)()
         ).rawNode
       )
 
@@ -48,11 +45,8 @@ object ProgressMobileStepper extends ScalaCssReactImplicits {
         MuiButton(size = MuiButton.Size.small)(
           onClick --> handleBack,
           disabled := state.isBackDisabled,
-          if (css.theme.direction == Direction.rtl) {
-            MuiIcons(MuiIconsModule.KeyboardArrowRight)()
-          } else {
-            MuiIcons(MuiIconsModule.KeyboardArrowLeft)()
-          },
+          if (css.theme.direction == Direction.rtl) MuiIcons(MuiIconsModule.KeyboardArrowRight)()
+          else MuiIcons(MuiIconsModule.KeyboardArrowLeft)(),
           "Back"
         ).rawNode
       )
@@ -70,6 +64,7 @@ object ProgressMobileStepper extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("ProgressMobileStepper")

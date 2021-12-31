@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class PickersStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -21,6 +22,7 @@ case class PickersStyle(common: CommonStyle = DefaultCommonStyle) extends StyleS
   val grid = style(
     width(60.%%)
   )
+
 }
 
 object DefaultPickersStyle extends PickersStyle

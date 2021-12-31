@@ -17,9 +17,11 @@ object MuiAvatar extends ReactBridgeComponent with MuiAvatarExtensions {
     component: js.UndefOr[ComponentPropType] = js.undefined,
     imgProps: js.UndefOr[js.Object] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiAvatarExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -27,4 +29,5 @@ trait MuiAvatarExtensions {
     val colorDefault = "colorDefault"
     val img = "img"
   }
+
 }

@@ -7,10 +7,10 @@ import japgolly.scalajs.react.Callback
 import japgolly.scalajs.react.facade.SyntheticEvent
 
 package object lab {
-  type Handler1[A]                              = A => Callback
-  type Handler2[A, B]                           = (A, B) => Callback
-  type ReactHandler1[E <: SyntheticEvent[_]]    = Handler1[E]
+  type Handler1[A] = A => Callback
+  type Handler2[A, B] = (A, B) => Callback
+  type ReactHandler1[E <: SyntheticEvent[_]] = Handler1[E]
   type ReactHandler2[E <: SyntheticEvent[_], A] = Handler2[E, A]
-  type ComponentPropType                        = String | js.Function
-  type ComponentRefType                         = js.Function | js.Object
+  type ComponentPropType = String | js.Function
+  type ComponentRefType = js.Function | js.Object
 }

@@ -33,53 +33,65 @@ object PersistentDrawer extends ScalaCssReactImplicits {
         MuiDrawer.ClassKey.paper -> styleAToClassName(css.drawerPaper)
       )
 
-      val drawer = {
+      val drawer = div(
         div(
-          div(css.drawerHeader,
-            MuiIconButton()(
-              onClick --> handleDrawerClose,
-              if (css.theme.direction == Direction.ltr) {
-                MuiIcons(MuiIconsModule.ChevronLeft)()
-              } else {
-                MuiIcons(MuiIconsModule.ChevronRight)()
-              }
-            )
-          ),
-          MuiDivider(),
-          MuiList()(
-            List("Inbox", "Starred", "Send email", "Drafts").zipWithIndex.toVdomArray { case (text, index) =>
-              MuiListItem(button = true)(Attr("key") := text,
-                MuiListItemIcon()(if (index % 2 == 0) MuiIcons(MuiIconsModule.Inbox)() else MuiIcons(MuiIconsModule.Mail)()),
-                MuiListItemText(primary = VdomNode(text))
-              )
-            }
-          ),
-          MuiDivider(),
-          MuiList()(
-            List("All mail", "Trash", "Spam").zipWithIndex.toVdomArray { case (text, index) =>
-              MuiListItem(button = true)(Attr("key") := text,
-                MuiListItemIcon()(if (index % 2 == 0) MuiIcons(MuiIconsModule.Inbox)() else MuiIcons(MuiIconsModule.Mail)()),
-                MuiListItemText(primary = VdomNode(text))
-              )
-            }
+          css.drawerHeader,
+          MuiIconButton()(
+            onClick --> handleDrawerClose,
+            if (css.theme.direction == Direction.ltr) MuiIcons(MuiIconsModule.ChevronLeft)()
+            else MuiIcons(MuiIconsModule.ChevronRight)()
           )
+        ),
+        MuiDivider(),
+        MuiList()(
+          List("Inbox", "Starred", "Send email", "Drafts").zipWithIndex.toVdomArray { case (text, index) =>
+            MuiListItem(button = true)(
+              Attr("key") := text,
+              MuiListItemIcon()(
+                if (index % 2 == 0) MuiIcons(MuiIconsModule.Inbox)()
+                else MuiIcons(MuiIconsModule.Mail)()
+              ),
+              MuiListItemText(primary = VdomNode(text))
+            )
+          }
+        ),
+        MuiDivider(),
+        MuiList()(
+          List("All mail", "Trash", "Spam").zipWithIndex.toVdomArray { case (text, index) =>
+            MuiListItem(button = true)(
+              Attr("key") := text,
+              MuiListItemIcon()(
+                if (index % 2 == 0) MuiIcons(MuiIconsModule.Inbox)()
+                else MuiIcons(MuiIconsModule.Mail)()
+              ),
+              MuiListItemText(primary = VdomNode(text))
+            )
+          }
         )
-      }
+      )
 
       div(
         ComponentContainer("Persistent drawer")(
-          div(css.root,
+          div(
+            css.root,
             MuiCssBaseline(),
-            MuiAppBar()(css.appBar,
+            MuiAppBar()(
+              css.appBar,
               if (state.open) css.appBarShift else css.common.emptyStyle,
               if (state.open) css.appBarShiftLeft else css.common.emptyStyle,
               MuiToolbar(disableGutters = !state.open)(
-                MuiIconButton(color = MuiIconButton.Color.inherit)(css.menuButton, if (state.open) css.hide else css.common.emptyStyle,
+                MuiIconButton(color = MuiIconButton.Color.inherit)(
+                  css.menuButton,
+                  if (state.open) css.hide else css.common.emptyStyle,
                   aria.label := "Open drawer",
                   onClick --> handleDrawerOpen,
                   MuiIcons(MuiIconsModule.Menu)()
                 ),
-                MuiTypography(variant = MuiTypography.Variant.h6, color = MuiTypography.Color.inherit, noWrap = true)(
+                MuiTypography(
+                  variant = MuiTypography.Variant.h6,
+                  color = MuiTypography.Color.inherit,
+                  noWrap = true
+                )(
                   "Persistent drawer"
                 )
               )
@@ -90,7 +102,9 @@ object PersistentDrawer extends ScalaCssReactImplicits {
               open = state.open,
               classes = drawerClasses
             )(drawer),
-            main(css.content, css.contentLeft,
+            main(
+              css.content,
+              css.contentLeft,
               if (state.open) css.contentShift else css.common.emptyStyle,
               if (state.open) css.contentShiftLeft else css.common.emptyStyle,
               div(css.drawerHeader),
@@ -123,6 +137,7 @@ object PersistentDrawer extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("PersistentDrawer")

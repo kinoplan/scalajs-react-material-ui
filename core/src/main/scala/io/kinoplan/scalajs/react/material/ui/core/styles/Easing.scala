@@ -12,6 +12,7 @@ trait Easing extends js.Object {
 }
 
 object Easing {
+
   def apply(
     easeInOut: String,
     easeOut: String,
@@ -26,4 +27,5 @@ object Easing {
     )
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[Easing]
   }
+
 }

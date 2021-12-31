@@ -11,12 +11,13 @@ trait MuiNativeInputProps extends js.Object {
 }
 
 object MuiNativeInputProps {
+
   def apply(
     step: Option[Int] = None,
     name: Option[String] = None,
     id: Option[String] = None
   ) = {
-    val o : Map[String, Any] = Seq(
+    val o: Map[String, Any] = Seq(
       step.map("step" -> _),
       name.map("name" -> _),
       id.map("id" -> _)
@@ -24,4 +25,5 @@ object MuiNativeInputProps {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[MuiNativeInputProps]
   }
+
 }

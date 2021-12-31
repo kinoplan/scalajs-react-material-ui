@@ -27,9 +27,11 @@ object MuiTabs extends ReactBridgeComponent with MuiTabsExtensions {
     textColor: js.UndefOr[TextColor.Value] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiTabsExtensions {
+
   object IndicatorColor extends Enumeration {
     type Value = String
 
@@ -74,4 +76,5 @@ trait MuiTabsExtensions {
     val scrollButtonsAuto = "scrollButtonsAuto"
     val indicator = "indicator"
   }
+
 }

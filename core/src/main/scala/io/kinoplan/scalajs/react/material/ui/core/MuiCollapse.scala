@@ -16,7 +16,7 @@ object MuiCollapse extends ReactBridgeComponent with MuiCollapseExtensions {
   object RawComponent extends js.Function
 
   def apply(
-    classes: js.UndefOr[Map[ClassKey.Value, String]] =js.undefined,
+    classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     collapsedHeight: js.UndefOr[String] = js.undefined,
     component: js.UndefOr[ComponentPropType] = js.undefined,
     in: js.UndefOr[Boolean] = js.undefined,
@@ -33,9 +33,11 @@ object MuiCollapse extends ReactBridgeComponent with MuiCollapseExtensions {
     onExiting: js.UndefOr[Handler1[html.Element]] = js.undefined,
     onExited: js.UndefOr[Handler1[html.Element]] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiCollapseExtensions {
+
   object Timeout extends Enumeration {
     type Value = String
 
@@ -50,4 +52,5 @@ trait MuiCollapseExtensions {
     val wrapper = "wrapper"
     val wrapperInner = "wrapperInner"
   }
+
 }

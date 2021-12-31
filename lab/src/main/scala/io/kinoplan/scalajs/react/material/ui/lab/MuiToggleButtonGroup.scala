@@ -19,9 +19,11 @@ object MuiToggleButtonGroup extends ReactBridgeComponent with MuiToggleButtonGro
     onChange: js.UndefOr[Handler2[js.Object, String]] = js.undefined,
     selected: js.UndefOr[Boolean | Selected.Value] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiToggleButtonGroupExtensions {
+
   object Selected extends Enumeration {
     type Value = String
 
@@ -34,4 +36,5 @@ trait MuiToggleButtonGroupExtensions {
     val root = "root"
     val selected = "selected"
   }
+
 }

@@ -7,7 +7,14 @@ import scalacss.ScalaCssReactImplicits
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.SelectionControls.{ControlButtonsGroupStyle, DefaultControlButtonsGroupStyle}
 import io.kinoplan.demo.utils.Helpers.StringExtended
-import io.kinoplan.scalajs.react.material.ui.core.{MuiFormControl, MuiFormControlLabel, MuiFormHelperText, MuiFormLabel, MuiRadio, MuiRadioGroup}
+import io.kinoplan.scalajs.react.material.ui.core.{
+  MuiFormControl,
+  MuiFormControlLabel,
+  MuiFormHelperText,
+  MuiFormLabel,
+  MuiRadio,
+  MuiRadioGroup
+}
 
 object RadioButtonsGroup extends ScalaCssReactImplicits {
   case class Props(style: ControlButtonsGroupStyle)
@@ -17,6 +24,7 @@ object RadioButtonsGroup extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
+
     def handleChange(e: ReactEventFromInput) = {
       val value = e.target.value
 
@@ -28,10 +36,13 @@ object RadioButtonsGroup extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Radio Buttons")(
-          div(css.root,
-            MuiFormControl(component = "fieldset")(css.formControl,
+          div(
+            css.root,
+            MuiFormControl(component = "fieldset")(
+              css.formControl,
               MuiFormLabel(component = "legend")("Gender"),
-              MuiRadioGroup()(css.group,
+              MuiRadioGroup()(
+                css.group,
                 aria.label := "Gender",
                 name := "gender1",
                 value := state.value,
@@ -39,15 +50,20 @@ object RadioButtonsGroup extends ScalaCssReactImplicits {
                 MuiFormControlLabel(control = MuiRadio()().rawElement, label = "Female".toVdom)(value := "female"),
                 MuiFormControlLabel(control = MuiRadio()().rawElement, label = "Male".toVdom)(value := "male"),
                 MuiFormControlLabel(control = MuiRadio()().rawElement, label = "Other".toVdom)(value := "other"),
-                MuiFormControlLabel(control = MuiRadio()().rawElement, label = "(Disabled option)".toVdom)(
+                MuiFormControlLabel(
+                  control = MuiRadio()().rawElement,
+                  label = "(Disabled option)".toVdom
+                )(
                   disabled := true,
                   value := "disabled"
                 )
               )
             ),
-            MuiFormControl(component = "fieldset")(css.formControl,
+            MuiFormControl(component = "fieldset")(
+              css.formControl,
               MuiFormLabel(component = "legend")("Gender"),
-              MuiRadioGroup()(css.group,
+              MuiRadioGroup()(
+                css.group,
                 aria.label := "gender",
                 name := "gender2",
                 value := state.value,
@@ -82,6 +98,7 @@ object RadioButtonsGroup extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("RadioButtonsGroup")

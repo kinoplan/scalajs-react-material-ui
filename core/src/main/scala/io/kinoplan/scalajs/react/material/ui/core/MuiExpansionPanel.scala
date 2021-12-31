@@ -22,9 +22,11 @@ object MuiExpansionPanel extends ReactBridgeComponent with MuiExpansionPanelExte
     elevation: js.UndefOr[Int] = js.undefined,
     square: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiExpansionPanelExtensions {
+
   object ClassKey extends Enumeration with PaperClassKey {
     type Value = String
 
@@ -33,4 +35,5 @@ trait MuiExpansionPanelExtensions {
     val expanded = "expanded"
     val disabled = "disabled"
   }
+
 }

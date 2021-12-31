@@ -17,9 +17,11 @@ object MuiToolbar extends ReactBridgeComponent with MuiToolbarExtensions {
     disableGutters: js.UndefOr[Boolean] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiToolbarExtensions {
+
   object Variant extends Enumeration {
     type Value = String
 
@@ -35,4 +37,5 @@ trait MuiToolbarExtensions {
     val regular = "regular"
     val dense = "dense"
   }
+
 }

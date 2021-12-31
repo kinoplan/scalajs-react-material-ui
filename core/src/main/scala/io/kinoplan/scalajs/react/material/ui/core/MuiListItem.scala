@@ -23,9 +23,11 @@ object MuiListItem extends ReactBridgeComponent with MuiListItemExtensions {
     disableGutters: js.UndefOr[Boolean] = js.undefined,
     divider: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiListItemExtensions {
+
   object AlignItems extends Enumeration {
     type Value = String
 
@@ -49,4 +51,5 @@ trait MuiListItemExtensions {
     val secondaryAction = "secondaryAction"
     val selected = "selected"
   }
+
 }

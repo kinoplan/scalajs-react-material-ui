@@ -10,6 +10,7 @@ trait SheetManagerTheme extends js.Object {
 }
 
 object SheetManagerTheme {
+
   def apply(
     refs: Double,
     sheet: StyleSheet
@@ -21,4 +22,5 @@ object SheetManagerTheme {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[SheetManagerTheme]
   }
+
 }

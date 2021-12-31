@@ -7,7 +7,21 @@ import scalacss.ScalaCssReactImplicits
 
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Lists.{DefaultInteractiveListStyle, InteractiveListStyle}
-import io.kinoplan.scalajs.react.material.ui.core.{MuiAvatar, MuiCheckbox, MuiFormControlLabel, MuiFormGroup, MuiGrid, MuiIconButton, MuiList, MuiListItem, MuiListItemAvatar, MuiListItemIcon, MuiListItemSecondaryAction, MuiListItemText, MuiTypography}
+import io.kinoplan.scalajs.react.material.ui.core.{
+  MuiAvatar,
+  MuiCheckbox,
+  MuiFormControlLabel,
+  MuiFormGroup,
+  MuiGrid,
+  MuiIconButton,
+  MuiList,
+  MuiListItem,
+  MuiListItemAvatar,
+  MuiListItemIcon,
+  MuiListItemSecondaryAction,
+  MuiListItemText,
+  MuiTypography
+}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object InteractiveList extends ScalaCssReactImplicits {
@@ -20,6 +34,7 @@ object InteractiveList extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
+
     def handleDense(event: ReactEventFromInput) = {
       val value = event.target.checked
 
@@ -39,7 +54,8 @@ object InteractiveList extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Interactive List")(
-          div(css.root,
+          div(
+            css.root,
             MuiFormGroup(row = true)(
               MuiFormControlLabel(
                 control = MuiCheckbox()(
@@ -61,10 +77,12 @@ object InteractiveList extends ScalaCssReactImplicits {
             MuiGrid(container = true, spacing = MuiGrid.Spacing.`16`)(
               MuiGrid(item = true, xs = 12, md = 6)(
                 MuiTypography(variant = MuiTypography.Variant.h6)(css.title, "Text only"),
-                div(demoStyle,
+                div(
+                  demoStyle,
                   MuiList(dense = state.dense)(
                     List(1, 2, 3).toVdomArray { generateKey =>
-                      MuiListItem()(Attr("key") := generateKey,
+                      MuiListItem()(
+                        Attr("key") := generateKey,
                         MuiListItemText(
                           primary = VdomNode("Single-line item"),
                           secondary = if (state.secondary) VdomNode("Secondary text") else EmptyVdom
@@ -76,10 +94,12 @@ object InteractiveList extends ScalaCssReactImplicits {
               ),
               MuiGrid(item = true, xs = 12, md = 6)(
                 MuiTypography(variant = MuiTypography.Variant.h6)(css.title, "Icon with text"),
-                div(demoStyle,
+                div(
+                  demoStyle,
                   MuiList(dense = state.dense)(
                     List(1, 2, 3).toVdomArray { generateKey =>
-                      MuiListItem()(Attr("key") := generateKey,
+                      MuiListItem()(
+                        Attr("key") := generateKey,
                         MuiListItemIcon()(
                           MuiIcons(MuiIconsModule.Folder)()
                         ),
@@ -96,10 +116,12 @@ object InteractiveList extends ScalaCssReactImplicits {
             MuiGrid(container = true, spacing = MuiGrid.Spacing.`16`)(
               MuiGrid(item = true, xs = 12, md = 6)(
                 MuiTypography(variant = MuiTypography.Variant.h6)(css.title, "Avatar with text"),
-                div(demoStyle,
+                div(
+                  demoStyle,
                   MuiList(dense = state.dense)(
                     List(1, 2, 3).toVdomArray { generateKey =>
-                      MuiListItem()(Attr("key") := generateKey,
+                      MuiListItem()(
+                        Attr("key") := generateKey,
                         MuiListItemAvatar()(
                           MuiAvatar()(
                             MuiIcons(MuiIconsModule.Folder)()
@@ -116,10 +138,12 @@ object InteractiveList extends ScalaCssReactImplicits {
               ),
               MuiGrid(item = true, xs = 12, md = 6)(
                 MuiTypography(variant = MuiTypography.Variant.h6)(css.title, "Avatar with text and icon"),
-                div(demoStyle,
+                div(
+                  demoStyle,
                   MuiList(dense = state.dense)(
                     List(1, 2, 3).toVdomArray { generateKey =>
-                      MuiListItem()(Attr("key") := generateKey,
+                      MuiListItem()(
+                        Attr("key") := generateKey,
                         MuiListItemAvatar()(
                           MuiAvatar()(
                             MuiIcons(MuiIconsModule.Folder)()
@@ -145,6 +169,7 @@ object InteractiveList extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("InteractiveList")
@@ -154,4 +179,3 @@ object InteractiveList extends ScalaCssReactImplicits {
 
   def apply(style: InteractiveListStyle = DefaultInteractiveListStyle) = component(Props(style))
 }
-

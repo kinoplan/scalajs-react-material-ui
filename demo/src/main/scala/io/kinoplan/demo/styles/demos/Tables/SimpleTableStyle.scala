@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class SimpleTableStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -20,6 +21,7 @@ case class SimpleTableStyle(common: CommonStyle = DefaultCommonStyle) extends St
   val tableContainer = style(
     height(320.px)
   )
+
 }
 
 object DefaultSimpleTableStyle extends SimpleTableStyle

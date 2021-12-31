@@ -23,9 +23,8 @@ object FullScreenDialog extends ScalaCssReactImplicits {
 
     def handleClickClose: Callback = t.modState(_.handleClickClose)
 
-    def onClose: (ReactEvent, String) => Callback = (_, _) => {
+    def onClose: (ReactEvent, String) => Callback = (_, _) =>
       handleClickClose
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
@@ -33,21 +32,26 @@ object FullScreenDialog extends ScalaCssReactImplicits {
       div(
         ComponentContainer("Full-screen dialogs")(
           div(
-            MuiButton(variant = MuiButton.Variant.outlined, color = MuiButton.Color.primary)(
+            MuiButton(
+              variant = MuiButton.Variant.outlined,
+              color = MuiButton.Color.primary
+            )(
               onClick --> handleClickOpen,
               "Open full-screen dialog"
             ),
             MuiDialog(open = state.open, onClose = onClose, fullScreen = true)(
-              MuiAppBar()(css.appBar,
+              MuiAppBar()(
+                css.appBar,
                 MuiToolbar()(
                   MuiIconButton(color = MuiIconButton.Color.inherit)(
                     aria.label := "Close",
                     onClick --> handleClickClose,
                     MuiIcons(MuiIconsModule.Close)()
                   ),
-                  MuiTypography(variant = MuiTypography.Variant.h6, color = MuiTypography.Color.inherit)(css.flexStyle,
-                    "Sound"
-                  ),
+                  MuiTypography(
+                    variant = MuiTypography.Variant.h6,
+                    color = MuiTypography.Color.inherit
+                  )(css.flexStyle, "Sound"),
                   MuiButton(color = MuiButton.Color.inherit)(
                     onClick --> handleClickClose,
                     "save"
@@ -56,11 +60,17 @@ object FullScreenDialog extends ScalaCssReactImplicits {
               ),
               MuiList()(
                 MuiListItem(button = true)(
-                  MuiListItemText(primary = VdomNode("Phone ringtone"), secondary = VdomNode("Titania"))
+                  MuiListItemText(
+                    primary = VdomNode("Phone ringtone"),
+                    secondary = VdomNode("Titania")
+                  )
                 ),
                 MuiDivider(),
                 MuiListItem(button = true)(
-                  MuiListItemText(primary = VdomNode("Default notification ringtone"), secondary = VdomNode("Tethys"))
+                  MuiListItemText(
+                    primary = VdomNode("Default notification ringtone"),
+                    secondary = VdomNode("Tethys")
+                  )
                 )
               )
             ).when(state.open)
@@ -68,6 +78,7 @@ object FullScreenDialog extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("FullScreenDialog")

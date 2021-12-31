@@ -53,20 +53,25 @@ case class CustomizedTabsStyle(common: CommonStyle = DefaultCommonStyle) extends
   )
 
   private val tabSelectedPreliminary = style(
-    unsafeRoot(s".${tabRootPreliminary.htmlClass}.${tabSelected.htmlClass}")(
+    unsafeRoot(
+      s".${tabRootPreliminary.htmlClass}.${tabSelected.htmlClass}"
+    )(
       color :=! "#1890ff",
       fontWeight :=! theme.typography.fontWeightMedium.px
     )
   )
 
-  val tabRoot = style(addClassNames(
-    tabRootPreliminary.htmlClass,
-    tabSelectedPreliminary.htmlClass
-  ))
+  val tabRoot = style(
+    addClassNames(
+      tabRootPreliminary.htmlClass,
+      tabSelectedPreliminary.htmlClass
+    )
+  )
 
   val typography = style(
     padding((theme.spacing.unit * 3).px)
   )
+
 }
 
 object DefaultCustomizedTabsStyle extends CustomizedTabsStyle

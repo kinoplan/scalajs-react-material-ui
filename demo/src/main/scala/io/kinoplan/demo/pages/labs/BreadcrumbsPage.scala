@@ -11,16 +11,15 @@ object BreadcrumbsPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
 
-      div(
-        SimpleBreadcrumbs(),
-        CustomSeparator(),
-        IconBreadcrumbs(),
-        CollapsedBreadcrumbs(),
-        CustomizedBreadcrumbs()
-      )
-    }
+    def render(props: Props): VdomElement = div(
+      SimpleBreadcrumbs(),
+      CustomSeparator(),
+      IconBreadcrumbs(),
+      CollapsedBreadcrumbs(),
+      CustomizedBreadcrumbs()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("BreadcrumbsPage")

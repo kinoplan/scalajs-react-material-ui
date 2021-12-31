@@ -13,7 +13,16 @@ import scalacss.ScalaCssReactImplicits
 import io.kinoplan.demo.components.ComponentContainer
 import io.kinoplan.demo.styles.demos.Selects.{DefaultMultipleSelectStyle, MultipleSelectStyle}
 import io.kinoplan.demo.utils.props.{MuiMenuProps, MuiNativeInputProps, MuiPaperProps}
-import io.kinoplan.scalajs.react.material.ui.core.{MuiCheckbox, MuiChip, MuiFormControl, MuiInput, MuiInputLabel, MuiListItemText, MuiMenuItem, MuiSelect}
+import io.kinoplan.scalajs.react.material.ui.core.{
+  MuiCheckbox,
+  MuiChip,
+  MuiFormControl,
+  MuiInput,
+  MuiInputLabel,
+  MuiListItemText,
+  MuiMenuItem,
+  MuiSelect
+}
 import io.kinoplan.scalajs.react.material.ui.html.ReactEventFromMultipleSelect
 
 object MultipleSelect extends ScalaCssReactImplicits {
@@ -28,9 +37,14 @@ object MultipleSelect extends ScalaCssReactImplicits {
 
     val ITEM_PADDING_TOP = 8
 
-    val MenuProps = MuiMenuProps(PaperProps = MuiPaperProps(
-      style = js.Dictionary("maxHeight" -> s"${ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP}px", "width" -> "250px")
-    ))
+    val MenuProps = MuiMenuProps(
+      PaperProps = MuiPaperProps(
+        style = js.Dictionary(
+          "maxHeight" -> s"${ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP}px",
+          "width" -> "250px"
+        )
+      )
+    )
 
     val names = List(
       "Oliver Hansen",
@@ -59,14 +73,14 @@ object MultipleSelect extends ScalaCssReactImplicits {
       t.modState(_.handleChange(values))
     }
 
-    def checkboxRenderValue: js.Any => React.Node = values => {
+    def checkboxRenderValue: js.Any => React.Node = values =>
       VdomNode(values.asInstanceOf[js.Array[String]].mkString(", ")).rawNode
-    }
 
     def chipRenderValue: js.Any => React.Node = values => {
       val css = t.props.runNow().style
 
-      div(css.chips,
+      div(
+        css.chips,
         values.asInstanceOf[js.Array[String]].toVdomArray { value =>
           MuiChip(label = VdomNode(value))(css.chip, Attr("key") := value)
         }
@@ -83,21 +97,25 @@ object MultipleSelect extends ScalaCssReactImplicits {
       val css = props.style
 
       def getStyles(name: String) = {
-        val fontWeight = if (state.names.contains(name)) {
-          css.theme.typography.fontWeightMedium
-        } else {
-          css.theme.typography.fontWeightRegular
-        }
+        val fontWeight =
+          if (state.names.contains(name)) css.theme.typography.fontWeightMedium
+          else css.theme.typography.fontWeightRegular
 
         js.Dictionary("fontWeight" -> fontWeight)
       }
 
       div(
         ComponentContainer("Multiple Select")(
-          div(css.root,
-            MuiFormControl()(css.formControl,
+          div(
+            css.root,
+            MuiFormControl()(
+              css.formControl,
               MuiInputLabel()(htmlFor := "select-multiple", "Name"),
-              MuiSelect(multiple = true, input = MuiInput()(id := "select-multiple").rawElement, MenuProps = MenuProps)(
+              MuiSelect(
+                multiple = true,
+                input = MuiInput()(id := "select-multiple").rawElement,
+                MenuProps = MenuProps
+              )(
                 value := state.names,
                 onChange ==> handleChange,
                 names.toVdomArray(name =>
@@ -105,7 +123,8 @@ object MultipleSelect extends ScalaCssReactImplicits {
                 )
               )
             ),
-            MuiFormControl()(css.formControl,
+            MuiFormControl()(
+              css.formControl,
               MuiInputLabel()(htmlFor := "select-multiple-checkbox", "Tag"),
               MuiSelect(
                 multiple = true,
@@ -125,7 +144,8 @@ object MultipleSelect extends ScalaCssReactImplicits {
                 )
               )
             ),
-            MuiFormControl()(css.formControl,
+            MuiFormControl()(
+              css.formControl,
               MuiInputLabel()(htmlFor := "select-multiple-chip", "Chip"),
               MuiSelect(
                 multiple = true,
@@ -140,7 +160,9 @@ object MultipleSelect extends ScalaCssReactImplicits {
                 )
               )
             ),
-            MuiFormControl()(css.formControl, css.noLabel,
+            MuiFormControl()(
+              css.formControl,
+              css.noLabel,
               MuiSelect(
                 multiple = true,
                 displayEmpty = true,
@@ -156,7 +178,8 @@ object MultipleSelect extends ScalaCssReactImplicits {
                 )
               )
             ),
-            MuiFormControl()(css.formControl,
+            MuiFormControl()(
+              css.formControl,
               MuiInputLabel(shrink = true)(htmlFor := "select-multiple-native", "Native"),
               MuiSelect(
                 multiple = true,
@@ -174,6 +197,7 @@ object MultipleSelect extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("MultipleSelect")

@@ -33,4 +33,4 @@ jobs:
         key: ${{ runner.os }}-sbt-cache-v2-${{ hashFiles('**/*.sbt') }}-${{ hashFiles('project/build.properties') }}
 
     - name: Test
-      run: sbt ++${{ matrix.scala }} clean test "scalafixAll --check"
+      run: sbt ++${{ matrix.scala }} clean test scalafmtCheckAll scalafmtSbtCheck "scalafixAll --check"

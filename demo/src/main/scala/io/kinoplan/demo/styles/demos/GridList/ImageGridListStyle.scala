@@ -19,6 +19,7 @@ case class ImageGridListStyle(common: CommonStyle = DefaultCommonStyle) extends 
     width(500.px),
     height(450.px)
   )
+
 }
 
 object DefaultImageGridListStyle extends ImageGridListStyle

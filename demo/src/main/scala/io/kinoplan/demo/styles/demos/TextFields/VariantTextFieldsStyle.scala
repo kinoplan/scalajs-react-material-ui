@@ -4,6 +4,7 @@ import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 
 case class VariantTextFieldsStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -24,6 +25,7 @@ case class VariantTextFieldsStyle(common: CommonStyle = DefaultCommonStyle) exte
   val menu = style(
     width(200.px)
   )
+
 }
 
 object DefaultVariantTextFieldsStyle extends VariantTextFieldsStyle

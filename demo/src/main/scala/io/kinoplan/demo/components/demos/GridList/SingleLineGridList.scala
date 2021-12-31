@@ -16,6 +16,7 @@ object SingleLineGridList extends ScalaCssReactImplicits {
   case class Props(style: SingleLineGridListStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
@@ -26,16 +27,22 @@ object SingleLineGridList extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Single line Grid list")(
-          div(css.root, css.rootPaper(Layout.isPaletteLight),
-            MuiGridList()(css.gridList,
+          div(
+            css.root,
+            css.rootPaper(Layout.isPaletteLight),
+            MuiGridList()(
+              css.gridList,
               cols := 2.5,
               TileData.default.toVdomArray { tile =>
-                MuiGridListTile()(Attr("key") := tile.image,
+                MuiGridListTile()(
+                  Attr("key") := tile.image,
                   img(src := tile.image, alt := tile.title),
                   MuiGridListTileBar(
                     title = VdomNode(tile.title),
                     classes = barClasses,
-                    actionIcon = VdomNode(MuiIconButton()(MuiIcons(MuiIconsModule.StarBorder)()(css.title)).rawNode)
+                    actionIcon = VdomNode(
+                      MuiIconButton()(MuiIcons(MuiIconsModule.StarBorder)()(css.title)).rawNode
+                    )
                   )
                 )
               }
@@ -44,6 +51,7 @@ object SingleLineGridList extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("SingleLineGridList")

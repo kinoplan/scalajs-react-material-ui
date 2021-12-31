@@ -6,7 +6,14 @@ import scalacss.ScalaCssReactImplicits
 
 import io.kinoplan.demo.components.{ComponentContainer, Layout}
 import io.kinoplan.demo.styles.demos.Lists.{DefaultListStyle, ListStyle}
-import io.kinoplan.scalajs.react.material.ui.core.{MuiCollapse, MuiList, MuiListItem, MuiListItemIcon, MuiListItemText, MuiListSubheader}
+import io.kinoplan.scalajs.react.material.ui.core.{
+  MuiCollapse,
+  MuiList,
+  MuiListItem,
+  MuiListItemIcon,
+  MuiListItemText,
+  MuiListSubheader
+}
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
 
 object NestedList extends ScalaCssReactImplicits {
@@ -24,7 +31,9 @@ object NestedList extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Nested List")(
-          div(css.root, css.rootPaper(Layout.isPaletteLight),
+          div(
+            css.root,
+            css.rootPaper(Layout.isPaletteLight),
             MuiList(
               component = "nav",
               subheader = MuiListSubheader(component = "div")("Nested List Items")
@@ -41,16 +50,23 @@ object NestedList extends ScalaCssReactImplicits {
                 ),
                 MuiListItemText(inset = true, primary = VdomNode("Drafts"))
               ),
-              MuiListItem(button = true)(onClick --> handleClick,
+              MuiListItem(button = true)(
+                onClick --> handleClick,
                 MuiListItemIcon()(
                   MuiIcons(MuiIconsModule.Inbox)()
                 ),
                 MuiListItemText(inset = true, primary = VdomNode("Inbox")),
                 if (state.open) MuiIcons(MuiIconsModule.ExpandLess)() else MuiIcons(MuiIconsModule.ExpandMore)()
               ),
-              MuiCollapse(in = state.open, timeout = MuiCollapse.Timeout.auto, unmountOnExit = true)(
-                MuiList(component = "div", disablePadding = true)(onClick --> handleClick,
-                  MuiListItem(button = true)(css.nested,
+              MuiCollapse(
+                in = state.open,
+                timeout = MuiCollapse.Timeout.auto,
+                unmountOnExit = true
+              )(
+                MuiList(component = "div", disablePadding = true)(
+                  onClick --> handleClick,
+                  MuiListItem(button = true)(
+                    css.nested,
                     MuiListItemIcon()(
                       MuiIcons(MuiIconsModule.StarBorder)()
                     ),
@@ -63,6 +79,7 @@ object NestedList extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("NestedList")

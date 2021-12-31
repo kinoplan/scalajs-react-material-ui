@@ -45,9 +45,11 @@ object MuiSelect extends ReactBridgeComponent with MuiSelectExtensions {
     rowsMax: js.UndefOr[String | Int] = js.undefined,
     startAdornment: js.UndefOr[VdomNode] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiSelectExtensions {
+
   object Variant extends Enumeration {
     type Value = String
 
@@ -90,4 +92,5 @@ trait MuiSelectExtensions {
     val inputAdornedStart = "inputAdornedStart"
     val inputAdornedEnd = "inputAdornedEnd"
   }
+
 }

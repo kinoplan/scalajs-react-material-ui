@@ -22,6 +22,7 @@ trait Color extends js.Object {
 }
 
 object Color {
+
   def apply(
     `50`: String,
     `100`: String,
@@ -57,4 +58,5 @@ object Color {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[Color]
   }
+
 }

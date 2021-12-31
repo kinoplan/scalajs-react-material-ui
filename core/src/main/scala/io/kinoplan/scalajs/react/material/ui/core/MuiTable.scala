@@ -17,9 +17,11 @@ object MuiTable extends ReactBridgeComponent with MuiTableExtensions {
     component: js.UndefOr[ComponentPropType] = js.undefined,
     padding: js.UndefOr[Padding.Value] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiTableExtensions {
+
   object Padding extends Enumeration {
     type Value = String
 
@@ -34,4 +36,5 @@ trait MuiTableExtensions {
 
     val root = "root"
   }
+
 }

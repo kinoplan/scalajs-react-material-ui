@@ -22,9 +22,11 @@ object MuiSvgIcon extends ReactBridgeComponent with MuiSvgIconExtensions {
     titleAccess: js.UndefOr[String] = js.undefined,
     viewBox: js.UndefOr[String] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiSvgIconExtensions {
+
   object Color extends Enumeration {
     type Value = String
 
@@ -58,4 +60,5 @@ trait MuiSvgIconExtensions {
     val fontSizeSmall = "fontSizeSmall"
     val fontSizeLarge = "fontSizeLarge"
   }
+
 }

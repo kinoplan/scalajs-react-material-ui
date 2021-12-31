@@ -7,6 +7,7 @@ import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.styles.CreateTransitionsOptions
 
 case class FabIntegrationSnackbarStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -73,6 +74,7 @@ case class FabIntegrationSnackbarStyle(common: CommonStyle = DefaultCommonStyle)
   val snackbarContent = style(
     width(360.px)
   )
+
 }
 
 object DefaultFabIntegrationSnackbarStyle extends FabIntegrationSnackbarStyle

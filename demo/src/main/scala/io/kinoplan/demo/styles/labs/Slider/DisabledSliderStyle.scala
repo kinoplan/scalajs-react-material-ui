@@ -13,6 +13,7 @@ case class DisabledSliderStyle(common: CommonStyle = DefaultCommonStyle) extends
   val slider = style(
     padding(8.px, 0.px)
   )
+
 }
 
 object DefaultDisabledSliderStyle extends DisabledSliderStyle

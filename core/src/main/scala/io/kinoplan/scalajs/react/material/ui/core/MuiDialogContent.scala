@@ -15,12 +15,15 @@ object MuiDialogContent extends ReactBridgeComponent with MuiDialogContentExtens
   def apply(
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiDialogContentExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
     val root = "root"
   }
+
 }

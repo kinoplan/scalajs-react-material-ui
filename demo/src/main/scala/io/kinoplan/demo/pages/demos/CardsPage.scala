@@ -11,15 +11,15 @@ object CardsPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        SimpleCard(),
-        RecipeReviewCard(),
-        MediaCard(),
-        MediaCardFit(),
-        MediaControlCard()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      SimpleCard(),
+      RecipeReviewCard(),
+      MediaCard(),
+      MediaCardFit(),
+      MediaControlCard()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("CardsPage")

@@ -12,6 +12,7 @@ object SimpleCard extends ScalaCssReactImplicits {
   case class Props(style: SimpleCardStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
@@ -19,17 +20,20 @@ object SimpleCard extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Simple Card")(
-          MuiCard()(css.card,
+          MuiCard()(
+            css.card,
             MuiCardContent()(
-              MuiTypography(color = MuiTypography.Color.textSecondary, gutterBottom = true)(css.title,
-                "Word of the Day"
-              ),
+              MuiTypography(color = MuiTypography.Color.textSecondary, gutterBottom = true)(css.title, "Word of the Day"),
               MuiTypography(variant = MuiTypography.Variant.h5, component = "h2")(
-                "be", bull, "nev", bull, "o", bull, "lent"
+                "be",
+                bull,
+                "nev",
+                bull,
+                "o",
+                bull,
+                "lent"
               ),
-              MuiTypography(color = MuiTypography.Color.textSecondary)(css.pos,
-                "adjective"
-              ),
+              MuiTypography(color = MuiTypography.Color.textSecondary)(css.pos, "adjective"),
               MuiTypography(component = "p")(
                 "well meaning and kindly.",
                 br,
@@ -43,6 +47,7 @@ object SimpleCard extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("SimpleCard")

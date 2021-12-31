@@ -40,6 +40,7 @@ object FilledInputAdornments extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
+
     def handleChangeAmount(e: ReactEventFromTextArea) = {
       val value = e.target.value
 
@@ -69,23 +70,19 @@ object FilledInputAdornments extends ScalaCssReactImplicits {
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
 
-      val passwordEndAdormnent = {
-        MuiInputAdornment(position = MuiInputAdornment.Position.end)(
-          MuiIconButton()(
-            aria.label := "Toggle password visibility",
-            onClick --> handleClickShowPassword,
-            if (state.showPassword) {
-              MuiIcons(MuiIconsModule.Visibility)()
-            } else {
-              MuiIcons(MuiIconsModule.VisibilityOff)()
-            }
-          )
+      val passwordEndAdormnent = MuiInputAdornment(position = MuiInputAdornment.Position.end)(
+        MuiIconButton()(
+          aria.label := "Toggle password visibility",
+          onClick --> handleClickShowPassword,
+          if (state.showPassword) MuiIcons(MuiIconsModule.Visibility)()
+          else MuiIcons(MuiIconsModule.VisibilityOff)()
         )
-      }
+      )
 
       div(
         ComponentContainer("Input Adornments - Filled Input Adornments")(
-          div(css.root,
+          div(
+            css.root,
             MuiTextField(
               label = "With filled TextField".toVdom,
               variant = MuiTextField.Variant.filled,
@@ -94,7 +91,9 @@ object FilledInputAdornments extends ScalaCssReactImplicits {
                   position = MuiInputAdornment.Position.start
                 )(css.top, "Kg").rawNode.some.orUndefined
               )
-            )(css.cssMargin, css.textField,
+            )(
+              css.cssMargin,
+              css.textField,
               id := "filled-simple-start-adornment"
             ),
             MuiTextField(
@@ -106,7 +105,9 @@ object FilledInputAdornments extends ScalaCssReactImplicits {
                   position = MuiInputAdornment.Position.start
                 )(css.top, "Kg").rawNode.some.orUndefined
               )
-            )(css.cssMargin, css.textField,
+            )(
+              css.cssMargin,
+              css.textField,
               value := state.weightRange,
               onChange ==> handleChangeWeightRange,
               FieldRange.commons.toVdomArray { range =>
@@ -121,7 +122,9 @@ object FilledInputAdornments extends ScalaCssReactImplicits {
                   position = MuiInputAdornment.Position.start
                 )(css.top, "$").rawNode.some.orUndefined
               )
-            )(css.cssMargin, css.textField,
+            )(
+              css.cssMargin,
+              css.textField,
               id := "filled-adornment-amount",
               value := state.amount,
               onChange ==> handleChangeAmount
@@ -135,7 +138,9 @@ object FilledInputAdornments extends ScalaCssReactImplicits {
                 )(css.top, "$").rawNode.some.orUndefined
               ),
               helperText = "Weight".toVdom
-            )(css.cssMargin, css.textField,
+            )(
+              css.cssMargin,
+              css.textField,
               id := "filled-adornment-weight",
               value := state.weight,
               onChange ==> handleChangeWeight
@@ -144,7 +149,9 @@ object FilledInputAdornments extends ScalaCssReactImplicits {
               label = "Password".toVdom,
               variant = MuiTextField.Variant.filled,
               InputProps = MuiInputProps(endAdornment = passwordEndAdormnent.rawNode.some.orUndefined)
-            )(css.cssMargin, css.textField,
+            )(
+              css.cssMargin,
+              css.textField,
               id := "filled-adornment-password",
               `type` := state.showPasswordType,
               value := state.password,
@@ -154,6 +161,7 @@ object FilledInputAdornments extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("FilledInputAdornments")

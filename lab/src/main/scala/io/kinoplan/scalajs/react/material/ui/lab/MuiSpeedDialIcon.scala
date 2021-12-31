@@ -19,9 +19,11 @@ object MuiSpeedDialIcon extends ReactBridgeComponent with MuiSpeedDialIconExtens
     icon: js.UndefOr[VdomNode] = js.undefined,
     openIcon: js.UndefOr[VdomNode] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
+
 }
 
 trait MuiSpeedDialIconExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
@@ -32,4 +34,5 @@ trait MuiSpeedDialIconExtensions {
     val openIcon = "openIcon"
     val openIconOpen = "openIconOpen"
   }
+
 }

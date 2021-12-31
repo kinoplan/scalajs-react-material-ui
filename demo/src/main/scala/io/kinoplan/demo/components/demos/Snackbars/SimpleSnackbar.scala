@@ -26,9 +26,8 @@ object SimpleSnackbar extends ScalaCssReactImplicits {
 
     def handleCloseClick: Callback = t.modState(_.handleClose)
 
-    def handleClose: (ReactEvent, String) => Callback = (_, reason) => {
+    def handleClose: (ReactEvent, String) => Callback = (_, reason) =>
       handleCloseClick.when_(reason != "clickaway")
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
@@ -50,7 +49,8 @@ object SimpleSnackbar extends ScalaCssReactImplicits {
                   onClick --> handleCloseClick,
                   "UNDO"
                 ),
-                MuiIconButton(color = MuiIconButton.Color.inherit)(css.close,
+                MuiIconButton(color = MuiIconButton.Color.inherit)(
+                  css.close,
                   Attr("key") := "close",
                   aria.label := "Close",
                   onClick --> handleCloseClick,
@@ -62,6 +62,7 @@ object SimpleSnackbar extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("SimpleSnackbar")

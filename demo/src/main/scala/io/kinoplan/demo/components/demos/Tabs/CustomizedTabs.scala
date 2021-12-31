@@ -19,9 +19,9 @@ object CustomizedTabs extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
-    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) => {
+
+    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) =>
       t.modState(_.handleChange(value))
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
@@ -38,7 +38,9 @@ object CustomizedTabs extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Customized Tabs")(
-          div(css.root, css.rootPaper(Layout.isPaletteLight),
+          div(
+            css.root,
+            css.rootPaper(Layout.isPaletteLight),
             MuiTabs(onChange = handleChange, classes = tabsClasses)(
               value := state.value,
               MuiTab(disableRipple = true, classes = tabClasses, label = "Tab 1".toVdom),
@@ -50,6 +52,7 @@ object CustomizedTabs extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("CustomizedTabs")

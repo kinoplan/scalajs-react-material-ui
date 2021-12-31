@@ -10,6 +10,7 @@ trait CommonColorsPartial extends js.Object {
 }
 
 object CommonColorsPartial {
+
   def apply(
     black: js.UndefOr[String] = js.undefined,
     white: js.UndefOr[String] = js.undefined
@@ -21,4 +22,5 @@ object CommonColorsPartial {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[CommonColorsPartial]
   }
+
 }

@@ -16,13 +16,11 @@ object SimpleDialogWrapped extends ScalaCssReactImplicits {
   case class Props(open: Boolean, onClose: js.Function1[String, Callback], selectedValue: String, style: DialogsStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def handleClose(props: Props): (ReactEvent, String) => Callback = (_, _) => {
-      props.onClose(props.selectedValue)
-    }
 
-    def handleListItemClick(props: Props, value: String) = {
-      props.onClose(value)
-    }
+    def handleClose(props: Props): (ReactEvent, String) => Callback = (_, _) =>
+      props.onClose(props.selectedValue)
+
+    def handleListItemClick(props: Props, value: String) = props.onClose(value)
 
     def render(props: Props): VdomElement = {
       val css = props.style
@@ -38,9 +36,7 @@ object SimpleDialogWrapped extends ScalaCssReactImplicits {
                   onClick --> handleListItemClick(props, email),
                   Attr("key") := email,
                   MuiListItemAvatar()(
-                    MuiAvatar()(css.avatar,
-                      MuiIcons(MuiIconsModule.Person)()
-                    )
+                    MuiAvatar()(css.avatar, MuiIcons(MuiIconsModule.Person)())
                   ),
                   MuiListItemText(primary = VdomNode(email))
                 )
@@ -59,6 +55,7 @@ object SimpleDialogWrapped extends ScalaCssReactImplicits {
         ).when(props.open)
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("SimpleDialogWrapped")
@@ -71,4 +68,5 @@ object SimpleDialogWrapped extends ScalaCssReactImplicits {
     selectedValue: String,
     style: DialogsStyle = DefaultDialogsStyle
   ) = component(Props(open, onClose, selectedValue, style))
+
 }

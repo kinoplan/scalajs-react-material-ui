@@ -17,6 +17,7 @@ case class ConfirmationDialogStyle(common: CommonStyle = DefaultCommonStyle) ext
     width(80.%%),
     maxWidth(435.px)
   )
+
 }
 
 object DefaultConfirmationDialogStyle extends ConfirmationDialogStyle

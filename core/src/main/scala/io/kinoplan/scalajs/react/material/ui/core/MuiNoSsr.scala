@@ -18,4 +18,5 @@ object MuiNoSsr extends ReactBridgeComponent {
     defer: js.UndefOr[Boolean] = js.undefined,
     fallback: js.UndefOr[VdomNode] = js.undefined
   ): WithProps = auto
+
 }

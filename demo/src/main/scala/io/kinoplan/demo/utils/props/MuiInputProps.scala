@@ -15,6 +15,7 @@ trait MuiInputProps extends js.Object {
 }
 
 object MuiInputProps {
+
   def apply(
     readOnly: js.UndefOr[Boolean] = js.undefined,
     ariaLabel: js.UndefOr[String] = js.undefined,
@@ -32,4 +33,5 @@ object MuiInputProps {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[MuiInputProps]
   }
+
 }

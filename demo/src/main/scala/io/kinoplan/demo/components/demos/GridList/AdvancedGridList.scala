@@ -15,22 +15,29 @@ object AdvancedGridList extends ScalaCssReactImplicits {
   case class Props(style: AdvancedGridListStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Advanced Grid list")(
-          div(css.root, css.rootPaper(Layout.isPaletteLight),
-            MuiGridList(cellHeight = 200, spacing = 1)(css.gridList,
+          div(
+            css.root,
+            css.rootPaper(Layout.isPaletteLight),
+            MuiGridList(cellHeight = 200, spacing = 1)(
+              css.gridList,
               TileData.default.toVdomArray { tile =>
-                MuiGridListTile()(Attr("key") := tile.image,
+                MuiGridListTile()(
+                  Attr("key") := tile.image,
                   cols := tile.featuredValue,
                   rows := tile.featuredValue,
                   img(src := tile.image, alt := tile.title),
                   MuiGridListTileBar(
                     title = VdomNode(tile.title),
                     titlePosition = MuiGridListTileBar.TitlePosition.top,
-                    actionIcon = VdomNode(MuiIconButton()(css.iconStyle, MuiIcons(MuiIconsModule.StarBorder)()).rawNode),
+                    actionIcon = VdomNode(
+                      MuiIconButton()(css.iconStyle, MuiIcons(MuiIconsModule.StarBorder)()).rawNode
+                    ),
                     actionPosition = MuiGridListTileBar.ActionPosition.left
                   )(css.titleBar)
                 )
@@ -40,6 +47,7 @@ object AdvancedGridList extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("AdvancedGridList")

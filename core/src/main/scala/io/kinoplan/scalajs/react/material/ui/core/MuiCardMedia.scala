@@ -17,13 +17,16 @@ object MuiCardMedia extends ReactBridgeComponent with MuiCardMediaExtensions {
     component: js.UndefOr[ComponentPropType] = js.undefined,
     image: js.UndefOr[String] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
+
 }
 
 trait MuiCardMediaExtensions {
+
   object ClassKey extends Enumeration {
     type Value = String
 
     val root = "root"
     val media = "media"
   }
+
 }

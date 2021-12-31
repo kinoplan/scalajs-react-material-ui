@@ -31,6 +31,7 @@ object PrimarySearchAppBar extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
+
     def handleProfileMenuOpen(e: ReactEventFromHtml): Callback = {
       val target = e.currentTarget
 
@@ -39,9 +40,8 @@ object PrimarySearchAppBar extends ScalaCssReactImplicits {
 
     def handleProfileMenuClose: Callback = t.modState(_.handleProfileMenuClose)
 
-    def onCloseProfile: (ReactEvent, String) => Callback = (_, _) => {
+    def onCloseProfile: (ReactEvent, String) => Callback = (_, _) =>
       handleProfileMenuClose
-    }
 
     def handleMobileMenuOpen(e: ReactEventFromHtml): Callback = {
       val target = e.currentTarget
@@ -49,9 +49,8 @@ object PrimarySearchAppBar extends ScalaCssReactImplicits {
       t.modState(_.handleMobileMenuOpen(target))
     }
 
-    def handleMobileMenuClose: (ReactEvent, String) => Callback = (_, _) => {
+    def handleMobileMenuClose: (ReactEvent, String) => Callback = (_, _) =>
       t.modState(_.handleMobileMenuClose)
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
@@ -66,75 +65,74 @@ object PrimarySearchAppBar extends ScalaCssReactImplicits {
 
       val ariaOwns = if (isMenuOpen) "material-appbar" else ""
 
-      def renderMenu() = {
-        MuiMenu(
-          anchorEl = state.anchorEl.orUndefined,
-          anchorOrigin = Origin(vertical = "top", horizontal = "right"),
-          transformOrigin = Origin(vertical = "top", horizontal = "right"),
-          open = isMenuOpen,
-          onClose = onCloseProfile
-        )(
-          MuiMenuItem()(onClick --> handleProfileMenuClose,
-            "Profile"
-          ),
-          MuiMenuItem()(onClick --> handleProfileMenuClose,
-            "My account"
-          )
-        )
-      }
+      def renderMenu() = MuiMenu(
+        anchorEl = state.anchorEl.orUndefined,
+        anchorOrigin = Origin(vertical = "top", horizontal = "right"),
+        transformOrigin = Origin(vertical = "top", horizontal = "right"),
+        open = isMenuOpen,
+        onClose = onCloseProfile
+      )(
+        MuiMenuItem()(onClick --> handleProfileMenuClose, "Profile"),
+        MuiMenuItem()(onClick --> handleProfileMenuClose, "My account")
+      )
 
-      def renderMobileMenu() = {
-        MuiMenu(
-          anchorEl = state.mobileMoreAnchorEl.orUndefined,
-          anchorOrigin = Origin(vertical = "top", horizontal = "right"),
-          transformOrigin = Origin(vertical = "top", horizontal = "right"),
-          open = isMobileMenuOpen,
-          onClose = handleMobileMenuClose
-        )(
-          MuiMenuItem()(
-            MuiIconButton(color = MuiIconButton.Color.inherit)(
-              MuiBadge(badgeContent = VdomNode(4), color = MuiBadge.Color.secondary)(
-                MuiIcons(MuiIconsModule.Mail)()
-              )
-            ),
-            p("Messages")
+      def renderMobileMenu() = MuiMenu(
+        anchorEl = state.mobileMoreAnchorEl.orUndefined,
+        anchorOrigin = Origin(vertical = "top", horizontal = "right"),
+        transformOrigin = Origin(vertical = "top", horizontal = "right"),
+        open = isMobileMenuOpen,
+        onClose = handleMobileMenuClose
+      )(
+        MuiMenuItem()(
+          MuiIconButton(color = MuiIconButton.Color.inherit)(
+            MuiBadge(badgeContent = VdomNode(4), color = MuiBadge.Color.secondary)(
+              MuiIcons(MuiIconsModule.Mail)()
+            )
           ),
-          MuiMenuItem()(
-            MuiIconButton(color = MuiIconButton.Color.inherit)(
-              MuiBadge(badgeContent = VdomNode(11), color = MuiBadge.Color.secondary)(
-                MuiIcons(MuiIconsModule.Notifications)()
-              )
-            ),
-            p("Notifications")
+          p("Messages")
+        ),
+        MuiMenuItem()(
+          MuiIconButton(color = MuiIconButton.Color.inherit)(
+            MuiBadge(badgeContent = VdomNode(11), color = MuiBadge.Color.secondary)(
+              MuiIcons(MuiIconsModule.Notifications)()
+            )
           ),
-          MuiMenuItem()(onClick ==> handleProfileMenuOpen,
-            MuiIconButton(color = MuiIconButton.Color.inherit)(
-              MuiIcons(MuiIconsModule.AccountCircle)()
-            ),
-            p("Profile")
-          )
+          p("Notifications")
+        ),
+        MuiMenuItem()(
+          onClick ==> handleProfileMenuOpen,
+          MuiIconButton(color = MuiIconButton.Color.inherit)(
+            MuiIcons(MuiIconsModule.AccountCircle)()
+          ),
+          p("Profile")
         )
-      }
+      )
 
       div(
         ComponentContainer("App Bar with a primary search field")(
-          div(css.root,
+          div(
+            css.root,
             MuiAppBar(position = MuiAppBar.Position.static)(
               MuiToolbar()(
-                MuiIconButton(color = MuiIconButton.Color.inherit)(css.common.menuButton,
+                MuiIconButton(color = MuiIconButton.Color.inherit)(
+                  css.common.menuButton,
                   aria.label := "Open drawer",
                   Attr("edge") := "start",
                   MuiIcons(MuiIconsModule.Menu)()
                 ),
-                MuiTypography(variant = MuiTypography.Variant.h6, color = MuiTypography.Color.inherit, noWrap = true)(css.title,
-                  "Material-UI"
-                ),
-                div(css.search,
+                MuiTypography(
+                  variant = MuiTypography.Variant.h6,
+                  color = MuiTypography.Color.inherit,
+                  noWrap = true
+                )(css.title, "Material-UI"),
+                div(
+                  css.search,
                   div(css.searchIcon, MuiIcons(MuiIconsModule.Search)()),
                   MuiInputBase(classes = inputBaseClasses)(placeholder := "Search…")
                 ),
                 div(css.common.flexGrowOne),
-                div(css.sectionDesktop,
+                div(
+                  css.sectionDesktop,
                   MuiIconButton(color = MuiIconButton.Color.inherit)(
                     MuiBadge(badgeContent = VdomNode(4), color = MuiBadge.Color.secondary)(
                       MuiIcons(MuiIconsModule.Mail)()
@@ -153,7 +151,8 @@ object PrimarySearchAppBar extends ScalaCssReactImplicits {
                     MuiIcons(MuiIconsModule.AccountCircle)()
                   )
                 ),
-                div(css.sectionMobile,
+                div(
+                  css.sectionMobile,
                   MuiIconButton(color = MuiIconButton.Color.inherit)(
                     aria.haspopup.`true`,
                     onClick ==> handleMobileMenuOpen,
@@ -168,6 +167,7 @@ object PrimarySearchAppBar extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("PrimarySearchAppBar")

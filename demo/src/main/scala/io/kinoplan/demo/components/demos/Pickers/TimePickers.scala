@@ -14,12 +14,15 @@ object TimePickers extends ScalaCssReactImplicits {
   case class Props(style: PickersStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Time pickers")(
-          form(css.container, noValidate := true,
+          form(
+            css.container,
+            noValidate := true,
             MuiTextField(
               label = "Alarm clock".toVdom,
               InputLabelProps = MuiInputLabelProps(shrink = true),
@@ -34,6 +37,7 @@ object TimePickers extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("TimePickers")

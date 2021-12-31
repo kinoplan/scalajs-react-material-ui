@@ -5,6 +5,7 @@ import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.colors
 
 case class DialogsStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import dsl._
   import common.theme
 
@@ -60,6 +61,7 @@ case class DialogsStyle(common: CommonStyle = DefaultCommonStyle) extends StyleS
     margin(0.px),
     padding(theme.spacing.unit.px)
   )
+
 }
 
 object DefaultDialogsStyle extends DialogsStyle

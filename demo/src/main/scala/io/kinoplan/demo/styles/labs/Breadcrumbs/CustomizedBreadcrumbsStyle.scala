@@ -5,6 +5,7 @@ import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
 import io.kinoplan.scalajs.react.material.ui.core.styles.colorManipulator.emphasize
 
 case class CustomizedBreadcrumbsStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -30,6 +31,7 @@ case class CustomizedBreadcrumbsStyle(common: CommonStyle = DefaultCommonStyle) 
     background := "none",
     marginRight((-theme.spacing.unit * 1.5).px)
   )
+
 }
 
 object DefaultCustomizedBreadcrumbsStyle extends CustomizedBreadcrumbsStyle

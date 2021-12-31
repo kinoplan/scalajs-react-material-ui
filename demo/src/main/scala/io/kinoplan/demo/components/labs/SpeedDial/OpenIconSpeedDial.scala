@@ -43,14 +43,16 @@ object OpenIconSpeedDial extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Custom close icon")(
-          div(css.root,
+          div(
+            css.root,
             MuiButton()(onClick --> handleVisibility, "Toggle Speed Dial"),
             MuiSpeedDial(
               ariaLabel = "SpeedDial openIcon example",
               icon = MuiSpeedDialIcon(openIcon = MuiIcons(MuiIconsModule.Edit)()())().rawElement,
               open = state.open,
               onClose = onClose
-            )(css.speedDial,
+            )(
+              css.speedDial,
               hidden := state.hidden,
               onBlur --> handleClose,
               onClick --> handleClick,
@@ -61,15 +63,14 @@ object OpenIconSpeedDial extends ScalaCssReactImplicits {
                 MuiSpeedDialAction(
                   icon = action.icon,
                   tooltipTitle = action.name
-                )(Attr("key") := action.name,
-                  onClick --> handleClick
-                )
+                )(Attr("key") := action.name, onClick --> handleClick)
               }
             )
           )
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("OpenIconSpeedDial")

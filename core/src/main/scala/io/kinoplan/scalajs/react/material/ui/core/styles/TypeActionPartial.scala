@@ -14,6 +14,7 @@ trait TypeActionPartial extends js.Object {
 }
 
 object TypeActionPartial {
+
   def apply(
     active: js.UndefOr[String] = js.undefined,
     hover: js.UndefOr[String] = js.undefined,
@@ -33,4 +34,5 @@ object TypeActionPartial {
 
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[TypeActionPartial]
   }
+
 }

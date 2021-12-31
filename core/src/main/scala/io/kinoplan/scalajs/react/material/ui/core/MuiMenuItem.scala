@@ -23,9 +23,11 @@ object MuiMenuItem extends ReactBridgeComponent with MuiMenuItemExtensions {
     dense: js.UndefOr[Boolean] = js.undefined,
     divider: js.UndefOr[Boolean] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiMenuItemExtensions {
+
   object TransitionDuration extends Enumeration {
     type Value = String
 
@@ -38,7 +40,6 @@ trait MuiMenuItemExtensions {
     val flexStart = "flex-start"
     val center = "center"
   }
-
 
   object ClassKey extends Enumeration {
     type Value = String
@@ -57,4 +58,5 @@ trait MuiMenuItemExtensions {
     val button = "button"
     val secondaryAction = "secondaryAction"
   }
+
 }

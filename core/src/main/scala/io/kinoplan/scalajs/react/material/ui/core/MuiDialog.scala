@@ -51,9 +51,11 @@ object MuiDialog extends ReactBridgeComponent with MuiDialogExtensions {
     keepMounted: js.UndefOr[Boolean] = js.undefined,
     onRendered: js.UndefOr[JsFun0] = js.undefined
   ): WithProps = auto
+
 }
 
 trait MuiDialogExtensions {
+
   object MaxWidth extends Enumeration {
     type Value = String
 
@@ -90,4 +92,5 @@ trait MuiDialogExtensions {
     val paperFullScreen = "paperFullScreen"
     val hidden = "hidden"
   }
+
 }

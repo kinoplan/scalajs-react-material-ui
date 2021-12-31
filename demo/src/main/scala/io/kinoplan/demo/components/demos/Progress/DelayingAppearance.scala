@@ -55,9 +55,8 @@ object DelayingAppearance extends ScalaCssReactImplicits {
       timer = js.timers.setTimeout(2000)(t.modState(_.setSuccess).runNow())
     }
 
-    def handleClickQuery(state: State) = {
+    def handleClickQuery(state: State) =
       unmount >> setIdle.when(state.nonIdle) >> (setProgress >> setSuccess).when(state.isIdle) >> Callback.empty
-    }
 
     def handleClickLoading = t.modState(_.handleClickLoading)
 
@@ -66,28 +65,26 @@ object DelayingAppearance extends ScalaCssReactImplicits {
 
       div(
         ComponentContainer("Delaying appearance")(
-          div(css.root,
-            div(css.placeholder,
+          div(
+            css.root,
+            div(
+              css.placeholder,
               MuiFade(in = state.loading, unmountOnExit = true)(
                 style := state.transitionDelayStyle,
                 MuiCircularProgress()
-              ),
+              )
             ),
-            MuiButton()(css.button,
-              onClick --> handleClickLoading,
-              state.loadingTitle
+            MuiButton()(css.button, onClick --> handleClickLoading, state.loadingTitle),
+            div(
+              css.placeholder,
+              if (state.isSuccess) MuiTypography()("Success!")
+              else MuiFade(in = state.isProgress, unmountOnExit = true)(
+                style := state.transitionDelayStyle,
+                MuiCircularProgress()
+              )
             ),
-            div(css.placeholder,
-              if (state.isSuccess) {
-                MuiTypography()("Success!")
-              } else {
-                MuiFade(in = state.isProgress, unmountOnExit = true)(
-                  style := state.transitionDelayStyle,
-                  MuiCircularProgress()
-                )
-              }
-            ),
-            MuiButton()(css.button,
+            MuiButton()(
+              css.button,
               onClick --> handleClickQuery(state),
               state.simulateALoadTitle
             )
@@ -95,6 +92,7 @@ object DelayingAppearance extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("DelayingAppearance")

@@ -11,14 +11,14 @@ object GridListPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        ImageGridList(),
-        TitlebarGridList(),
-        SingleLineGridList(),
-        AdvancedGridList()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      ImageGridList(),
+      TitlebarGridList(),
+      SingleLineGridList(),
+      AdvancedGridList()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("GridListPage")

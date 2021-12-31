@@ -11,16 +11,16 @@ object SelectsPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        SimpleSelect(),
-        NativeSelects(),
-        CustomizedSelects(),
-        MultipleSelect(),
-        ControlledOpenSelect(),
-        DialogSelect()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      SimpleSelect(),
+      NativeSelects(),
+      CustomizedSelects(),
+      MultipleSelect(),
+      ControlledOpenSelect(),
+      DialogSelect()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("SelectsPage")

@@ -9,6 +9,7 @@ import io.kinoplan.demo.models.Tables.Row
 import io.kinoplan.scalajs.react.material.ui.core._
 
 object EnhancedTableHead extends ScalaCssReactImplicits {
+
   case class Props(
     selectedCount: Int,
     order: String,
@@ -23,6 +24,7 @@ object EnhancedTableHead extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def createSortHandler(property: String): Callback = {
       val props = t.props.runNow()
 
@@ -45,7 +47,8 @@ object EnhancedTableHead extends ScalaCssReactImplicits {
               align = row.align,
               padding = row.padding,
               sortDirection = row.sortDirection(props.orderBy, props.order)
-            )(Attr("key") := row.id,
+            )(
+              Attr("key") := row.id,
               MuiTooltip(title = "Sort", placement = row.placement, enterDelay = 300)(
                 MuiTableSortLabel(active = row.isActive(props.orderBy), direction = props.order)(
                   onClick --> createSortHandler(row.id),
@@ -57,6 +60,7 @@ object EnhancedTableHead extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("EnhancedTableHead")
@@ -70,5 +74,15 @@ object EnhancedTableHead extends ScalaCssReactImplicits {
     onSelectAllClick: ReactEventFromInput => Callback,
     onRequestSort: String => Callback,
     rowCount: Int
-  ) = component(Props(selectedCount, order, orderBy, onSelectAllClick, onRequestSort, rowCount))
+  ) = component(
+    Props(
+      selectedCount,
+      order,
+      orderBy,
+      onSelectAllClick,
+      onRequestSort,
+      rowCount
+    )
+  )
+
 }

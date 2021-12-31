@@ -11,15 +11,15 @@ object BadgesPage {
   case class Props(router: RouterCtl[Page])
 
   class Backend(t: BackendScope[Props, Unit]) {
-    def render(props: Props): VdomElement = {
-      div(
-        SimpleBadge(),
-        BadgeMax(),
-        DotBadge(),
-        BadgeVisibility(),
-        CustomizedBadge()
-      )
-    }
+
+    def render(props: Props): VdomElement = div(
+      SimpleBadge(),
+      BadgeMax(),
+      DotBadge(),
+      BadgeVisibility(),
+      CustomizedBadge()
+    )
+
   }
 
   private val component = ScalaComponent.builder[Props]("BadgesPage")

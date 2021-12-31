@@ -12,12 +12,14 @@ object Modules {
     .settings(scalaJSUseMainModuleInitializer := false)
     .settings(
       libraryDependencies ++= Seq(Dependencies.scalaJsReactCore.value),
-      Compile / npmDependencies ++= Seq(
-        DependenciesNPM.react,
-        DependenciesNPM.reactDom,
-        DependenciesNPM.materialUiCore
-      ),
-      Compile / npmResolutions ++= (Compile / npmDependencies).value.toMap,
+      Compile / npmDependencies ++=
+        Seq(
+          DependenciesNPM.react,
+          DependenciesNPM.reactDom,
+          DependenciesNPM.materialUiCore
+        ),
+      Compile / npmResolutions ++=
+        (Compile / npmDependencies).value.toMap
     )
 
   lazy val iconsProfile: Project => Project = _
@@ -26,13 +28,15 @@ object Modules {
     .settings(scalaJSUseMainModuleInitializer := false)
     .settings(
       libraryDependencies ++= Seq(Dependencies.scalaJsReactCore.value),
-      Compile / npmDependencies ++= Seq(
-        DependenciesNPM.react,
-        DependenciesNPM.reactDom,
-        DependenciesNPM.materialUiCore,
-        DependenciesNPM.materialUiIcons
-      ),
-      Compile / npmResolutions ++= (Compile / npmDependencies).value.toMap,
+      Compile / npmDependencies ++=
+        Seq(
+          DependenciesNPM.react,
+          DependenciesNPM.reactDom,
+          DependenciesNPM.materialUiCore,
+          DependenciesNPM.materialUiIcons
+        ),
+      Compile / npmResolutions ++=
+        (Compile / npmDependencies).value.toMap
     )
 
   lazy val labProfile: Project => Project = _
@@ -41,13 +45,15 @@ object Modules {
     .settings(scalaJSUseMainModuleInitializer := false)
     .settings(
       libraryDependencies ++= Seq(Dependencies.scalaJsReactCore.value),
-      Compile / npmDependencies ++= Seq(
-        DependenciesNPM.react,
-        DependenciesNPM.reactDom,
-        DependenciesNPM.materialUiCore,
-        DependenciesNPM.materialUiLab
-      ),
-      Compile / npmResolutions ++= (Compile / npmDependencies).value.toMap,
+      Compile / npmDependencies ++=
+        Seq(
+          DependenciesNPM.react,
+          DependenciesNPM.reactDom,
+          DependenciesNPM.materialUiCore,
+          DependenciesNPM.materialUiLab
+        ),
+      Compile / npmResolutions ++=
+        (Compile / npmDependencies).value.toMap
     )
 
   lazy val bridgeProfile: Project => Project = _
@@ -56,11 +62,9 @@ object Modules {
     .settings(scalaJSUseMainModuleInitializer := false)
     .settings(
       libraryDependencies ++= Seq(Dependencies.scalaJsReactCore.value),
-      Compile / npmDependencies ++= Seq(
-        DependenciesNPM.react,
-        DependenciesNPM.reactDom
-      ),
-      Compile / npmResolutions ++= (Compile / npmDependencies).value.toMap,
+      Compile / npmDependencies ++= Seq(DependenciesNPM.react, DependenciesNPM.reactDom),
+      Compile / npmResolutions ++=
+        (Compile / npmDependencies).value.toMap
     )
 
   lazy val demoProfile: Project => Project = _
@@ -73,40 +77,44 @@ object Modules {
       fastOptJS / webpackConfigFile := Some(baseDirectory.value / "dev.webpack.config.js"),
       stUseScalaJsDom := false,
       stFlavour := Flavour.ScalajsReact,
-      stIgnore ++= List(
-        "react-dom",
-        "@material-ui/core",
-        "@material-ui/icons",
-        "@material-ui/lab",
-        "@material-ui/types"
-      ),
+      stIgnore ++=
+        List(
+          "react-dom",
+          "@material-ui/core",
+          "@material-ui/icons",
+          "@material-ui/lab",
+          "@material-ui/types"
+        ),
       stOutputPackage := "io.kinoplan.scalajs.react.libs.external"
     )
     .settings(
-      libraryDependencies ++= Seq(
-        Dependencies.catsCore.value,
-        Dependencies.scalaCssCore.value,
-        Dependencies.scalaCssExtReact.value,
-        Dependencies.scalaCssExtScalatags.value,
-        Dependencies.scalaJsDom.value,
-        Dependencies.scalaJsReactCore.value,
-        Dependencies.scalaJsReactExtra.value
-      ),
-      Compile / npmDependencies ++= Seq(
-        DependenciesNPM.react,
-        DependenciesNPM.reactDom,
-        DependenciesNPM.materialUiCore,
-        DependenciesNPM.materialUiIcons,
-        DependenciesNPM.materialUiLab,
-        DependenciesNPM.reactSwipeableViews,
-        DependenciesNPM.reactSwipeableViewsUtils,
-        DependenciesNPM.typesReactSwipeableViewsUtils,
-        DependenciesNPM.typesReactSwipeableViews,
-        DependenciesNPM.typesReactSwipeableViewsUtils,
-        DependenciesNPM.typesReact,
-        DependenciesNPM.typesReactDom
-      ),
-      Compile / npmResolutions ++= (Compile / npmDependencies).value.toMap
+      libraryDependencies ++=
+        Seq(
+          Dependencies.catsCore.value,
+          Dependencies.scalaCssCore.value,
+          Dependencies.scalaCssExtReact.value,
+          Dependencies.scalaCssExtScalatags.value,
+          Dependencies.scalaJsDom.value,
+          Dependencies.scalaJsReactCore.value,
+          Dependencies.scalaJsReactExtra.value
+        ),
+      Compile / npmDependencies ++=
+        Seq(
+          DependenciesNPM.react,
+          DependenciesNPM.reactDom,
+          DependenciesNPM.materialUiCore,
+          DependenciesNPM.materialUiIcons,
+          DependenciesNPM.materialUiLab,
+          DependenciesNPM.reactSwipeableViews,
+          DependenciesNPM.reactSwipeableViewsUtils,
+          DependenciesNPM.typesReactSwipeableViewsUtils,
+          DependenciesNPM.typesReactSwipeableViews,
+          DependenciesNPM.typesReactSwipeableViewsUtils,
+          DependenciesNPM.typesReact,
+          DependenciesNPM.typesReactDom
+        ),
+      Compile / npmResolutions ++=
+        (Compile / npmDependencies).value.toMap
     )
     .settings(publish / skip := true)
 

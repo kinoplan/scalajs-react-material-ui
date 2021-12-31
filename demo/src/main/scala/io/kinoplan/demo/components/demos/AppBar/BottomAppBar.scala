@@ -14,33 +14,45 @@ object BottomAppBar extends ScalaCssReactImplicits {
   case class Props(style: BottomAppBarStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Bottom App Bar")(
-          div(css.root,
+          div(
+            css.root,
             React.Fragment(
               MuiCssBaseline(),
-              MuiPaper(square = true)(css.paper,
-                MuiTypography(variant = MuiTypography.Variant.h5, gutterBottom = true)(css.text,
-                  "Inbox"
-                ),
-                MuiList()(css.list,
+              MuiPaper(square = true)(
+                css.paper,
+                MuiTypography(variant = MuiTypography.Variant.h5, gutterBottom = true)(css.text, "Inbox"),
+                MuiList()(
+                  css.list,
                   Message.default.toVdomArray { message =>
                     React.Fragment.withKey(message.id)(
-                      if (message.id == 1) MuiListSubheader()(css.subHeader(Layout.isPaletteLight), "Today") else EmptyVdom,
-                      if (message.id == 3) MuiListSubheader()(css.subHeader(Layout.isPaletteLight), "Yesterday") else EmptyVdom,
+                      if (message.id == 1) MuiListSubheader()(css.subHeader(Layout.isPaletteLight), "Today")
+                      else EmptyVdom,
+                      if (message.id == 3) MuiListSubheader()(css.subHeader(Layout.isPaletteLight), "Yesterday")
+                      else EmptyVdom,
                       MuiListItem(button = true)(
                         MuiAvatar()(alt := "Profile Picture", src := message.person),
-                        MuiListItemText(primary = VdomNode(message.primary), secondary = VdomNode(message.secondary))
+                        MuiListItemText(
+                          primary = VdomNode(message.primary),
+                          secondary = VdomNode(message.secondary)
+                        )
                       )
                     )
                   }
                 )
               ),
-              MuiAppBar(position = MuiAppBar.Position.relative, color = MuiAppBar.Color.primary)(css.appBar,
-                MuiToolbar()(css.toolbar,
+              MuiAppBar(
+                position = MuiAppBar.Position.relative,
+                color = MuiAppBar.Color.primary
+              )(
+                css.appBar,
+                MuiToolbar()(
+                  css.toolbar,
                   MuiIconButton(color = MuiIconButton.Color.inherit)(
                     aria.label := "Open drawer",
                     MuiIcons(MuiIconsModule.Menu)()
@@ -60,6 +72,7 @@ object BottomAppBar extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("BottomAppBar")

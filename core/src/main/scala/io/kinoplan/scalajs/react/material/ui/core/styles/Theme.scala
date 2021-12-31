@@ -20,6 +20,7 @@ trait Theme extends js.Object {
 }
 
 object Theme {
+
   def apply(
     shape: Shape,
     breakpoints: Breakpoints,
@@ -50,4 +51,5 @@ object Theme {
     ).flatten.toMap
     o.toJSDictionary.asInstanceOf[js.Object].asInstanceOf[Theme]
   }
+
 }

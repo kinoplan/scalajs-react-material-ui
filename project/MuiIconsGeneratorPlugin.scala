@@ -9,10 +9,11 @@ object MuiIconsGeneratorPlugin extends AutoPlugin {
   lazy val muiIconsGenerator = taskKey[Seq[File]]("mui-icons-generator")
 
   override lazy val projectSettings = Seq(
-    muiIconsGenerator := muiIcons(
-      (Compile / sourceManaged).value / "io" / "kinoplan" / "scalajs" / "react" / "material" / "ui" / "icons",
-      (Compile / npmInstallDependencies).value
-    ),
+    muiIconsGenerator :=
+      muiIcons(
+        (Compile / sourceManaged).value / "io" / "kinoplan" / "scalajs" / "react" / "material" / "ui" / "icons",
+        (Compile / npmInstallDependencies).value
+      ),
     Compile / sourceGenerators += muiIconsGenerator.taskValue
   )
 
@@ -41,4 +42,5 @@ object MuiIconsGeneratorPlugin extends AutoPlugin {
 
     Seq(moduleFile)
   }
+
 }

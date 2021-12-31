@@ -35,9 +35,11 @@ object MuiSwipeableDrawer extends ReactBridgeComponent with MuiSwipeableDrawerEx
     SlideProps: js.UndefOr[js.Object] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
+
 }
 
 trait MuiSwipeableDrawerExtensions {
+
   object Anchor extends Enumeration {
     type Value = String
 
@@ -71,4 +73,5 @@ trait MuiSwipeableDrawerExtensions {
     val paperAnchorDockedBottom = "paperAnchorDockedBottom"
     val modal = "modal"
   }
+
 }

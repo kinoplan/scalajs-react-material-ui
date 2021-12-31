@@ -12,13 +12,15 @@ object PaperSheet extends ScalaCssReactImplicits {
   case class Props(style: PaperStyle)
 
   class Backend(t: BackendScope[Props, Unit]) {
+
     def render(props: Props): VdomElement = {
       val css = props.style
 
       div(
         ComponentContainer("Paper Sheet")(
           div(
-            MuiPaper(elevation = 1)(css.root,
+            MuiPaper(elevation = 1)(
+              css.root,
               MuiTypography(variant = MuiTypography.Variant.h5, component = "h3")(
                 "This is a sheet of paper."
               ),
@@ -30,6 +32,7 @@ object PaperSheet extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("PaperSheet")

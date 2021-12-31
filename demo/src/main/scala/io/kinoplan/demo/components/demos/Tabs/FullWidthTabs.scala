@@ -22,27 +22,29 @@ object FullWidthTabs extends ScalaCssReactImplicits {
   }
 
   class Backend(t: BackendScope[Props, State]) {
-    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) => {
-      t.modState(_.handleChange(value))
-    }
 
-    def handleChangeIndex: (Double, Double) => Callback = (index, _) => {
+    def handleChange: (ReactEvent, js.Any) => Callback = (_, value) =>
+      t.modState(_.handleChange(value))
+
+    def handleChangeIndex: (Double, Double) => Callback = (index, _) =>
       t.modState(_.handleChange(index))
-    }
 
     def render(props: Props, state: State): VdomElement = {
       val css = props.style
 
-      val swipeableViewsAxis = if (css.theme.direction == Direction.rtl) {
-        AxisType.`x-reverse`
-      } else {
-        AxisType.x
-      }
+      val swipeableViewsAxis =
+        if (css.theme.direction == Direction.rtl) AxisType.`x-reverse`
+        else AxisType.x
 
       div(
         ComponentContainer("Fixed Tabs - Full width")(
-          div(css.root, css.rootPaper(Layout.isPaletteLight),
-            MuiAppBar(position = MuiAppBar.Position.static, color = MuiAppBar.Color.default)(
+          div(
+            css.root,
+            css.rootPaper(Layout.isPaletteLight),
+            MuiAppBar(
+              position = MuiAppBar.Position.static,
+              color = MuiAppBar.Color.default
+            )(
               MuiTabs(
                 onChange = handleChange,
                 indicatorColor = MuiTabs.IndicatorColor.primary,
@@ -69,6 +71,7 @@ object FullWidthTabs extends ScalaCssReactImplicits {
         )
       )
     }
+
   }
 
   private val component = ScalaComponent.builder[Props]("FullWidthTabs")

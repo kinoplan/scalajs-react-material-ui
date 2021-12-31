@@ -22,7 +22,7 @@ case class LayoutStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSh
     )
   )
 
-   val appBarShiftTransition: String = theme.transitions.create(
+  val appBarShiftTransition: String = theme.transitions.create(
     propAppBar,
     CreateTransitionsOptions(
       easing = theme.transitions.easing.sharp,
@@ -125,6 +125,7 @@ case class LayoutStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSh
       backgroundColor :=! "#5b7d38"
     )
   )
+
 }
 
 object DefaultLayoutStyle extends LayoutStyle

@@ -3,6 +3,7 @@ package io.kinoplan.demo.styles.demos.Buttons
 import io.kinoplan.demo.CssSettings._
 
 case class IconLabelButtonsStyle(common: CommonButtonStyle = DefaultCommonButtonStyle) extends StyleSheet.Inline {
+
   import common.theme
   import dsl._
 
@@ -17,6 +18,7 @@ case class IconLabelButtonsStyle(common: CommonButtonStyle = DefaultCommonButton
   val iconSmall = style(
     fontSize(20.px)
   )
+
 }
 
 object DefaultIconLabelButtonsStyle extends IconLabelButtonsStyle
