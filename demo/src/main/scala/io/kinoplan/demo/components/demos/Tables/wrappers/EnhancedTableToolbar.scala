@@ -1,7 +1,7 @@
 package io.kinoplan.demo.components.demos.Tables.wrappers
 
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.raw.React
+import japgolly.scalajs.react.facade.React
 import japgolly.scalajs.react.vdom.all._
 import scalacss.ScalaCssReactImplicits
 

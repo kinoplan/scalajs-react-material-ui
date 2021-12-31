@@ -4,10 +4,10 @@ import scala.scalajs.js
 import scala.scalajs.js.JSConverters._
 
 import japgolly.scalajs.react.{BackendScope, ReactEventFromInput, ScalaComponent}
-import japgolly.scalajs.react.raw.React
+import japgolly.scalajs.react.facade.React
 import japgolly.scalajs.react.vdom.Attr
 import japgolly.scalajs.react.vdom.all._
-import org.scalajs.dom.raw.HTMLSelectElement
+import org.scalajs.dom.HTMLSelectElement
 import scalacss.ScalaCssReactImplicits
 
 import io.kinoplan.demo.components.ComponentContainer

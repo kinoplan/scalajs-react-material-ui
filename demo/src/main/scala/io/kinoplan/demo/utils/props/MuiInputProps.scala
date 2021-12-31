@@ -3,7 +3,7 @@ package io.kinoplan.demo.utils.props
 import scala.scalajs.js
 import scala.scalajs.js.JSConverters._
 
-import japgolly.scalajs.react.raw.React
+import japgolly.scalajs.react.facade.React
 
 @js.native
 trait MuiInputProps extends js.Object {

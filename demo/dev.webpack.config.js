@@ -4,11 +4,11 @@ var path = require("path");
 module.exports = generatedConfig;
 
 module.exports.devServer = {
-    contentBase: [
+    static: [
         __dirname,
         path.join(__dirname, "../../../../src/main/resources")
     ],
-    watchContentBase: true
+    port: 8080
     // hot: true
 };
 
