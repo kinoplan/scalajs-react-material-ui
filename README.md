@@ -11,7 +11,7 @@
 [![react](https://img.shields.io/badge/react-17.0.2-61DAFB.svg?logo=React)](https://ru.reactjs.org/)
 [![scalajs-react](https://img.shields.io/static/v1?label=scalajs-react&message=2.0.0&color=blue)](https://github.com/japgolly/scalajs-react)
 [![material-ui](https://img.shields.io/static/v1?label=material-ui&message=3.9.0&color=e52b50)](https://v3.material-ui.com/)
-[![Maven Central](https://img.shields.io/maven-central/v/io.kinoplan/scalajs-react-material-ui-core_sjs0.6_2.12.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.kinoplan%22%20AND%20(a:%22scalajs-react-material-ui-core_sjs0.6_2.12%22%20OR%20a:%22scalajs-react-material-ui-icons_sjs0.6_2.12%22%20OR%20a:%22scalajs-react-material-ui-lab_sjs0.6_2.12%22))
+[![Maven Central](https://img.shields.io/maven-central/v/io.kinoplan/scalajs-react-material-ui-core_sjs1_2.13.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.kinoplan%22%20AND%20(a:%22scalajs-react-material-ui-core_sjs1_2.13%22%20OR%20a:%22scalajs-react-material-ui-icons_sjs1_2.13%22%20OR%20a:%22scalajs-react-material-ui-lab_sjs1_2.13%22))
 
 </div>
 
