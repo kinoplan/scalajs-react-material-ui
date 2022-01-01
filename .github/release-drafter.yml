@@ -51,4 +51,4 @@ template: |
 
   $CHANGES
 
-  For more details see the [full list of changes](https://github.com/kinoplan/utils/compare/$PREVIOUS_TAG...v$NEXT_PATCH_VERSION/).
+  For more details see the [full list of changes](https://github.com/kinoplan/scalajs-react-material-ui/compare/$PREVIOUS_TAG...v$NEXT_PATCH_VERSION/).
