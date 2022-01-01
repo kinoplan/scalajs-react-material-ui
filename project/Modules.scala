@@ -93,7 +93,6 @@ object Modules {
           Dependencies.catsCore.value,
           Dependencies.scalaCssCore.value,
           Dependencies.scalaCssExtReact.value,
-          Dependencies.scalaCssExtScalatags.value,
           Dependencies.scalaJsDom.value,
           Dependencies.scalaJsReactCore.value,
           Dependencies.scalaJsReactExtra.value
