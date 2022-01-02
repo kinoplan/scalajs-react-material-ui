@@ -41,16 +41,12 @@ object EnhancedTable extends ScalaCssReactImplicits {
 
     val sliceUntil = page * rowsPerPage + rowsPerPage
 
-    val sortedData = {
-      orderBy match {
-        case "name" => if (order == "asc") data.sortBy(_.name) else data.sortBy(_.name)(Ordering[String].reverse)
-        case "calories" =>
-          if (order == "asc") data.sortBy(_.calories) else data.sortBy(_.calories)(Ordering[Int].reverse)
-        case "fat"   => if (order == "asc") data.sortBy(_.fat) else data.sortBy(_.fat)(Ordering[Double].reverse)
-        case "carbs" => if (order == "asc") data.sortBy(_.carbs) else data.sortBy(_.carbs)(Ordering[Int].reverse)
-        case "protein" =>
-          if (order == "asc") data.sortBy(_.protein) else data.sortBy(_.protein)(Ordering[Double].reverse)
-      }
+    val sortedData = orderBy match {
+      case "name"     => if (order == "asc") data.sortBy(_.name) else data.sortBy(_.name)(Ordering[String].reverse)
+      case "calories" => if (order == "asc") data.sortBy(_.calories) else data.sortBy(_.calories)(Ordering[Int].reverse)
+      case "fat"      => if (order == "asc") data.sortBy(_.fat) else data.sortBy(_.fat)(Ordering[Double].reverse)
+      case "carbs"    => if (order == "asc") data.sortBy(_.carbs) else data.sortBy(_.carbs)(Ordering[Int].reverse)
+      case "protein" => if (order == "asc") data.sortBy(_.protein) else data.sortBy(_.protein)(Ordering[Double].reverse)
     }
 
     def isSelected(index: Int) = selected.contains(index)
