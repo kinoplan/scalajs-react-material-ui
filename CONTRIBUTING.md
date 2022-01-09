@@ -73,7 +73,7 @@ then make the corrections and try again.
 
 [git]: https://git-scm.com/
 
-[java-8]: https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html
+[java-8]: https://adoptium.net/?variant=openjdk8
 
 [node]: https://nodejs.org/en/
 
