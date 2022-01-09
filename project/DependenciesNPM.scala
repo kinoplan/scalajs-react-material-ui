@@ -8,7 +8,7 @@ object DependenciesNPM {
   import Versions._
 
   // A -> Z
-  val materialUiCore                = "@material-ui/core"                  -> "3.9.0"
+  val materialUiCore                = "@material-ui/core"                  -> "3.9.4"
   val materialUiIcons               = "@material-ui/icons"                 -> "3.0.2"
   val materialUiLab                 = "@material-ui/lab"                   -> "3.0.0-alpha.30"
   val react                         = "react"                              -> reactV
