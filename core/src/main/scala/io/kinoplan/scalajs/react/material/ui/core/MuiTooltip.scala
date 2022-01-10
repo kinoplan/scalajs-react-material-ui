@@ -11,7 +11,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiTooltip extends ReactBridgeComponent with MuiTooltipExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Tooltip")
+  @JSImport("@mui/material", "Tooltip")
   @js.native
   object RawComponent extends js.Function
 

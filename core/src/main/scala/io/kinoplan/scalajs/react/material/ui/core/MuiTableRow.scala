@@ -8,7 +8,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiTableRow extends ReactBridgeComponent with MuiTableRowExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "TableRow")
+  @JSImport("@mui/material", "TableRow")
   @js.native
   object RawComponent extends js.Function
 

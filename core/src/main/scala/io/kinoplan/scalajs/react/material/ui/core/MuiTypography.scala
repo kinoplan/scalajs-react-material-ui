@@ -8,7 +8,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiTypography extends ReactBridgeComponent with MuiTypographyExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Typography")
+  @JSImport("@mui/material", "Typography")
   @js.native
   object RawComponent extends js.Function
 

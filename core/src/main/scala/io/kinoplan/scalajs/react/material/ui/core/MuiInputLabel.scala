@@ -8,7 +8,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiInputLabel extends ReactBridgeComponent with MuiInputLabelExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "InputLabel")
+  @JSImport("@mui/material", "InputLabel")
   @js.native
   object RawComponent extends js.Function
 

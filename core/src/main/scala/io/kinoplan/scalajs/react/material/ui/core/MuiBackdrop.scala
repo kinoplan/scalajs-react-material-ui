@@ -9,7 +9,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildr
 object MuiBackdrop extends ReactBridgeComponent with MuiBackdropExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Backdrop")
+  @JSImport("@mui/material", "Backdrop")
   @js.native
   object RawComponent extends js.Function
 

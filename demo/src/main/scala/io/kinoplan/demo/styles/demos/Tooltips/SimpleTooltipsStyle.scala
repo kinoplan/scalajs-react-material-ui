@@ -9,13 +9,13 @@ case class SimpleTooltipsStyle(common: CommonStyle = DefaultCommonStyle) extends
   import dsl._
 
   val fab = style(
-    margin((theme.spacing.unit * 2).px)
+    margin :=! theme.spacing(2)
   )
 
   val absolute = style(
     position.absolute,
-    bottom((theme.spacing.unit * 2).px),
-    right((theme.spacing.unit * 3).px)
+    bottom :=! theme.spacing(2),
+    right :=! theme.spacing(3)
   )
 
 }

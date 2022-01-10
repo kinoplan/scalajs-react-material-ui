@@ -13,11 +13,11 @@ case class ControlButtonsGroupStyle(common: CommonStyle = DefaultCommonStyle) ex
   )
 
   val formControl = style(
-    margin((theme.spacing.unit * 3).px)
+    margin :=! theme.spacing(3)
   )
 
   val group = style(
-    margin :=! s"${theme.spacing.unit}px 0"
+    margin :=! s"${theme.spacing(1)}px 0"
   )
 
 }

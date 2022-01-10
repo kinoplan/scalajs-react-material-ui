@@ -11,7 +11,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiGrow extends ReactBridgeComponent with MuiGrowExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Grow")
+  @JSImport("@mui/material", "Grow")
   @js.native
   object RawComponent extends js.Function
 

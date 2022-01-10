@@ -8,7 +8,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiFormHelperText extends ReactBridgeComponent with MuiFormHelperTextExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "FormHelperText")
+  @JSImport("@mui/material", "FormHelperText")
   @js.native
   object RawComponent extends js.Function
 

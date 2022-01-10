@@ -10,7 +10,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildr
 object MuiStepIcon extends ReactBridgeComponent with MuiStepIconExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "StepIcon")
+  @JSImport("@mui/material", "StepIcon")
   @js.native
   object RawComponent extends js.Function
 

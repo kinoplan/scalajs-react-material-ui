@@ -8,7 +8,7 @@ case class TabContainerStyle(common: CommonStyle = DefaultCommonStyle) extends S
   import common.theme
 
   val root = style(
-    padding((theme.spacing.unit * 3).px)
+    padding :=! theme.spacing(3)
   )
 
 }

@@ -84,7 +84,7 @@ object Layout extends ScalaCssReactImplicits {
 
       div(
         css.root,
-        MuiThemeProvider(theme = theme)(
+        ThemeProvider(theme = theme)(
           MuiCssBaseline(),
           MuiAppBar(position = MuiAppBar.Position.fixed)(
             css.appBar,

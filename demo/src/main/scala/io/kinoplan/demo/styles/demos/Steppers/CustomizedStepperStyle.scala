@@ -15,12 +15,12 @@ case class CustomizedStepperStyle(common: CommonStyle = DefaultCommonStyle) exte
   )
 
   val button = style(
-    marginRight(theme.spacing.unit.px)
+    marginRight :=! theme.spacing(1)
   )
 
   val instructions = style(
-    marginTop(theme.spacing.unit.px),
-    marginBottom(theme.spacing.unit.px)
+    marginTop :=! theme.spacing(1),
+    marginBottom :=! theme.spacing(1)
   )
 
   private val connectorLineTransition = theme.transitions.create(js.Array("border-color"), js.undefined)

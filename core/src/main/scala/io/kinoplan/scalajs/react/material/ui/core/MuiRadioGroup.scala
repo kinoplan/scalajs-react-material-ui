@@ -8,7 +8,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiRadioGroup extends ReactBridgeComponent with MuiRadioGroupExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "RadioGroup")
+  @JSImport("@mui/material", "RadioGroup")
   @js.native
   object RawComponent extends js.Function
 

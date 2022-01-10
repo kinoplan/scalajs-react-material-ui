@@ -28,8 +28,8 @@ case class MediaControlCardStyle(common: CommonStyle = DefaultCommonStyle) exten
   val controls = style(
     display.flex,
     alignItems.center,
-    paddingLeft(theme.spacing.unit.px),
-    paddingBottom(theme.spacing.unit.px)
+    paddingLeft :=! theme.spacing(1),
+    paddingBottom :=! theme.spacing(1)
   )
 
   val playIcon = style(

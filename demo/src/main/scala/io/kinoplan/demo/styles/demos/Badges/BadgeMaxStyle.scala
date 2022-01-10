@@ -9,10 +9,10 @@ case class BadgeMaxStyle(common: CommonStyle = DefaultCommonStyle) extends Style
   import dsl._
 
   val badgeMargin = style(
-    marginTop((theme.spacing.unit * 2).px),
-    marginBottom((theme.spacing.unit * 2).px),
-    marginLeft((theme.spacing.unit * 2).px),
-    marginRight((theme.spacing.unit * 3).px)
+    marginTop :=! theme.spacing(2),
+    marginBottom :=! theme.spacing(2),
+    marginLeft :=! theme.spacing(2),
+    marginRight :=! theme.spacing(2)
   )
 
 }

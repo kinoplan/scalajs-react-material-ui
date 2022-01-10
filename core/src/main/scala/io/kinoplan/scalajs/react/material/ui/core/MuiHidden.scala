@@ -9,7 +9,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiHidden extends ReactBridgeComponent with MuiHiddenExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Hidden")
+  @JSImport("@mui/material", "Hidden")
   @js.native
   object RawComponent extends js.Function
 

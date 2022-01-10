@@ -8,7 +8,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiTableSortLabel extends ReactBridgeComponent with MuiTableSortLabelExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "TableSortLabel")
+  @JSImport("@mui/material", "TableSortLabel")
   @js.native
   object RawComponent extends js.Function
 

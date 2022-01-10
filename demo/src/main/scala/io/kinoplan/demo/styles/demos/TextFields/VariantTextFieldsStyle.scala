@@ -14,8 +14,8 @@ case class VariantTextFieldsStyle(common: CommonStyle = DefaultCommonStyle) exte
   )
 
   val textField = style(
-    marginLeft(theme.spacing.unit.px),
-    marginRight(theme.spacing.unit.px)
+    marginLeft :=! theme.spacing(1),
+    marginRight :=! theme.spacing(1)
   )
 
   val dense = style(

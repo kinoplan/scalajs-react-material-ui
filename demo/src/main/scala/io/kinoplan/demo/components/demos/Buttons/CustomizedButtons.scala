@@ -35,7 +35,7 @@ object CustomizedButtons extends ScalaCssReactImplicits {
               css.cssRoot,
               "Custom CSS"
             ),
-            MuiThemeProvider(theme = theme)(
+            ThemeProvider(theme = theme)(
               MuiButton(
                 variant = MuiButton.Variant.contained,
                 color = MuiButton.Color.primary

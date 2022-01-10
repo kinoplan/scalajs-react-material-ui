@@ -42,7 +42,7 @@ case class CustomizedExpansionPanelStyle(common: CommonStyle = DefaultCommonStyl
   )
 
   val detailsRoot = style(
-    padding((theme.spacing.unit * 2).px)
+    padding :=! theme.spacing(2)
   )
 
 }

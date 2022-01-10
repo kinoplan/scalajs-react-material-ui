@@ -14,7 +14,7 @@ case class CustomizedTableStyle(common: CommonStyle = DefaultCommonStyle) extend
 
   val root = style(
     width(100.%%),
-    marginTop((theme.spacing.unit * 3).px),
+    marginTop :=! theme.spacing(3),
     overflowX.auto
   )
 

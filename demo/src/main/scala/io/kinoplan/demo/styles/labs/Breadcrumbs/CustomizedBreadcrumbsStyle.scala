@@ -10,7 +10,7 @@ case class CustomizedBreadcrumbsStyle(common: CommonStyle = DefaultCommonStyle) 
   import dsl._
 
   val root = style(
-    padding(theme.spacing.unit.px)
+    padding :=! theme.spacing(1)
   )
 
   val chip = style(
@@ -29,7 +29,7 @@ case class CustomizedBreadcrumbsStyle(common: CommonStyle = DefaultCommonStyle) 
 
   val avatar = style(
     background := "none",
-    marginRight((-theme.spacing.unit * 1.5).px)
+    marginRight :=! s"-${theme.spacing(1.5)}"
   )
 
 }

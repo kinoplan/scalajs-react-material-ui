@@ -13,11 +13,11 @@ case class ChipsPlaygroundStyle(common: CommonStyle = DefaultCommonStyle) extend
   )
 
   val control = style(
-    padding((theme.spacing.unit * 2).px)
+    padding :=! theme.spacing(2)
   )
 
   val chipWrapper = style(
-    marginBottom((theme.spacing.unit * 5).px)
+    marginBottom :=! theme.spacing(5)
   )
 
 }

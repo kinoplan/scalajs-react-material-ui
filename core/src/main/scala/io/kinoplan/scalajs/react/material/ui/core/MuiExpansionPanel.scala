@@ -9,7 +9,7 @@ import io.kinoplan.scalajs.react.material.ui.core.internal.PaperClassKey
 object MuiExpansionPanel extends ReactBridgeComponent with MuiExpansionPanelExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "ExpansionPanel")
+  @JSImport("@mui/material", "ExpansionPanel")
   @js.native
   object RawComponent extends js.Function
 

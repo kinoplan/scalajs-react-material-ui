@@ -41,7 +41,7 @@ case class CustomizedTabsStyle(common: CommonStyle = DefaultCommonStyle) extends
     textTransform.initial,
     minWidth(72.px),
     fontWeight :=! theme.typography.fontWeightRegular.px,
-    marginRight((theme.spacing.unit * 4).px),
+    marginRight :=! theme.spacing(4),
     fontFamily :=! fontFamilyValue,
     &.hover(
       color :=! "#40a9ff",
@@ -69,7 +69,7 @@ case class CustomizedTabsStyle(common: CommonStyle = DefaultCommonStyle) extends
   )
 
   val typography = style(
-    padding((theme.spacing.unit * 3).px)
+    padding :=! theme.spacing(3)
   )
 
 }

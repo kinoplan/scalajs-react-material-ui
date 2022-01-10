@@ -10,11 +10,11 @@ case class ControlledOpenSelectStyle(common: CommonStyle = DefaultCommonStyle) e
 
   val button = style(
     display.block,
-    marginTop((theme.spacing.unit * 2).px)
+    marginTop :=! theme.spacing(2)
   )
 
   val formControl = style(
-    margin(theme.spacing.unit.px),
+    margin :=! theme.spacing(1),
     minWidth(120.px)
   )
 

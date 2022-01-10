@@ -15,7 +15,7 @@ case class CircularIntegrationStyle(common: CommonStyle = DefaultCommonStyle) ex
   )
 
   val wrapper = style(
-    margin(theme.spacing.unit.px),
+    margin :=! theme.spacing(1),
     position.relative
   )
 

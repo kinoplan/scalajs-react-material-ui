@@ -9,11 +9,11 @@ case class SimpleBadgeStyle(common: CommonStyle = DefaultCommonStyle) extends St
   import dsl._
 
   val badgeMargin = style(
-    margin((theme.spacing.unit * 2).px)
+    margin :=! theme.spacing(2)
   )
 
   val badgePadding = style(
-    padding :=! s"0 ${theme.spacing.unit * 2}px"
+    padding :=! s"0 ${theme.spacing(2)}px"
   )
 
 }

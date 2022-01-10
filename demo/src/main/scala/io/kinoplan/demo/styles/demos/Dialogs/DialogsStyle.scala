@@ -17,13 +17,13 @@ case class DialogsStyle(common: CommonStyle = DefaultCommonStyle) extends StyleS
   val root = style(
     borderBottom :=! s"1px solid ${theme.palette.divider}",
     margin(0.px),
-    padding((theme.spacing.unit * 2).px)
+    padding :=! theme.spacing(2)
   )
 
   val closeButton = style(
     position.absolute,
-    right(theme.spacing.unit.px),
-    top(theme.spacing.unit.px),
+    right :=! theme.spacing(1),
+    top :=! theme.spacing(1),
     color :=! theme.palette.grey.`500`
   )
 
@@ -43,23 +43,23 @@ case class DialogsStyle(common: CommonStyle = DefaultCommonStyle) extends StyleS
   )
 
   val formControl = style(
-    marginTop((theme.spacing.unit * 2).px),
+    marginTop :=! theme.spacing(2),
     minWidth(120.px)
   )
 
   val formControlLabel = style(
-    marginTop(theme.spacing.unit.px)
+    marginTop :=! theme.spacing(1)
   )
 
   val customizedDialogContent = style(
     margin(0.px),
-    padding((theme.spacing.unit * 2).px)
+    padding :=! theme.spacing(2)
   )
 
   val customizedDialogActions = style(
     borderBottom :=! s"1px solid ${theme.palette.divider}",
     margin(0.px),
-    padding(theme.spacing.unit.px)
+    padding :=! theme.spacing(1)
   )
 
 }

@@ -15,7 +15,7 @@ case class SpeedDialStyle(common: CommonStyle = DefaultCommonStyle) extends Styl
   val speedDial = style(
     position.relative,
     float.right,
-    bottom((theme.spacing.unit * 2).px)
+    bottom :=! theme.spacing(2)
   )
 
 }

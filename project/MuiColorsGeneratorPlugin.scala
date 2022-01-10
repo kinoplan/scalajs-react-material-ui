@@ -19,7 +19,7 @@ object MuiColorsGeneratorPlugin extends AutoPlugin {
   )
 
   def muiColors(src: File, npm: File): Seq[File] = {
-    val path = npm / "node_modules" / "@material-ui" / "core" / "colors"
+    val path = npm / "node_modules" / "@mui" / "material" / "colors"
     val extensions = "*.js" -- "index.js" -- "index.es.js" -- "common.js"
 
     val colorSources = path * extensions
@@ -32,7 +32,7 @@ object MuiColorsGeneratorPlugin extends AutoPlugin {
       .map { file =>
         val name = file.getName.stripSuffix(".js")
 
-        s"""    @JSImport("@material-ui/core/colors/$name", JSImport.Default)
+        s"""    @JSImport("@mui/material/colors/$name", JSImport.Default)
            |    @js.native
            |    object $name extends Color
            |""".stripMargin
@@ -48,7 +48,7 @@ object MuiColorsGeneratorPlugin extends AutoPlugin {
                   |""".stripMargin,
         sep = "\n",
         end = """
-                |    @JSImport("@material-ui/core/colors/common", JSImport.Default)
+                |    @JSImport("@mui/material/colors/common", JSImport.Default)
                 |    @js.native
                 |    object common extends CommonColors
                 |}

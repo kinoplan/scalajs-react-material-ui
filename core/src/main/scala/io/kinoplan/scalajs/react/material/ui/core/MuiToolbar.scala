@@ -8,7 +8,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiToolbar extends ReactBridgeComponent with MuiToolbarExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Toolbar")
+  @JSImport("@mui/material", "Toolbar")
   @js.native
   object RawComponent extends js.Function
 

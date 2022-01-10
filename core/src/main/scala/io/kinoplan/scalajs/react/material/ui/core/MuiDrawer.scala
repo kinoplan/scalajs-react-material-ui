@@ -11,7 +11,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiDrawer extends ReactBridgeComponent with MuiDrawerExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Drawer")
+  @JSImport("@mui/material", "Drawer")
   @js.native
   object RawComponent extends js.Function
 

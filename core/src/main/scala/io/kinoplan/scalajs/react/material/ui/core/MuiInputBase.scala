@@ -11,7 +11,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildr
 object MuiInputBase extends ReactBridgeComponent with MuiInputBaseExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "InputBase")
+  @JSImport("@mui/material", "InputBase")
   @js.native
   object RawComponent extends js.Function
 

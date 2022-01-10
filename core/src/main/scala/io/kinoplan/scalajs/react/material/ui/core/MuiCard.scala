@@ -9,7 +9,7 @@ import io.kinoplan.scalajs.react.material.ui.core.internal.PaperClassKey
 object MuiCard extends ReactBridgeComponent with MuiCardExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Card")
+  @JSImport("@mui/material", "Card")
   @js.native
   object RawComponent extends js.Function
 

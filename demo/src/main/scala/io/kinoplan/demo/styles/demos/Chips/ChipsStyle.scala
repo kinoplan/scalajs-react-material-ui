@@ -15,7 +15,7 @@ case class ChipsStyle(common: CommonStyle = DefaultCommonStyle) extends StyleShe
   )
 
   val chip = style(
-    margin(theme.spacing.unit.px)
+    margin :=! theme.spacing(1)
   )
 
 }

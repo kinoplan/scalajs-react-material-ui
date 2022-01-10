@@ -11,7 +11,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiSpeedDialAction extends ReactBridgeComponent with MuiSpeedDialActionExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/lab", "SpeedDialAction")
+  @JSImport("@mui/lab", "SpeedDialAction")
   @js.native
   object RawComponent extends js.Function
 

@@ -13,7 +13,7 @@ import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
 object MuiPopover extends ReactBridgeComponent with MuiPopoverExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Popover")
+  @JSImport("@mui/material", "Popover")
   @js.native
   object RawComponent extends js.Function
 

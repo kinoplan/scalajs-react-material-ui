@@ -15,7 +15,7 @@ trait Theme extends js.Object {
   def shadows: js.Array[String] = js.native
   def typography: Typography = js.native
   def transitions: Transitions = js.native
-  def spacing: Spacing = js.native
+  def spacing: js.Function1[Double, String] = js.native
   def zIndex: ZIndex = js.native
 }
 
@@ -30,7 +30,7 @@ object Theme {
     palette: Palette,
     props: js.UndefOr[js.Object] = js.undefined,
     shadows: js.Array[String],
-    spacing: Spacing,
+    spacing: js.Function1[Double, String],
     transitions: Transitions,
     typography: Typography,
     zIndex: ZIndex
@@ -38,7 +38,7 @@ object Theme {
     val o: Map[String, Any] = Seq(
       Some("shape" -> shape),
       Some("breakpoints" -> breakpoints),
-      Some("direction" -> direction.toString),
+      Some("direction" -> direction),
       Some("mixins" -> mixins),
       overrides.toOption.map("overrides" -> _),
       Some("palette" -> palette),

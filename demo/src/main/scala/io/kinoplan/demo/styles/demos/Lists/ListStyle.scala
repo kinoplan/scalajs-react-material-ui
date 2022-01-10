@@ -16,7 +16,7 @@ case class ListStyle(common: CommonStyle = DefaultCommonStyle) extends StyleShee
   val rootPaper = common.paper
 
   val nested = style(
-    paddingLeft((theme.spacing.unit * 4).px)
+    paddingLeft :=! theme.spacing(4)
   )
 
   val inline = style(

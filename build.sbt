@@ -55,6 +55,8 @@ inThisBuild(
 )
 // format: on
 
-onLoad in Global :=
+Global / onChangedBuildSource := ReloadOnSourceChanges
+
+Global / onLoad :=
   ("project bridge" :: "bridgeImplicitsGenerator" :: "project root" :: (_: State))
-    .compose((onLoad in Global).value)
+    .compose((Global / onLoad).value)

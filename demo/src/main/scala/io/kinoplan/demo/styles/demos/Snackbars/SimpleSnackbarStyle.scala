@@ -9,7 +9,7 @@ case class SimpleSnackbarStyle(common: CommonStyle = DefaultCommonStyle) extends
   import dsl._
 
   val close = style(
-    padding((theme.spacing.unit / 2).px)
+    padding :=! theme.spacing(0.5)
   )
 
 }

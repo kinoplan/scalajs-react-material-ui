@@ -94,9 +94,9 @@ case class LayoutStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSh
   val drawerPaperClose = style(
     overflowX.hidden,
     transition := drawerPaperCloseTransition,
-    width((theme.spacing.unit * 7 + 1).px),
+    width :=! (theme.spacing(7) + 1),
     media.minWidth(theme.breakpoints.values.sm.px)(
-      width((theme.spacing.unit * 9 + 1).px)
+      width :=! (theme.spacing(9) + 1)
     )
   )
 
@@ -110,7 +110,7 @@ case class LayoutStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSh
 
   val content = style(
     flexGrow(1),
-    padding((theme.spacing.unit * 3).px)
+    padding :=! theme.spacing(3)
   )
 
   val button = style(

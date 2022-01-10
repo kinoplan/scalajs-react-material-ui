@@ -13,7 +13,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiSelect extends ReactBridgeComponent with MuiSelectExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Select")
+  @JSImport("@mui/material", "Select")
   @js.native
   object RawComponent extends js.Function
 

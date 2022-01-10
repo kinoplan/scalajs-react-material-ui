@@ -37,7 +37,7 @@ case class DetailedExpansionPanelStyle(common: CommonStyle = DefaultCommonStyle)
 
   val helper = style(
     borderLeft :=! s"2px solid ${theme.palette.divider}",
-    padding :=! s"${theme.spacing.unit}px ${theme.spacing.unit * 2}px"
+    padding :=! s"${theme.spacing(1)}px ${theme.spacing(2)}px"
   )
 
   val linkStyle = style(

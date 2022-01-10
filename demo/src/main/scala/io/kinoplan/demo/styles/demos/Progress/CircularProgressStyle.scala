@@ -9,7 +9,7 @@ case class CircularProgressStyle(common: CommonStyle = DefaultCommonStyle) exten
   import dsl._
 
   val progress = style(
-    margin((theme.spacing.unit * 2).px)
+    margin :=! theme.spacing(2)
   )
 
 }

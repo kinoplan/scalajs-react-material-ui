@@ -20,8 +20,8 @@ case class FloatingActionButtonsZoomStyle(common: CommonButtonStyle = DefaultCom
 
   val fab = style(
     position.absolute,
-    bottom((theme.spacing.unit * 2).px),
-    right((theme.spacing.unit * 2).px)
+    bottom :=! theme.spacing(2),
+    right :=! theme.spacing(2)
   )
 
   val fabGreen = style(

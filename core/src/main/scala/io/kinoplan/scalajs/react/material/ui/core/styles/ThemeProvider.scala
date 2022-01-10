@@ -6,18 +6,14 @@ import scala.scalajs.js.|
 
 import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 
-object MuiThemeProvider extends ReactBridgeComponent {
+object ThemeProvider extends ReactBridgeComponent {
   override protected lazy val componentValue: js.Object = RawComponent
 
-  @JSImport("@material-ui/core/styles/MuiThemeProvider", JSImport.Default)
+  @JSImport("@mui/material/styles/ThemeProvider", JSImport.Default)
   @js.native
   object RawComponent extends js.Object
 
-  def apply(
-    disableStylesGeneration: js.UndefOr[Boolean] = js.undefined,
-    sheetsManager: js.UndefOr[JSMap[StylesCreator, JSMap[Theme, SheetManagerTheme]]] = js.undefined,
-    theme: js.Object | js.Function
-  ): WithProps = auto
+  def apply(theme: js.Object | js.Function): WithProps = auto
 
 }
 

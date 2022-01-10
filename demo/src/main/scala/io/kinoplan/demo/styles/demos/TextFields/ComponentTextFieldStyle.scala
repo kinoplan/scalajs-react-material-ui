@@ -14,7 +14,7 @@ case class ComponentTextFieldStyle(common: CommonStyle = DefaultCommonStyle) ext
   )
 
   val formControl = style(
-    margin(theme.spacing.unit.px)
+    margin :=! theme.spacing(1)
   )
 
 }

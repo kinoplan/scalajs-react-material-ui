@@ -50,7 +50,7 @@ object AppCSS extends ScalaCssReactImplicits {
   def load(): Unit = {
     registry.register(
       DefaultCommonStyle,
-      DefaultLayoutStyle,
+      // DefaultLayoutStyle,
       DefaultSimpleTableStyle,
       DefaultChildMenuStyle,
       DefaultPrimarySearchAppBarStyle,

@@ -14,7 +14,7 @@ case class BreadcrumbsStyle(common: CommonStyle = DefaultCommonStyle) extends St
   )
 
   val paper = style(
-    padding(theme.spacing.unit.px, (theme.spacing.unit * 2).px)
+    padding :=! s"${theme.spacing(1)} ${theme.spacing(2)}"
   )
 
   val link = style(
@@ -22,7 +22,7 @@ case class BreadcrumbsStyle(common: CommonStyle = DefaultCommonStyle) extends St
   )
 
   val icon = style(
-    marginRight((theme.spacing.unit / 2).px),
+    marginRight :=! theme.spacing(0.5),
     width(20.px),
     height(20.px)
   )

@@ -16,7 +16,7 @@ case class BadgeVisibilityStyle(common: CommonStyle = DefaultCommonStyle) extend
   )
 
   val badgeMargin = style(
-    margin(theme.spacing.unit.px)
+    margin :=! theme.spacing(1)
   )
 
   val divider = style(
@@ -24,7 +24,7 @@ case class BadgeVisibilityStyle(common: CommonStyle = DefaultCommonStyle) extend
   )
 
   val row = style(
-    marginTop((theme.spacing.unit * 2).px)
+    marginTop :=! theme.spacing(2)
   )
 
 }

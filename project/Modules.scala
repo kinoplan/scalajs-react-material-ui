@@ -80,9 +80,10 @@ object Modules {
       stIgnore ++=
         List(
           "react-dom",
-          "@material-ui/core",
-          "@material-ui/icons",
-          "@material-ui/lab",
+          "@mui/material",
+          "@mui/icons-material",
+          "@mui/lab",
+          "@mui/types",
           "@material-ui/types"
         ),
       stOutputPackage := "io.kinoplan.scalajs.react.libs.external"
@@ -99,6 +100,9 @@ object Modules {
         ),
       Compile / npmDependencies ++=
         Seq(
+          DependenciesNPM.emotionCore,
+          DependenciesNPM.emotionReact,
+          DependenciesNPM.emotionStyled,
           DependenciesNPM.react,
           DependenciesNPM.reactDom,
           DependenciesNPM.materialUiCore,

@@ -14,12 +14,12 @@ case class SelectStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSh
   )
 
   val formControl = style(
-    margin(theme.spacing.unit.px),
+    margin :=! theme.spacing(1),
     minWidth(120.px)
   )
 
   val selectEmpty = style(
-    marginTop((theme.spacing.unit * 2).px)
+    marginTop :=! theme.spacing(2)
   )
 
 }

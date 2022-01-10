@@ -8,7 +8,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildr
 object MuiTouchRipple extends ReactBridgeComponent with MuiTouchRippleExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core/ButtonBase", "TouchRipple")
+  @JSImport("@mui/material/ButtonBase", "TouchRipple")
   @js.native
   object RawComponent extends js.Function
 

@@ -8,7 +8,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiCardActionArea extends ReactBridgeComponent with MuiCardActionAreaExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "CardActionArea")
+  @JSImport("@mui/material", "CardActionArea")
   @js.native
   object RawComponent extends js.Function
 

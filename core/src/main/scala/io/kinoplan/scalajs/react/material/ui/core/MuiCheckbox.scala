@@ -10,7 +10,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildr
 object MuiCheckbox extends ReactBridgeComponent with MuiCheckboxExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Checkbox")
+  @JSImport("@mui/material", "Checkbox")
   @js.native
   object RawComponent extends js.Function
 

@@ -11,7 +11,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiSlider extends ReactBridgeComponent with MuiSliderExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/lab", "Slider")
+  @JSImport("@mui/lab", "Slider")
   @js.native
   object RawComponent extends js.Function
 

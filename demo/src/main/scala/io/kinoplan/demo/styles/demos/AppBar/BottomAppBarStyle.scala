@@ -16,9 +16,9 @@ case class BottomAppBarStyle(common: CommonStyle = DefaultCommonStyle) extends S
   )
 
   val text = style(
-    paddingTop((theme.spacing.unit * 2).px),
-    paddingLeft((theme.spacing.unit * 2).px),
-    paddingRight((theme.spacing.unit * 2).px)
+    paddingTop :=! theme.spacing(2),
+    paddingLeft :=! theme.spacing(2),
+    paddingRight :=! theme.spacing(2)
   )
 
   val paper = style(
@@ -27,7 +27,7 @@ case class BottomAppBarStyle(common: CommonStyle = DefaultCommonStyle) extends S
   )
 
   val list = style(
-    paddingBottom((theme.spacing.unit * 2).px)
+    paddingBottom :=! theme.spacing(2)
   )
 
   val subHeader = common.paper

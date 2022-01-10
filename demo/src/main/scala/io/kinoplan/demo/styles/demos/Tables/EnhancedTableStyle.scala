@@ -10,7 +10,7 @@ case class EnhancedTableStyle(common: CommonStyle = DefaultCommonStyle) extends 
 
   val root = style(
     width(100.%%),
-    marginTop((theme.spacing.unit * 3).px)
+    marginTop :=! theme.spacing(3)
   )
 
   val table = style(

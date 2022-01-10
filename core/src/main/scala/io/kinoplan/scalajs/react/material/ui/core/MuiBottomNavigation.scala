@@ -10,7 +10,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiBottomNavigation extends ReactBridgeComponent with MuiBottomNavigationExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "BottomNavigation")
+  @JSImport("@mui/material", "BottomNavigation")
   @js.native
   object RawComponent extends js.Function
 

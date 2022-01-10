@@ -99,9 +99,9 @@ case class MiniDrawerStyle(common: CommonStyle = DefaultCommonStyle) extends Sty
   val drawerClose = style(
     transition := drawerCloseTransition,
     overflowX.hidden,
-    width((theme.spacing.unit * 7 + 1).px),
+    width :=! (theme.spacing(7) + 1),
     media.minWidth(theme.breakpoints.values.sm.px)(
-      width((theme.spacing.unit * 9 + 1).px),
+      width :=! (theme.spacing(9) + 1),
       position.relative,
       whiteSpace.nowrap
     )
@@ -129,7 +129,7 @@ case class MiniDrawerStyle(common: CommonStyle = DefaultCommonStyle) extends Sty
     overflow.auto,
     flexGrow(1),
     backgroundColor :=! theme.palette.background.default,
-    padding((theme.spacing.unit * 3).px)
+    padding :=! theme.spacing(3)
   )
 
 }

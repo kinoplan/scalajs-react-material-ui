@@ -24,11 +24,11 @@ trait Palette extends js.Object {
   def augmentColor(): Unit = js.native
 }
 
-@JSImport("@material-ui/core/styles/createPalette", "light")
+@JSImport("@mui/material/styles/createPalette", "light")
 @js.native
 object Light extends TypeObject
 
-@JSImport("@material-ui/core/styles/createPalette", "dark")
+@JSImport("@mui/material/styles/createPalette", "dark")
 @js.native
 object Dark extends TypeObject
 

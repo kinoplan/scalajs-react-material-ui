@@ -9,7 +9,7 @@ import io.kinoplan.scalajs.react.material.ui.core.internal.PaperClassKey
 object MuiAppBar extends ReactBridgeComponent with MuiAppBarExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "AppBar")
+  @JSImport("@mui/material", "AppBar")
   @js.native
   object RawComponent extends js.Function
 

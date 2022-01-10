@@ -10,8 +10,8 @@ case class PaperStyle(common: CommonStyle = DefaultCommonStyle) extends StyleShe
 
   val root = style(
     common.gutters,
-    paddingTop((theme.spacing.unit * 2).px),
-    paddingBottom((theme.spacing.unit * 2).px)
+    paddingTop :=! theme.spacing(2),
+    paddingBottom :=! theme.spacing(2)
   )
 
 }

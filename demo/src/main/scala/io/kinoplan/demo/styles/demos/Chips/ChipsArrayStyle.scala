@@ -12,11 +12,11 @@ case class ChipsArrayStyle(common: CommonStyle = DefaultCommonStyle) extends Sty
     display.flex,
     justifyContent.center,
     flexWrap.wrap,
-    padding((theme.spacing.unit / 2).px)
+    padding :=! theme.spacing(0.5)
   )
 
   val chip = style(
-    margin((theme.spacing.unit / 2).px)
+    margin :=! theme.spacing(0.5)
   )
 
 }

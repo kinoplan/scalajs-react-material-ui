@@ -9,7 +9,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiCircularProgress extends ReactBridgeComponent with MuiCircularProgressExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "CircularProgress")
+  @JSImport("@mui/material", "CircularProgress")
   @js.native
   object RawComponent extends js.Function
 

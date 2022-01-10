@@ -4,15 +4,15 @@ import scala.scalajs.js
 
 import io.kinoplan.demo.CssSettings._
 import io.kinoplan.demo.styles.{CommonStyle, DefaultCommonStyle}
-import io.kinoplan.scalajs.react.material.ui.core.styles.colorManipulator.fade
+import io.kinoplan.scalajs.react.material.ui.core.styles.colorManipulator.alpha
 
 case class PrimarySearchAppBarStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSheet.Inline {
 
   import common.theme
   import dsl._
 
-  private val fadeFirst = fade(theme.palette.common.white, 0.15)
-  private val fadeSecond = fade(theme.palette.common.white, 0.25)
+  private val fadeFirst = alpha(theme.palette.common.white, 0.15)
+  private val fadeSecond = alpha(theme.palette.common.white, 0.25)
 
   private val inputInputTransition = theme.transitions.create(js.Array("width"), js.undefined)
 
@@ -34,17 +34,17 @@ case class PrimarySearchAppBarStyle(common: CommonStyle = DefaultCommonStyle) ex
     &.hover(
       backgroundColor :=! fadeSecond
     ),
-    marginRight((theme.spacing.unit * 2).px),
+    marginRight :=! theme.spacing(2),
     marginLeft(0.px),
     width(100.%%),
     media.minWidth(theme.breakpoints.values.sm.px)(
-      marginLeft((theme.spacing.unit * 3).px),
+      marginLeft :=! theme.spacing(3),
       width.auto
     )
   )
 
   val searchIcon = style(
-    width((theme.spacing.unit * 9).px),
+    width :=! theme.spacing(9),
     height(100.%%),
     position.absolute,
     pointerEvents.none,
@@ -59,10 +59,10 @@ case class PrimarySearchAppBarStyle(common: CommonStyle = DefaultCommonStyle) ex
   )
 
   val inputInput = style(
-    paddingTop(theme.spacing.unit.px),
-    paddingRight(theme.spacing.unit.px),
-    paddingBottom(theme.spacing.unit.px),
-    paddingLeft((theme.spacing.unit * 10).px),
+    paddingTop :=! theme.spacing(1),
+    paddingRight :=! theme.spacing(1),
+    paddingBottom :=! theme.spacing(1),
+    paddingLeft :=! theme.spacing(10),
     transition := inputInputTransition,
     width(100.%%),
     media.minWidth(theme.breakpoints.values.md.px)(

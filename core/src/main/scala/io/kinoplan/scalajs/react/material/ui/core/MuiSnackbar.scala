@@ -14,7 +14,7 @@ import io.kinoplan.scalajs.react.material.ui.core.internal.Origin
 object MuiSnackbar extends ReactBridgeComponent with MuiSnackbarExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Snackbar")
+  @JSImport("@mui/material", "Snackbar")
   @js.native
   object RawComponent extends js.Function
 

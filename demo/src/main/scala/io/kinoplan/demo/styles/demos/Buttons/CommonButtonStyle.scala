@@ -9,7 +9,7 @@ case class CommonButtonStyle(common: CommonStyle = DefaultCommonStyle) extends S
   val theme = common.theme
 
   val marginButton = style(
-    margin(theme.spacing.unit.px)
+    margin :=! theme.spacing(1)
   )
 
   val inputButton = style(
@@ -17,7 +17,7 @@ case class CommonButtonStyle(common: CommonStyle = DefaultCommonStyle) extends S
   )
 
   val extendedIcon = style(
-    marginRight(theme.spacing.unit.px)
+    marginRight :=! theme.spacing(1)
   )
 
 }

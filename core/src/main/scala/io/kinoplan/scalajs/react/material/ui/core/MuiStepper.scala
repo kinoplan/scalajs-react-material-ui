@@ -11,7 +11,7 @@ import io.kinoplan.scalajs.react.material.ui.core.internal.PaperClassKey
 object MuiStepper extends ReactBridgeComponent with MuiStepperExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Stepper")
+  @JSImport("@mui/material", "Stepper")
   @js.native
   object RawComponent extends js.Function
 

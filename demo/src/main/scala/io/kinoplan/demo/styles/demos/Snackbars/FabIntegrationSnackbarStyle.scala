@@ -48,13 +48,13 @@ case class FabIntegrationSnackbarStyle(common: CommonStyle = DefaultCommonStyle)
   )
 
   val button = style(
-    marginBottom(theme.spacing.unit.px)
+    marginBottom :=! theme.spacing(1)
   )
 
   val fab = style(
     position.absolute,
-    bottom((theme.spacing.unit * 2).px),
-    right((theme.spacing.unit * 2).px)
+    bottom :=! theme.spacing(2),
+    right :=! theme.spacing(2)
   )
 
   val fabMoveUp = style(

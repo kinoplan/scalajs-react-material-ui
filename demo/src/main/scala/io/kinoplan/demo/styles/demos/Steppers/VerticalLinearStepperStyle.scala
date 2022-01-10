@@ -13,16 +13,16 @@ case class VerticalLinearStepperStyle(common: CommonStyle = DefaultCommonStyle) 
   )
 
   val button = style(
-    marginTop(theme.spacing.unit.px),
-    marginRight(theme.spacing.unit.px)
+    marginTop :=! theme.spacing(1),
+    marginRight :=! theme.spacing(1)
   )
 
   val actionsContainer = style(
-    marginBottom((theme.spacing.unit * 2).px)
+    marginBottom :=! theme.spacing(2)
   )
 
   val resetContainer = style(
-    padding((theme.spacing.unit * 3).px)
+    padding :=! theme.spacing(3)
   )
 
 }

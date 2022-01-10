@@ -124,7 +124,7 @@ case class PersistentDrawerStyle(common: CommonStyle = DefaultCommonStyle) exten
     flexGrow(1),
     backgroundColor :=! theme.palette.background.default,
     transition := contentTransition,
-    padding((theme.spacing.unit * 3).px)
+    padding :=! theme.spacing(3)
   )
 
   val contentLeft = style(

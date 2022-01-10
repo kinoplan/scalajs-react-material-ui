@@ -9,7 +9,7 @@ case class CustomizedProgressStyle(common: CommonStyle = DefaultCommonStyle) ext
   import dsl._
 
   val progress = style(
-    margin((theme.spacing.unit * 2).px),
+    margin :=! theme.spacing(2),
     color :=! "#00695c"
   )
 
@@ -22,7 +22,7 @@ case class CustomizedProgressStyle(common: CommonStyle = DefaultCommonStyle) ext
   )
 
   val facebook = style(
-    margin((theme.spacing.unit * 2).px),
+    margin :=! theme.spacing(2),
     position.relative
   )
 

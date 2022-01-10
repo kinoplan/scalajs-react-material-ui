@@ -11,7 +11,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiFade extends ReactBridgeComponent with MuiFadeExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Fade")
+  @JSImport("@mui/material", "Fade")
   @js.native
   object RawComponent extends js.Function
 

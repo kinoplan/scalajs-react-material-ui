@@ -11,7 +11,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildr
 object MuiRadio extends ReactBridgeComponent with MuiRadioExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Radio")
+  @JSImport("@mui/material", "Radio")
   @js.native
   object RawComponent extends js.Function
 

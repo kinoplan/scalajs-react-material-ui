@@ -11,7 +11,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiClickAwayListener extends ReactBridgeComponent with MuiClickAwayListenerExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "ClickAwayListener")
+  @JSImport("@mui/material", "ClickAwayListener")
   @js.native
   object RawComponent extends js.Function
 

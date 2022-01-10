@@ -39,7 +39,7 @@ case class MySnackbarContentWrapperStyle(common: CommonStyle = DefaultCommonStyl
 
   val iconVariant = style(
     opacity(0.9),
-    marginRight(theme.spacing.unit.px)
+    marginRight :=! theme.spacing(1)
   )
 
   val message = style(

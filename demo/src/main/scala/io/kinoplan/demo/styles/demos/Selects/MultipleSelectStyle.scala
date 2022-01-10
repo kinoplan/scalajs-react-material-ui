@@ -14,7 +14,7 @@ case class MultipleSelectStyle(common: CommonStyle = DefaultCommonStyle) extends
   )
 
   val formControl = style(
-    margin(theme.spacing.unit.px),
+    margin :=! theme.spacing(1),
     minWidth(120.px),
     maxWidth(300.px)
   )
@@ -25,11 +25,11 @@ case class MultipleSelectStyle(common: CommonStyle = DefaultCommonStyle) extends
   )
 
   val chip = style(
-    margin((theme.spacing.unit / 4).px)
+    margin :=! theme.spacing(0.25)
   )
 
   val noLabel = style(
-    marginTop((theme.spacing.unit * 3).px)
+    marginTop :=! theme.spacing(3)
   )
 
 }

@@ -8,7 +8,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiListItem extends ReactBridgeComponent with MuiListItemExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "ListItem")
+  @JSImport("@mui/material", "ListItem")
   @js.native
   object RawComponent extends js.Function
 

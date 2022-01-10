@@ -10,7 +10,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildr
 object MuiCardHeader extends ReactBridgeComponent with MuiCardHeaderExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "CardHeader")
+  @JSImport("@mui/material", "CardHeader")
   @js.native
   object RawComponent extends js.Function
 

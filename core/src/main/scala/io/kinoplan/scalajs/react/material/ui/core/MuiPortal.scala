@@ -8,7 +8,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiPortal extends ReactBridgeComponent {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Portal")
+  @JSImport("@mui/material", "Portal")
   @js.native
   object RawComponent extends js.Function
 

@@ -13,7 +13,7 @@ case class StepperStyle(common: CommonStyle = DefaultCommonStyle) extends StyleS
   )
 
   val button = style(
-    marginRight(theme.spacing.unit.px)
+    marginRight :=! theme.spacing(1)
   )
 
   val completed = style(
@@ -21,8 +21,8 @@ case class StepperStyle(common: CommonStyle = DefaultCommonStyle) extends StyleS
   )
 
   val instructions = style(
-    marginTop(theme.spacing.unit.px),
-    marginBottom(theme.spacing.unit.px)
+    marginTop :=! theme.spacing(1),
+    marginBottom :=! theme.spacing(1)
   )
 
 }

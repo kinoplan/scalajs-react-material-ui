@@ -88,7 +88,7 @@ object CustomizedInputs extends ScalaCssReactImplicits {
               label = "Custom CSS".toVdom,
               variant = MuiTextField.Variant.outlined
             )(css.cssMargin, id := "custom-css-outlined-input"),
-            MuiThemeProvider(theme = theme)(
+            ThemeProvider(theme = theme)(
               MuiTextField(label = "MuiThemeProvider".toVdom)(css.cssMargin, id := "mui-theme-provider-standard-input"),
               MuiTextField(
                 label = "MuiThemeProvider".toVdom,

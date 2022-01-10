@@ -9,7 +9,7 @@ case class CustomizedSnackbarsStyle(common: CommonStyle = DefaultCommonStyle) ex
   import dsl._
 
   val snackbar = style(
-    margin(theme.spacing.unit.px)
+    margin :=! theme.spacing(1)
   )
 
 }

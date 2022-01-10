@@ -8,7 +8,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiGridListTile extends ReactBridgeComponent with MuiGridListTileExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "GridListTile")
+  @JSImport("@mui/material", "GridListTile")
   @js.native
   object RawComponent extends js.Function
 

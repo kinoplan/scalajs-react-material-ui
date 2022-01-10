@@ -63,7 +63,7 @@ case class ResponsiveDrawerStyle(common: CommonStyle = DefaultCommonStyle) exten
     overflow.auto,
     flexGrow(1),
     backgroundColor :=! theme.palette.background.default,
-    padding((theme.spacing.unit * 3).px)
+    padding :=! theme.spacing(3)
   )
 
 }

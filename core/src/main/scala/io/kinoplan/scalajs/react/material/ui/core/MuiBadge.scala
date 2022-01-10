@@ -10,7 +10,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiBadge extends ReactBridgeComponent with MuiBadgeExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Badge")
+  @JSImport("@mui/material", "Badge")
   @js.native
   object RawComponent extends js.Function
 

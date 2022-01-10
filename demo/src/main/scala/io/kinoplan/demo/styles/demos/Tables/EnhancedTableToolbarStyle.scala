@@ -10,7 +10,7 @@ case class EnhancedTableToolbarStyle(common: CommonStyle = DefaultCommonStyle) e
   import dsl._
 
   val root = style(
-    paddingRight(theme.spacing.unit.px)
+    paddingRight :=! theme.spacing(1)
   )
 
   val highlight = styleF.bool(isLight =>

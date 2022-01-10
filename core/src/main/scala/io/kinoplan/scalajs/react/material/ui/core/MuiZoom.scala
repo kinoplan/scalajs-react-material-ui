@@ -11,7 +11,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiZoom extends ReactBridgeComponent {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Zoom")
+  @JSImport("@mui/material", "Zoom")
   @js.native
   object RawComponent extends js.Function
 

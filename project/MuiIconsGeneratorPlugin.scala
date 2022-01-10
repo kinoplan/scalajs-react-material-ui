@@ -18,7 +18,7 @@ object MuiIconsGeneratorPlugin extends AutoPlugin {
   )
 
   def muiIcons(src: File, npm: File): Seq[File] = {
-    val iconSources = (npm / "node_modules" / "@material-ui" / "icons") * ("*.js" -- "index.js" -- "index.es.js")
+    val iconSources = (npm / "node_modules" / "@mui" / "icons-material") * ("*.js" -- "index.js" -- "index.es.js")
 
     val iconNames = iconSources.get.map(_.getName.stripSuffix(".js")).sorted
 
@@ -34,7 +34,7 @@ object MuiIconsGeneratorPlugin extends AutoPlugin {
          |import scala.scalajs.js.annotation.JSImport
          |
          |@js.native
-         |@JSImport("@material-ui/icons", JSImport.Namespace)
+         |@JSImport("@mui/icons-material", JSImport.Namespace)
          |object MuiIconsModule extends js.Object {
          |  type Value = js.Any
       """.stripMargin.trim + "\n\n" + moduleIcons + "\n" + "}\n"

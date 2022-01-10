@@ -12,7 +12,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiDialog extends ReactBridgeComponent with MuiDialogExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Dialog")
+  @JSImport("@mui/material", "Dialog")
   @js.native
   object RawComponent extends js.Function
 

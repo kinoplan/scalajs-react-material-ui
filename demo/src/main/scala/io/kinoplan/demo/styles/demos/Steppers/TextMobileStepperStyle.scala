@@ -18,7 +18,7 @@ case class TextMobileStepperStyle(common: CommonStyle = DefaultCommonStyle) exte
     display.flex,
     alignItems.center,
     height(50.px),
-    paddingLeft((theme.spacing.unit * 4).px)
+    paddingLeft :=! theme.spacing(4)
   )
 
   val headerPaper = styleF.bool(isLight =>

@@ -16,7 +16,7 @@ case class CustomizedSelectsStyle(common: CommonStyle = DefaultCommonStyle) exte
   )
 
   val marginStyle = style(
-    margin(theme.spacing.unit.px)
+    margin :=! theme.spacing(1)
   )
 
   val bootstrapFormLabel = style(
@@ -27,7 +27,7 @@ case class CustomizedSelectsStyle(common: CommonStyle = DefaultCommonStyle) exte
 
   private val bootstrapRootPlus = style(
     unsafeRoot(s"label + .${bootstrapRoot.htmlClass}")(
-      marginTop((theme.spacing.unit * 3).px)
+      marginTop :=! theme.spacing(3)
     )
   )
 

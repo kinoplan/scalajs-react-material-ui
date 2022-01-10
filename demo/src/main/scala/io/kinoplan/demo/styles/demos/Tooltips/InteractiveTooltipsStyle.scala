@@ -9,7 +9,7 @@ case class InteractiveTooltipsStyle(common: CommonStyle = DefaultCommonStyle) ex
   import dsl._
 
   val button = style(
-    margin(theme.spacing.unit.px)
+    margin :=! theme.spacing(1)
   )
 
 }

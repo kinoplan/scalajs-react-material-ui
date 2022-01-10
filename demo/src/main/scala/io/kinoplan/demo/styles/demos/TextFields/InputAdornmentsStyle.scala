@@ -14,15 +14,15 @@ case class InputAdornmentsStyle(common: CommonStyle = DefaultCommonStyle) extend
   )
 
   val cssMargin = style(
-    margin(theme.spacing.unit.px)
+    margin :=! theme.spacing(1)
   )
 
   val top = style(
-    marginTop((theme.spacing.unit * 2).px)
+    marginTop :=! theme.spacing(2)
   )
 
   val withoutLabel = style(
-    marginTop((theme.spacing.unit * 3).px)
+    marginTop :=! theme.spacing(3)
   )
 
   val textField = style(

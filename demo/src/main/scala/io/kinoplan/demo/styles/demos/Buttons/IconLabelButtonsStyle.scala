@@ -8,11 +8,11 @@ case class IconLabelButtonsStyle(common: CommonButtonStyle = DefaultCommonButton
   import dsl._
 
   val leftIcon = style(
-    marginRight(theme.spacing.unit.px)
+    marginRight :=! theme.spacing(1)
   )
 
   val rightIcon = style(
-    marginLeft(theme.spacing.unit.px)
+    marginLeft :=! theme.spacing(1)
   )
 
   val iconSmall = style(

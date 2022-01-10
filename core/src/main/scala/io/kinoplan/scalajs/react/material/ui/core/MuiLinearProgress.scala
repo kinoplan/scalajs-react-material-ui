@@ -8,7 +8,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildr
 object MuiLinearProgress extends ReactBridgeComponent with MuiLinearProgressExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "LinearProgress")
+  @JSImport("@mui/material", "LinearProgress")
   @js.native
   object RawComponent extends js.Function
 

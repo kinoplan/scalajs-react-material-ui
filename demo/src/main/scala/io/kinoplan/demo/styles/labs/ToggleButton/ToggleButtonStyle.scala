@@ -10,11 +10,11 @@ case class ToggleButtonStyle(common: CommonStyle = DefaultCommonStyle) extends S
 
   val toggleContainer = style(
     height(56.px),
-    padding(theme.spacing.unit.px, (theme.spacing.unit * 2).px),
+    padding :=! s"${theme.spacing(1)} ${theme.spacing(2)}",
     display.flex,
     alignItems.center,
     justifyContent.flexStart,
-    margin(theme.spacing.unit.px, 0.px),
+    margin :=! s"${theme.spacing(1)} 0px",
     background := theme.palette.background.default
   )
 

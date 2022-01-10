@@ -9,7 +9,7 @@ case class VariableWidthStyle(common: CommonStyle = DefaultCommonStyle) extends 
   import dsl._
 
   val button = style(
-    margin(theme.spacing.unit.px)
+    margin :=! theme.spacing(1)
   )
 
   val customWidth = style(

@@ -16,7 +16,7 @@ case class InteractiveListStyle(common: CommonStyle = DefaultCommonStyle) extend
   val demo = common.paper
 
   val title = style(
-    margin :=! s"${theme.spacing.unit * 4}px 0 ${theme.spacing.unit * 2}px"
+    margin :=! s"${theme.spacing(4)}px 0 ${theme.spacing(2)}px"
   )
 
 }

@@ -10,7 +10,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildr
 object MuiTab extends ReactBridgeComponent with MuiTabExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Tab")
+  @JSImport("@mui/material", "Tab")
   @js.native
   object RawComponent extends js.Function
 

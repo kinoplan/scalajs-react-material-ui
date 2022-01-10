@@ -15,7 +15,7 @@ case class DelayingAppearanceStyle(common: CommonStyle = DefaultCommonStyle) ext
   )
 
   val button = style(
-    margin((theme.spacing.unit * 2).px)
+    margin :=! theme.spacing(2)
   )
 
   val placeholder = style(

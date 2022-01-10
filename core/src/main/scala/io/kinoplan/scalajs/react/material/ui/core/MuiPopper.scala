@@ -11,7 +11,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiPopper extends ReactBridgeComponent with MuiPopperExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Popper")
+  @JSImport("@mui/material", "Popper")
   @js.native
   object RawComponent extends js.Function
 

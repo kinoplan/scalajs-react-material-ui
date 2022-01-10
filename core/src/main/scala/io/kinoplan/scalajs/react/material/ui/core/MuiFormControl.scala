@@ -8,7 +8,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiFormControl extends ReactBridgeComponent with MuiFormControlExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "FormControl")
+  @JSImport("@mui/material", "FormControl")
   @js.native
   object RawComponent extends js.Function
 

@@ -23,11 +23,11 @@ class CommonStyle extends StyleSheet.Inline {
   )
 
   val gutters = style(
-    paddingLeft((theme.spacing.unit * 2).px),
-    paddingRight((theme.spacing.unit * 2).px),
+    paddingLeft :=! theme.spacing(2),
+    paddingRight :=! theme.spacing(2),
     media.minWidth(theme.breakpoints.values.sm.px)(
-      paddingLeft((theme.spacing.unit * 3).px),
-      paddingRight((theme.spacing.unit * 3).px)
+      paddingLeft :=! theme.spacing(3),
+      paddingRight :=! theme.spacing(3)
     )
   )
 
@@ -38,7 +38,7 @@ class CommonStyle extends StyleSheet.Inline {
   )
 
   val menuButton = style(
-    marginRight((theme.spacing.unit * 2).px)
+    marginRight :=! theme.spacing(2)
   )
 
   val menuButtonDesktop = style(
@@ -66,15 +66,15 @@ class CommonStyle extends StyleSheet.Inline {
     borderRadius(theme.shape.borderRadius.px),
     display.flex,
     justifyContent.center,
-    paddingTop((theme.spacing.unit * 2).px),
-    paddingBottom((theme.spacing.unit * 2).px),
-    paddingLeft((theme.spacing.unit * 2).px),
-    paddingRight((theme.spacing.unit * 2).px),
+    paddingTop :=! theme.spacing(2),
+    paddingBottom :=! theme.spacing(2),
+    paddingLeft :=! theme.spacing(2),
+    paddingRight :=! theme.spacing(2),
     media.minWidth(theme.breakpoints.values.sm.px)(
-      paddingLeft((theme.spacing.unit * 3).px),
-      paddingRight((theme.spacing.unit * 3).px),
-      paddingTop((theme.spacing.unit * 6).px),
-      paddingBottom((theme.spacing.unit * 3).px)
+      paddingLeft :=! theme.spacing(3),
+      paddingRight :=! theme.spacing(3),
+      paddingTop :=! theme.spacing(6),
+      paddingBottom :=! theme.spacing(3)
     )
   )
 
@@ -89,9 +89,9 @@ class CommonStyle extends StyleSheet.Inline {
   )
 
   val demoHiddenHeader = style(
-    paddingTop((theme.spacing.unit * 2).px),
+    paddingTop :=! theme.spacing(2),
     media.minWidth(theme.breakpoints.values.sm.px)(
-      paddingTop((theme.spacing.unit * 3).px)
+      paddingTop :=! theme.spacing(3)
     )
   )
 

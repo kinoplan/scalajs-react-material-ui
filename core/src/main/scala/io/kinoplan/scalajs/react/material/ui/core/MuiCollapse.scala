@@ -11,7 +11,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiCollapse extends ReactBridgeComponent with MuiCollapseExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Collapse")
+  @JSImport("@mui/material", "Collapse")
   @js.native
   object RawComponent extends js.Function
 

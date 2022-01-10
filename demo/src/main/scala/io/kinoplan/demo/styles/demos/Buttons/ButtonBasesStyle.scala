@@ -55,11 +55,7 @@ case class ButtonBasesStyle(common: CommonButtonStyle = DefaultCommonButtonStyle
 
   val imageTitle = style(
     position.relative,
-    padding(
-      (theme.spacing.unit * 2).px,
-      (theme.spacing.unit * 4).px,
-      (theme.spacing.unit + 6).px
-    )
+    padding :=! s"${theme.spacing(2)} ${theme.spacing(4)} ${theme.spacing(6)}"
   )
 
   val imageMarked = style(

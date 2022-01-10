@@ -13,7 +13,7 @@ import io.kinoplan.scalajs.react.material.ui.html.ReactEventFromNumberInput
 object MuiTablePagination extends ReactBridgeComponent with MuiTablePaginationExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "TablePagination")
+  @JSImport("@mui/material", "TablePagination")
   @js.native
   object RawComponent extends js.Function
 

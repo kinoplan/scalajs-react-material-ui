@@ -8,7 +8,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildr
 object MuiDivider extends ReactBridgeComponent with MuiDividerExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Divider")
+  @JSImport("@mui/material", "Divider")
   @js.native
   object RawComponent extends js.Function
 

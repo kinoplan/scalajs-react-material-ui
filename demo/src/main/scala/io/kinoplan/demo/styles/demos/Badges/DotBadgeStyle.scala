@@ -9,7 +9,7 @@ case class DotBadgeStyle(common: CommonStyle = DefaultCommonStyle) extends Style
   import dsl._
 
   val badgeMargin = style(
-    margin((theme.spacing.unit * 2).px)
+    margin :=! theme.spacing(2)
   )
 
 }

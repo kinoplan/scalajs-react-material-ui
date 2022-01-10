@@ -27,7 +27,7 @@ case class CustomizedInputsStyle(common: CommonStyle = DefaultCommonStyle) exten
   )
 
   val cssMargin = style(
-    margin(theme.spacing.unit.px)
+    margin :=! theme.spacing(1)
   )
 
   val cssUnderline = style(
@@ -56,7 +56,7 @@ case class CustomizedInputsStyle(common: CommonStyle = DefaultCommonStyle) exten
 
   private val bootstrapRootPlus = style(
     unsafeRoot(s"label + .${bootstrapRoot.htmlClass}")(
-      marginTop((theme.spacing.unit * 3).px)
+      marginTop :=! theme.spacing(3)
     )
   )
 

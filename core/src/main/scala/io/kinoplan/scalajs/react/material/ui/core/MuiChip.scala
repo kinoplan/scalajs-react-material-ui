@@ -12,7 +12,7 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildr
 object MuiChip extends ReactBridgeComponent with MuiChipExtensions {
   override protected lazy val componentValue: js.Function = RawComponent
 
-  @JSImport("@material-ui/core", "Chip")
+  @JSImport("@mui/material", "Chip")
   @js.native
   object RawComponent extends js.Function
 

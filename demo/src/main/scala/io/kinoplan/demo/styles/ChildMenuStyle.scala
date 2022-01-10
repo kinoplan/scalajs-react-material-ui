@@ -8,7 +8,7 @@ case class ChildMenuStyle(common: CommonStyle = DefaultCommonStyle) extends Styl
   import common.theme
 
   val nested = style(
-    paddingLeft((theme.spacing.unit * 4).px)
+    paddingLeft :=! theme.spacing(4)
   )
 
 }
