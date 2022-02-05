@@ -13,7 +13,7 @@ case class CustomizedBadgeStyle(common: CommonStyle = DefaultCommonStyle) extend
     top(50.%%),
     right :=! -3.toString,
     border :=! s"2px solid ${if (theme.palette.`type` == PaletteType.light.toString) theme.palette.grey.`200`
-    else theme.palette.grey.`900`}"
+      else theme.palette.grey.`900`}"
   )
 
 }
