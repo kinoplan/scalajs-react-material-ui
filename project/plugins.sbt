@@ -1,4 +1,4 @@
-val scalaJSVersion = Option(System.getenv("SCALAJS_VERSION")).getOrElse("1.9.0")
+val scalaJSVersion = Option(System.getenv("SCALAJS_VERSION")).getOrElse("1.10.0")
 
 addSbtPlugin(
   "org.scalablytyped.converter" % "sbt-converter" % "1.0.0-beta37"
