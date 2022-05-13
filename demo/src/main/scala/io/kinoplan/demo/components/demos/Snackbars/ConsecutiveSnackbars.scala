@@ -37,7 +37,7 @@ object ConsecutiveSnackbars extends ScalaCssReactImplicits {
   class Backend(t: BackendScope[Props, State]) {
 
     def setQueue(message: String) = Callback {
-      queues.enqueue(MessageInfo(message = message, key = new js.Date().getTime()))
+      queues.enqueue(MessageInfo(message = message, key = new js.Date.getTime()))
     }
 
     def handleClick(message: String) = {

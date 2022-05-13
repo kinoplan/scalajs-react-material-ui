@@ -18,7 +18,7 @@ case class CustomizedBreadcrumbsStyle(common: CommonStyle = DefaultCommonStyle) 
     height(24.px),
     color :=! theme.palette.grey.`800`,
     fontWeight :=! theme.typography.fontWeightRegular.px,
-    (&.hover & &.focus)(
+    &.hover & &.focus(
       backgroundColor :=! theme.palette.grey.`300`
     ),
     &.active(

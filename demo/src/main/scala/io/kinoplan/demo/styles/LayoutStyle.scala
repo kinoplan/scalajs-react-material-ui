@@ -114,7 +114,7 @@ case class LayoutStyle(common: CommonStyle = DefaultCommonStyle) extends StyleSh
   )
 
   val button = style(
-    (&.hover & &.focus)(
+    &.hover & &.focus(
       backgroundColor :=! "#5b7d38"
     )
   )

@@ -18,7 +18,7 @@ object MuiIconsGeneratorPlugin extends AutoPlugin {
   )
 
   def muiIcons(src: File, npm: File): Seq[File] = {
-    val iconSources = (npm / "node_modules" / "@material-ui" / "icons") * ("*.js" -- "index.js" -- "index.es.js")
+    val iconSources = npm / "node_modules" / "@material-ui" / "icons" * ("*.js" -- "index.js" -- "index.es.js")
 
     val iconNames = iconSources.get.map(_.getName.stripSuffix(".js")).sorted
 
