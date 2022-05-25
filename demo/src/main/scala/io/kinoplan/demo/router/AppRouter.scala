@@ -15,6 +15,7 @@ object AppRouter {
   case object DemoAvatarsRoute extends Page
   case object DemoBadgesRoute extends Page
   case object DemoBottomNavigationRoute extends Page
+  case object DemoBoxRoute extends Page
   case object DemoButtonsRoute extends Page
   case object DemoCardsRoute extends Page
   case object DemoChipsRoute extends Page
@@ -51,6 +52,7 @@ object AppRouter {
         | staticRoute("/#demos/avatars/", DemoAvatarsRoute) ~> renderR(AvatarsPage(_))
         | staticRoute("/#demos/badges/", DemoBadgesRoute) ~> renderR(BadgesPage(_))
         | staticRoute("/#demos/bottom-navigation/", DemoBottomNavigationRoute) ~> renderR(BottomNavigationPage(_))
+        | staticRoute("/#demos/box/", DemoBoxRoute) ~> renderR(BoxPage(_))
         | staticRoute("/#demos/buttons/", DemoButtonsRoute) ~> renderR(ButtonsPage(_))
         | staticRoute("/#demos/cards/", DemoCardsRoute) ~> renderR(CardsPage(_))
         | staticRoute("/#demos/chips/", DemoChipsRoute) ~> renderR(ChipsPage(_))

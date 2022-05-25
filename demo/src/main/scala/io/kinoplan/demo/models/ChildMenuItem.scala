@@ -14,6 +14,7 @@ object ChildMenuItem {
     ChildMenuItem("Avatars", DemoAvatarsRoute),
     ChildMenuItem("Badges", DemoBadgesRoute),
     ChildMenuItem("Bottom Navigation", DemoBottomNavigationRoute),
+    ChildMenuItem("Box", DemoBoxRoute),
     ChildMenuItem("Buttons", DemoButtonsRoute),
     ChildMenuItem("Cards", DemoCardsRoute),
     ChildMenuItem("Chips", DemoChipsRoute),

@@ -104,6 +104,7 @@ object Modules {
           DependenciesNPM.materialUiCore,
           DependenciesNPM.materialUiIcons,
           DependenciesNPM.materialUiLab,
+          DependenciesNPM.materialUiStyles,
           DependenciesNPM.reactSwipeableViews,
           DependenciesNPM.reactSwipeableViewsUtils,
           DependenciesNPM.typesReactSwipeableViewsUtils,
