@@ -80,11 +80,12 @@ object Modules {
       stIgnore ++=
         List(
           "react-dom",
-          "@mui/material",
+//          "@mui/material",
           "@mui/icons-material",
           "@mui/lab",
           "@mui/types",
-          "@material-ui/types"
+//          "@material-ui/types",
+          "@mui/system"
         ),
       stOutputPackage := "io.kinoplan.scalajs.react.libs.external"
     )

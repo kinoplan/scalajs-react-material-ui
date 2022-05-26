@@ -14,6 +14,8 @@ import io.kinoplan.demo.utils.icons.{MuiLightBulbFullIcon, MuiLightBulbOutlineIc
 import io.kinoplan.scalajs.react.material.ui.core._
 import io.kinoplan.scalajs.react.material.ui.core.styles._
 import io.kinoplan.scalajs.react.material.ui.icons.{MuiIcons, MuiIconsModule}
+//import io.kinoplan.scalajs.react.libs.external
+
 
 object Layout extends ScalaCssReactImplicits {
   var paletteValue: PaletteType.Value = PaletteType.light
@@ -25,7 +27,7 @@ object Layout extends ScalaCssReactImplicits {
   case class Props(router: RouterCtl[Page], r: Resolution[Page], style: LayoutStyle)
 
   case class State(
-    open: Boolean = true,
+    open: Boolean = false,
     paletteType: PaletteType.Value = PaletteType.light
   ) {
     val isLightPaletteType = paletteType == PaletteType.light

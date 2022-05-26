@@ -19,11 +19,13 @@ object MuiDrawer extends ReactBridgeComponent with MuiDrawerExtensions {
     anchor: js.UndefOr[Anchor.Value] = js.undefined,
     classes: js.UndefOr[Map[ClassKey.Value, String]] = js.undefined,
     elevation: js.UndefOr[Int] = js.undefined,
+    hideBackdrop: js.UndefOr[Boolean] = js.undefined,
     ModalProps: js.UndefOr[js.Object] = js.undefined,
     onClose: js.UndefOr[ReactHandler1[ReactEventFromHtml]] = js.undefined,
     open: js.UndefOr[Boolean] = js.undefined,
     PaperProps: js.UndefOr[js.Object] = js.undefined,
     SlideProps: js.UndefOr[js.Object] = js.undefined,
+    sx: js.UndefOr[js.Object] = js.undefined,
     transitionDuration: js.UndefOr[Int | js.Object] = js.undefined,
     variant: js.UndefOr[Variant.Value] = js.undefined
   ): WithProps = auto
@@ -35,10 +37,10 @@ trait MuiDrawerExtensions {
   object Anchor extends Enumeration {
     type Value = String
 
-    val left = "left"
-    val top = "top"
-    val right = "right"
     val bottom = "bottom"
+    val left = "left"
+    val right = "right"
+    val top = "top"
   }
 
   object Variant extends Enumeration {
