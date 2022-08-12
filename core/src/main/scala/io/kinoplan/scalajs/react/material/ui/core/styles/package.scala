@@ -8,7 +8,10 @@ import japgolly.scalajs.react.vdom.VdomNode
 
 package object styles {
 
-  @JSImport("@material-ui/core/styles/colorManipulator.js", JSImport.Default)
+  @JSImport(
+    "@material-ui/core/styles/colorManipulator.js",
+    JSImport.Default
+  )
   @js.native
   object colorManipulator extends js.Object {
     def hexToRgb(hex: String): String = js.native
@@ -34,13 +37,19 @@ package object styles {
     def lighten(color: String, coefficient: js.UndefOr[Double]): String = js.native
   }
 
-  @JSImport("@material-ui/core/styles/createMuiTheme.js", JSImport.Default)
+  @JSImport(
+    "@material-ui/core/styles/createMuiTheme.js",
+    JSImport.Default
+  )
   @js.native
   object createMuiTheme extends js.Function1[js.UndefOr[ThemeOptions], Theme] {
     override def apply(options: js.UndefOr[ThemeOptions] = js.undefined): Theme = js.native
   }
 
-  @JSImport("@material-ui/core/styles/createPalette.js", JSImport.Default)
+  @JSImport(
+    "@material-ui/core/styles/createPalette.js",
+    JSImport.Default
+  )
   @js.native
   object createPalette extends js.Function1[PaletteOptions, Palette] {
     override def apply(palette: PaletteOptions): Palette = js.native
@@ -52,13 +61,19 @@ package object styles {
     override def apply(breakpoints: Breakpoints, spacing: Spacing, mixins: MixinsOptions): Mixins = js.native
   }
 
-  @JSImport("@material-ui/core/styles/createBreakpoints.js", JSImport.Default)
+  @JSImport(
+    "@material-ui/core/styles/createBreakpoints.js",
+    JSImport.Default
+  )
   @js.native
   object createBreakpoints extends js.Function1[BreakpointsOptions, Breakpoints] {
     override def apply(options: BreakpointsOptions): Breakpoints = js.native
   }
 
-  @JSImport("@material-ui/core/styles/createTypography.js", JSImport.Default)
+  @JSImport(
+    "@material-ui/core/styles/createTypography.js",
+    JSImport.Default
+  )
   @js.native
   object createTypography
       extends js.Function2[Palette, TypographyOptions | js.Function1[Palette, TypographyOptions], Typography] {
@@ -70,13 +85,19 @@ package object styles {
 
   }
 
-  @JSImport("@material-ui/core/styles/getStylesCreator.js", JSImport.Default)
+  @JSImport(
+    "@material-ui/core/styles/getStylesCreator.js",
+    JSImport.Default
+  )
   @js.native
   object getStylesCreator extends js.Function1[js.Object | js.Function, js.Object] {
     override def apply(stylesOrCreator: js.Object | js.Function): js.Object = js.native
   }
 
-  @JSImport("@material-ui/core/styles/getThemeProps.js", JSImport.Default)
+  @JSImport(
+    "@material-ui/core/styles/getThemeProps.js",
+    JSImport.Default
+  )
   @js.native
   object getThemeProps extends js.Function1[js.Object, js.Any] {
     override def apply(params: js.Object): js.Any = js.native

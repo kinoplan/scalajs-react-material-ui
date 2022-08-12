@@ -9,7 +9,10 @@ import io.kinoplan.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 object MuiThemeProvider extends ReactBridgeComponent {
   override protected lazy val componentValue: js.Object = RawComponent
 
-  @JSImport("@material-ui/core/styles/MuiThemeProvider", JSImport.Default)
+  @JSImport(
+    "@material-ui/core/styles/MuiThemeProvider",
+    JSImport.Default
+  )
   @js.native
   object RawComponent extends js.Object
 
