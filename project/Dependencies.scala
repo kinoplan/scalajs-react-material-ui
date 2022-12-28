@@ -6,7 +6,7 @@ object Dependencies {
   object Versions {
     val catsCoreV     = "2.7.0"
     val scalaCssV     = "1.0.0"
-    val scalaJsDomV   = "2.2.0"
+    val scalaJsDomV   = "2.3.0"
     val scalaJsReactV = "2.1.1"
   }
 
