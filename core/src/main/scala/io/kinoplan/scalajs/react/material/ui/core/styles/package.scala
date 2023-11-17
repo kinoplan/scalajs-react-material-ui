@@ -76,7 +76,11 @@ package object styles {
   )
   @js.native
   object createTypography
-      extends js.Function2[Palette, TypographyOptions | js.Function1[Palette, TypographyOptions], Typography] {
+      extends js.Function2[
+        Palette,
+        TypographyOptions | js.Function1[Palette, TypographyOptions],
+        Typography
+      ] {
 
     override def apply(
       palette: Palette,
