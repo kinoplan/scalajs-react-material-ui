@@ -91,7 +91,8 @@ case class ButtonBasesStyle(common: CommonButtonStyle = DefaultCommonButtonStyle
 
   private val backdropImagePreliminary = style(
     unsafeRoot(
-      s".${imagePreliminary.htmlClass}:hover .${imageBackdrop.htmlClass}, .${imagePreliminary.htmlClass}.${focusVisible.htmlClass} .${imageBackdrop.htmlClass}"
+      s".${imagePreliminary.htmlClass}:hover .${imageBackdrop.htmlClass}, .${imagePreliminary.htmlClass}.${focusVisible
+          .htmlClass} .${imageBackdrop.htmlClass}"
     )(
       opacity(0.15)
     )
@@ -99,7 +100,8 @@ case class ButtonBasesStyle(common: CommonButtonStyle = DefaultCommonButtonStyle
 
   private val markedImagePreliminary = style(
     unsafeRoot(
-      s".${imagePreliminary.htmlClass}:hover .${imageMarked.htmlClass}, .${imagePreliminary.htmlClass}.${focusVisible.htmlClass} .${imageMarked.htmlClass}"
+      s".${imagePreliminary.htmlClass}:hover .${imageMarked.htmlClass}, .${imagePreliminary.htmlClass}.${focusVisible
+          .htmlClass} .${imageMarked.htmlClass}"
     )(
       opacity(0)
     )
@@ -107,7 +109,8 @@ case class ButtonBasesStyle(common: CommonButtonStyle = DefaultCommonButtonStyle
 
   private val titleImagePreliminary = style(
     unsafeRoot(
-      s".${imagePreliminary.htmlClass}:hover .${imageTitle.htmlClass}, .${imagePreliminary.htmlClass}.${focusVisible.htmlClass} .${imageTitle.htmlClass}"
+      s".${imagePreliminary.htmlClass}:hover .${imageTitle.htmlClass}, .${imagePreliminary.htmlClass}.${focusVisible
+          .htmlClass} .${imageTitle.htmlClass}"
     )(
       border :=! "4px solid currentColor"
     )
