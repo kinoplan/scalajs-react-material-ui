@@ -128,11 +128,11 @@ case class PersistentDrawerStyle(common: CommonStyle = DefaultCommonStyle) exten
   )
 
   val contentLeft = style(
-    marginLeft((-drawerWidth).px)
+    marginLeft(-drawerWidth.px)
   )
 
   val contentRight = style(
-    marginRight((-drawerWidth).px)
+    marginRight(-drawerWidth.px)
   )
 
   val contentShift = style(
