@@ -36,7 +36,10 @@ object FolderList extends ScalaCssReactImplicits {
                 MuiAvatar()(
                   MuiIcons(MuiIconsModule.Work)()
                 ),
-                MuiListItemText(primary = VdomNode("Work"), secondary = VdomNode("Jan 7, 2014"))
+                MuiListItemText(
+                  primary = VdomNode("Work"),
+                  secondary = VdomNode("Jan 7, 2014")
+                )
               ),
               MuiListItem()(
                 MuiAvatar()(
