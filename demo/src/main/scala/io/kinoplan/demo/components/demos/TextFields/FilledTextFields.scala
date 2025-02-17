@@ -81,7 +81,11 @@ object FilledTextFields extends ScalaCssReactImplicits {
               label = "Uncontrolled".toVdom,
               margin = MuiTextField.Margin.normal,
               variant = MuiTextField.Variant.filled
-            )(css.textField, id := "filled-uncontrolled", defaultValue := "foo"),
+            )(
+              css.textField,
+              id := "filled-uncontrolled",
+              defaultValue := "foo"
+            ),
             MuiTextField(
               label = "Required".toVdom,
               margin = MuiTextField.Margin.normal,
@@ -232,7 +236,11 @@ object FilledTextFields extends ScalaCssReactImplicits {
               value := state.currency,
               onChange ==> handleChangeCurrency,
               Currency.commons.toVdomArray { option =>
-                MuiMenuItem()(Attr("key") := option.value, value := option.value, option.label)
+                MuiMenuItem()(
+                  Attr("key") := option.value,
+                  value := option.value,
+                  option.label
+                )
               }
             ),
             MuiTextField(
