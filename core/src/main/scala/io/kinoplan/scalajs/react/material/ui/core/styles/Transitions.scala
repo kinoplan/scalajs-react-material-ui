@@ -7,7 +7,13 @@ import scala.scalajs.js.JSConverters._
 trait Transitions extends js.Object {
   def easing: Easing = js.native
   def duration: Duration = js.native
-  def create: js.Function2[js.Array[String], js.UndefOr[CreateTransitionsOptions], String] = js.native
+
+  def create: js.Function2[
+    js.Array[String],
+    js.UndefOr[CreateTransitionsOptions],
+    String
+  ] = js.native
+
   def getAutoHeightDuration: js.Function1[Double, Double] = js.native
 }
 
@@ -16,7 +22,11 @@ object Transitions {
   def apply(
     easing: Easing,
     duration: Duration,
-    create: js.Function2[js.Array[String], js.UndefOr[CreateTransitionsOptions], String],
+    create: js.Function2[
+      js.Array[String],
+      js.UndefOr[CreateTransitionsOptions],
+      String
+    ],
     getAutoHeightDuration: Double => Double
   ) = {
     val o: Map[String, Any] = Map(
