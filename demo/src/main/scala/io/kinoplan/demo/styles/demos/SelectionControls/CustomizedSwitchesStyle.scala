@@ -57,7 +57,9 @@ case class CustomizedSwitchesStyle(common: CommonStyle = DefaultCommonStyle) ext
   )
 
   private val iOSCheckedCond = style(
-    unsafeRoot(s".${iOSCheckedTransform.htmlClass} + .${iOSBar.htmlClass}")(
+    unsafeRoot(
+      s".${iOSCheckedTransform.htmlClass} + .${iOSBar.htmlClass}"
+    )(
       opacity(1),
       border.none
     )
