@@ -21,7 +21,10 @@ object TextFieldMargins extends ScalaCssReactImplicits {
         ComponentContainer("Layout")(
           div(
             css.container,
-            MuiTextField(label = "None".toVdom, helperText = "Some important text".toVdom)(
+            MuiTextField(
+              label = "None".toVdom,
+              helperText = "Some important text".toVdom
+            )(
               css.textField,
               id := "margin-none",
               defaultValue := "Default Value"

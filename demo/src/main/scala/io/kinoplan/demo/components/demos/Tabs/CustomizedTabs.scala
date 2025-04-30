@@ -43,9 +43,21 @@ object CustomizedTabs extends ScalaCssReactImplicits {
             css.rootPaper(Layout.isPaletteLight),
             MuiTabs(onChange = handleChange, classes = tabsClasses)(
               value := state.value,
-              MuiTab(disableRipple = true, classes = tabClasses, label = "Tab 1".toVdom),
-              MuiTab(disableRipple = true, classes = tabClasses, label = "Tab 2".toVdom),
-              MuiTab(disableRipple = true, classes = tabClasses, label = "Tab 3".toVdom)
+              MuiTab(
+                disableRipple = true,
+                classes = tabClasses,
+                label = "Tab 1".toVdom
+              ),
+              MuiTab(
+                disableRipple = true,
+                classes = tabClasses,
+                label = "Tab 2".toVdom
+              ),
+              MuiTab(
+                disableRipple = true,
+                classes = tabClasses,
+                label = "Tab 3".toVdom
+              )
             ),
             MuiTypography()(css.typography, "Ant Design UI powered by Material-UI")
           )
