@@ -25,7 +25,10 @@ object DotBadge extends ScalaCssReactImplicits {
                 css.badgeMargin,
                 MuiIcons(MuiIconsModule.Mail)()
               ),
-              MuiBadge(variant = MuiBadge.Variant.dot, color = MuiBadge.Color.secondary)(
+              MuiBadge(
+                variant = MuiBadge.Variant.dot,
+                color = MuiBadge.Color.secondary
+              )(
                 css.badgeMargin,
                 MuiIcons(MuiIconsModule.Mail)()
               )
