@@ -74,7 +74,11 @@ object DelayingAppearance extends ScalaCssReactImplicits {
                 MuiCircularProgress()
               )
             ),
-            MuiButton()(css.button, onClick --> handleClickLoading, state.loadingTitle),
+            MuiButton()(
+              css.button,
+              onClick --> handleClickLoading,
+              state.loadingTitle
+            ),
             div(
               css.placeholder,
               if (state.isSuccess) MuiTypography()("Success!")

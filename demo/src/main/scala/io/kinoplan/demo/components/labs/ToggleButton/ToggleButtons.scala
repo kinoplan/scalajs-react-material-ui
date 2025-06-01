@@ -49,7 +49,10 @@ object ToggleButtons extends ScalaCssReactImplicits {
                     value := "center",
                     MuiIcons(MuiIconsModule.FormatAlignCenter)()
                   ),
-                  MuiToggleButton()(value := "right", MuiIcons(MuiIconsModule.FormatAlignRight)()),
+                  MuiToggleButton()(
+                    value := "right",
+                    MuiIcons(MuiIconsModule.FormatAlignRight)()
+                  ),
                   MuiToggleButton()(
                     value := "justify",
                     disabled := true,
