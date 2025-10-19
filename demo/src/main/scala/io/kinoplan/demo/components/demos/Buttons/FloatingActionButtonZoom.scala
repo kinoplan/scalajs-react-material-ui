@@ -36,7 +36,11 @@ object FloatingActionButtonZoom extends ScalaCssReactImplicits {
       val css = props.style
 
       val fabs = List(
-        Fab(MuiFab.Color.inherit, css.fab, MuiIcons(MuiIconsModule.Add)()),
+        Fab(
+          MuiFab.Color.inherit,
+          css.fab,
+          MuiIcons(MuiIconsModule.Add)()
+        ),
         Fab(
           MuiFab.Color.secondary,
           css.fab,
