@@ -33,7 +33,11 @@ object CustomizedSnackbars extends ScalaCssReactImplicits {
       div(
         ComponentContainer("Customized Snackbars")(
           div(
-            MuiButton()(css.snackbar, onClick --> handleClick, "Open success snackbar"),
+            MuiButton()(
+              css.snackbar,
+              onClick --> handleClick,
+              "Open success snackbar"
+            ),
             MuiSnackbar(
               open = state.open,
               autoHideDuration = 6000,

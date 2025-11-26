@@ -221,7 +221,11 @@ object NativeSelects extends ScalaCssReactImplicits {
             ),
             MuiFormControl(variant = MuiFormControl.Variant.outlined)(
               css.formControl,
-              MuiInputLabel()(id := inputRefId, htmlFor := "outlined-age-native-simple", "Age"),
+              MuiInputLabel()(
+                id := inputRefId,
+                htmlFor := "outlined-age-native-simple",
+                "Age"
+              ),
               MuiSelect(
                 native = true,
                 input = MuiOutlinedInput(labelWidth = state.labelWidth)(
