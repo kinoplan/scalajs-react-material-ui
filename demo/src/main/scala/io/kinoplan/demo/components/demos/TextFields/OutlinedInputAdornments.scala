@@ -148,7 +148,9 @@ object OutlinedInputAdornments extends ScalaCssReactImplicits {
             MuiTextField(
               label = "Password".toVdom,
               variant = MuiTextField.Variant.outlined,
-              InputProps = MuiInputProps(endAdornment = passwordEndAdormnent.rawNode.some.orUndefined)
+              InputProps = MuiInputProps(
+                endAdornment = passwordEndAdormnent.rawNode.some.orUndefined
+              )
             )(
               css.cssMargin,
               css.textField,

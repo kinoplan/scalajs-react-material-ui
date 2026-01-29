@@ -55,7 +55,10 @@ package object styles {
     override def apply(palette: PaletteOptions): Palette = js.native
   }
 
-  @JSImport("@material-ui/core/styles/createMixins.js", JSImport.Default)
+  @JSImport(
+    "@material-ui/core/styles/createMixins.js",
+    JSImport.Default
+  )
   @js.native
   object createMixins extends js.Function3[Breakpoints, Spacing, MixinsOptions, Mixins] {
     override def apply(breakpoints: Breakpoints, spacing: Spacing, mixins: MixinsOptions): Mixins = js.native
@@ -76,7 +79,11 @@ package object styles {
   )
   @js.native
   object createTypography
-      extends js.Function2[Palette, TypographyOptions | js.Function1[Palette, TypographyOptions], Typography] {
+      extends js.Function2[
+        Palette,
+        TypographyOptions | js.Function1[Palette, TypographyOptions],
+        Typography
+      ] {
 
     override def apply(
       palette: Palette,
@@ -111,7 +118,10 @@ package object styles {
   @js.native
   object spacing extends Spacing
 
-  @JSImport("@material-ui/core/styles/transitions.js", JSImport.Default)
+  @JSImport(
+    "@material-ui/core/styles/transitions.js",
+    JSImport.Default
+  )
   @js.native
   object transitions extends Transitions
 

@@ -86,7 +86,7 @@ object ChipsPlayground extends ScalaCssReactImplicits {
 
       val avatarToPlayground = state.avatar match {
         case "none" => None
-        case "img" => Some(
+        case "img"  => Some(
             MuiAvatar()(src := "/static/images/avatar/1.jpg")().rawElement
           )
         case "letter" => Some(MuiAvatar()("FH").rawElement)
