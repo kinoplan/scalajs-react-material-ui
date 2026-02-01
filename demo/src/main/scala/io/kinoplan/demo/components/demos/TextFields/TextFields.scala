@@ -197,7 +197,11 @@ object TextFields extends ScalaCssReactImplicits {
               value := state.currency,
               onChange ==> handleChangeCurrency,
               Currency.commons.toVdomArray { option =>
-                MuiMenuItem()(Attr("key") := option.value, value := option.value, option.label)
+                MuiMenuItem()(
+                  Attr("key") := option.value,
+                  value := option.value,
+                  option.label
+                )
               }
             ),
             MuiTextField(

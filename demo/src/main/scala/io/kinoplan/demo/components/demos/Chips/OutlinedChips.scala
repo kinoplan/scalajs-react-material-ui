@@ -28,7 +28,10 @@ object OutlinedChips extends ScalaCssReactImplicits {
         ComponentContainer("Outlined Chips")(
           div(
             css.root,
-            MuiChip(label = "Basic Chip".toVdom, variant = MuiChip.Variant.outlined)(css.chip),
+            MuiChip(
+              label = "Basic Chip".toVdom,
+              variant = MuiChip.Variant.outlined
+            )(css.chip),
             MuiChip(
               label = "Clickable Chip".toVdom,
               avatar = MuiAvatar()("MB").rawElement,
