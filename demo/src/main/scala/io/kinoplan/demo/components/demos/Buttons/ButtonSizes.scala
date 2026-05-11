@@ -97,7 +97,10 @@ object ButtonSizes extends ScalaCssReactImplicits {
                 MuiIcons(MuiIconsModule.Navigation)()(css.extendedIcon),
                 "Extended"
               ),
-              MuiFab(variant = MuiFab.Variant.extended, color = MuiFab.Color.primary)(
+              MuiFab(
+                variant = MuiFab.Variant.extended,
+                color = MuiFab.Color.primary
+              )(
                 css.marginButton,
                 aria.label := "Add",
                 MuiIcons(MuiIconsModule.Navigation)()(css.extendedIcon),
