@@ -76,7 +76,9 @@ object AppRouter {
         | staticRoute("/#lab/slider/", LabSliderRoute) ~> renderR(SliderPage(_))
         | staticRoute("/#lab/speed-dial/", LabSpeedDialRoute) ~> renderR(SpeedDialPage(_))
         | staticRoute("/#lab/toggle-button/", LabToggleButtonRoute) ~> renderR(ToggleButtonPage(_))
-    ).notFound(redirectToPage(DashboardRoute)(SetRouteVia.HistoryReplace))
+    ).notFound(
+      redirectToPage(DashboardRoute)(SetRouteVia.HistoryReplace)
+    )
   }.renderWith(layout)
 
   def layout(c: RouterCtl[Page], r: Resolution[Page]) = Layout(c, r)

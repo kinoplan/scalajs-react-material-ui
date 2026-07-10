@@ -19,8 +19,8 @@ object ProjectSettings {
       webpack / version := "5.65.0",
       startWebpackDevServer / version := "4.7.2",
       webpackCliVersion := "4.9.1",
-      scalacOptions ~=
-        (_.filterNot(
+      scalacOptions ~= (
+        _.filterNot(
           Set(
             "-Wdead-code",
             "-Wunused:params",
@@ -29,7 +29,8 @@ object ProjectSettings {
             "-Ywarn-unused:patvars",
             "-Wunused:explicits"
           )
-        ))
+        )
+      )
     )
 
   lazy val rootProfile: Project => Project = _.settings(
