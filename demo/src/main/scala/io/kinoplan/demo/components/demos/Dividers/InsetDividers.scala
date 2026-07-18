@@ -34,7 +34,10 @@ object InsetDividers extends ScalaCssReactImplicits {
             ),
             MuiListItem()(
               MuiAvatar()(MuiIcons(MuiIconsModule.Work)()),
-              MuiListItemText(primary = VdomNode("Work"), secondary = VdomNode("Jan 7, 2014"))
+              MuiListItemText(
+                primary = VdomNode("Work"),
+                secondary = VdomNode("Jan 7, 2014")
+              )
             ),
             MuiDivider(variant = MuiDivider.Variant.inset, component = "li"),
             MuiListItem()(

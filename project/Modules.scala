@@ -18,8 +18,7 @@ object Modules {
           DependenciesNPM.reactDom,
           DependenciesNPM.materialUiCore
         ),
-      Compile / npmResolutions ++=
-        (Compile / npmDependencies).value.toMap
+      Compile / npmResolutions ++= (Compile / npmDependencies).value.toMap
     )
 
   lazy val iconsProfile: Project => Project = _
@@ -35,8 +34,7 @@ object Modules {
           DependenciesNPM.materialUiCore,
           DependenciesNPM.materialUiIcons
         ),
-      Compile / npmResolutions ++=
-        (Compile / npmDependencies).value.toMap
+      Compile / npmResolutions ++= (Compile / npmDependencies).value.toMap
     )
 
   lazy val labProfile: Project => Project = _
@@ -52,8 +50,7 @@ object Modules {
           DependenciesNPM.materialUiCore,
           DependenciesNPM.materialUiLab
         ),
-      Compile / npmResolutions ++=
-        (Compile / npmDependencies).value.toMap
+      Compile / npmResolutions ++= (Compile / npmDependencies).value.toMap
     )
 
   lazy val bridgeProfile: Project => Project = _
@@ -63,8 +60,7 @@ object Modules {
     .settings(
       libraryDependencies ++= Seq(Dependencies.scalaJsReactCore.value),
       Compile / npmDependencies ++= Seq(DependenciesNPM.react, DependenciesNPM.reactDom),
-      Compile / npmResolutions ++=
-        (Compile / npmDependencies).value.toMap
+      Compile / npmResolutions ++= (Compile / npmDependencies).value.toMap
     )
 
   lazy val demoProfile: Project => Project = _
@@ -112,8 +108,7 @@ object Modules {
           DependenciesNPM.typesReact,
           DependenciesNPM.typesReactDom
         ),
-      Compile / npmResolutions ++=
-        (Compile / npmDependencies).value.toMap
+      Compile / npmResolutions ++= (Compile / npmDependencies).value.toMap
     )
     .settings(publish / skip := true)
 
