@@ -25,7 +25,11 @@ object FloatingActionButtons extends ScalaCssReactImplicits {
               aria.label := "Add",
               MuiIcons(MuiIconsModule.Add)()
             ),
-            MuiFab(color = MuiFab.Color.secondary)(css.marginButton, aria.label := "Edit", MuiIcon()("edit_icon")),
+            MuiFab(color = MuiFab.Color.secondary)(
+              css.marginButton,
+              aria.label := "Edit",
+              MuiIcon()("edit_icon")
+            ),
             MuiFab(variant = MuiFab.Variant.extended)(
               css.marginButton,
               aria.label := "Delete",
